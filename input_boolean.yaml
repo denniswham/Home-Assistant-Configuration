@@ -1,0 +1,22 @@
+  konnectedupdate:
+    name: Alarm Updates
+    initial: on
+    icon: mdi:security
+  climateupdate: 
+    name: Thermostat Updates
+    initial: on
+    icon: mdi:thermostat
+  startrecording:
+    name: Camera Recording
+    initial: off
+    icon: mdi:record-rec
+  weather:
+    name: weather
+  tv:
+    name: TV
+    initial: off
+    icon: mdi:television
+  tvtime:
+    name: TV Time
+    initial: on
+    icon: mdi:television-guide    

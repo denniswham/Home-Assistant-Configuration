@@ -1,0 +1,33 @@
+- platform: bluetooth_tracker
+  new_device_defaults:
+    track_new_devices: true
+
+- platform: nmap_tracker
+  hosts: 192.168.178.0/24
+  home_interval: 3
+  new_device_defaults:
+    track_new_devices: true
+  exclude:
+    - 192.168.178.105
+      
+#- platform: life360
+#  username: !secret life360_username
+#  password: !secret life360_password
+#  prefix: life360
+#  add_zones: only_home
+#  driving_speed: 30
+#  filename: life360.conf
+#  home_place: Home
+#  interval_seconds: 10
+#  max_gps_accuracy: 200
+#  max_update_wait:
+#    minutes: 45
+#  show_as_state: places
+#  time_as: device_or_local
+#  zone_interval:
+#    minutes: 15
+  # Set comm error thresholds so first is not logged,
+  # second is logged as a WARNING, and third and fourth
+  # are logged as ERRORs.
+#  warning_threshold: 1
+#  error_threshold: 2

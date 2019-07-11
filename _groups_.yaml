@@ -1,0 +1,251 @@
+  default_view:
+    name: Home
+    view: yes
+    icon: mdi:home
+    entities:
+#        - group.floorplan
+        - group.home_security
+        - group.all_lights
+        - group.ring_doorbell
+        - group.investments
+        - group.switches
+        - group.information
+#        - group.financial
+
+  temperature:
+    name: Temperature Sensors
+    view: yes
+    icon: mdi:weather-cloudy
+    entities:
+      - group.buienradarweathercard
+      - group.weather
+  #    - group.weather_forecast
+      - group.room_sensors
+      - group.thermostat
+      - group.camera_meteogram
+      - group.camera_buienradar
+      - weather.yweather
+      - camera.livingroom_temperature
+      - group.group_iframe
+
+  cameras:
+    name: Cameras
+    view: yes
+    icon: mdi:cctv
+    entities:
+      - group.camera_ring_doorbell
+
+  media:
+    name: Media
+    view: yes
+    icon: mdi:play-circle-outline
+    entities:
+      - group.entertainment
+      - group.light_operations
+      - group.media_player
+  
+  settings:
+    name: Settings
+    view: yes
+    icon: mdi:settings
+    entities:
+      - group.household
+      - group.devices
+      - group.hass_details
+      - group.camera_sensors
+      - group.camera_processing
+      - group.camera_switches
+      - group.network_details
+      - group.nest
+      - group.ring
+#      - group.all_automations
+      - group.uscis
+
+  family_info:
+    name: Family Info
+    entities:
+      - group.dennis
+      - group.stephanie
+      - group.lucas
+      - group.timo
+      - sensor.dennis_phone_battery
+      - sensor.stephanie_phone_battery
+      - sensor.stephanie_location_to_home
+      - sensor.dennis_location_to_home
+
+  floorplan:
+    name: Main Level
+    entities:
+      - binary_sensor.floorplan
+
+  buienradarweathercard:
+    name: Weather
+    view: no
+    entities:
+      - input_boolean.weather
+    
+  Weather:
+    name: Current conditions
+    view: no
+    entities:
+      - sensor.br_full_condition
+      - sensor.br_temperature
+      - sensor.br_humidity
+      - sensor.br_wind_force
+      - sensor.br_sunchance_1d
+      - sensor.br_rainchance_1d
+      - sensor.br_precipitation
+      - sensor.waqi_Erzeijstraat_Utrecht
+      - sensor.br_full_condition_1d
+ 
+  Weather Forecast:
+    - sensor.br_condition_1d
+    - sensor.br_condition_2d
+    - sensor.br_condition_3d
+    - sensor.br_condition_4d
+    - sensor.br_condition_5d
+
+  Information:
+    - sensor.dennis_to_home
+    - sensor.dennis_eta
+    - sensor.stephanie_to_home
+    - sensor.stephanie_eta
+    
+  HASS Details:
+    - sensor.ssl_certificate_expiry
+    - sensor.HASS_Uptime
+    - input_select.current_theme
+    
+  Network Details:
+    - sensor.speedtest_download
+  #  - sensor.pihole_dns_queries_today
+  #  - sensor.pihole_domains_blocked
+  #  - sensor.pihole_ads_percentage_blocked_today
+  #  - sensor.pihole_dns_unique_domains
+  #  - sensor.glances_cpu_load
+  #  - sensor.glances_disk_used
+  #  - sensor.glances_ram_used
+
+  Entertainment:
+    control: hidden
+    entities:
+      - sensor.living_room
+      - input_select.livingroomharmony
+      - input_select.hdmiswitcher
+      - input_select.hdmiinput
+      - input_number.harmonyvolume
+      - input_boolean.tv
+      - input_boolean.tvtime
+      - sensor.total_tv_time
+      - script.tv_off
+
+  Media Player:
+    - media_player.Living_Room_Xbox_One
+    - media_player.spotify
+    - media_player.apple_tv
+
+  Home Security:
+    control: hidden  
+    entities:
+      - alarm_control_panel.Konnected_Alarm
+      - script.konnectedaway
+      - script.konnectedhome
+      - script.konnectedstandby
+#      - input_select.konnectedstatus
+      - input_boolean.konnectedupdate
+      - binary_sensor.entryway
+      - binary_sensor.kitchen
+      - binary_sensor.living_room
+      - binary_sensor.office
+      - binary_sensor.garage
+   
+  Smoke Detectors:
+    entities:
+      - sensor.entryway_nest_protect_co_status
+      - sensor.entryway_nest_protect_smoke_status
+      - sensor.entryway_nest_protect_color_status
+      - sensor.hallway_nest_protect_co_status
+      - sensor.hallway_nest_protect_smoke_status
+      - sensor.hallway_nest_protect_color_status
+      - sensor.attic_nest_protect_co_status
+      - sensor.attic_nest_protect_smoke_status
+      - sensor.attic_nest_protect_color_status
+  
+  Ring Doorbell:
+    - binary_sensor.ring_front_door_ding
+    - binary_sensor.ring_front_door_motion
+    - sensor.ring_front_door_last_activity
+    - sensor.ring_front_door_last_ding
+    - sensor.ring_front_door_last_motion
+  
+  Thermostat:
+    name: Climate
+    entities:
+      - climate.living_room
+      - input_boolean.climateupdate
+      - sensor.Living_Room_Thermostat_hvac_state
+      - sensor.Living_Room_Thermostat_humidity
+      - sensor.Living_Room_Thermostat_Temperature
+      - binary_sensor.Living_Room_Thermostat_has_leaf
+      - binary_sensor.Living_Room_Thermostat_is_locked
+      - binary_sensor.Retsinagaard_away
+#     - sensor.Retsinagaard_eta
+    
+  Household:
+    - device_tracker.meta_dennis
+    - device_tracker.meta_stephanie
+    - device_tracker.meta_lucas
+    - device_tracker.meta_timo
+
+  Nest:
+    - binary_sensor.Living_Room_Thermostat_is_using_emergency_heat
+    - binary_sensor.Living_Room_Thermostat_online
+    - sensor.entryway_nest_protect_battery_health
+    - binary_sensor.entryway_nest_protect_online
+    - sensor.hallway_nest_protect_battery_health
+    - binary_sensor.hallway_nest_protect_online
+    - sensor.attic_nest_protect_battery_health
+    - binary_sensor.attic_nest_protect_online
+
+  alexa:
+    - media_player.dennis_s_alexa_app_on_surface_pro_4
+    - media_player.dennis_s_alexa_apps
+    - media_player.dennis_s_alexa_on_cortana
+    - media_player.emilie_s_room
+    - media_player.living_room
+    - media_player.lucas_room
+    - media_player.master_bedroom
+    - media_player.this_device
+    - media_player.this_device_2
+    - media_player.timo_s_room
+  
+  Ring:
+    - sensor.ring_front_door_battery
+    - sensor.ring_front_door_wifi_signal_category
+    - sensor.ring_front_door_volume
+    - sensor.ring_downstairs_wifi_signal_category
+    - sensor.ring_downstairs_volume
+
+  Investments:
+    - sensor.portfolioval
+    - sensor.portfoliochange
+    - sensor.dow_futures
+    - sensor.dow_futures_change
+    - sensor.dow_futures_change_pct
+    - sensor.nasdaq_futures
+    - sensor.nasdaq_futures_change
+    - sensor.nasdaq_futures_change_pct
+    - sensor.sp_futures
+    - sensor.sp_futures_change
+    - sensor.sp_futures_change_pct
+    - sensor.10_year_treasury
+  
+  camera_ring_doorbell:
+    entities:
+      - camera.front_door
+  camera_buienradar:
+    entities:
+      - camera.buienradar
+  camera_meteogram:
+    entities:
+      - camera.meteogram

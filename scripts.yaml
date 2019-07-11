@@ -1,0 +1,140 @@
+  ifttt_notify:
+    sequence:
+      - service: ifttt.trigger
+        data_template: {"event":"HA_Trigger", "value1":"{{ value1 }}", "value2":"{{ value2 }}", "value3":"{{ value3 }}"}
+        
+  konnectedaway:
+    alias: 'Konnected Arm'
+    sequence:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.konnectedstatus
+          option: armed_away
+      - service: alarm_control_panel.alarm_arm_away
+        entity_id:
+          - alarm_control_panel.konnected_alarm
+      - service: alarm_control_panel.alarm_arm_away
+        entity_id:
+          - alarm_control_panel.alexa_guard_7514f
+      - service: climate.set_away_mode
+        entity_id:
+          - climate.living_room
+        data: {"away_mode": "true"}
+      - service: notify.alexa_media
+        data:
+          data:
+            type: tts
+          target:
+          - group.alexa
+          message: I'll start guarding now
+
+  konnectedhome:
+    alias: 'Konnected Home'
+    sequence:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.konnectedstatus
+          option: armed_home
+      - service: alarm_control_panel.alarm_arm_home
+        entity_id:
+          - alarm_control_panel.konnected_alarm
+      - service: alarm_control_panel.alarm_arm_home
+        entity_id:
+          - alarm_control_panel.alexa_guard_7514f
+
+  konnectedstandby:
+    alias: 'Konnected Standby'
+    sequence:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.konnectedstatus
+          option: disarmed
+      - service: alarm_control_panel.alarm_disarm
+        entity_id:
+          - alarm_control_panel.konnected_alarm
+      - service: alarm_control_panel.alarm_disarm
+        entity_id:
+          - alarm_control_panel.alexa_guard_7514f
+      - service: climate.set_away_mode
+        entity_id:
+          - climate.living_room
+        data: {"away_mode": "false"}
+
+  konnectedpending:
+    alias: 'Konnected Pending'
+    sequence:
+      - service: alarm_control_panel.alarm_trigger
+        entity_id: alarm_control_panel.Konnected_Alarm
+      - service: notify.alexa_media
+        data:
+          data:
+            type: tts
+          target:
+            - group.alexa
+          message: "Motion detected, the alarm will trigger shortly. Motion detected, the alarm will trigger shortly."
+
+  konnectedtrigger:
+    alias: 'Konnected Trigger'
+    sequence:
+      - service: switch.turn_on
+        entity_id: switch.siren
+      - service: notify.alexa_media
+        data:
+          data:
+            type: tts
+          target:
+            - group.alexa
+          message: "ALARM! The alarm has been triggered"
+      - service: notify.html5
+        data:
+          title: ALARM!
+          message: The alarm has been triggered
+          data:
+            actions:
+              - action: open
+                icon: "/local/icons/konnected.png"
+                title: Open Home Assistant
+            tag: konnected-alarm-notification
+            ttl: 86400
+            priority: high      
+      - service: notify.notify
+        data:
+          message: "ALARM! The alarm has been triggered"
+          data:
+            push:
+              badge: 0
+              category: konnected_alarm
+  
+  log_motion:
+    alias: Log Motion
+    sequence:
+      - service: logbook.log
+        data_template:
+          name: "Motion detected: "
+          message: >-
+            {{ states[entityid.split('.')[0]][entityid.split('.')[1]].name }}
+
+  nest_update_eta:
+    sequence:
+      - service: nest.set_eta
+        data_template:
+          eta: >
+            {% if is_state_attr('proximity.home', 'nearest', 'Dennis') %}
+              {{ ((( states.sensor.dennis_to_home.state | int) * 60) - 3600) | timestamp_custom('%H:%M:%S') }}
+            {% elif is_state_attr('proximity.home', 'nearest', 'Dennis, Stephanie') %}
+              {{ ((( states.sensor.dennis_to_home.state | int) * 60) - 3600) | timestamp_custom('%H:%M:%S') }}
+            {% elif is_state_attr('proximity.home', 'nearest', 'Stephanie') %}
+              {{ ((( states.sensor.stephanie_to_home.state | int) * 60) - 3600) | timestamp_custom('%H:%M:%S') }}
+            {% endif %}
+          eta_window: 00:01
+          trip_id: ETA set by HAS
+          structure:
+            - Retsinagaard
+   
+  nest_cancel_eta:
+    sequence:
+      - service: nest.cancel_eta
+        data:
+          trip_id: ETA set by HAS
+          structure:
+            - Retsinagaard

@@ -1,0 +1,333 @@
+- alias: Log Motion
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.entryway
+    to: 'on'
+  - platform: state
+    entity_id: binary_sensor.kitchen
+    to: 'on'
+  - platform: state
+    entity_id: binary_sensor.living_room
+    to: 'on'
+  - platform: state
+    entity_id: binary_sensor.office
+    to: 'on'
+  - platform: state
+    entity_id: binary_sensor.garage
+    to: 'on'
+  condition:
+    condition: or
+    conditions:
+    - condition: state
+      entity_id: alarm_control_panel.Konnected_Alarm
+      state: armed_away
+    - condition: state
+      entity_id: alarm_control_panel.Konnected_Alarm
+      state: armed_home
+    - condition: state
+      entity_id: alarm_control_panel.Konnected_Alarm
+      state: pending
+    - condition: state
+      entity_id: alarm_control_panel.Konnected_Alarm
+      state: triggered
+  action:
+  - service: script.log_motion
+    data_template:
+      entityid: '{{trigger.entity_id}}'
+  id: 4dec92d5133f49689fc07cd4552025bf
+- alias: Pending alarm
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.entryway
+    to: 'on'
+  - platform: state
+    entity_id: binary_sensor.kitchen
+    to: 'on'
+  - platform: state
+    entity_id: binary_sensor.living_room
+    to: 'on'
+  - platform: state
+    entity_id: binary_sensor.office
+    to: 'on'
+  - platform: state
+    entity_id: binary_sensor.garage
+    to: 'on'
+  condition:
+    condition: or
+    conditions:
+    - condition: state
+      entity_id: alarm_control_panel.Konnected_Alarm
+      state: armed_away
+    - condition: state
+      entity_id: alarm_control_panel.Konnected_Alarm
+      state: armed_home
+  action:
+  - service: homeassistant.turn_on
+    entity_id: script.konnectedpending
+  id: 3b57fcd4fbb7459e9e82b256a85a1b30
+- alias: Trigger Alarm
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.Konnected_Alarm
+    to: triggered
+  action:
+  - service: homeassistant.turn_on
+    entity_id: script.konnectedtrigger
+  id: ae82023c1efb4cfd9274f983d7917b00
+- alias: Deactivate siren
+  initial_state: 'true'
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.Konnected_Alarm
+    to: triggered
+    for: 00:20:00
+  - platform: state
+    entity_id: alarm_control_panel.Konnected_Alarm
+    to: disarmed
+  action:
+  - service: switch.turn_off
+    entity_id: switch.siren
+  id: dd7b5484487942d08e18f10f57623daf
+- alias: Disarm Konnected from Away
+  initial_state: 'true'
+  condition:
+  - condition: state
+    entity_id: input_select.konnectedstatus
+    state: armed_away
+  - condition: state
+    entity_id: input_boolean.konnectedupdate
+    state: 'on'
+  - condition: template
+    value_template: "{%- if states.automation.arm_konnected.attributes.last_triggered\
+      \ -%}\n  {{ (as_timestamp(now()) - as_timestamp(states.automation.arm_konnected.attributes.last_triggered))\
+      \ > 240 }}\n{%- else -%}\n  true\n{%- endif -%}\n"
+  trigger:
+  - platform: state
+    entity_id: group.household
+    from: not_home
+    to: home
+  action:
+  - service: homeassistant.turn_on
+    entity_id: script.konnectedstandby
+  id: 8c1007d1168a467794c04cdac94a28c1
+- alias: Disarm Konnected at night
+  initial_state: 'true'
+  condition:
+  - condition: state
+    entity_id: input_boolean.konnectedupdate
+    state: 'on'
+  trigger:
+  - platform: state
+    entity_id:
+    - person.dennis
+    - person.stephanie
+    - person.lucas
+    - person.timo
+    to: home
+  action:
+  - service: homeassistant.turn_on
+    entity_id: script.konnectedstandby
+  id: 98fc34375a3745e2a7ddb3e68f11b0ff
+- alias: Konnected Standby
+  initial_state: 'true'
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: group.household
+      state: home
+    - condition: time
+      after: 06:15:00
+      before: '21:00:00'
+    - condition: state
+      entity_id: input_boolean.konnectedupdate
+      state: 'on'
+    - condition: template
+      value_template: "{%- if states.input_select.konnectedstatus.last_changed -%}\n\
+        \  {{ (as_timestamp(now()) - as_timestamp(states.input_select.konnectedstatus.last_changed))\
+        \ > 300 }}\n{%- else -%}\n  true\n{%- endif -%}\n"
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: input_select.konnectedstatus
+        state: armed_home
+      - condition: state
+        entity_id: input_select.konnectedstatus
+        state: armed_away
+  trigger:
+  - platform: time_pattern
+    minutes: /10
+    seconds: 0
+  action:
+  - service: homeassistant.turn_on
+    entity_id: script.konnectedstandby
+  id: 5e92113a7947445e817ed518c9b6712e
+
+- alias: Arm Konnected
+  initial_state: 'true'
+  condition:
+  - condition: state
+    entity_id: input_boolean.konnectedupdate
+    state: 'on'
+  - condition: template
+    value_template: "{%- if states.automation.disarm_konnected_from_away.attributes.last_triggered\
+      \ -%}\n  {{ (as_timestamp(now()) - as_timestamp(states.automation.disarm_konnected_from_away.attributes.last_triggered))\
+      \ > 240 }}\n{%- else -%}\n  true\n{%- endif -%}\n"
+  - condition: template
+    value_template: '{{ states(''input_select.konnectedstatus'') != ''armed_away''
+      }}'
+  - condition: template
+    value_template: '{{ states(''alarm_control_panel.konnected_alarm'') != ''triggered''
+      }}'
+  trigger:
+  - platform: state
+    entity_id: group.household
+    from: home
+    to: not_home
+  - platform: state
+    entity_id: group.household
+    from: 'home'
+    to: 'not_home'
+    for: 00:05:00
+  action:
+  - service: homeassistant.turn_on
+    entity_id: script.konnectedaway
+  id: 2b81bdb0aa0b4c409d4bb03b1a04a336
+
+- alias: Disarm Konnected in the morning
+  initial_state: 'true'
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: group.household
+      state: home
+    - condition: state
+      entity_id: input_boolean.konnectedupdate
+      state: 'on'
+  trigger:
+  - platform: time
+    at: 06:00:00
+  action:
+  - service: homeassistant.turn_on
+    entity_id: script.konnectedstandby
+  id: 55aa7945211b4beb9b11b432025bd919
+- alias: Disable thermostat away
+  initial_state: 'true'
+  condition:
+  - condition: template
+    value_template: '{{states(''input_select.konnectedstatus'') == ''disarmed'' and
+      states(''group.thermostats'') == ''on''}}
+
+      '
+  trigger:
+  - platform: time_pattern
+    minutes: /5
+    seconds: 0
+  action:
+  - service: homeassistant.turn_off
+    data_template:
+      entity_id: "{%- if states('switch.living_room_away') == 'on' -%}\n  switch.living_room_away\n\
+        {%- endif -%}\n"
+  id: 61fe50480e91481d90126455520f5d9d
+- alias: Enable thermostat away
+  initial_state: 'true'
+  condition:
+  - condition: or
+    conditions:
+    - condition: template
+      value_template: '{{states(''input_select.konnectedstatus'') == ''armed_away''
+        and states(''switch.living_room_away'') == ''off''}}
+
+        '
+  trigger:
+  - platform: time_pattern
+    minutes: /5
+    seconds: 0
+  action:
+  - service: homeassistant.turn_on
+    data_template:
+      entity_id: "{%- if states('switch.living_room_away') == 'off' -%}\n  switch.living_room_away\n\
+        {%- endif -%}\n"
+  id: 1d059041783c467ea8e747d24443fe67
+- alias: Set thermostat ETA
+  initial_state: 'true'
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: group.household
+      state: not_home
+    - condition: state
+      entity_id: binary_sensor.retsinagaard_away
+      state: 'on'
+  trigger:
+    platform: template
+    value_template: "{%- if is_state_attr('proximity.home', 'dir_of_travel', 'towards')\
+      \ -%}\n  true\n{%- endif -%}\n"
+  action:
+  - service: homeassistant.turn_on
+    entity_id: script.nest_update_eta
+  id: 1ac37a30d0804f4c9f7647c41b452961
+- alias: Cancel thermostat ETA
+  initial_state: 'true'
+  condition:
+  - condition: template
+    value_template: '{{ states.sensor.retsinagaard_eta != "1970-01-01 00:00:00+00:00"
+      }}'
+  trigger:
+  - platform: state
+    entity_id: group.household
+    from: not_home
+    to: home
+  - platform: template
+    value_template: "{% if is_state_attr('proximity.home', 'dir_of_travel', 'towards') %}false{% endif %}"
+    for: '00:05:00'
+  action:
+  - service: homeassistant.turn_on
+    entity_id: script.nest_cancel_eta
+  - service: homeassistant.turn_on
+    data_template:
+      entity_id: "{%- if states('switch.living_room_away') == 'on' -%}\n  switch.living_room_away\n\
+        {%- endif -%}\n"
+  id: b89f4253b34949fb91cdccce055ad59b
+- alias: Daily snapshot
+  initial_state: 'true'
+  trigger:
+  - platform: time
+    at: '2:00:00'
+  condition:
+  - condition: state
+    entity_id: person.dennis
+    state: 'home'
+  action:
+  - data_template:
+      name: Automated backup {{ now().strftime('%Y-%m-%d') }}
+      password: mN$#3J4geo5$
+    service: hassio.snapshot_full
+  id: 5fd18e960de547e9a2c9d785f76307e6
+- alias: Update Available Notifications
+  initial_state: 'on'
+  condition:
+  - condition: template
+    value_template: '{{ states.sensor.latest_version.state != states.sensor.current_version.state }}'
+  trigger:
+  - platform: time
+    at: 04:00:00
+  - platform: state
+    entity_id: person.dennis
+    from: 'not_home'
+    to: 'home'
+  action:
+  - delay: 00:30:00
+  - service: notify.html5_galaxy_s9_chrome
+    data:
+      title: Home Assistant Update
+      message: "Version {{ states.sensor.latest_version.state }} is available!"
+      target:
+        - galaxy_s9_chrome
+        - surfacebook_chrome
+  id: 02e8ce2646044bb5b284e44b56e290d1

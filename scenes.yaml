@@ -1,0 +1,24 @@
+- name: Bedtime
+  entities: 
+    alarm_control_panel.konnected_alarm:
+      state: 'armed_home'
+    climate.living_room:
+      temperature: 17
+    media_player.living_room_xbox_one:
+      state: off
+    light.living_room_spot_dimmer:
+      state: off  
+
+- name: RiseAndShine
+  entities: 
+    alarm_control_panel.konnected_alarm:
+      state: 'disarmed'
+    climate.living_room:
+      temperature: 20.5
+       
+- name: Evening
+  entities:
+    light.living_room_spot_dimmer:
+      state: on  
+      brightness: 100
+        

@@ -1,0 +1,7 @@
+  microsoft_stock:
+    name: Microsoft Stock
+    min: 0
+    max: 5000
+    step: 1
+    icon: mdi:microsoft
+    mode: box
