@@ -29,6 +29,7 @@ discovery:
 config:
 
 lovelace:
+  mode:yaml
 
 http:
 
