@@ -5,7 +5,7 @@ resources:
     url: /community_plugin/light-entity-row/light-entity-row.js
   - type: module
     url: /community_plugin/simple-thermostat/simple-thermostat.js
-title: Aux Jambons
+title: Les Jambons
 views:
   - background: var(--background-image)
     badges: []
