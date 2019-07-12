@@ -11,14 +11,14 @@ views:
     badges: []
     cards:
       - cards:
-          - cards:
-              - entity: alarm_control_panel.konnected_alarm
-                type: alarm-panel
-              - entity: alarm_control_panel.alexa_guard_7514f
-                states:
-                  - arm_away
-                type: alarm-panel
-            type: horizontal-stack
+          - entity: alarm_control_panel.konnected_alarm
+            name: Konnected Alarm
+            type: alarm-panel
+          - entity: alarm_control_panel.alexa_guard_7514f
+            states:
+              - arm_away
+            name: Alexa Guard
+            type: alarm-panel
           - entities:
               - entity: input_boolean.konnectedupdate
                 name: Auto Arm
@@ -36,20 +36,6 @@ views:
             show_state: false
             title: Motion Detection
             type: glance
-        type: vertical-stack
-      - cards:
-          - entities:
-              - sensor.microsoft
-              - input_number.microsoft_stock
-              - sensor.microsoft_stock
-            title: Stock
-            type: entities
-          - entities:
-              - sensor.microsoft_stock
-            hours_to_show: 336
-            refresh_interval: 300
-            title: Microsoft Stock Value
-            type: history-graph
         type: vertical-stack
       - cards:
           - entities:
@@ -246,7 +232,21 @@ views:
     path: settings
     title: Settings
   - badges: []
-    cards: []
+    cards:
+      - cards:
+          - entities:
+              - sensor.microsoft
+              - input_number.microsoft_stock
+              - sensor.microsoft_stock
+            title: Stock
+            type: entities
+          - entities:
+              - sensor.microsoft_stock
+            hours_to_show: 336
+            refresh_interval: 300
+            title: Microsoft Stock Value
+            type: history-graph
+        type: vertical-stack
     icon: 'mdi:test-tube'
     path: testing
     title: Testing
