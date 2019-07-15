@@ -38,13 +38,6 @@ views:
             type: glance
         type: vertical-stack
       - cards:
-          - entities:
-              - entity: light.living_room_spot_dimmer
-                type: 'custom:light-entity-row'
-            title: Lights
-            type: entities
-        type: vertical-stack
-      - cards:
           - type: entity-filter
             id: people
             card:
@@ -74,6 +67,13 @@ views:
             show_header_toggle: false
             show_state: true
             title: Doorbell
+            type: entities
+        type: vertical-stack
+      - cards:
+          - entities:
+              - entity: light.living_room_spot_dimmer
+                type: 'custom:light-entity-row'
+            title: Lights
             type: entities
           - entities:
               - entity: sensor.entryway_nest_protect_co_status
