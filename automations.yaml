@@ -335,19 +335,19 @@
 - alias: Doorbell battery low
   initial_state: 'on'
   trigger:
-  - platform: 'state'
+  - platform: numeric_state
     entity_id: sensor.ring_front_door_battery
     to: 74
-  - platform: 'state'
+  - platform: numeric_state
     entity_id: sensor.ring_front_door_battery
     to: 10
-  - platform: 'state'
+  - platform: numeric_state
     entity_id: sensor.ring_front_door_battery
     to: 5
-#  - platform: 'state'
+#  - platform: numeric_state
 #    entity_id: sensor.ring_backyard_battery
 #    to: 10
-#  - platform: 'state'
+#  - platform: numeric_state
 #    entity_id: sensor.ring_backyard_battery
 #    to: 5
   action:
