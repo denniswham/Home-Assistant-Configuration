@@ -337,19 +337,19 @@
   trigger:
   - platform: numeric_state
     entity_id: sensor.ring_front_door_battery
-    to: 74
+    below: 75
   - platform: numeric_state
     entity_id: sensor.ring_front_door_battery
-    to: 10
+    below: 10
   - platform: numeric_state
     entity_id: sensor.ring_front_door_battery
-    to: 5
+    below: 5
 #  - platform: numeric_state
 #    entity_id: sensor.ring_backyard_battery
-#    to: 10
+#    below: 10
 #  - platform: numeric_state
 #    entity_id: sensor.ring_backyard_battery
-#    to: 5
+#    below: 5
   action:
   - service: notify.html5
     data:
