@@ -351,9 +351,9 @@
 #    entity_id: sensor.ring_backyard_battery
 #    below: 5
   action:
-  - service: notify.html5
+  - service: notify.html5_galaxy_s9_chrome
     data:
       title: Ring battery warning
       message: "{{ trigger.entity_id }} battery low, please charge!"
-      target:
-        - galaxy_s9_chrome
+      ttl: 86400
+      priority: normal 
