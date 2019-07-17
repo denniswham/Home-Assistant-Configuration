@@ -337,7 +337,7 @@
   trigger:
   - platform: numeric_state
     entity_id: sensor.ring_front_door_battery
-    below: 74
+    below: 73
   - platform: numeric_state
     entity_id: sensor.ring_front_door_battery
     below: 10
@@ -351,9 +351,11 @@
 #    entity_id: sensor.ring_backyard_battery
 #    below: 5
   action:
-  - service: notify.html5_galaxy_s9_chrome
-    data:
+  - service: notify.html5
+    data_template:
       title: Ring battery warning
       message: "{{ trigger.entity_id }} battery low, please charge!"
-      ttl: 86400
-      priority: normal 
+      target: galaxy_s9_chrome
+      data:
+        ttl: 86400
+        priority: normal
