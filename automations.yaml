@@ -337,7 +337,7 @@
   trigger:
   - platform: numeric_state
     entity_id: sensor.ring_front_door_battery
-    below: 75
+    below: 74
   - platform: numeric_state
     entity_id: sensor.ring_front_door_battery
     below: 10
