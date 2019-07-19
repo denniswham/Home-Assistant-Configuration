@@ -157,5 +157,10 @@
         unit_of_measurement: USD
         icon_template: mdi:microsoft
   - platform: rpi_power
-    text_state: true 
+    text_state: true
+  - platform: command_line
+    name: CPU Temperature
+    command: "cat /sys/class/thermal/thermal_zone0/temp"
+    unit_of_measurement: "°C"
+    value_template: '{{ value | multiply(0.001) }}'
     

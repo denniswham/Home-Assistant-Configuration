@@ -243,6 +243,13 @@ views:
         refresh_interval: 300
         title: Speeds
         type: history-graph
+      - entities:
+          - entity: sensor.cpu_temperature
+            name: CPU Temp
+        hours_to_show: 168
+        refresh_interval: 300
+        title: Speeds
+        type: history-graph
       - type: history-graph
         entities:
           - entity: sensor.ring_front_door_battery
