@@ -331,12 +331,9 @@
         - galaxy_s9_chrome
         - surfacebook_chrome
   id: 02e8ce2646044bb5b284e44b56e290d1
-- alias: Doorbell battery low
+- alias: Low Ring Battery Notification
   initial_state: 'on'
   trigger:
-  - platform: numeric_state
-    entity_id: sensor.ring_front_door_battery
-    below: 72
   - platform: numeric_state
     entity_id: sensor.ring_front_door_battery
     below: 10
@@ -350,14 +347,14 @@
 #    entity_id: sensor.ring_backyard_battery
 #    below: 5
   action:
-  - service: notify.html5
+  - service: persistent_notification.create
     data_template:
-      title: Ring battery warning
-      message: "{{ trigger.entity_id }} battery low, please charge!"
-      target: Galaxy S9 Chrome
-      data:
-        ttl: 86400
-        priority: normal
+      message: "{{ trigger.entity_id }} reported low battery, please charge."
+      title: Ring Battery Low
+  - service: notify.html5_galaxy_s9_chrome
+    data_template:
+      message: "{{ trigger.entity_id }} reported low battery, please charge."
+      title: Ring Battery Low
 - id: rpi_power_issue
   alias: Power Problem Notification
   trigger:
