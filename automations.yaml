@@ -331,7 +331,6 @@
         - galaxy_s9_chrome
         - surfacebook_chrome
   id: 02e8ce2646044bb5b284e44b56e290d1
-
 - alias: Doorbell battery low
   initial_state: 'on'
   trigger:
@@ -359,3 +358,22 @@
       data:
         ttl: 86400
         priority: normal
+- id: rpi_power_issue
+  alias: Power Problem Notification
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.rpi_power_status
+    value_template: '{{ state.attributes.value }}'
+    above: 0
+    for:
+      minutes: 5
+  condition:
+  action:
+  - service: persistent_notification.create
+    data_template:
+      message: "RPI Power reported {{ states.sensor.rpi_power_status.state }}. The state had changed from {{ trigger.from_state.state }} "
+      title: Power Supply Issue
+  - service: notify.notify
+    data_template:
+      message: "RPI Power reported {{ states.sensor.rpi_power_status.state }}. The state had  changed from {{ trigger.from_state.state }}"
+      title: Power Supply Issue

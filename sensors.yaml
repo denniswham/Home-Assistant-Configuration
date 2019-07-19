@@ -156,5 +156,6 @@
         value_template: "{{ (states('sensor.microsoft') | float) * (states('input_number.microsoft_stock') | float) | round }}"
         unit_of_measurement: USD
         icon_template: mdi:microsoft
- 
+  - platform: rpi_power
+    text_state: true 
     
