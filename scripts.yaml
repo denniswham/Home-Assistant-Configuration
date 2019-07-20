@@ -105,6 +105,37 @@
               badge: 0
               category: konnected_alarm
   
+  backyardmotion:
+    alias: 'Backyard Motion'
+    sequence:
+      - service: notify.alexa_media
+        data:
+          data:
+            type: tts
+          target:
+            - group.alexa
+          message: "Motion in the backyard"
+      - service: notify.html5
+        data:
+          title: Ring alert!
+          message: Motion in the backyard
+          data:
+            actions:
+              - action: open
+                icon: "/local/icons/konnected.png"
+                title: Open Home Assistant
+            tag: konnected-alarm-notification
+            ttl: 86400
+            priority: high      
+      - service: notify.notify
+        data:
+          message: "Motion in the backyard"
+          data:
+            push:
+              badge: 0
+              category: konnected_alarm
+
+
   log_motion:
     alias: Log Motion
     sequence:
