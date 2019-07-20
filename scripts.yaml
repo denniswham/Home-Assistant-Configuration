@@ -117,8 +117,8 @@
           message: "Motion in the backyard"
       - service: notify.html5
         data:
-          title: Ring alert!
-          message: Motion in the backyard
+          title: Stick Up Cam
+          message: Motion detected in the backyard
           data:
             actions:
               - action: open
