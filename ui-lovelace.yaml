@@ -68,7 +68,7 @@ views:
               - entity: sensor.ring_backyard_last_activity
             show_header_toggle: false
             show_state: true
-            title: Doorbell
+            title: Security Cameras
             type: entities
         type: vertical-stack
       - cards:
