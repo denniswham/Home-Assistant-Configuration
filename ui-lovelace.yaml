@@ -254,7 +254,7 @@ views:
         entities:
           - entity: sensor.ring_front_door_battery
             name: Ring Doorbell 2
-          - entity: sensor.backyard_door_battery
+          - entity: sensor.ring_backyard_battery
             name: Ring Stick Up Cam
         hours_to_show: 168
         refresh_interval: 300
