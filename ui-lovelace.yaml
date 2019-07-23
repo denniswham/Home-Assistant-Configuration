@@ -253,9 +253,9 @@ views:
       - type: history-graph
         entities:
           - entity: sensor.ring_front_door_battery
-            name: Ring Doorbell 2
+            name: Doorbell
           - entity: sensor.ring_backyard_battery
-            name: Ring Stick Up Cam
+            name: Backyard Cam
         hours_to_show: 168
         refresh_interval: 300
         title: Battery level
