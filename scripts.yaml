@@ -16,10 +16,10 @@
       - service: alarm_control_panel.alarm_arm_away
         entity_id:
           - alarm_control_panel.alexa_guard_7514f
-      - service: climate.set_away_mode
+      - service: climate.set_preset_mode
         entity_id:
           - climate.living_room
-        data: {"away_mode": "true"}
+        data: {"preset_mode": "away"}
       - service: notify.alexa_media
         data:
           data:
@@ -55,10 +55,10 @@
       - service: alarm_control_panel.alarm_disarm
         entity_id:
           - alarm_control_panel.alexa_guard_7514f
-      - service: climate.set_away_mode
+      - service: climate.set_preset_mode
         entity_id:
           - climate.living_room
-        data: {"away_mode": "false"}
+        data: {"preset_mode": "home"}
 
   konnectedpending:
     alias: 'Konnected Pending'
