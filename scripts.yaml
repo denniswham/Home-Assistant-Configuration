@@ -71,7 +71,7 @@
             type: tts
           target:
             - group.alexa
-          message: "Motion detected, the alarm will trigger shortly. Motion detected, the alarm will trigger shortly."
+          message: Motion detected, the alarm will activate shortly. Motion detected, the alarm will activate shortly.
 
   konnectedtrigger:
     alias: 'Konnected Trigger'
@@ -84,11 +84,11 @@
             type: tts
           target:
             - group.alexa
-          message: "ALARM! The alarm has been triggered"
+          message: Your alarm was activated
       - service: notify.html5
         data:
-          title: ALARM!
-          message: The alarm has been triggered
+          title: Konnected
+          message: Your alarm was activated
           data:
             actions:
               - action: open
@@ -99,7 +99,7 @@
             priority: high      
       - service: notify.notify
         data:
-          message: "ALARM! The alarm has been triggered"
+          message: "Your alarm was activated"
           data:
             push:
               badge: 0
@@ -117,23 +117,23 @@
           message: "Motion in the backyard"
       - service: notify.html5
         data:
-          title: Stick Up Cam
-          message: Motion detected in the backyard
+          title: Ring
+          message: There is motion at your backyard
           data:
             actions:
               - action: open
                 icon: "/local/icons/konnected.png"
                 title: Open Home Assistant
-            tag: konnected-alarm-notification
+            tag: ring_alert
             ttl: 86400
             priority: high      
       - service: notify.notify
         data:
-          message: "Motion in the backyard"
+          message: There is motion at your backyard
           data:
             push:
               badge: 0
-              category: konnected_alarm
+              category: ring_alert
 
 
   log_motion:
