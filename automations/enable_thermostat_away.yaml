@@ -1,0 +1,20 @@
+alias: Enable thermostat away
+initial_state: 'true'
+condition:
+- condition: or
+  conditions:
+  - condition: template
+    value_template: '{{states(''input_select.konnectedstatus'') == ''armed_away''
+      and states(''switch.living_room_away'') == ''off''}}
+
+      '
+trigger:
+- platform: time_pattern
+  minutes: /5
+  seconds: 0
+action:
+- service: homeassistant.turn_on
+  data_template:
+    entity_id: "{%- if states('switch.living_room_away') == 'off' -%}\n  switch.living_room_away\n\
+      {%- endif -%}\n"
+id: 1d059041783c467ea8e747d24443fe67

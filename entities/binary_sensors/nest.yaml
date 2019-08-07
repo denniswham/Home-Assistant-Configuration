@@ -1,0 +1,11 @@
+platform: nest
+monitored_conditions:
+  - fan
+  - target
+  - away
+  - online
+  - fan
+  - is_using_emergency_heat
+  - is_locked
+  - has_leaf
+  - online

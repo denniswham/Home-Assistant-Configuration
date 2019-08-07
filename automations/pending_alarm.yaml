@@ -1,0 +1,31 @@
+alias: Pending alarm
+initial_state: 'true'
+trigger:
+- platform: state
+  entity_id: binary_sensor.entryway
+  to: 'on'
+- platform: state
+  entity_id: binary_sensor.kitchen
+  to: 'on'
+- platform: state
+  entity_id: binary_sensor.living_room
+  to: 'on'
+- platform: state
+  entity_id: binary_sensor.office
+  to: 'on'
+- platform: state
+  entity_id: binary_sensor.garage
+  to: 'on'
+condition:
+  condition: or
+  conditions:
+  - condition: state
+    entity_id: alarm_control_panel.Konnected_Alarm
+    state: armed_away
+  - condition: state
+    entity_id: alarm_control_panel.Konnected_Alarm
+    state: armed_home
+action:
+- service: homeassistant.turn_on
+  entity_id: script.konnectedpending
+id: 3b57fcd4fbb7459e9e82b256a85a1b30

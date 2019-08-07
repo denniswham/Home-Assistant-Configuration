@@ -1,0 +1,34 @@
+alias: Konnected Standby
+initial_state: 'true'
+condition:
+  condition: and
+  conditions:
+  - condition: state
+    entity_id: group.household
+    state: home
+  - condition: time
+    after: 06:15:00
+    before: '21:00:00'
+  - condition: state
+    entity_id: input_boolean.konnectedupdate
+    state: 'on'
+  - condition: template
+    value_template: "{%- if states.input_select.konnectedstatus.last_changed -%}\n\
+      \  {{ (as_timestamp(now()) - as_timestamp(states.input_select.konnectedstatus.last_changed))\
+      \ > 300 }}\n{%- else -%}\n  true\n{%- endif -%}\n"
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: input_select.konnectedstatus
+      state: armed_home
+    - condition: state
+      entity_id: input_select.konnectedstatus
+      state: armed_away
+trigger:
+- platform: time_pattern
+  minutes: /10
+  seconds: 0
+action:
+- service: homeassistant.turn_on
+  entity_id: script.konnectedstandby
+id: 5e92113a7947445e817ed518c9b6712e

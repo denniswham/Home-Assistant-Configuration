@@ -1,0 +1,41 @@
+alias: Konnected Log Motion
+initial_state: 'true'
+trigger:
+- platform: state
+  entity_id: binary_sensor.entryway
+  to: 'on'
+- platform: state
+  entity_id: binary_sensor.kitchen
+  to: 'on'
+- platform: state
+  entity_id: binary_sensor.living_room
+  to: 'on'
+- platform: state
+  entity_id: binary_sensor.office
+  to: 'on'
+- platform: state
+  entity_id: binary_sensor.garage
+  to: 'on'
+- platform: state
+  entity_id: binary_sensor.ring_backyard_motion
+  to: 'on'
+condition:
+  condition: or
+  conditions:
+  - condition: state
+    entity_id: alarm_control_panel.Konnected_Alarm
+    state: armed_away
+  - condition: state
+    entity_id: alarm_control_panel.Konnected_Alarm
+    state: armed_home
+  - condition: state
+    entity_id: alarm_control_panel.Konnected_Alarm
+    state: pending
+  - condition: state
+    entity_id: alarm_control_panel.Konnected_Alarm
+    state: triggered
+action:
+- service: script.log_motion
+  data_template:
+    entityid: '{{trigger.entity_id}}'
+id: 4dec92d5133f49689fc07cd4552025bf

@@ -1,0 +1,18 @@
+alias: Disarm Konnected at night
+initial_state: 'true'
+condition:
+- condition: state
+  entity_id: input_boolean.konnectedupdate
+  state: 'on'
+trigger:
+- platform: state
+  entity_id:
+  - person.dennis
+  - person.stephanie
+  - person.lucas
+  - person.timo
+  to: home
+action:
+- service: homeassistant.turn_on
+  entity_id: script.konnectedstandby
+id: 98fc34375a3745e2a7ddb3e68f11b0ff

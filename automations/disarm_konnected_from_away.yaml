@@ -1,0 +1,22 @@
+alias: Disarm Konnected from Away
+initial_state: 'true'
+condition:
+- condition: state
+  entity_id: input_select.konnectedstatus
+  state: armed_away
+- condition: state
+  entity_id: input_boolean.konnectedupdate
+  state: 'on'
+- condition: template
+  value_template: "{%- if states.automation.arm_konnected.attributes.last_triggered\
+    \ -%}\n  {{ (as_timestamp(now()) - as_timestamp(states.automation.arm_konnected.attributes.last_triggered))\
+    \ > 240 }}\n{%- else -%}\n  true\n{%- endif -%}\n"
+trigger:
+- platform: state
+  entity_id: group.household
+  from: not_home
+  to: home
+action:
+- service: homeassistant.turn_on
+  entity_id: script.konnectedstandby
+id: 8c1007d1168a467794c04cdac94a28c1
