@@ -1,9 +1,3 @@
-household:
-  - person.dennis
-  - person.stephanie
-  - person.lucas
-  - person.timo
-  
 alexa:
   - media_player.dennis_s_alexa_app_on_surface_pro_4
   - media_player.dennis_s_alexa_apps

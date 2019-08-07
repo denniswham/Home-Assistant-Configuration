@@ -1,24 +1,50 @@
 # Wildcards
-
 *                   # Ignore everything
 !*/                 # Descend into directories
-
 !*.yaml             # Don't ignore yaml files
 !*.gif
 !*.png
 !*.jpg
 !*.md
 
-google_calendars.yaml     # Ignore google_calendars.yaml
-known_devices.yaml
-secrets.yaml
-zwave_device_config.yaml
-
-#Directories
-
-lib                       # Ignore lib directory
-icloud
+# Directory (contents) ignores
+.cloud
+.storage
 deps
+lib
+icloud
 tts
 
+
+# Specific file ignores
+.config_entries.json
+.homekit.state
+.ios.conf
+.spotify-token-cache
+.tradfri_psk.conf
+.uuid
+core
+google_calendars.yaml
+html5_push_registrations.conf
+ip_bans.yaml
+known_devices.yaml
+options.xml
+OZW_Log.txt
+pyozw.sqlite
+secrets.yaml
+zwcfg_*
+zwscene.xml
+zwave_device_config.yaml
+
+# ESPHome ignores
+esphome/secrets.yaml
+esphome/**/
 esphomeyaml/*/
+
+# Ignore files created by IDE's
+.vscode
+.theia
+.Trash*
+
+# Specific keeps
+!.gitkeep

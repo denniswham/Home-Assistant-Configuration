@@ -1,166 +1,166 @@
-  - platform: waqi
-    token: !secret waqi_token
-    locations:
-      - Oude Meije, Zegveld
-  - platform: buienradar
-    monitored_conditions:
-      - symbol
-      - humidity
-      - temperature
-      - windforce
-      - sunchance_1d
-      - rainchance_1d
-      - precipitation
-      - conditionexact
-      - conditionexact_1d
-      - conditiondetailed
-      - conditiondetailed_1d
-      - condition_1d
-      - condition_2d
-      - condition_3d
-      - condition_4d
-      - condition_5d
-  - platform: nest
-    monitored_conditions:
-      - temperature
-      - target
-      - humidity
-      - operation_mode
-      - co_status
-      - smoke_status
-      - battery_health
-      - color_status
-  - platform: ring
-    monitored_conditions:
-      - battery
-      - last_activity
-      - last_ding
-      - last_motion
-      - volume
-      - wifi_signal_category
-      - wifi_signal_strength
-  - platform: uptime
-    name: HASS Uptime
-    unit_of_measurement: days
-  - platform: waze_travel_time
-    name: Dennis to Home
-    origin: person.dennis
-    destination: zone.home
-    region: 'EU'
-  - platform: waze_travel_time
-    name: Morning commute
-    origin: zone.home
-    destination: zone.microsoft
-    region: 'EU'
-  - platform: waze_travel_time
-    name: Stephanie to Home
-    origin: person.stephanie
-    destination: zone.home
-    region: 'EU'
-  - platform: postnl
-    username: !secret postnl_username1
-    password: !secret postnl_password1
-  - platform: postnl
-    username: !secret postnl_username2
-    password: !secret postnl_password2
-  - platform: season
-    type: astronomical
-  - platform: systemmonitor
-    resources:
-    - type: disk_use_percent
-      arg: "/home"
-    - type: memory_use_percent
-    - type: processor_use
-    - type: swap_use_percent
-  - platform: glances
-    host: 192.168.178.105
-    port: 61208
-    username: "glances"
-    password: !secret glances_influxdb_password
-    version: 3
-    resources:
-      - 'processor_load'
-      - 'memory_use_percent'
-      - 'disk_use_percent'
-  - platform: version
-  - platform: filesize
-    file_paths:
-      - /config/home-assistant_v2.db
-  - platform: template
-    sensors:
-      phone_dennis_battery:
-        friendly_name: Phone Dennis
-        value_template: "{{ states.device_tracker.life360_dennis.attributes.battery }}"
-        unit_of_measurement: '%'
-        device_class: battery
-      phone_stephanie_battery:
-        friendly_name: Phone Stephanie
-        value_template: "{{ states.device_tracker.life360_stephanie.attributes.battery }}"
-        unit_of_measurement: '%'
-        device_class: battery
-      phone_lucas_battery:
-        friendly_name: Phone Lucas
-        value_template: "{{ states.device_tracker.life360_lucas_ham.attributes.battery }}"
-        unit_of_measurement: '%'
-        device_class: battery
-      phone_timo_battery:
-        friendly_name: Phone Timo
-        value_template: "{{ states.device_tracker.life360_timo.attributes.battery }}"
-        unit_of_measurement: '%'
-        device_class: battery
-      microsoft_stock:
-        entity_id:
-          - sensor.microsoft
-          - input_number.microsoft_stock
-        friendly_name: Microsoft Stock value
-        value_template: "{{ (states('sensor.microsoft') | float) * (states('input_number.microsoft_stock') | float) | round }}"
-        unit_of_measurement: USD
-        icon_template: mdi:microsoft
-  - platform: rest
-    resource: https://pypi.python.org/pypi/homeassistant/json
-    name: Latest Version
-    value_template: '{{ value_json.info.version }}'
-    scan_interval: 3600
-  - platform: alpha_vantage
-    api_key: !secret alpha_vantage_key
-    symbols:
-    - symbol: MSFT
-      name: Microsoft
-  - platform: template
-    sensors:
-      phone_dennis_battery:
-        friendly_name: Phone Dennis
-        value_template: "{{ states.device_tracker.life360_dennis.attributes.battery }}"
-        unit_of_measurement: '%'
-        device_class: battery
-      phone_stephanie_battery:
-        friendly_name: Phone Stephanie
-        value_template: "{{ states.device_tracker.life360_stephanie.attributes.battery }}"
-        unit_of_measurement: '%'
-        device_class: battery
-      phone_lucas_battery:
-        friendly_name: Phone Lucas
-        value_template: "{{ states.device_tracker.life360_lucas_ham.attributes.battery }}"
-        unit_of_measurement: '%'
-        device_class: battery
-      phone_timo_battery:
-        friendly_name: Phone Timo
-        value_template: "{{ states.device_tracker.life360_timo.attributes.battery }}"
-        unit_of_measurement: '%'
-        device_class: battery
-      microsoft_stock:
-        entity_id:
-          - sensor.microsoft
-          - input_number.microsoft_stock
-        friendly_name: Microsoft Stock value
-        value_template: "{{ (states('sensor.microsoft') | float) * (states('input_number.microsoft_stock') | float) | round }}"
-        unit_of_measurement: USD
-        icon_template: mdi:microsoft
-  - platform: rpi_power
-    text_state: true
-  - platform: command_line
-    name: CPU Temperature
-    command: "cat /sys/class/thermal/thermal_zone0/temp"
-    unit_of_measurement: "°C"
-    value_template: '{{ value | multiply(0.001) }}'
-    
+- platform: waqi
+  token: !secret waqi_token
+  locations:
+    - Oude Meije, Zegveld
+- platform: buienradar
+  monitored_conditions:
+    - symbol
+    - humidity
+    - temperature
+    - windforce
+    - sunchance_1d
+    - rainchance_1d
+    - precipitation
+    - conditionexact
+    - conditionexact_1d
+    - conditiondetailed
+    - conditiondetailed_1d
+    - condition_1d
+    - condition_2d
+    - condition_3d
+    - condition_4d
+    - condition_5d
+- platform: nest
+  monitored_conditions:
+    - temperature
+    - target
+    - humidity
+    - operation_mode
+    - co_status
+    - smoke_status
+    - battery_health
+    - color_status
+- platform: ring
+  monitored_conditions:
+    - battery
+    - last_activity
+    - last_ding
+    - last_motion
+    - volume
+    - wifi_signal_category
+    - wifi_signal_strength
+- platform: uptime
+  name: HASS Uptime
+  unit_of_measurement: days
+- platform: waze_travel_time
+  name: Dennis to Home
+  origin: person.dennis
+  destination: zone.home
+  region: 'EU'
+- platform: waze_travel_time
+  name: Morning commute
+  origin: zone.home
+  destination: zone.microsoft
+  region: 'EU'
+- platform: waze_travel_time
+  name: Stephanie to Home
+  origin: person.stephanie
+  destination: zone.home
+  region: 'EU'
+- platform: postnl
+  username: !secret postnl_username1
+  password: !secret postnl_password1
+- platform: postnl
+  username: !secret postnl_username2
+  password: !secret postnl_password2
+- platform: season
+  type: astronomical
+- platform: systemmonitor
+  resources:
+  - type: disk_use_percent
+    arg: "/home"
+  - type: memory_use_percent
+  - type: processor_use
+  - type: swap_use_percent
+- platform: glances
+  host: 192.168.178.105
+  port: 61208
+  username: "glances"
+  password: !secret glances_influxdb_password
+  version: 3
+  resources:
+    - 'processor_load'
+    - 'memory_use_percent'
+    - 'disk_use_percent'
+- platform: version
+- platform: filesize
+  file_paths:
+    - /config/home-assistant_v2.db
+- platform: template
+  sensors:
+    phone_dennis_battery:
+      friendly_name: Phone Dennis
+      value_template: "{{ states.device_tracker.life360_dennis.attributes.battery }}"
+      unit_of_measurement: '%'
+      device_class: battery
+    phone_stephanie_battery:
+      friendly_name: Phone Stephanie
+      value_template: "{{ states.device_tracker.life360_stephanie.attributes.battery }}"
+      unit_of_measurement: '%'
+      device_class: battery
+    phone_lucas_battery:
+      friendly_name: Phone Lucas
+      value_template: "{{ states.device_tracker.life360_lucas_ham.attributes.battery }}"
+      unit_of_measurement: '%'
+      device_class: battery
+    phone_timo_battery:
+      friendly_name: Phone Timo
+      value_template: "{{ states.device_tracker.life360_timo.attributes.battery }}"
+      unit_of_measurement: '%'
+      device_class: battery
+    microsoft_stock:
+      entity_id:
+        - sensor.microsoft
+        - input_number.microsoft_stock
+      friendly_name: Microsoft Stock value
+      value_template: "{{ (states('sensor.microsoft') | float) * (states('input_number.microsoft_stock') | float) | round }}"
+      unit_of_measurement: USD
+      icon_template: mdi:microsoft
+- platform: rest
+  resource: https://pypi.python.org/pypi/homeassistant/json
+  name: Latest Version
+  value_template: '{{ value_json.info.version }}'
+  scan_interval: 3600
+- platform: alpha_vantage
+  api_key: !secret alpha_vantage_key
+  symbols:
+  - symbol: MSFT
+    name: Microsoft
+- platform: template
+  sensors:
+    phone_dennis_battery:
+      friendly_name: Phone Dennis
+      value_template: "{{ states.device_tracker.life360_dennis.attributes.battery }}"
+      unit_of_measurement: '%'
+      device_class: battery
+    phone_stephanie_battery:
+      friendly_name: Phone Stephanie
+      value_template: "{{ states.device_tracker.life360_stephanie.attributes.battery }}"
+      unit_of_measurement: '%'
+      device_class: battery
+    phone_lucas_battery:
+      friendly_name: Phone Lucas
+      value_template: "{{ states.device_tracker.life360_lucas_ham.attributes.battery }}"
+      unit_of_measurement: '%'
+      device_class: battery
+    phone_timo_battery:
+      friendly_name: Phone Timo
+      value_template: "{{ states.device_tracker.life360_timo.attributes.battery }}"
+      unit_of_measurement: '%'
+      device_class: battery
+    microsoft_stock:
+      entity_id:
+        - sensor.microsoft
+        - input_number.microsoft_stock
+      friendly_name: Microsoft Stock value
+      value_template: "{{ (states('sensor.microsoft') | float) * (states('input_number.microsoft_stock') | float) | round }}"
+      unit_of_measurement: USD
+      icon_template: mdi:microsoft
+- platform: rpi_power
+  text_state: true
+- platform: command_line
+  name: CPU Temperature
+  command: "cat /sys/class/thermal/thermal_zone0/temp"
+  unit_of_measurement: "°C"
+  value_template: '{{ value | multiply(0.001) }}'
+  
