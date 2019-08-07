@@ -1,8 +1,6 @@
 resources:
   - url: /community_plugin/weather-card/weather-card.js
     type: module
-  - url: /community_plugin/light-entity-row/light-entity-row.js
-    type: js
   - url: /community_plugin/mini-graph-card/mini-graph-card.js
     type: module
   - url: /community_plugin/mini-media-player/mini-media-player.js
@@ -10,6 +8,8 @@ resources:
   - url: /community_plugin/vertical-stack-in-card/vertical-stack-in-card.js
     type: js
   - url: /community_plugin/button-card/button-card.js
+    type: module
+  - url: /community_plugin/lovelace-slider-entity-row/slider-entity-row.js
     type: module
 title: Les Jambons
 views:
@@ -80,7 +80,7 @@ views:
       - cards:
           - entities:
               - entity: light.living_room_spot_dimmer
-                type: 'custom:light-entity-row'
+                type: custom:slider-entity-row
             title: Lights
             type: entities
           - entities:
