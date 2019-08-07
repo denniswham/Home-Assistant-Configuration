@@ -7,6 +7,8 @@ resources:
     type: module
   - url: /community_plugin/mini-graph-card/mini-graph-card.js
     type: module
+  - url: /community_plugin/mini-media-player/mini-media-player.js
+    type: module
 title: Les Jambons
 views:
   - background: var(--background-image)
