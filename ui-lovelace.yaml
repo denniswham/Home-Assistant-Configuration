@@ -1,10 +1,12 @@
 resources:
-  - type: module
-    url: /community_plugin/weather-card/weather-card.js
-  - type: js
-    url: /community_plugin/light-entity-row/light-entity-row.js
-  - type: module
-    url: /community_plugin/simple-thermostat/simple-thermostat.js
+  - url: /community_plugin/weather-card/weather-card.js
+    type: module
+  - url: /community_plugin/light-entity-row/light-entity-row.js
+    type: js
+  - url: /community_plugin/simple-thermostat/simple-thermostat.js
+    type: module
+  - url: /community_plugin/mini-graph-card/mini-graph-card.js
+    type: module
 title: Les Jambons
 views:
   - background: var(--background-image)
