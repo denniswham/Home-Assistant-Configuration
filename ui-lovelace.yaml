@@ -9,6 +9,8 @@ resources:
     type: module
   - url: /community_plugin/mini-media-player/mini-media-player.js
     type: module
+  - url: /community_plugin/vertical-stack-in-card/vertical-stack-in-card.js
+    type: js
 title: Les Jambons
 views:
   - background: var(--background-image)
