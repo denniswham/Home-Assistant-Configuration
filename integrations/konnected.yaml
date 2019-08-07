@@ -1,0 +1,24 @@
+konnected:
+  access_token: !secret konnected_access_token
+  api_host: !secret konnected_api_host
+  devices:
+    - id: !secret konnected_device_id
+      binary_sensors:
+        - zone: 1
+          type: motion
+          name: 'Entryway'
+        - zone: 2
+          type: motion
+          name: 'Kitchen'
+        - zone: 3
+          type: motion
+          name: 'Living Room'
+        - zone: 4
+          type: motion
+          name: 'Office'
+        - zone: 5
+          type: motion
+          name: 'Garage'
+      switches:
+        - zone: out
+          name: 'Siren'

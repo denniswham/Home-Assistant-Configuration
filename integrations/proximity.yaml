@@ -1,0 +1,7 @@
+proximity:
+  home:
+    devices:
+      - person.dennis
+      - person.stephanie
+    tolerance: 50
+    unit_of_measurement: km

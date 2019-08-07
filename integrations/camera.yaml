@@ -1,0 +1,15 @@
+camera:
+  - platform: ring
+  - platform: generic
+    name: Buienradar
+    still_image_url: https://api.buienradar.nl/image/1.0/RadarMapNL?w=480&h=480
+    content_type: 'image/gif'
+  - platform: generic
+    name: Meteogram
+    still_image_url: !secret meteogram_png_url
+  - platform: generic
+    name: Waqi
+    still_image_url: !secret waqi_png_url
+  - platform: generic
+    name: sunmap
+    still_image_url: https://www.timeanddate.com/scripts/sunmap.php?earth=1
