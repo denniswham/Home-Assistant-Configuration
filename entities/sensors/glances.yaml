@@ -1,0 +1,10 @@
+platform: glances
+host: 192.168.178.105
+port: 61208
+username: "glances"
+password: !secret glances_influxdb_password
+version: 3
+resources:
+  - 'processor_load'
+  - 'memory_use_percent'
+  - 'disk_use_percent'

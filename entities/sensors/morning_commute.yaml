@@ -1,0 +1,5 @@
+platform: waze_travel_time
+name: Morning commute
+origin: zone.home
+destination: zone.microsoft
+region: 'EU'
