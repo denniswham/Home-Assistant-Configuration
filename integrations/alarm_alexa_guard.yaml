@@ -1,6 +1,6 @@
 alarm_control_panel:
-    platform: manual
-    name: Konnected Alarm
+    platform: alexa_media
+    name: Alexa Guard
     pending_time: 30
     delay_time: 20
     trigger_time: 4
