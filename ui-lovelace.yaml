@@ -3,8 +3,6 @@ resources:
     type: module
   - url: /community_plugin/light-entity-row/light-entity-row.js
     type: js
-  - url: /community_plugin/simple-thermostat/simple-thermostat.js
-    type: module
   - url: /community_plugin/mini-graph-card/mini-graph-card.js
     type: module
   - url: /community_plugin/mini-media-player/mini-media-player.js
