@@ -1,0 +1,6 @@
+name: RiseAndShine
+entities: 
+  alarm_control_panel.konnected_alarm:
+    state: 'disarmed'
+  climate.living_room:
+    temperature: 20.5

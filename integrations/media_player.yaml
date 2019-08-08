@@ -1,9 +1,1 @@
-media_player:
-  - platform: spotify
-    client_id: !secret spotify_client_id
-    client_secret: !secret spotify_client_secret
-  - platform: samsungtv
-    mac: !secret samsungtv_mac
-    host: !secret samsungtv_host
-    name: Master Bedroom TV
-    port: 8001
+media_player: !include_dir_list ../entities/media_players

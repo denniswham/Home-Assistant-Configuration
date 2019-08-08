@@ -1,0 +1,5 @@
+name: Evening
+entities:
+  light.living_room_spot_dimmer:
+    state: on  
+    brightness: 100
