@@ -1,4 +1,3 @@
-sensor_
-attic_nest_protect_co_status:
+sensor.attic_nest_protect_co_status:
   friendly_name: Attic CO
   icon: mdi:alert
