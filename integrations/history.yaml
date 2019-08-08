@@ -5,3 +5,16 @@
 # https://www.home-assistant.io/components/history/
 #
 history:
+
+  use_include_order: True
+  include:
+    entities:
+      - person.dennis
+      - person.stephanie
+      - person.lucas
+      - person.timo
+      - alarm_control_panel.Konnected_Alarm
+      - sensor.retsinagaard_eta
+      - sensor.dennis_to_home
+      - sensor.stephanie_to_home
+      - proximity.home
