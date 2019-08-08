@@ -1,0 +1,12 @@
+konnectedpending:
+  alias: 'Konnected Pending'
+  sequence:
+    - service: alarm_control_panel.alarm_trigger
+      entity_id: alarm_control_panel.Konnected_Alarm
+    - service: notify.alexa_media
+      data:
+        data:
+          type: tts
+        target:
+          - group.alexa
+        message: Motion detected, the alarm will activate shortly. Motion detected, the alarm will activate shortly.

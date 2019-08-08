@@ -1,0 +1,8 @@
+log_motion:
+  alias: Log Motion
+  sequence:
+    - service: logbook.log
+      data_template:
+        name: "Motion detected: "
+        message: >-
+          {{ states[entityid.split('.')[0]][entityid.split('.')[1]].name }}

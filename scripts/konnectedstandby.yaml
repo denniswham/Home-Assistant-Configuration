@@ -1,0 +1,17 @@
+konnectedstandby:
+  alias: 'Konnected Standby'
+  sequence:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.konnectedstatus
+        option: disarmed
+    - service: alarm_control_panel.alarm_disarm
+      entity_id:
+        - alarm_control_panel.konnected_alarm
+    - service: alarm_control_panel.alarm_disarm
+      entity_id:
+        - alarm_control_panel.alexa_guard_7514f
+    - service: climate.set_preset_mode
+      entity_id:
+        - climate.living_room
+      data: {"preset_mode": "home"}

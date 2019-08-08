@@ -1,0 +1,29 @@
+backyardmotion:
+  alias: 'Backyard Motion'
+  sequence:
+    - service: notify.alexa_media
+      data:
+        data:
+          type: tts
+        target:
+          - group.alexa
+        message: "Motion in the backyard"
+    - service: notify.html5
+      data:
+        title: Ring
+        message: There is motion at your backyard
+        data:
+          actions:
+            - action: open
+              icon: "/local/icons/konnected.png"
+              title: Open Home Assistant
+          tag: ring_alert
+          ttl: 86400
+          priority: high      
+    - service: notify.notify
+      data:
+        message: There is motion at your backyard
+        data:
+          push:
+            badge: 0
+            category: ring_alert

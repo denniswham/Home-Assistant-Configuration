@@ -1,0 +1,31 @@
+konnectedtrigger:
+  alias: 'Konnected Trigger'
+  sequence:
+    - service: switch.turn_on
+      entity_id: switch.siren
+    - service: notify.alexa_media
+      data:
+        data:
+          type: tts
+        target:
+          - group.alexa
+        message: Your alarm was activated
+    - service: notify.html5
+      data:
+        title: Konnected
+        message: Your alarm was activated
+        data:
+          actions:
+            - action: open
+              icon: "/local/icons/konnected.png"
+              title: Open Home Assistant
+          tag: konnected-alarm-notification
+          ttl: 86400
+          priority: high      
+    - service: notify.notify
+      data:
+        message: "Your alarm was activated"
+        data:
+          push:
+            badge: 0
+            category: konnected_alarm
