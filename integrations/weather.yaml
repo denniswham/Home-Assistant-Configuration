@@ -1,1 +1,1 @@
-weather: alarm_control_panel: !include_dir_list ../entities/weather
+weather: !include_dir_list ../entities/weather
