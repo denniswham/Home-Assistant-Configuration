@@ -1,0 +1,19 @@
+cards:
+  - cards:
+      - cards:
+          - camera_view: live
+            entity: camera.front_door
+            show_name: false
+            show_state: false
+            type: picture-entity
+          - camera_view: live
+            entity: camera.backyard
+            show_name: false
+            show_state: false
+            type: picture-entity
+        type: vertical-stack
+    type: horizontal-stack
+icon: 'mdi:cctv'
+id: cameras_panel
+panel: true
+title: Cameras

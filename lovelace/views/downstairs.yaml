@@ -1,0 +1,30 @@
+background: var(--background-image)
+badges: []
+cards:
+  - entity: weather.lopik_cabauw
+    type: 'custom:weather-card'
+  - entities:
+      - entity: sensor.br_full_condition
+        name: Weather
+      - entity: sensor.br_wind_force
+        name: Wind
+      - entity: sensor.waqi_oude_meije_zegveld
+        name: Air Quality
+      - entity: sensor.br_full_condition_1d
+        name: Tomorrow's weather
+    show_header_toggle: false
+    title: Weather
+    type: entities
+  - entities: []
+    show_header_toggle: false
+    title: Room Sensors
+    type: entities
+  - cards:
+      - entity: camera.meteogram
+        type: picture-entity
+      - entity: camera.buienradar
+        type: picture-entity
+    type: vertical-stack
+icon: 'mdi:weather-cloudy'
+path: weather
+title: Weather

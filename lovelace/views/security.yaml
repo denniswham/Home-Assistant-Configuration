@@ -1,0 +1,16 @@
+cards:
+  - entity: camera.front_door
+    show_name: false
+    show_state: false
+    type: picture-entity
+  - entity: camera.backyard
+    show_name: false
+    show_state: false
+    type: picture-entity
+  - entity: camera.sunmap
+    show_name: false
+    show_state: false
+    type: picture-entity
+icon: 'mdi:camera'
+id: cameras
+title: Cameras
