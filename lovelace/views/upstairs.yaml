@@ -2,8 +2,6 @@ badges: []
 cards:
   - cards:
       - entity: climate.living_room
-        type: 'custom:simple-thermostat'
-      - entity: climate.living_room
         type: thermostat
       - entities:
           - entity: sensor.living_room_thermostat_hvac_state
