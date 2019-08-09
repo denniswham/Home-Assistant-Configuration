@@ -1,0 +1,18 @@
+sensor.attic_nest_protect_co_status:
+  friendly_name: Attic CO
+  icon: mdi:alert
+sensor.attic_nest_protect_smoke_status:
+  friendly_name: Attic Smoke
+  icon: mdi:fire
+sensor.entryway_nest_protect_co_status:
+  friendly_name: Entryway CO
+  icon: mdi:alert
+sensor.entryway_nest_protect_smoke_status:
+  friendly_name: Entryway Smoke
+  icon: mdi:fire
+sensor.hallway_nest_protect_co_status:
+  friendly_name: Hallway CO
+  icon: mdi:alert
+sensor.hallway_nest_protect_smoke_status:
+  friendly_name: Hallway Smoke
+  icon: mdi:fire
