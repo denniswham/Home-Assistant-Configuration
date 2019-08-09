@@ -6,11 +6,6 @@
 #
 homeassistant:
 
-  auth_mfa_modules:
-    - type: totp
-  whitelist_external_dirs:
-    - /config
-
   # Lets me customize individual entities
   customize: !include_dir_merge_named ../customizations/entities
 
@@ -19,3 +14,8 @@ homeassistant:
 
   # Lets me custimize entities based on a matching pattern
   customize_glob: !include_dir_merge_named ../customizations/globs
+
+  auth_mfa_modules:
+    - type: totp
+  whitelist_external_dirs:
+    - /config
