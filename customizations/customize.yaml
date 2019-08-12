@@ -1,3 +1,9 @@
+binary_sensor.adguard_protection:
+  friendly_name: AdGuard Protection
+camera.sunmap:
+  friendly_name: Day and Night World Map
+light.living_room_spot_dimmer:
+  friendly_name: Living Room Spot Lights
 sensor.attic_nest_protect_co_status:
   friendly_name: Attic CO
   icon: mdi:alert
@@ -16,3 +22,13 @@ sensor.hallway_nest_protect_co_status:
 sensor.hallway_nest_protect_smoke_status:
   friendly_name: Hallway Smoke
   icon: mdi:fire
+person.dennis:
+  entity_picture: /local/icons/dennis.jpg
+person.stephanie:
+  entity_picture: /local/icons/stephanie.jpg
+person.lucas:
+  entity_picture: /local/icons/lucas.jpg
+person.timo:
+  entity_picture: /local/icons/timo.jpg
+person.emilie:
+  entity_picture: /local/icons/emilie.jpg
