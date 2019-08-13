@@ -2,8 +2,6 @@ binary_sensor.adguard_protection:
   friendly_name: AdGuard Protection
 camera.sunmap:
   friendly_name: Day and Night World Map
-#light.living_room_spot_dimmer:
-#  friendly_name: Living Room Spot Lights
 sensor.attic_nest_protect_co_status:
   friendly_name: Attic CO
   icon: mdi:alert
