@@ -1,8 +1,5 @@
 homeassistant:
-  customize: !include ../customizations/customize.yaml
-
-  # Configure a default setup of Home Assistant (frontend, api, etc)
-  default_config:
+#  customize: !include ../customizations/customize.yaml
 
   auth_mfa_modules:
     - type: totp
