@@ -16,7 +16,7 @@
 default_config:
 
 homeassistant:
-  customize: !include ../customizations/customize.yaml
+  customize: !include customizations/customize.yaml
   auth_mfa_modules:
     - type: totp
   whitelist_external_dirs:
