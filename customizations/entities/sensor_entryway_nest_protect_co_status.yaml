@@ -1,0 +1,3 @@
+sensor.entryway_nest_protect_co_status:
+  friendly_name: Entryway CO
+  icon: mdi:alert
