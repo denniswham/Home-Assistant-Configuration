@@ -1,16 +1,14 @@
 background: var(--background-image)
 badges: []
 cards:
-  - cards:
-      - entity: media_player.spotify
-        type: media-control
-    type: vertical-stack
-  - cards:
-      - entity: media_player.master_bedroom_tv
-        type: media-control
-      - entity: media_player.apple_tv_master_bedroom
-        type: media-control
-    type: vertical-stack
+  - entity: media_player.living_room_tv
+    type: media-control
+  - entity: media_player.master_bedroom_tv
+    type: media-control
+  - entity: media_player.spotify
+    type: media-control
+  - entity: media_player.master_bedroom_apple_tv
+    type: media-control
 icon: 'mdi:play-circle-outline'
 path: media
 title: Media
