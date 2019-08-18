@@ -1,5 +1,5 @@
 platform: samsungtv
-mac: !secret samsungtv_mac
 host: !secret samsungtv_host
-name: Master Bedroom TV
 port: 8001
+name: Master Bedroom TV
+mac: !secret samsungtv_mac
