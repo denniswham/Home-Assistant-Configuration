@@ -3,7 +3,7 @@ badges: []
 cards:
   - cards:
       - entity: alarm_control_panel.konnected_alarm
-        name: Konnected Alarm
+        name: Alarm
         type: alarm-panel
       - entity: alarm_control_panel.alexa_guard_7514f
         states:
