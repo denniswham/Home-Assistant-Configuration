@@ -1,5 +1,5 @@
 platform: waze_travel_time
-name: Morning commute
+name: Dennis to Work
 origin: zone.home
 destination: zone.microsoft
 region: 'EU'

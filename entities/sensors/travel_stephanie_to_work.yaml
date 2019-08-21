@@ -1,0 +1,5 @@
+platform: waze_travel_time
+name: Stephanie to Work
+origin: person.stephanie
+destination: zone.hrm_online
+region: 'EU'
