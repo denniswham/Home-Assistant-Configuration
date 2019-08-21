@@ -1,0 +1,4 @@
+platform: postnl
+name: PostNL Dennis
+username: !secret postnl_dennis_username
+password: !secret postnl_dennis_password
