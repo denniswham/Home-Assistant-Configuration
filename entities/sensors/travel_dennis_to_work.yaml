@@ -2,4 +2,4 @@ platform: waze_travel_time
 name: Dennis to Work
 origin: zone.home
 destination: zone.microsoft
-region: 'EU'
+region: EU

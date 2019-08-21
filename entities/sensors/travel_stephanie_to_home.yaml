@@ -2,4 +2,4 @@ platform: waze_travel_time
 name: Stephanie to Home
 origin: person.stephanie
 destination: zone.home
-region: 'EU'
+region: EU
