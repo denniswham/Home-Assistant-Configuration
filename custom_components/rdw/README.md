@@ -109,4 +109,3 @@ Pick a random license plate from https://opendata.rdw.nl/resource/m9d7-ebf2.json
 Pick a random license plate from https://opendata.rdw.nl/resource/m9d7-ebf2.json?wam_verzekerd=Nee and add it to your `configuration.yaml`
 ##### Testing unresolved recall notifications:
 Pick a random license plate from https://opendata.rdw.nl/resource/t49b-isb7.json?code_status=O and add it to your `configuration.yaml`
-
