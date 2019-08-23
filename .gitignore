@@ -14,7 +14,7 @@ deps
 lib
 icloud
 tts
-
+lovelace-dev
 
 # Specific file ignores
 .config_entries.json
@@ -35,6 +35,7 @@ secrets.yaml
 zwcfg_*
 zwscene.xml
 zwave_device_config.yaml
+ui-lovelace-dev.yaml
 
 # ESPHome ignores
 esphome/secrets.yaml
