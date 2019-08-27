@@ -1,16 +1,245 @@
+title: Security
+path: security
 cards:
-  - entity: camera.front_door
-    show_name: false
-    show_state: false
-    type: picture-entity
-  - entity: camera.backyard
-    show_name: false
-    show_state: false
-    type: picture-entity
-  - entity: camera.sunmap
-    show_name: false
-    show_state: false
-    type: picture-entity
-icon: 'mdi:camera'
-id: cameras
-title: Cameras
+  - type: vertical-stack
+    cards:
+      - type: custom:decluttering-card
+        template: back_button
+        variables:
+          - name1: Alarm
+          - icon1: shield-home
+          - path1: alarm
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '## Security'
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: "##### Camera's"
+      - type: horizontal-stack
+        cards:
+          - !include ../includes/blank-card.yaml
+          - type: picture-entity
+            style: |
+              ha-card {
+                border-radius: var(--border-radius);
+                overflow: hidden;
+              }
+            entity: camera.front_door
+            title: Front Door Cam  
+            aspect_ratio: 16x9
+          - !include ../includes/blank-card.yaml
+      - type: horizontal-stack
+        cards:
+          - !include ../includes/blank-card.yaml
+          - type: picture-entity
+            style: |
+              ha-card {
+                border-radius: var(--border-radius);
+                overflow: hidden;
+              }
+            entity: camera.backyard
+            title: Backyard Cam
+            aspect_ratio: 16x9
+          - !include ../includes/blank-card.yaml
+
+### The following piece is for tablets only, You can leave this out if not needed.
+  - type: custom:state-switch
+    entity: user
+    states:
+      Home Assistant:
+        type: vertical-stack
+        cards:
+          - type: markdown 
+            style: |
+              ha-card {
+                background: none;
+                color: white;
+                box-shadow: none;
+                text-align: end;
+                font-size: 45px;
+                height: 155px;
+              }
+            content: '# [[ sensor.time.state ]]'
+### End of tablet code.
+
+#  - type: vertical-stack
+#    cards:
+#      - type: custom:decluttering-card
+#        template: header_text
+#        variables:
+#          - content: '##### Doors'
+#      - type: horizontal-stack
+#        cards:
+#          - !include ../includes/blank-card.yaml
+#          - type: custom:decluttering-card
+#            template: switch_button_card
+#            variables:
+#              - entity: binary_sensor.door_window_sensor_158d000236f9dd
+#              - name: Voordeur
+#              - icon: door
+#              - show_last_changed: true
+#              - tap_action: more-info
+#              - variable: icon
+#              - spin: 'mdi:door-open'
+#          - type: custom:decluttering-card
+#            template: switch_button_card
+#            variables:
+#              - entity: binary_sensor.door_window_sensor_158d000238644b
+#              - name: Woonkamer
+#              - icon: door
+#              - show_last_changed: true
+#              - tap_action: more-info
+#              - variable: icon
+#              - spin: 'mdi:door-open'
+#          - type: custom:decluttering-card
+#            template: switch_button_card
+#            variables:
+#              - entity: binary_sensor.door_window_sensor_158d000232ac1b
+#              - name: Slaapkamer
+#              - icon: door
+#              - show_last_changed: true
+#              - tap_action: more-info
+#              - variable: icon
+#              - spin: 'mdi:door-open'
+#          - !include ../includes/blank-card.yaml
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '##### Motion'
+      - type: horizontal-stack
+        cards:
+          - !include ../includes/blank-card.yaml
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: binary_sensor.entryway
+              - name: Entryway
+              - icon: motion-sensor
+              - show_last_changed: true
+              - tap_action: more-info
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: binary_sensor.kitchen
+              - name: Kitchen
+              - icon: motion-sensor
+              - show_last_changed: true
+              - tap_action: more-info
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: binary_sensor.living_room
+              - name: Livingroom
+              - icon: motion-sensor
+              - show_last_changed: true
+              - tap_action: more-info
+          - !include ../includes/blank-card.yaml
+      - type: horizontal-stack
+        cards:
+          - !include ../includes/blank-card.yaml
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: binary_sensor.office
+              - name: Office
+              - icon: motion-sensor
+              - show_last_changed: true
+              - tap_action: more-info
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: binary_sensor.garage
+              - name: Garage
+              - icon: motion-sensor
+              - show_last_changed: true
+              - tap_action: more-info
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: binary_sensor.ring_front_door_motion
+              - name: Front Door
+              - icon: motion-sensor
+              - show_last_changed: true
+              - tap_action: more-info
+          - !include ../includes/blank-card.yaml
+      - type: horizontal-stack
+        cards:
+          - !include ../includes/blank-card.yaml
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: binary_sensor.ring_backyard_motion
+              - name: Backyard
+              - icon: motion-sensor
+              - show_last_changed: true
+              - tap_action: more-info
+          - type: 'custom:button-card'
+            color_type: blank-card
+            aspect_ratio: 1/1
+          - type: 'custom:button-card'
+            color_type: blank-card
+            aspect_ratio: 1/1
+          - !include ../includes/blank-card.yaml
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '##### Alarms'
+      - type: horizontal-stack
+        cards:
+          - !include ../includes/blank-card.yaml
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: sensor.entryway_nest_protect_smoke_status
+              - name: Smoke Entryway
+              - icon: smoke-detector
+              - show_last_changed: true
+              - tap_action: more-info
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: sensor.hallway_nest_protect_smoke_status
+              - name: Smoke Hallway
+              - icon: smoke-detector
+              - show_last_changed: true
+              - tap_action: more-info
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: sensor.attic_nest_protect_smoke_status
+              - name: Smoke Attic
+              - icon: smoke-detector
+              - show_last_changed: true
+              - tap_action: more-info
+          - !include ../includes/blank-card.yaml
+      - type: horizontal-stack
+        cards:
+          - !include ../includes/blank-card.yaml
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: sensor.entryway_nest_protect_co_status
+              - name: CO Entryway
+              - icon: smoke-detector
+              - show_last_changed: true
+              - tap_action: more-info
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: sensor.hallway_nest_protect_co_status
+              - name: CO Hallway
+              - icon: smoke-detector
+              - show_last_changed: true
+              - tap_action: more-info
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: sensor.attic_nest_protect_co_status
+              - name: CO Attic
+              - icon: smoke-detector
+              - show_last_changed: true
+              - tap_action: more-info
+          - !include ../includes/blank-card.yaml
+      - !include ../includes/bottom-card.yaml # Changed/Added in 0.12.0

@@ -1,3 +1,6 @@
+dummy2:
+  initial: off 
+
 konnectedupdate:
   name: Alarm Updates
   initial: on
@@ -19,4 +22,4 @@ tv:
 tvtime:
   name: TV Time
   initial: on
-  icon: mdi:television-guide    
+  icon: mdi:television-guide

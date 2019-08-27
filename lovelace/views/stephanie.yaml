@@ -1,0 +1,22 @@
+title: Stephanie
+path:  stephanie
+cards:
+  - type: vertical-stack
+    cards:
+      - type: custom:decluttering-card
+        template: back_button
+        variables:
+          - name1: PostNL
+          - icon1: package-variant-closed
+          - path1: postnl-stephanie
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '## Stephanie Schings'
+      - type: custom:decluttering-card
+        template: person_more_info
+        variables:
+          - name: stephanie
+          - name-s: Stephanie's
+          - emailsensor: !secret stephsensor
+          - number: '13'
