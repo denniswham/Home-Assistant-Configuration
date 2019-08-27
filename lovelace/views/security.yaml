@@ -97,6 +97,13 @@ cards:
               - icon: motion-sensor
               - show_last_changed: true
               - tap_action: more-info
+          - type: 'custom:button-card'
+            color_type: blank-card
+            aspect_ratio: 1/1
+          - !include ../includes/blank-card.yaml
+      - type: horizontal-stack
+        cards:
+          - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
@@ -105,10 +112,6 @@ cards:
               - icon: motion-sensor
               - show_last_changed: true
               - tap_action: more-info
-          - !include ../includes/blank-card.yaml
-      - type: horizontal-stack
-        cards:
-          - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
@@ -117,9 +120,6 @@ cards:
               - icon: motion-sensor
               - show_last_changed: true
               - tap_action: more-info
-          - type: 'custom:button-card'
-            color_type: blank-card
-            aspect_ratio: 1/1
           - type: 'custom:button-card'
             color_type: blank-card
             aspect_ratio: 1/1
