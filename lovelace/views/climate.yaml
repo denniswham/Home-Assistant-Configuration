@@ -91,38 +91,13 @@ cards:
               - entity: sensor.living_room_thermostat_temperature
               - name: Woonkamer
               - line_color: '#ffb414'
-#          - type: custom:decluttering-card
-#            template: mini-graph-card
-#            variables:
-#              - entity: printer_am2301_temperature
-#              - name: Kleine Kamer
-#              - line_color: '#ffb414'
-#          - type: custom:decluttering-card
-#            template: mini-graph-card
-#            variables:
-#              - entity: temperature_158d0002b546e7
-#              - name: Slaapkamer
-#              - line_color: '#ffb414'
+          - type: custom:button-card
+            color_type: blank-card
+            aspect_ratio: 1/1
+          - type: custom:button-card
+            color_type: blank-card
+            aspect_ratio: 1/1
           - !include ../includes/blank-card.yaml 
-#      - type: horizontal-stack
-#        cards:
-#          - !include ../includes/blank-card.yaml 
-#          - type: custom:decluttering-card
-#            template: mini-graph-card
-#            variables:
-#              - entity: waterkoker_am2301_temperature
-#              - name: Keuken
-#              - line_color: '#ffb414'
-#          - type: custom:decluttering-card
-#            template: mini-graph-card
-#            variables:
-#              - entity: temperature_158d0002b54868
-#              - name: Badkamer
-#              - line_color: '#ffb414'
-#          - type: custom:button-card
-#            color_type: blank-card
-#            aspect_ratio: 1/1
-#          - !include ../includes/blank-card.yaml 
       - type: custom:decluttering-card
         template: header_text
         variables:
@@ -136,64 +111,12 @@ cards:
               - entity: sensor.living_room_thermostat_humidity
               - name: Woonkamer
               - line_color: '#1427ff'
-          - type: custom:decluttering-card
-            template: mini-graph-card
-            variables:
-              - entity: sensor.living_room_thermostat_humidity
-              - name: Kleine kamer
-              - line_color: '#1427ff'
-          - type: custom:decluttering-card
-            template: mini-graph-card
-            variables:
-              - entity: sensor.living_room_thermostat_humidity
-              - name: Slaapkamer
-              - line_color: '#1427ff'
-          - !include ../includes/blank-card.yaml
-      - type: horizontal-stack
-        cards:
-          - !include ../includes/blank-card.yaml 
-          - type: custom:decluttering-card
-            template: mini-graph-card
-            variables:
-              - entity: sensor.living_room_thermostat_humidity
-              - name: Keuken
-              - line_color: '#1427ff'
-          - type: custom:decluttering-card
-            template: mini-graph-card
-            variables:
-              - entity: sensor.living_room_thermostat_humidity
-              - name: Badkamer
-              - line_color: '#1427ff'
           - type: custom:button-card
             color_type: blank-card
             aspect_ratio: 1/1
-          - !include ../includes/blank-card.yaml 
-#      - type: custom:decluttering-card
-#        template: header_text
-#        variables:
-#          - content: '##### Air Pressure'
-#      - type: horizontal-stack
-#        cards:
-#          - !include ../includes/blank-card.yaml 
-#          - type: custom:decluttering-card
-#            template: mini-graph-card
-#            variables:
-#              - entity: pressure_158d0002b546e7
-#              - name: Slaapkamer
-#              - line_color: '#00d8ff'
-#              - font_size: 53
-#              - height: 120
-#          - type: custom:decluttering-card
-#            template: mini-graph-card
-#            variables:
-#              - entity: pressure_158d0002b54868
-#              - name: Badkamer
-#              - line_color: '#00d8ff'
-#              - font_size: 53
-#              - height: 120
-#          - type: custom:button-card
-#            color_type: blank-card
-#            aspect_ratio: 1/1
-#          - !include ../includes/blank-card.yaml
-#      - !include ../includes/bottom-card.yaml # Changed/Added in 0.12.0
+          - type: custom:button-card
+            color_type: blank-card
+            aspect_ratio: 1/1
+          - !include ../includes/blank-card.yaml
+      - !include ../includes/bottom-card.yaml # Changed/Added in 0.12.0
         
