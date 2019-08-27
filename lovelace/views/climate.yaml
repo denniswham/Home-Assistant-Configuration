@@ -79,18 +79,23 @@ cards:
   - type: vertical-stack
     cards:
       - type: custom:decluttering-card
-        template: header_text
+        template: header # Changed/Added in 0.12.2
         variables:
           - content: '##### Temperature'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml 
           - type: custom:decluttering-card
-            template: mini-graph-card
+            template: mini-graph  # Changed/Added in 0.12.2
             variables:
-              - entity: sensor.living_room_thermostat_temperature
+              - entities: # Changed/Added in 0.12.2 
+                  - sensor.living_room_thermostat_temperature
               - name: Woonkamer
               - line_color: '#ffb414'
+              - font_size: 53
+              - decimals: 1
+              - graph: bar
+              - extrema: true
           - type: custom:button-card
             color_type: blank-card
             aspect_ratio: 1/1
@@ -99,18 +104,23 @@ cards:
             aspect_ratio: 1/1
           - !include ../includes/blank-card.yaml 
       - type: custom:decluttering-card
-        template: header_text
+        template: header # Changed/Added in 0.12.2
         variables:
           - content: '##### Humidity'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml 
           - type: custom:decluttering-card
-            template: mini-graph-card
+            template: mini-graph  # Changed/Added in 0.12.2
             variables:
-              - entity: sensor.living_room_thermostat_humidity
+              - entities: # Changed/Added in 0.12.2 
+                  - sensor.living_room_thermostat_humidity
               - name: Woonkamer
               - line_color: '#1427ff'
+              - font_size: 53
+              - decimals: 1
+              - graph: bar
+              - extrema: true
           - type: custom:button-card
             color_type: blank-card
             aspect_ratio: 1/1
@@ -118,5 +128,4 @@ cards:
             color_type: blank-card
             aspect_ratio: 1/1
           - !include ../includes/blank-card.yaml
-      - !include ../includes/bottom-card.yaml # Changed/Added in 0.12.0
-        
+      - !include ../includes/bottom-card.yaml
