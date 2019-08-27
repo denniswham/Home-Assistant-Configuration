@@ -35,15 +35,12 @@ cards:
             aspect_ratio: 4x6
             default_zoom: 15
             entities:
-              - person.jimmy
+              - person.dennis
               - person.stephanie
+              - person.lucas
+              - person.timo
               - zone.home
-              - zone.ah_eindhoven
-              - zone.ouders_jim
-              - zone.ouders_steph
-              - zone.joe_mann
-              - zone.plasje_best
-              - zone.losloop_bosje
-              - zone.vtc_best
+              - zone.microsoft
+              - zone.hrm_online
           - !include ../includes/blank-card.yaml
       - !include ../includes/bottom-card.yaml # Changed/Added in 0.12.0
