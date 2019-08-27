@@ -138,7 +138,7 @@ cards:
           template: person_elements
           variables:
             - name: dennis
-            - namesensor: !secret dennissensor
+#            - namesensor: !secret dennissensor
             - direction: right
             - image: '/local/images/dennis_small.png'
             - postnl: sensor.postnl_dennis
