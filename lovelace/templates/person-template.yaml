@@ -35,7 +35,7 @@ default:
   - icon: home
 
   # Unread Emails
-  - namesensor: sensor.youremailsensor
+#  - namesensor: sensor.youremailsensor
 
   # Image
   - image: url('/local/yourimage.png')
