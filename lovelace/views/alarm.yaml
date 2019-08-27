@@ -34,10 +34,6 @@ cards:
       - type: custom:decluttering-card
         template: header_text
         variables:
-          - content: '## Alarm Control'
-      - type: custom:decluttering-card
-        template: header_text
-        variables:
           - content: '##### Keypad Alarm'
       - type: horizontal-stack
         cards: 
