@@ -150,47 +150,6 @@ cards:
                 navigation_path: /lovelace/dennis
       - !include ../includes/blank-card.yaml
 
-  # Photo Middle (This is the dog in my config)
-  - type: horizontal-stack
-    cards:
-      - !include ../includes/blank-card.yaml
-      - type: picture-elements
-        style: |
-          ha-card {
-            border-radius: var(--border-radius);
-            overflow: hidden;
-          }
-        image: '/local/images/timo.jpg'
-        elements:
-          - type: image
-            entity: person.timo
-            image: '/local/images/timo.jpg'
-            tap_action:
-              action: navigate
-              navigation_path: /lovelace/dog
-            hold_action:
-              action: navigate
-              navigation_path: /lovelace/dog
-            style:
-              left: 50%
-              top: 50%
-              width: 100%
-              heigth: 100%
-          - type: state-label
-            entity: person.tala
-            style:
-              left: 0
-              bottom: 0
-              pointer-events: none
-              font-size: 16px
-              line-height: 24px
-              color: white
-              background-color: rgba(0, 0, 0, 0.3)
-              width: 100%
-              transform: initial
-              padding: 0 8px
-      - !include ../includes/blank-card.yaml
-
 # Frontpage Shortcut Buttons, These are once again conditional
 # If the alarm is set to anything but disarmed these buttons
 # will hide and only the quick access menu will be accessible.
