@@ -97,6 +97,6 @@ cards:
                         box-shadow: none;
                       }
                     aspect_ratio: 100%
-                    url: https://embed.windy.com/embed2.html?lat=51.432&lon=5.477&zoom=11&level=surface&overlay=rain&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&detailLat=52.085&detailLon=4.883&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1
+                    url: https://embed.windy.com/embed2.html?lat=52.085&lon=4.883&zoom=11&level=surface&overlay=rain&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&detailLat=52.085&detailLon=4.883&metricWind=km%2Fh&metricTemp=%C2%B0C&radarRange=-1
                   - !include ../includes/blank-card.yaml
               - !include ../includes/bottom-card.yaml # Changed/Added in 0.12.0

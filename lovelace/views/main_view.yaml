@@ -40,7 +40,7 @@ cards:
                     border-radius: var(--border-radius);
                     overflow: hidden;
                   }
-                entity: camera.gallerij_camera
+                entity: camera.front_door
               - !include ../includes/blank-card.yaml # Changed/Added in 0.12.0
           - !include ../notifications/notifications.yaml # Changed/Added in 0.12.0
 ### End of tablet part

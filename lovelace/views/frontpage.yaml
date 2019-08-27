@@ -6,7 +6,7 @@ type: vertical-stack
 cards:
   - type: conditional
     conditions:
-      - entity: alarm_control_panel.home_alarm
+      - entity: alarm_control_panel.konnected_alarm
         state: 'disarmed'
     card:
       type: custom:swipe-card
@@ -22,7 +22,7 @@ cards:
             - icon1: human-greeting
             - lovelace1: profile
             - path1: ' '
-            - entity3: alarm_control_panel.home_alarm
+            - entity3: alarm_control_panel.konnected_alarm
             - name3: Alarm 
             - icon3: shield-check
             - path3: alarm
@@ -35,7 +35,7 @@ cards:
 
   - type: conditional
     conditions:
-      - entity: alarm_control_panel.home_alarm
+      - entity: alarm_control_panel.konnected_alarm
         state_not: 'disarmed'
     card:
       type: custom:swipe-card
@@ -51,7 +51,7 @@ cards:
             - name1: Security
             - icon1: cctv
             - path1: security
-            - entity3: alarm_control_panel.home_alarm
+            - entity3: alarm_control_panel.konnected_alarm
             - name3: Alarm 
             - icon3: shield-check
             - path3: alarm
@@ -112,13 +112,13 @@ cards:
   # Right Photo
       - type: conditional
         conditions:
-          - entity: person.jimmy
+          - entity: person.dennis
             state_not: "home"
         card:
           type: custom:decluttering-card
           template: person_elements
           variables:
-            - name: jimmy
+            - name: dennis
             - namesensor: !secret jimsensor
             - direction: right
             - image: '/local/images/jimmy_small.png'
@@ -131,13 +131,13 @@ cards:
                 navigation_path: /lovelace/jimmy
       - type: conditional
         conditions:
-          - entity: person.jimmy
+          - entity: person.dennis
             state: "home"
         card:
           type: custom:decluttering-card
           template: person_elements
           variables:
-            - name: jimmy
+            - name: dennis
             - namesensor: !secret jimsensor
             - direction: right
             - image: '/local/images/jimmy_small.png'
@@ -147,7 +147,7 @@ cards:
             - icon: office-building
             - tap_action:
                 action: navigate
-                navigation_path: /lovelace/jimmy
+                navigation_path: /lovelace/dennis
       - !include ../includes/blank-card.yaml
 
   # Photo Middle (This is the dog in my config)
@@ -199,7 +199,7 @@ cards:
   # First Row
   - type: conditional
     conditions:
-      - entity: alarm_control_panel.home_alarm
+      - entity: alarm_control_panel.konnected_alarm
         state: 'disarmed'
     card:
       type: horizontal-stack
