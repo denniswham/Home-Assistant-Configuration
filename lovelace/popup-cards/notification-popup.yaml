@@ -526,8 +526,8 @@ input_boolean.notification_alarm:
                   action: call-service
                   service: alarm_control_panel.alarm_disarm
                   service_data:
-                    entity_id: alarm_control_panel.home_alarm
-                    data: !secret alarmcode
+                    entity_id: alarm_control_panel.konnected_alarm
+#                    data: !secret alarmcode
                   haptic: light
           - !include ../includes/blank-card.yaml
       - type: horizontal-stack
@@ -542,8 +542,8 @@ input_boolean.notification_alarm:
                   action: call-service
                   service: alarm_control_panel.alarm_arm_away
                   service_data:
-                    entity_id: alarm_control_panel.home_alarm
-                    data: !secret alarmcode
+                    entity_id: alarm_control_panel.konnected_alarm
+#                    data: !secret alarmcode
                   haptic: light
           - !include ../includes/blank-card.yaml
       - type: horizontal-stack
@@ -558,8 +558,8 @@ input_boolean.notification_alarm:
                   action: call-service
                   service: alarm_control_panel.alarm_arm_home
                   service_data:
-                    entity_id: alarm_control_panel.home_alarm
-                    data: !secret alarmcode
+                    entity_id: alarm_control_panel.konnected_alarm
+#                    data: !secret alarmcode
                   haptic: light
           - !include ../includes/blank-card.yaml
       - !include ../includes/bottom-card.yaml
