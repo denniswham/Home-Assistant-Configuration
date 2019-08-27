@@ -49,10 +49,10 @@ views:
 #  - !include lovelace/views/energy.yaml
 #  - !include lovelace/views/other.yaml
 #  - !include lovelace/views/currently_on.yaml
-#  - !include lovelace/views/location.yaml
+  - !include lovelace/views/location.yaml
   - !include lovelace/views/themes.yaml
-#  - !include lovelace/views/postnl-jimmy.yaml
-#  - !include lovelace/views/postnl-stephanie.yaml
+  - !include lovelace/views/postnl-dennis.yaml
+  - !include lovelace/views/postnl-stephanie.yaml
   - !include lovelace/views/weather.yaml
 # Note that this order and the way this works might change in the near future.
 # It will be the removal of swipe-cards in favor of CCH swipe gestures.
