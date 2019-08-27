@@ -284,23 +284,6 @@ cards:
             - card_color: 'rgba(9, 195, 242, 0.5)'
         - !include ../includes/blank-card.yaml
 
-  # Hond
-  - type: conditional
-    conditions:
-      - entity: person.tala
-        state_not: home
-    card:
-      type: horizontal-stack
-      cards:
-        - !include ../includes/blank-card.yaml
-        - type: custom:decluttering-card
-          template: notification_template
-          variables:
-            - entity: input_boolean.notification_tala
-            - icon: dog-side
-            - name: Tala is niet thuis!
-            - card_color: 'rgba(0, 255, 251, 0.5)'
-        - !include ../includes/blank-card.yaml
 
   # Motion Gallerij
   - type: conditional
@@ -595,26 +578,6 @@ cards:
             - icon: gift-outline
             - name: "[[[ return `Jos Schings is vandaag ${states['sensor.birthday_jos_schings'].attributes.years} geworden!` ]]]"
             - card_color: 'rgba(4, 255, 0, 0.5)'
-        - !include ../includes/blank-card.yaml
-
-  # Tala
-  - type: conditional
-    conditions:
-      - entity: sensor.birthday_tala
-        state: '0'
-    card:
-      type: horizontal-stack
-      cards:
-        - !include ../includes/blank-card.yaml
-        - type: custom:decluttering-card
-          template: notification_template
-          variables:
-            - entity: input_boolean.notification_tala
-            - icon: dog-side
-            - name: "[[[ return `Tala is vandaag ${states['sensor.birthday_jimmy_schings'].attributes.years} geworden!` ]]]"
-            - card_color: 'rgba(4, 255, 0, 0.5)'
-            - hold_action:
-                action: none
         - !include ../includes/blank-card.yaml
 
   # Ad van Dartel

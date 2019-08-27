@@ -40,9 +40,6 @@ cards:
                   - entity: sensor.birthday_jimmy_schings
                     name: Jimmy
                     icon: mdi:gift
-                  - entity: sensor.birthday_tala
-                    name: Tala
-                    icon: mdi:dog-side
                   - entity: sensor.birthday_helen_van_duuren
                     name: Helen
                     icon: mdi:human-female

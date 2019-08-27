@@ -36,7 +36,6 @@ views:
   - !include lovelace/views/alarm.yaml
 #  - !include lovelace/views/jimmy.yaml
 #  - !include lovelace/views/stephanie.yaml
-#  - !include lovelace/views/tala.yaml
 #  - !include lovelace/views/scenes.yaml
 #  - !include lovelace/views/main_menu.yaml
 #  - !include lovelace/views/cleaning.yaml

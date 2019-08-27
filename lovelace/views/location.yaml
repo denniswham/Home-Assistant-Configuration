@@ -36,7 +36,6 @@ cards:
             default_zoom: 15
             entities:
               - person.jimmy
-              - person.tala
               - person.stephanie
               - zone.home
               - zone.ah_eindhoven

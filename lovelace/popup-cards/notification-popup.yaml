@@ -689,37 +689,6 @@ input_boolean.notification_motion_bijkeuken:
           - !include ../includes/blank-card.yaml
       - !include ../includes/bottom-card.yaml
 
-input_boolean.notification_tala:
-  title: Tala
-  style:
-    color: white
-    border-radius: var(--border-radius)
-    background: var(--background-image)
-  card:
-    type: vertical-stack
-    cards:
-      - type: custom:decluttering-card
-        template: header_text
-        variables:
-          - content: '##### Actions'
-      - type: horizontal-stack
-        cards:
-          - !include ../includes/blank-card.yaml
-          - type: custom:decluttering-card
-            template: notification_template
-            variables:
-              - icon_color: var(--upcoming-color)
-              - name_color: var(--upcoming-color)
-              - icon: map-marker
-              - name: Tile app openen
-              - card_color: var(--homekit-card-off)
-              - tap_action:
-                  action: url
-                  url: tile://
-                  haptic: light
-          - !include ../includes/blank-card.yaml
-      - !include ../includes/bottom-card.yaml
-
 input_boolean.notification_apk:
   title: APK
   style:
