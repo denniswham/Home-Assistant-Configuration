@@ -31,7 +31,7 @@ cards:
         state_not: "Clean"
       - entity: input_select.washing_machine_status
         state_not: "Clean"
-      - entity: alarm_control_panel.home_alarm
+      - entity: alarm_control_panel.konnected_alarm
         state: disarmed
       - entity: group.device_status
         state: home
@@ -84,7 +84,7 @@ cards:
   # Alarm Triggered
   - type: conditional
     conditions:
-      - entity: alarm_control_panel.home_alarm
+      - entity: alarm_control_panel.konnected_alarm
         state: "triggered"
     card:
       type: horizontal-stack
@@ -102,9 +102,9 @@ cards:
   # Alarm Armed
   - type: conditional
     conditions:
-      - entity: alarm_control_panel.home_alarm
+      - entity: alarm_control_panel.konnected_alarm
         state_not: disarmed
-      - entity: alarm_control_panel.home_alarm
+      - entity: alarm_control_panel.konnected_alarm
         state_not: pending
     card:
       type: horizontal-stack
@@ -122,7 +122,7 @@ cards:
   # Alarm Disarmed Not Home
   - type: conditional
     conditions:
-      - entity: alarm_control_panel.home_alarm
+      - entity: alarm_control_panel.konnected_alarm
         state: disarmed
       - entity: group.device_status
         state_not: home
@@ -142,7 +142,7 @@ cards:
   # Alarm Pending
   - type: conditional
     conditions:
-      - entity: alarm_control_panel.home_alarm
+      - entity: alarm_control_panel.konnected_alarm
         state: pending
     card:
       type: horizontal-stack

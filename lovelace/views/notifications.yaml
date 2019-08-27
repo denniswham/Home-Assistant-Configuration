@@ -85,7 +85,7 @@ cards:
   # Alarm Triggered
   - type: conditional
     conditions:
-      - entity: alarm_control_panel.home_alarm
+      - entity: alarm_control_panel.konnected_alarm
         state: "triggered"
     card:
       type: horizontal-stack
