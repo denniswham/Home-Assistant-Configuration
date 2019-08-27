@@ -26,7 +26,7 @@ views:
 #  - !include lovelace/views/main_view.yaml
 #  - !include lovelace/views/lights.yaml
 #  - !include lovelace/views/devices.yaml
-  - !include lovelace/views/security.yaml
+#  - !include lovelace/views/security.yaml
 # The views below are used as fake popup cards
 # They are non swipable and will behave just like
 # a popup card or conditional cards. The order of
