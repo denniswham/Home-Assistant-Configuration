@@ -1,18 +1,18 @@
-title: PostNL Jimmy
-path: postnl-jimmy
+title: PostNL Dennis
+path: postnl-dennis
 cards:
   - type: vertical-stack
     cards:
       - type: custom:decluttering-card
         template: back_button
         variables:
-          - name1: Jimmy
+          - name1: Dennis
           - icon1: account
-          - path1: jimmy
+          - path1: dennis
       - type: custom:decluttering-card
         template: header_text
         variables:
-          - content: '## Jimmy Schings'
+          - content: '## Dennis Ham'
       - type: custom:decluttering-card
         template: header_text
         variables:
@@ -41,7 +41,7 @@ cards:
               - aspect_ratio: 6/1
               - tap_action:
                   action: navigate
-                  navigation_path: /lovelace/jimmy
+                  navigation_path: /lovelace/dennis
                   haptic: light
               - hold_action:
                   action: navigate
@@ -67,8 +67,8 @@ cards:
                 font-size: 12px;
                 opacity: 0.8;
               }
-            delivery: sensor.postnl_jimmy_delivery
-            letters: sensor.postnl_jimmy_letters
+            delivery: sensor.postnl_dennis_delivery
+            letters: sensor.postnl_dennis_letters
             hide:
               header: true
               delivered: false

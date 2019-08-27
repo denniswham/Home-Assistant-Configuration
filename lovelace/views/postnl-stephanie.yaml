@@ -12,7 +12,7 @@ cards:
       - type: custom:decluttering-card
         template: header_text
         variables:
-          - content: '## Stephanie Schings'
+          - content: '## Stephanie Ham'
       - type: custom:decluttering-card
         template: header_text
         variables:

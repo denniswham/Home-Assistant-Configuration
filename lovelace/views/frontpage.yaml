@@ -128,7 +128,7 @@ cards:
             - icon: home
             - tap_action:
                 action: navigate
-                navigation_path: /lovelace/jimmy
+                navigation_path: /lovelace/dennis
       - type: conditional
         conditions:
           - entity: person.dennis
