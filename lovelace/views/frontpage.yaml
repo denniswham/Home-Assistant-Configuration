@@ -81,7 +81,7 @@ cards:
             - name: stephanie
 #            - namesensor: !secret stephaniesensor
             - direction: left
-            - image: '/local/images/stephanie_small.png'
+            - image: '/local/images/stephanie_small.jpg'
             - postnl: sensor.postnl_stephanie
             - reistijd: sensor.stephanie_to_work
             - battery: sensor.phone_stephanie_battery
@@ -100,7 +100,7 @@ cards:
             - name: stephanie
 #            - namesensor: !secret stephaniesensor
             - direction: left
-            - image: '/local/images/stephanie_small.png'
+            - image: '/local/images/stephanie_small.jpg'
             - postnl: sensor.postnl_stephanie
             - reistijd: sensor.stephanie_to_home
             - battery: sensor.phone_stephanie_battery
@@ -121,7 +121,7 @@ cards:
             - name: dennis
 #            - namesensor: !secret dennissensor
             - direction: right
-            - image: '/local/images/dennis_small.png'
+            - image: '/local/images/dennis_small.jpg'
             - postnl: sensor.postnl_dennis
             - reistijd: sensor.dennis_to_work
             - battery: sensor.phone_dennis_battery
@@ -140,7 +140,7 @@ cards:
             - name: dennis
 #            - namesensor: !secret dennissensor
             - direction: right
-            - image: '/local/images/dennis_small.png'
+            - image: '/local/images/dennis_small.jpg'
             - postnl: sensor.postnl_dennis
             - reistijd: dennis_to_work
             - battery: sensor.phone_dennis_battery
@@ -160,11 +160,11 @@ cards:
             border-radius: var(--border-radius);
             overflow: hidden;
           }
-        image: '/local/images/tala2.png'
+        image: '/local/images/timo.jpg'
         elements:
           - type: image
-            entity: person.tala
-            image: '/local/images/tala2.png'
+            entity: person.timo
+            image: '/local/images/timo.jpg'
             tap_action:
               action: navigate
               navigation_path: /lovelace/dog
@@ -282,7 +282,7 @@ cards:
   # Second Row
   - type: conditional
     conditions:
-      - entity: alarm_control_panel.home_alarm
+      - entity: alarm_control_panel.konnected_alarm
         state: 'disarmed'
     card:
       type: horizontal-stack
