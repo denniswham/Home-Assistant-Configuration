@@ -34,7 +34,11 @@ cards:
       - type: custom:decluttering-card
         template: header_text
         variables:
-          - content: '##### Keypad Alexa Guard'
+          - content: '## Alarm Control'
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '##### Keypad Alarm'
       - type: horizontal-stack
         cards: 
           - !include ../includes/blank-card.yaml
@@ -47,5 +51,5 @@ cards:
                 color: var(--name-color-on);
                 opacity: 0.8;
               }
-            entity: alarm_control_panel.alexa_guard_7514f
+            entity: alarm_control_panel.konnected_alarm
           - !include ../includes/blank-card.yaml
