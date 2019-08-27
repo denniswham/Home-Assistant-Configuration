@@ -79,12 +79,12 @@ cards:
           template: person_elements
           variables:
             - name: stephanie
-            - namesensor: !secret stephsensor
+#            - namesensor: !secret stephaniesensor
             - direction: left
             - image: '/local/images/stephanie_small.png'
-            - postnl: sensor.postnl_stephanie_packages
-            - reistijd: sensor.reistijd_stephanie
-            - battery: sensor.battery_level_13
+            - postnl: sensor.postnl_stephanie
+            - reistijd: sensor.stephanie_to_work
+            - battery: sensor.phone_stephanie_battery
             - icon: home
             - tap_action:
                 action: navigate
@@ -98,12 +98,12 @@ cards:
           template: person_elements
           variables:
             - name: stephanie
-            - namesensor: !secret stephsensor
+#            - namesensor: !secret stephaniesensor
             - direction: left
             - image: '/local/images/stephanie_small.png'
-            - postnl: sensor.postnl_stephanie_packages
-            - reistijd: sensor.reistijd_stephanie_work
-            - battery: sensor.battery_level_13
+            - postnl: sensor.postnl_stephanie
+            - reistijd: sensor.stephanie_to_home
+            - battery: sensor.phone_stephanie_battery
             - icon: office-building
             - tap_action:
                 action: navigate
@@ -119,12 +119,12 @@ cards:
           template: person_elements
           variables:
             - name: dennis
-            - namesensor: !secret jimsensor
+#            - namesensor: !secret dennissensor
             - direction: right
-            - image: '/local/images/jimmy_small.png'
-            - postnl: sensor.postnl_jimmy_packages
-            - reistijd: sensor.reistijd_jimmy
-            - battery: sensor.battery_level_16
+            - image: '/local/images/dennis_small.png'
+            - postnl: sensor.postnl_dennis
+            - reistijd: sensor.dennis_to_work
+            - battery: sensor.phone_dennis_battery
             - icon: home
             - tap_action:
                 action: navigate
@@ -138,12 +138,12 @@ cards:
           template: person_elements
           variables:
             - name: dennis
-            - namesensor: !secret jimsensor
+            - namesensor: !secret dennissensor
             - direction: right
-            - image: '/local/images/jimmy_small.png'
-            - postnl: sensor.postnl_jimmy_packages
-            - reistijd: sensor.reistijd_jimmy_work
-            - battery: sensor.battery_level_16
+            - image: '/local/images/dennis_small.png'
+            - postnl: sensor.postnl_dennis
+            - reistijd: dennis_to_work
+            - battery: sensor.phone_dennis_battery
             - icon: office-building
             - tap_action:
                 action: navigate

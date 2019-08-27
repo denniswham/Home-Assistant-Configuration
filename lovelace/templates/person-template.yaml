@@ -22,7 +22,7 @@
 # Default Config
 default:
   # Name/Person (Don't capitalize uncapitalized names!)
-  - name: stephanie
+  - name: dennis
 
   # Phone Battery Sensor
   - battery: sensor.batterysensorhere
