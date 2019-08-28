@@ -83,7 +83,7 @@ cards:
             - direction: left
             - image: '/local/images/stephanie_small.jpg'
             - postnl: sensor.postnl_stephanie
-            - reistijd: sensor.stephanie_to_work
+            - reistijd: sensor.stephanie_to_home
             - battery: sensor.phone_stephanie_battery
             - icon: home
             - tap_action:
@@ -102,7 +102,7 @@ cards:
             - direction: left
             - image: '/local/images/stephanie_small.jpg'
             - postnl: sensor.postnl_stephanie
-            - reistijd: sensor.stephanie_to_home
+            - reistijd: sensor.stephanie_to_work
             - battery: sensor.phone_stephanie_battery
             - icon: office-building
             - tap_action:
@@ -123,7 +123,7 @@ cards:
             - direction: right
             - image: '/local/images/dennis_small.jpg'
             - postnl: sensor.postnl_dennis
-            - reistijd: sensor.dennis_to_work
+            - reistijd: sensor.dennis_to_home
             - battery: sensor.phone_dennis_battery
             - icon: home
             - tap_action:
@@ -142,7 +142,7 @@ cards:
             - direction: right
             - image: '/local/images/dennis_small.jpg'
             - postnl: sensor.postnl_dennis
-            - reistijd: dennis_to_work
+            - reistijd: sensor.dennis_to_work
             - battery: sensor.phone_dennis_battery
             - icon: office-building
             - tap_action:
