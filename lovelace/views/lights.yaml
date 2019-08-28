@@ -14,15 +14,15 @@ cards:
       - type: custom:decluttering-card
         template: header_text
         variables:
-          - content: '##### Woonkamer'
+          - content: '##### Living Room'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
-              - entity: light.woonkamer_plafond
-              - name: Plafond
+              - entity: light.qubino_goap_zmnhdd1_flush_dimmer
+              - name: Ceiling
               - icon: ceiling-light
               - label: !include ../includes/brightness-label.yaml
               - grid:
@@ -30,8 +30,8 @@ cards:
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
-              - entity: light.eettafel_lamp
-              - name: Eettafel
+              - entity: light.eettafel_light
+              - name: Dining Table light
               - icon: ceiling-light
               - label: !include ../includes/brightness-label.yaml
               - grid:
@@ -40,9 +40,9 @@ cards:
             template: switch_button_card
             variables:
               - size: 25%
-              - entity: light.tafel_lamp
-              - name: Tafellamp
-              - icon: lamp
+              - entity: light.tafel_light
+              - name: Table Light
+              - icon: light
               - label: !include ../includes/brightness-label.yaml
               - grid:
                   !include ../includes/light-devices-grid.yaml
@@ -53,16 +53,16 @@ cards:
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
-              - entity: light.vloerlamp
-              - name: Vloerlamp
-              - icon: floor-lamp
+              - entity: light.vloerlight
+              - name: Floor Lights
+              - icon: floor-light
               - label: !include ../includes/brightness-label.yaml
               - grid:
                   !include ../includes/light-devices-grid.yaml
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
-              - entity: light.woonkamer_led_lampen
+              - entity: light.woonkamer_led_lighten
               - name: LEDs
               - icon: led-strip
               - label: !include ../includes/brightness-label.yaml
@@ -81,7 +81,7 @@ cards:
       - type: custom:decluttering-card
         template: header_text
         variables:
-          - content: '##### Slaapkamer'
+          - content: '##### Master Bedroom'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml
@@ -91,7 +91,7 @@ cards:
               - size: 25%
               - entity: light.nachtkastje_stephanie
               - name: Stephanie
-              - icon: lamp
+              - icon: light
               - label: !include ../includes/brightness-label.yaml
               - grid:
                   !include ../includes/light-devices-grid.yaml
@@ -100,9 +100,9 @@ cards:
             template: switch_button_card
             variables:
               - size: 25%
-              - entity: light.nachtkastje_jimmy
-              - name: Jimmy
-              - icon: lamp
+              - entity: light.nachtkastje_Dennis
+              - name: Dennis
+              - icon: light
               - label: !include ../includes/brightness-label.yaml
               - grid:
                   !include ../includes/light-devices-grid.yaml
@@ -110,7 +110,7 @@ cards:
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
-              - entity: light.slaapkamer_led_lampen
+              - entity: light.master_bedroom_led_lighten
               - name: LEDs
               - icon: led-strip
               - label: !include ../includes/brightness-label.yaml
@@ -121,15 +121,15 @@ cards:
       - type: custom:decluttering-card
         template: header_text
         variables:
-          - content: '##### Kleine Kamer'
+          - content: '##### Guest Room'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
-              - entity: light.kleine_kamer_plafondlampen
-              - name: Plafond
+              - entity: light.kleine_kamer_Ceilinglighten
+              - name: Ceiling
               - icon: ceiling-light
               - label: !include ../includes/brightness-label.yaml
               - grid:
@@ -149,23 +149,23 @@ cards:
           - !include ../includes/blank-card.yaml
 
 ### The following piece is for tablets only, You can leave this out if not needed.
-  - type: custom:state-switch
-    entity: user
-    states:
-      Home Assistant:
-        type: vertical-stack
-        cards:
-          - type: markdown 
-            style: |
-              ha-card {
-                background: none;
-                color: white;
-                box-shadow: none;
-                text-align: end;
-                font-size: 45px;
-                height: 155px;
-              }
-            content: '# [[ sensor.time.state ]]'
+#  - type: custom:state-switch
+#    entity: user
+#    states:
+#      Home Assistant:
+#        type: vertical-stack
+#        cards:
+#          - type: markdown 
+#            style: |
+#              ha-card {
+#                background: none;
+#                color: white;
+#                box-shadow: none;
+#                text-align: end;
+#                font-size: 45px;
+#                height: 155px;
+#              }
+#            content: '# [[ sensor.time.state ]]'
 ### End of tablet code.
 
   - type: vertical-stack
@@ -173,15 +173,15 @@ cards:
       - type: custom:decluttering-card
         template: header_text
         variables:
-          - content: '##### Keuken'
+          - content: '##### Kitchen'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
-              - entity: light.keuken_plafondlampen
-              - name: Plafond
+              - entity: light.kitchen_Ceilinglighten
+              - name: Ceiling
               - icon: ceiling-light
               - label: !include ../includes/brightness-label.yaml
               - grid:
@@ -189,7 +189,7 @@ cards:
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
-              - entity: switch.keukenspots
+              - entity: switch.kitchenspots
               - name: Spotjes
               - icon: track-light
               - grid:
@@ -197,8 +197,8 @@ cards:
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
-              - entity: light.bijkeukenlamp
-              - name: Bijkeuken
+              - entity: light.bijkitchenlight
+              - name: BijKitchen
               - icon: ceiling-light
               - label: !include ../includes/brightness-label.yaml
               - grid:
@@ -207,14 +207,14 @@ cards:
       - type: custom:decluttering-card
         template: header_text
         variables:
-          - content: '##### Hal'
+          - content: '##### Entryway'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
-              - entity: light.entree_lamp
+              - entity: light.entryway_light
               - name: Entree
               - icon: ceiling-light
               - size: 30%
@@ -223,7 +223,7 @@ cards:
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
-              - entity: light.gang_lamp
+              - entity: light.gang_light
               - name: Gang
               - icon: ceiling-light
               - size: 30%
@@ -236,7 +236,7 @@ cards:
       - type: custom:decluttering-card
         template: header_text
         variables:
-          - content: '##### Overige'
+          - content: '##### Others'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml
@@ -252,7 +252,7 @@ cards:
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
-              - entity: light.toiletlamp
+              - entity: light.toiletlight
               - name: Toilet
               - icon: ceiling-light
               - label: !include ../includes/brightness-label.yaml
@@ -261,7 +261,7 @@ cards:
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
-              - entity: light.balkonlamp
+              - entity: light.balkonlight
               - name: Balkon
               - icon: wall-sconce
               - label: !include ../includes/brightness-label.yaml

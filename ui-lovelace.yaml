@@ -24,7 +24,7 @@ background: var(--background-image) # This is the background image that will be 
 views:
   - !include lovelace/views/climate.yaml
   - !include lovelace/views/main_view.yaml
-#  - !include lovelace/views/lights.yaml
+  - !include lovelace/views/lights.yaml
 #  - !include lovelace/views/devices.yaml
   - !include lovelace/views/security.yaml
 # The views below are used as fake popup cards
@@ -34,7 +34,7 @@ views:
 #  - !include lovelace/views/vacuum.yaml
 #  - !include lovelace/views/vacuum-zoned-cleaning.yaml
   - !include lovelace/views/alarm.yaml
-#  - !include lovelace/views/jimmy.yaml
+#  - !include lovelace/views/dennis.yaml
 #  - !include lovelace/views/stephanie.yaml
 #  - !include lovelace/views/scenes.yaml
 #  - !include lovelace/views/main_menu.yaml
