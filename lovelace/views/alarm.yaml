@@ -50,4 +50,6 @@ cards:
                 opacity: 0.8;
               }
             entity: alarm_control_panel.alexa_guard_7514f
+            states:
+              - arm_away
           - !include ../includes/blank-card.yaml
