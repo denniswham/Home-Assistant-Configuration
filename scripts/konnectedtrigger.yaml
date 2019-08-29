@@ -2,7 +2,9 @@ konnectedtrigger:
   alias: 'Konnected Trigger'
   sequence:
     - service: switch.turn_on
-      entity_id: switch.siren
+      entity_id: switch.alarm_siren
+    - service: switch.turn_on
+      entity_id: switch.backyard_siren
     - service: notify.alexa_media
       data:
         data:

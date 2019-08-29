@@ -10,5 +10,7 @@ trigger:
   to: disarmed
 action:
 - service: switch.turn_off
-  entity_id: switch.siren
+  entity_id: switch.alarm_siren
+- service: switch.turn_off
+  entity_id: switch.backyard_siren
 id: dd7b5484487942d08e18f10f57623daf
