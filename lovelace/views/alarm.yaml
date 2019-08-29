@@ -35,6 +35,28 @@ cards:
         template: header_text # Changed/Added in 0.12.2
         variables:
           - content: '##### Controls'
+  - type: vertical-stack
+    cards:
+      - type: custom:decluttering-card
+        template: header_text
+        variables:
+          - content: '##### Keypad Alexa Guard'
+      - type: horizontal-stack
+        cards: 
+          - !include ../includes/blank-card.yaml
+          - type: alarm-panel
+            style: |
+              ha-card {
+                border-radius: var(--border-radius);
+                background: var(--homekit-card-off);
+                --label-badge-text-color: var(--label-color-off);
+                color: var(--name-color-on);
+                opacity: 0.8;
+              }
+            entity: alarm_control_panel.alexa_guard_7514f
+            states:
+              - arm_away
+          - !include ../includes/blank-card.yaml
       - type: horizontal-stack
         cards: 
           - !include ../includes/blank-card.yaml
@@ -68,26 +90,4 @@ cards:
               - tap_action:
                   action: toggle
                   haptic: light
-          - !include ../includes/blank-card.yaml
-  - type: vertical-stack
-    cards:
-      - type: custom:decluttering-card
-        template: header_text
-        variables:
-          - content: '##### Keypad Alexa Guard'
-      - type: horizontal-stack
-        cards: 
-          - !include ../includes/blank-card.yaml
-          - type: alarm-panel
-            style: |
-              ha-card {
-                border-radius: var(--border-radius);
-                background: var(--homekit-card-off);
-                --label-badge-text-color: var(--label-color-off);
-                color: var(--name-color-on);
-                opacity: 0.8;
-              }
-            entity: alarm_control_panel.alexa_guard_7514f
-            states:
-              - arm_away
           - !include ../includes/blank-card.yaml
