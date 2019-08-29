@@ -1,0 +1,4 @@
+climateupdate: 
+  name: Thermostat Updates
+  initial: on
+  icon: mdi:thermostat

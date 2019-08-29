@@ -1,0 +1,4 @@
+tv:
+  name: TV
+  initial: off
+  icon: mdi:television
