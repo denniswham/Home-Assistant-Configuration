@@ -53,7 +53,7 @@ cards:
             variables:
               - entity: switch.alarm_siren
               - name: Alarm Siren
-              - icon: mdi:alarm-light
+              - icon: mdi:alarm-bell
               - show_last_changed: true
               - tap_action:
                   action: toggle
@@ -63,7 +63,7 @@ cards:
             variables:
               - entity: switch.backyard_siren
               - name: Backyard Siren
-              - icon: mdi:alarm-light
+              - icon: mdi:alarm-bell
               - show_last_changed: true
               - tap_action:
                   action: toggle
