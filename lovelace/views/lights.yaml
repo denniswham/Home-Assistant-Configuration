@@ -21,7 +21,7 @@ cards:
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
-              - entity: light.qubino_goap_zmnhdd1_flush_dimmer
+              - entity: light.living_room_spot_lights_dimmer
               - name: Ceiling
               - icon: ceiling-light
               - label: !include ../includes/brightness-label.yaml
