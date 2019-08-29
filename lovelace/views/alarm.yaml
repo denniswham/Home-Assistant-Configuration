@@ -48,15 +48,22 @@ cards:
             template: switch_button_card
             variables:
               - entity: switch.siren
-              - name: Siren
+              - name: Alarm Siren
               - icon: mdi:alarm-light
               - show_last_changed: true
               - tap_action:
                   action: toggle
                   haptic: light
-          - type: 'custom:button-card'
-            color_type: blank-card
-            aspect_ratio: 1/1
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: switch.ring
+              - name: Backyard Siren
+              - icon: mdi:alarm-light
+              - show_last_changed: true
+              - tap_action:
+                  action: toggle
+                  haptic: light
           - !include ../includes/blank-card.yaml
   - type: vertical-stack
     cards:
