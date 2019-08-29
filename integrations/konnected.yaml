@@ -21,4 +21,4 @@ konnected:
           name: garage
       switches:
         - zone: out
-          name: alarm siren
+          name: siren
