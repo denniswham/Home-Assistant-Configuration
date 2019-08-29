@@ -51,7 +51,7 @@ cards:
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
-              - entity: switch.alarm_siren
+              - entity: switch.siren
               - name: Alarm Siren
               - icon: mdi:alarm-bell
               - show_last_changed: true
