@@ -6,19 +6,19 @@ konnected:
       binary_sensors:
         - zone: 1
           type: motion
-          name: 'Entryway'
+          name: entryway
         - zone: 2
           type: motion
-          name: 'Kitchen'
+          name: kitchen
         - zone: 3
           type: motion
-          name: 'Living Room'
+          name: living room
         - zone: 4
           type: motion
-          name: 'Office'
+          name: office
         - zone: 5
           type: motion
-          name: 'Garage'
+          name: garage
       switches:
         - zone: out
-          name: 'Siren'
+          name: alarm siren

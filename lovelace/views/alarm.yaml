@@ -51,7 +51,7 @@ cards:
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
-              - entity: switch.siren
+              - entity: switch.alarm_siren
               - name: Alarm Siren
               - icon: mdi:alarm-light
               - show_last_changed: true
@@ -61,7 +61,7 @@ cards:
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
-              - entity: switch.ring
+              - entity: switch.backyard_siren
               - name: Backyard Siren
               - icon: mdi:alarm-light
               - show_last_changed: true
