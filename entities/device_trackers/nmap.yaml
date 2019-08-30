@@ -4,4 +4,4 @@ home_interval: 3
 new_device_defaults:
 track_new_devices: true
 exclude:
-- 192.168.178.105
+- 192.168.178.5

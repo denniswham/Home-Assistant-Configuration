@@ -1,5 +1,5 @@
 platform: glances
-host: 192.168.178.105
+host: 192.168.178.5
 port: 61208
 username: "glances"
 password: !secret glances_influxdb_password
