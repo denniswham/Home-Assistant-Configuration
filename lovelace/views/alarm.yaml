@@ -30,17 +30,14 @@ cards:
                 opacity: 0.8;
               }
             entity: alarm_control_panel.konnected_alarm
+            name: Alarm
           - !include ../includes/blank-card.yaml
-      - type: custom:decluttering-card
-        template: header_text # Changed/Added in 0.12.2
-        variables:
-          - content: '##### Controls'
   - type: vertical-stack
     cards:
-      - type: custom:decluttering-card
-        template: header_text
-        variables:
-          - content: '##### Keypad Alexa Guard'
+#      - type: custom:decluttering-card
+#        template: header_text
+#        variables:
+#          - content: '##### Keypad Alexa Guard'
       - type: horizontal-stack
         cards: 
           - !include ../includes/blank-card.yaml
@@ -56,7 +53,12 @@ cards:
             entity: alarm_control_panel.alexa_guard_7514f
             states:
               - arm_away
+            name: Alexa Guard
           - !include ../includes/blank-card.yaml
+      - type: custom:decluttering-card
+        template: header_text # Changed/Added in 0.12.2
+        variables:
+          - content: '##### Controls'
       - type: horizontal-stack
         cards: 
           - !include ../includes/blank-card.yaml
