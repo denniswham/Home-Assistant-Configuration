@@ -18,5 +18,5 @@ cards:
         variables:
           - name: dennis
           - name-s: Dennis'
-          - emailsensor: !secret jimsensor
+          - emailsensor: !secret dennissensor
           - number: '16'
