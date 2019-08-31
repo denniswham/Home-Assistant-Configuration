@@ -22,3 +22,4 @@ konnected:
       switches:
         - zone: out
           name: 'Siren'
+      blink: false
