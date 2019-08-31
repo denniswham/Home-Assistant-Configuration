@@ -8,15 +8,15 @@ cards:
         variables:
           - name1: PostNL
           - icon1: package-variant-closed 
-          - path1: postnl-jimmy 
+          - path1: postnl-dennis 
       - type: custom:decluttering-card
         template: header_text
         variables:
-          - content: '## Jimmy Schings'
+          - content: '## Dennis Ham'
       - type: custom:decluttering-card
         template: person_more_info
         variables:
-          - name: jimmy
-          - name-s: Jimmy's
+          - name: dennis
+          - name-s: Dennis'
           - emailsensor: !secret jimsensor
           - number: '16'

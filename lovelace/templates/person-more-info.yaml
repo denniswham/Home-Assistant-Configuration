@@ -22,8 +22,8 @@
 # Default Config
 default:
   # Name/Person (Don't capitalize uncapitalized names!)
-  - name: stephanie
-  - name-s: Jimmy's
+  - name: Dennis
+  - name-s: Stephanie's
 
   # Email Sensor
   - emailsensor: sensor.youremailsensor

@@ -25,11 +25,9 @@ cards:
             variables:
               - entity: climate.living_room
               - ambient_temperature: sensor.living_room_thermostat_temperature
-          - type: custom:decluttering-card
-            template: climate_card
-            variables:
-              - entity: climate.living_room
-              - ambient_temperature: sensor.living_room_thermostat_temperature
+          - type: 'custom:button-card'
+            color_type: blank-card
+            aspect_ratio: 1/1
           - !include ../includes/blank-card.yaml
       - type: horizontal-stack
         cards:
@@ -44,16 +42,9 @@ cards:
               - show_label: false
               - margin-right: 120px
               - size: 15%
-          - type: custom:decluttering-card
-            template: switch_button_card
-            variables:
-              - entity: input_boolean.tado_kleine_kamer
-              - name: Kleine Kamer
-              - icon: radiator
-              - aspect_ratio: 2/1
-              - show_label: false
-              - margin-right: 120px
-              - size: 15%
+          - type: 'custom:button-card'
+            color_type: blank-card
+            aspect_ratio: 2/1
           - !include ../includes/blank-card.yaml
 
 ### The following piece is for tablets only, You can leave this out if not needed.
