@@ -35,8 +35,8 @@ cards:
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
-              - entity: input_boolean.tado_woonkamer
-              - name: Woonkamer
+              - entity: sensor.living_room_thermostat_hvac_state
+              - name: Living Room
               - icon: radiator
               - aspect_ratio: 2/1
               - show_label: false
@@ -81,7 +81,7 @@ cards:
             variables:
               - entities: # Changed/Added in 0.12.2 
                   - sensor.living_room_thermostat_temperature
-              - name: Woonkamer
+              - name: Living Room
               - line_color: '#ffb414'
               - font_size: 53
               - decimals: 1
@@ -106,7 +106,7 @@ cards:
             variables:
               - entities: # Changed/Added in 0.12.2 
                   - sensor.living_room_thermostat_humidity
-              - name: Woonkamer
+              - name: Living Room
               - line_color: '#1427ff'
               - font_size: 53
               - decimals: 1
