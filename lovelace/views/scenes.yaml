@@ -156,7 +156,7 @@ cards:
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
-              - entity: input_boolean.scene_klaar_met_koken
+              - entity: input_boolean.scene_rise_and_shine
               - name: Klaar met
               - label: Koken
               - icon: power
@@ -165,12 +165,12 @@ cards:
                   action: call-service
                   service: scene.turn_on
                   service_data:
-                    entity_id: scene.klaar_met_koken
+                    entity_id: scene.rise_and_shine
                   haptic: light
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
-              - entity: input_boolean.scene_klaar_met_wassen
+              - entity: input_boolean.scene_evening
               - name: Klaar met
               - label: Wassen
               - icon: power
@@ -179,12 +179,12 @@ cards:
                   action: call-service
                   service: scene.turn_on
                   service_data:
-                    entity_id: scene.klaar_met_wassen
+                    entity_id: scene.evening
                   haptic: light
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
-              - entity: input_boolean.scene_welterusten
+              - entity: input_boolean.scene_bedtime
               - name: Welterusten
               - icon: sleep
               - label: Alles Uit
@@ -193,7 +193,7 @@ cards:
                   action: call-service
                   service: scene.turn_on
                   service_data:
-                    entity_id: scene.welterusten
+                    entity_id: scene.bedtime
                   haptic: light
           - !include ../includes/blank-card.yaml 
       - !include ../includes/bottom-card.yaml # Changed/Added in 0.12.0
