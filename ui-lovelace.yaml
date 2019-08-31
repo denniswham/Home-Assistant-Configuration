@@ -37,7 +37,7 @@ views:
   - !include lovelace/views/dennis.yaml
   - !include lovelace/views/stephanie.yaml
   - !include lovelace/views/scenes.yaml
-#  - !include lovelace/views/main_menu.yaml
+  - !include lovelace/views/main_menu.yaml
 #  - !include lovelace/views/cleaning.yaml
 #  - !include lovelace/views/floorplan.yaml
 #  - !include lovelace/views/remote.yaml
@@ -47,7 +47,7 @@ views:
 #  - !include lovelace/views/media.yaml
 #  - !include lovelace/views/downloads.yaml
 #  - !include lovelace/views/energy.yaml
-#  - !include lovelace/views/other.yaml
+  - !include lovelace/views/other.yaml
 #  - !include lovelace/views/currently_on.yaml
   - !include lovelace/views/location.yaml
   - !include lovelace/views/themes.yaml

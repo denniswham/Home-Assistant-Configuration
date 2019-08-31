@@ -23,67 +23,8 @@ cards:
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
-              - entity: input_boolean.scene_dagverlichting
-              - name: Dag
-              - icon: weather-sunny
-              - label: Verlichting
-              - show_state: false
-              - tap_action:
-                  action: call-service
-                  service: scene.turn_on
-                  service_data:
-                    entity_id: scene.dagverlichting
-                  haptic: light
-          - type: custom:decluttering-card
-            template: switch_button_card
-            variables:
-              - entity: input_boolean.scene_avondverlichting
-              - name: Avond
-              - icon: weather-sunset
-              - label: Verlichting
-              - show_state: false
-              - tap_action:
-                  action: call-service
-                  service: scene.turn_on
-                  service_data:
-                    entity_id: scene.avondverlichting
-                  haptic: light
-          - type: custom:decluttering-card
-            template: switch_button_card
-            variables:
-              - entity: input_boolean.scene_nachtverlichting
-              - name: Nacht
-              - icon: weather-night
-              - label: Verlichting
-              - show_state: false
-              - tap_action:
-                  action: call-service
-                  service: scene.turn_on
-                  service_data:
-                    entity_id: scene.nachtverlichting
-                  haptic: light
-          - !include ../includes/blank-card.yaml
-      - type: horizontal-stack
-        cards:
-          - !include ../includes/blank-card.yaml
-          - type: custom:decluttering-card
-            template: switch_button_card
-            variables:
-              - entity: group.scene_schoonmaken_on
-              - name: Schoonmaken
-              - icon: spray-bottle
-              - show_state: false
-              - tap_action:
-                  action: call-service
-                  service: scene.turn_on
-                  service_data:
-                    entity_id: scene.schoonmaken
-                  haptic: light
-          - type: custom:decluttering-card
-            template: switch_button_card
-            variables:
               - entity: input_boolean.dummy1
-              - name: Film Kijken
+              - name: Watch movie
               - icon: movie
               - show_state: false
               - tap_action:
@@ -96,7 +37,7 @@ cards:
             template: switch_button_card
             variables:
               - entity: input_boolean.scene_lichtuit
-              - name: Alle Lampen
+              - name: All Lights
               - icon: close-circle
               - label: Uitschakelen
               - show_state: false
@@ -106,49 +47,9 @@ cards:
                   service_data:
                     entity_id: scene.lichtuit
                   haptic: light
-          - !include ../includes/blank-card.yaml
-      - type: horizontal-stack
-        cards:
-          - !include ../includes/blank-card.yaml
-          - type: custom:decluttering-card
-            template: switch_button_card
-            variables:
-              - entity: group.scene_koken_on
-              - name: Koken
-              - icon: stove
-              - show_state: false
-              - tap_action:
-                  action: call-service
-                  service: scene.turn_on
-                  service_data:
-                    entity_id: scene.koken
-                  haptic: light
-          - type: custom:decluttering-card
-            template: switch_button_card
-            variables:
-              - entity: group.scene_wassen_on
-              - name: Wassen
-              - icon: washing-machine
-              - show_state: false
-              - tap_action:
-                  action: call-service
-                  service: scene.turn_on
-                  service_data:
-                    entity_id: scene.wassen
-                  haptic: light
-          - type: custom:decluttering-card
-            template: switch_button_card
-            variables:
-              - entity: group.scene_naarbed
-              - name: Naar Bed
-              - icon: hotel
-              - show_state: false
-              - tap_action:
-                  action: call-service
-                  service: scene.turn_on
-                  service_data:
-                    entity_id: scene.naarbed
-                  haptic: light
+          - type: custom:button-card
+            color_type: blank-card
+            aspect_ratio: 1/1
           - !include ../includes/blank-card.yaml
       - type: horizontal-stack
         cards:
@@ -157,9 +58,9 @@ cards:
             template: switch_button_card
             variables:
               - entity: input_boolean.scene_rise_and_shine
-              - name: Klaar met
-              - label: Koken
-              - icon: power
+              - name: Rise and
+              - label: Shine
+              - icon: sun
               - show_state: false
               - tap_action:
                   action: call-service
@@ -171,8 +72,8 @@ cards:
             template: switch_button_card
             variables:
               - entity: input_boolean.scene_evening
-              - name: Klaar met
-              - label: Wassen
+              - name: Evening
+              - label: mode
               - icon: power
               - show_state: false
               - tap_action:
@@ -185,9 +86,9 @@ cards:
             template: switch_button_card
             variables:
               - entity: input_boolean.scene_bedtime
-              - name: Welterusten
-              - icon: sleep
-              - label: Alles Uit
+              - name: Bedtime
+              - icon: hotel
+              - label: Turn off all
               - show_state: false
               - tap_action:
                   action: call-service
