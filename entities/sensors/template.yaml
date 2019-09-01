@@ -28,3 +28,11 @@ sensors:
     value_template: "{{ (states('sensor.microsoft') | float) * (states('input_number.microsoft_stock') | float) | round }}"
     unit_of_measurement: USD
     icon_template: mdi:microsoft
+
+# PostNL Template Sensors
+  postnl_dennis_packages:
+    value_template: >-
+      {{ states.sensor.postnl_dennis_delivery.state }}
+  postnl_stephanie_packages:
+    value_template: >-
+      {{ states.sensor.postnl_stephanie_delivery.state }}    
