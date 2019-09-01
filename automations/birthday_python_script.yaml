@@ -1,39 +1,39 @@
 # Birthday Python Script (this is needed to create the sensor, it will do a day countdown as well as an age indicator)
-- alias: Reminder - Refresh date countdown sensors
-  initial_state: on
-  trigger:
-    - platform: time
-      at: '00:00:01'
-    - platform: homeassistant
-      event: start
-  action:
-    - service: python_script.date_countdown
-      data:
-        name: Dennis
-        type: birthday
-        date: !secret birthday_dennis 
-    - service: python_script.date_countdown
-      data:
-        name: Stephanie
-        type: birthday
-        date: !secret birthday_stephanie
-    - service: python_script.date_countdown
-      data:
-        name: Lucas
-        type: birthday
-        date: !secret birthday_lucas
-    - service: python_script.date_countdown
-      data:
-        name: Timo
-        type: birthday
-        date: !secret birthday_timo
-    - service: python_script.date_countdown
-      data:
-        name: Emilie
-        type: birthday
-        date: !secret birthday_emilie
-    - service: python_script.date_countdown
-      data:
-        name: Wedding
-        type: anniversary
-        date: !secret anniversary_wedding
+alias: Reminder - Refresh date countdown sensors
+initial_state: on
+trigger:
+  - platform: time
+    at: '00:00:01'
+  - platform: homeassistant
+    event: start
+action:
+  - service: python_script.date_countdown
+    data:
+      name: Dennis
+      type: birthday
+      date: !secret birthday_dennis 
+  - service: python_script.date_countdown
+    data:
+      name: Stephanie
+      type: birthday
+      date: !secret birthday_stephanie
+  - service: python_script.date_countdown
+    data:
+      name: Lucas
+      type: birthday
+      date: !secret birthday_lucas
+  - service: python_script.date_countdown
+    data:
+      name: Timo
+      type: birthday
+      date: !secret birthday_timo
+  - service: python_script.date_countdown
+    data:
+      name: Emilie
+      type: birthday
+      date: !secret birthday_emilie
+  - service: python_script.date_countdown
+    data:
+      name: Wedding
+      type: anniversary
+      date: !secret anniversary_wedding
