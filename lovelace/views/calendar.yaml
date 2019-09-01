@@ -40,13 +40,13 @@ cards:
                   - entity: sensor.birthday_dennis
                     name: Dennis
                     icon: mdi:gift
-                  - entity: sensor.birthday_Lucas
+                  - entity: sensor.birthday_lucas
                     name: Lucas
                     icon: mdi:human-male
                   - entity: sensor.birthday_timo
                     name: Timo
                     icon: mdi:human-male
-                  - entity: sensor.birthday_Emilie
+                  - entity: sensor.birthday_emilie
                     name: Emilie
                     icon: mdi:human-female
               - !include ../includes/blank-card.yaml
