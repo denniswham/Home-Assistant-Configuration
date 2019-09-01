@@ -45,7 +45,7 @@ cards:
         state: "off"
       - entity: binary_sensor.dafang_motion_sensor
         state: "off"
-      - entity: input_boolean.apkjimz
+      - entity: input_boolean.apkdennis
         state: "off"
       - entity: input_boolean.apksteph
         state: "off"

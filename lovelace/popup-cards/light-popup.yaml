@@ -226,8 +226,8 @@
             - !include ../includes/blank-card.yaml
         - !include ../includes/bottom-card.yaml
 
-  light.nachtkastje_jimmy:
-    title: Nachtkastje Jimmy
+  light.nachtkastje_dennis:
+    title: Nachtkastje Dennis
     style:
       color: white
       border-radius: var(--border-radius)
@@ -241,7 +241,7 @@
             - type: custom:decluttering-card
               template: light_popup_card
               variables:
-                - entity: light.nachtkastje_jimmy
+                - entity: light.nachtkastje_dennis
             - !include ../includes/blank-card.yaml
         - !include ../includes/bottom-card.yaml
 

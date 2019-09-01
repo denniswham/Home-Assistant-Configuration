@@ -230,7 +230,7 @@ cards:
               - type: custom:decluttering-card
                 template: header_text
                 variables:
-                  - content: '#### < Car Jimmy'
+                  - content: '#### < Car Dennis'
               - type: custom:decluttering-card
                 template: header_text
                 variables:

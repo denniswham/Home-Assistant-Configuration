@@ -45,7 +45,7 @@ cards:
                   haptic: light
               - hold_action:
                   action: navigate
-                  navigation_path: /lovelace/jimmy
+                  navigation_path: /lovelace/dennis
                   haptic: light
           - !include ../includes/blank-card.yaml
       - type: custom:decluttering-card

@@ -804,17 +804,17 @@ input_boolean.notification_anniversary:
 #            - phone_number: !secret phone_koos
 #      - type: conditional
 #        conditions:
-#          - entity: sensor.birthday_jimmy_schings
+#          - entity: sensor.birthday_dennis
 #            state: '0'
 #        card:
 #          type: custom:decluttering-card
 #          template: birthday_notification
 #          variables:
-#            - name: Jimmy 
-#            - phone_number: !secret phone_jimmy
+#            - name: Dennis
+#            - phone_number: !secret phone_dennis
 #      - type: conditional
 #        conditions:
-#          - entity: sensor.birthday_stephanie_schings
+#          - entity: sensor.birthday_stephanie
 #            state: '0'
 #        card:
 #          type: custom:decluttering-card
@@ -834,14 +834,14 @@ input_boolean.notification_anniversary:
 #            - phone_number: !secret phone_ralf
 #      - type: conditional
 #        conditions:
-#          - entity: sensor.birthday_jos_schings
+#          - entity: sensor.birthday_lucas
 #            state: '0'
 #        card:
 #          type: custom:decluttering-card
 #          template: birthday_notification
 #          variables:
-#            - name: Jos
-#            - phone_number: !secret phone_jos
+#            - name: Lucas
+#            - phone_number: !secret phone_lucas
 #      - type: conditional
 #        conditions:
 #          - entity: sensor.birthday_rick_oosterbosch

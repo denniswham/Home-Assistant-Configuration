@@ -101,8 +101,8 @@ cards:
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
-              - entity: switch.pc_van_jimmy
-              - name: Jimmy
+              - entity: switch.pc_van_dennis
+              - name: Dennis
               - icon: desktop-tower-monitor
               - lock: true
               - grid:

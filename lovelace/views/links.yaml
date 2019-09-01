@@ -34,11 +34,11 @@ cards:
                   - type: weblink
                     name: Home
                     icon: 'mdi:home-outline'
-                    url: !secret home_waze
+#                    url: !secret home_waze
                   - type: weblink
-                    name: Oma Schings
+                    name: Oma
                     icon: 'mdi:car'
-                    url: !secret grandma_waze
+#                    url: !secret grandma_waze
                   - type: weblink
                     name: Camping Les Pins
                     icon: 'mdi:tent'

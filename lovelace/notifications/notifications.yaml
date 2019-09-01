@@ -43,7 +43,7 @@ cards:
         state: "off"
       - entity: binary_sensor.dafang_motion_sensor
         state: "off"
-      - entity: input_boolean.apkjimz
+      - entity: input_boolean.apkdennis
         state: "off"
       - entity: input_boolean.apksteph
         state: "off"
@@ -450,10 +450,10 @@ cards:
             - spin: true
         - !include ../includes/blank-card.yaml
 
-  # APK Jimmy
+  # APK Dennis
   - type: conditional
     conditions:
-      - entity: input_boolean.apkjimz
+      - entity: input_boolean.apkdennis
         state: "on"
     card:
       type: horizontal-stack
@@ -490,28 +490,10 @@ cards:
 
   ## Birthdays
  
-  # Koos van Duuren
+  # Dennis
   - type: conditional
     conditions:
-      - entity: sensor.birthday_koos_van_duuren
-        state_not: '0'
-    card:
-      type: horizontal-stack
-      cards:
-        - !include ../includes/blank-card.yaml
-        - type: custom:decluttering-card
-          template: notification_template
-          variables:
-            - entity: input_boolean.notification_birthday
-            - icon: gift-outline
-            - name: "[[[ return `Koos van Duuren is vandaag ${states['sensor.birthday_koos_van_duuren'].attributes.years} geworden!` ]]]"
-            - card_color: 'rgba(4, 255, 0, 0.5)'
-        - !include ../includes/blank-card.yaml
-
-  # Jimmy Schings
-  - type: conditional
-    conditions:
-      - entity: sensor.birthday_jimmy_schings
+      - entity: sensor.birthday_dennis
         state: '0'
     card:
       type: horizontal-stack
@@ -522,14 +504,14 @@ cards:
           variables:
             - entity: input_boolean.notification_birthday
             - icon: gift-outline
-            - name: "[[[ return `Jimmy Schings is vandaag ${states['sensor.birthday_jimmy_schings'].attributes.years} geworden!` ]]]"
+            - name: "[[[ return `Dennis is vandaag ${states['sensor.birthday_dennis'].attributes.years} geworden!` ]]]"
             - card_color: 'rgba(4, 255, 0, 0.5)'
         - !include ../includes/blank-card.yaml
 
-  # Stephanie Schings
+  # Stephanie
   - type: conditional
     conditions:
-      - entity: sensor.birthday_stephanie_schings
+      - entity: sensor.birthday_stephanie
         state: '0'
     card:
       type: horizontal-stack
@@ -540,14 +522,14 @@ cards:
           variables:
             - entity: input_boolean.notification_birthday
             - icon: gift-outline
-            - name: "[[[ return `Stephanie Schings is vandaag ${states['sensor.birthday_stephanie_schings'].attributes.years} geworden!` ]]]"
+            - name: "[[[ return `Stephanie is vandaag ${states['sensor.birthday_stephanie'].attributes.years} geworden!` ]]]"
             - card_color: 'rgba(4, 255, 0, 0.5)'
         - !include ../includes/blank-card.yaml
 
-  # Ralf Vogels
+  # Lucas
   - type: conditional
     conditions:
-      - entity: sensor.birthday_ralf_vogels
+      - entity: sensor.birthday_Lucas
         state: '0'
     card:
       type: horizontal-stack
@@ -558,29 +540,11 @@ cards:
           variables:
             - entity: input_boolean.notification_birthday
             - icon: gift-outline
-            - name: "[[[ return `Ralf Vogels is vandaag ${states['sensor.birthday_ralf_vogels'].attributes.years} geworden!` ]]]"
+            - name: "[[[ return `Lucas is vandaag ${states['sensor.birthday_lucas'].attributes.years} geworden!` ]]]"
             - card_color: 'rgba(4, 255, 0, 0.5)'
         - !include ../includes/blank-card.yaml
 
-  # Jos Schings
-  - type: conditional
-    conditions:
-      - entity: sensor.birthday_jos_schings
-        state: '0'
-    card:
-      type: horizontal-stack
-      cards:
-        - !include ../includes/blank-card.yaml
-        - type: custom:decluttering-card
-          template: notification_template
-          variables:
-            - entity: input_boolean.notification_birthday
-            - icon: gift-outline
-            - name: "[[[ return `Jos Schings is vandaag ${states['sensor.birthday_jos_schings'].attributes.years} geworden!` ]]]"
-            - card_color: 'rgba(4, 255, 0, 0.5)'
-        - !include ../includes/blank-card.yaml
-
-  # Ad van Dartel
+  # Timo
   - type: conditional
     conditions:
       - entity: sensor.birthday_ad_van_dartel
@@ -594,14 +558,14 @@ cards:
           variables:
             - entity: input_boolean.notification_birthday
             - icon: dog-side
-            - name: "[[[ return `Ad van Dartel is vandaag ${states['sensor.birthday_ad_van_dartel'].attributes.years} geworden!` ]]]"
+            - name: "[[[ return `Timo is vandaag ${states['sensor.birthday_timo'].attributes.years} geworden!` ]]]"
             - card_color: 'rgba(4, 255, 0, 0.5)'
         - !include ../includes/blank-card.yaml
 
-  # Rick Oosterbosch
+  # Emilie
   - type: conditional
     conditions:
-      - entity: sensor.birthday_rick_oosterbosch
+      - entity: sensor.birthday_emilie
         state: '0'
     card:
       type: horizontal-stack
@@ -612,7 +576,7 @@ cards:
           variables:
             - entity: input_boolean.notification_birthday
             - icon: dog-side
-            - name: "[[[ return `Rick Oosterbosch is vandaag ${states['sensor.birthday_rick_oosterbosch'].attributes.years} geworden!` ]]]"
+            - name: "[[[ return `Emilie is vandaag ${states['sensor.birthday_emilie'].attributes.years} geworden!` ]]]"
             - card_color: 'rgba(4, 255, 0, 0.5)'
         - !include ../includes/blank-card.yaml
 

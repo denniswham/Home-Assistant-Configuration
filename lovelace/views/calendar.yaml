@@ -31,26 +31,23 @@ cards:
                     border-radius: var(--border-radius);
                   }
                 entities:
-                  - entity: sensor.anniversary_trouwdag
+                  - entity: sensor.anniversary_wedding
                     icon: mdi:ring
                     name: Trouwdag
-                  - entity: sensor.birthday_stephanie_schings
+                  - entity: sensor.birthday_stephanie
                     icon: mdi:gift
                     name: Stephanie
-                  - entity: sensor.birthday_jimmy_schings
-                    name: Jimmy
+                  - entity: sensor.birthday_dennis
+                    name: Dennis
                     icon: mdi:gift
-                  - entity: sensor.birthday_helen_van_duuren
-                    name: Helen
-                    icon: mdi:human-female
-                  - entity: sensor.birthday_koos_van_duuren
-                    name: Koos
+                  - entity: sensor.birthday_Lucas
+                    name: Lucas
                     icon: mdi:human-male
-                  - entity: sensor.birthday_roxanne_van_duuren
-                    name: Roxanne
-                    icon: mdi:human-female
-                  - entity: sensor.birthday_jos_schings
-                    name: Jos
+                  - entity: sensor.birthday_timo
+                    name: Timo
                     icon: mdi:human-male
+                  - entity: sensor.birthday_Emilie
+                    name: Emilie
+                    icon: mdi:human-female
               - !include ../includes/blank-card.yaml
           - !include ../includes/bottom-card.yaml # Changed/Added in 0.12.0

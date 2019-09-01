@@ -71,7 +71,7 @@ card:
                   numberOfDays: 5
                   entities:
                     - calendar.[[name]]
-                    - calendar.schings
+                    - calendar.Lesjambons
                   showColors: true
                 - !include ../includes/blank-card.yaml
         - type: vertical-stack

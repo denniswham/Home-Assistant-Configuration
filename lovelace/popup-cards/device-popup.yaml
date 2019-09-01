@@ -150,8 +150,8 @@
             - !include ../includes/blank-card.yaml
         - !include ../includes/bottom-card.yaml
 
-  switch.pc_van_jimmy:
-    title: PC Jimmy
+  switch.pc_van_dennis:
+    title: PC Dennis
     style:
       color: white
       border-radius: var(--border-radius)
@@ -165,7 +165,7 @@
             - type: custom:decluttering-card
               template: light_popup_card
               variables:
-                - entity: switch.pc_van_jimmy
+                - entity: switch.pc_van_dennis
             - !include ../includes/blank-card.yaml
         - !include ../includes/bottom-card.yaml
 
