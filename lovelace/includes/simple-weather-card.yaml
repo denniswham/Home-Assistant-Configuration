@@ -24,7 +24,7 @@ cards:
             font-family: Helvetica;
             font-weight: bold;
           }
-        entity: .weather.lopik_cabauw
+        entity: weather.lopik_cabauw
         name: Woerden
         backdrop:
           fade: true
