@@ -20,17 +20,17 @@ cards:
   - type: conditional
     conditions:
       - entity: sensor.entryway_nest_protect_smoke_status
-        state: "OK"
+        state: "Ok"
       - entity: sensor.hallway_nest_protect_smoke_status
-        state: "OK"
+        state: "Ok"
       - entity: sensor.attic_nest_protect_smoke_status
-        state: "OK"
+        state: "Ok"
       - entity: sensor.entryway_nest_protect_co_status
-        state: "OK"
+        state: "Ok"
       - entity: sensor.hallway_nest_protect_co_status
-        state: "OK"
+        state: "Ok"
       - entity: sensor.attic_nest_protect_co_status
-        state: "OK"
+        state: "Ok"
       - entity: binary_sensor.entryway 
         state: "off"
       - entity: binary_sensor.kitchen
