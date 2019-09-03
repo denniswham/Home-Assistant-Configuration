@@ -42,12 +42,12 @@ cards:
                     icon: mdi:gift
                   - entity: sensor.birthday_lucas
                     name: Lucas
-                    icon: mdi:human-male
+                    icon: mdi:gift
                   - entity: sensor.birthday_timo
                     name: Timo
-                    icon: mdi:human-male
+                    icon: mdi:gift
                   - entity: sensor.birthday_emilie
                     name: Emilie
-                    icon: mdi:human-female
+                    icon: mdi:gift
               - !include ../includes/blank-card.yaml
           - !include ../includes/bottom-card.yaml # Changed/Added in 0.12.0
