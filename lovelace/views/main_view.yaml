@@ -48,7 +48,7 @@ cards:
 # Notifications Panel for the frontpage for all users that are not
 # user: Home Assistant. You need this if you want notifications on
 # the frontpage!
-#      default:
-#        type: vertical-stack
-#        cards:
-#          - !include ../notifications/notifications.yaml # Changed/Added in 0.12.0
+      default:
+        type: vertical-stack
+        cards:
+          - !include ../notifications/notifications.yaml # Changed/Added in 0.12.0
