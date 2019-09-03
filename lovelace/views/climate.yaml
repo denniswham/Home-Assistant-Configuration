@@ -72,20 +72,20 @@ cards:
       - type: custom:decluttering-card
         template: header_text
         variables:
-          - content: '##### Thermostat'
+          - content: '##### Temperature'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml 
           - type: custom:decluttering-card
-            template: mini-graph-card  # Changed/Added in 0.12.2
+            template: mini-graph
             variables:
-              - entities: # Changed/Added in 0.12.2 
+              - entities:  
                   - sensor.living_room_thermostat_temperature
               - name: Living Room
               - line_color: '#ffb414'
               - font_size: 53
               - decimals: 1
-              - graph: bar
+              - graph: line
               - extrema: true
           - type: custom:button-card
             color_type: blank-card
@@ -95,14 +95,14 @@ cards:
             aspect_ratio: 1/1
           - !include ../includes/blank-card.yaml 
       - type: custom:decluttering-card
-        template: header_text # Changed/Added in 0.12.2
+        template: header_text
         variables:
           - content: '##### Humidity'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml 
           - type: custom:decluttering-card
-            template: mini-graph-card  # Changed/Added in 0.12.2
+            template: mini-graph
             variables:
               - entities: # Changed/Added in 0.12.2 
                   - sensor.living_room_thermostat_humidity
@@ -110,7 +110,7 @@ cards:
               - line_color: '#1427ff'
               - font_size: 53
               - decimals: 1
-              - graph: bar
+              - graph: line
               - extrema: true
           - type: custom:button-card
             color_type: blank-card
