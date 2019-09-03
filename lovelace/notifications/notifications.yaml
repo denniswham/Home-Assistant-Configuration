@@ -49,9 +49,9 @@ cards:
         state: "disarmed"
       - entity: group.household
         state: "home"
-      - entity: input_boolean.apk_car_1
+      - entity: input_boolean.apk_car1
         state: "off"
-      - entity: input_boolean.apk_car_2
+      - entity: input_boolean.apk_car2
         state: "off"
     card:
       type: horizontal-stack
@@ -457,7 +457,7 @@ cards:
   # APK Car 1
   - type: conditional
     conditions:
-      - entity: input_boolean.apk_car_1
+      - entity: input_boolean.apk_car1
         state: "on"
     card:
       type: horizontal-stack
@@ -476,7 +476,7 @@ cards:
   # APK Car 2
   - type: conditional
     conditions:
-      - entity: input_boolean.apk_car_2
+      - entity: input_boolean.apk_car2
         state: "on"
     card:
       type: horizontal-stack
