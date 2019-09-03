@@ -33,7 +33,7 @@ cards:
                 entities:
                   - entity: sensor.anniversary_wedding
                     icon: mdi:ring
-                    name: Trouwdag
+                    name: Wedding Day
                   - entity: sensor.birthday_stephanie
                     icon: mdi:gift
                     name: Stephanie
