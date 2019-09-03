@@ -3,7 +3,7 @@
 # need this file or templates will not work!
 
 # Mini Graph Card
-mini-graph-card:
+mini-graph:
   !include mini-graph-template.yaml
 
 # Laundry Picture Elements
