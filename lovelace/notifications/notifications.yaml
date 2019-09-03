@@ -35,6 +35,12 @@ cards:
         state: "off"
       - entity: alarm_control_panel.konnected_alarm
         state: disarmed
+      - entity: group.household
+        state: home
+      - entity: input_boolean.apk_car_1
+        state: "off"
+      - entity: input_boolean.apk_car_2
+        state: "off"
     card:
       type: horizontal-stack
       cards:
@@ -51,14 +57,17 @@ cards:
   # Smoke Detector Triggered
   - type: conditional
     conditions:
-      - entity: sensor.entryway_nest_protect_smoke_status
-        state_not: "ok"
-    conditions:
-      - entity: sensor.hallway_nest_protect_smoke_status
-        state_not: "ok"
-    conditions:
-      - entity: sensor.attic_nest_protect_smoke_status
-        state_not: "ok"
+      condition: or
+      conditions:
+        - condition:
+          entity: sensor.entryway_nest_protect_smoke_status
+          state_not: "ok"
+        - condition:
+          entity: sensor.hallway_nest_protect_smoke_status
+          state_not: "ok"
+        - condition:
+          entity: sensor.attic_nest_protect_smoke_status
+          state_not: "ok"
     card:
       type: horizontal-stack
       cards:
@@ -76,14 +85,17 @@ cards:
   # CO Detector Triggered
   - type: conditional
     conditions:
-      - entity: sensor.entryway_nest_protect_co_status
-        state_not: "ok"
-    conditions:
-      - entity: sensor.hallway_nest_protect_co_status
-        state_not: "ok"
-    conditions:
-      - entity: sensor.attic_nest_protect_co_status
-        state_not: "ok"
+      condition: or
+      conditions:
+        - condition:
+          entity: sensor.entryway_nest_protect_co_status
+          state_not: "ok"
+        - condition:
+          entity: sensor.hallway_nest_protect_co_status
+          state_not: "ok"
+        - condition:
+          entity: sensor.attic_nest_protect_co_status
+          state_not: "ok"
     card:
       type: horizontal-stack
       cards:
@@ -112,7 +124,7 @@ cards:
           variables:
             - entity: input_boolean.notification_alarm
             - icon: alert
-            - name: LET OP! Het alarm is afgegaan, LET OP!
+            - name: Be careful! the alarm is triggered, be careful!
             - card_color: 'rgba(255, 0, 0, 0.5)'
         - !include ../includes/blank-card.yaml
 
@@ -136,25 +148,25 @@ cards:
             - card_color: 'rgba(255, 0, 0, 0.5)'
         - !include ../includes/blank-card.yaml
 
-#  # Alarm Disarmed Not Home
-#  - type: conditional
-#    conditions:
-#      - entity: alarm_control_panel.konnected_alarm
-#        state: disarmed
-#      - entity: group.device_status
-#        state_not: home
-#    card:
-#      type: horizontal-stack
-#      cards:
-#        - !include ../includes/blank-card.yaml
-#        - type: custom:decluttering-card
-#          template: notification_template
-#          variables:
-#            - entity: input_boolean.notification_alarm
-#            - icon: alert
-#            - name: Er is niemand meer thuis, schakel het alarm in!
-#            - card_color: 'rgba(255, 110, 0, 0.5)'
-#        - !include ../includes/blank-card.yaml
+  # Alarm Disarmed Not Home
+  - type: conditional
+    conditions:
+      - entity: alarm_control_panel.konnected_alarm
+        state: disarmed
+      - entity: group.household
+        state_not: home
+    card:
+      type: horizontal-stack
+      cards:
+        - !include ../includes/blank-card.yaml
+        - type: custom:decluttering-card
+          template: notification_template
+          variables:
+            - entity: input_boolean.notification_alarm
+            - icon: alert
+            - name: Be careful! The alarm is disarmed!
+            - card_color: 'rgba(255, 110, 0, 0.5)'
+        - !include ../includes/blank-card.yaml
 
   # Alarm Pending
   - type: conditional
@@ -170,11 +182,11 @@ cards:
           variables:
             - entity: input_boolean.notification_alarm
             - icon: clock-alert-outline
-            - name: Het alarm wordt ingeschakeld, verlaat het pand!
+            - name: The alarm will be armed, leave the house!
             - card_color: 'rgba(255, 90, 0, 0.5)'
         - !include ../includes/blank-card.yaml
 
-  # Droger
+  # Tumble Dryer
   - type: conditional
     conditions:
       - entity: input_select.dryer_status
@@ -186,13 +198,13 @@ cards:
         - type: custom:decluttering-card
           template: notification_template
           variables:
-            - entity: input_boolean.notification_droger
+            - entity: input_boolean.notification_tumble_dryer
             - icon: tumble-dryer
-            - name: De droger is klaar!
+            - name: The tumble dryer is ready!
             - card_color: 'rgba(176, 66, 44, 0.5)'
         - !include ../includes/blank-card.yaml
 
-  # Wasmachine
+  # Laundry Machine
   - type: conditional
     conditions:
       - entity: input_select.washing_machine_status
@@ -204,13 +216,13 @@ cards:
         - type: custom:decluttering-card
           template: notification_template
           variables:
-            - entity: input_boolean.notification_wasmachine
+            - entity: input_boolean.notification_laundry_machine
             - icon: washing-machine
-            - name: De wasmachine is klaar!
+            - name: The laundry machine is ready!
             - card_color: 'rgba(225, 237, 0, 0.5)'
         - !include ../includes/blank-card.yaml
 
-  # Vaatwasser
+  # Dish Washer
   - type: conditional
     conditions:
       - entity: input_select.dishwasher_status
@@ -222,17 +234,16 @@ cards:
         - type: custom:decluttering-card
           template: notification_template
           variables:
-            - entity: input_boolean.notification_vaatwasser
+            - entity: input_boolean.notification_dish_washer
             - icon: dishwasher
-            - name: De vaatwasser is klaar!
+            - name: The dishwasher is ready!
             - card_color: 'rgba(9, 195, 242, 0.5)'
         - !include ../includes/blank-card.yaml
 
-
-  # Motion Gallerij
+  # Ding Front Door
   - type: conditional
     conditions:
-      - entity: binary_sensor.dafang_motion_sensor 
+      - entity: binary_sensor.ring_front_door_ding 
         state: "on"
     card:
       type: horizontal-stack
@@ -241,16 +252,16 @@ cards:
         - type: custom:decluttering-card
           template: notification_template
           variables:
-            - entity: input_boolean.notification_motion_gallerij
+            - entity: input_boolean.notification_ding_front_door
             - icon: motion-sensor
-            - name: Er is beweging op de gallerij
+            - name: There is someone at the front door
             - card_color: 'rgba(161, 255, 0, 0.5)'
         - !include ../includes/blank-card.yaml
 
-  # Motion Bijkeuken
+  # Motion Front Door
   - type: conditional
     conditions:
-      - entity: binary_sensor.motion_sensor_158d0002b7eec9
+      - entity: binary_sensor.ring_front_door_motion 
         state: "on"
     card:
       type: horizontal-stack
@@ -259,17 +270,53 @@ cards:
         - type: custom:decluttering-card
           template: notification_template
           variables:
-            - entity: input_boolean.notification_motion_bijkeuken
+            - entity: input_boolean.notification_motion_front_door
             - icon: motion-sensor
-            - name: Er is beweging in de bijkeuken
+            - name: There is motion at the front door
+            - card_color: 'rgba(161, 255, 0, 0.5)'
+        - !include ../includes/blank-card.yaml
+
+  # Motion Backyard
+  - type: conditional
+    conditions:
+      - entity: binary_sensor.ring_backyard_motion 
+        state: "on"
+    card:
+      type: horizontal-stack
+      cards:
+        - !include ../includes/blank-card.yaml
+        - type: custom:decluttering-card
+          template: notification_template
+          variables:
+            - entity: input_boolean.notification_motion_backyard
+            - icon: motion-sensor
+            - name: There is motion in the backyard
+            - card_color: 'rgba(161, 255, 0, 0.5)'
+        - !include ../includes/blank-card.yaml
+
+  # Motion Entryway
+  - type: conditional
+    conditions:
+      - entity: binary_sensor.entryway
+        state: "on"
+    card:
+      type: horizontal-stack
+      cards:
+        - !include ../includes/blank-card.yaml
+        - type: custom:decluttering-card
+          template: notification_template
+          variables:
+            - entity: input_boolean.notification_motion_entryway
+            - icon: motion-sensor
+            - name: There is motion in the entryway
             - card_color: 'rgba(193, 0, 29, 0.5)'
         - !include ../includes/blank-card.yaml
 
-  # Motion Toilet
+  # Motion Kitchen
   - type: conditional
     conditions:
-      - entity: binary_sensor.motion_sensor_158d00024e687d
-        state: "off"
+      - entity: binary_sensor.kitchen
+        state: "on"
     card:
       type: horizontal-stack
       cards:
@@ -277,17 +324,17 @@ cards:
         - type: custom:decluttering-card
           template: notification_template
           variables:
-            - entity: input_boolean.notification_motion_toilet
+            - entity: input_boolean.notification_motion_kitchen
             - icon: motion-sensor
-            - name: Er is beweging op het toilet
-            - card_color: 'rgba(0, 221, 255, 0.5)'
+            - name: There is motion in the kitchen
+            - card_color: 'rgba(193, 0, 29, 0.5)'
         - !include ../includes/blank-card.yaml
 
-  # Vacuum Notification (Cleaning)
+  # Motion Living Room
   - type: conditional
     conditions:
-      - entity: vacuum.xiaomi_vacuum_cleaner
-        state: cleaning
+      - entity: binary_sensor.living_room
+        state: "on"
     card:
       type: horizontal-stack
       cards:
@@ -295,18 +342,17 @@ cards:
         - type: custom:decluttering-card
           template: notification_template
           variables:
-            - entity: input_boolean.notification_vacuum
-            - icon: robot-vacuum
-            - name: Johnny is ingechakeld
-            - card_color: 'rgba(56, 43, 230, 0.5)'
-            - spin: true
+            - entity: input_boolean.notification_motion_living_room
+            - icon: motion-sensor
+            - name: There is motion in the living room
+            - card_color: 'rgba(193, 0, 29, 0.5)'
         - !include ../includes/blank-card.yaml
 
-  # Vacuum Notification (Idle)
+  # Motion Office
   - type: conditional
     conditions:
-      - entity: vacuum.xiaomi_vacuum_cleaner
-        state: idle
+      - entity: binary_sensor.office
+        state: "on"
     card:
       type: horizontal-stack
       cards:
@@ -314,17 +360,17 @@ cards:
         - type: custom:decluttering-card
           template: notification_template
           variables:
-            - entity: input_boolean.notification_vacuum
-            - icon: robot-vacuum
-            - name: Johnny staat stil
-            - card_color: 'rgba(56, 43, 230, 0.5)'
+            - entity: input_boolean.notification_motion_office
+            - icon: motion-sensor
+            - name: There is motion in the office
+            - card_color: 'rgba(193, 0, 29, 0.5)'
         - !include ../includes/blank-card.yaml
 
-  # Vacuum Notification (Paused)
+  # Motion Garage
   - type: conditional
     conditions:
-      - entity: vacuum.xiaomi_vacuum_cleaner
-        state: paused
+      - entity: binary_sensor.garage
+        state: "on"
     card:
       type: horizontal-stack
       cards:
@@ -332,53 +378,16 @@ cards:
         - type: custom:decluttering-card
           template: notification_template
           variables:
-            - entity: input_boolean.notification_vacuum
-            - icon: robot-vacuum
-            - name: Johnny is gepauzeerd
-            - card_color: 'rgba(56, 43, 230, 0.5)'
+            - entity: input_boolean.notification_motion_garage
+            - icon: motion-sensor
+            - name: There is motion in the garage
+            - card_color: 'rgba(193, 0, 29, 0.5)'
         - !include ../includes/blank-card.yaml
 
-  # Vacuum Notification (Returning)
+  # APK Car 1
   - type: conditional
     conditions:
-      - entity: vacuum.xiaomi_vacuum_cleaner
-        state: returning
-    card:
-      type: horizontal-stack
-      cards:
-        - !include ../includes/blank-card.yaml
-        - type: custom:decluttering-card
-          template: notification_template
-          variables:
-            - entity: input_boolean.notification_vacuum
-            - icon: robot-vacuum
-            - name: Johnny keert terug naar de dock
-            - card_color: 'rgba(56, 43, 230, 0.5)'
-            - spin: true
-        - !include ../includes/blank-card.yaml
-
-  # Vacuum Notification (Error Sensor)
-  - type: conditional
-    conditions:
-      - entity: sensor.vacuum_cleaner_error_sensor
-        state_not: 'No Error'
-    card:
-      type: horizontal-stack
-      cards:
-        - !include ../includes/blank-card.yaml
-        - type: custom:decluttering-card
-          template: notification_template
-          variables:
-            - entity: input_boolean.notification_vacuum
-            - icon: robot-vacuum
-            - name: Johnny is vastgelopen
-            - card_color: 'rgba(255, 255, 0, 0.5)'
-        - !include ../includes/blank-card.yaml
-
-  # APK Stephanie
-  - type: conditional
-    conditions:
-      - entity: input_boolean.apksteph
+      - entity: input_boolean.apk_car_1
         state: "on"
     card:
       type: horizontal-stack
@@ -389,15 +398,15 @@ cards:
           variables:
             - entity: input_boolean.notification_apk
             - icon: steering
-            - name: "[[[ return `APK Citroën C1 verloopt op ${states['sensor.citroen_c1_expdate'].state}` ]]]"
+            - name: "[[[ return `APK Audi A4 verloopt op ${states['sensor.car_1_expdate'].state}` ]]]"
             - card_color: 'rgba(166, 0, 0, 0.5)'
             - spin: true
         - !include ../includes/blank-card.yaml
 
-  # APK Dennis
+  # APK Car 2
   - type: conditional
     conditions:
-      - entity: input_boolean.apkdennis
+      - entity: input_boolean.apk_car_2
         state: "on"
     card:
       type: horizontal-stack
@@ -408,7 +417,7 @@ cards:
           variables:
             - entity: input_boolean.notification_apk
             - icon: steering
-            - name: "[[[ return `APK Peugeot 207 SW verloopt op ${states['sensor.peugeot_207_expdate'].state}` ]]]"
+            - name: "[[[ return `APK Audi A3 verloopt op ${states['sensor.car_2_expdate'].state}` ]]]"
             - card_color: 'rgba(166, 0, 0, 0.5)'
             - spin: true
         - !include ../includes/blank-card.yaml
@@ -416,7 +425,7 @@ cards:
   # Anniversary
   - type: conditional
     conditions:
-      - entity: sensor.anniversary_trouwdag
+      - entity: sensor.anniversary_wedding
         state: '0'
     card:
       type: horizontal-stack
@@ -425,9 +434,9 @@ cards:
         - type: custom:decluttering-card
           template: notification_template
           variables:
-            - entity: input_boolean.notification_anniversary
+            - entity: input_boolean.notification_wedding
             - icon: steering
-            - name: "[[[ return `Vandaag zijn we ${states['sensor.anniversary_trouwdag'].attributes.years} jaar getrouwd!` ]]]"
+            - name: "[[[ return `Today we are ${states['sensor.anniversary_wedding'].attributes.years} years married!` ]]]"
             - card_color: 'rgba(255, 0, 115, 0.5)'
             - spin: true
         - !include ../includes/blank-card.yaml
@@ -448,7 +457,7 @@ cards:
           variables:
             - entity: input_boolean.notification_birthday
             - icon: gift-outline
-            - name: "[[[ return `Dennis is vandaag ${states['sensor.birthday_dennis'].attributes.years} geworden!` ]]]"
+            - name: "[[[ return `Dennis turned ${states['sensor.birthday_dennis'].attributes.years} today!` ]]]"
             - card_color: 'rgba(4, 255, 0, 0.5)'
         - !include ../includes/blank-card.yaml
 
@@ -466,7 +475,7 @@ cards:
           variables:
             - entity: input_boolean.notification_birthday
             - icon: gift-outline
-            - name: "[[[ return `Stephanie is vandaag ${states['sensor.birthday_stephanie'].attributes.years} geworden!` ]]]"
+            - name: "[[[ return `Stephanie turned ${states['sensor.birthday_stephanie'].attributes.years} today!` ]]]"
             - card_color: 'rgba(4, 255, 0, 0.5)'
         - !include ../includes/blank-card.yaml
 
@@ -484,7 +493,7 @@ cards:
           variables:
             - entity: input_boolean.notification_birthday
             - icon: gift-outline
-            - name: "[[[ return `Lucas is vandaag ${states['sensor.birthday_lucas'].attributes.years} geworden!` ]]]"
+            - name: "[[[ return `Lucas turned ${states['sensor.birthday_lucas'].attributes.years} today!` ]]]"
             - card_color: 'rgba(4, 255, 0, 0.5)'
         - !include ../includes/blank-card.yaml
 
@@ -502,7 +511,7 @@ cards:
           variables:
             - entity: input_boolean.notification_birthday
             - icon: dog-side
-            - name: "[[[ return `Timo is vandaag ${states['sensor.birthday_timo'].attributes.years} geworden!` ]]]"
+            - name: "[[[ return `Timo turned ${states['sensor.birthday_timo'].attributes.years} today!` ]]]"
             - card_color: 'rgba(4, 255, 0, 0.5)'
         - !include ../includes/blank-card.yaml
 
@@ -520,7 +529,7 @@ cards:
           variables:
             - entity: input_boolean.notification_birthday
             - icon: dog-side
-            - name: "[[[ return `Emilie is vandaag ${states['sensor.birthday_emilie'].attributes.years} geworden!` ]]]"
+            - name: "[[[ return `Emilie turned ${states['sensor.birthday_emilie'].attributes.years} today!` ]]]"
             - card_color: 'rgba(4, 255, 0, 0.5)'
         - !include ../includes/blank-card.yaml
 

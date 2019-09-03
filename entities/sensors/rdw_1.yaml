@@ -1,6 +1,0 @@
-platform: rdw
-name: !secret rdw_1_name
-plate: !secret rdw_1_plate
-sensors:
-  - expdate
-  - insured
