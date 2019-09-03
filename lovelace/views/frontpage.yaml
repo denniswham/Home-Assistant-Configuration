@@ -286,17 +286,17 @@ cards:
         - type: custom:decluttering-card
           template: switch_button_card
           variables:
-            - name: Vacuum
-            - label: Johnny S55
-            - icon: robot-vacuum
+            - name: Window Shutters
+            - label: Sun screen
+            - icon: window-shutter
             - show_state: false
             - tap_action: 
                 action: navigate
-                navigation_path: /lovelace/vacuum
+                navigation_path: /lovelace/shutters
                 haptic: light
             - hold_action: 
                 action: navigate
-                navigation_path: /lovelace/vacuum
+                navigation_path: /lovelace/shutters
                 haptic: light
             - entity: input_boolean.dummy1
             - margin-right: 40px

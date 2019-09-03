@@ -14,7 +14,7 @@ cards:
       - type: custom:decluttering-card
         template: header_text
         variables:
-          - content: '##### Woonkamer'
+          - content: '##### Living Room'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml
@@ -32,14 +32,14 @@ cards:
             template: switch_button_card
             variables:
               - entity: switch.receiver
-              - name: Receiver
+              - name: Xbox One
               - icon: set-top-box
               - grid:
                   !include ../includes/light-devices-grid.yaml
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
-              - entity: switch.samsung_tv
+              - entity: switch.panasonic_viera
               - name: TV
               - icon: television
               - grid:
@@ -48,7 +48,7 @@ cards:
       - type: custom:decluttering-card
         template: header_text
         variables:
-          - content: '##### Slaapkamer'
+          - content: '##### Master Bedroom'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml
@@ -67,7 +67,7 @@ cards:
             template: switch_button_card
             variables:
               - entity: switch.receiver_slaapkamer
-              - name: Receiver
+              - name: Apple TV
               - icon: set-top-box
               - lock: true
               - grid:
@@ -75,7 +75,7 @@ cards:
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
-              - entity: switch.tradfri_outlet_2
+              - entity: switch.samsungtv
               - name: TV
               - icon: television
               - lock: true
@@ -85,7 +85,7 @@ cards:
       - type: custom:decluttering-card
         template: header_text
         variables:
-          - content: '##### Kleine Kamer'
+          - content: '##### Office'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml
@@ -94,7 +94,7 @@ cards:
             variables:
               - entity: switch.pc_van_stephanie
               - name: Stephanie
-              - icon: desktop-tower-monitor
+              - icon: laptop
               - lock: true
               - grid:
                   !include ../includes/light-devices-grid.yaml
@@ -103,7 +103,7 @@ cards:
             variables:
               - entity: switch.pc_van_dennis
               - name: Dennis
-              - icon: desktop-tower-monitor
+              - icon: laptop
               - lock: true
               - grid:
                   !include ../includes/light-devices-grid.yaml
@@ -162,7 +162,7 @@ cards:
       - type: custom:decluttering-card
         template: header_text
         variables:
-          - content: '##### Keuken'
+          - content: '##### Kitchen'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml
@@ -200,7 +200,7 @@ cards:
             template: switch_button_card
             variables:
               - entity: switch.tradfri_outlet
-              - name: Cappumaker
+              - name: Nespresso
               - icon: coffee-outline
               - grid:
                   !include ../includes/light-devices-grid.yaml
@@ -208,7 +208,7 @@ cards:
             template: switch_button_card
             variables:
               - entity: switch.vaatwasser
-              - name: Vaatwasser
+              - name: Dish Washer
               - icon: dishwasher
               - label: "[[[ if (states['sensor.vaatwasser_energy_power'].state > 0) return `${states['sensor.vaatwasser_energy_power'].state} W`; else return '&nbsp;' ]]]" # Changed/Added in 0.12.0
               - grid:
@@ -220,7 +220,7 @@ cards:
       - type: custom:decluttering-card
         template: header_text
         variables:
-          - content: '##### Bijkeuken'
+          - content: '##### Laundry Room'
       - type: horizontal-stack
         cards:
           - !include ../includes/blank-card.yaml
@@ -228,7 +228,7 @@ cards:
             template: switch_button_card
             variables:
               - entity: switch.wasmachine
-              - name: Wasmachine
+              - name: Laundy Machine
               - icon: washing-machine
               - label: "[[[ if (states['sensor.wasmachine_energy_power'].state > 0) return `${states['sensor.wasmachine_energy_power'].state} W`; else return '&nbsp;' ]]]" # Changed/Added in 0.12.0
               - grid:
@@ -237,7 +237,7 @@ cards:
             template: switch_button_card
             variables:
               - entity: switch.droger
-              - name: Droger
+              - name: Tumble Dryer
               - icon: tumble-dryer
               - label: "[[[ if (states['sensor.droger_energy_power'].state > 0) return `${states['sensor.droger_energy_power'].state} W`; else return '&nbsp;' ]]]" # Changed/Added in 0.12.0
               - grid: 
@@ -247,5 +247,3 @@ cards:
             aspect_ratio: 1/1
           - !include ../includes/blank-card.yaml
       - !include ../includes/bottom-card.yaml # Changed/Added in 0.12.0
-  
-  

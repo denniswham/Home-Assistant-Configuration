@@ -355,23 +355,6 @@ cards:
             template: switch_button_card
             variables:
               - entity: input_boolean.dummy1
-              - name: Vacuum
-              - label: Control Center
-              - icon: robot-vacuum
-              - show_state: false
-              - opacity: 0.8
-              - tap_action:
-                  action: navigate
-                  navigation_path: /lovelace/vacuum
-                  haptic: light
-              - hold_action:
-                  action: navigate
-                  navigation_path: /lovelace/vacuum
-                  haptic: light
-          - type: custom:decluttering-card
-            template: switch_button_card
-            variables:
-              - entity: input_boolean.dummy1
               - name: Weather
               - label: Information
               - icon: weather-cloudy
@@ -384,6 +367,23 @@ cards:
               - hold_action:
                   action: navigate
                   navigation_path: /lovelace/weather
+                  haptic: light
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: input_boolean.dummy1
+              - name: Window Shutters
+              - label: Sun Screen
+              - icon: window-shutter
+              - show_state: false
+              - opacity: 0.8
+              - tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/shutters
+                  haptic: light
+              - hold_action:
+                  action: navigate
+                  navigation_path: /lovelace/shutters
                   haptic: light
           - type: 'custom:button-card'
             color_type: blank-card
