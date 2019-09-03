@@ -286,7 +286,7 @@ cards:
         - type: custom:decluttering-card
           template: switch_button_card
           variables:
-            - name: Window Shutters
+            - name: Shutters
             - label: Sun screen
             - icon: window-shutter
             - show_state: false

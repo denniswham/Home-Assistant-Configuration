@@ -21,8 +21,8 @@ cards:
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
-              - entity: switch.ventilator
-              - name: Ventilator
+              - entity: switch.fire_tv
+              - name: Fire TV
               - icon: fan
               - color: DodgerBlue
               - spin: true
@@ -31,9 +31,11 @@ cards:
           - type: custom:decluttering-card
             template: switch_button_card
             variables:
-              - entity: switch.receiver
-              - name: Xbox One
-              - icon: set-top-box
+              - entity: switch.xbox_one
+              - name: Xbox
+              - icon: xbox
+              - lock: true
+              - color: green
               - grid:
                   !include ../includes/light-devices-grid.yaml
           - type: custom:decluttering-card
@@ -44,6 +46,26 @@ cards:
               - icon: television
               - grid:
                   !include ../includes/light-devices-grid.yaml
+          - !include ../includes/blank-card.yaml
+      - type: horizontal-stack
+        cards:
+          - !include ../includes/blank-card.yaml
+          - type: custom:decluttering-card
+            template: switch_button_card
+            variables:
+              - entity: switch.xbox_one
+              - name: Xbox
+              - icon: xbox
+              - lock: true
+              - color: green
+              - grid:
+                  !include ../includes/light-devices-grid.yaml
+          - type: 'custom:button-card'
+            color_type: blank-card
+            aspect_ratio: 1/1
+          - type: 'custom:button-card'
+            color_type: blank-card
+            aspect_ratio: 1/1
           - !include ../includes/blank-card.yaml
       - type: custom:decluttering-card
         template: header_text
@@ -115,26 +137,6 @@ cards:
               - icon: printer-wireless
               - grid:
                   !include ../includes/light-devices-grid.yaml
-          - !include ../includes/blank-card.yaml
-      - type: horizontal-stack
-        cards:
-          - !include ../includes/blank-card.yaml
-          - type: custom:decluttering-card
-            template: switch_button_card
-            variables:
-              - entity: switch.xbox_one
-              - name: Xbox
-              - icon: xbox
-              - lock: true
-              - color: green
-              - grid:
-                  !include ../includes/light-devices-grid.yaml
-          - type: 'custom:button-card'
-            color_type: blank-card
-            aspect_ratio: 1/1
-          - type: 'custom:button-card'
-            color_type: blank-card
-            aspect_ratio: 1/1
           - !include ../includes/blank-card.yaml
 
 ### The following piece is for tablets only, You can leave this out if not needed.
