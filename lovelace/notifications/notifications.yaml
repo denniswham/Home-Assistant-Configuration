@@ -34,9 +34,9 @@ cards:
       - entity: binary_sensor.ring_backyard_motion
         state: "off"
       - entity: alarm_control_panel.konnected_alarm
-        state: disarmed
+        state: "disarmed"
       - entity: group.household
-        state: home
+        state: "home"
       - entity: input_boolean.apk_car_1
         state: "off"
       - entity: input_boolean.apk_car_2
@@ -54,20 +54,11 @@ cards:
             - card_color: 'rgba(157, 0, 255, 0.5)'
         - !include ../includes/blank-card.yaml
 
-  # Smoke Detector Triggered
+  # Smoke Detector Entryway Triggered
   - type: conditional
     conditions:
-      condition: or
-      conditions:
-        - condition:
-          entity: sensor.entryway_nest_protect_smoke_status
-          state_not: "ok"
-        - condition:
-          entity: sensor.hallway_nest_protect_smoke_status
-          state_not: "ok"
-        - condition:
-          entity: sensor.attic_nest_protect_smoke_status
-          state_not: "ok"
+      - entity: sensor.entryway_nest_protect_smoke_status
+        state_not: "ok"
     card:
       type: horizontal-stack
       cards:
@@ -77,25 +68,54 @@ cards:
           variables:
             - entity: input_boolean.notification_smoke_detector
             - icon: smoke-detector
-            - name: Smoke detected!
+            - name: Smoke detected in the entryway!
             - card_color: 'rgba(255, 0, 0, 0.5)'
             - spin: true
         - !include ../includes/blank-card.yaml
 
-  # CO Detector Triggered
+  # Smoke Detector Hallway Triggered
   - type: conditional
     conditions:
-      condition: or
-      conditions:
-        - condition:
-          entity: sensor.entryway_nest_protect_co_status
-          state_not: "ok"
-        - condition:
-          entity: sensor.hallway_nest_protect_co_status
-          state_not: "ok"
-        - condition:
-          entity: sensor.attic_nest_protect_co_status
-          state_not: "ok"
+      - entity: sensor.hallway_nest_protect_smoke_status
+        state_not: "ok"
+    card:
+      type: horizontal-stack
+      cards:
+        - !include ../includes/blank-card.yaml
+        - type: custom:decluttering-card
+          template: notification_template
+          variables:
+            - entity: input_boolean.notification_smoke_detector
+            - icon: smoke-detector
+            - name: Smoke detected in the hallway!
+            - card_color: 'rgba(255, 0, 0, 0.5)'
+            - spin: true
+        - !include ../includes/blank-card.yaml
+
+  # Smoke Detector Attic Triggered
+  - type: conditional
+    conditions:
+      - entity: sensor.attic_nest_protect_smoke_status
+        state_not: "ok"
+    card:
+      type: horizontal-stack
+      cards:
+        - !include ../includes/blank-card.yaml
+        - type: custom:decluttering-card
+          template: notification_template
+          variables:
+            - entity: input_boolean.notification_smoke_detector
+            - icon: smoke-detector
+            - name: Smoke detected in the attic!
+            - card_color: 'rgba(255, 0, 0, 0.5)'
+            - spin: true
+        - !include ../includes/blank-card.yaml
+
+  # CO Detector Entryway Triggered
+  - type: conditional
+    conditions:
+      - entity: sensor.entryway_nest_protect_co_status
+        state_not: "ok"
     card:
       type: horizontal-stack
       cards:
@@ -104,8 +124,46 @@ cards:
           template: notification_template
           variables:
             - entity: input_boolean.notification_co_detector
-            - icon: smoke-detector
-            - name: CO detected!
+            - icon: co-detector
+            - name: CO detected in the entryway!
+            - card_color: 'rgba(255, 0, 0, 0.5)'
+            - spin: true
+        - !include ../includes/blank-card.yaml
+
+  # CO Detector Hallway Triggered
+  - type: conditional
+    conditions:
+      - entity: sensor.hallway_nest_protect_co_status
+        state_not: "ok"
+    card:
+      type: horizontal-stack
+      cards:
+        - !include ../includes/blank-card.yaml
+        - type: custom:decluttering-card
+          template: notification_template
+          variables:
+            - entity: input_boolean.notification_co_detector
+            - icon: co-detector
+            - name: CO detected in the hallway!
+            - card_color: 'rgba(255, 0, 0, 0.5)'
+            - spin: true
+        - !include ../includes/blank-card.yaml
+
+  # CO Detector Attic Triggered
+  - type: conditional
+    conditions:
+      - entity: sensor.attic_nest_protect_co_status
+        state_not: "ok"
+    card:
+      type: horizontal-stack
+      cards:
+        - !include ../includes/blank-card.yaml
+        - type: custom:decluttering-card
+          template: notification_template
+          variables:
+            - entity: input_boolean.notification_co_detector
+            - icon: co-detector
+            - name: CO detected in the attic!
             - card_color: 'rgba(255, 0, 0, 0.5)'
             - spin: true
         - !include ../includes/blank-card.yaml
