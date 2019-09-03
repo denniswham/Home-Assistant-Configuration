@@ -19,6 +19,18 @@ cards:
   # All Clear
   - type: conditional
     conditions:
+      - entity: sensor.entryway_nest_protect_smoke_status
+        state: "OK"
+      - entity: sensor.hallway_nest_protect_smoke_status
+        state: "OK"
+      - entity: sensor.attic_nest_protect_smoke_status
+        state: "OK"
+      - entity: sensor.entryway_nest_protect_co_status
+        state: "OK"
+      - entity: sensor.hallway_nest_protect_co_status
+        state: "OK"
+      - entity: sensor.attic_nest_protect_co_status
+        state: "OK"
       - entity: binary_sensor.entryway 
         state: "off"
       - entity: binary_sensor.kitchen
@@ -58,7 +70,7 @@ cards:
   - type: conditional
     conditions:
       - entity: sensor.entryway_nest_protect_smoke_status
-        state_not: "ok"
+        state_not: "Ok"
     card:
       type: horizontal-stack
       cards:
@@ -77,7 +89,7 @@ cards:
   - type: conditional
     conditions:
       - entity: sensor.hallway_nest_protect_smoke_status
-        state_not: "ok"
+        state_not: "Ok"
     card:
       type: horizontal-stack
       cards:
@@ -96,7 +108,7 @@ cards:
   - type: conditional
     conditions:
       - entity: sensor.attic_nest_protect_smoke_status
-        state_not: "ok"
+        state_not: "Ok"
     card:
       type: horizontal-stack
       cards:
@@ -115,7 +127,7 @@ cards:
   - type: conditional
     conditions:
       - entity: sensor.entryway_nest_protect_co_status
-        state_not: "ok"
+        state_not: "Ok"
     card:
       type: horizontal-stack
       cards:
@@ -124,7 +136,7 @@ cards:
           template: notification_template
           variables:
             - entity: input_boolean.notification_co_detector
-            - icon: co-detector
+            - icon: smoke-detector
             - name: CO detected in the entryway!
             - card_color: 'rgba(255, 0, 0, 0.5)'
             - spin: true
@@ -134,7 +146,7 @@ cards:
   - type: conditional
     conditions:
       - entity: sensor.hallway_nest_protect_co_status
-        state_not: "ok"
+        state_not: "Ok"
     card:
       type: horizontal-stack
       cards:
@@ -143,7 +155,7 @@ cards:
           template: notification_template
           variables:
             - entity: input_boolean.notification_co_detector
-            - icon: co-detector
+            - icon: smoke-detector
             - name: CO detected in the hallway!
             - card_color: 'rgba(255, 0, 0, 0.5)'
             - spin: true
@@ -153,7 +165,7 @@ cards:
   - type: conditional
     conditions:
       - entity: sensor.attic_nest_protect_co_status
-        state_not: "ok"
+        state_not: "Ok"
     card:
       type: horizontal-stack
       cards:
@@ -162,7 +174,7 @@ cards:
           template: notification_template
           variables:
             - entity: input_boolean.notification_co_detector
-            - icon: co-detector
+            - icon: smoke-detector
             - name: CO detected in the attic!
             - card_color: 'rgba(255, 0, 0, 0.5)'
             - spin: true
