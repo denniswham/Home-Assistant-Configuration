@@ -24,8 +24,8 @@ cards:
             font-family: Helvetica;
             font-weight: bold;
           }
-        entity: weather.dark_sky
-        name: Eindhoven
+        entity: .weather.lopik_cabauw
+        name: Woerden
         backdrop:
           fade: true
           day: "var(--weather-night)"

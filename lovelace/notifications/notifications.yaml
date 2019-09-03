@@ -19,36 +19,22 @@ cards:
   # All Clear
   - type: conditional
     conditions:
-      - entity: binary_sensor.door_window_sensor_158d000236f9dd 
+      - entity: binary_sensor.entryway 
         state: "off"
-      - entity: binary_sensor.door_window_sensor_158d000232ac1b
+      - entity: binary_sensor.kitchen
         state: "off"
-      - entity: binary_sensor.door_window_sensor_158d000238644b
+      - entity: binary_sensor.living_room
         state: "off"
-      - entity: input_select.dryer_status
-        state_not: "Clean"
-      - entity: input_select.dishwasher_status
-        state_not: "Clean"
-      - entity: input_select.washing_machine_status
-        state_not: "Clean"
+      - entity: binary_sensor.office
+        state: "off"
+      - entity: binary_sensor.garage
+        state: "off"
+      - entity: binary_sensor.ring_front_door_motion
+        state: "off"
+      - entity: binary_sensor.ring_backyard_motion
+        state: "off"
       - entity: alarm_control_panel.konnected_alarm
         state: disarmed
-      - entity: group.device_status
-        state: home
-      - entity: switch.afzuigkap
-        state: "off"
-      - entity: binary_sensor.motion_sensor_158d00024e687d
-        state: "off"
-      - entity: binary_sensor.motion_sensor_158d0002b7eec9
-        state: "off"
-      - entity: binary_sensor.dafang_motion_sensor
-        state: "off"
-      - entity: input_boolean.apkdennis
-        state: "off"
-      - entity: input_boolean.apksteph
-        state: "off"
-      - entity: vacuum.xiaomi_vacuum_cleaner
-        state: "docked"
     card:
       type: horizontal-stack
       cards:
@@ -58,15 +44,21 @@ cards:
           variables:
             - entity: input_boolean.notification_alles_rustig
             - icon: check-box-outline
-            - name: Alles is rustig, er zijn geen meldingen
+            - name: All is clear, there are no alerts
             - card_color: 'rgba(157, 0, 255, 0.5)'
         - !include ../includes/blank-card.yaml
 
   # Smoke Detector Triggered
   - type: conditional
     conditions:
-      - entity: binary_sensor.smoke_sensor_158d000287ab41
-        state: "on"
+      - entity: sensor.entryway_nest_protect_smoke_status
+        state_not: "ok"
+    conditions:
+      - entity: sensor.hallway_nest_protect_smoke_status
+        state_not: "ok"
+    conditions:
+      - entity: sensor.attic_nest_protect_smoke_status
+        state_not: "ok"
     card:
       type: horizontal-stack
       cards:
@@ -76,7 +68,32 @@ cards:
           variables:
             - entity: input_boolean.notification_smoke_detector
             - icon: smoke-detector
-            - name: Er is rook gesignaleerd in de keuken!!
+            - name: Smoke detected!
+            - card_color: 'rgba(255, 0, 0, 0.5)'
+            - spin: true
+        - !include ../includes/blank-card.yaml
+
+  # CO Detector Triggered
+  - type: conditional
+    conditions:
+      - entity: sensor.entryway_nest_protect_co_status
+        state_not: "ok"
+    conditions:
+      - entity: sensor.hallway_nest_protect_co_status
+        state_not: "ok"
+    conditions:
+      - entity: sensor.attic_nest_protect_co_status
+        state_not: "ok"
+    card:
+      type: horizontal-stack
+      cards:
+        - !include ../includes/blank-card.yaml
+        - type: custom:decluttering-card
+          template: notification_template
+          variables:
+            - entity: input_boolean.notification_co_detector
+            - icon: smoke-detector
+            - name: CO detected!
             - card_color: 'rgba(255, 0, 0, 0.5)'
             - spin: true
         - !include ../includes/blank-card.yaml
@@ -115,29 +132,29 @@ cards:
           variables:
             - entity: input_boolean.notification_alarm
             - icon: alert
-            - name: LET OP! Het alarm is ingeschakeld!
+            - name: Be careful! The alarm is armed!
             - card_color: 'rgba(255, 0, 0, 0.5)'
         - !include ../includes/blank-card.yaml
 
-  # Alarm Disarmed Not Home
-  - type: conditional
-    conditions:
-      - entity: alarm_control_panel.konnected_alarm
-        state: disarmed
-      - entity: group.device_status
-        state_not: home
-    card:
-      type: horizontal-stack
-      cards:
-        - !include ../includes/blank-card.yaml
-        - type: custom:decluttering-card
-          template: notification_template
-          variables:
-            - entity: input_boolean.notification_alarm
-            - icon: alert
-            - name: Er is niemand meer thuis, schakel het alarm in!
-            - card_color: 'rgba(255, 110, 0, 0.5)'
-        - !include ../includes/blank-card.yaml
+#  # Alarm Disarmed Not Home
+#  - type: conditional
+#    conditions:
+#      - entity: alarm_control_panel.konnected_alarm
+#        state: disarmed
+#      - entity: group.device_status
+#        state_not: home
+#    card:
+#      type: horizontal-stack
+#      cards:
+#        - !include ../includes/blank-card.yaml
+#        - type: custom:decluttering-card
+#          template: notification_template
+#          variables:
+#            - entity: input_boolean.notification_alarm
+#            - icon: alert
+#            - name: Er is niemand meer thuis, schakel het alarm in!
+#            - card_color: 'rgba(255, 110, 0, 0.5)'
+#        - !include ../includes/blank-card.yaml
 
   # Alarm Pending
   - type: conditional
@@ -156,79 +173,6 @@ cards:
             - name: Het alarm wordt ingeschakeld, verlaat het pand!
             - card_color: 'rgba(255, 90, 0, 0.5)'
         - !include ../includes/blank-card.yaml
-
-  # Afzuigkap
-  - type: conditional
-    conditions:
-      - entity: switch.afzuigkap
-        state: "on"
-    card:
-      type: horizontal-stack
-      cards:
-        - !include ../includes/blank-card.yaml
-        - type: custom:decluttering-card
-          template: notification_template
-          variables:
-            - entity: input_boolean.notification_afzuigkap
-            - icon: fan
-            - name: De afzuigkap staat aan!
-            - card_color: 'rgba(0, 245, 224, 0.5)'
-            - spin: true
-        - !include ../includes/blank-card.yaml
-
-  # Voordeur
-  - type: conditional
-    conditions:
-      - entity: binary_sensor.door_window_sensor_158d000236f9dd 
-        state: "on"
-    card:
-      type: horizontal-stack
-      cards:
-        - !include ../includes/blank-card.yaml
-        - type: custom:decluttering-card
-          template: notification_template
-          variables:
-            - entity: input_boolean.notification_voordeur
-            - icon: door
-            - name: De voordeur staat open!
-            - card_color: 'rgba(160, 40, 40, 0.5)'
-        - !include ../includes/blank-card.yaml
-
-  # Woonkamer Deur
-  - type: conditional
-    conditions:
-      - entity: binary_sensor.door_window_sensor_158d000238644b
-        state: "on"
-    card:
-      type: horizontal-stack
-      cards:
-        - !include ../includes/blank-card.yaml
-        - type: custom:decluttering-card
-          template: notification_template
-          variables:
-            - entity: input_boolean.notification_woonkamer_deur
-            - icon: door
-            - name: De woonkamerdeur staat open!
-            - card_color: 'rgba(193, 2, 214, 0.5)'
-        - !include ../includes/blank-card.yaml
-
-  # Slaapkamer Deur
-  - type: conditional
-    conditions:
-      - entity: binary_sensor.door_window_sensor_158d000232ac1b
-        state: "on"
-    card:
-      type: horizontal-stack
-      cards:
-        - !include ../includes/blank-card.yaml
-        - type: custom:decluttering-card
-          template: notification_template
-          variables:
-            - entity: input_boolean.notification_slaapkamer_deur
-            - icon: door
-            - name: De slaapkamerdeur staat open!
-            - card_color: 'rgba(13, 266, 20, 0.5)'
-        - !include ../includes/blank-card.yaml     
 
   # Droger
   - type: conditional
