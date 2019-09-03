@@ -468,7 +468,7 @@ cards:
           variables:
             - entity: input_boolean.notification_apk
             - icon: steering
-            - name: "[[[ return `APK Audi A4 verloopt op ${states['sensor.car_1_expdate'].state}` ]]]"
+            - name: "[[[ return `MOT for the Audi A4 is due on ${states['sensor.car_1_expdate'].state}` ]]]"
             - card_color: 'rgba(166, 0, 0, 0.5)'
             - spin: true
         - !include ../includes/blank-card.yaml
@@ -487,7 +487,7 @@ cards:
           variables:
             - entity: input_boolean.notification_apk
             - icon: steering
-            - name: "[[[ return `APK Audi A3 verloopt op ${states['sensor.car_2_expdate'].state}` ]]]"
+            - name: "[[[ return `MOT for the Audi A3 is due on ${states['sensor.car_2_expdate'].state}` ]]]"
             - card_color: 'rgba(166, 0, 0, 0.5)'
             - spin: true
         - !include ../includes/blank-card.yaml
