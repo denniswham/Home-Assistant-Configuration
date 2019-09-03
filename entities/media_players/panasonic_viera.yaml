@@ -1,5 +1,3 @@
 platform: panasonic_viera
 host: !secret viera_host
-mac: !secret viera_mac
-app_power: true
 name: Living Room TV
