@@ -32,7 +32,7 @@
     type: module
   - url: /community_plugin/lovelace-postnl-card/postnl-card.js
     type: module
-  - url: /community_plugin/mini-graph-card/mini-graph-card.js
+  - url: /community_plugin/mini-graph-card/mini-graph-card-bundle.js
     type: module
   - url: /community_plugin/light-entity-card/light-entity-card.js
     type: js
