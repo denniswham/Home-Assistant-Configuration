@@ -1,0 +1,13 @@
+alias: 'Set theme dark at startup'
+initial_state: 'true'
+trigger:
+  - platform: homeassistant
+    event: start
+condition:
+  condition: state
+  entity_id: sun.sun
+  state: 'below_horizon'
+action:
+  - service: frontend.set_theme
+    data:
+      name: Homekit Gray Dark
