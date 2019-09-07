@@ -1,0 +1,13 @@
+alias: 'theme selector input_select 9'
+initial_state: true
+trigger:
+  - platform: state
+    entity_id: input_select.theme_selector
+    to: 'Standard Gray Dark'
+action:
+  - service: frontend.set_theme
+    data:
+      name: Standard Gray Dark
+  - service: homeassistant.turn_off
+    data:
+      entity_id: group.theme_selector
