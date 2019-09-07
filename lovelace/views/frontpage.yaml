@@ -7,7 +7,7 @@ cards:
   - type: conditional
     conditions:
       - entity: alarm_control_panel.konnected_alarm
-        state: 'disarmed'
+        state_note: 'armed_away'
     card:
       type: custom:swipe-card
       start_card: 2
@@ -151,7 +151,7 @@ cards:
       - !include ../includes/blank-card.yaml
 
 # Frontpage Shortcut Buttons, These are once again conditional
-# If the alarm is set to anything but disarmed these buttons
+# If the alarm is set to 'armed_away' these buttons
 # will hide and only the quick access menu will be accessible.
 # Remember to change the alarm entity to match your own.
 
@@ -159,7 +159,7 @@ cards:
   - type: conditional
     conditions:
       - entity: alarm_control_panel.konnected_alarm
-        state: 'disarmed'
+        state_not: 'armed_away'
     card:
       type: horizontal-stack
       cards:
@@ -242,7 +242,7 @@ cards:
   - type: conditional
     conditions:
       - entity: alarm_control_panel.konnected_alarm
-        state: 'disarmed'
+        state_not: 'armed_away'
     card:
       type: horizontal-stack
       cards:
