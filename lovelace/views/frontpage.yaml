@@ -7,7 +7,7 @@ cards:
   - type: conditional
     conditions:
       - entity: alarm_control_panel.konnected_alarm
-        state_note: 'armed_away'
+        state_not: 'armed_away'
     card:
       type: custom:swipe-card
       start_card: 2
