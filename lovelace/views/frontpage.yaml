@@ -80,7 +80,7 @@ cards:
           variables:
             - name: dennis
 #            - namesensor: !secret dennissensor
-            - direction: right
+            - direction: left
             - image: '/local/images/dennis_small.jpg'
             - postnl: sensor.postnl_dennis
             - reistijd: sensor.dennis_to_home
@@ -99,7 +99,7 @@ cards:
           variables:
             - name: dennis
 #            - namesensor: !secret dennissensor
-            - direction: right
+            - direction: left
             - image: '/local/images/dennis_small.jpg'
             - postnl: sensor.postnl_dennis
             - reistijd: sensor.dennis_to_work
@@ -121,7 +121,7 @@ cards:
           variables:
             - name: stephanie
 #            - namesensor: !secret stephaniesensor
-            - direction: left
+            - direction: right
             - image: '/local/images/stephanie_small.jpg'
             - postnl: sensor.postnl_stephanie
             - reistijd: sensor.stephanie_to_home
@@ -140,7 +140,7 @@ cards:
           variables:
             - name: stephanie
 #            - namesensor: !secret stephaniesensor
-            - direction: left
+            - direction: right
             - image: '/local/images/stephanie_small.jpg'
             - postnl: sensor.postnl_stephanie
             - reistijd: sensor.stephanie_to_work
