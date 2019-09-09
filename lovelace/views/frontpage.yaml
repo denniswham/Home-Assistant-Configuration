@@ -108,7 +108,6 @@ cards:
             - tap_action:
                 action: navigate
                 navigation_path: /lovelace/dennis
-      - !include ../includes/blank-card.yaml
 
   # Right Photo
       - type: conditional
@@ -149,6 +148,7 @@ cards:
             - tap_action:
                 action: navigate
                 navigation_path: /lovelace/stephanie
+      - !include ../includes/blank-card.yaml
 
 # Frontpage Shortcut Buttons, These are once again conditional
 # If the alarm is set to 'armed_away' these buttons
