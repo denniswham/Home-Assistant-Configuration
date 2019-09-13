@@ -124,7 +124,7 @@ cards:
               - type: custom:decluttering-card
                 template: header_text
                 variables:
-                  - content: "##### Citroën C1 1.0 (2007) 55-GFF-3"
+                  - content: "##### Audi A3 Sportback"
               - type: horizontal-stack
                 cards:
                   - type: 'custom:button-card'
@@ -135,7 +135,7 @@ cards:
                   - type: markdown
                     style: |
                       ha-card {
-                        background-image: url('/local/images/citroenc1.jpg');
+                        background-image: url('/local/images/car2.jpg');
                         border-radius: var(--border-radius);
                         font-size: 13px;
                         font-family: Helvetica;
@@ -148,11 +148,11 @@ cards:
                         overflow: hidden;
                       }
                     content: >
-                      **APK:** [[ sensor.citroen_c1_expdate.state ]]
+                      **APK:** [[ sensor.audi_a3_expdate.state ]]
         
-                      **Kenteken:** 55-GFF-3
+                      **Kenteken:** !secret car2_plate
         
-                      **Verzekerd:** [[ sensor.citroen_c1_insured.state ]]
+                      **Verzekerd:** [[ sensor.car2_insured.state ]]
                   - !include ../includes/blank-card.yaml
               - type: horizontal-stack
                 cards:
@@ -234,14 +234,14 @@ cards:
               - type: custom:decluttering-card
                 template: header_text
                 variables:
-                  - content: '##### Peugeot 207 SW 1.4 VTi X-Line (2007) 21-XX-DL'
+                  - content: '##### Audi A4 Avant'
               - type: horizontal-stack
                 cards:
                   - !include ../includes/blank-card.yaml
                   - type: markdown
                     style: |
                       ha-card {
-                        background-image: url('/local/images/peugeot207.jpg');
+                        background-image: url('/local/images/car1.jpg');
                         border-radius: var(--border-radius);
                         font-size: 13px;
                         font-family: Helvetica;
@@ -254,11 +254,11 @@ cards:
                         overflow: hidden;
                       }
                     content: >
-                      **APK:** [[ sensor.peugeot_207_expdate.state ]]
+                      **APK:** [[ sensor.audi_a4_expdate.state ]]
         
-                      **Kenteken:** 21-XX-DL
+                      **Kenteken:** !secret car1_plate
                       
-                      **Verzekerd:** [[ sensor.peugeot_207_insured.state ]]
+                      **Verzekerd:** [[ sensor.car1_insured.state ]]
                   - !include ../includes/blank-card.yaml
               - type: horizontal-stack
                 cards:
