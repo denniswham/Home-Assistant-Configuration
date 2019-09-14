@@ -1,0 +1,3 @@
+car1_plate_friendly:
+  name: !secret car1_name
+  initial: !secret car1_plate_friendly
