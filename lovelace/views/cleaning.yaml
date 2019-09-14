@@ -150,9 +150,9 @@ cards:
                     content: >
                       **APK:** [[ sensor.audi_a3_expdate.state ]]
         
-                      **Kenteken:** [[ !secret car2_plate ]]
+                      **Kenteken:** [[ input_text.car1_plate.state ]]
         
-                      **Verzekerd:** [[ sensor.car2_insured.state ]]
+                      **Verzekerd:** [[ sensor.audi_a3_insured.state ]]
                   - !include ../includes/blank-card.yaml
               - type: horizontal-stack
                 cards:
@@ -216,9 +216,9 @@ cards:
                       }
                     entities:        
                       - type: weblink
-                        name: Garage Kruburg Bellen
+                        name: Audi Muntstad Bellen
                         icon: 'mdi:phone'
-                        url: tel:+31402421780
+                        url: tel:+31302969000
                       - type: weblink
                         name: ANWB Bellen
                         url: tel:+31882692222
@@ -256,9 +256,9 @@ cards:
                     content: >
                       **APK:** [[ sensor.audi_a4_expdate.state ]]
         
-                      **Kenteken:** [[ !secret car1_plate ]]
+                      **Kenteken:** [[ input_text.car1_plate.state ]]
                       
-                      **Verzekerd:** [[ sensor.car1_insured.state ]]
+                      **Verzekerd:** [[ sensor.audi_a4_insured.state ]]
                   - !include ../includes/blank-card.yaml
               - type: horizontal-stack
                 cards:
@@ -321,12 +321,12 @@ cards:
                       }
                     entities:        
                       - type: weblink
-                        name: Garage Kruburg Bellen
+                        name: Audi Muntstad Bellen
                         icon: 'mdi:phone'
-                        url: tel:+31402421780
+                        url: tel:+31302969000
                       - type: weblink
-                        name: ANWB Bellen
-                        url: tel:+31882692222
+                        name: Alphabet
+                        url: tel:+31765793200
                         icon: 'mdi:phone'
                   - !include ../includes/blank-card.yaml
               - !include ../includes/bottom-card.yaml # Changed/Added in 0.12.0            
