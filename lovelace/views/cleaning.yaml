@@ -150,7 +150,7 @@ cards:
                     content: >
                       **APK:** [[ sensor.audi_a3_expdate.state ]]
         
-                      **Kenteken:** !secret car2_plate
+                      **Kenteken:** [[ !secret car2_plate ]]
         
                       **Verzekerd:** [[ sensor.car2_insured.state ]]
                   - !include ../includes/blank-card.yaml
@@ -256,7 +256,7 @@ cards:
                     content: >
                       **APK:** [[ sensor.audi_a4_expdate.state ]]
         
-                      **Kenteken:** !secret car1_plate
+                      **Kenteken:** [[ !secret car1_plate ]]
                       
                       **Verzekerd:** [[ sensor.car1_insured.state ]]
                   - !include ../includes/blank-card.yaml
