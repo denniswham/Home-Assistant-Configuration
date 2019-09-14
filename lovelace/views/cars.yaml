@@ -53,9 +53,9 @@ cards:
                     content: >
                       **APK:** [[ sensor.audi_a3_expdate.state ]]
         
-                      **Kenteken:** [[ input_text.car1_plate_friendly.state ]]
+                      **License:** [[ input_text.car1_plate_friendly.state ]]
         
-                      **Verzekerd:** [[ sensor.audi_a3_insured.state ]]
+                      **Insured:** [[ sensor.audi_a3_insured.state ]]
                   - !include ../includes/blank-card.yaml
               - type: horizontal-stack
                 cards:
@@ -65,7 +65,7 @@ cards:
                       - type: custom:decluttering-card
                         template: check_button_card
                         variables:
-                          - title: Olie
+                          - title: Oil
                           - entity: sensor.citroen_olie
                           - value 1: 3 months
                           - value 2: 6 months
@@ -73,7 +73,7 @@ cards:
                       - type: custom:decluttering-card
                         template: check_button_card
                         variables:
-                          - title: Banden
+                          - title: Tyres
                           - entity: sensor.citroen_banden
                           - value 1: 3 months
                           - value 2: 6 months
@@ -81,7 +81,7 @@ cards:
                       - type: custom:decluttering-card
                         template: check_button_card
                         variables:
-                          - title: Wassen
+                          - title: Carwash
                           - entity: sensor.citroen_clean
                           - value 1: 1 month
                           - value 2: 3 months
@@ -89,7 +89,7 @@ cards:
                       - type: custom:decluttering-card
                         template: check_button_card
                         variables:
-                          - title: Stofzuigen
+                          - title: Vacuum clean
                           - entity: sensor.citroen_stof
                           - value 1: 1 month
                           - value 2: 3 months
@@ -97,7 +97,7 @@ cards:
                       - type: custom:decluttering-card
                         template: check_button_card
                         variables:
-                          - title: Ruiten
+                          - title: Screens
                           - entity: sensor.citroen_window
                           - value 1: 1 month
                           - value 2: 3 months
@@ -159,9 +159,9 @@ cards:
                     content: >
                       **APK:** [[ sensor.audi_a4_expdate.state ]]
         
-                      **Kenteken:** [[ input_text.car1_plate_friendly.state ]]
+                      **License:** [[ input_text.car1_plate_friendly.state ]]
                       
-                      **Verzekerd:** [[ sensor.audi_a4_insured.state ]]
+                      **Insured:** [[ sensor.audi_a4_insured.state ]]
                   - !include ../includes/blank-card.yaml
               - type: horizontal-stack
                 cards:
@@ -171,7 +171,7 @@ cards:
                       - type: custom:decluttering-card
                         template: check_button_card
                         variables:
-                          - title: Olie
+                          - title: Oil
                           - entity: sensor.daihatsu_olie
                           - value 1: 3 months
                           - value 2: 6 months
@@ -179,7 +179,7 @@ cards:
                       - type: custom:decluttering-card
                         template: check_button_card
                         variables:
-                          - title: Banden
+                          - title: Tyres
                           - entity: sensor.daihatsu_banden
                           - value 1: 3 months
                           - value 2: 6 months
@@ -187,7 +187,7 @@ cards:
                       - type: custom:decluttering-card
                         template: check_button_card
                         variables:
-                          - title: Wassen
+                          - title: Carwash
                           - entity: sensor.daihatsu_clean
                           - value 1: 1 month
                           - value 2: 3 months
@@ -195,7 +195,7 @@ cards:
                       - type: custom:decluttering-card
                         template: check_button_card
                         variables:
-                          - title: Stofzuigen
+                          - title: Vacuum clean
                           - entity: sensor.daihatsu_stof
                           - value 1: 1 month
                           - value 2: 3 months
@@ -203,7 +203,7 @@ cards:
                       - type: custom:decluttering-card
                         template: check_button_card
                         variables:
-                          - title: Ruiten
+                          - title: Screens
                           - entity: sensor.daihatsu_window
                           - value 1: 1 month
                           - value 2: 3 months
