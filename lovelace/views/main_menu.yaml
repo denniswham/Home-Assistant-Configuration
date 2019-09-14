@@ -31,7 +31,7 @@ cards:
               - entity: input_boolean.dummy1
               - name: Cars
               - label: Lists
-              - icon: broom
+              - icon: car
               - show_state: false
               - opacity: 0.8
               - tap_action:

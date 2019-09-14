@@ -7,7 +7,7 @@ cards:
         template: back_button
         variables:
           - name1: Cleaning
-          - icon1: broom
+          - icon1: car
           - path1: cleaning
       - type: custom:decluttering-card
         template: header_text

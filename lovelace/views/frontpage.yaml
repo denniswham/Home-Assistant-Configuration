@@ -252,7 +252,7 @@ cards:
           variables:
             - name: Cars
             - label: Lists
-            - icon: broom
+            - icon: car
             - show_state: false
             - tap_action: 
                 action: navigate
