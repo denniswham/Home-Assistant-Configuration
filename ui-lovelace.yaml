@@ -18,7 +18,7 @@ decluttering_templates:
 # The following 5 views are swipable, the order
 # of these 5 files is the swipe order as well.
 # The first view is the page 0. In my setup
-# the interface defaults to view 1.
+# the interface defaults to view 1. 
 title: Home
 background: var(--background-image) # This is the background image that will be used in all the views. (currently backgrounds are set in themes, dont edit this if you want themes to work)
 views:
@@ -38,7 +38,7 @@ views:
   - !include lovelace/views/stephanie.yaml
   - !include lovelace/views/scenes.yaml
   - !include lovelace/views/main_menu.yaml
-  - !include lovelace/views/cleaning.yaml
+  - !include lovelace/views/cars.yaml
   - !include lovelace/views/floorplan.yaml
   - !include lovelace/views/remote.yaml
   - !include lovelace/views/links.yaml

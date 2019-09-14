@@ -29,18 +29,18 @@ cards:
             template: switch_button_card
             variables:
               - entity: input_boolean.dummy1
-              - name: Cleaning
+              - name: Cars
               - label: Lists
               - icon: broom
               - show_state: false
               - opacity: 0.8
               - tap_action:
                   action: navigate
-                  navigation_path: /lovelace/cleaning
+                  navigation_path: /lovelace/cars
                   haptic: light
               - hold_action:
                   action: navigate
-                  navigation_path: /lovelace/cleaning
+                  navigation_path: /lovelace/cars
                   haptic: light
           - type: custom:decluttering-card
             template: switch_button_card
