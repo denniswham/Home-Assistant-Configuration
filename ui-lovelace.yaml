@@ -43,7 +43,7 @@ views:
   - !include lovelace/views/remote.yaml
   - !include lovelace/views/links.yaml
   - !include lovelace/views/calendar.yaml
-  - !include lovelace/views/laundry.yaml
+  #  - !include lovelace/views/laundry.yaml
   - !include lovelace/views/media.yaml
   - !include lovelace/views/downloads.yaml
   - !include lovelace/views/energy.yaml
