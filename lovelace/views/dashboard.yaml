@@ -13,7 +13,7 @@ cards:
       - entities:
           - entity: input_boolean.konnectedupdate
             name: Auto Arm
-          - entity: switch.alarm_siren
+          - entity: switch.siren
             icon: 'mdi:alarm-light'
             name: Siren
         type: entities
