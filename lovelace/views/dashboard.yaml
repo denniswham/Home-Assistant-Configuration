@@ -44,8 +44,9 @@ cards:
           - 'home'
         show_empty: false
       - entities:
-          - entity: sensor.morning_commute
+          - entity: sensor.dennis_to_work
           - entity: sensor.dennis_to_home
+          - entity: sensor.stephanie_to_work
           - entity: sensor.stephanie_to_home
         show_header_toggle: false
         title: Information
