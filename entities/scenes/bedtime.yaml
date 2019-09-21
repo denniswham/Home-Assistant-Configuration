@@ -6,5 +6,5 @@ entities:
     temperature: 17
   media_player.living_room_xbox_one:
     state: off
-  light.living_room_spot_dimmer:
+  light.living_room_spot_lights_dimmer:
     state: off
