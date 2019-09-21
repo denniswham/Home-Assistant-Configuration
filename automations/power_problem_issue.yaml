@@ -13,7 +13,7 @@ action:
   data_template:
     message: "RPI Power reported {{ states.sensor.rpi_power_status.state }}. The state had changed from {{ trigger.from_state.state }} "
     title: Power Supply Issue
-- service: notify.html5_galaxy_s9_chrome
+- service: notify.html5_galaxy_s9_edge
   data_template:
     message: "RPI Power reported {{ states.sensor.rpi_power_status.state }}. The state had  changed from {{ trigger.from_state.state }}"
     title: Power Supply Issue
