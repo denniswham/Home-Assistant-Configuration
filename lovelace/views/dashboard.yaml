@@ -65,7 +65,7 @@ cards:
     type: vertical-stack
   - cards:
       - entities:
-          - entity: light.qubino_goap_zmnhdd1_flush_dimmer
+          - entity: light.living_room_spot_lights_dimmer
             type: custom:slider-entity-row
         title: Lights
         type: entities
