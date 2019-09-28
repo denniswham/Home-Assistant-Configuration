@@ -18,7 +18,7 @@ action:
   data_template:
     message: "{{ trigger.entity_id }} reported low battery, please charge."
     title: Ring Battery Low
-- service: notify.html5_galaxy_s9_edge
+- service: notify.html5_galaxy_s9
   data_template:
     message: "{{ trigger.entity_id }} reported low battery, please charge."
     title: Ring Battery Low

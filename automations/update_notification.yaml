@@ -12,7 +12,7 @@ trigger:
   to: 'home'
 action:
 - delay: 00:30:00
-- service: notify.html5_galaxy_s9_edge
+- service: notify.html5_galaxy_s9
   data:
     title: Home Assistant Update
     message: "Version {{ states.sensor.latest_version.state }} is available!"
