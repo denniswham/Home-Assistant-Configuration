@@ -2,16 +2,16 @@ ring:
   username: !secret ring_username
   password: !secret ring_password
 
-ifttt:
-  key: !secret ifttt_key
+#ifttt:
+#  key: !secret ifttt_key
 
 nest:
   client_id: !secret nest_client_id
   client_secret: !secret nest_client_secret
 
-google:
-  client_id: !secret google_id
-  client_secret: !secret google_secret
+#google:
+#  client_id: !secret google_id
+#  client_secret: !secret google_secret
 
 life360:
   driving_speed: 30
