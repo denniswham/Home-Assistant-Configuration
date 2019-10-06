@@ -54,7 +54,7 @@ input_boolean:
     icon: mdi:security  
 
 automation:
-  -  alias: Arm Konnected
+  - alias: Arm Konnected
     initial_state: 'true'
     condition:
     - condition: state
