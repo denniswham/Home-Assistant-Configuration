@@ -4,13 +4,10 @@ sensor:
     command: "cat /sys/class/thermal/thermal_zone0/temp"
     unit_of_measurement: "°C"
     value_template: '{{ value | multiply(0.001) }}'
-
   - platform: version
-
   - platform: filesize
     file_paths:
       - /config/home-assistant_v2.db
-
   - platform: rest
     resource: https://pypi.python.org/pypi/homeassistant/json
     name: Latest Version
