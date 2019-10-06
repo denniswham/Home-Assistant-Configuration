@@ -22,7 +22,7 @@ alarm_control_panel:
       delay_time: 20
 
 automation:
-  -  alias: Arm Konnected
+  - alias: Arm Konnected
     initial_state: 'true'
     condition:
     - condition: state
