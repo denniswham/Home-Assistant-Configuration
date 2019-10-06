@@ -103,115 +103,115 @@ automation:
     id: dd7b5484487942d08e18f10f57623daf  
     
 script:
-  - konnectedaway:
-      alias: 'Konnected Arm'
-      sequence:
-        - service: input_select.select_option
+  konnectedaway:
+    alias: 'Konnected Arm'
+    sequence:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.konnectedstatus
+          option: armed_away
+      - service: alarm_control_panel.alarm_arm_away
+        entity_id:
+          - alarm_control_panel.konnected_alarm
+      - service: alarm_control_panel.alarm_arm_away
+        entity_id:
+          - alarm_control_panel.alexa_guard_7514f
+      - service: climate.set_preset_mode
+        entity_id:
+          - climate.living_room
+        data: {"preset_mode": "away"}
+      - service: notify.alexa_media
+        data:
           data:
-            entity_id: input_select.konnectedstatus
-            option: armed_away
-        - service: alarm_control_panel.alarm_arm_away
-          entity_id:
-            - alarm_control_panel.konnected_alarm
-        - service: alarm_control_panel.alarm_arm_away
-          entity_id:
-            - alarm_control_panel.alexa_guard_7514f
-        - service: climate.set_preset_mode
-          entity_id:
-            - climate.living_room
-          data: {"preset_mode": "away"}
-        - service: notify.alexa_media
+            type: tts
+          target:
+          - group.alexa
+          message: I'll start guarding now
+
+  konnectedhome:
+    alias: 'Konnected Home'
+    sequence:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.konnectedstatus
+          option: armed_home
+      - service: alarm_control_panel.alarm_arm_home
+        entity_id:
+          - alarm_control_panel.konnected_alarm
+      - service: alarm_control_panel.alarm_arm_home
+        entity_id:
+          - alarm_control_panel.alexa_guard_7514f
+
+  konnectedpending:
+    alias: 'Konnected Pending'
+    sequence:
+      - service: alarm_control_panel.alarm_trigger
+        entity_id: alarm_control_panel.Konnected_Alarm
+      - service: notify.alexa_media
+        data:
           data:
-            data:
-              type: tts
-            target:
+            type: tts
+          target:
             - group.alexa
-            message: I'll start guarding now
+          message: Motion detected, the alarm will activate shortly. Motion detected, the alarm will activate shortly.
 
-  - konnectedhome:
-      alias: 'Konnected Home'
-      sequence:
-        - service: input_select.select_option
-          data:
-            entity_id: input_select.konnectedstatus
-            option: armed_home
-        - service: alarm_control_panel.alarm_arm_home
-          entity_id:
-            - alarm_control_panel.konnected_alarm
-        - service: alarm_control_panel.alarm_arm_home
-          entity_id:
-            - alarm_control_panel.alexa_guard_7514f
+  konnectedstandby:
+    alias: 'Konnected Standby'
+    sequence:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.konnectedstatus
+          option: disarmed
+      - service: alarm_control_panel.alarm_disarm
+        entity_id:
+          - alarm_control_panel.konnected_alarm
+      - service: alarm_control_panel.alarm_disarm
+        entity_id:
+          - alarm_control_panel.alexa_guard_7514f
+      - service: climate.set_preset_mode
+        entity_id:
+          - climate.living_room
+        data: {"preset_mode": "home"}
 
-  - konnectedpending:
-      alias: 'Konnected Pending'
-      sequence:
-        - service: alarm_control_panel.alarm_trigger
-          entity_id: alarm_control_panel.Konnected_Alarm
-        - service: notify.alexa_media
+  konnectedtrigger:
+    alias: 'Konnected Trigger'
+    sequence:
+      - service: switch.turn_on
+        entity_id: switch.siren
+      - service: switch.turn_on
+        entity_id: switch.backyard_siren
+      - service: notify.alexa_media
+        data:
           data:
-            data:
-              type: tts
-            target:
-              - group.alexa
-            message: Motion detected, the alarm will activate shortly. Motion detected, the alarm will activate shortly.
+            type: tts
+          target:
+            - group.alexa
+          message: Your alarm was activated
+      - service: notify.html5
+        data:
+          title: Konnected
+          message: Your alarm was activated
+          data:
+            actions:
+              - action: open
+                icon: "/local/icons/konnected.png"
+                title: Open Home Assistant
+            tag: konnected-alarm-notification
+            ttl: 86400
+            priority: high      
+      - service: notify.notify
+        data:
+          message: "Your alarm was activated"
+          data:
+            push:
+              badge: 0
+              category: alarm_control_panel.Konnected_Alarm
 
-  - konnectedstandby:
-      alias: 'Konnected Standby'
-      sequence:
-        - service: input_select.select_option
-          data:
-            entity_id: input_select.konnectedstatus
-            option: disarmed
-        - service: alarm_control_panel.alarm_disarm
-          entity_id:
-            - alarm_control_panel.konnected_alarm
-        - service: alarm_control_panel.alarm_disarm
-          entity_id:
-            - alarm_control_panel.alexa_guard_7514f
-        - service: climate.set_preset_mode
-          entity_id:
-            - climate.living_room
-          data: {"preset_mode": "home"}
-
-  - konnectedtrigger:
-      alias: 'Konnected Trigger'
-      sequence:
-        - service: switch.turn_on
-          entity_id: switch.siren
-        - service: switch.turn_on
-          entity_id: switch.backyard_siren
-        - service: notify.alexa_media
-          data:
-            data:
-              type: tts
-            target:
-              - group.alexa
-            message: Your alarm was activated
-        - service: notify.html5
-          data:
-            title: Konnected
-            message: Your alarm was activated
-            data:
-              actions:
-                - action: open
-                  icon: "/local/icons/konnected.png"
-                  title: Open Home Assistant
-              tag: konnected-alarm-notification
-              ttl: 86400
-              priority: high      
-        - service: notify.notify
-          data:
-            message: "Your alarm was activated"
-            data:
-              push:
-                badge: 0
-                category: alarm_control_panel.Konnected_Alarm
-
-  - log_motion:
-      alias: Log Motion
-      sequence:
-        - service: logbook.log
-          data_template:
-            name: "Motion detected: "
-            message: >-
-              {{ states[entityid.split('.')[0]][entityid.split('.')[1]].name }}      
+  log_motion:
+    alias: Log Motion
+    sequence:
+      - service: logbook.log
+        data_template:
+          name: "Motion detected: "
+          message: >-
+            {{ states[entityid.split('.')[0]][entityid.split('.')[1]].name }}      
