@@ -1,0 +1,6 @@
+homeassistant:
+  customize:
+    light.living_room_spot_lights_dimmer:
+      friendly_name: Living Room Spot Lights
+    light.office_spot_lights_dimmer:
+      friendly_name: Office Spot Lights

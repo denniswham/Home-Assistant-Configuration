@@ -1,6 +1,0 @@
-platform: rdw
-name: !secret car1_name
-plate: !secret car1_plate
-sensors:
-  - expdate
-  - insured

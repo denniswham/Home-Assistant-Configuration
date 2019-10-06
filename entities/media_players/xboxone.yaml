@@ -1,3 +1,0 @@
-platform: xboxone
-device: !secret xbox_device
-name: Living Room Xbox One

@@ -1,0 +1,21 @@
+sensor:
+  -   phone_dennis_battery:
+        friendly_name: Phone Dennis
+        value_template: "{{ states.device_tracker.life360_dennis.attributes.battery }}"
+        unit_of_measurement: '%'
+        device_class: battery
+      phone_stephanie_battery:
+        friendly_name: Phone Stephanie
+        value_template: "{{ states.device_tracker.life360_stephanie.attributes.battery }}"
+        unit_of_measurement: '%'
+        device_class: battery
+      phone_lucas_battery:
+        friendly_name: Phone Lucas
+        value_template: "{{ states.device_tracker.life360_lucas_ham.attributes.battery }}"
+        unit_of_measurement: '%'
+        device_class: battery
+      phone_timo_battery:
+        friendly_name: Phone Timo
+        value_template: "{{ states.device_tracker.life360_timo.attributes.battery }}"
+        unit_of_measurement: '%'
+        device_class: battery

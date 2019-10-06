@@ -1,3 +1,0 @@
-platform: generic
-name: Meteogram
-still_image_url: !secret meteogram_png_url

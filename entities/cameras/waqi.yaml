@@ -1,3 +1,0 @@
-platform: generic
-name: Waqi
-still_image_url: !secret waqi_png_url

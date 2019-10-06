@@ -1,4 +1,0 @@
-platform: generic
-name: Buienradar
-still_image_url: https://api.buienradar.nl/image/1.0/RadarMapNL?w=480&h=480
-content_type: 'image/gif'

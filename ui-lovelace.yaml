@@ -1,12 +1,3 @@
----
-# This is actually just a bootstrap for my Lovelace configuration.
-
-# It loads all resources for Lovelace dynamically from subfolders
-# inside the `lovelace/resources` directory.
-#
-# Views are actually include one by one, this to guarentee the order of
-# the tabs of the view in the UI.
-#
 title: Les Jambons
 resources:
   - url: /community_plugin/lovelace-auto-entities/auto-entities.js
@@ -127,6 +118,8 @@ views:
       - cards:
           - entities:
               - entity: light.living_room_spot_lights_dimmer
+                type: custom:slider-entity-row
+              - entity: light.office_spot_lights_dimmer
                 type: custom:slider-entity-row
             title: Lights
             type: entities

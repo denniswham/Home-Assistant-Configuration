@@ -1,34 +1,89 @@
----
-# Welcome to my Home Assistant configuration!
-#
-# Don't be scared by the size of my configuration file...
-# It is probably the smallest you've ever seen.
-#
-# My system is very modular and very differently structured
-# compared to other configurations you'll find online.
-#
-# Basically, each file in the repository does 1 (one, uno, eins)
-# thing only! Click through it, you'll get it pretty fast.
-#
-# The configuration.yaml is only used to bootstrap the system.
-#
-
 homeassistant:
-
-  # Lets me customize individual entities
-  customize: !include_dir_merge_named customizations/entities
-
-  # Lets me custimize all entities in a domain
-  customize_domain: !include_dir_merge_named customizations/domains
-
-  # Lets me custimize entities based on a matching pattern
-  customize_glob: !include_dir_merge_named customizations/globs
-
-
+  customize_glob: !include customglob.yaml
+  packages: !include_dir_named packages
   auth_mfa_modules:
     - type: totp
   whitelist_external_dirs:
     - /config
 
-  # Load packages
-  packages: !include_dir_named integrations
+config:
+hassio:
+system_health:
+#ssdp:
+#zeroconf:
+http:
+discovery:
+
+# ########################################
+# ###           ASSISTANT             ###
+# ########################################
+cloud:
+
+# ########################################
+# ###             MOBILE               ###
+# ########################################
+#ios: !include notify/ios_config.yaml
+#mobile_app:
+
+# ########################################
+# ###                GUI               ###
+# ########################################
+lovelace:
+  mode: yaml
+
+#customizer:
+#  custom_ui: hosted
+
+map:
+
+frontend:
+#  extra_html_url:
+#    - /local/hass-bha-icons.html
+    
+#panel_custom: !include panels/panel_custom.yaml
+
+hacs:
+  token: !secret hacs_token
+#  appdaemon: true
+  
+
+#browser_mod:
+#  devices:
+#    24d2e744-aee3dfdb:
+#      name: Isa laptop
+#    82ce1407-06ba38e8:
+#      name: Dashboard
+#    49b3d945-27efcb05:
+#      name: Isa PC
+      
+# ########################################
+# ###              LOGGING             ###
+# ########################################
+
+recorder: !include logging/recorder.yaml
+history: !include logging/history.yaml
+logbook: !include logging/logbook.yaml
+logger: !include logging/logger.yaml
+
+# ########################################
+# ###              ENTITIES             ###
+# ########################################
+person:
+media_player: !include entities/media_player.yaml
+device_tracker: !include entities/device_tracker.yaml
+# alarm_control_panel: !include resources/bwalarm/bwalarm.yaml
+
+
+# ########################################
+# ###             SERVICES             ###
+# ########################################
+sun:
+shopping_list:
+notify: !include notify/notify.yaml
+
+python_script:
+ 
+#tts:
+#  - platform: google_translate
+
+ffmpeg:

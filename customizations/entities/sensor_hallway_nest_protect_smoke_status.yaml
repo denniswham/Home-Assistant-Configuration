@@ -1,3 +1,0 @@
-sensor.hallway_nest_protect_smoke_status:
-  friendly_name: Hallway Smoke
-  icon: mdi:smoke-detector

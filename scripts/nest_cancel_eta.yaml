@@ -1,8 +1,0 @@
-nest_cancel_eta:
-  alias: Nest Cancel ETA
-  sequence:
-    - service: nest.cancel_eta
-      data:
-        trip_id: ETA set by HAS
-        structure:
-          - Retsinagaard

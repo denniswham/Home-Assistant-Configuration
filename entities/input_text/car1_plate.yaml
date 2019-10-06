@@ -1,3 +1,0 @@
-car1_plate:
-  name: !secret car1_name
-  initial: !secret car1_plate

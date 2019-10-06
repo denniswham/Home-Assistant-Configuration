@@ -1,0 +1,14 @@
+group:
+  household:
+    - person.dennis
+    - person.stephanie
+    - person.lucas
+    - person.timo
+
+proximity:
+  home:
+    devices:
+      - person.dennis
+      - person.stephanie
+    tolerance: 50
+    unit_of_measurement: km

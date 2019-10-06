@@ -1,8 +1,0 @@
-konnectedstatus:
-  name: Alarm status
-  options:
-    - disarmed
-    - armed_home
-    - armed_away
-  initial: disarmed
-  icon: mdi:security

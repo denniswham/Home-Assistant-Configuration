@@ -1,0 +1,41 @@
+ring:
+  username: !secret ring_username
+  password: !secret ring_password
+
+ifttt:
+  key: !secret ifttt_key
+
+nest:
+  client_id: !secret nest_client_id
+  client_secret: !secret nest_client_secret
+
+google:
+  client_id: !secret google_id
+  client_secret: !secret google_secret
+
+life360:
+  driving_speed: 30
+  interval_seconds: 10
+  max_gps_accuracy: 200
+  max_update_wait:
+    minutes: 45
+  warning_threshold: 2
+  error_threshold: 3
+
+alexa_media:
+  accounts:
+    email: !secret amazon_user
+    password: !secret amazon_password
+    url: amazon.com
+
+group:
+  alexa:
+    - media_player.dennis_s_alexa_app_on_surface_pro_4
+    - media_player.dennis_s_alexa_apps
+    - media_player.dennis_s_alexa_on_cortana
+    - media_player.emilie_s_room
+    - media_player.living_room
+    - media_player.lucas_room
+    - media_player.master_bedroom
+    - media_player.this_device
+    - media_player.timo_s_room    

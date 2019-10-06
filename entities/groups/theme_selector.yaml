@@ -1,4 +1,0 @@
-theme_selector:
-  entities:
-    - automation.set_light_theme_for_the_day
-    - automation.set_light_theme_for_the_night

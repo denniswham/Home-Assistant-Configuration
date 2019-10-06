@@ -1,5 +1,0 @@
-platform: waze_travel_time
-name: Dennis to Home
-origin: person.dennis
-destination: zone.home
-region: EU

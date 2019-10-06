@@ -1,4 +1,0 @@
-platform: postnl
-name: PostNL Stephanie
-username: !secret postnl_stephanie_username
-password: !secret postnl_stephanie_password

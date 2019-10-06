@@ -1,8 +1,0 @@
-life360:
-  driving_speed: 30
-  interval_seconds: 10
-  max_gps_accuracy: 200
-  max_update_wait:
-    minutes: 45
-  warning_threshold: 2
-  error_threshold: 3

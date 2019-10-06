@@ -1,5 +1,0 @@
-platform: template
-sensors:
-  adguard_protection:
-    device_class: connectivity
-    value_template: "{{ is_state('switch.adguard_protection', 'on') }}"

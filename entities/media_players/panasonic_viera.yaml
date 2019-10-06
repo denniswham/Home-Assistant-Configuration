@@ -1,3 +1,0 @@
-platform: panasonic_viera
-host: !secret viera_host
-name: Living Room TV

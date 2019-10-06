@@ -1,0 +1,123 @@
+nest:
+  client_id: !secret nest_client_id
+  client_secret: !secret nest_client_secret
+  
+climate:
+  platform: nest
+  
+input_boolean:
+  climateupdate: 
+    name: Thermostat Updates
+    initial: on
+    icon: mdi:thermostat
+
+automation:
+  - alias: Cancel thermostat ETA
+    initial_state: 'true'
+    condition:
+    - condition: template
+      value_template: '{{ states.sensor.retsinagaard_eta != "1970-01-01 00:00:00+00:00"
+        }}'
+    trigger:
+    - platform: state
+      entity_id: group.household
+      from: not_home
+      to: home
+    - platform: template
+      value_template: "{% if is_state_attr('proximity.home', 'dir_of_travel', 'towards') %}false{% endif %}"
+      for: '00:05:00'
+    action:
+    - service: homeassistant.turn_on
+      entity_id: script.nest_cancel_eta
+    - service: homeassistant.turn_on
+      data_template:
+        entity_id: "{%- if states('switch.living_room_away') == 'on' -%}\n  switch.living_room_away\n\
+          {%- endif -%}\n"
+    id: b89f4253b34949fb91cdccce055ad59b
+
+  - alias: Disable thermostat away
+    initial_state: 'true'
+    condition:
+    - condition: template
+      value_template: '{{states(''input_select.konnectedstatus'') == ''disarmed'' and
+        states(''group.thermostats'') == ''on''}}
+
+        '
+    trigger:
+    - platform: time_pattern
+      minutes: /5
+      seconds: 0
+    action:
+    - service: homeassistant.turn_off
+      data_template:
+        entity_id: "{%- if states('switch.living_room_away') == 'on' -%}\n  switch.living_room_away\n\
+          {%- endif -%}\n"
+    id: 61fe50480e91481d90126455520f5d9d
+
+  - alias: Enable thermostat away
+    initial_state: 'true'
+    condition:
+    - condition: or
+      conditions:
+      - condition: template
+        value_template: '{{states(''input_select.konnectedstatus'') == ''armed_away''
+          and states(''switch.living_room_away'') == ''off''}}
+
+          '
+    trigger:
+    - platform: time_pattern
+      minutes: /5
+      seconds: 0
+    action:
+    - service: homeassistant.turn_on
+      data_template:
+        entity_id: "{%- if states('switch.living_room_away') == 'off' -%}\n  switch.living_room_away\n\
+          {%- endif -%}\n"
+    id: 1d059041783c467ea8e747d24443fe67
+
+  - alias: Set thermostat ETA
+    initial_state: 'true'
+    condition:
+      condition: and
+      conditions:
+      - condition: state
+        entity_id: group.household
+        state: not_home
+      - condition: state
+        entity_id: binary_sensor.retsinagaard_away
+        state: 'on'
+    trigger:
+      platform: template
+      value_template: "{%- if is_state_attr('proximity.home', 'dir_of_travel', 'towards')\
+        \ -%}\n  true\n{%- endif -%}\n"
+    action:
+    - service: homeassistant.turn_on
+      entity_id: script.nest_update_eta
+    id: 1ac37a30d0804f4c9f7647c41b452961
+
+script:
+  - nest_cancel_eta:
+      alias: Nest Cancel ETA
+      sequence:
+        - service: nest.cancel_eta
+          data:
+            trip_id: ETA set by HAS
+            structure:
+              - Retsinagaard
+  - nest_update_eta:
+      alias: Nest Update ETA
+      sequence:
+        - service: nest.set_eta
+          data_template:
+            eta: >
+              {% if is_state_attr('proximity.home', 'nearest', 'Dennis') %}
+                {{ ((( states.sensor.dennis_to_home.state | int) * 60) - 3600) | timestamp_custom('%H:%M:%S') }}
+              {% elif is_state_attr('proximity.home', 'nearest', 'Dennis, Stephanie') %}
+                {{ ((( states.sensor.dennis_to_home.state | int) * 60) - 3600) | timestamp_custom('%H:%M:%S') }}
+              {% elif is_state_attr('proximity.home', 'nearest', 'Stephanie') %}
+                {{ ((( states.sensor.stephanie_to_home.state | int) * 60) - 3600) | timestamp_custom('%H:%M:%S') }}
+              {% endif %}
+            eta_window: 00:01
+            trip_id: ETA set by HAS
+            structure:
+              - Retsinagaard                

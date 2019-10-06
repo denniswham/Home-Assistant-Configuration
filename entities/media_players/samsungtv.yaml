@@ -1,4 +1,0 @@
-platform: samsungtv
-host: !secret samsungtv_host
-name: Master Bedroom TV
-mac: !secret samsungtv_mac

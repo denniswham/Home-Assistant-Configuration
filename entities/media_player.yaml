@@ -1,0 +1,20 @@
+media_player:
+  - platform: panasonic_viera
+    host: !secret viera_host
+    name: Living Room TV
+  - platform: samsungtv
+    host: !secret samsungtv_host
+    name: Master Bedroom TV
+    mac: !secret samsungtv_mac
+  - platform: spotify
+    client_id: !secret spotify_client_id
+    client_secret: !secret spotify_client_secret
+  - platform: xboxone
+    device: !secret xbox_device
+    name: Living Room Xbox One
+
+apple_tv:
+  host: !secret apple_tv_host
+  login_id: !secret apple_tv_login_id
+  name: Master Bedroom Apple TV
+  start_off: false
