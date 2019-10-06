@@ -62,7 +62,7 @@ automation:
 
 #  - alias: '[Security] Ring Doorbell Flash Lights'
 #    initial_state: 'on'
-#    trigger:
+#    trigger: 
 #      - platform: state
 #        entity_id: binary_sensor.ring_front_door_ding
 #        to: 'on'
