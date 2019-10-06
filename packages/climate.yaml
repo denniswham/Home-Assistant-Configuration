@@ -30,7 +30,6 @@ automation:
         entity_id: "{%- if states('switch.living_room_away') == 'on' -%}\n  switch.living_room_away\n\
           {%- endif -%}\n"
     id: b89f4253b34949fb91cdccce055ad59b
-
   - alias: Disable thermostat away
     initial_state: 'true'
     condition:
@@ -49,7 +48,6 @@ automation:
         entity_id: "{%- if states('switch.living_room_away') == 'on' -%}\n  switch.living_room_away\n\
           {%- endif -%}\n"
     id: 61fe50480e91481d90126455520f5d9d
-
   - alias: Enable thermostat away
     initial_state: 'true'
     condition:
@@ -70,7 +68,6 @@ automation:
         entity_id: "{%- if states('switch.living_room_away') == 'off' -%}\n  switch.living_room_away\n\
           {%- endif -%}\n"
     id: 1d059041783c467ea8e747d24443fe67
-
   - alias: Set thermostat ETA
     initial_state: 'true'
     condition:
@@ -116,4 +113,4 @@ script:
             eta_window: 00:01
             trip_id: ETA set by HAS
             structure:
-              - Retsinagaard                
+              - Retsinagaard

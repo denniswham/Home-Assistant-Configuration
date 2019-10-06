@@ -5,6 +5,3 @@ speedtestdotnet:
     - ping
     - download
     - upload
-
-hacs:
-  token: !secret hacs_token    
