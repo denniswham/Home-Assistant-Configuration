@@ -10,18 +10,6 @@ binary_sensor:
 
 sensor:
   - platform: ring
-  - platform: template
-    sensors:
-      front_door_outdoor_movement:
-        friendly_name: 'Front Door Outdoor Movement'
-        entity_id: "binary_sensor.ring_front_door_motion"
-        value_template: '{% if is_state("binary_sensor.ring_front_door_motion", "on") %}Movement detected{% else %}No movement{% endif %}'
-        icon_template: '{% if is_state("binary_sensor.ring_front_door_motion", "on") %}mdi:run-fast{% else %}mdi:sleep{% endif %}'
-      backyard_outdoor_movement:
-        friendly_name: 'Backyard Outdoor Movement'
-        entity_id: "binary_sensor.ring_backyard_motion"
-        value_template: '{% if is_state("binary_sensor.ring_backyard_motion", "on") %}Movement detected{% else %}No movement{% endif %}'
-        icon_template: '{% if is_state("binary_sensor.ring_backyard_motion", "on") %}mdi:run-fast{% else %}mdi:sleep{% endif %}'
 
 camera:
   - platform: ring
