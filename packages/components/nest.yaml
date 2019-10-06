@@ -1,10 +1,4 @@
-platform: nest
-monitored_conditions:
-  - temperature
-  - target
-  - humidity
-  - operation_mode
-  - co_status
-  - smoke_status
-  - battery_health
-  - color_status
+nest:
+  client_id: !secret nest_client_id
+  client_secret: !secret nest_client_secret
+

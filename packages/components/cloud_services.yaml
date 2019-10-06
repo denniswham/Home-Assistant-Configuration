@@ -5,10 +5,6 @@ ring:
 #ifttt:
 #  key: !secret ifttt_key
 
-nest:
-  client_id: !secret nest_client_id
-  client_secret: !secret nest_client_secret
-
 #google:
 #  client_id: !secret google_id
 #  client_secret: !secret google_secret
