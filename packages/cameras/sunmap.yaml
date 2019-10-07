@@ -1,0 +1,4 @@
+camera:
+  - platform: generic
+    name: sunmap
+    still_image_url: https://www.timeanddate.com/scripts/sunmap.php?earth=1
