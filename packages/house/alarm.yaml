@@ -423,4 +423,14 @@ input_boolean:
   konnectedupdate:
     name: Alarm Updates
     initial: on
-    icon: mdi:security               
+    icon: mdi:security_armed
+
+input_select:
+  konnectedstatus:
+    name: Alarm status
+    options:
+      - disarmed
+      - armed_home
+      - armed_away
+    initial: disarmed
+    icon: mdi:security
