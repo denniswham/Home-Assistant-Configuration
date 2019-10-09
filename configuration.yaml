@@ -73,17 +73,11 @@ media_player: !include entities/media_player.yaml
 device_tracker: !include entities/device_tracker.yaml
 # alarm_control_panel: !include resources/bwalarm/bwalarm.yaml
 
-
 # ########################################
 # ###             SERVICES             ###
 # ########################################
 sun:
 shopping_list:
 notify: !include notify/notify.yaml
-
-python_script:
- 
-#tts:
-#  - platform: google_translate
 
 ffmpeg:
