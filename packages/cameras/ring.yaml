@@ -2,7 +2,7 @@ homeassistant:
   customize:
     camera.front_door:
       friendly_name: Last Motion Front Door
-    camera.front_door:
+    camera.backyard:
       friendly_name: Last Motion Backyard
 
 binary_sensor:
