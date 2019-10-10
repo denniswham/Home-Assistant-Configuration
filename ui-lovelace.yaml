@@ -114,7 +114,7 @@ views:
             type: entities
         type: vertical-stack
       - cards:
-          - cards
+          - cards:
             - entities:
                 - entity: light.living_room_spot_lights_dimmer
                   type: light
