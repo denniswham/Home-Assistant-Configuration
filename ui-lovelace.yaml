@@ -115,14 +115,14 @@ views:
         type: vertical-stack
       - cards:
           - cards:
-            - entities:
-                - entity: light.living_room_spot_lights_dimmer
-                  type: light
-                - entity: light.office_spot_lights_dimmer
-                  type: light
-              title: Lights
-              type: entities
-          - type: horizontal-stack
+              - entities:
+                  - entity: light.living_room_spot_lights_dimmer
+                    type: light
+                  - entity: light.office_spot_lights_dimmer
+                    type: light
+                title: Lights
+                type: entities
+            type: horizontal-stack
           - entities:
               - entity: sensor.entryway_nest_protect_co_status
               - entity: sensor.entryway_nest_protect_smoke_status
