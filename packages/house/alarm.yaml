@@ -36,16 +36,16 @@ alarm_control_panel:
       pending_time: 300
       delay_time: 20
 
-  - platform: alexa_media
-    name: Alexa Guard
-    pending_time: 30
-    delay_time: 20
-    trigger_time: 4
-    disarmed:
-      trigger_time: 0
-    armed_home:
-      pending_time: 300
-      delay_time: 20
+#  - platform: alexa_media
+#    name: Alexa Guard
+#    pending_time: 30
+#    delay_time: 20
+#    trigger_time: 4
+#    disarmed:
+#      trigger_time: 0
+#    armed_home:
+#      pending_time: 300
+#      delay_time: 20
 
 automation:
   - alias: Arm Konnected
@@ -288,9 +288,9 @@ script:
       - service: alarm_control_panel.alarm_arm_away
         entity_id:
           - alarm_control_panel.konnected_alarm
-      - service: alarm_control_panel.alarm_arm_away
-        entity_id:
-          - alarm_control_panel.alexa_guard_7514f
+#      - service: alarm_control_panel.alarm_arm_away
+#        entity_id:
+#          - alarm_control_panel.alexa_guard_7514f
       - service: climate.set_preset_mode
         entity_id:
           - climate.living_room
@@ -313,9 +313,9 @@ script:
       - service: alarm_control_panel.alarm_arm_home
         entity_id:
           - alarm_control_panel.konnected_alarm
-      - service: alarm_control_panel.alarm_arm_home
-        entity_id:
-          - alarm_control_panel.alexa_guard_7514f
+#      - service: alarm_control_panel.alarm_arm_home
+#        entity_id:
+#          - alarm_control_panel.alexa_guard_7514f
 
   konnectedpending:
     alias: 'Konnected Pending'
@@ -340,9 +340,9 @@ script:
       - service: alarm_control_panel.alarm_disarm
         entity_id:
           - alarm_control_panel.konnected_alarm
-      - service: alarm_control_panel.alarm_disarm
-        entity_id:
-          - alarm_control_panel.alexa_guard_7514f
+#      - service: alarm_control_panel.alarm_disarm
+#        entity_id:
+#          - alarm_control_panel.alexa_guard_7514f
       - service: climate.set_preset_mode
         entity_id:
           - climate.living_room
