@@ -18,11 +18,11 @@ life360:
   warning_threshold: 2
   error_threshold: 3
 
-alexa_media:
-  accounts:
-    email: !secret amazon_user
-    password: !secret amazon_password
-    url: amazon.com
+#alexa_media:
+#  accounts:
+#    email: !secret amazon_user
+#    password: !secret amazon_password
+#    url: amazon.com
 
 group:
   alexa:
