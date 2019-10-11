@@ -238,7 +238,6 @@ automation:
         entity_id: alarm_control_panel.Konnected_Alarm
         state: triggered
     action:
-    alias: Log Motion
     - service: logbook.log
       data_template:
         name: "Motion detected: "
