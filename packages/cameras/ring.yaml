@@ -31,8 +31,32 @@ automation:
         entity_id: alarm_control_panel.Konnected_Alarm
         state: armed_home
     action:
-    - service: homeassistant.turn_on
-      entity_id: script.backyardmotion
+    - service: notify.alexa_media
+      data:
+        data:
+          type: tts
+        target:
+          - group.alexa
+        message: "Motion in the backyard"
+    - service: notify.html5
+      data:
+        title: Ring
+        message: There is motion at your backyard
+        data:
+          actions:
+            - action: open
+              icon: "/local/icons/konnected.png"
+              title: Open Home Assistant
+          tag: ring_alert
+          ttl: 86400
+          priority: high      
+    - service: notify.notify
+      data:
+        message: There is motion at your backyard
+        data:
+          push:
+            badge: 0
+            category: ring_alert  
 
   - alias: Low Ring Battery Notification
     initial_state: 'on'
@@ -59,46 +83,6 @@ automation:
         message: "{{ trigger.entity_id }} reported low battery, please charge."
         title: Ring Battery Low
 
-
-#  - alias: '[Security] Ring Doorbell Flash Lights'
-#    initial_state: 'on'
-#    trigger: 
-#      - platform: state
-#        entity_id: binary_sensor.ring_front_door_ding
-#        to: 'on'
-#    action:
-#      - service: python_script.flash_lights_upstairs_hallway_and_yard
-
 switch:
   - platform: ring
 
-script:
-  backyardmotion:
-    alias: 'Backyard Motion'
-    sequence:
-      - service: notify.alexa_media
-        data:
-          data:
-            type: tts
-          target:
-            - group.alexa
-          message: "Motion in the backyard"
-      - service: notify.html5
-        data:
-          title: Ring
-          message: There is motion at your backyard
-          data:
-            actions:
-              - action: open
-                icon: "/local/icons/konnected.png"
-                title: Open Home Assistant
-            tag: ring_alert
-            ttl: 86400
-            priority: high      
-      - service: notify.notify
-        data:
-          message: There is motion at your backyard
-          data:
-            push:
-              badge: 0
-              category: ring_alert  
