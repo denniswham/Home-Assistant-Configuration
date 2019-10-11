@@ -77,7 +77,6 @@ device_tracker: !include entities/device_tracker.yaml
 # ###             SERVICES             ###
 # ########################################
 sun:
-shopping_list:
 notify: !include notify/notify.yaml
 
 ffmpeg:
