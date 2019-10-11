@@ -8,7 +8,7 @@ input_boolean:
     icon: mdi:thermostat
 
 automation:
-  - alias: Cancel thermostat ETA
+  - alias: Climate - Cancel thermostat ETA
     initial_state: 'true'
     condition:
     - condition: template
@@ -32,8 +32,8 @@ automation:
       data_template:
         entity_id: "{%- if states('switch.living_room_away') == 'on' -%}\n  switch.living_room_away\n\
           {%- endif -%}\n"
-    id: b89f4253b34949fb91cdccce055ad59b
-  - alias: Disable thermostat away
+
+  - alias: Climate - Disable thermostat away
     initial_state: 'true'
     condition:
     - condition: template
@@ -50,8 +50,8 @@ automation:
       data_template:
         entity_id: "{%- if states('switch.living_room_away') == 'on' -%}\n  switch.living_room_away\n\
           {%- endif -%}\n"
-    id: 61fe50480e91481d90126455520f5d9d
-  - alias: Enable thermostat away
+
+  - alias: Climate - Enable thermostat away
     initial_state: 'true'
     condition:
     - condition: or
@@ -70,8 +70,8 @@ automation:
       data_template:
         entity_id: "{%- if states('switch.living_room_away') == 'off' -%}\n  switch.living_room_away\n\
           {%- endif -%}\n"
-    id: 1d059041783c467ea8e747d24443fe67
-  - alias: Set thermostat ETA
+
+  - alias: Climate - Set thermostat ETA
     initial_state: 'true'
     condition:
       condition: and
@@ -101,9 +101,8 @@ automation:
         trip_id: ETA set by HAS
         structure:
           - Retsinagaard
-    id: 1ac37a30d0804f4c9f7647c41b452961
 
-  - alias: Climate Mode Away
+  - alias: Climate - Away Mode
     initial_state: 'true'
     trigger:
     - platform: state
@@ -121,7 +120,7 @@ automation:
         - climate.living_room
       data: {"preset_mode": "away"}
 
-  - alias: Climate Mode Home
+  - alias: Climate - Home Mode
     initial_state: 'true'
     trigger:
     - platform: state

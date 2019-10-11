@@ -14,10 +14,12 @@ homeassistant:
       icon: mdi:window-shutter       
 
 automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
+  - alias: Shutter - Set Cover Position
+    initial_state: 'true'
+    trigger:
+      platform: time
+      at: "07:15:00"
+    action:
     - service: cover.set_cover_position
       data:
         entity_id: cover.demo

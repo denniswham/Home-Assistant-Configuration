@@ -46,7 +46,7 @@ alarm_control_panel:
       delay_time: 20
 
 automation:
-  - alias: Arm Konnected
+  - alias: Alarm - Arm Konnected
     initial_state: 'true'
     condition:
     - condition: state
@@ -88,7 +88,7 @@ automation:
         - group.alexa
         message: I'll start guarding now
 
-  - alias: Deactivate siren
+  - alias: Alarm - Deactivate siren
     initial_state: 'true'
     trigger:
     - platform: state
@@ -103,9 +103,8 @@ automation:
       entity_id: switch.siren
     - service: switch.turn_off
       entity_id: switch.backyard_siren
-    id: dd7b5484487942d08e18f10f57623daf    
 
-  - alias: Disarm Konnected at night
+  - alias: Alarm - Disarm Konnected at night
     initial_state: 'true'
     condition:
     - condition: state
@@ -122,9 +121,8 @@ automation:
     action:
     - service: homeassistant.turn_on
       entity_id: script.konnectedstandby
-    id: 98fc34375a3745e2a7ddb3e68f11b0ff
 
-  - alias: Disarm Konnected from Away
+  - alias: Alarm - Disarm Konnected from Away
     initial_state: 'true'
     condition:
     - condition: state
@@ -145,9 +143,8 @@ automation:
     action:
     - service: homeassistant.turn_on
       entity_id: script.konnectedstandby
-    id: 8c1007d1168a467794c04cdac94a28c1
 
-  - alias: Disarm Konnected in the morning
+  - alias: Alarm - Disarm Konnected in the morning
     initial_state: 'true'
     condition:
       condition: and
@@ -164,9 +161,8 @@ automation:
     action:
     - service: homeassistant.turn_on
       entity_id: script.konnectedstandby
-    id: 55aa7945211b4beb9b11b432025bd919
 
-  - alias: Konnected Standby
+  - alias: Alarm - Konnected Standby
     initial_state: 'true'
     condition:
       condition: and
@@ -199,9 +195,8 @@ automation:
     action:
     - service: homeassistant.turn_on
       entity_id: script.konnectedstandby
-    id: 5e92113a7947445e817ed518c9b6712e
 
-  - alias: Konnected Log Motion
+  - alias: Alarm - Konnected Log Motion
     initial_state: 'true'
     trigger:
     - platform: state
@@ -243,9 +238,8 @@ automation:
         name: "Motion detected: "
         message: >-
           {{ trigger.entity_id }}
-    id: 4dec92d5133f49689fc07cd4552025bf
 
-  - alias: Trigger Alarm
+  - alias: Alarm - Trigger Alarm
     initial_state: 'true'
     trigger:
     - platform: state
@@ -283,7 +277,7 @@ automation:
             badge: 0
             category: alarm_control_panel.Konnected_Alarm
 
-  - alias: Pending alarm
+  - alias: Alarm - Pending alarm
     initial_state: 'true'
     trigger:
     - platform: state
@@ -320,7 +314,6 @@ automation:
         target:
           - group.alexa
         message: Motion detected, the alarm will activate shortly. Motion detected, the alarm will activate shortly.
-    id: 3b57fcd4fbb7459e9e82b256a85a1b30    
 
 script:
   konnectedstandby:
