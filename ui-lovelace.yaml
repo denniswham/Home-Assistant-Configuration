@@ -55,17 +55,10 @@ views:
           - entity: alarm_control_panel.konnected_alarm
             name: Alarm
             type: alarm-panel
-#          - entity: alarm_control_panel.alexa_guard_7514f
-#            states:
-#              - arm_away
-#            name: Alexa Guard
-#            type: alarm-panel
           - entities:
-              - entity: input_boolean.konnectedupdate
-                name: Auto Arm
               - entity: switch.siren
-                icon: 'mdi:alarm-light'
-                name: Siren
+              - entity: input_boolean.konnectedupdate
+              - entity: input_boolean.shuttersupdate
             type: entities
           - columns: 5
             entities:

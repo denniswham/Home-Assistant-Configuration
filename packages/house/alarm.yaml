@@ -1,3 +1,12 @@
+homeassistant:
+  customize:
+    input_boolean.konnectedupdate:
+      friendly_name: Auto Alarm
+      icon: mdi:security
+    switch.siren:
+      friendly_name: Siren
+      icon: mdi:alarm-light
+
 konnected:
   access_token: !secret konnected_access_token
 #  api_host: !secret konnected_api_host
@@ -35,17 +44,6 @@ alarm_control_panel:
     armed_home:
       pending_time: 300
       delay_time: 20
-
-#  - platform: alexa_media
-#    name: Alexa Guard
-#    pending_time: 30
-#    delay_time: 20
-#    trigger_time: 4
-#    disarmed:
-#      trigger_time: 0
-#    armed_home:
-#      pending_time: 300
-#      delay_time: 20
 
 automation:
   - alias: Arm Konnected
