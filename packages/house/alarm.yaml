@@ -239,12 +239,11 @@ automation:
         state: triggered
     action:
     alias: Log Motion
-    sequence:
-      - service: logbook.log
-        data_template:
-          name: "Motion detected: "
-          message: >-
-            {{ trigger.entity_id }}
+    - service: logbook.log
+      data_template:
+        name: "Motion detected: "
+        message: >-
+          {{ trigger.entity_id }}
     id: 4dec92d5133f49689fc07cd4552025bf
 
   - alias: Trigger Alarm
