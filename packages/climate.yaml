@@ -139,7 +139,7 @@ switch:
     switches:
       living_room_away:
         friendly_name: Living Room Away
-        value_template: "{{(states.climate.living_room.attributes|default({})).away_mode|default('off') == 'on'}}"
+        value_template: "{{ (states.climate.living_room.attributes|default({})).away_mode|default('off') == 'on' }}"
         turn_on:
           - service: climate.set_away_mode
             data:
