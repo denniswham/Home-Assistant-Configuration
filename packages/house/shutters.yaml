@@ -1,0 +1,78 @@
+homeassistant:
+  customize:
+    light.living_room_spot_lights_dimmer:
+      friendly_name: Master Bedroom Roller Shutters
+      device_class: shutter
+    light.office_spot_lights_dimmer:
+      friendly_name: Lucas Room Roller Shutters
+      device_class: shutter
+    light.office_spot_lights_dimmer:
+      friendly_name: Backyard Sunscreen
+      device_class: awning
+    input_boolean.shuttersupdate:
+      friendly_name: Auto Shutters
+      icon: mdi:window-shutter       
+
+automation:
+  trigger:
+    platform: time
+    at: "07:15:00"
+  action:
+    - service: cover.set_cover_position
+      data:
+        entity_id: cover.demo
+        position: 50
+
+
+script:
+  master_bedroom_shutter_open:
+    alias: Master Bedroom Shutter Open
+    sequence:
+      - service: cover.open_cover
+        data:
+          entity_id: cover.demo
+          position: 50
+
+  lucas_room_shutter_open:
+    alias: Lucas Room Shutter Open
+    sequence:
+      - service: cover.open_cover
+        data:
+          entity_id: cover.balcony01
+
+  master_bedroom_shutter_almost_close:
+    alias: Master Bedroom Shutter Almost Close
+    sequence:
+      - service: cover.set_cover_position
+        data:
+          entity_id: cover.demo
+          position: 95
+
+  lucas_room_shutter_almost_close:
+    alias: Lucas Room Shutter Almost Close
+    sequence:
+      - service: cover.set_cover_position
+        data:
+          entity_id: cover.demo
+          position: 95
+
+  master_bedroom_shutter_close:
+    alias: Master Bedroom Shutter Close
+    sequence:
+      - service: cover.close_cover
+        data:
+          entity_id: cover.demo
+
+
+  lucas_room_shutter_close:
+    alias: Lucas Room Shutter Close
+    sequence:
+      - service: cover.close_cover
+        data:
+          entity_id: cover.demo
+
+
+input_boolean:
+  shuttersupdate:
+    initial: on
+
