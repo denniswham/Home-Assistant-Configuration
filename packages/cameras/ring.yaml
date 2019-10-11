@@ -62,17 +62,19 @@ automation:
     initial_state: 'on'
     trigger:
     - platform: numeric_state
-      entity_id: sensor.ring_front_door_battery
-      below: 10
+      entity_id:
+        - sensor.ring_front_door_battery
+        - sensor.ring_front_door_battery
+        - sensor.ring_backyard_battery
+        - sensor.ring_backyard_battery
+      below: 15
     - platform: numeric_state
-      entity_id: sensor.ring_front_door_battery
-      below: 5
-    #  - platform: numeric_state
-    #    entity_id: sensor.ring_backyard_battery
-    #    below: 10
-    #  - platform: numeric_state
-    #    entity_id: sensor.ring_backyard_battery
-    #    below: 5
+      entity_id:
+        - sensor.ring_front_door_battery
+        - sensor.ring_front_door_battery
+        - sensor.ring_backyard_battery
+        - sensor.ring_backyard_battery
+      below: 10
     action:
     - service: persistent_notification.create
       data_template:
