@@ -317,7 +317,7 @@ automation:
 
 script:
   konnectedstandby:
-    alias: 'Konnected Standby'
+    alias: Alarm - Konnected Standby
     sequence:
       - service: input_select.select_option
         data:

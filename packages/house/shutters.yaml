@@ -14,7 +14,7 @@ homeassistant:
       icon: mdi:window-shutter       
 
 automation:
-  - alias: Shutter - Set Cover Position
+  - alias: Shutters - Set Cover Position
     initial_state: 'true'
     trigger:
       platform: time
@@ -28,7 +28,7 @@ automation:
 
 script:
   master_bedroom_shutter_open:
-    alias: Master Bedroom Shutter Open
+    alias: Shutters - Master Bedroom Shutter Open
     sequence:
       - service: cover.open_cover
         data:
@@ -36,14 +36,14 @@ script:
           position: 50
 
   lucas_room_shutter_open:
-    alias: Lucas Room Shutter Open
+    alias: Shutters - Lucas Room Shutter Open
     sequence:
       - service: cover.open_cover
         data:
           entity_id: cover.balcony01
 
   master_bedroom_shutter_almost_close:
-    alias: Master Bedroom Shutter Almost Close
+    alias: Shutters - Master Bedroom Shutter Almost Close
     sequence:
       - service: cover.set_cover_position
         data:
@@ -51,7 +51,7 @@ script:
           position: 95
 
   lucas_room_shutter_almost_close:
-    alias: Lucas Room Shutter Almost Close
+    alias: Shutters - Lucas Room Shutter Almost Close
     sequence:
       - service: cover.set_cover_position
         data:
@@ -59,7 +59,7 @@ script:
           position: 95
 
   master_bedroom_shutter_close:
-    alias: Master Bedroom Shutter Close
+    alias: Shutters - Master Bedroom Shutter Close
     sequence:
       - service: cover.close_cover
         data:
@@ -67,7 +67,7 @@ script:
 
 
   lucas_room_shutter_close:
-    alias: Lucas Room Shutter Close
+    alias: Shutters - Lucas Room Shutter Close
     sequence:
       - service: cover.close_cover
         data:
