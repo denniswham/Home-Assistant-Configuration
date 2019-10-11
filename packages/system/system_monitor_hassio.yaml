@@ -15,7 +15,7 @@ sensor:
     scan_interval: 3600
 
 automation:
-  - alias: Daily snapshot
+  - alias: System - Daily snapshot
     initial_state: 'true'
     trigger:
     - platform: time
@@ -27,10 +27,10 @@ automation:
     action:
     - data_template:
         name: Automated backup {{ now().strftime('%Y-%m-%d') }}
-        password: mN$#3J4geo5$
+        password: !secret snapshot_password
       service: hassio.snapshot_full
-    id: 5fd18e960de547e9a2c9d785f76307e
-  - alias: Update Notifications
+
+  - alias: System - Update Notifications
     initial_state: 'on'
     condition:
     - condition: template
@@ -51,4 +51,3 @@ automation:
         target:
           - galaxy_s9_chrome
           - surfacebook_chrome
-    id: 02e8ce2646044bb5b284e44b56e290d1    
