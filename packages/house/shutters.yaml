@@ -1,12 +1,12 @@
 homeassistant:
   customize:
-    light.living_room_spot_lights_dimmer:
+    cover.master_bedroom_roller_shutters:
       friendly_name: Master Bedroom Roller Shutters
       device_class: shutter
-    light.office_spot_lights_dimmer:
+    cover.lucas_room_roller_shutters:
       friendly_name: Lucas Room Roller Shutters
       device_class: shutter
-    light.office_spot_lights_dimmer:
+    cover.backyard_sunscreen:
       friendly_name: Backyard Sunscreen
       device_class: awning
     input_boolean.shuttersupdate:
