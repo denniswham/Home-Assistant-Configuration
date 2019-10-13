@@ -5,7 +5,8 @@ homeassistant:
       icon: mdi:security
     switch.siren:
       friendly_name: Siren
-      icon: mdi:alarm-light
+      icon: mdi:alarm-bell
+
 
 konnected:
   access_token: !secret konnected_access_token
