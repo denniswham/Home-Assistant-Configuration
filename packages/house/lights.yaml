@@ -2,5 +2,7 @@ homeassistant:
   customize:
     light.living_room_spot_lights_dimmer_level:
       friendly_name: Living Room Spot Lights
+    light.living_room_table_light_dimmer_level:
+      friendly_name: Living Room Dining Table Light       
     light.office_spot_lights_dimmer_level:
       friendly_name: Office Spot Lights
