@@ -5,4 +5,4 @@ homeassistant:
     light.living_room_table_light_dimmer_level:
       friendly_name: Dining Table Light       
     light.office_spot_lights_dimmer_level:
-      friendly_name: Office Spot Spots
+      friendly_name: Office Spots
