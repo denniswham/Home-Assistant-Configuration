@@ -110,6 +110,7 @@ views:
               - entity: light.office_spot_lights_dimmer_level
                 type: custom:slider-entity-row
               - entity: cover.fibaro_system_fgrm223_roller_shutter_controller_3_level
+                type: custom:slider-entity-row
             title: Lights
             type: entities
           - entities:
