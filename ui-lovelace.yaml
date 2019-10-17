@@ -114,7 +114,6 @@ views:
                 toggle: true
             title: Lights
             type: entities
-      - cards:
           - entities:
               - entity: cover.master_bedroom_roller_shutter_level
                 type: custom:slider-entity-row
