@@ -15,13 +15,29 @@ automation:
     initial_state: 'true'
     trigger:
       platform: time
-      at: "07:15:00"
+      at: "08:00:00"
     action:
     - service: cover.set_cover_position
       data:
-        entity_id: cover.demo
+        entity_id: cover.master_bedroom_roller_shutter_level
         position: 50
 
+  - alias: Roller Shutter Status Update
+    trigger:
+      - platform: event
+        event_type: call_service
+        event_data:
+          domain: cover
+          service: set_cover_position
+    condition:
+      - condition: template
+        value_template: "{{ state_attr(trigger.event.data.service_data.entity_id, 'current_position') | int != trigger.event.data.service_data.position | int }}"
+    action:
+      - delay: "00:00:01"
+      - service: cover.set_cover_position
+        data_template:
+          entity_id: "{{ trigger.event.data.service_data.entity_id }}"
+          position: "{{ trigger.event.data.service_data.position }}"
 
 script:
   master_bedroom_shutter_open:
@@ -29,7 +45,7 @@ script:
     sequence:
       - service: cover.open_cover
         data:
-          entity_id: cover.demo
+          entity_id: cover.master_bedroom_roller_shutter_level
           position: 50
 
   lucas_room_shutter_open:
@@ -37,23 +53,23 @@ script:
     sequence:
       - service: cover.open_cover
         data:
-          entity_id: cover.balcony01
+          entity_id: cover.lucas_room_roller_shutter_level
 
   master_bedroom_shutter_almost_close:
     alias: Shutters - Master Bedroom Shutter Almost Close
     sequence:
       - service: cover.set_cover_position
         data:
-          entity_id: cover.demo
-          position: 95
+          entity_id: cover.master_bedroom_roller_shutter_level
+          position: 10
 
   lucas_room_shutter_almost_close:
     alias: Shutters - Lucas Room Shutter Almost Close
     sequence:
       - service: cover.set_cover_position
         data:
-          entity_id: cover.demo
-          position: 95
+          entity_id: cover.lucas_room_roller_shutter_level
+          position: 10
 
   master_bedroom_shutter_close:
     alias: Shutters - Master Bedroom Shutter Close
