@@ -1,17 +1,14 @@
 homeassistant:
   customize:
-    cover.master_bedroom_roller_shutters:
-      friendly_name: Master Bedroom Roller Shutters
-      device_class: shutter
-    cover.lucas_room_roller_shutters:
-      friendly_name: Lucas Room Roller Shutters
-      device_class: shutter
+    cover.master_bedroom_roller_shutter_level:
+      friendly_name: Master Bedroom Roller Shutter
+    cover.lucas_room_roller_shutter_level:
+      friendly_name: Lucas Room Roller Shutter
     cover.backyard_sunscreen:
       friendly_name: Backyard Sunscreen
-      device_class: awning
     input_boolean.shuttersupdate:
-      friendly_name: Auto Shutters
-      icon: mdi:window-shutter       
+      friendly_name: Auto Shutter
+      icon: mdi:window-shutter    
 
 automation:
   - alias: Shutters - Set Cover Position
