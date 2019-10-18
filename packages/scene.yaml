@@ -1,4 +1,48 @@
 scene:
+  - name: RiseAndShine
+    entities:
+      alarm_control_panel.konnected_alarm:
+        state: 'disarmed'
+      climate.living_room:
+        temperature: 20.5     
+      light.living_room_spot_lights_dimmer_level:
+        state: on  
+        brightness: 15
+
+  - name: Work
+    entities:
+      light.living_room_spot_lights_dimmer_level:
+        state: off  
+      light.office_spot_lights_dimmer_level:
+        state: on  
+        brightness: 25
+
+  - name: Lunch
+    entities: 
+      light.living_room_spot_lights_dimmer_level:
+        state: on 
+        brightness: 15
+      light.office_spot_lights_dimmer_level:
+        state: off
+
+  - name: Dinner
+    entities: 
+      light.living_room_spot_lights_dimmer_level:
+        state: on  
+        brightness: 15
+      light.office_spot_lights_dimmer_level:
+        state: on  
+        brightness: 10
+
+  - name: Lounge
+    entities: 
+      light.living_room_spot_lights_dimmer_level:
+        state: on  
+        brightness: 15
+      light.office_spot_lights_dimmer_level:
+        state: on  
+        brightness: 10
+
   - name: Bedtime
     entities: 
       cover.master_bedroom_roller_shutter_level:
@@ -9,23 +53,15 @@ scene:
         temperature: 17
       media_player.living_room_xbox_one:
         state: off
-      light.living_room_spot_lights_dimmer:
+      light.living_room_spot_lights_dimmer_level:
         state: off
-      light.office_spot_lights_dimmer:
+      light.office_spot_lights_dimmer_level:
         state: off
 
-  - name: Evening
-    entities:
-      light.living_room_spot_lights_dimmer:
-        state: on  
-        brightness: 20
-      light.office_spot_lights_dimmer:
-        state: on  
-        brightness: 10
-
-  - name: RiseAndShine
+  - name: Romance
     entities: 
       alarm_control_panel.konnected_alarm:
-        state: 'disarmed'
-      climate.living_room:
-        temperature: 20.5     
+        state: 'armed_home'
+      cover.master_bedroom_roller_shutter_level:
+        state: closed
+        
