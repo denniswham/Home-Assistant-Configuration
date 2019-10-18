@@ -117,6 +117,8 @@ views:
           - entities:
               - entity: cover.master_bedroom_roller_shutter_level
                 type: custom:slider-entity-row
+              - entity: cover.lucas_room_roller_shutter_level
+                type: custom:slider-entity-row
             show_header_toggle: false
             title: Covers
             type: entities
