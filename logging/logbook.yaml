@@ -1,31 +1,25 @@
 include:
   domains:
     - alarm_control_panel
+    - person
     - climate
     - cover
+    - light
+    - media_player
     - input_boolean
     - input_select
-    - light
     - switch
     - proximity
   entities:
     - binary_sensor.home
     - binary_sensor.ring_front_door_motion
     - binary_sensor.ring_front_door_ding
-    - person.dennis
-    - person.stephanie
-    - person.lucas
-    - person.timo
     - sensor.living_room_thermostat_hvac_state
     - sensor.dennis_to_home
     - sensor.stephanie_to_home
     - sensor.retsinagaard_eta
     - sensor.season
     - sensor.speedtest_download
-    - media_player.tv_living_room
-    - media_player.tv_master_bedroom
-    - media_player.apple_tv_master_bedroom
-    - media_player.spotify
 exclude:
   domains:
     - sun
