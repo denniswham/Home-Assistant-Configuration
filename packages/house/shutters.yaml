@@ -19,7 +19,7 @@ automation:
       state: 'on'
     - condition: state
       entity_id: group.household
-      state: home
+      state: 'home'
 #    - condition # only on weekdays
     trigger:
     - platform: time
@@ -38,13 +38,13 @@ automation:
       state: 'on'
     - condition: state
       entity_id: group.household
-      state: home
+      state: 'home'
     trigger:
     - platform: sun
       event: sunset
     - platform: state
       entity_id: alarm_control_panel.Konnected_Alarm
-      state: armed_home
+      state: 'armed_home'
     action:
     - service: cover.set_cover_position
       data:
@@ -66,8 +66,8 @@ automation:
     trigger:
     - platform: state
       entity_id: group.household
-      from: not-home
-      to: home
+      from: 'not-home'
+      to: 'home'
     action:
     - service: cover.set_cover_position
       data:
@@ -83,8 +83,8 @@ automation:
     trigger:
     - platform: state
       entity_id: group.household
-      from: home
-      to: not_home
+      from: 'home'
+      to: 'not_home'
     - platform: numeric_state
       entity_id: sensor.br_temperature
       above: 25
@@ -93,7 +93,7 @@ automation:
       data:
         entity_id: cover.master_bedroom_roller_shutter_level
         position: 0
-        entity_id: cover.Lucas_room_roller_shutter_level
+        entity_id: cover.lucas_room_roller_shutter_level
         position: 0
 
   - alias: Covers - Open when smoke or CO detected
@@ -102,28 +102,28 @@ automation:
     trigger:
     - platform: state
       entity_id: sensor.entryway_nest_protect_smoke_status
-      from: "ok
+      from: 'ok'
     - platform: state
       entity_id: sensor.entryway_nest_protect_co_status
-      from: "ok
+      from: 'ok'
     - platform: state
       entity_id: sensor.hallway_nest_protect_smoke_status
-      from: "ok
+      from: 'ok'
     - platform: state
       entity_id: sensor.hallway_nest_protect_co_status
-      from: "ok
+      from: 'ok'
     - platform: state
       entity_id: sensor.attic_nest_protect_smoke_status
-      from: "ok
+      from: 'ok'
     - platform: state
       entity_id: sensor.attic_nest_protect_co_status
-      from: "ok
+      from: 'ok'
     action:
     - service: cover.set_cover_position
       data:
         entity_id: cover.master_bedroom_roller_shutter_level
         position: 100
-        entity_id: cover.Lucas_room_roller_shutter_level
+        entity_id: cover.lucas_room_roller_shutter_level
         position: 100
 
   - alias: Covers - Status Update
