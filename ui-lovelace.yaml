@@ -80,7 +80,7 @@ views:
               - person.timo
             state_filter:
               - 'home'
-            show_empty: false
+            show_empty: true
           - entities:
               - entity: sensor.dennis_to_work
               - entity: sensor.dennis_to_home

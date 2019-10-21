@@ -6,6 +6,7 @@ include:
     - cover
     - person
   entities:
+    - group.household
     - climate.living_room
     - sensor.living_room_thermostat_temperature
     - sensor.living_room_thermostat_humidity
