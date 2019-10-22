@@ -177,23 +177,6 @@ automation:
           - cover.lucas_room_roller_shutter_level
         position: 100
 
-#  - alias: Covers - Status Update
-#    trigger:
-#      - platform: event
-#        event_type: call_service
-#        event_data:
-#          domain: cover
-#          service: set_cover_position
-#    condition:
-#      - condition: template
-#        value_template: "{{ state_attr(trigger.event.data.service_data.entity_id, 'current_position') | int != trigger.event.data.service_data.position | int }}"
-#    action:
-#      - delay: "00:00:01"
-#      - service: cover.set_cover_position
-#        data_template:
-#          entity_id: "{{ trigger.event.data.service_data.entity_id }}"
-#          position: "{{ trigger.event.data.service_data.position }}"
-
 input_boolean:
   shuttersupdate:
     initial: on

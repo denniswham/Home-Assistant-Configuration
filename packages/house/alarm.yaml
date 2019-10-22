@@ -54,8 +54,8 @@ automation:
       entity_id: input_boolean.konnectedupdate
       state: 'on'
     - condition: template
-      value_template: "{%- if states.automation.disarm_konnected_from_away.attributes.last_triggered\
-        \ -%}\n  {{ (as_timestamp(now()) - as_timestamp(states.automation.disarm_konnected_from_away.attributes.last_triggered))\
+      value_template: "{%- if states.automation.alarm_disarm_konnected_from_away.attributes.last_triggered\
+        \ -%}\n  {{ (as_timestamp(now()) - as_timestamp(states.automation.alarm_disarm_konnected_from_away.attributes.last_triggered))\
         \ > 240 }}\n{%- else -%}\n  true\n{%- endif -%}\n"
     - condition: template
       value_template: '{{ states(''input_select.konnectedstatus'') != ''armed_away'' 
@@ -133,8 +133,8 @@ automation:
       entity_id: input_boolean.konnectedupdate
       state: 'on'
     - condition: template
-      value_template: "{%- if states.automation.arm_konnected.attributes.last_triggered\
-        \ -%}\n  {{ (as_timestamp(now()) - as_timestamp(states.automation.arm_konnected.attributes.last_triggered))\
+      value_template: "{%- if states.automation.alarm_arm_konnected.attributes.last_triggered\
+        \ -%}\n  {{ (as_timestamp(now()) - as_timestamp(states.automation.alarm_arm_konnected.attributes.last_triggered))\
         \ > 240 }}\n{%- else -%}\n  true\n{%- endif -%}\n"
     trigger:
     - platform: state
