@@ -177,22 +177,69 @@ automation:
           - cover.lucas_room_roller_shutter_level
         position: 100
 
-  - alias: Covers - Status Update
+#  - alias: Covers - Status Update
+#    trigger:
+#      - platform: event
+#        event_type: call_service
+#        event_data:
+#          domain: cover
+#          service: set_cover_position
+#    condition:
+#      - condition: template
+#        value_template: "{{ state_attr(trigger.event.data.service_data.entity_id, 'current_position') | int != trigger.event.data.service_data.position | int }}"
+#    action:
+#      - delay: "00:00:01"
+#      - service: cover.set_cover_position
+#        data_template:
+#          entity_id: "{{ trigger.event.data.service_data.entity_id }}"
+#          position: "{{ trigger.event.data.service_data.position }}"
+
+  - alias: Covers - Study Start Sampling
     trigger:
-      - platform: event
-        event_type: call_service
-        event_data:
-          domain: cover
-          service: set_cover_position
-    condition:
-      - condition: template
-        value_template: "{{ state_attr(trigger.event.data.service_data.entity_id, 'current_position') | int != trigger.event.data.service_data.position | int }}"
+    - above: '0'
+      entity_id:
+        - sensor.lucas_room_roller_shutter_power
+        - sensor.master_bedroom_roller_shutter_power
+      platform: numeric_state
+    condition: []
     action:
-      - delay: "00:00:01"
-      - service: cover.set_cover_position
-        data_template:
-          entity_id: "{{ trigger.event.data.service_data.entity_id }}"
-          position: "{{ trigger.event.data.service_data.position }}"
+    - alias: ''
+      data:
+        entity_id: automation.covers_study_sample_status
+      service: automation.turn_on
+
+#    action:
+#    - service: logbook.log
+#      data_template:
+#        name: "Motion detected: "
+#        message: >-
+#          {{ trigger.entity_id }}
+
+  - alias: Covers - Study Sample Status
+    trigger:
+    - platform: time_pattern
+      seconds: /2
+    condition: []
+    action:
+    - data:
+        entity_id:
+          - cover.lucas_room_roller_shutter_level
+          - cover.master_bedroom_roller_shutter_level
+      service: zwave.refresh_entity
+
+  - alias: Covers - Study Stop Sampling
+    trigger:
+    - below: '1'
+      entity_id:
+        - sensor.lucas_room_roller_shutter_power
+        - sensor.master_bedroom_roller_shutter_power
+      for: 00:00:05
+      platform: numeric_state
+    condition: []
+    action:
+    - data:
+        entity_id: automation.covers_study_sample_status
+      service: automation.turn_off
 
 input_boolean:
   shuttersupdate:
