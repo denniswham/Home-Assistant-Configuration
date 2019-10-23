@@ -1,16 +1,26 @@
-  - url: /community_plugin/lovelace-auto-entities/auto-entities.js
+  - url: /community_plugin/lovelace-card-tools/card-tools.js
     type: js
+  - url: /local/plugins/layout-card.js
+    type: js
+  - url: /community_plugin/lovelace-grocy-chores-card/grocy-chores-card.js
+    type: js
+  - url: /community_plugin/bignumber-card/bignumber-card.js
+    type: js
+  - url: /community_plugin/lovelace-home-feed-card/lovelace-home-feed-card.js
+    type: js            
   - url: /community_plugin/button-card/button-card.js
     type: module
+  - url: /community_plugin/decluttering-card/decluttering-card.js
+    type: module
+  - url: /local/lovelace/modified-custom-cards/nest-layout-card.js
+    type: module
+  - url: /community_plugin/lovelace-auto-entities/auto-entities.js
+    type: js
   - url: /community_plugin/calendar-card/calendar-card.js
     type: js
   - url: /community_plugin/lovelace-card-mod/card-mod.js
     type: module
-  - url: /community_plugin/lovelace-card-tools/card-tools.js
-    type: js
   - url: /community_plugin/check-button-card/check-button-card.js
-    type: module
-  - url: /community_plugin/decluttering-card/decluttering-card.js
     type: module
   - url: /community_plugin/light-entity-card/light-entity-card.js
     type: js
@@ -44,5 +54,5 @@
     type: module
   - url: /community_plugin/weather-card/weather-card.js
     type: module
-  - url: /local/plugins/layout-card.js
-    type: js    
+
+

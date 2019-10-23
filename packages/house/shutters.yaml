@@ -8,7 +8,11 @@ homeassistant:
       friendly_name: Backyard Sunscreen
     input_boolean.shuttersupdate:
       friendly_name: Auto Shutter
-      icon: mdi:window-shutter    
+      icon: mdi:window-shutter  
+    sensor.lucas_room_roller_shutter_power:
+      friendly_name: Lucas Room Roller Shutter Power  
+    sensor.master_bedroom_roller_shutter_power:
+      friendly_name: Master Bedroom Roller Shutter Power
 
 automation:
   - alias: Covers - Open in the morning in Master Bedroom
