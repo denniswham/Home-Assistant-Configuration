@@ -8,6 +8,6 @@ homeassistant:
       friendly_name: Office Spot Lights
     sensor.living_room_spot_lights_dimmer_power:
         friendly_name: Living Room Spot Lights Power
-    sensor.living_room_spot_lights_dimmer_power:
+    sensor.office_spot_lights_dimmer_power:
         friendly_name: Office Spot Lights Power
 
