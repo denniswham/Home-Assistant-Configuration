@@ -73,10 +73,10 @@ cards:
               - type: entities
                 show_header_toggle: false
                 entities:
-                  - type: custom:dummy-entity-row
-                    entity: sun.sun
-                    icon: mdi:nope
-                    name: !secret zero_name
+#                  - type: custom:dummy-entity-row
+#                    entity: sun.sun
+#                    icon: mdi:nope
+#                    name: !secret zero_name
                   - entity: binary_sensor.rpi_zero_ping
                     name: RPi Zero
                     icon: mdi:raspberry-pi
