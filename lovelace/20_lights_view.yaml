@@ -91,64 +91,65 @@ cards:
       title: Downstairs
       show_header_toggle: false
       entities:
-        - entity: light.kitchen_ceiling_spotlights_level
-          name: Kitchen
+#        - entity: light.kitchen_ceiling_spotlights_level
+#          name: Kitchen
           
-        - entity: light.dining_room_ceiling_light_level
-          name: Dining area
-          icon: bha:ceiling-lamp
-          type: custom:slider-entity-row
-          toggle: true
-          hide_when_off: true
+#        - entity: light.dining_room_ceiling_light_level
+#          name: Dining area
+#          icon: bha:ceiling-lamp
+#          type: custom:slider-entity-row
+#          toggle: true
+#          hide_when_off: true
 
-        - entity: light.floorlamp_uplight
-          name: Floorlamp
-          type: custom:slider-entity-row
-          toggle: true
-          hide_when_off: true
+#        - entity: light.floorlamp_uplight
+#          name: Floorlamp
+#          type: custom:slider-entity-row
+#          toggle: true
+#          hide_when_off: true
           
-        - entity: light.floorlamp_reading_light
-          name: Floorlamp reading
-          type: custom:slider-entity-row
-          toggle: true
-          hide_when_off: true
+#       - entity: light.floorlamp_reading_light
+#          name: Floorlamp reading
+#          type: custom:slider-entity-row
+#          toggle: true
+#          hide_when_off: true
 
-        - entity: light.living_room_ceiling_light_level
-          name: Livingroom
-          icon: bha:ceiling-lamp-round
-          type: custom:slider-entity-row
-          toggle: true
-          hide_when_off: true
+#        - entity: light.living_room_ceiling_light_level
+#          name: Livingroom
+#          icon: bha:ceiling-lamp-round
+#          type: custom:slider-entity-row
+#          toggle: true
+#          hide_when_off: true
 
-        - entity: light.living_room_spotlights_level
+        - entity: light.living_room_spot_lights_dimmer_level
           name: Livingroom spots
           icon: bha:ceiling-lamp-plafond
           type: custom:slider-entity-row
           toggle: true
-          hide_when_off: true
+          hide_when_off: false
           
-        - entity: light.passage_ceiling_spotlights_level
-          name: Passage
+        - entity: light.office_spot_lights_dimmer_level
+          name: Office spots
+          icon: bha:ceiling-lamp-plafond
           type: custom:slider-entity-row
           toggle: true
-          hide_when_off: true
+          hide_when_off: false
           
-        - entity: light.hallway_window_light
-          name: Hallway window
-          type: custom:slider-entity-row
-          icon: mdi:ceiling-light
-          toggle: true
-          hide_when_off: true
+#        - entity: light.hallway_window_light
+#          name: Hallway window
+#          type: custom:slider-entity-row
+#          icon: mdi:ceiling-light
+#          toggle: true
+#          hide_when_off: true
 
-        - entity: light.stairs_lights
-          name: Stairs
-          type: custom:slider-entity-row
-          toggle: true
-          hide_when_off: true
+#        - entity: light.stairs_lights
+#          name: Stairs
+#          type: custom:slider-entity-row
+#          toggle: true
+#          hide_when_off: true
           
-        - entity: light.candles
-          name: Candles
-          icon: mdi:candle
+#        - entity: light.candles
+#          name: Candles
+#          icon: mdi:candle
           
   - type: vertical-stack
     cards:

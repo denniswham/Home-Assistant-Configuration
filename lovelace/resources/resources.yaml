@@ -16,6 +16,9 @@
     type: js
   - url: /community_plugin/lovelace-fold-entity-row/fold-entity-row.js
     type: module
+  - url: /local/plugins/toggle-lock-entity-row.js
+    type: js
+
 
   - url: /community_plugin/lovelace-auto-entities/auto-entities.js
     type: js
