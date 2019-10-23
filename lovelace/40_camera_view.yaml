@@ -68,3 +68,60 @@ cards:
               #states {
                 padding-top: 0;
               }
+
+      - break
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: picture-entity
+            entity: camera.backyard
+            camera_view: live
+            show_state: false
+            show_name: false
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                template: camera_button
+                entity: light.living_room_spotlights_level
+                icon: bha:ceiling-lamp-plafond
+              - type: custom:button-card
+                template: camera_button
+                entity: light.living_room_ceiling_light_level
+                icon: bha:ceiling-lamp-round
+              - type: custom:button-card
+                template: camera_button
+                entity: light.candles
+                icon: mdi:candle
+              - type: custom:button-card
+                template: camera_button
+                entity: light.outdoor_yard_light
+                icon: bha:outdoor-lamp
+              - type: custom:button-card
+                template: camera_button
+                entity: light.outdoor_hanging_lights
+                icon: bha:light-string
+              - type: custom:button-card
+                color_type: blank-card
+              - type: custom:button-card
+                color_type: blank-card
+          - type: entities
+            entities:
+              - type: custom:fold-entity-row
+                head:
+                  type: section
+                  label: More info
+                group_config:
+                  secondary_info: last-changed
+                items:
+                  - entity: binary_sensor.living_room_axis_motion_0
+                    name: Motion
+                    secondary_info: last-changed
+                  - entity: camera.snapshot_living_room
+                    name: Last Motion Snapshot
+                    secondary_info: last-changed
+                  - entity: sensor.back_door
+                    name: Back Door
+                    secondary_info: last-changed
+            style: |
+              #states {
+                padding-top: 0;
+              }
