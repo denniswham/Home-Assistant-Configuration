@@ -44,5 +44,5 @@
     type: module
   - url: /community_plugin/weather-card/weather-card.js
     type: module
-  - url: /customcards/github/thomasloven/layout-card.js?track=true
+  - url: /local/plugins/card-modder.js?v=1
     type: js    
