@@ -9,7 +9,7 @@ cards:
       - type: custom:vertical-stack-in-card
         cards:
           - type: picture-entity
-            entity: camera.front-door
+            entity: camera.front_door
             camera_view: live
             show_state: false
             show_name: false
@@ -17,8 +17,12 @@ cards:
             cards:
               - type: custom:button-card
                 template: camera_button
-                entity: light.hallway_window_light
-                icon: mdi:ceiling-light
+                entity: switch.siren
+                icon: mdi:alarm-bell
+#              - type: custom:button-card
+#                template: camera_button
+#                entity: light.hallway_window_light
+#                icon: mdi:ceiling-light
               - type: custom:button-card
                 template: camera_button
                 entity: script.sannce_down
@@ -79,10 +83,14 @@ cards:
             show_name: false
           - type: horizontal-stack
             cards:
+#              - type: custom:button-card
+#                template: camera_button
+#                entity: light.living_room_spotlights_level
+#                icon: bha:ceiling-lamp-plafond
               - type: custom:button-card
                 template: camera_button
-                entity: light.living_room_spotlights_level
-                icon: bha:ceiling-lamp-plafond
+                entity: switch.backyard_siren
+                icon: mdi:alarm-bell
               - type: custom:button-card
                 template: camera_button
                 entity: light.living_room_ceiling_light_level
