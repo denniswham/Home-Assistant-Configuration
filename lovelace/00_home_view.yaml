@@ -68,7 +68,7 @@ cards:
           - type: horizontal-stack
             cards:
               - type: custom:button-card
-                entity: alarm_control_panel.house
+                entity: alarm_control_panel.konnected_alarm
                 show_state: false
                 show_icon: true
                 show_name: false
@@ -474,11 +474,17 @@ cards:
                   show_empty: false
                   entities:
                     - sensor.kitchen_sink
-                    - entity: binary_sensor.upstairs_hallway_smoke_alarm
+                    - entity: sensor.entryway_nest_protect_smoke_status
                       icon: bha:smoke-detector
-                    - entity: binary_sensor.dining_room_smoke_alarm
+                    - entity: sensor.hallway_nest_protect_smoke_status
                       icon: bha:smoke-detector
-                    - entity: binary_sensor.walk_in_closet_smoke_alarm
+                    - entity: sensor.attic_nest_protect_smoke_status
+                      icon: bha:smoke-detector
+                    - entity: sensor.entryway_nest_protect_co_status
+                      icon: bha:smoke-detector
+                    - entity: sensor.hallway_nest_protect_co_status
+                      icon: bha:smoke-detector
+                    - entity: sensor.attic_nest_protect_co_status
                       icon: bha:smoke-detector
                   state_filter:
                     - 'Open'

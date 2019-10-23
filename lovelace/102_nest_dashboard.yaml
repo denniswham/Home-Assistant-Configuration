@@ -23,7 +23,7 @@ cards:
                   - type: custom:decluttering-card
                     template: nest_button
                     variables:
-                      - entity: alarm_control_panel.house
+                      - entity: alarm_control_panel.konnected_alarm
                       - state:
                           - value: 'armed_away'
                             icon: mdi:shield-lock

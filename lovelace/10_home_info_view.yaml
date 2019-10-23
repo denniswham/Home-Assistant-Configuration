@@ -11,7 +11,7 @@ cards:
           - type: vertical-stack
             cards:
               - type: alarm-panel
-                entity: alarm_control_panel.house
+                entity: alarm_control_panel.konnected_alarm
                 states:
                   - arm_home
                   - arm_away
