@@ -60,10 +60,10 @@ cards:
               - type: entities
                 show_header_toggle: false
                 entities:
-                  - type: custom:dummy-entity-row
-                    entity: sun.sun
-                    icon: mdi:nope
-                    name: !secret dashboard_name
+#                  - type: custom:dummy-entity-row
+#                    entity: sun.sun
+#                    icon: mdi:nope
+#                    name: !secret dashboard_name
                   - entity: binary_sensor.living_room_dashboard_ping
                     name: Dashboard
                     icon: mdi:raspberry-pi
@@ -88,10 +88,10 @@ cards:
             - type: entities
               show_header_toggle: false
               entities:
-                - type: custom:dummy-entity-row
-                  entity: sun.sun
-                  icon: mdi:nope
-                  name: !secret 7inch_name
+#                - type: custom:dummy-entity-row
+#                  entity: sun.sun
+#                  icon: mdi:nope
+#                  name: !secret 7inch_name
                 - entity: binary_sensor.upstairs_hallway_dashboard_ping
                   name: 7inch
                   icon: mdi:raspberry-pi

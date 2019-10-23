@@ -18,8 +18,8 @@ cards:
                 cards:
                   - type: custom:button-card
                     template: nest_picture_button
-                    entity: person.stefan
-                    entity_picture: !secret stefan_image
+                    entity: person.stephanie
+                    entity_picture: !secret stephanie_square
                   - type: custom:decluttering-card
                     template: nest_button
                     variables:
@@ -49,7 +49,7 @@ cards:
                   - type: custom:button-card
                     template: nest_picture_button
                     entity: person.isa
-                    entity_picture: !secret isa_image
+                    entity_picture: !secret dennis_square
                     styles:
                       grid:
                         - position: relative

@@ -15,8 +15,8 @@ cards:
           - type: horizontal-stack
             cards:
               - type: picture-entity
-                entity: person.isa
-                image: !secret isa_square
+                entity: person.dennis
+                image: !secret dennis_square
                 show_name: false
                 tap_action:
                   action: more-info
@@ -25,8 +25,8 @@ cards:
                     border-radius: 12px;
                   }
               - type: picture-entity
-                entity: person.stefan
-                image: !secret stefan_square
+                entity: person.stephanie
+                image: !secret stephanie_square
                 show_name: false
                 tap_action:
                   action: more-info
