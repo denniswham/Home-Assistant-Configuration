@@ -1,0 +1,306 @@
+title: Les Jambons
+resources: !include lovelace/resources/resources.yaml
+
+cch:
+  disable: false
+  header: true
+  menu: show
+  sidebar_swipe: true
+  notifications: show
+  voice: hide
+  options: clock
+  clock_format: 24
+  clock_date: true
+  date_locale: sv-SE
+  swipe: true
+  exceptions:
+    - conditions:
+        user: dashboard
+      config:
+        show_tabs: 9
+        kiosk_mode: true
+
+button_card_templates:
+  !include lovelace/button_card_templates/button_card_templates.yaml
+
+decluttering_templates:
+  !include lovelace/decluttering_templates/decluttering_templates.yaml
+
+background: var(--background)
+#  - !include lovelace/00_home_view.yaml
+#  - !include lovelace/10_home_info_view.yaml
+#  - !include lovelace/20_lights_view.yaml
+#  - !include lovelace/30_system_info_view.yaml
+#  - !include lovelace/31_system_graphs.yaml
+#  - !include lovelace/40_camera_view.yaml
+#  - !include lovelace/3d_printer.yaml
+#  - !include lovelace/80_automations_view.yaml
+#  - !include lovelace/99_settings_view.yaml
+#  - !include lovelace/102_nest_dashboard.yaml
+#  - !include lovelace/01_homekit_view.yaml
+
+#  - !include lovelace/media.yaml
+
+views:
+  - background: var(--background-image)
+    badges: []
+    cards:
+      - cards:
+          - entity: alarm_control_panel.konnected_alarm
+            name: Alarm
+            type: alarm-panel
+          - entities:
+              - entity: switch.siren
+              - entity: switch.backyard_siren
+              - entity: input_boolean.konnectedupdate
+              - entity: input_boolean.shuttersupdate
+            type: entities
+          - columns: 5
+            entities:
+              - entity: binary_sensor.entryway
+              - entity: binary_sensor.kitchen
+              - entity: binary_sensor.living_room
+              - entity: binary_sensor.office
+              - entity: binary_sensor.garage
+            show_state: false
+            title: Motion Detection
+            type: glance
+        type: vertical-stack
+      - cards:
+          - type: entity-filter
+            id: people
+            card:
+              title: People Who Are Home
+              type: glance
+              show_state: false
+            entities:
+              - person.dennis
+              - person.stephanie
+              - person.lucas
+              - person.timo
+            state_filter:
+              - 'home'
+            show_empty: true
+          - entities:
+              - entity: sensor.dennis_to_work
+              - entity: sensor.dennis_to_home
+              - entity: sensor.stephanie_to_work
+              - entity: sensor.stephanie_to_home
+            show_header_toggle: false
+            title: Information
+            type: entities
+          - entities:
+              - entity: binary_sensor.ring_front_door_ding
+              - entity: binary_sensor.ring_front_door_motion
+              - entity: sensor.ring_front_door_last_ding
+              - entity: sensor.ring_front_door_last_activity
+              - entity: binary_sensor.ring_backyard_motion
+              - entity: sensor.ring_backyard_last_activity
+            show_header_toggle: false
+            show_state: true
+            title: Security Cameras
+            type: entities
+        type: vertical-stack
+      - cards:
+          - entities:
+              - entity: light.living_room_table_light_dimmer_level
+                type: custom:slider-entity-row
+                toggle: true
+              - entity: light.living_room_spot_lights_dimmer_level
+                type: custom:slider-entity-row
+                toggle: true
+              - entity: light.office_spot_lights_dimmer_level
+                type: custom:slider-entity-row
+                toggle: true
+            title: Lights
+            type: entities
+          - entities:
+              - entity: cover.master_bedroom_roller_shutter_level
+                type: custom:slider-entity-row
+              - entity: cover.lucas_room_roller_shutter_level
+                type: custom:slider-entity-row
+            show_header_toggle: false
+            title: Covers
+            type: entities
+          - entities:
+              - entity: sensor.entryway_nest_protect_co_status
+              - entity: sensor.entryway_nest_protect_smoke_status
+              - type: divider
+              - entity: sensor.hallway_nest_protect_co_status
+              - entity: sensor.hallway_nest_protect_smoke_status
+              - type: divider
+              - entity: sensor.attic_nest_protect_co_status
+              - entity: sensor.attic_nest_protect_smoke_status
+            show_header_toggle: false
+            title: Smoke and CO alarm
+            type: entities
+        type: vertical-stack
+    icon: 'mdi:home-assistant'
+    path: default_view
+    title: Home
+  - background: var(--background-image)
+    badges: []
+    cards:
+      - entity: weather.lopik_cabauw
+        type: 'custom:weather-card'
+      - entities:
+          - entity: sensor.br_full_condition
+            name: Weather
+          - entity: sensor.br_wind_force
+            name: Wind
+          - entity: sensor.waqi_oude_meije_zegveld
+            name: Air Quality
+          - entity: sensor.br_full_condition_1d
+            name: Tomorrow's weather
+        show_header_toggle: false
+        title: Weather
+        type: entities
+      - entities: []
+        show_header_toggle: false
+        title: Room Sensors
+        type: entities
+      - cards:
+          - entity: camera.meteogram
+            type: picture-entity
+          - entity: camera.buienradar
+            type: picture-entity
+        type: vertical-stack
+    icon: 'mdi:weather-cloudy'
+    path: weather
+    title: Weather
+  - badges: []
+    cards:
+      - cards:
+          - entity: climate.living_room
+            type: thermostat
+          - entities:
+              - entity: sensor.living_room_thermostat_hvac_state
+                name: Operation
+              - entity: sensor.living_room_thermostat_humidity
+                name: Humidity
+              - entity: sensor.living_room_thermostat_temperature
+                name: Temperature
+              - entity: binary_sensor.retsinagaard_away
+                icon: 'mdi:flash'
+                name: Away
+            show_header_toggle: false
+            title: Thermostat
+            type: glance
+          - entities:
+              - entity: sensor.living_room_thermostat_humidity
+                name: Humidity
+              - entity: sensor.living_room_thermostat_temperature
+                name: Temperature
+              - entity: sensor.living_room_thermostat_hvac_state
+                name: HVAC Mode
+            hours_to_show: 720
+            refresh_interval: 300
+            title: Living Room
+            theme: dark
+            type: history-graph
+        type: vertical-stack
+    icon: 'mdi:temperature-celsius'
+    path: thermostat
+    title: Thermostat
+  - background: var(--background-image)
+    badges: []
+    cards:
+      - entity: media_player.living_room_tv
+        type: media-control
+      - entity: media_player.master_bedroom_tv
+        type: media-control
+      - entity: media_player.spotify
+        type: media-control
+      - entity: media_player.master_bedroom_apple_tv
+        type: media-control
+    icon: 'mdi:play-circle-outline'
+    path: media
+    title: Media
+  - cards:
+      - entity: camera.front_door
+        show_name: false
+        show_state: false
+        type: picture-entity
+      - entity: camera.backyard
+        show_name: false
+        show_state: false
+        type: picture-entity
+      - entity: camera.sunmap
+        show_name: false
+        show_state: false
+        type: picture-entity
+    icon: 'mdi:camera'
+    id: cameras
+    title: cameras
+  - background: var(--background-image)
+    cards:
+      - entities:
+          - entity: binary_sensor.adguard_protection
+          - entity: sensor.speedtest_download
+          - entity: sensor.adguard_average_processing_speed
+          - entity: sensor.adguard_dns_queries
+          - entity: sensor.adguard_dns_queries_blocked_ratio
+          - entity: sensor.adguard_safe_browsing_blocked
+          - entity: sensor.adguard_rules_count
+          - entity: sensor.adguard_dns_queries_blocked
+          - entity: sensor.searches_safe_search_enforced
+          - entity: sensor.adguard_parental_control_blocked
+          - entity: sensor.glances_cpu_load
+          - entity: sensor.glances_disk_used_percent
+          - entity: sensor.glances_ram_used_percent
+        show_header_toggle: false
+        title: Network Details
+        type: entities
+      - entities:
+          - binary_sensor.living_room_thermostat_online
+          - binary_sensor.entryway_nest_protect_online
+          - binary_sensor.hallway_nest_protect_online
+          - binary_sensor.attic_nest_protect_online
+          - sensor.ring_front_door_wifi_signal_category
+          - sensor.ring_backyard_wifi_signal_category
+          - sensor.ring_downstairs_wifi_signal_category
+        show_header_toggle: false
+        title: Connected Devices
+        type: entities
+      - entities:
+          - entity: sensor.attic_nest_protect_battery_health
+          - entity: sensor.entryway_nest_protect_battery_health
+          - entity: sensor.hallway_nest_protect_battery_health
+          - entity: sensor.phone_dennis_battery
+          - entity: sensor.phone_lucas_battery
+          - entity: sensor.phone_stephanie_battery
+          - entity: sensor.phone_timo_battery
+          - entity: sensor.ring_front_door_battery
+          - entity: sensor.ring_backyard_battery
+        show_header_toggle: false
+        title: Batteries
+        type: entities
+      - entities:
+          - entity: sensor.speedtest_download
+            name: Down
+          - entity: sensor.speedtest_upload
+            name: Up
+        hours_to_show: 168
+        refresh_interval: 300
+        title: Speeds
+        type: history-graph
+      - entities:
+          - entity: sensor.cpu_temperature
+            name: Temp
+        hours_to_show: 168
+        refresh_interval: 300
+        title: CPU
+        type: history-graph
+      - type: history-graph
+        entities:
+          - entity: sensor.ring_front_door_battery
+            name: Doorbell
+          - entity: sensor.ring_backyard_battery
+            name: Backyard Cam
+        hours_to_show: 168
+        refresh_interval: 300
+        title: Battery level
+    icon: 'mdi:settings'
+    path: settings
+    title: Settings
+
