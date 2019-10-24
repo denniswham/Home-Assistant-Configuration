@@ -62,7 +62,7 @@ hacs:
 
 recorder: !include logging/recorder.yaml
 history: !include logging/history.yaml
-logbook: !include logging/logbook.yaml
+logbook: # !include logging/logbook.yaml
 logger: !include logging/logger.yaml
 
 # ########################################
