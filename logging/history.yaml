@@ -4,6 +4,7 @@ include:
     - alarm_control_panel
     - light
     - person
+    - sun
   entities:
     - climate.living_room
     - cover.master_bedroom_roller_shutter_level
