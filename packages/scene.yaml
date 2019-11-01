@@ -50,7 +50,7 @@ scene:
       alarm_control_panel.konnected_alarm:
         state: 'armed_home'
       climate.living_room:
-        temperature: '17'
+        temperature: "17"
       media_player.living_room_xbox_one:
         state: off
       light.living_room_spot_lights_dimmer_level:
@@ -63,5 +63,5 @@ scene:
       alarm_control_panel.konnected_alarm:
         state: 'armed_home'
       cover.master_bedroom_roller_shutter_level:
-        state: 'closed'
+        current_position: 0
         

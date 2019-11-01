@@ -49,3 +49,4 @@ esphomeyaml/*/
 
 # Specific keeps
 !.gitkeep
+.vscode/settings.json
