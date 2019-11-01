@@ -2,9 +2,10 @@ scene:
   - name: RiseAndShine
     entities:
       alarm_control_panel.konnected_alarm:
-        state: 'disarmed'
+        state: disarmed
       climate.living_room:
-        temperature: "20.5"     
+        state: heat
+        temperature: 20.5     
       light.living_room_spot_lights_dimmer_level:
         state: on  
         brightness: 15
@@ -46,11 +47,13 @@ scene:
   - name: Bed time
     entities: 
       cover.master_bedroom_roller_shutter_level:
-        position: "10"
+        state: open
+        position: 10
       alarm_control_panel.konnected_alarm:
-        state: 'armed_home'
+        state: armed_home
       climate.living_room:
-        temperature: "17"
+        state: heat
+        temperature: 17
       media_player.living_room_xbox_one:
         state: off
       light.living_room_spot_lights_dimmer_level:
@@ -61,7 +64,7 @@ scene:
   - name: Romance time
     entities: 
       alarm_control_panel.konnected_alarm:
-        state: 'armed_home'
+        state: armed_home
       cover.master_bedroom_roller_shutter_level:
-        position: "0"
-        
+        state: closed
+  
