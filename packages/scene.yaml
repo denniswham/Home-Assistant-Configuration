@@ -4,7 +4,7 @@ scene:
       alarm_control_panel.konnected_alarm:
         state: disarmed
       sensor.living_room_thermostat_target:
-        state: 20.5
+        state: '20.5'
       light.living_room_spot_lights_dimmer_level:
         state: on  
         brightness: 15
@@ -51,7 +51,7 @@ scene:
       alarm_control_panel.konnected_alarm:
         state: armed_home
       sensor.living_room_thermostat_target:
-        state: 17
+        state: '17'
       media_player.living_room_xbox_one:
         state: off
       light.living_room_spot_lights_dimmer_level:
