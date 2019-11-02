@@ -19,6 +19,8 @@ cards:
                 template: camera_button
                 entity: switch.siren
                 icon: mdi:alarm-bell
+                tap_action:
+                  action: toggle
 #              - type: custom:button-card
 #                template: camera_button
 #                entity: light.hallway_window_light
@@ -91,6 +93,8 @@ cards:
                 template: camera_button
                 entity: switch.backyard_siren
                 icon: mdi:alarm-bell
+                tap_action:
+                  action: toggle
               - type: custom:button-card
                 template: camera_button
                 entity: light.living_room_ceiling_light_level
