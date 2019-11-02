@@ -9,7 +9,7 @@ scene:
       light.living_room_spot_lights_dimmer_level:
         state: on  
         brightness: 15
-
+ 
   - name: Work time
     entities:
       light.living_room_spot_lights_dimmer_level:
