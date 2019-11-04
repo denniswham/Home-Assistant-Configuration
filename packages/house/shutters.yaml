@@ -90,12 +90,12 @@ automation:
     - condition: state
       entity_id: group.household
       state: 'home'
+    - condition: state
+      entity_id: person.lucas
+      state: 'not_home'
     trigger:
     - platform: sun
       event: sunset
-    - platform: state
-      entity_id: alarm_control_panel.Konnected_Alarm
-      to: 'armed_home'
     action:
     - service: cover.set_cover_position
       data:
