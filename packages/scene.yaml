@@ -48,7 +48,7 @@ scene:
     entities: 
       cover.master_bedroom_roller_shutter_level:
         state: open
-        position: 10
+        current_position: 10
       alarm_control_panel.konnected_alarm:
         state: armed_home
       climate.living_room:

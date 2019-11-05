@@ -222,6 +222,25 @@ automation:
           - cover.lucas_room_roller_shutter_level
         position: 100
 
+# Temporary automation for as long as the scene doesn't work well
+#  - alias: Covers - Temporary automation when bedtime scene is triggered
+#    initial_state: 'true'
+#    condition:
+#    trigger:
+#    - platform: event
+#      event_type: call_service
+#      event_data:
+#        service_data:
+#          entity_id: scene.bed_time
+#        domain: scene
+#        service: turn_on
+#    action:
+#    - service: cover.set_cover_position
+#      data:
+#        entity_id:
+#          - cover.master_bedroom_roller_shutter_level
+#        position: 10
+
 input_boolean:
   shuttersupdate:
     initial: on
