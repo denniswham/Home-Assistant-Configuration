@@ -78,11 +78,11 @@ automation:
     action:
     - service: persistent_notification.create
       data_template:
-        message: "{{ trigger.entity_id }} reported low battery, please charge."
+        message: "{{ trigger.entity_id.name }} reported low battery, please charge."
         title: Ring Battery Low
     - service: notify.html5_galaxy_s9
       data_template:
-        message: "{{ trigger.entity_id }} reported low battery, please charge."
+        message: "{{ trigger.entity_id.name }} reported low battery, please charge."
         title: Ring Battery Low
 
 switch:
