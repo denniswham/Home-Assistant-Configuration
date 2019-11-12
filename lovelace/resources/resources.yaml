@@ -1,6 +1,6 @@
   - url: /community_plugin/lovelace-card-tools/card-tools.js
     type: js
-  - url: /community_plugin/layout-card/layout-card.js
+  - url: /local/plugins/layout-card.js
     type: module
   - url: /community_plugin/lovelace-grocy-chores-card/grocy-chores-card.js
     type: js
