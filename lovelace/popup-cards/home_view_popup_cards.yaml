@@ -126,6 +126,7 @@
               secondary_info: last-changed
             - entity: sensor.bedroom_door
               secondary_info: last-changed
+
   sensor.outer_windows:
     title: Windows
     card:
