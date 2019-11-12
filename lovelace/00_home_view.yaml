@@ -68,7 +68,7 @@ cards:
           - type: horizontal-stack
             cards:
               - type: custom:button-card
-                entity: alarm_control_panel.house
+                entity: alarm_control_panel.konnected_alarm
                 show_state: false
                 show_icon: true
                 show_name: false
