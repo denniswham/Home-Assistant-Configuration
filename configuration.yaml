@@ -71,7 +71,6 @@ logger: !include logging/logger.yaml
 person: !include entities/person.yaml
 media_player: !include entities/media_player.yaml
 device_tracker: !include entities/device_tracker.yaml
-# alarm_control_panel: !include resources/bwalarm/bwalarm.yaml
 
 # ########################################
 # ###             SERVICES             ###
