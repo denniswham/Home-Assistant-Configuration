@@ -15,13 +15,13 @@ cards:
           - type: horizontal-stack
             cards:
               - type: picture-entity
-                entity: person.dennis
+                entity: person.isa
                 image: !secret dennis_square
                 show_name: false
                 tap_action:
                   action: more-info
               - type: picture-entity
-                entity: person.stephanie
+                entity: person.stefan
                 image: !secret stephanie_square
                 show_name: false
                 tap_action:
@@ -68,7 +68,7 @@ cards:
           - type: horizontal-stack
             cards:
               - type: custom:button-card
-                entity: alarm_control_panel.konnected_alarm
+                entity: alarm_control_panel.house
                 show_state: false
                 show_icon: true
                 show_name: false
