@@ -15,13 +15,13 @@ cards:
           - type: horizontal-stack
             cards:
               - type: picture-entity
-                entity: person.isa
+                entity: person.dennis
                 image: !secret dennis_square
                 show_name: false
                 tap_action:
                   action: more-info
               - type: picture-entity
-                entity: person.stefan
+                entity: person.stephanie
                 image: !secret stephanie_square
                 show_name: false
                 tap_action:
@@ -29,7 +29,7 @@ cards:
               - type: vertical-stack
                 cards:
                   - type: custom:button-card
-                    entity: light.inside_lights
+                    entity: light.living_room_spot_lights_dimmer_level
                     show_state: false
                     show_icon: true
                     show_name: false
@@ -41,7 +41,7 @@ cards:
                     show_state: false
                     show_icon: true
                     show_name: false
-                    entity: light.outdoor_lights
+                    entity: light.office_spot_lights_dimmer_level
                     icon: bha:outdoor-lamp
                     tap_action:
                       action: more-info
@@ -61,14 +61,14 @@ cards:
                     show_icon: true
                     show_name: false
                     color: rgb(169,169,169)
-                    entity: weather.smhi_home
+                    entity: weather.lopik_cabauw
                     icon: mdi:weather-cloudy
                     tap_action:
                       action: more-info
           - type: horizontal-stack
             cards:
               - type: custom:button-card
-                entity: alarm_control_panel.house
+                entity: alarm_control_panel.konnected_alarm
                 show_state: false
                 show_icon: true
                 show_name: false
@@ -268,7 +268,7 @@ cards:
                 tap_action:
                   action: more-info
               - type: custom:button-card
-                entity: climate.sanyo
+                entity: climate.living_room
                 show_state: false
                 show_icon: true
                 show_name: false
@@ -385,7 +385,7 @@ cards:
                 tap_action:
                   action: more-info
               - type: custom:button-card
-                entity: media_player.living_room_nvidia_shield
+                entity: media_player.living_room_tv
                 show_state: false
                 show_icon: true
                 show_name: false
@@ -473,19 +473,31 @@ cards:
                 - type: entity-filter
                   show_empty: false
                   entities:
-                    - sensor.kitchen_sink
-                    - entity: binary_sensor.upstairs_hallway_smoke_alarm
+                    - entity: sensor.entryway_nest_protect_co_status
                       icon: bha:smoke-detector
-                    - entity: binary_sensor.dining_room_smoke_alarm
+                    - entity: sensor.entryway_nest_protect_smoke_status
                       icon: bha:smoke-detector
-                    - entity: binary_sensor.walk_in_closet_smoke_alarm
+                    - entity: sensor.hallway_nest_protect_co_status
                       icon: bha:smoke-detector
+                    - entity: sensor.hallway_nest_protect_smoke_status
+                      icon: bha:smoke-detector
+                    - entity: sensor.attic_nest_protect_co_status
+                      icon: bha:smoke-detector
+                    - entity: sensor.attic_nest_protect_smoke_status
+                      icon: bha:smoke-detector
+                    - entity: binary_sensor.entryway
+                    - entity: binary_sensor.kitchen
+                    - entity: binary_sensor.living_room
+                    - entity: binary_sensor.office
+                    - entity: binary_sensor.garage
                   state_filter:
                     - 'Open'
                     - 'Movement detected'
                     - 'Leaking'
                     - 'Unlocked'
                     - 'on'
+                    - 'Warning'
+                    - 'Emergency'
                     # - 'Unknown'
                   card: 
                     type: glance
