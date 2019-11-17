@@ -37,8 +37,8 @@ lovelace:
 map:
 
 frontend:
-#  extra_html_url:
-#    - /local/hass-bha-icons.html
+  extra_html_url:
+    - /local/hass-bha-icons.html
     
 #panel_custom: !include panels/panel_custom.yaml
 

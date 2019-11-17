@@ -18,6 +18,8 @@
     type: module
   - url: /local/plugins/toggle-lock-entity-row.js
     type: js
+  - url: /community_plugin/vertical-stack-in-card/vertical-stack-in-card.js
+    type: js
 
 
   - url: /community_plugin/lovelace-auto-entities/auto-entities.js
@@ -53,8 +55,6 @@
   - url: /community_plugin/thermostat-card/thermostat-card.js
     type: module
   - url: /community_plugin/upcoming-media-card/upcoming-media-card.js
-    type: js
-  - url: /community_plugin/vertical-stack-in-card/vertical-stack-in-card.js
     type: js
   - url: /community_plugin/lovelace-weather-card-chart/weather-card-chart.js
     type: module
