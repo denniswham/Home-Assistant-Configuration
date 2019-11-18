@@ -149,27 +149,24 @@ cards:
                 tap_action:
                   action: more-info
               - type: custom:button-card
-                entity: sensor.outer_windows
                 show_state: false
                 show_icon: true
                 show_name: false
+                entity: sensor.house_movement
                 state:
-                  - value: 'Closed'
-                    icon: mdi:window-closed
+                  - value: 'No movement'
+                    icon: mdi:walk
                     color: rgb(152,251,152)
-                  - value: 'Bedroom window open'
-                    icon: mdi:window-open
+                  - value: 'Movement detected'
+                    icon: mdi:motion-sensor
                     color: rgb(251, 210, 41)
-                  - value: 'Dining room window open'
-                    icon: mdi:window-open
-                    color: rgb(255, 0, 0)
                 tap_action:
                   action: more-info
               - type: custom:button-card
                 show_state: false
                 show_icon: true
                 show_name: false
-                entity: sensor.house_movement
+                entity: sensor.outdoor_movement
                 state:
                   - value: 'No movement'
                     icon: mdi:walk
