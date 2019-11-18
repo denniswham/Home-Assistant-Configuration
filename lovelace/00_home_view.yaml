@@ -132,23 +132,6 @@ cards:
                   action: navigate
                   navigation_path: /lovelace/cameras
               - type: custom:button-card
-                entity: sensor.outer_doors
-                show_state: false
-                show_icon: true
-                show_name: false
-                state:
-                  - value: 'Closed'
-                    icon: mdi:door-closed
-                    color: rgb(152,251,152)
-                  - value: 'Back door open'
-                    icon: mdi:door-open
-                    color: rgb(251, 210, 41)
-                  - value: 'Door open'
-                    icon: mdi:door-open
-                    color: rgb(255, 0, 0)
-                tap_action:
-                  action: more-info
-              - type: custom:button-card
                 show_state: false
                 show_icon: true
                 show_name: false
@@ -174,6 +157,23 @@ cards:
                   - value: 'Movement detected'
                     icon: mdi:motion-sensor
                     color: rgb(251, 210, 41)
+                tap_action:
+                  action: more-info
+              - type: custom:button-card
+                entity: sensor.outer_doors
+                show_state: false
+                show_icon: true
+                show_name: false
+                state:
+                  - value: 'Closed'
+                    icon: mdi:door-closed
+                    color: rgb(152,251,152)
+                  - value: 'Back door open'
+                    icon: mdi:door-open
+                    color: rgb(251, 210, 41)
+                  - value: 'Door open'
+                    icon: mdi:door-open
+                    color: rgb(255, 0, 0)
                 tap_action:
                   action: more-info
         
