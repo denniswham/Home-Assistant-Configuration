@@ -47,7 +47,7 @@ hacs:
 #  appdaemon: true
   
 
-#browser_mod:
+browser_mod:
 #  devices:
 #    24d2e744-aee3dfdb:
 #      name: Isa laptop
