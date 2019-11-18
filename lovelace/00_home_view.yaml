@@ -67,6 +67,59 @@ cards:
                       action: more-info
           - type: horizontal-stack
             cards:
+              - type: picture-entity
+                entity: person.lucas
+                image: !secret lucas_square
+                show_name: false
+                tap_action:
+                  action: more-info
+              - type: picture-entity
+                entity: person.timo
+                image: !secret timo_square
+                show_name: false
+                tap_action:
+                  action: more-info
+              - type: vertical-stack
+                cards:
+                  - type: custom:button-card
+                    entity: light.living_room_spot_lights_dimmer_level
+                    show_state: false
+                    show_icon: true
+                    show_name: false
+                    icon: bha:ceiling-lamp
+                    tap_action:
+                      action: navigate
+                      navigation_path: /lovelace/lights
+                  - type: custom:button-card
+                    show_state: false
+                    show_icon: true
+                    show_name: false
+                    entity: light.office_spot_lights_dimmer_level
+                    icon: bha:outdoor-lamp
+                    tap_action:
+                      action: more-info
+              - type: vertical-stack
+                cards:
+                  - type: custom:button-card
+                    show_state: false
+                    show_icon: true
+                    show_name: false
+                    icon: mdi:cctv
+                    color: rgb(169,169,169)
+                    tap_action:
+                      action: navigate
+                      navigation_path: /lovelace/cameras
+                  - type: custom:button-card
+                    show_state: false
+                    show_icon: true
+                    show_name: false
+                    color: rgb(169,169,169)
+                    entity: weather.lopik_cabauw
+                    icon: mdi:weather-cloudy
+                    tap_action:
+                      action: more-info
+          - type: horizontal-stack
+            cards:
               - type: custom:button-card
                 entity: alarm_control_panel.konnected_alarm
                 show_state: false
