@@ -48,11 +48,11 @@ hacs:
   
 
 browser_mod:
-#  devices:
-#    24d2e744-aee3dfdb:
-#      name: Isa laptop
-#    82ce1407-06ba38e8:
-#      name: Dashboard
+  devices:
+    e7d1eb1b_8c9bcf1c:
+      name: Stephanie iPhone
+    e7d1eb1b_8c9bcf1c:
+      name: Dennis Surface Book 2
 #    49b3d945-27efcb05:
 #      name: Isa PC
       

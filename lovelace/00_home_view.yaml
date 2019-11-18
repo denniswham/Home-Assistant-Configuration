@@ -123,19 +123,14 @@ cards:
                 tap_action:
                   action: more-info
               - type: custom:button-card
-                entity: lock.ytterdorr
                 show_state: false
                 show_icon: true
                 show_name: false
-                state:
-                  - value: 'unlocked'
-                    icon: mdi:lock-open
-                    color: rgb(255, 0, 0)
-                  - value: 'locked'
-                    icon: mdi:lock
-                    color: rgb(152,251,152)
+                icon: mdi:cctv
+                color: rgb(169,169,169)
                 tap_action:
-                  action: more-info
+                  action: navigate
+                  navigation_path: /lovelace/cameras
               - type: custom:button-card
                 entity: sensor.outer_doors
                 show_state: false
@@ -450,6 +445,7 @@ cards:
           - type: custom:krisinfo-card
             entity: sensor.krisinformation_stockholm
             only_alerts: true
+          - type: custom:browser-player
 
           # - type: horizontal-stack
           #   cards:
