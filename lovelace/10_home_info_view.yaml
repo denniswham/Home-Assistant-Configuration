@@ -69,23 +69,13 @@ cards:
                     group_config:
                       secondary_info: last-changed
                     items:
-                      - sensor.front_door
-                      - sensor.back_door
-                      - sensor.yard_door
-                      - sensor.balcony_door
-                      
                       - binary_sensor.entryway
                       - binary_sensor.kitchen
                       - binary_sensor.living_room
                       - binary_sensor.office
                       - binary_sensor.garage
-                      - entity: sensor.house_movement
-                        name: Downstairs Movement
-                        secondary_info: last-changed
                       - binary_sensor.ring_front_door_motion
-                      - sensor.ring_front_door_last_motion
                       - binary_sensor.ring_backyard_motion
-                      - sensor.ring_backyard_last_motion
 
                   - type: custom:fold-entity-row
                     head:
