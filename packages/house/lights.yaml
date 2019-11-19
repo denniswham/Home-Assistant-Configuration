@@ -11,3 +11,10 @@ homeassistant:
     sensor.office_spot_lights_dimmer_power:
         friendly_name: Office Spot Lights Power
 
+light:
+
+  - platform: group
+    name: 'Downstairs lights'
+    entities:
+      - light.living_room_spot_lights_dimmer_level  
+      - light.office_spot_lights_dimmer_level
