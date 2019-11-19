@@ -166,145 +166,145 @@ cards:
           - type: vertical-stack
             cards:
 
-              - type: horizontal-stack
-                cards:
-                  - type: custom:mini-graph-card
-                    show:
-                      icon: false
-                      extrema: true
-                    entities:
-                      - sensor.temperature_bedroom
-                    height: 75
-                    color_thresholds:
-                      - value: 0
-                        color: "#CCE5FF"
-                      - value: 10
-                        color: "#66B2FF"
-                      - value: 18
-                        color: "#0080FF"
-                      - value: 20
-                        color: "#87c087"
-                      - value: 21
-                        color: "#389638"
-                      - value: 24
-                        color: "#FF9932"
-                      - value: 25
-                        color: "#FF8000"
-                      - value: 26
-                        color: "#ff0000"
-                  - type: custom:mini-graph-card
-                    show:
-                      icon: false
-                      extrema: true
-                    entities:
-                      - sensor.temperature_stefan
-                    height: 75
-                    color_thresholds:
-                      - value: 0
-                        color: "#CCE5FF"
-                      - value: 10
-                        color: "#66B2FF"
-                      - value: 18
-                        color: "#0080FF"
-                      - value: 20
-                        color: "#87c087"
-                      - value: 21
-                        color: "#389638"
-                      - value: 24
-                        color: "#FF9932"
-                      - value: 25
-                        color: "#FF8000"
-                      - value: 26
-                        color: "#ff0000"
-              - type: horizontal-stack
-                cards:
-                  - type: custom:mini-graph-card
-                    show:
-                      icon: false
-                      extrema: true
-                    entities:
-                      - sensor.temperature_passage
-                    height: 75
-                    color_thresholds:
-                      - value: 0
-                        color: "#CCE5FF"
-                      - value: 10
-                        color: "#66B2FF"
-                      - value: 18
-                        color: "#0080FF"
-                      - value: 20
-                        color: "#87c087"
-                      - value: 21
-                        color: "#389638"
-                      - value: 24
-                        color: "#FF9932"
-                      - value: 25
-                        color: "#FF8000"
-                      - value: 26
-                        color: "#ff0000"
-                  - type: custom:mini-graph-card
-                    show:
-                      icon: false
-                      extrema: true
-                    entities:
-                      - sensor.temperature_downstairs_bathroom
-                    height: 75
-                    color_thresholds:
-                      - value: 0
-                        color: "#CCE5FF"
-                      - value: 10
-                        color: "#66B2FF"
-                      - value: 18
-                        color: "#0080FF"
-                      - value: 20
-                        color: "#87c087"
-                      - value: 21
-                        color: "#389638"
-                      - value: 24
-                        color: "#FF9932"
-                      - value: 25
-                        color: "#FF8000"
-                      - value: 26
-                        color: "#ff0000"
-              - type: horizontal-stack
-                cards:
-                  - type: custom:mini-graph-card
-                    show:
-                      icon: false
-                      extrema: true
-                      fill: fade
-                    entities:
-                      - sensor.temperature_storage
-                    # height: 75
-                    color_thresholds:
-                      - value: -5
-                        color: "#66B2FF"
-                      - value: 3
-                        color: "#87c087"
-                      - value: 5
-                        color: "#389638"
-                  - type: custom:mini-graph-card
-                    show:
-                      icon: false
-                      extrema: true
-                    entities:
-                      - sensor.refrigerator
-                    height: 75
-                    color_thresholds:
-                      - value: -5
-                        color: "#66B2FF"
-                      - value: 0
-                        color: "#ff0000"
-                      - value: 2
-                        color: "#66B2FF"
-                      - value: 3
-                        color: "#0080FF"
-                      - value: 4
-                        color: "#389638"
-                      - value: 7
-                        color: "#FF9932"
-                      - value: 8
-                        color: "#ff0000"
+              # - type: horizontal-stack
+              #   cards:
+              #     - type: custom:mini-graph-card
+              #       show:
+              #         icon: false
+              #         extrema: true
+              #       entities:
+              #         - sensor.temperature_bedroom
+              #       height: 75
+              #       color_thresholds:
+              #         - value: 0
+              #           color: "#CCE5FF"
+              #         - value: 10
+              #           color: "#66B2FF"
+              #         - value: 18
+              #           color: "#0080FF"
+              #         - value: 20
+              #           color: "#87c087"
+              #         - value: 21
+              #           color: "#389638"
+              #         - value: 24
+              #           color: "#FF9932"
+              #         - value: 25
+              #           color: "#FF8000"
+              #         - value: 26
+              #           color: "#ff0000"
+              #     - type: custom:mini-graph-card
+              #       show:
+              #         icon: false
+              #         extrema: true
+              #       entities:
+              #         - sensor.temperature_stefan
+              #       height: 75
+              #       color_thresholds:
+              #         - value: 0
+              #           color: "#CCE5FF"
+              #         - value: 10
+              #           color: "#66B2FF"
+              #         - value: 18
+              #           color: "#0080FF"
+              #         - value: 20
+              #           color: "#87c087"
+              #         - value: 21
+              #           color: "#389638"
+              #         - value: 24
+              #           color: "#FF9932"
+              #         - value: 25
+              #           color: "#FF8000"
+              #         - value: 26
+              #           color: "#ff0000"
+              # - type: horizontal-stack
+              #   cards:
+              #     - type: custom:mini-graph-card
+              #       show:
+              #         icon: false
+              #         extrema: true
+              #       entities:
+              #         - sensor.temperature_passage
+              #       height: 75
+              #       color_thresholds:
+              #         - value: 0
+              #           color: "#CCE5FF"
+              #         - value: 10
+              #           color: "#66B2FF"
+              #         - value: 18
+              #           color: "#0080FF"
+              #         - value: 20
+              #           color: "#87c087"
+              #         - value: 21
+              #           color: "#389638"
+              #         - value: 24
+              #           color: "#FF9932"
+              #         - value: 25
+              #           color: "#FF8000"
+              #         - value: 26
+              #           color: "#ff0000"
+              #     - type: custom:mini-graph-card
+              #       show:
+              #         icon: false
+              #         extrema: true
+              #       entities:
+              #         - sensor.temperature_downstairs_bathroom
+              #       height: 75
+              #       color_thresholds:
+              #         - value: 0
+              #           color: "#CCE5FF"
+              #         - value: 10
+              #           color: "#66B2FF"
+              #         - value: 18
+              #           color: "#0080FF"
+              #         - value: 20
+              #           color: "#87c087"
+              #         - value: 21
+              #           color: "#389638"
+              #         - value: 24
+              #           color: "#FF9932"
+              #         - value: 25
+              #           color: "#FF8000"
+              #         - value: 26
+              #           color: "#ff0000"
+              # - type: horizontal-stack
+              #   cards:
+              #     - type: custom:mini-graph-card
+              #       show:
+              #         icon: false
+              #         extrema: true
+              #         fill: fade
+              #       entities:
+              #         - sensor.temperature_storage
+              #       # height: 75
+              #       color_thresholds:
+              #         - value: -5
+              #           color: "#66B2FF"
+              #         - value: 3
+              #           color: "#87c087"
+              #         - value: 5
+              #           color: "#389638"
+              #     - type: custom:mini-graph-card
+              #       show:
+              #         icon: false
+              #         extrema: true
+              #       entities:
+              #         - sensor.refrigerator
+              #       height: 75
+              #       color_thresholds:
+              #         - value: -5
+              #           color: "#66B2FF"
+              #         - value: 0
+              #           color: "#ff0000"
+              #         - value: 2
+              #           color: "#66B2FF"
+              #         - value: 3
+              #           color: "#0080FF"
+              #         - value: 4
+              #           color: "#389638"
+              #         - value: 7
+              #           color: "#FF9932"
+              #         - value: 8
+              #           color: "#ff0000"
 
               - type: glance
                 show_header_toggle: false
@@ -331,67 +331,11 @@ cards:
                       extrema: true
                       icon: false
                     entities:
-                      - sensor.humidity_bedroom
+                      - sensor.living_room_thermostat_temperature
                   - type: custom:mini-graph-card
                     show:
                       graph: false
                       extrema: true
                       icon: false
                     entities:
-                      - sensor.humidity_stefan
-              - type: horizontal-stack
-                cards:
-                  - type: custom:mini-graph-card
-                    show:
-                      graph: false
-                      extrema: true
-                      icon: false
-                    entities:
-                      - sensor.humidity_passage
-                  - type: custom:mini-graph-card
-                    show:
-                      icon: false
-                      graph: false
-                      extrema: true
-                    entities:
-                      - sensor.humidity_downstairs_bathroom
-                      
-              - type: horizontal-stack
-                cards:
-                  - type: custom:mini-graph-card
-                    show:
-                      graph: false
-                      extrema: true
-                      icon: false
-                    entities:
-                      - sensor.storage_humidity
-                  - type: custom:mini-graph-card
-                    show:
-                      graph: false
-                      icon: false
-                      extrema: true
-                    entities:
-                      - sensor.humidity_refrigerator
-
-          - break
-          - type: vertical-stack
-            cards:
-              # - type: custom:pollenkoll-card
-              #   city: Stockholm
-              #   title: false
-              #   compact: true
-              #   show_state: false
-              #   allergens:
-              #     - björk
-              #     - gråbo
-              #     - gräs
-
-              - type: entities
-                entities:
-                  - device_tracker.tile_8b84f9654688b3ec
-                  - input_select.ebike_charger_status
-                  - sensor.ebike_charger
-                  - entity: switch.bike_charger
-                    type: custom:multiple-entity-row
-                    primary:
-                      entity: sensor.ebike_charger
+                      - sensor.living_room_thermostat_humidity
