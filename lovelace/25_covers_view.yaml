@@ -67,7 +67,7 @@ cards:
               position: 0
 
         - type: entity-button
-          entity: light.upstairs_lights
+          entity: cover.roller_shutters
           icon: mdi:window-shutter-open
           tap_action:
             action: none
