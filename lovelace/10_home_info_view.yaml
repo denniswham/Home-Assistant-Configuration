@@ -17,6 +17,23 @@ cards:
                   - arm_away
                   - arm_night
 
+              - type: horizontal-stack
+                cards:
+                  - type: entity-button
+                    entity: switch.siren
+                    icon: mdi:alarm-bell
+                    tap_action:
+                      action: none
+                    hold_action:
+                      action: toggle
+                  - type: entity-button
+                    entity: switch.backyard_siren
+                    icon: mdi:alarm-bell
+                    tap_action:
+                      action: none
+                    hold_action:
+                      action: toggle
+
               - type: entities
                 entities:
                   - type: custom:fold-entity-row
@@ -57,21 +74,18 @@ cards:
                       - sensor.yard_door
                       - sensor.balcony_door
                       
-                      - sensor.dining_room_window
-                      - sensor.bedroom_window
-                      - sensor.bedroom_door
-                      - entity: sensor.living_room_axis_movement
-                        name: Living Room Movement
+                      - binary_sensor.entryway
+                      - binary_sensor.kitchen
+                      - binary_sensor.living_room
+                      - binary_sensor.office
+                      - binary_sensor.garage
+                      - entity: sensor.house_movement
+                        name: Downstairs Movement
                         secondary_info: last-changed
-                      - entity: sensor.living_room_axis_movement_2
-                        name: Living Room Movement 2
-                        secondary_info: last-changed
-                      - sensor.passage_movement
-                      - entity: sensor.upstairs_hallway_movement
-                        name: Stairs Movement
-                      - entity: sensor.stefans_office_movement
-                        name: Stefans Office Movement
+                      - binary_sensor.ring_front_door_motion
                       - sensor.ring_front_door_last_motion
+                      - binary_sensor.ring_backyard_motion
+                      - sensor.ring_backyard_last_motion
 
                   - type: custom:fold-entity-row
                     head:
