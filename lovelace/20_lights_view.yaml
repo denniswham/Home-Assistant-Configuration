@@ -7,30 +7,30 @@ cards:
     - type: horizontal-stack
       cards:
         - type: picture
-          image: /local/lovelace_ui/bed.jpg
+          image: /local/images/bed-time.jpg
           tap_action:
             action: none
           hold_action:
             action: call-service
             service: script.goodnight
         - type: picture
-          image: /local/lovelace_ui/morning_coffee_square.jpg
+          image: /local/images/rise-and-shine.jpg
           tap_action:
             action: none
           hold_action:
             action: call-service
             service: scene.turn_on
             service_data:
-              entity_id: scene.morning_lights
+              entity_id: scene.riseandshine
         - type: picture
-          image: /local/lovelace_ui/movie_square.jpg
+          image: /local/images/lounge-time.jpg
           tap_action:
             action: none
           hold_action:
             action: call-service
             service: scene.turn_on
             service_data:
-              entity_id: scene.movie_time
+              entity_id: scene.lounge_time
 
     - type: entities
       title: Outdoor

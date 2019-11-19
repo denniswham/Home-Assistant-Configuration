@@ -4,35 +4,35 @@ path: covers
 cards:
   - type: vertical-stack
     cards:
-    - type: horizontal-stack
-      cards:
-        - type: picture
-          image: /local/images/bed.jpg
-          tap_action:
-            action: none
-          hold_action:
-            action: call-service
-            service: scene.turn_on
-            service_data:
-              entity_id: scene.bed_time
-        - type: picture
-          image: /local/lovelace_ui/morning_coffee_square.jpg
-          tap_action:
-            action: none
-          hold_action:
-            action: call-service
-            service: scene.turn_on
-            service_data:
-              entity_id: scene.morning_lights
-        - type: picture
-          image: /local/lovelace_ui/movie_square.jpg
-          tap_action:
-            action: none
-          hold_action:
-            action: call-service
-            service: scene.turn_on
-            service_data:
-              entity_id: scene.movie_time
+    # - type: horizontal-stack
+    #   cards:
+    #     - type: picture
+    #       image: /local/images/bed.jpg
+    #       tap_action:
+    #         action: none
+    #       hold_action:
+    #         action: call-service
+    #         service: scene.turn_on
+    #         service_data:
+    #           entity_id: scene.bed_time
+    #     - type: picture
+    #       image: /local/lovelace_ui/morning_coffee_square.jpg
+    #       tap_action:
+    #         action: none
+    #       hold_action:
+    #         action: call-service
+    #         service: scene.turn_on
+    #         service_data:
+    #           entity_id: scene.morning_lights
+    #     - type: picture
+    #       image: /local/lovelace_ui/movie_square.jpg
+    #       tap_action:
+    #         action: none
+    #       hold_action:
+    #         action: call-service
+    #         service: scene.turn_on
+    #         service_data:
+    #           entity_id: scene.movie_time
 
     - type: entities
       title: Roller Shutters
