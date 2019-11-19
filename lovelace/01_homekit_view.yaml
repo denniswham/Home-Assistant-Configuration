@@ -308,16 +308,16 @@ cards:
                                   show_name: false
                                   color: rgb(220,220,220)
                                   color_off: rgb(220,220,220)
-                            - type: custom:pollenkoll-card
-                              city: stockholm
-                              title: false
-                              show_state: false
-                              # threshold: 1
-                              compact: true
-                              allergens:
-                                - björk
-                                - gräs
-                                - gråbo
+                            # - type: custom:pollenkoll-card
+                            #   city: stockholm
+                            #   title: false
+                            #   show_state: false
+                            #   # threshold: 1
+                            #   compact: true
+                            #   allergens:
+                            #     - björk
+                            #     - gräs
+                            #     - gråbo
                             - type: horizontal-stack
                               cards:
                                 - type: custom:mini-graph-card
@@ -559,10 +559,6 @@ cards:
                   - opacity: 0.8
                   - tap_action:
                       action: more-info
-
-          - type: custom:krisinfo-card
-            entity: sensor.krisinformation_stockholm
-            only_alerts: true
 
           - type: horizontal-stack
             cards:

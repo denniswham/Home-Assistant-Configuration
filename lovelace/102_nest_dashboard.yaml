@@ -312,23 +312,23 @@ cards:
                                         margin-bottom: 5px;
                                       }
 
-                              - type: custom:pollenkoll-card
-                                city: stockholm
-                                title: false
-                                show_state: false
-                                # threshold: 1
-                                minimal: true
-                                allergens:
-                                  - björk
-                                  - gräs
-                                  - gråbo
-                                style: |
-                                  ha-card {
-                                    height: 125px;
-                                    padding-top: 0;
-                                    margin-right: 5px;
-                                    padding-bottom: 0;
-                                  }
+                              # - type: custom:pollenkoll-card
+                              #   city: stockholm
+                              #   title: false
+                              #   show_state: false
+                              #   # threshold: 1
+                              #   minimal: true
+                              #   allergens:
+                              #     - björk
+                              #     - gräs
+                              #     - gråbo
+                              #   style: |
+                              #     ha-card {
+                              #       height: 125px;
+                              #       padding-top: 0;
+                              #       margin-right: 5px;
+                              #       padding-bottom: 0;
+                              #     }
 
                   - type: vertical-stack
                     cards:

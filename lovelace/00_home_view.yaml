@@ -439,10 +439,6 @@ cards:
                     color: rgb(152,251,152)
                 tap_action:
                   action: more-info
-          - type: custom:krisinfo-card
-            entity: sensor.krisinformation_stockholm
-            only_alerts: true
-          - type: custom:browser-player
 
           # - type: horizontal-stack
           #   cards:
