@@ -1,0 +1,29 @@
+homeassistant:
+  customize:
+    binary_sensor.entryway_nest_protect_online:
+      friendly_name: Entryway Nest Protect
+    binary_sensor.hallway_nest_protect_online:
+      friendly_name: Hallway Nest Protect
+    binary_sensor.hallway_nest_protect_online:
+      friendly_name: Attic Nest Protect
+
+automation:
+  - alias: [Nest] Nest Protect Offline
+    initial_state: 'on'
+    trigger:
+    - platform: numeric_state
+      entity_id:
+        - binary_sensor.entryway_nest_protect_online
+        - binary_sensor.hallway_nest_protect_online
+        - binary_sensor.attic_nest_protect_online
+      from: 'on'
+      to: 'off'
+    action:
+    - service: persistent_notification.create
+      data_template:
+        message: "{{ trigger.entity_id.name }} reported offline."
+        title: Ring Battery Low
+    - service: notify.html5_galaxy_s9
+      data_template:
+        message: "{{ trigger.entity_id.name }} reported offline."
+        title: Ring Battery Low

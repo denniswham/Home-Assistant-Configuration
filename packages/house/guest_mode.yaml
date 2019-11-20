@@ -1,0 +1,50 @@
+homeassistant:
+  customize:
+    input_boolean.guest_mode:
+      templates:
+        icon: >
+          if (state === 'on') return 'mdi:account-group';
+          else if (state === 'off') return 'mdi:account-multiple-minus';
+        hs_color: >
+          if (state === 'off') return [0, 0];
+          else return [141, 48];
+        brightness: >
+          if (state === 'on') return 92;
+
+  customize_glob:
+    input_boolean.guest_mode:
+      templates:
+        hs_color: "if (state === 'off') return [0, 0];
+        else return [116, 85];"
+
+input_boolean:
+  guest_mode:
+    name: Guest Mode
+    icon: mdi:account-group
+
+automation:
+- alias: '[House] Guest Mode On'
+  initial_state: 'on'
+  trigger:
+      - platform: state
+        entity_id: input_boolean.guest_mode
+        to: 'on'
+  action:
+    - service: notify.html5_galaxy_s9
+      data_template:
+        title: 'Guest mode on'
+        message: >
+          'Some automations turned off'
+
+- alias: '[House] Guest Mode Off'
+  initial_state: 'on'
+  trigger:
+      - platform: state
+        entity_id: input_boolean.guest_mode
+        to: 'off'
+  action:
+    - service: notify.html5_galaxy_s9
+      data_template:
+        title: 'Guest mode off'
+        message: >
+          'Automations turned on again'

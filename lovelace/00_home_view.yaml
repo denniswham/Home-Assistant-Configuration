@@ -38,7 +38,7 @@ cards:
                 show_name: false
                 tap_action:
                   action: more-info
-          - type: horizontal-stack
+          - type: horizontal-stack #row 2
             cards:
               - type: picture-entity
                 entity: person.lucas
@@ -91,7 +91,7 @@ cards:
                     icon: mdi:weather-cloudy
                     tap_action:
                       action: more-info
-          - type: horizontal-stack
+          - type: horizontal-stack #row 3
             cards:
               - type: custom:button-card
                 entity: alarm_control_panel.konnected_alarm
@@ -177,107 +177,107 @@ cards:
                 tap_action:
                   action: more-info
         
-          - type: horizontal-stack
-            cards:
-              - type: custom:button-card
-                entity: input_select.mailbox_status
-                show_state: false
-                show_icon: true
-                show_name: false
-                state:
-                  - value: 'Package and mail'
-                    icon: mdi:mailbox-up
-                    color: rgb(152,251,152)
-                  - value: 'Mail'
-                    icon: mdi:mailbox-up
-                    color: rgb(152,251,152)
-                  - value: 'Package'
-                    icon: mdi:mailbox-up
-                    color: rgb(152,251,152)
-                  - value: 'Empty'
-                    icon: mdi:mailbox-outline
-                    color: rgb(169,169,169)
-                tap_action:
-                  action: more-info
-              - type: custom:button-card
-                entity: input_select.trash_status
-                show_state: false
-                show_icon: true
-                show_name: false
-                state:
-                  - value: 'Put out'
-                    icon: mdi:delete-restore
-                    color: rgb(255, 0, 0)
-                  - value: 'Home'
-                    icon: mdi:delete-outline
-                    color: rgb(169,169,169)
-                  - value: 'Take in'
-                    icon: mdi:delete-restore
-                    color: rgb(251, 210, 41)
-                  - value: 'Out'
-                    icon: mdi:delete-empty-outline
-                    color: rgb(169,169,169)
-                tap_action:
-                  action: more-info
-              - type: custom:button-card
-                entity: input_select.washing_machine_status
-                show_state: false
-                show_icon: true
-                show_name: false
-                state:
-                  - value: 'Clean'
-                    icon: mdi:washing-machine
-                    color: rgb(255, 0, 0)
-                  - value: 'Running'
-                    icon: mdi:washing-machine
-                    color: rgb(152,251,152)
-                  - value: 'Idle'
-                    icon: mdi:washing-machine
-                    color: rgb(169,169,169)
-                tap_action:
-                  action: more-info
-              - type: custom:button-card
-                entity: input_select.dryer_status
-                show_state: false
-                show_icon: true
-                show_name: false
-                state:
-                  - value: 'Clean'
-                    icon: mdi:tumble-dryer
-                    color: rgb(251, 210, 41)
-                  - value: 'Running'
-                    icon: mdi:tumble-dryer
-                    color: rgb(152,251,152)
-                  - value: 'Idle'
-                    icon: mdi:tumble-dryer
-                    color: rgb(169,169,169)
-                tap_action:
-                  action: more-info
-              - type: custom:button-card
-                entity: input_select.roomba_mode
-                show_state: false
-                show_icon: true
-                show_name: false
-                state:
-                  - value: 'Not Today'
-                    icon: mdi:robot-vacuum
-                    color: rgb(251, 210, 41)
-                  - value: 'Waiting'
-                    icon: mdi:robot-vacuum
-                    color: rgb(169,169,169)
-                  - value: 'Vacuuming'
-                    icon: mdi:robot-vacuum
-                    color: rgb(152,251,152)
-                  - value: 'Has Vacuumed'
-                    icon: mdi:robot-vacuum
-                    color: rgb(169,169,169)
-                tap_action:
-                  action: more-info
+          # - type: horizontal-stack #row 4
+          #   cards:
+          #     - type: custom:button-card
+          #       entity: input_select.mailbox_status
+          #       show_state: false
+          #       show_icon: true
+          #       show_name: false
+          #       state:
+          #         - value: 'Package and mail'
+          #           icon: mdi:mailbox-up
+          #           color: rgb(152,251,152)
+          #         - value: 'Mail'
+          #           icon: mdi:mailbox-up
+          #           color: rgb(152,251,152)
+          #         - value: 'Package'
+          #           icon: mdi:mailbox-up
+          #           color: rgb(152,251,152)
+          #         - value: 'Empty'
+          #           icon: mdi:mailbox-outline
+          #           color: rgb(169,169,169)
+          #       tap_action:
+          #         action: more-info
+          #     - type: custom:button-card
+          #       entity: input_select.trash_status
+          #       show_state: false
+          #       show_icon: true
+          #       show_name: false
+          #       state:
+          #         - value: 'Put out'
+          #           icon: mdi:delete-restore
+          #           color: rgb(255, 0, 0)
+          #         - value: 'Home'
+          #           icon: mdi:delete-outline
+          #           color: rgb(169,169,169)
+          #         - value: 'Take in'
+          #           icon: mdi:delete-restore
+          #           color: rgb(251, 210, 41)
+          #         - value: 'Out'
+          #           icon: mdi:delete-empty-outline
+          #           color: rgb(169,169,169)
+          #       tap_action:
+          #         action: more-info
+          #     - type: custom:button-card
+          #       entity: input_select.washing_machine_status
+          #       show_state: false
+          #       show_icon: true
+          #       show_name: false
+          #       state:
+          #         - value: 'Clean'
+          #           icon: mdi:washing-machine
+          #           color: rgb(255, 0, 0)
+          #         - value: 'Running'
+          #           icon: mdi:washing-machine
+          #           color: rgb(152,251,152)
+          #         - value: 'Idle'
+          #           icon: mdi:washing-machine
+          #           color: rgb(169,169,169)
+          #       tap_action:
+          #         action: more-info
+          #     - type: custom:button-card
+          #       entity: input_select.dryer_status
+          #       show_state: false
+          #       show_icon: true
+          #       show_name: false
+          #       state:
+          #         - value: 'Clean'
+          #           icon: mdi:tumble-dryer
+          #           color: rgb(251, 210, 41)
+          #         - value: 'Running'
+          #           icon: mdi:tumble-dryer
+          #           color: rgb(152,251,152)
+          #         - value: 'Idle'
+          #           icon: mdi:tumble-dryer
+          #           color: rgb(169,169,169)
+          #       tap_action:
+          #         action: more-info
+          #     - type: custom:button-card
+          #       entity: input_select.roomba_mode
+          #       show_state: false
+          #       show_icon: true
+          #       show_name: false
+          #       state:
+          #         - value: 'Not Today'
+          #           icon: mdi:robot-vacuum
+          #           color: rgb(251, 210, 41)
+          #         - value: 'Waiting'
+          #           icon: mdi:robot-vacuum
+          #           color: rgb(169,169,169)
+          #         - value: 'Vacuuming'
+          #           icon: mdi:robot-vacuum
+          #           color: rgb(152,251,152)
+          #         - value: 'Has Vacuumed'
+          #           icon: mdi:robot-vacuum
+          #           color: rgb(169,169,169)
+          #       tap_action:
+          #         action: more-info
 
           - type: horizontal-stack
             cards:
               - type: custom:button-card
-                entity: sensor.temperature_passage
+                entity: sensor.living_room_thermostat_temperature
                 show_state: false
                 show_icon: true
                 show_name: false
@@ -461,24 +461,24 @@ cards:
           #             - value: 10
           #               style: 'var(--label-badge-red)'
 
-        #       - type: custom:vertical-stack-in-card
-        #         cards:
-        #           - type: custom:bignumber-card
-        #             title: Upstairs litterbox
-        #             entity: counter.litterbox_upstairs_visits
-        #             scale: 30px
-        #             min: 0
-        #             max: 10
-        #             from: bottom
-        #             severity:
-        #               - value: 2
-        #                 style: 'var(--label-badge-green)'
-        #               - value: 3
-        #                 style: 'var(--label-badge-yellow)'
-        #               - value: 4
-        #                 style: 'orange'
-        #               - value: 10
-        #                 style: 'var(--label-badge-red)'
+          #         - type: custom:vertical-stack-in-card
+          #           cards:
+          #             - type: custom:bignumber-card
+          #               title: Upstairs litterbox
+          #               entity: counter.litterbox_upstairs_visits
+          #               scale: 30px
+          #               min: 0
+          #               max: 10
+          #               from: bottom
+          #               severity:
+          #                 - value: 2
+          #                   style: 'var(--label-badge-green)'
+          #                 - value: 3
+          #                   style: 'var(--label-badge-yellow)'
+          #                 - value: 4
+          #                   style: 'orange'
+          #                 - value: 10
+          #                   style: 'var(--label-badge-red)'
             
           # - break
           # - type: vertical-stack
@@ -556,16 +556,16 @@ cards:
           #           name: Washer
           #           icon: mdi:washing-machine
           #           include_history: true
-          #- break
-          - type: vertical-stack
-            cards:
-              - type: custom:grocy-chores-card
-                title: All chores
-                # show_quantity: 7
-                # show_days: 7
-                entity: sensor.grocy
-              - entity: camera.meteogram
-                type: picture-entity
+          # - break
+          # - type: vertical-stack
+          #   cards:
+          #     # - type: custom:grocy-chores-card
+          #     #   title: All chores
+          #     #   show_quantity: 7
+          #     #   show_days: 7
+          #     #   entity: sensor.grocy
+          #     - entity: camera.meteogram
+          #       type: picture-entity
 
         # style: |
         #   .column {

@@ -2,13 +2,6 @@ ring:
   username: !secret ring_username
   password: !secret ring_password
 
-#ifttt:
-#  key: !secret ifttt_key
-
-#google:
-#  client_id: !secret google_id
-#  client_secret: !secret google_secret
-
 life360:
   driving_speed: 30
   interval_seconds: 10
