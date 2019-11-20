@@ -8,7 +8,7 @@ homeassistant:
       friendly_name: Attic Nest Protect
 
 automation:
-  - alias: [Nest] Nest Protect Offline
+  - alias: '[Nest] Nest Protect Offline'
     initial_state: 'on'
     trigger:
     - platform: state
