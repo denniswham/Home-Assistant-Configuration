@@ -11,7 +11,7 @@ automation:
   - alias: [Nest] Nest Protect Offline
     initial_state: 'on'
     trigger:
-    - platform: numeric_state
+    - platform: state
       entity_id:
         - binary_sensor.entryway_nest_protect_online
         - binary_sensor.hallway_nest_protect_online

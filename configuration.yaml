@@ -34,8 +34,6 @@ lovelace:
 #customizer:
 #  custom_ui: hosted
 
-map:
-
 frontend:
   extra_html_url:
     - /local/hass-bha-icons.html
