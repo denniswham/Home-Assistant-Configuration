@@ -41,14 +41,12 @@ cards:
           - type: horizontal-stack #row 2
             cards:
               - type: picture-entity
-                entity: person.lucas
-                image: !secret lucas_square
+                entity: person.fake
                 show_name: false
                 tap_action:
                   action: more-info
               - type: picture-entity
-                entity: person.timo
-                image: !secret timo_square
+                entity: person.fake
                 show_name: false
                 tap_action:
                   action: more-info
