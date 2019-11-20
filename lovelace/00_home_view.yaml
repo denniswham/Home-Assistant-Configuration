@@ -556,14 +556,16 @@ cards:
           #           name: Washer
           #           icon: mdi:washing-machine
           #           include_history: true
-          # - break
-          # - type: vertical-stack
-          #   cards:
-          #     - type: custom:grocy-chores-card
-          #       title: All chores
-          #       # show_quantity: 7
-          #       # show_days: 7
-          #       entity: sensor.grocy
+          #- break
+          - type: vertical-stack
+            cards:
+              - type: custom:grocy-chores-card
+                title: All chores
+                # show_quantity: 7
+                # show_days: 7
+                entity: sensor.grocy
+              - entity: camera.meteogram
+                type: picture-entity
 
         # style: |
         #   .column {

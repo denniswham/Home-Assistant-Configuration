@@ -88,7 +88,6 @@ automation:
           - cover.lucas_room_roller_shutter_level
         position: 100
 
-
   - alias: Covers - Close in the evening
     initial_state: 'true'
     condition:
@@ -98,9 +97,6 @@ automation:
     - condition: state
       entity_id: group.household
       state: 'home'
-    - condition: state
-      entity_id: person.lucas
-      state: 'not_home'
     trigger:
     - platform: sun
       event: sunset
