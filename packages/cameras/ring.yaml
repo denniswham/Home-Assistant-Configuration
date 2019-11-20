@@ -15,7 +15,7 @@ camera:
   - platform: ring
 
 automation:
-  - alias: [Ring]  Motion in backyard
+  - alias: '[Ring]  Motion in backyard'
     initial_state: 'true'
     trigger:
     - platform: state
@@ -58,7 +58,7 @@ automation:
             badge: 0
             category: ring_alert  
 
-  - alias: [Ring] Low Battery Notification
+  - alias: '[Ring] Low Battery Notification'
     initial_state: 'on'
     trigger:
     - platform: numeric_state
