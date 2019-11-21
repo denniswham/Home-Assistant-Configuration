@@ -15,7 +15,7 @@ sensor:
     scan_interval: 3600
 
 automation:
-  - alias: System - Daily snapshot
+  - alias: '[System] Daily snapshot'
     initial_state: 'true'
     trigger:
     - platform: time
@@ -30,7 +30,7 @@ automation:
         password: !secret snapshot_password
       service: hassio.snapshot_full
 
-  - alias: System - Update Notifications
+  - alias: '[System] Update Notifications'
     initial_state: 'on'
     condition:
     - condition: template

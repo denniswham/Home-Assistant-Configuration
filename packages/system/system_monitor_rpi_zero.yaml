@@ -3,7 +3,7 @@ sensor:
     text_state: true
 
 automation:
-  - alias: System - Power Problem Notification
+  - alias: '[System] Power Problem Notification'
     trigger:
     - platform: numeric_state
       entity_id: sensor.rpi_power_status

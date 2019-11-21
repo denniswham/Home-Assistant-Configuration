@@ -67,10 +67,10 @@ cards:
     card:
       type: entities
       show_header_toggle: false
-      title: Security
+      title: Alarm
     filter:
       include:
-        - entity_id: 'automation.security*'
+        - entity_id: 'automation.alarm*'
           options:
             secondary_info: last-changed
 

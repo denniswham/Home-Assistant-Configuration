@@ -47,7 +47,7 @@ alarm_control_panel:
       delay_time: 20
 
 automation:
-  - alias: Alarm - Arm Konnected
+  - alias: '[Alarm] Arm Konnected'
     initial_state: 'true'
     condition:
     - condition: state
@@ -89,7 +89,7 @@ automation:
         - group.alexa
         message: I'll start guarding now
 
-  - alias: Alarm - Deactivate siren
+  - alias: '[Alarm] Deactivate siren'
     initial_state: 'true'
     trigger:
     - platform: state
@@ -105,7 +105,7 @@ automation:
     - service: switch.turn_off
       entity_id: switch.backyard_siren
 
-  - alias: Alarm - Disarm Konnected at night
+  - alias: '[Alarm] Disarm Konnected at night'
     initial_state: 'true'
     condition:
     - condition: state
@@ -123,7 +123,7 @@ automation:
     - service: homeassistant.turn_on
       entity_id: script.konnectedstandby
 
-  - alias: Alarm - Disarm Konnected from Away
+  - alias: '[Alarm] Disarm Konnected from Away'
     initial_state: 'true'
     condition:
     - condition: state
@@ -145,7 +145,7 @@ automation:
     - service: homeassistant.turn_on
       entity_id: script.konnectedstandby
 
-  - alias: Alarm - Disarm Konnected in the morning
+  - alias: '[Alarm] Disarm Konnected in the morning'
     initial_state: 'true'
     condition:
       condition: and
@@ -163,7 +163,7 @@ automation:
     - service: homeassistant.turn_on
       entity_id: script.konnectedstandby
 
-  - alias: Alarm - Konnected Standby
+  - alias: '[Alarm] Konnected Standby'
     initial_state: 'true'
     condition:
       condition: and
@@ -197,7 +197,7 @@ automation:
     - service: homeassistant.turn_on
       entity_id: script.konnectedstandby
 
-  - alias: Alarm - Konnected Log Motion
+  - alias: '[Alarm] Konnected Log Motion'
     initial_state: 'true'
     trigger:
     - platform: state
@@ -240,7 +240,7 @@ automation:
         message: >-
           {{ trigger.entity_id }}
 
-  - alias: Alarm - Trigger Alarm
+  - alias: '[Alarm] Trigger Alarm'
     initial_state: 'true'
     trigger:
     - platform: state
@@ -278,7 +278,7 @@ automation:
             badge: 0
             category: alarm_control_panel.Konnected_Alarm
 
-  - alias: Alarm - Pending alarm
+  - alias: '[Alarm] Pending alarm'
     initial_state: 'true'
     trigger:
     - platform: state
