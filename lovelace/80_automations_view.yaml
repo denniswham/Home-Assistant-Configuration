@@ -79,6 +79,42 @@ cards:
     card:
       type: entities
       show_header_toggle: false
+      title: Covers
+    filter:
+      include:
+        - entity_id: 'automation.cover*'
+          options:
+            secondary_info: last-changed
+
+  - type: custom:auto-entities
+    show_empty: false
+    card:
+      type: entities
+      show_header_toggle: false
+      title: Smoke Detectors
+    filter:
+      include:
+        - entity_id: 'automation.nest*'
+          options:
+            secondary_info: last-changed
+
+  - type: custom:auto-entities
+    show_empty: false
+    card:
+      type: entities
+      show_header_toggle: false
+      title: Cliimate
+    filter:
+      include:
+        - entity_id: 'automation.climate*'
+          options:
+            secondary_info: last-changed
+
+  - type: custom:auto-entities
+    show_empty: false
+    card:
+      type: entities
+      show_header_toggle: false
       title: System
     filter:
       include:
@@ -107,6 +143,18 @@ cards:
     filter:
       include:
         - entity_id: 'automation.tts*'
+          options:
+            secondary_info: last-changed
+
+  - type: custom:auto-entities
+    show_empty: false
+    card:
+      type: entities
+      show_header_toggle: false
+      title: Ring
+    filter:
+      include:
+        - entity_id: 'automation.ring*'
           options:
             secondary_info: last-changed
 
