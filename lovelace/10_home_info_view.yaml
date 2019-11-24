@@ -16,7 +16,6 @@ cards:
                   - arm_home
                   - arm_away
                   - arm_night
-
               - type: horizontal-stack
                 cards:
                   - type: entity-button
@@ -33,6 +32,18 @@ cards:
                       action: none
                     hold_action:
                       action: toggle
+
+              - type: entities
+                title: Settings
+                show_header_toggle: false
+                entities:
+                  - entity: input_boolean.konnectedupdate
+                    name: Alarm Update
+                    type: entities
+                  - entity: input_boolean.guest_mode
+                    name: Guest Mode
+                    type: entities
+
 
               - type: entities
                 entities:

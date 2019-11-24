@@ -52,6 +52,15 @@ cards:
           toggle: true
           type: custom:slider-entity-row
 
+    - type: entities
+      title: Settings
+      show_header_toggle: false
+      entities:
+        - entity: input_boolean.shuttersupdate
+          name: Cover Update
+          type: entities
+
+
     - type: horizontal-stack
       cards:
         - type: entity-button
