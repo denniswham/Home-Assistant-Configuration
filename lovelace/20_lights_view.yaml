@@ -12,7 +12,9 @@ cards:
             action: none
           hold_action:
             action: call-service
-            service: script.goodnight
+            service: scene.turn_on
+            service_data:
+              entity_id: scene.bed_time
         - type: picture
           image: /local/images/rise-and-shine.jpg
           tap_action:
