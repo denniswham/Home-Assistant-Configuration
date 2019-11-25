@@ -36,7 +36,6 @@ sensor:
       - sensor.hallway_nest_protect_smoke_status
       - sensor.attic_nest_protect_smoke_status
     
-sensor:
   - platform: group
     name: 'CO Detectors'
     entities:
