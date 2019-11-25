@@ -4,7 +4,7 @@ homeassistant:
       friendly_name: Entryway Nest Protect
     binary_sensor.hallway_nest_protect_online:
       friendly_name: Hallway Nest Protect
-    binary_sensor.hallway_nest_protect_online:
+    binary_sensor.attic_nest_protect_online:
       friendly_name: Attic Nest Protect
 
 automation:
