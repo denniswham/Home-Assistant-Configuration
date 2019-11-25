@@ -27,3 +27,19 @@ automation:
       data_template:
         message: "{{ trigger.entity_id.name }} reported offline."
         title: Ring Battery Low
+
+sensor:
+  - platform: group
+    name: 'Smoke Detectors'
+    entities:
+      - sensor.entryway_nest_protect_smoke_status
+      - sensor.hallway_nest_protect_smoke_status
+      - sensor.attic_nest_protect_smoke_status
+    
+sensor:
+  - platform: group
+    name: 'CO Detectors'
+    entities:
+      - sensor.entryway_nest_protect_co_status
+      - sensor.hallway_nest_protect_co_status
+      - sensor.attic_nest_protect_co_status

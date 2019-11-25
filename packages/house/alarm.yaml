@@ -46,6 +46,13 @@ alarm_control_panel:
       pending_time: 300
       delay_time: 20
 
+switch:
+  - platform: group
+    name: 'Sirens'
+    entities:
+      - switch.siren
+      - switch.backyard_siren
+
 automation:
   - alias: '[Alarm] Arm Konnected'
     initial_state: 'true'

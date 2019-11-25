@@ -53,7 +53,7 @@ cards:
               - type: vertical-stack
                 cards:
                   - type: custom:button-card
-                    entity: light.living_room_spot_lights_dimmer_level
+                    entity: light.inside_lights
                     show_state: false
                     show_icon: true
                     show_name: false
@@ -65,7 +65,7 @@ cards:
                     show_state: false
                     show_icon: true
                     show_name: false
-                    entity: light.office_spot_lights_dimmer_level
+                    entity: light.outdoor_lights
                     icon: bha:outdoor-lamp
                     tap_action:
                       action: more-info
@@ -124,6 +124,18 @@ cards:
                 show_state: false
                 show_icon: true
                 show_name: false
+                entity: switch.sirens
+                state:
+                  - value: 'off'
+                    color: rgb(169,169,169)
+                  - value: 'on'
+                    color: rgb(255, 0, 0)
+                tap_action:
+                  action: more-info
+              - type: custom:button-card
+                show_state: false
+                show_icon: true
+                show_name: false
                 icon: mdi:cctv
                 color: rgb(169,169,169)
                 tap_action:
@@ -155,23 +167,6 @@ cards:
                   - value: 'Movement detected'
                     icon: mdi:motion-sensor
                     color: rgb(251, 210, 41)
-                tap_action:
-                  action: more-info
-              - type: custom:button-card
-                entity: sensor.outer_doors
-                show_state: false
-                show_icon: true
-                show_name: false
-                state:
-                  - value: 'Closed'
-                    icon: mdi:door-closed
-                    color: rgb(152,251,152)
-                  - value: 'Back door open'
-                    icon: mdi:door-open
-                    color: rgb(251, 210, 41)
-                  - value: 'Door open'
-                    icon: mdi:door-open
-                    color: rgb(255, 0, 0)
                 tap_action:
                   action: more-info
         
@@ -301,20 +296,20 @@ cards:
                 tap_action:
                   action: more-info
               - type: custom:button-card
-                entity: input_select.air_cleaner
+                entity: light.inside_lights
                 show_state: false
                 show_icon: true
                 show_name: false
-                state:
-                  - value: 'Quiet'
-                    icon: mdi:air-purifier
-                    color: rgb(169,169,169)
-                  - value: 'Turbo'
-                    icon: mdi:air-purifier
-                    color: rgb(251, 210, 41)
-                  - value: 'Auto'
-                    icon: mdi:air-purifier
-                    color: rgb(152,251,152)
+                icon: bha:ceiling-lamp
+                tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/lights
+              - type: custom:button-card
+                show_state: false
+                show_icon: true
+                show_name: false
+                entity: light.outdoor_lights
+                icon: bha:outdoor-lamp
                 tap_action:
                   action: more-info
               - type: custom:button-card
@@ -328,20 +323,6 @@ cards:
                     color: rgb(152,251,152)
                   - value: 'off'
                     icon: mdi:account-group-outline
-                    color: rgb(169,169,169)
-                tap_action:
-                  action: more-info
-              - type: custom:button-card
-                entity: calendar.cleaning_day
-                show_state: false
-                show_icon: true
-                show_name: false
-                state:
-                  - value: 'on'
-                    icon: mdi:broom
-                    color: rgb(152,251,152)
-                  - value: 'off'
-                    icon: mdi:broom
                     color: rgb(169,169,169)
                 tap_action:
                   action: more-info
@@ -384,24 +365,16 @@ cards:
                 tap_action:
                   action: more-info
               - type: custom:button-card
-                entity: input_select.ebike_charger_status
                 show_state: false
                 show_icon: true
                 show_name: false
-                state:
-                  - value: 'Charging'
-                    icon: mdi:bike
-                    color: rgb(169,169,169)
-                  - value: 'Waiting'
-                    icon: mdi:bike
-                    color: rgb(251, 210, 41)
-                  - value: 'Charged'
-                    icon: mdi:bike
-                    color: rgb(152,251,152)
+                color: rgb(169,169,169)
+                entity: weather.lopik_cabauw
+                icon: mdi:weather-cloudy
                 tap_action:
                   action: more-info
               - type: custom:button-card
-                entity: media_player.living_room_tv
+                entity: media_player.living_room_fire_tv
                 show_state: false
                 show_icon: true
                 show_name: false
@@ -424,16 +397,25 @@ cards:
                 tap_action:
                   action: more-info
               - type: custom:button-card
-                entity: media_player.living_room_sonos
+                entity: media_player.master_bedroom_fire_tv
                 show_state: false
                 show_icon: true
                 show_name: false
                 state:
+                  - value: 'standby'
+                    icon: mdi:movie
+                    color: rgb(169,169,169)
+                  - value: 'idle'
+                    icon: mdi:movie
+                    color: rgb(169,169,169)
                   - value: 'paused'
-                    icon: mdi:speaker-off
+                    icon: mdi:movie
+                    color: rgb(152,251,152)
+                  - value: 'off'
+                    icon: mdi:movie
                     color: rgb(169,169,169)
                   - value: 'playing'
-                    icon: mdi:speaker-wireless
+                    icon: mdi:movie
                     color: rgb(152,251,152)
                 tap_action:
                   action: more-info
