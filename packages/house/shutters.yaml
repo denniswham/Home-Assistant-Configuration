@@ -15,7 +15,6 @@ homeassistant:
       friendly_name: Master Bedroom Roller Shutter Power
 
 cover:
-
   - platform: group
     name: 'Roller Shutters'
     entities:
