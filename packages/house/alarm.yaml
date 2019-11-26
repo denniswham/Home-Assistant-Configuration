@@ -341,19 +341,19 @@ sensor:
             'Off'
           {% endif %}
 
-  - platform: template           #doublecheck
-    switches:
-      security_armed:
-        friendly_name: Home Security Arm
-        value_template: "{{states('alarm_control_panel.konnected_alarm') != 'disarmed'}}"
-        turn_on:
-          - service: alarm_control_panel.alarm_arm_away
-            entity_id:
-              - alarm_control_panel.konnected_alarm
-        turn_off:
-          - service: alarm_control_panel.alarm_disarm
-            entity_id:
-              - alarm_control_panel.konnected_alarm
+  # - platform: template           #doublecheck
+  #   switches:
+  #     security_armed:
+  #       friendly_name: Home Security Arm
+  #       value_template: "{{states('alarm_control_panel.konnected_alarm') != 'disarmed'}}"
+  #       turn_on:
+  #         - service: alarm_control_panel.alarm_arm_away
+  #           entity_id:
+  #             - alarm_control_panel.konnected_alarm
+  #       turn_off:
+  #         - service: alarm_control_panel.alarm_disarm
+  #           entity_id:
+  #             - alarm_control_panel.konnected_alarm
 
 input_boolean:
   konnectedupdate:
