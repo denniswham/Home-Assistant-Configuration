@@ -22,23 +22,39 @@ automation:
     - service: persistent_notification.create
       data_template:
         message: "{{ trigger.entity_id.name }} reported offline."
-        title: Ring Battery Low
+        title: Nest Protect Offline
     - service: notify.html5_galaxy_s9
       data_template:
         message: "{{ trigger.entity_id.name }} reported offline."
-        title: Ring Battery Low
+        title: Nest Protect Offline
+
+  - alias: '[Nest] Smoke/CO Detected'
+    initial_state: 'on'
+    trigger:
+    - platform: state
+      entity_id: sensor.smoke_co_detection
+      from: 'All clear'
+    action:
+    - service: persistent_notification.create
+      data_template:
+        message: "Smoke or CO detected"
+        title: Nest Protect
+    - service: notify.html5_galaxy_s9
+      data_template:
+        message: "Smoke or CO detected"
+        title: Nest Protect
 
 sensor:
-  - platform: group
-    name: 'Smoke Detectors'
-    entities:
-      - sensor.entryway_nest_protect_smoke_status
-      - sensor.hallway_nest_protect_smoke_status
-      - sensor.attic_nest_protect_smoke_status
-    
-  - platform: group
-    name: 'CO Detectors'
-    entities:
-      - sensor.entryway_nest_protect_co_status
-      - sensor.hallway_nest_protect_co_status
-      - sensor.attic_nest_protect_co_status
+  - platform: template
+    sensors:
+      smoke_co_detection:
+        friendly_name: 'Smoke/CO Detection'
+        entity_id: sensor.entryway_nest_protect_smoke_status, sensor.hallway_nest_protect_smoke_status, sensor.attic_nest_protect_smoke_status, sensor.entryway_nest_protect_co_status, sensor.hallway_nest_protect_co_status, sensor.attic_nest_protect_co_status
+        value_template: >-
+          {% if not is_state("sensor.entryway_nest_protect_smoke_status", "Ok") or not is_state("sensor.hallway_nest_protect_smoke_status", "Ok") or not is_state("sensor.attic_nest_protect_smoke_status", "Ok")  %}
+            Smoke Detected
+          {% elseif not is_state("sensor.entryway_nest_protect_co_status", "Ok") or not is_state("sensor.hallway_nest_protect_co_status", "Ok") or not is_state("sensor.attic_nest_protect_co_status", "Ok")  %}
+            CO Detected
+          {% else %}
+            All clear 
+          {% endif %}

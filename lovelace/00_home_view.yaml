@@ -40,57 +40,6 @@ cards:
                   action: more-info
           - type: horizontal-stack #row 2
             cards:
-              - type: picture-entity
-                entity: person.fake
-                show_name: false
-                tap_action:
-                  action: more-info
-              - type: picture-entity
-                entity: person.fake
-                show_name: false
-                tap_action:
-                  action: more-info
-              - type: vertical-stack
-                cards:
-                  - type: custom:button-card
-                    entity: light.inside_lights
-                    show_state: false
-                    show_icon: true
-                    show_name: false
-                    icon: bha:ceiling-lamp
-                    tap_action:
-                      action: navigate
-                      navigation_path: /lovelace/lights
-                  - type: custom:button-card
-                    show_state: false
-                    show_icon: true
-                    show_name: false
-                    entity: light.outdoor_lights
-                    icon: bha:outdoor-lamp
-                    tap_action:
-                      action: more-info
-              - type: vertical-stack
-                cards:
-                  - type: custom:button-card
-                    show_state: false
-                    show_icon: true
-                    show_name: false
-                    icon: mdi:cctv
-                    color: rgb(169,169,169)
-                    tap_action:
-                      action: navigate
-                      navigation_path: /lovelace/cameras
-                  - type: custom:button-card
-                    show_state: false
-                    show_icon: true
-                    show_name: false
-                    color: rgb(169,169,169)
-                    entity: weather.lopik_cabauw
-                    icon: mdi:weather-cloudy
-                    tap_action:
-                      action: more-info
-          - type: horizontal-stack #row 3
-            cards:
               - type: custom:button-card
                 entity: alarm_control_panel.konnected_alarm
                 show_state: false
@@ -170,7 +119,7 @@ cards:
                 tap_action:
                   action: more-info
         
-          # - type: horizontal-stack #row 4
+          # - type: horizontal-stack
           #   cards:
           #     - type: custom:button-card
           #       entity: input_select.mailbox_status
@@ -267,7 +216,7 @@ cards:
           #       tap_action:
           #         action: more-info
 
-          - type: horizontal-stack
+          - type: horizontal-stack # row3
             cards:
               - type: custom:button-card
                 entity: sensor.living_room_thermostat_temperature
@@ -327,7 +276,7 @@ cards:
                 tap_action:
                   action: more-info
 
-          - type: horizontal-stack
+          - type: horizontal-stack # row 4
             cards:
               - type: custom:button-card
                 entity: input_select.house_mode
@@ -420,134 +369,134 @@ cards:
                 tap_action:
                   action: more-info
 
-          # - type: horizontal-stack
-          #   cards:
-          #     - type: custom:vertical-stack-in-card
-          #       cards:
-          #         - type: custom:bignumber-card
-          #           title: Downstairs litterbox
-          #           entity: counter.litterbox_downstairs_visits
-          #           scale: 30px
-          #           from: bottom
-          #           min: 0
-          #           max: 10
-          #           severity:
-          #             - value: 2
-          #               style: 'var(--label-badge-green)'
-          #             - value: 3
-          #               style: 'var(--label-badge-yellow)'
-          #             - value: 4
-          #               style: 'orange'
-          #             - value: 10
-          #               style: 'var(--label-badge-red)'
+          - type: horizontal-stack # row 5
+            cards:
+              - type: custom:vertical-stack-in-card
+                cards:
+                  - type: custom:bignumber-card
+                    title: Downstairs litterbox
+                    entity: counter.litterbox_downstairs_visits
+                    scale: 30px
+                    from: bottom
+                    min: 0
+                    max: 10
+                    severity:
+                      - value: 2
+                        style: 'var(--label-badge-green)'
+                      - value: 3
+                        style: 'var(--label-badge-yellow)'
+                      - value: 4
+                        style: 'orange'
+                      - value: 10
+                        style: 'var(--label-badge-red)'
 
-          #         - type: custom:vertical-stack-in-card
-          #           cards:
-          #             - type: custom:bignumber-card
-          #               title: Upstairs litterbox
-          #               entity: counter.litterbox_upstairs_visits
-          #               scale: 30px
-          #               min: 0
-          #               max: 10
-          #               from: bottom
-          #               severity:
-          #                 - value: 2
-          #                   style: 'var(--label-badge-green)'
-          #                 - value: 3
-          #                   style: 'var(--label-badge-yellow)'
-          #                 - value: 4
-          #                   style: 'orange'
-          #                 - value: 10
-          #                   style: 'var(--label-badge-red)'
+                  - type: custom:vertical-stack-in-card
+                    cards:
+                      - type: custom:bignumber-card
+                        title: Upstairs litterbox
+                        entity: counter.litterbox_upstairs_visits
+                        scale: 30px
+                        min: 0
+                        max: 10
+                        from: bottom
+                        severity:
+                          - value: 2
+                            style: 'var(--label-badge-green)'
+                          - value: 3
+                            style: 'var(--label-badge-yellow)'
+                          - value: 4
+                            style: 'orange'
+                          - value: 10
+                            style: 'var(--label-badge-red)'
             
-          # - break
-          # - type: vertical-stack
-          #   cards:
-          #     - type: custom:vertical-stack-in-card
-          #       cards:
-          #       - type: entity-filter
-          #         show_empty: false
-          #         entities:
-          #           - entity: sensor.entryway_nest_protect_co_status
-          #             icon: bha:smoke-detector
-          #           - entity: sensor.entryway_nest_protect_smoke_status
-          #             icon: bha:smoke-detector
-          #           - entity: sensor.hallway_nest_protect_co_status
-          #             icon: bha:smoke-detector
-          #           - entity: sensor.hallway_nest_protect_smoke_status
-          #             icon: bha:smoke-detector
-          #           - entity: sensor.attic_nest_protect_co_status
-          #             icon: bha:smoke-detector
-          #           - entity: sensor.attic_nest_protect_smoke_status
-          #             icon: bha:smoke-detector
-          #           - entity: binary_sensor.entryway
-          #           - entity: binary_sensor.kitchen
-          #           - entity: binary_sensor.living_room
-          #           - entity: binary_sensor.office
-          #           - entity: binary_sensor.garage
-          #         state_filter:
-          #           - 'Open'
-          #           - 'Movement detected'
-          #           - 'Leaking'
-          #           - 'Unlocked'
-          #           - 'on'
-          #           - 'Warning'
-          #           - 'Emergency'
-          #           # - 'Unknown'
-          #         card: 
-          #           type: glance
-          #           show_state: false
-          #     - type: "custom:atomic-calendar"
-          #       title: "Calendar"
-          #       hoursFormat: 24h
-          #       entities:
-          #         - entity: calendar.isabella_alstrom
-          #       dateSize: 120
-          #       titleSize: 130
-          #     - type: 'custom:home-feed-card'
-          #       title: Home Feed
-          #       entities:
-          #         - sensor.front_door
-          #         - sensor.back_door
-          #         - sensor.yard_door
-          #         - sensor.balcony_door
-          #         - sensor.dining_room_window
-          #         - sensor.bedroom_window
-          #         - sensor.bedroom_door
-          #         - entity: sensor.living_room_axis_movement
-          #           name: Living Room Left
-          #           secondary_info: last-changed
-          #         - entity: sensor.living_room_axis_movement_2
-          #           name: Living Room Right
-          #           secondary_info: last-changed
-          #         - sensor.passage_movement
-          #         - entity: sensor.upstairs_hallway_movement
-          #           name: Stairs
-          #         - entity: sensor.stefans_office_movement
-          #           name: Stefans Office
-          #         - entity: switch.bike_charger
-          #           name: E-bike charger
-          #           include_history: true
-          #         - entity: input_select.dryer_status
-          #           name: Dryer
-          #           icon: mdi:tumble-dryer
-          #           include_history: true
-          #         - entity: input_select.washing_machine_status
-          #           name: Washer
-          #           icon: mdi:washing-machine
-          #           include_history: true
-          # - break
-          # - type: vertical-stack
-          #   cards:
-          #     # - type: custom:grocy-chores-card
-          #     #   title: All chores
-          #     #   show_quantity: 7
-          #     #   show_days: 7
-          #     #   entity: sensor.grocy
-          #     - entity: camera.meteogram
-          #       type: picture-entity
+# - break
+#   - type: vertical-stack
+#     cards:
+#       - type: custom:vertical-stack-in-card
+#         cards:
+#         - type: entity-filter
+#           show_empty: false
+#           entities:
+#             - entity: sensor.entryway_nest_protect_co_status
+#               icon: bha:smoke-detector
+#             - entity: sensor.entryway_nest_protect_smoke_status
+#               icon: bha:smoke-detector
+#             - entity: sensor.hallway_nest_protect_co_status
+#               icon: bha:smoke-detector
+#             - entity: sensor.hallway_nest_protect_smoke_status
+#               icon: bha:smoke-detector
+#             - entity: sensor.attic_nest_protect_co_status
+#               icon: bha:smoke-detector
+#             - entity: sensor.attic_nest_protect_smoke_status
+#               icon: bha:smoke-detector
+#             - entity: binary_sensor.entryway
+#             - entity: binary_sensor.kitchen
+#             - entity: binary_sensor.living_room
+#             - entity: binary_sensor.office
+#             - entity: binary_sensor.garage
+#           state_filter:
+#             - 'Open'
+#             - 'Movement detected'
+#             - 'Leaking'
+#             - 'Unlocked'
+#             - 'on'
+#             - 'Warning'
+#             - 'Emergency'
+#             # - 'Unknown'
+#           card: 
+#             type: glance
+#             show_state: false
+#       - type: "custom:atomic-calendar"
+#         title: "Calendar"
+#         hoursFormat: 24h
+#         entities:
+#           - entity: calendar.isabella_alstrom
+#         dateSize: 120
+#         titleSize: 130
+#       - type: 'custom:home-feed-card'
+#         title: Home Feed
+#         entities:
+#           - sensor.front_door
+#           - sensor.back_door
+#           - sensor.yard_door
+#           - sensor.balcony_door
+#           - sensor.dining_room_window
+#           - sensor.bedroom_window
+#           - sensor.bedroom_door
+#           - entity: sensor.living_room_axis_movement
+#             name: Living Room Left
+#             secondary_info: last-changed
+#           - entity: sensor.living_room_axis_movement_2
+#             name: Living Room Right
+#             secondary_info: last-changed
+#           - sensor.passage_movement
+#           - entity: sensor.upstairs_hallway_movement
+#             name: Stairs
+#           - entity: sensor.stefans_office_movement
+#             name: Stefans Office
+#           - entity: switch.bike_charger
+#             name: E-bike charger
+#             include_history: true
+#           - entity: input_select.dryer_status
+#             name: Dryer
+#             icon: mdi:tumble-dryer
+#             include_history: true
+#           - entity: input_select.washing_machine_status
+#             name: Washer
+#             icon: mdi:washing-machine
+#             include_history: true
+# # - break
+#   - type: vertical-stack
+#     cards:
+#       - type: custom:grocy-chores-card
+#         title: All chores
+#         show_quantity: 7
+#         show_days: 7
+#         entity: sensor.grocy
+#       - entity: camera.meteogram
+#         type: picture-entity
 
-        # style: |
-        #   .column {
-        #     margin: 25px;
-        #   }
+# style: |
+#   .column {
+#     margin: 25px;
+#   }

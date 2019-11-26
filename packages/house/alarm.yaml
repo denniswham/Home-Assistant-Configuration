@@ -328,14 +328,20 @@ script:
         entity_id:
           - alarm_control_panel.konnected_alarm
 
-switch:
-  - platform: group
-    name: 'Sirens'
-    entities:
-      - switch.siren
-      - switch.backyard_siren
-
+sensor:
   - platform: template
+    sensors:
+      sirens:
+        friendly_name: 'Siren sound'
+        entity_id: switch.siren, switch.backyard_siren
+        value_template: >-
+          {% if is_state('switch.siren', 'on') or is_state("switch.siren", "on") %}
+            'On'
+          {% else %}
+            'Off'
+          {% endif %}
+
+  - platform: template           #doublecheck
     switches:
       security_armed:
         friendly_name: Home Security Arm
