@@ -53,7 +53,7 @@ sensor:
         value_template: >-
           {% if not is_state("sensor.entryway_nest_protect_smoke_status", "Ok") or not is_state("sensor.hallway_nest_protect_smoke_status", "Ok") or not is_state("sensor.attic_nest_protect_smoke_status", "Ok")  %}
             Smoke Detected
-          {% elseif not is_state("sensor.entryway_nest_protect_co_status", "Ok") or not is_state("sensor.hallway_nest_protect_co_status", "Ok") or not is_state("sensor.attic_nest_protect_co_status", "Ok")  %}
+          {% elif not is_state("sensor.entryway_nest_protect_co_status", "Ok") or not is_state("sensor.hallway_nest_protect_co_status", "Ok") or not is_state("sensor.attic_nest_protect_co_status", "Ok")  %}
             CO Detected
           {% else %}
             All clear 
