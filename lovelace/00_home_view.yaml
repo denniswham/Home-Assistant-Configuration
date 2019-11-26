@@ -73,7 +73,7 @@ cards:
                 show_state: false
                 show_icon: true
                 show_name: false
-                entity: switch.sirens
+                entity: sensor.sirens
                 state:
                   - value: 'off'
                     color: rgb(169,169,169)
