@@ -19,6 +19,12 @@ light:
       - light.office_spot_lights_dimmer_level
 
   - platform: group
+    name: 'Downstairs lights'
+    entities:
+      - light.living_room_spot_lights_dimmer_level  
+      - light.office_spot_lights_dimmer_level
+
+  - platform: group
     name: 'Outdoor lights'
     entities:
       - light.outdoor_backyard_light
