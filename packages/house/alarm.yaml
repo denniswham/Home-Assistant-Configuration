@@ -336,9 +336,9 @@ sensor:
         entity_id: switch.siren, switch.backyard_siren
         value_template: >-
           {% if is_state('switch.siren', 'on') or is_state("switch.siren", "on") %}
-            'On'
+            signaling
           {% else %}
-            'Off'
+            silent
           {% endif %}
 
   # - platform: template           #doublecheck
