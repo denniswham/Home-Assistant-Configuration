@@ -38,7 +38,7 @@ cards:
                 show_name: false
                 tap_action:
                   action: more-info
-          - type: horizontal-stack #row 2
+          - type: horizontal-stack
             cards:
               - type: custom:button-card
                 entity: alarm_control_panel.konnected_alarm
@@ -87,20 +87,11 @@ cards:
                 show_state: false
                 show_icon: true
                 show_name: false
-                icon: mdi:cctv
-                color: rgb(169,169,169)
-                tap_action:
-                  action: navigate
-                  navigation_path: /lovelace/cameras
-              - type: custom:button-card
-                show_state: false
-                show_icon: true
-                show_name: false
                 entity: sensor.house_movement
                 state:
                   - value: 'No movement'
                     icon: mdi:walk
-                    color: rgb(152,251,152)
+                    color: rgb(169,169,169)
                   - value: 'Movement detected'
                     icon: mdi:motion-sensor
                     color: rgb(251, 210, 41)
@@ -114,138 +105,53 @@ cards:
                 state:
                   - value: 'No movement'
                     icon: mdi:walk
-                    color: rgb(152,251,152)
+                    color: rgb(169,169,169)
                   - value: 'Movement detected'
                     icon: mdi:motion-sensor
                     color: rgb(251, 210, 41)
                 tap_action:
                   action: more-info
-        
-          # - type: horizontal-stack
-          #   cards:
-          #     - type: custom:button-card
-          #       entity: input_select.mailbox_status
-          #       show_state: false
-          #       show_icon: true
-          #       show_name: false
-          #       state:
-          #         - value: 'Package and mail'
-          #           icon: mdi:mailbox-up
-          #           color: rgb(152,251,152)
-          #         - value: 'Mail'
-          #           icon: mdi:mailbox-up
-          #           color: rgb(152,251,152)
-          #         - value: 'Package'
-          #           icon: mdi:mailbox-up
-          #           color: rgb(152,251,152)
-          #         - value: 'Empty'
-          #           icon: mdi:mailbox-outline
-          #           color: rgb(169,169,169)
-          #       tap_action:
-          #         action: more-info
-          #     - type: custom:button-card
-          #       entity: input_select.trash_status
-          #       show_state: false
-          #       show_icon: true
-          #       show_name: false
-          #       state:
-          #         - value: 'Put out'
-          #           icon: mdi:delete-restore
-          #           color: rgb(255, 0, 0)
-          #         - value: 'Home'
-          #           icon: mdi:delete-outline
-          #           color: rgb(169,169,169)
-          #         - value: 'Take in'
-          #           icon: mdi:delete-restore
-          #           color: rgb(251, 210, 41)
-          #         - value: 'Out'
-          #           icon: mdi:delete-empty-outline
-          #           color: rgb(169,169,169)
-          #       tap_action:
-          #         action: more-info
-          #     - type: custom:button-card
-          #       entity: input_select.washing_machine_status
-          #       show_state: false
-          #       show_icon: true
-          #       show_name: false
-          #       state:
-          #         - value: 'Clean'
-          #           icon: mdi:washing-machine
-          #           color: rgb(255, 0, 0)
-          #         - value: 'Running'
-          #           icon: mdi:washing-machine
-          #           color: rgb(152,251,152)
-          #         - value: 'Idle'
-          #           icon: mdi:washing-machine
-          #           color: rgb(169,169,169)
-          #       tap_action:
-          #         action: more-info
-          #     - type: custom:button-card
-          #       entity: input_select.dryer_status
-          #       show_state: false
-          #       show_icon: true
-          #       show_name: false
-          #       state:
-          #         - value: 'Clean'
-          #           icon: mdi:tumble-dryer
-          #           color: rgb(251, 210, 41)
-          #         - value: 'Running'
-          #           icon: mdi:tumble-dryer
-          #           color: rgb(152,251,152)
-          #         - value: 'Idle'
-          #           icon: mdi:tumble-dryer
-          #           color: rgb(169,169,169)
-          #       tap_action:
-          #         action: more-info
-          #     - type: custom:button-card
-          #       entity: input_select.roomba_mode
-          #       show_state: false
-          #       show_icon: true
-          #       show_name: false
-          #       state:
-          #         - value: 'Not Today'
-          #           icon: mdi:robot-vacuum
-          #           color: rgb(251, 210, 41)
-          #         - value: 'Waiting'
-          #           icon: mdi:robot-vacuum
-          #           color: rgb(169,169,169)
-          #         - value: 'Vacuuming'
-          #           icon: mdi:robot-vacuum
-          #           color: rgb(152,251,152)
-          #         - value: 'Has Vacuumed'
-          #           icon: mdi:robot-vacuum
-          #           color: rgb(169,169,169)
-          #       tap_action:
-          #         action: more-info
-
-          - type: horizontal-stack # row3
-            cards:
               - type: custom:button-card
-                entity: sensor.living_room_thermostat_temperature
                 show_state: false
                 show_icon: true
                 show_name: false
-                icon: mdi:thermometer
+                icon: mdi:cctv
                 color: rgb(169,169,169)
                 tap_action:
-                  action: more-info
+                  action: navigate
+                  navigation_path: /lovelace/cameras
+        
+          - type: horizontal-stack # row3
+            cards:
               - type: custom:button-card
-                entity: climate.living_room
+                entity: input_boolean.konnectedupdate
                 show_state: false
                 show_icon: true
                 show_name: false
                 state:
-                  - value: 'cool'
-                    icon: mdi:air-conditioner
-                    color: rgb(135,206,235)
-                  - value: 'heat'
-                    icon: mdi:air-conditioner
-                    color: rgb(255,69,0)
-                  - value: 'heat_cool'
-                    icon: mdi:air-conditioner
+                  - value: 'on'
+                    icon: mdi:account-group-outline
                     color: rgb(152,251,152)
+                  - value: 'off'
+                    icon: mdi:account-group-outline
+                    color: rgb(169,169,169)
                 tap_action:
                   action: more-info
+              - type: custom:button-card
+                entity: cover.roller_shutters
+                show_state: false
+                show_icon: true
+                show_name: false
+                state:
+                  - value: 'open'
+                    icon: mdi:window-shutter-open
+                    color: rgb(135,206,235)
+                  - value: 'closed'
+                    icon: mdi:window-shutter
+                    color: rgb(169,169,169)
+                tap_action:
+                  action: navigate
+                  navigation_path: /lovelace/covers
               - type: custom:button-card
                 entity: light.inside_lights
                 show_state: false
@@ -263,23 +169,6 @@ cards:
                 icon: bha:outdoor-lamp
                 tap_action:
                   action: more-info
-              - type: custom:button-card
-                entity: input_boolean.guest_mode
-                show_state: false
-                show_icon: true
-                show_name: false
-                state:
-                  - value: 'on'
-                    icon: mdi:account-group-outline
-                    color: rgb(152,251,152)
-                  - value: 'off'
-                    icon: mdi:account-group-outline
-                    color: rgb(169,169,169)
-                tap_action:
-                  action: more-info
-
-          - type: horizontal-stack # row 4
-            cards:
               - type: custom:button-card
                 entity: input_select.house_mode
                 show_state: false
@@ -300,6 +189,35 @@ cards:
                     color: rgb(169,169,169)
                 tap_action:
                   action: more-info
+
+          - type: horizontal-stack # row 4
+            cards:
+              - type: custom:button-card
+                entity: climate.living_room
+                show_state: false
+                show_icon: true
+                show_name: false
+                state:
+                  - value: 'cool'
+                    icon: mdi:air-conditioner
+                    color: rgb(135,206,235)
+                  - value: 'heat'
+                    icon: mdi:air-conditioner
+                    color: rgb(255,69,0)
+                  - value: 'heat_cool'
+                    icon: mdi:air-conditioner
+                    color: rgb(152,251,152)
+                tap_action:
+                  action: more-info
+              - type: custom:button-card
+                show_state: false
+                show_icon: true
+                show_name: false
+                color: rgb(169,169,169)
+                entity: weather.lopik_cabauw
+                icon: mdi:weather-cloudy
+                tap_action:
+                  action: more-info
               - type: custom:button-card
                 entity: sensor.pollenniva_stockholm_bjork_day_0
                 icon: mdi:flower
@@ -313,15 +231,6 @@ cards:
                     color: rgb(251, 210, 41)
                   - operator: default
                     color: rgb(169,169,169)
-                tap_action:
-                  action: more-info
-              - type: custom:button-card
-                show_state: false
-                show_icon: true
-                show_name: false
-                color: rgb(169,169,169)
-                entity: weather.lopik_cabauw
-                icon: mdi:weather-cloudy
                 tap_action:
                   action: more-info
               - type: custom:button-card
@@ -410,14 +319,6 @@ cards:
                     - entity: sensor.outdoor_movement
                       name: Outdoor Movement
                       secondary_info: last-changed
-                    # - entity: input_select.dryer_status
-                    #   name: Dryer
-                    #   icon: mdi:tumble-dryer
-                    #   include_history: true
-                    # - entity: input_select.washing_machine_status
-                    #   name: Washer
-                    #   icon: mdi:washing-machine
-                    #   include_history: true
           - break
           - type: vertical-stack
             cards:
