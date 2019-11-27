@@ -74,9 +74,6 @@ automation:
       data:
         title: Home Assistant Update
         message: "Version {{ states.sensor.latest_version.state }} is available!"
-        target:
-          - galaxy_s9_chrome
-          - surfacebook_chrome
 
   # - alias: '[System] Hass Started'
   #   initial_state: 'on'
