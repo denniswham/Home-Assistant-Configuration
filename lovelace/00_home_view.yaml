@@ -234,7 +234,7 @@ cards:
                 tap_action:
                   action: more-info
               - type: custom:button-card
-                entity: media_player.living_room_fire_tv
+                entity: media_player.living_room_fire_tv_stick
                 show_state: false
                 show_icon: true
                 show_name: false
@@ -257,7 +257,7 @@ cards:
                 tap_action:
                   action: more-info
               - type: custom:button-card
-                entity: media_player.master_bedroom_fire_tv
+                entity: media_player.master_bedroom_fire_tv_stick
                 show_state: false
                 show_icon: true
                 show_name: false

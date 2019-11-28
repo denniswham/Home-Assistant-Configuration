@@ -146,10 +146,10 @@ automation:
         #     entity_id: media_player.plex_shield
         #     state: 'off'
         #   - condition: state
-        #     entity_id: media_player.living_room_chromecast
+        #     entity_id: media_player.living_room_fire_tv_stick
         #     state: idle
         #   - condition: state
-        #     entity_id: media_player.living_room_chromecast
+        #     entity_id: media_player.living_room_fire_tv_stick
         #     state: 'off'
         #   - condition: state
         #     entity_id: sensor.shield

@@ -197,7 +197,7 @@ views:
         type: media-control
       - entity: media_player.spotify
         type: media-control
-      - entity: media_player.master_bedroom_apple_tv
+      - entity: media_player.master_bedroom_fire_tv_stick
         type: media-control
     icon: 'mdi:play-circle-outline'
     path: media
