@@ -1,8 +1,8 @@
 homeassistant:
   customize:
-    input_boolean.konnectedupdate:
-      friendly_name: Auto Alarm
-      icon: mdi:security
+    # input_boolean.konnectedupdate:
+    #   friendly_name: Auto Alarm
+    #   icon: mdi:security
     switch.siren:
       friendly_name: Alarm siren
       icon: mdi:alarm-bell
@@ -49,8 +49,8 @@ automation:
     initial_state: 'true'
     condition:
     - condition: state
-      entity_id: input_boolean.konnectedupdate
-      state: 'on'
+      entity_id: input_boolean.guest_mode
+      state: 'off'
     - condition: template
       value_template: "{%- if states.automation.alarm_disarm_konnected_from_away.attributes.last_triggered\
         \ -%}\n  {{ (as_timestamp(now()) - as_timestamp(states.automation.alarm_disarm_konnected_from_away.attributes.last_triggered))\
@@ -107,8 +107,8 @@ automation:
     initial_state: 'true'
     condition:
     - condition: state
-      entity_id: input_boolean.konnectedupdate
-      state: 'on'
+      entity_id: input_boolean.guest_mode
+      state: 'off'
     trigger:
     - platform: state
       entity_id:
@@ -128,8 +128,8 @@ automation:
       entity_id: input_select.konnectedstatus
       state: armed_away
     - condition: state
-      entity_id: input_boolean.konnectedupdate
-      state: 'on'
+      entity_id: input_boolean.guest_mode
+      state: 'off'
     - condition: template
       value_template: "{%- if states.automation.alarm_arm_konnected.attributes.last_triggered\
         \ -%}\n  {{ (as_timestamp(now()) - as_timestamp(states.automation.alarm_arm_konnected.attributes.last_triggered))\
@@ -152,8 +152,8 @@ automation:
         entity_id: group.household
         state: home
       - condition: state
-        entity_id: input_boolean.konnectedupdate
-        state: 'on'
+        entity_id: input_boolean.guest_mode
+        state: 'off'
     trigger:
     - platform: time
       at: 06:00:00
@@ -173,8 +173,8 @@ automation:
         after: 06:15:00
         before: '21:00:00'
       - condition: state
-        entity_id: input_boolean.konnectedupdate
-        state: 'on'
+        entity_id: input_boolean.guest_mode
+        state: 'off'
       - condition: template
         value_template: "{%- if states.input_select.konnectedstatus.last_changed -%}\n\
           \  {{ (as_timestamp(now()) - as_timestamp(states.input_select.konnectedstatus.last_changed))\

@@ -124,7 +124,7 @@ cards:
           - type: horizontal-stack # row3
             cards:
               - type: custom:button-card
-                entity: input_boolean.konnectedupdate
+                entity: input_boolean.guest_mode
                 show_state: false
                 show_icon: true
                 show_name: false

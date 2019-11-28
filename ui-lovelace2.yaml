@@ -38,7 +38,7 @@ views:
           - entities:
               - entity: switch.siren
               - entity: switch.backyard_siren
-              - entity: input_boolean.konnectedupdate
+              - entity: input_boolean.guest_mode
               - entity: input_boolean.shuttersupdate
             type: entities
           - columns: 5
