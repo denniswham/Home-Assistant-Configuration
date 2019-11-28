@@ -67,6 +67,18 @@ cards:
     card:
       type: entities
       show_header_toggle: false
+      title: Alexa
+    filter:
+      include:
+        - entity_id: 'automation.alexa*'
+          options:
+            secondary_info: last-changed
+
+  - type: custom:auto-entities
+    show_empty: false
+    card:
+      type: entities
+      show_header_toggle: false
       title: Climate
     filter:
       include:

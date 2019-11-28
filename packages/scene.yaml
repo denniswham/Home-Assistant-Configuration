@@ -55,11 +55,21 @@ scene:
         state: heat
         temperature: 17.0
       media_player.living_room_xbox_one:
-        state: off
+        state: "off"
       light.living_room_spot_lights_dimmer_level:
-        state: off
+        state: "off"
       light.office_spot_lights_dimmer_level:
-        state: off
+        state: "off"
+      switch.master_bedroom_echo_dot_do_not_disturb_switch:
+        state: "on"
+      switch.master_bedroom_fire_tv_stick_do_not_disturb_switch:
+        state: "on"  
+      switch.lucas_room_echo_dot_do_not_disturb_switch:
+        state: "on"
+      switch.timo_s_room_echo_dot_do_not_disturb_switch:
+        state: "on"
+      switch.emilie_s_room_echo_dot_do_not_disturb_switch:
+        state: "on"
 
   - name: Romance time
     entities: 
@@ -67,4 +77,7 @@ scene:
         state: armed_home
       cover.master_bedroom_roller_shutter_level:
         state: closed
+      switch.master_bedroom_echo_dot_do_not_disturb_switch:
+        state: "on"
+        
   

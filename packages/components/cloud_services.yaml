@@ -30,3 +30,37 @@ group:
     - media_player.timo_s_room_echo_dot
     - media_player.living_room_fire_tv_stick
     - media_player.master_bedroom_fire_tv_stick
+
+automation:
+  - alias: "[Alexa] Enable Do Not Disturb"
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: input_select.house_mode
+        to: night
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id:
+            - switch.master_bedroom_echo_dot_do_not_disturb_switch
+            - switch.master_bedroom_fire_tv_stick_do_not_disturb_switch
+            - switch.lucas_room_echo_dot_do_not_disturb_switch
+            - switch.timo_s_room_echo_dot_do_not_disturb_switch
+            - switch.emilie_s_room_echo_dot_do_not_disturb_switch
+
+  - alias: "[Alexa] Disable Do Not Disturb"
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: input_select.house_mode
+        to: morning
+    action:
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.master_bedroom_echo_dot_do_not_disturb_switch
+            - switch.master_bedroom_fire_tv_stick_do_not_disturb_switch
+            - switch.lucas_room_echo_dot_do_not_disturb_switch
+            - switch.timo_s_room_echo_dot_do_not_disturb_switch
+            - switch.emilie_s_room_echo_dot_do_not_disturb_switch
+
