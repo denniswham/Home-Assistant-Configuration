@@ -22,50 +22,50 @@ automation:
   ##  Set to evening               ##
   ###################################
 
-  # - alias: '[House] Day Mode To Evening'
-  #   initial_state: 'on'
-  #   trigger:
-  #     - platform: sun
-  #       event: sunset
-  #       offset: '-00:45:00'
+  - alias: '[House] Day Mode To Evening'
+    initial_state: 'on'
+    trigger:
+      - platform: sun
+        event: sunset
+        offset: '-00:45:00'
 
-  #   action:
-  #     - service: input_select.select_option
-  #       data:
-  #         entity_id: input_select.house_mode
-  #         option: Evening
+    action:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.house_mode
+          option: Evening
 
   ###################################
   ##  Set to morning               ##
   ###################################
 
-  # - alias: '[House] Day Mode To Morning'
-  #   initial_state: 'on'
-  #   trigger:
-  #     - platform: sun
-  #       event: sunrise
+  - alias: '[House] Day Mode To Morning'
+    initial_state: 'on'
+    trigger:
+      - platform: sun
+        event: sunrise
 
-  #   action:
-  #     - service: input_select.select_option
-  #       data:
-  #         entity_id: input_select.house_mode
-  #         option: Morning
+    action:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.house_mode
+          option: Morning
 
   # ###################################
   # ##  Set to day                   ##
   # ###################################
 
-  # - alias: '[House] Day Mode To Day'
-  #   initial_state: 'on'
-  #   trigger:
-  #     - platform: time
-  #       at: "09:00:00"
+  - alias: '[House] Day Mode To Day'
+    initial_state: 'on'
+    trigger:
+      - platform: time
+        at: "09:00:00"
 
-  #   action:
-  #     - service: input_select.select_option
-  #       data:
-  #         entity_id: input_select.house_mode
-  #         option: Day
+    action:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.house_mode
+          option: Day
 
   ###################################
   ##  Set to night                 ##
