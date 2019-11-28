@@ -353,11 +353,11 @@ sensor:
   #           entity_id:
   #             - alarm_control_panel.konnected_alarm
 
-input_boolean:
-  konnectedupdate:
-    name: Alarm Updates
-    initial: on
-    icon: mdi:security_armed
+# input_boolean:
+#   konnectedupdate:
+#     name: Alarm Updates
+#     initial: on
+#     icon: mdi:security_armed
 
 input_select:
   konnectedstatus:

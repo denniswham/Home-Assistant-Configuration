@@ -37,9 +37,9 @@ cards:
                 title: Settings
                 show_header_toggle: false
                 entities:
-                  - entity: input_boolean.konnectedupdate
-                    name: Alarm Update
-                    type: entities
+                  # - entity: input_boolean.konnectedupdate
+                  #   name: Alarm Update
+                  #   type: entities
                   - entity: input_boolean.guest_mode
                     name: Guest Mode
                     type: entities
