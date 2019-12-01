@@ -22,24 +22,6 @@ sensor:
       - type: processor_use
       - type: last_boot
 
-  # - platform: glances
-  #   host: 127.0.0.1
-  #   port: 61208
-  #   name: "Nuc"
-  #   ssl: true
-  #   verify_ssl: false
-  #   username: !secret glances_username
-  #   password: !secret glances_password
-  #   version: 3
-  #   resources:
-  #     - 'disk_use_percent'
-  #     - 'memory_use_percent'
-  #     - 'swap_use_percent'
-  #     - 'processor_load'
-  #     - 'docker_active'
-  #     - 'docker_cpu_use'
-
-
 automation:
   - alias: '[System] Daily snapshot'
     initial_state: 'true'

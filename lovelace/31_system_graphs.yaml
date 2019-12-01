@@ -11,7 +11,7 @@ cards:
           - type: vertical-stack
             cards:
               - type: custom:vertical-stack-in-card
-                title: Nuc
+                title: Raspberry Pi
                 cards:
                   - type: entities
                     show_header_toggle: false

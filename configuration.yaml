@@ -22,8 +22,8 @@ cloud:
 # ########################################
 # ###             MOBILE               ###
 # ########################################
-#ios: !include notify/ios_config.yaml
-#mobile_app:
+ios: !include notify/ios_config.yaml
+mobile_app:
 
 # ########################################
 # ###                GUI               ###
