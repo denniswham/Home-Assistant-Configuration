@@ -6,9 +6,6 @@ homeassistant:
       friendly_name: Lucas Room Roller Shutter
     cover.backyard_sunscreen:
       friendly_name: Backyard Sunscreen
-    input_boolean.shuttersupdate:
-      friendly_name: Auto Shutter
-      icon: mdi:window-shutter  
     sensor.lucas_room_roller_shutter_power:
       friendly_name: Lucas Room Roller Shutter Power  
     sensor.master_bedroom_roller_shutter_power:
@@ -26,7 +23,7 @@ automation:
     initial_state: 'true'
     condition:
     - condition: state
-      entity_id: input_boolean.shuttersupdate
+      entity_id: input_boolean.guest_mode
       state: 'on'
     - condition: state
       entity_id: group.household
@@ -46,7 +43,7 @@ automation:
     initial_state: 'true'
     condition:
     - condition: state
-      entity_id: input_boolean.shuttersupdate
+      entity_id: input_boolean.guest_mode
       state: 'on'
     - condition: state
       entity_id: group.household
@@ -66,7 +63,7 @@ automation:
     initial_state: 'true'
     condition:
     - condition: state
-      entity_id: input_boolean.shuttersupdate
+      entity_id: input_boolean.guest_mode
       state: 'on'
     - condition: state
       entity_id: group.household
@@ -88,7 +85,7 @@ automation:
     initial_state: 'true'
     condition:
     - condition: state
-      entity_id: input_boolean.shuttersupdate
+      entity_id: input_boolean.guest_mode
       state: 'on'
     - condition: state
       entity_id: group.household
@@ -108,7 +105,7 @@ automation:
     initial_state: 'true'
     condition:
     - condition: state
-      entity_id: input_boolean.shuttersupdate
+      entity_id: input_boolean.guest_mode
       state: 'on'
     - condition: numeric_state
       entity_id: sensor.br_temperature
@@ -136,7 +133,7 @@ automation:
     initial_state: 'true'
     condition:
     - condition: state
-      entity_id: input_boolean.shuttersupdate
+      entity_id: input_boolean.guest_mode
       state: 'on'
     - condition: numeric_state
       entity_id: sensor.br_temperature
@@ -165,7 +162,7 @@ automation:
     initial_state: 'true'
     condition:
     - condition: state
-      entity_id: input_boolean.shuttersupdate
+      entity_id: input_boolean.guest_mode
       state: 'on'
     - condition: template
       value_template: "{%- if states.automation.covers_open_when_arriving_1.attributes.last_triggered\
@@ -218,26 +215,3 @@ automation:
         entity_id:
           - cover.master_bedroom_roller_shutter_level
           - cover.lucas_room_roller_shutter_level
-
-# Temporary automation for as long as the scene doesn't work well
-#  - alias: '[Covers] Temporary automation when bedtime scene is triggered'
-#    initial_state: 'true'
-#    condition:
-#    trigger:
-#    - platform: event
-#      event_type: call_service
-#      event_data:
-#        service_data:
-#          entity_id: scene.bed_time
-#        domain: scene
-#        service: turn_on
-#    action:
-#    - service: cover.set_cover_position
-#      data:
-#        entity_id:
-#          - cover.master_bedroom_roller_shutter_level
-#        position: 10
-
-input_boolean:
-  shuttersupdate:
-    initial: on

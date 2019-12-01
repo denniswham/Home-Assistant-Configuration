@@ -1,1 +1,5 @@
-default: warn
+# logger:
+#   default: info
+#   logs:
+#     homeassistant.components.yamaha: critical
+#     custom_components.my_integration: critical
