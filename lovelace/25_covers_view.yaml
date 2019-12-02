@@ -76,14 +76,6 @@ cards:
             service_data:
               entity_id: cover.roller_shutters
 
-    - type: entities
-      title: Settings
-      show_header_toggle: false
-      entities:
-        - entity: input_boolean.shuttersupdate
-          name: Cover Update
-          type: entities
-
   - type: vertical-stack
     cards:
     - type: entities
