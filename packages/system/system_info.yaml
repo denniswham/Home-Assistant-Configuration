@@ -113,7 +113,7 @@ sensor:
         #   friendly_name: 'NVidia Shield 2'
         #   entity_id: "device_tracker.shield"
         #   value_template: "{{ 'Online' if is_state('device_tracker.shield', 'home') else 'Offline' }}"
-        system_Xbox_one:
+        system_xbox_one:
           friendly_name: 'Xbox One'
           entity_id: "device_tracker.xbox_one"
           value_template: "{{ 'Online' if is_state('device_tracker.xbox_one', 'home') else 'Offline' }}"
