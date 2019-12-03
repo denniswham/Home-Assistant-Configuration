@@ -95,16 +95,17 @@ cards:
                 image: /local/lovelace_ui/info/ring_background.jpg
                 elements:
                   - type: custom:hui-glance-card
-                    columns: 4
+                    columns: 5
                     entities:
                       - entity: sensor.ring_front_door_battery
-                        name: Ring battery
+                        name: Doorbell battery
                       - entity: sensor.ring_front_door_wifi_signal_category
-                        name: Ring wifi
-                      # - sensor.system_ring_doorbell
-                      - entity: sensor.system_ring_chime_pro
-                        name: Chime Pro
-                      - entity: sensor.system_ring_chime
+                        name: Doorbell wifi
+                      - entity: sensor.ring_backyard_battery
+                        name: Stick-Up Cam battery
+                      - entity: sensor.ring_backyard_wifi_signal_category
+                        name: Stick-Up Cam wifi
+                      - entity: sensor.ring_downstairs_wifi_signal_category
                         name: Chime
                     style:
                       --primary-text-color: white
