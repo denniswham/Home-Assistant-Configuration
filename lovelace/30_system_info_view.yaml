@@ -37,25 +37,31 @@ cards:
                       --paper-item-icon-color: white
                       color: rgb(0, 0, 0)
               - type: picture-elements
-                image: /local/lovelace_ui/info/hubs_background.jpg
+                image: /local/lovelace_ui/info/dots_background.jpg
                 elements:
                   - type: custom:hui-glance-card
                     show_state: false
                     columns: 4
                     entities:
-                      - entity: sensor.system_ir_blaster
-                        name: Hallway
-                      - entity: sensor.system_ir_blaster_bedroom
-                        name: Bedroom
-                      - entity: sensor.system_ir_blaster_living_room
-                        name: Livingroom
-                      - entity: sensor.system_milight_hub
-                        name: Milight
-                      - entity: sensor.system_xiaomi_gateway
-                        name: Xiaomi
-                      - sensor.system_printer
-                      - sensor.system_nas
-                      - sensor.system_ipad
+                      - entity: sensor.system_living_room_echo_dot
+                        name: Living Room
+                      - entity: sensor.system_master_bedroom_echo_dot
+                        name: Master Bedroom
+                      - entity: sensor.system_lucas_room_echo_dot
+                        name: Lucas' Room
+                      - entity: sensor.system_timo_s_room_echo_dot
+                        name: Timo's Room
+                      - entity: sensor.system_emilie_s_room_echo_dot
+                        name: Emilie's Room
+                      - entity: sensor.system_entryway_smokeco
+                        name: Entryway Nest Protect
+                        icon: bha:smoke-detector
+                      - entity: sensor.system_hallway_smokeco
+                        name: Hallway Nest Protect
+                        icon: bha:smoke-detector
+                      - entity: sensor.system_attic_smokeco
+                        name: Attic Nest Protect
+                        icon: bha:smoke-detector
                     style:
                       --primary-text-color: white
                       left: 50%
@@ -92,15 +98,13 @@ cards:
                 image: /local/lovelace_ui/info/ring_background.jpg
                 elements:
                   - type: custom:hui-glance-card
-                    columns: 4
+                    columns: 3
                     entities:
                       - entity: sensor.ring_front_door_battery
                         name: Ring
                       - entity: sensor.ring_front_door_wifi_signal_category
                         name: Ring
                       - entity: sensor.system_ring_chime
-                        name: Chime
-                      - entity: sensor.ring_downstairs_wifi_signal_category
                         name: Chime
                     style:
                       --primary-text-color: white
@@ -143,21 +147,18 @@ cards:
                 elements:
                   - type: custom:hui-glance-card
                     show_state: false
-                    columns: 3
+                    columns: 5
                     entities:
-                      - entity: sensor.system_samsung65
+                      - entity: sensor.system_vieratv
                         name: TV
-                      - entity: sensor.system_movie_system
-                        name: Movie System
-                      - entity: sensor.system_shield
-                        name: Shield
-                      - entity: sensor.system_sonos
-                        name: Sonos
-                        icon: mdi:speaker-wireless
-                      - entity: sensor.system_samsung49
+                      - entity: sensor.system_firetvstick_living_room
+                        name: Fire TV
+                      - entity: sensor.system_xbox_one
+                        name: Xbox One
+                      - entity: sensor.system_samsungtv
                         name: Bed TV
-                      - entity: sensor.system_chromecast_bedroom
-                        name: Bed CC
+                      - entity: sensor.system_firetvstick_master_bedroom
+                        name: Bed Fire TV
                     style:
                       --primary-text-color: white
                       left: 50%

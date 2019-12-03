@@ -93,11 +93,11 @@ sensor:
           friendly_name: 'Bedroom TV'
           entity_id: "device_tracker.master_bedroom_tv"
           value_template: "{{ 'Online' if is_state('device_tracker.bedroom_tv', 'home') else 'Offline' }}"
-        system_movie_system:
-          friendly_name: 'Living Room Fire TV STick'
-          entity_id: "device_tracker.living_room_movie_system"
+        system_firetvstick_living_room:
+          friendly_name: 'Living Room Fire TV Stick'
+          entity_id: "device_tracker.dc_54_d7_da_3b_cb"
           value_template: "{{ 'Online' if is_state('device_tracker.living_room_movie_system', 'home') else 'Offline' }}"
-        system_movie_system:
+        system_firetvstick_master_bedroom:
           friendly_name: 'Master Bedroom Fire TV STick'
           entity_id: "device_tracker.living_room_movie_system"
           value_template: "{{ 'Online' if is_state('device_tracker.master_bedroom_movie_system', 'home') else 'Offline' }}"
@@ -113,10 +113,10 @@ sensor:
         #   friendly_name: 'NVidia Shield 2'
         #   entity_id: "device_tracker.shield"
         #   value_template: "{{ 'Online' if is_state('device_tracker.shield', 'home') else 'Offline' }}"
-        system_chromecast_bedroom:
-          friendly_name: 'Chromecast Bedroom'
-          entity_id: "device_tracker.chromecast_bedroom"
-          value_template: "{{ 'Online' if is_state('device_tracker.chromecast_bedroom', 'home') else 'Offline' }}"
+        system_Xbox_one:
+          friendly_name: 'Xbox One'
+          entity_id: "device_tracker.xbox_one"
+          value_template: "{{ 'Online' if is_state('device_tracker.xbox_one', 'home') else 'Offline' }}"
         system_stefan_computer:
           friendly_name: 'Stefan computer'
           entity_id: "device_tracker.stefan_computer"
@@ -211,20 +211,40 @@ sensor:
           value_template: "{{ 'Online' if is_state('device_tracker.ring', 'home') else 'Offline' }}"
         system_ring_chime: #ok
           friendly_name: 'Ring Chime'
-          entity_id: "device_tracker.341513bb6b41"
-          value_template: "{{ 'Online' if is_state('device_tracker.341513bb6b41', 'home') else 'Offline' }}"
-        system_dafang:
-          friendly_name: 'Dafang'
-          entity_id: "device_tracker.7811dc70faaf"
-          value_template: "{{ 'Online' if is_state('device_tracker.7811dc70faaf', 'home') else 'Offline' }}"
-        system_axis_living_room:
-          friendly_name: 'Axis Living Room'
-          entity_id: "device_tracker.axis_00408cd5badd"
-          value_template: "{{ 'Online' if is_state('device_tracker.axis_00408cd5badd', 'home') else 'Offline' }}"
-        system_axis_passage:
-          friendly_name: 'Axis Passage'
-          entity_id: "device_tracker.axis_00408cd5bad6"
-          value_template: "{{ 'Online' if is_state('device_tracker.axis_00408cd5bad6', 'home') else 'Offline' }}"
+          entity_id: "device_tracker.34_15_13_bb_6b_41"
+          value_template: "{{ 'Online' if is_state('device_tracker.34_15_13_bb_6b_41', 'home') else 'Offline' }}"
+        entryway_smokeco:
+          friendly_name: 'Entryway Nest Protect'
+          entity_id: "device_tracker.entryway_protect"
+          value_template: "{{ 'Online' if is_state('device_tracker.entryway_protect', 'home') else 'Offline' }}"
+        hallway_smokeco:
+          friendly_name: 'Hallway Nest Protect'
+          entity_id: "device_tracker.hallway_protect"
+          value_template: "{{ 'Online' if is_state('device_tracker.hallway_protect', 'home') else 'Offline' }}"
+        attic_smokeco:
+          friendly_name: 'Attic Nest Protect'
+          entity_id: "device_tracker.attic_protect"
+          value_template: "{{ 'Online' if is_state('device_tracker.attic_protect', 'home') else 'Offline' }}"
+        system_living_room_echo_dot:
+          friendly_name: 'Living Room'
+          entity_id: "device_tracker.38_f7_3d_36_bb_35"
+          value_template: "{{ 'Online' if is_state('device_tracker.38_f7_3d_36_bb_35', 'home') else 'Offline' }}"
+        system_master_bedroom_echo_dot:
+          friendly_name: 'Master Bedroom'
+          entity_id: "device_tracker.fc_a6_67_f7_a7_a8"
+          value_template: "{{ 'Online' if is_state('device_tracker.fc_a6_67_f7_a7_a8', 'home') else 'Offline' }}"
+        system_lucas_bedroom_echo_dot:
+          friendly_name: 'Lucas'
+          entity_id: "device_tracker.50_dc_e7_d3_96_9b"
+          value_template: "{{ 'Online' if is_state('device_tracker.50_dc_e7_d3_96_9b', 'home') else 'Offline' }}"
+        system_timo_s_bedroom_echo_dot:
+          friendly_name: 'Timo'
+          entity_id: "device_tracker.50_dc_e7_86_6b_b7"
+          value_template: "{{ 'Online' if is_state('device_tracker.50_dc_e7_86_6b_b7', 'home') else 'Offline' }}"
+        system_emilie_s_bedroom_echo_dot:
+          friendly_name: 'Emilie'
+          entity_id: "device_tracker.50_dc_e7_d1_65_55"
+          value_template: "{{ 'Online' if is_state('device_tracker.50_dc_e7_d1_65_55', 'home') else 'Offline' }}"
 automation:
   - alias: '[System] Device Status'
     initial_state: 'on'
@@ -252,7 +272,7 @@ automation:
            for:
              minutes: 5
     action:
-      - service: notify.ios_isabellas_iphone_x
+      - service: notify.html5_galaxy_s9
         data_template:
           title: 'Device {{ trigger.to_state.name }} is'
           message: >
