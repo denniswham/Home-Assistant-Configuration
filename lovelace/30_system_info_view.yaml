@@ -102,9 +102,9 @@ cards:
                       - entity: sensor.ring_front_door_wifi_signal_category
                         name: Doorbell wifi
                       - entity: sensor.ring_backyard_battery
-                        name: Stick-Up Cam battery
+                        name: Cam battery
                       - entity: sensor.ring_backyard_wifi_signal_category
-                        name: Stick-Up Cam wifi
+                        name: Cam wifi
                       - entity: sensor.ring_downstairs_wifi_signal_category
                         name: Chime
                     style:
