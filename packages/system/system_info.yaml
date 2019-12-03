@@ -60,8 +60,6 @@ homeassistant:
       icon: mdi:google-keep
     sensor.system_ring_doorbell:
       icon: mdi:doorbell-video
-    sensor.system_ring_chime_pro:
-      icon: mdi:wifi
     sensor.system_ring_chime:
       icon: mdi:bell-outline
     sensor.system_isa_dell_xps:
@@ -87,18 +85,22 @@ sensor:
           friendly_name: 'Synology NAS'
           entity_id: "device_tracker.synology_nas"
           value_template: "{{ 'Online' if is_state('device_tracker.synology_nas', 'home') else 'Offline' }}"
-        system_samsung65:
+        system_vieratv:
           friendly_name: 'Living Room TV'
           entity_id: "device_tracker.living_room_tv"
           value_template: "{{ 'Online' if is_state('device_tracker.living_room_tv', 'home') else 'Offline' }}"
-        system_samsung49:
+        system_samsungtv:
           friendly_name: 'Bedroom TV'
-          entity_id: "device_tracker.bedroom_tv"
+          entity_id: "device_tracker.master_bedroom_tv"
           value_template: "{{ 'Online' if is_state('device_tracker.bedroom_tv', 'home') else 'Offline' }}"
         system_movie_system:
-          friendly_name: 'Living Room Movie System'
+          friendly_name: 'Living Room Fire TV STick'
           entity_id: "device_tracker.living_room_movie_system"
           value_template: "{{ 'Online' if is_state('device_tracker.living_room_movie_system', 'home') else 'Offline' }}"
+        system_movie_system:
+          friendly_name: 'Master Bedroom Fire TV STick'
+          entity_id: "device_tracker.living_room_movie_system"
+          value_template: "{{ 'Online' if is_state('device_tracker.master_bedroom_movie_system', 'home') else 'Offline' }}"
         system_netgear_router:
           friendly_name: 'Netgear Router'
           entity_id: "device_tracker.netgear_router"
@@ -207,14 +209,10 @@ sensor:
           friendly_name: 'Ring'
           entity_id: "device_tracker.ring"
           value_template: "{{ 'Online' if is_state('device_tracker.ring', 'home') else 'Offline' }}"
-        system_ring_chime_pro:
-          friendly_name: 'Ring Chime Pro'
-          entity_id: "device_tracker.chimepro93_2"
-          value_template: "{{ 'Online' if is_state('device_tracker.chimepro93_2', 'home') else 'Offline' }}"
-        system_ring_chime:
+        system_ring_chime: #ok
           friendly_name: 'Ring Chime'
-          entity_id: "device_tracker.3ca3087ee76e"
-          value_template: "{{ 'Online' if is_state('device_tracker.3ca3087ee76e', 'home') else 'Offline' }}"
+          entity_id: "device_tracker.341513bb6b41"
+          value_template: "{{ 'Online' if is_state('device_tracker.341513bb6b41', 'home') else 'Offline' }}"
         system_dafang:
           friendly_name: 'Dafang'
           entity_id: "device_tracker.7811dc70faaf"
@@ -245,7 +243,6 @@ automation:
               - sensor.system_xiaomi_gateway
               - sensor.system_milight_hub
               - sensor.system_ring_doorbell
-              - sensor.system_ring_chime_pro
               - sensor.system_ring_chime
               - sensor.system_axis_living_room
               - sensor.system_dafang

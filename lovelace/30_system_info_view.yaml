@@ -74,14 +74,11 @@ cards:
                     show_state: false
                     columns: 2
                     entities:
-                      - entity: sensor.system_ip_camera
-                        name: Sannce
-                      - entity: sensor.system_dafang
-                        name: Dafang
+                      - entity: sensor.ring_backyard_battery
+                        name: Stick-Up
                         icon: mdi:webcam
-                      - entity: sensor.system_axis_living_room
-                        name: Living Room
-                        icon: mdi:webcam
+                      - entity: sensor.ring_backyard_wifi_signal_category
+                        name: Stick-Up
                     style:
                       --primary-text-color: white
                       left: 50%
@@ -95,16 +92,14 @@ cards:
                 image: /local/lovelace_ui/info/ring_background.jpg
                 elements:
                   - type: custom:hui-glance-card
-                    columns: 5
+                    columns: 4
                     entities:
                       - entity: sensor.ring_front_door_battery
-                        name: Doorbell battery
+                        name: Ring
                       - entity: sensor.ring_front_door_wifi_signal_category
-                        name: Doorbell wifi
-                      - entity: sensor.ring_backyard_battery
-                        name: Cam battery
-                      - entity: sensor.ring_backyard_wifi_signal_category
-                        name: Cam wifi
+                        name: Ring
+                      - entity: sensor.system_ring_chime
+                        name: Chime
                       - entity: sensor.ring_downstairs_wifi_signal_category
                         name: Chime
                     style:
