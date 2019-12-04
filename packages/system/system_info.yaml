@@ -82,11 +82,11 @@ homeassistant:
       icon: mdi:doorbell-video
     system_ring_chime:
       icon: mdi:bell-outline
-    entryway_smokeco:
+    system_entryway_smokeco:
       icon: bha:smoke-detector
-    hallway_smokeco:
+    system_hallway_smokeco:
       icon: bha:smoke-detector
-    attic_smokeco:
+    system_attic_smokeco:
       icon: bha:smoke-detector
 
   customize_glob:
@@ -235,15 +235,15 @@ sensor:
           friendly_name: 'Ring Chime'
           entity_id: "device_tracker.34_15_13_bb_6b_41"
           value_template: "{{ 'Online' if is_state('device_tracker.34_15_13_bb_6b_41', 'home') else 'Offline' }}"
-        entryway_smokeco:
+        system_entryway_smokeco:
           friendly_name: 'Entryway Nest Protect'
           entity_id: "device_tracker.entryway_protect"
           value_template: "{{ 'Online' if is_state('device_tracker.entryway_protect', 'home') else 'Offline' }}"
-        hallway_smokeco:
+        system_hallway_smokeco:
           friendly_name: 'Hallway Nest Protect'
           entity_id: "device_tracker.hallway_protect"
           value_template: "{{ 'Online' if is_state('device_tracker.hallway_protect', 'home') else 'Offline' }}"
-        attic_smokeco:
+        system_attic_smokeco:
           friendly_name: 'Attic Nest Protect'
           entity_id: "device_tracker.attic_protect"
           value_template: "{{ 'Online' if is_state('device_tracker.attic_protect', 'home') else 'Offline' }}"

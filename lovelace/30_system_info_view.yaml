@@ -44,11 +44,11 @@ cards:
                         name: Living Room
                       - entity: sensor.system_master_bedroom_echo_dot
                         name: Master Bedroom
-                      - entity: sensor.system_lucas_room_echo_dot
+                      - entity: sensor.system_lucas_bedroom_echo_dot
                         name: Lucas' Room
-                      - entity: sensor.system_timo_s_room_echo_dot
+                      - entity: sensor.system_timo_s_bedroom_echo_dot
                         name: Timo's Room
-                      - entity: sensor.system_emilie_s_room_echo_dot
+                      - entity: sensor.system_emilie_s_bedroom_echo_dot
                         name: Emilie's Room
                       - entity: sensor.system_entryway_smokeco
                         name: Entryway Nest Protect
