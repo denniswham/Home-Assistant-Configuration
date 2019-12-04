@@ -22,8 +22,6 @@ homeassistant:
       icon: mdi:printer
     sensor.system_nas:
       icon: mdi:server
-    sensor.system_chromecast_bedroom:
-      icon: mdi:cast
     sensor.system_shield:
       icon: mdi:android
     # sensor.system_shield_2:
@@ -32,7 +30,9 @@ homeassistant:
       icon: mdi:tablet-ipad
     sensor.system_movie_system:
       icon: mdi:speaker
-    sensor.system_samsung65:
+    system_vieratv:
+      icon: mdi:television
+    system_samsungtv:
       icon: mdi:television
     # sensor.system_hue_hub:
       # icon: mdi:lightbulb-outline
@@ -44,7 +44,7 @@ homeassistant:
       icon: mdi:webcam
     sensor.system_galaxy_tab:
       icon: mdi:tablet-android
-    sensor.system_samsung49:
+    sensor.system_:
       icon: mdi:television
     sensor.system_ir_blaster:
       icon: mdi:remote
@@ -58,18 +58,14 @@ homeassistant:
       icon: mdi:speaker
     sensor.system_milight_hub:
       icon: mdi:google-keep
-    sensor.system_ring_doorbell:
-      icon: mdi:doorbell-video
-    sensor.system_ring_chime:
-      icon: mdi:bell-outline
     sensor.system_isa_dell_xps:
       icon: mdi:laptop-windows
     sensor.system_stefan_laptop:
       icon: mdi:laptop-windows
     system_firetvstick_living_room:
-      icon: mdi:amazon-alexa
+      icon: mdi:cast
     system_firetvstick_master_bedroom:
-      icon: mdi:amazon-alexa
+      icon: mdi:cast
     system_living_room_echo_dot:
       icon: mdi:amazon-alexa
     system_master_bedroom_echo_dot:
@@ -83,7 +79,9 @@ homeassistant:
     system_xbox_one: 
       icon: mdi:xbox
     system_ring_doorbell:
+      icon: mdi:doorbell-video
     system_ring_chime:
+      icon: mdi:bell-outline
     entryway_smokeco:
       icon: bha:smoke-detector
     hallway_smokeco:
