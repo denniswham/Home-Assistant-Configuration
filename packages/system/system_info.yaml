@@ -66,6 +66,30 @@ homeassistant:
       icon: mdi:laptop-windows
     sensor.system_stefan_laptop:
       icon: mdi:laptop-windows
+    system_firetvstick_living_room:
+      icon: mdi:amazon-alexa
+    system_firetvstick_master_bedroom:
+      icon: mdi:amazon-alexa
+    system_living_room_echo_dot:
+      icon: mdi:amazon-alexa
+    system_master_bedroom_echo_dot:
+      icon: mdi:amazon-alexa
+    system_lucas_bedroom_echo_dot:
+      icon: mdi:amazon-alexa
+    system_timo_s_bedroom_echo_dot:
+      icon: mdi:amazon-alexa
+    system_emilie_s_bedroom_echo_dot:
+      icon: mdi:amazon-alexa
+    system_xbox_one: 
+      icon: mdi:xbox
+    system_ring_doorbell:
+    system_ring_chime:
+    entryway_smokeco:
+      icon: bha:smoke-detector
+    hallway_smokeco:
+      icon: bha:smoke-detector
+    attic_smokeco:
+      icon: bha:smoke-detector
 
   customize_glob:
     sensor.system_*:
@@ -98,7 +122,7 @@ sensor:
           entity_id: "device_tracker.dc_54_d7_da_3b_cb"
           value_template: "{{ 'Online' if is_state('device_tracker.living_room_movie_system', 'home') else 'Offline' }}"
         system_firetvstick_master_bedroom:
-          friendly_name: 'Master Bedroom Fire TV STick'
+          friendly_name: 'Master Bedroom Fire TV Stick'
           entity_id: "device_tracker.living_room_movie_system"
           value_template: "{{ 'Online' if is_state('device_tracker.master_bedroom_movie_system', 'home') else 'Offline' }}"
         system_netgear_router:

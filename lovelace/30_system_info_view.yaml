@@ -21,13 +21,10 @@ cards:
                         name: Hass RPi
                       - entity: sensor.system_magic_mirror_rpi
                         name: Dashboard
-                        icon: mdi:raspberry-pi
                       - entity: sensor.system_dashboard_rpi
                         name: '7"'
-                        icon: mdi:raspberry-pi
                       - entity: sensor.system_rpi_zero
                         name: RPi Zero
-                        icon: mdi:raspberry-pi
                     style:
                       --primary-text-color: white
                       left: 50%
@@ -55,13 +52,10 @@ cards:
                         name: Emilie's Room
                       - entity: sensor.system_entryway_smokeco
                         name: Entryway Nest Protect
-                        icon: bha:smoke-detector
                       - entity: sensor.system_hallway_smokeco
                         name: Hallway Nest Protect
-                        icon: bha:smoke-detector
                       - entity: sensor.system_attic_smokeco
                         name: Attic Nest Protect
-                        icon: bha:smoke-detector
                     style:
                       --primary-text-color: white
                       left: 50%
@@ -82,7 +76,6 @@ cards:
                     entities:
                       - entity: sensor.ring_backyard_battery
                         name: Stick-Up
-                        icon: mdi:webcam
                       - entity: sensor.ring_backyard_wifi_signal_category
                         name: Stick-Up
                     style:
