@@ -62,31 +62,31 @@ homeassistant:
       icon: mdi:laptop-windows
     sensor.system_stefan_laptop:
       icon: mdi:laptop-windows
-    system_firetvstick_living_room:
+    sensor.system_firetvstick_living_room:
       icon: mdi:cast
-    system_firetvstick_master_bedroom:
+    sensor.system_firetvstick_master_bedroom:
       icon: mdi:cast
-    system_living_room_echo_dot:
+    sensor.system_living_room_echo_dot:
       icon: mdi:amazon-alexa
-    system_master_bedroom_echo_dot:
+    sensor.system_master_bedroom_echo_dot:
       icon: mdi:amazon-alexa
-    system_lucas_bedroom_echo_dot:
+    sensor.system_lucas_bedroom_echo_dot:
       icon: mdi:amazon-alexa
-    system_timo_s_bedroom_echo_dot:
+    sensor.system_timo_s_bedroom_echo_dot:
       icon: mdi:amazon-alexa
-    system_emilie_s_bedroom_echo_dot:
+    sensor.system_emilie_s_bedroom_echo_dot:
       icon: mdi:amazon-alexa
-    system_xbox_one: 
+    sensor.system_xbox_one: 
       icon: mdi:xbox
-    system_ring_doorbell:
+    sensor.system_ring_doorbell:
       icon: mdi:doorbell-video
-    system_ring_chime:
+    sensor.system_ring_chime:
       icon: mdi:bell-outline
-    system_entryway_smokeco:
+    sensor.system_entryway_smokeco:
       icon: bha:smoke-detector
-    system_hallway_smokeco:
+    sensor.system_hallway_smokeco:
       icon: bha:smoke-detector
-    system_attic_smokeco:
+    sensor.system_attic_smokeco:
       icon: bha:smoke-detector
 
   customize_glob:

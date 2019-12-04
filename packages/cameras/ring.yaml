@@ -64,15 +64,11 @@ automation:
     - platform: numeric_state
       entity_id:
         - sensor.ring_front_door_battery
-        - sensor.ring_front_door_battery
-        - sensor.ring_backyard_battery
         - sensor.ring_backyard_battery
       below: 15
     - platform: numeric_state
       entity_id:
         - sensor.ring_front_door_battery
-        - sensor.ring_front_door_battery
-        - sensor.ring_backyard_battery
         - sensor.ring_backyard_battery
       below: 10
     action:
