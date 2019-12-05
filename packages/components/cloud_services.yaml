@@ -1,5 +1,5 @@
-homeassistant:
-  customize:
+# homeassistant:
+#   customize:
 
 ring:
   username: !secret ring_username
