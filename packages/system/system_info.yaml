@@ -30,9 +30,9 @@ homeassistant:
       icon: mdi:tablet-ipad
     sensor.system_movie_system:
       icon: mdi:speaker
-    system_vieratv:
+    sensor.system_vieratv:
       icon: mdi:television
-    system_samsungtv:
+    sensor.system_samsungtv:
       icon: mdi:television
     # sensor.system_hue_hub:
       # icon: mdi:lightbulb-outline
