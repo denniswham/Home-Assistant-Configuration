@@ -71,7 +71,7 @@ cards:
                 image: /local/lovelace_ui/info/cameras_background.jpg
                 elements:
                   - type: custom:hui-glance-card
-                    show_state: false
+                    show_state: true
                     columns: 2
                     entities:
                       - entity: sensor.ring_backyard_battery
