@@ -125,30 +125,6 @@ cards:
           - type: vertical-stack
             cards:
               - type: picture-elements
-                image: /local/lovelace_ui/info/computers_background.jpg
-                elements:
-                  - type: custom:hui-glance-card
-                    show_state: true
-                    columns: 4
-                    entities:
-                      - entity: sensor.system_isa_computer
-                        name: Isa
-                      - entity: sensor.system_isa_dell_xps
-                        name: Isa work laptop
-                      - entity: sensor.system_stefan_computer
-                        name: Stefan
-                      - entity: sensor.system_stefan_laptop
-                        name: Stefan work laptop
-                    style:
-                      --primary-text-color: white
-                      left: 50%
-                      top: 50%
-                      width: 100%
-                      --paper-card-background-color: rgba(0, 0, 0, 0.4)
-                      --paper-item-icon-color: white
-                      color: rgb(0, 0, 0)
-  
-              - type: picture-elements
                 image: /local/lovelace_ui/info/tv_background.jpg
                 elements:
                   - type: custom:hui-glance-card
