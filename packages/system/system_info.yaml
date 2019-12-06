@@ -30,10 +30,6 @@ homeassistant:
       icon: mdi:tablet-ipad
     sensor.system_movie_system:
       icon: mdi:speaker
-    sensor.system_vieratv:
-      icon: mdi:television
-    sensor.system_samsungtv:
-      icon: mdi:television
     # sensor.system_hue_hub:
       # icon: mdi:lightbulb-outline
     sensor.system_ikea_gateway:
@@ -44,14 +40,6 @@ homeassistant:
       icon: mdi:webcam
     sensor.system_galaxy_tab:
       icon: mdi:tablet-android
-    sensor.system_:
-      icon: mdi:television
-    sensor.system_ir_blaster:
-      icon: mdi:remote
-    sensor.system_ir_blaster_bedroom:
-      icon: mdi:remote
-    sensor.system_ir_blaster_living_room:
-      icon: mdi:remote
     sensor.system_withings_scale:
       icon: mdi:scale-bathroom
     sensor.system_sonos_3:
@@ -62,32 +50,6 @@ homeassistant:
       icon: mdi:laptop-windows
     sensor.system_stefan_laptop:
       icon: mdi:laptop-windows
-    sensor.system_firetvstick_living_room:
-      icon: mdi:cast
-    sensor.system_firetvstick_master_bedroom:
-      icon: mdi:cast
-    sensor.system_living_room_echo_dot:
-      icon: mdi:amazon-alexa
-    sensor.system_master_bedroom_echo_dot:
-      icon: mdi:amazon-alexa
-    sensor.system_lucas_bedroom_echo_dot:
-      icon: mdi:amazon-alexa
-    sensor.system_timo_s_bedroom_echo_dot:
-      icon: mdi:amazon-alexa
-    sensor.system_emilie_s_bedroom_echo_dot:
-      icon: mdi:amazon-alexa
-    sensor.system_xbox_one: 
-      icon: mdi:xbox
-    sensor.system_ring_doorbell:
-      icon: mdi:doorbell-video
-    sensor.system_ring_chime:
-      icon: mdi:bell-outline
-    sensor.system_entryway_smokeco:
-      icon: bha:smoke-detector
-    sensor.system_hallway_smokeco:
-      icon: bha:smoke-detector
-    sensor.system_attic_smokeco:
-      icon: bha:smoke-detector
 
   customize_glob:
     sensor.system_*:
@@ -119,6 +81,7 @@ sensor:
           value_template: "{{ 'Online' if is_state('device_tracker.bedroom_tv', 'home') else 'Offline' }}"
         system_firetvstick_living_room:
           friendly_name: 'Living Room Fire TV Stick'
+          icon_template: mdi:cast
           entity_id: "device_tracker.dc_54_d7_da_3b_cb"
           value_template: "{{ 'Online' if is_state('device_tracker.living_room_movie_system', 'home') else 'Offline' }}"
         system_firetvstick_master_bedroom:
@@ -140,6 +103,7 @@ sensor:
         #   value_template: "{{ 'Online' if is_state('device_tracker.shield', 'home') else 'Offline' }}"
         system_xbox_one:
           friendly_name: 'Xbox One'
+          icon_template: mdi:xbox
           entity_id: "device_tracker.xbox_one"
           value_template: "{{ 'Online' if is_state('device_tracker.xbox_one', 'home') else 'Offline' }}"
         system_stefan_computer:
@@ -231,13 +195,20 @@ sensor:
           entity_id: "device_tracker.raspberrypi_4"
           value_template: "{{ 'Online' if is_state('device_tracker.raspberrypi_4', 'home') else 'Offline' }}"
         system_ring_doorbell:
-          friendly_name: 'Ring'
-          entity_id: "device_tracker.ring"
-          value_template: "{{ 'Online' if is_state('device_tracker.ring', 'home') else 'Offline' }}"
-        system_ring_chime: #ok
-          friendly_name: 'Ring Chime'
-          entity_id: "device_tracker.34_15_13_bb_6b_41"
-          value_template: "{{ 'Online' if is_state('device_tracker.34_15_13_bb_6b_41', 'home') else 'Offline' }}"
+          friendly_name: 'Doorbell'
+          icon_template: mdi:doorbell-video
+          entity_id: "device_tracker.ring_doorbell"
+          value_template: "{{ 'Online' if is_state('device_tracker.ring_doorbell', 'home') else 'Offline' }}"
+        system_ring_backyard_cam:
+          friendly_name: Backyard Cam
+          icon_template: mdi:webcam
+          entity_id: "device_tracker.ring_stickup"
+          value_template: "{{ 'Online' if is_state('device_tracker.ring_stickup', 'home') else 'Offline' }}"
+        system_ring_chime:
+          friendly_name: 'Chime'
+          icon_template: mdi:bell-outline
+          entity_id: "device_tracker.ring_chime"
+          value_template: "{{ 'Online' if is_state('device_tracker.ring_chime', 'home') else 'Offline' }}"
         system_entryway_smokeco:
           friendly_name: 'Entryway Nest Protect'
           icon_template: bha:smoke-detector

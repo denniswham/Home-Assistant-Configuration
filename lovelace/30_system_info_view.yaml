@@ -14,7 +14,7 @@ cards:
                 image: /local/lovelace_ui/info/pi_background.jpg
                 elements:
                   - type: custom:hui-glance-card
-                    show_state: false
+                    show_state: true
                     columns: 4
                     entities:
                       - entity: sensor.system_hass_rpi
@@ -37,8 +37,29 @@ cards:
                 image: /local/lovelace_ui/info/dots_background.jpg
                 elements:
                   - type: custom:hui-glance-card
-                    show_state: false
-                    columns: 4
+                    show_state: true
+                    columns: 3
+                    entities:
+                      - entity: sensor.system_entryway_smokeco
+                        name: Entryway Nest Protect
+                      - entity: sensor.system_hallway_smokeco
+                        name: Hallway Nest Protect
+                      - entity: sensor.system_attic_smokeco
+                        name: Attic Nest Protect
+                    style:
+                      --primary-text-color: white
+                      left: 50%
+                      top: 50%
+                      width: 100%
+                      --paper-card-background-color: rgba(0, 0, 0, 0.4)
+                      --paper-item-icon-color: white
+                      color: rgb(0, 0, 0)
+              - type: picture-elements
+                image: /local/lovelace_ui/info/dots_background.jpg
+                elements:
+                  - type: custom:hui-glance-card
+                    show_state: true
+                    columns: 5
                     entities:
                       - entity: sensor.system_living_room_echo_dot
                         name: Living Room
@@ -50,12 +71,6 @@ cards:
                         name: Timo's Room
                       - entity: sensor.system_emilie_s_bedroom_echo_dot
                         name: Emilie's Room
-                      - entity: sensor.system_entryway_smokeco
-                        name: Entryway Nest Protect
-                      - entity: sensor.system_hallway_smokeco
-                        name: Hallway Nest Protect
-                      - entity: sensor.system_attic_smokeco
-                        name: Attic Nest Protect
                     style:
                       --primary-text-color: white
                       left: 50%
@@ -75,9 +90,9 @@ cards:
                     columns: 2
                     entities:
                       - entity: sensor.ring_backyard_battery
-                        name: Stick-Up
-                      - entity: sensor.ring_backyard_wifi_signal_category
-                        name: Stick-Up
+                        name: Backyard Cam
+                      - entity: sensor.system_ring_backyard_cam
+                        name: Backyard Cam
                     style:
                       --primary-text-color: white
                       left: 50%
@@ -94,9 +109,9 @@ cards:
                     columns: 3
                     entities:
                       - entity: sensor.ring_front_door_battery
-                        name: Ring
-                      - entity: sensor.ring_front_door_wifi_signal_category
-                        name: Ring
+                        name: Doorbell
+                      - entity: sensor.system_ring_doorbell
+                        name: Doorbell
                       - entity: sensor.system_ring_chime
                         name: Chime
                     style:
@@ -115,7 +130,7 @@ cards:
                 image: /local/lovelace_ui/info/computers_background.jpg
                 elements:
                   - type: custom:hui-glance-card
-                    show_state: false
+                    show_state: true
                     columns: 4
                     entities:
                       - entity: sensor.system_isa_computer
@@ -139,7 +154,7 @@ cards:
                 image: /local/lovelace_ui/info/tv_background.jpg
                 elements:
                   - type: custom:hui-glance-card
-                    show_state: false
+                    show_state: true
                     columns: 5
                     entities:
                       - entity: sensor.system_vieratv
