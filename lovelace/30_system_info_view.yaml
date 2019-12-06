@@ -15,7 +15,7 @@ cards:
                 elements:
                   - type: custom:hui-glance-card
                     show_state: true
-                    columns: 4
+                    columns: 2
                     entities:
                       - entity: sensor.system_hass_rpi
                         name: Hass RPi

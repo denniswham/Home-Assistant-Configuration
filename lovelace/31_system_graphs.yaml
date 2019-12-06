@@ -54,6 +54,31 @@ cards:
                           - sensor.memory_free
                         font_size: 50
                         line_color: "#389638"
+                  - type: horizontal-stack
+                    cards:
+                      - type: custom:mini-graph-card
+                        show:
+                          icon: false
+                          graph: "bar"
+                        name: Cpu use
+                        entities:
+                          - sensor.cpu_temperature
+                        line_color: "#389638"
+                        color_thresholds:
+                          - value: 50
+                            color: green
+                          - value: 70
+                            color: orange
+                          - value: 80
+                            color: red
+                      - type: custom:mini-graph-card
+                        show:
+                          icon: false
+                        name: Ram free
+                        entities:
+                          - sensor.memory_free
+                        font_size: 50
+                        line_color: "#389638"
           - break
           - type: vertical-stack
             cards:
@@ -68,8 +93,6 @@ cards:
                     name: Dashboard
                     icon: mdi:raspberry-pi
 
-          - type: vertical-stack
-            cards:
               - type: entities
                 show_header_toggle: false
                 entities:
@@ -77,7 +100,7 @@ cards:
 #                    entity: sun.sun
 #                    icon: mdi:nope
 #                    name: !secret zero_name
-                  - entity: binary_sensor.rpi_zero_ping
+                  - entity: binary_sensor.konnected
                     name: RPi Zero
                     icon: mdi:raspberry-pi
 

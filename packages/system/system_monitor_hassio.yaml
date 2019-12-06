@@ -22,22 +22,7 @@ sensor:
       - type: processor_use
       - type: last_boot
 
-# automation:
-#   - alias: '[System] Daily snapshot'
-#     initial_state: 'true'
-#     trigger:
-#     - platform: time
-#       at: '2:00:00'
-#     condition:
-#     - condition: state
-#       entity_id: person.dennis
-#       state: 'home'
-#     action:
-#     - data_template:
-#         name: Automated backup {{ now().strftime('%Y-%m-%d') }}
-#         password: !secret snapshot_password
-#       service: hassio.snapshot_full
-
+automation:
   - alias: '[System] Update Notifications'
     initial_state: 'on'
     condition:
