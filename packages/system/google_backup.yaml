@@ -1,6 +1,6 @@
 rest_command:
   google_backup:
-    url: 'http://hassio.local:8055/gbdoBackup'
+    url: 'http://localhost:8055/gbdoBackup'
     timeout: '300'
 
 automation:
