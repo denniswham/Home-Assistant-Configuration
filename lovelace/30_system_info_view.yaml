@@ -103,7 +103,7 @@ cards:
                       color: rgb(0, 0, 0)
                       
               - type: picture-elements
-                image: /local/lovelace_ui/info/ring_background1.jpg
+                image: /local/lovelace_ui/info/ring_background.jpg
                 elements:
                   - type: custom:hui-glance-card
                     columns: 3
@@ -183,7 +183,7 @@ cards:
               elements:
                 - type: custom:hui-glance-card
                   show_state: true
-                  columns: 2
+                  columns: 5
                   entities:
                     - entity: sensor.system_ziggo_router
                       name: Ziggo
@@ -191,7 +191,7 @@ cards:
                       name: TP-Link
                     - entity: sensor.system_linksys_router
                       name: Linksys
-                    - entity: sensor.system_powerline
+                    - entity: sensor.system_powerline_router
                       name: Powerline
                   style:
                     --primary-text-color: white

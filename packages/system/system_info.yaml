@@ -78,13 +78,13 @@ sensor:
         system_firetvstick_living_room:
           friendly_name: 'Living Room Fire TV Stick'
           icon_template: mdi:cast
-          entity_id: "device_tracker.dc_54_d7_da_3b_cb"
-          value_template: "{{ 'Online' if is_state('device_tracker.living_room_movie_system', 'home') else 'Offline' }}"
+          entity_id: "device_tracker.living_room_fire_tv"
+          value_template: "{{ 'Online' if is_state('device_tracker.living_room_fire_tv', 'home') else 'Offline' }}"
         system_firetvstick_master_bedroom:
           friendly_name: 'Master Bedroom Fire TV Stick'
           icon_template: mdi:cast
-          entity_id: "device_tracker.living_room_movie_system"
-          value_template: "{{ 'Online' if is_state('device_tracker.master_bedroom_movie_system', 'home') else 'Offline' }}"
+          entity_id: "device_tracker.master_bedroom_fire_tv"
+          value_template: "{{ 'Online' if is_state('device_tracker.master_bedroom_fire_tv', 'home') else 'Offline' }}"
         system_ziggo_router:
           friendly_name: 'Ziggo Router'
           icon_template: mdi:wifi
@@ -100,7 +100,7 @@ sensor:
           icon_template: mdi:wifi
           entity_id: "device_tracker.linksys_router"
           value_template: "{{ 'Online' if is_state('device_tracker.linksys_router', 'home') else 'Offline' }}"
-        system_pwerline_router:
+        system_powerline_router:
           friendly_name: 'Powerline Router'
           icon_template: mdi:wifi
           entity_id: "device_tracker.powerline_router"
