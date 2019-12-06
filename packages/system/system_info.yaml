@@ -57,14 +57,16 @@ homeassistant:
 sensor:
   - platform: template
     sensors:
-        system_milight_hub:
-          friendly_name: 'Milight Hub'
-          entity_id: "device_tracker.milight_controller"
-          value_template: "{{ 'Online' if is_state('device_tracker.milight_controller', 'home') else 'Offline' }}"
-        system_nas:
-          friendly_name: 'Synology NAS'
-          entity_id: "device_tracker.synology_nas"
-          value_template: "{{ 'Online' if is_state('device_tracker.synology_nas', 'home') else 'Offline' }}"
+        system_hass_rpi:
+          friendly_name: 'Hass RPi'
+          icon_template: mdi:raspberrypi
+          entity_id: "device_tracker.raspberrypi"
+          value_template: "{{ 'Online' if is_state('device_tracker.raspberrypi', 'home') else 'Offline' }}"
+        system_konnected:
+          friendly_name: 'Konnected'
+          icon_template: mdi:raspberrypi
+          entity_id: "device_tracker.konnected"
+          value_template: "{{ 'Online' if is_state('device_tracker.konnected', 'home') else 'Offline' }}"
         system_vieratv:
           friendly_name: 'Living Room TV'
           icon_template: mdi:television
@@ -74,7 +76,7 @@ sensor:
           friendly_name: 'Bedroom TV'
           icon_template: mdi:television
           entity_id: "device_tracker.master_bedroom_tv"
-          value_template: "{{ 'Online' if is_state('device_tracker.bedroom_tv', 'home') else 'Offline' }}"
+          value_template: "{{ 'Online' if is_state('device_tracker.master_bedroom_tv', 'home') else 'Offline' }}"
         system_firetvstick_living_room:
           friendly_name: 'Living Room Fire TV Stick'
           icon_template: mdi:cast
@@ -105,14 +107,6 @@ sensor:
           icon_template: mdi:wifi
           entity_id: "device_tracker.powerline_router"
           value_template: "{{ 'Online' if is_state('device_tracker.powerline_router', 'home') else 'Offline' }}"
-        system_shield:
-          friendly_name: 'NVidia Shield'
-          entity_id: "device_tracker.nvidia_shield"
-          value_template: "{{ 'Online' if is_state('device_tracker.nvidia_shield', 'home') else 'Offline' }}"
-        # system_shield_2:
-        #   friendly_name: 'NVidia Shield 2'
-        #   entity_id: "device_tracker.shield"
-        #   value_template: "{{ 'Online' if is_state('device_tracker.shield', 'home') else 'Offline' }}"
         system_xbox_one:
           friendly_name: 'Xbox One'
           icon_template: mdi:xbox
@@ -138,22 +132,10 @@ sensor:
           friendly_name: 'Isa Dell XPS'
           entity_id: "device_tracker.desktop39i618g"
           value_template: "{{ 'Online' if is_state('device_tracker.desktop39i618g', 'home') else 'Offline' }}"        
-        system_printer:
-          friendly_name: 'HP Printer'
-          entity_id: "device_tracker.hp_printer"
-          value_template: "{{ 'Online' if is_state('device_tracker.hp_printer', 'home') else 'Offline' }}"
         system_ipad:
           friendly_name: 'iPad'
           entity_id: "device_tracker.paddan"
           value_template: "{{ 'Online' if is_state('device_tracker.paddan', 'home') else 'Offline' }}"
-        system_asus_router:
-          friendly_name: 'Asus Router'
-          entity_id: "device_tracker.router_asus"
-          value_template: "{{ 'Online' if is_state('device_tracker.router_asus', 'home') else 'Offline' }}"
-        system_hass_rpi:
-          friendly_name: 'Hass RPi'
-          entity_id: "device_tracker.raspberrypi"
-          value_template: "{{ 'Online' if is_state('device_tracker.raspberrypi', 'home') else 'Offline' }}"
         system_ring_doorbell:
           friendly_name: 'Doorbell'
           icon_template: mdi:doorbell-video
@@ -169,18 +151,23 @@ sensor:
           icon_template: mdi:bell-outline
           entity_id: "device_tracker.ring_chime"
           value_template: "{{ 'Online' if is_state('device_tracker.ring_chime', 'home') else 'Offline' }}"
+        system_living_room_thermostat:
+          friendly_name: 'Thermostat'
+          icon_template: mdi:thermostat
+          entity_id: "device_tracker.nest_thermostat"
+          value_template: "{{ 'Online' if is_state('device_tracker.nest_thermostat', 'home') else 'Offline' }}"
         system_entryway_smokeco:
-          friendly_name: 'Entryway Nest Protect'
+          friendly_name: 'Entryway'
           icon_template: bha:smoke-detector
           entity_id: "device_tracker.entryway_protect"
           value_template: "{{ 'Online' if is_state('device_tracker.entryway_protect', 'home') else 'Offline' }}"
         system_hallway_smokeco:
-          friendly_name: 'Hallway Nest Protect'
+          friendly_name: 'Hallway'
           icon_template: bha:smoke-detector
           entity_id: "device_tracker.hallway_protect"
           value_template: "{{ 'Online' if is_state('device_tracker.hallway_protect', 'home') else 'Offline' }}"
         system_attic_smokeco:
-          friendly_name: 'Attic Nest Protect'
+          friendly_name: 'Attic'
           icon_template: bha:smoke-detector
           entity_id: "device_tracker.attic_protect"
           value_template: "{{ 'Online' if is_state('device_tracker.attic_protect', 'home') else 'Offline' }}"

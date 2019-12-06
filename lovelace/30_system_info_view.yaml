@@ -19,12 +19,8 @@ cards:
                     entities:
                       - entity: sensor.system_hass_rpi
                         name: Hass RPi
-                      - entity: sensor.system_magic_mirror_rpi
-                        name: Dashboard
-                      - entity: sensor.system_dashboard_rpi
-                        name: '7"'
-                      - entity: sensor.system_rpi_zero
-                        name: RPi Zero
+                      - entity: sensor.system_konnected
+                        name: Konnected
                     style:
                       --primary-text-color: white
                       left: 50%
@@ -38,8 +34,10 @@ cards:
                 elements:
                   - type: custom:hui-glance-card
                     show_state: true
-                    columns: 3
+                    columns: 4
                     entities:
+                      - entity: sensor.system_living_room_thermostat
+                        name: Entryway Nest Protect
                       - entity: sensor.system_entryway_smokeco
                         name: Entryway Nest Protect
                       - entity: sensor.system_hallway_smokeco
@@ -183,7 +181,7 @@ cards:
               elements:
                 - type: custom:hui-glance-card
                   show_state: true
-                  columns: 5
+                  columns: 4
                   entities:
                     - entity: sensor.system_ziggo_router
                       name: Ziggo
