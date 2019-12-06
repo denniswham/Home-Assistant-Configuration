@@ -1,8 +1,0 @@
-{
-    "domain": "xboxone",
-    "name": "Xbox One",
-    "documentation": "https://github.com/hunterjm/hassio-addons/tree/master/xboxone",
-    "dependencies": [],
-    "requirements": [], 
-    "codeowners": ["@hunterjm"]
-  }
