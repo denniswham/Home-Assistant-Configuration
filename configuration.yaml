@@ -3,8 +3,8 @@ homeassistant:
   packages: !include_dir_named packages
   auth_mfa_modules:
     - type: totp
-#  whitelist_external_dirs:
-#    - /config
+  whitelist_external_dirs:
+    - /config
 
 config:
 hassio:
