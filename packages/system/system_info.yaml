@@ -1,52 +1,4 @@
 homeassistant:
-  customize:
-    sensor.system_magic_mirror_rpi:
-      icon: mdi:raspberrypi
-    sensor.system_dashboard_rpi:
-      icon: mdi:raspberrypi
-    sensor.system_hass_rpi:
-      icon: mdi:home-assistant
-    sensor.system_rpi_zero:
-      icon: mdi:raspberrypi
-    sensor.system_stefan_computer:
-      icon: mdi:monitor
-    sensor.system_isa_laptop:
-      icon: mdi:laptop-windows
-    sensor.system_isa_computer:
-      icon: mdi:monitor
-    sensor.system_printer:
-      icon: mdi:printer
-    sensor.system_nas:
-      icon: mdi:server
-    sensor.system_shield:
-      icon: mdi:android
-    # sensor.system_shield_2:
-    #   icon: mdi:android
-    sensor.system_ipad:
-      icon: mdi:tablet-ipad
-    sensor.system_movie_system:
-      icon: mdi:speaker
-    # sensor.system_hue_hub:
-      # icon: mdi:lightbulb-outline
-    sensor.system_ikea_gateway:
-      icon: mdi:google-keep
-    sensor.system_xiaomi_gateway:
-      icon: mdi:circle-outline
-    sensor.system_ip_camera:
-      icon: mdi:webcam
-    sensor.system_galaxy_tab:
-      icon: mdi:tablet-android
-    sensor.system_withings_scale:
-      icon: mdi:scale-bathroom
-    sensor.system_sonos_3:
-      icon: mdi:speaker
-    sensor.system_milight_hub:
-      icon: mdi:google-keep
-    sensor.system_isa_dell_xps:
-      icon: mdi:laptop-windows
-    sensor.system_stefan_laptop:
-      icon: mdi:laptop-windows
-
   customize_glob:
     sensor.system_*:
       templates:
@@ -59,12 +11,12 @@ sensor:
     sensors:
         system_hass_rpi:
           friendly_name: 'Hass RPi'
-          icon_template: mdi:raspberrypi
+          icon_template: mdi:home-assistant
           entity_id: "device_tracker.raspberrypi"
           value_template: "{{ 'Online' if is_state('device_tracker.raspberrypi', 'home') else 'Offline' }}"
         system_konnected:
           friendly_name: 'Konnected'
-          icon_template: mdi:raspberrypi
+          icon_template: mdi:raspberry-pi
           entity_id: "device_tracker.konnected"
           value_template: "{{ 'Online' if is_state('device_tracker.konnected', 'home') else 'Offline' }}"
         system_vieratv:
@@ -112,30 +64,11 @@ sensor:
           icon_template: mdi:xbox
           entity_id: "device_tracker.xbox_one"
           value_template: "{{ 'Online' if is_state('device_tracker.xbox_one', 'home') else 'Offline' }}"
-        system_stefan_computer:
-          friendly_name: 'Stefan computer'
-          entity_id: "device_tracker.stefan_computer"
-          value_template: "{{ 'Online' if is_state('device_tracker.stefan_computer', 'home') else 'Offline' }}"
-        system_stefan_laptop:
-          friendly_name: 'Stefan laptop'
-          entity_id: "device_tracker.cnstefang"
-          value_template: "{{ 'Online' if is_state('device_tracker.cnstefang', 'home') else 'Offline' }}"
-        system_isa_computer:
-          friendly_name: 'Isas computer'
-          entity_id: "device_tracker.isa_computer"
-          value_template: "{{ 'Online' if is_state('device_tracker.isa_computer', 'home') else 'Offline' }}"
-        system_isa_laptop:
-          friendly_name: 'Isas old laptop'
-          entity_id: "device_tracker.isa_laptop"
-          value_template: "{{ 'Online' if is_state('device_tracker.isa_laptop', 'home') else 'Offline' }}"
-        system_isa_dell_xps:
-          friendly_name: 'Isa Dell XPS'
-          entity_id: "device_tracker.desktop39i618g"
-          value_template: "{{ 'Online' if is_state('device_tracker.desktop39i618g', 'home') else 'Offline' }}"        
-        system_ipad:
-          friendly_name: 'iPad'
-          entity_id: "device_tracker.paddan"
-          value_template: "{{ 'Online' if is_state('device_tracker.paddan', 'home') else 'Offline' }}"
+        system_invoke:
+          friendly_name: 'Invoke'
+          icon_template: mdi:speaker
+          entity_id: "device_tracker.invoke"
+          value_template: "{{ 'Online' if is_state('device_tracker.invoke', 'home') else 'Offline' }}"
         system_ring_doorbell:
           friendly_name: 'Doorbell'
           icon_template: mdi:doorbell-video
@@ -196,6 +129,7 @@ sensor:
           icon_template: mdi:amazon-alexa
           entity_id: "device_tracker.50_dc_e7_d1_65_55"
           value_template: "{{ 'Online' if is_state('device_tracker.50_dc_e7_d1_65_55', 'home') else 'Offline' }}"
+
 automation:
   - alias: '[System] Device Status'
     initial_state: 'on'

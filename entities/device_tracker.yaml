@@ -6,7 +6,4 @@
   hosts: 192.168.178.0/24
   home_interval: 3
   new_device_defaults:
-  track_new_devices: true
-  exclude:
-  - 192.168.178.5
-
+  track_new_devices: false
