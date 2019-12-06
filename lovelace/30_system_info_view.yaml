@@ -34,7 +34,7 @@ cards:
                       --paper-item-icon-color: white
                       color: rgb(0, 0, 0)
               - type: picture-elements
-                image: /local/lovelace_ui/info/dots_background.jpg
+                image: /local/lovelace_ui/info/protect_background.jpg
                 elements:
                   - type: custom:hui-glance-card
                     show_state: true
@@ -103,7 +103,7 @@ cards:
                       color: rgb(0, 0, 0)
                       
               - type: picture-elements
-                image: /local/lovelace_ui/info/ring_background.jpg
+                image: /local/lovelace_ui/info/ring_background1.jpg
                 elements:
                   - type: custom:hui-glance-card
                     columns: 3
@@ -185,10 +185,14 @@ cards:
                   show_state: true
                   columns: 2
                   entities:
-                    - entity: sensor.system_asus_router
-                      name: Asus
-                    - entity: sensor.system_netgear_router
-                      name: Netgear
+                    - entity: sensor.system_ziggo_router
+                      name: Ziggo
+                    - entity: sensor.system_tplink_router
+                      name: TP-Link
+                    - entity: sensor.system_linksys_router
+                      name: Linksys
+                    - entity: sensor.system_powerline
+                      name: Powerline
                   style:
                     --primary-text-color: white
                     left: 50%

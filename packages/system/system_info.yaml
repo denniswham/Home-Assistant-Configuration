@@ -14,10 +14,6 @@ homeassistant:
       icon: mdi:laptop-windows
     sensor.system_isa_computer:
       icon: mdi:monitor
-    sensor.system_asus_router:
-      icon: mdi:wifi
-    sensor.system_netgear_router:
-      icon: mdi:wifi
     sensor.system_printer:
       icon: mdi:printer
     sensor.system_nas:
@@ -89,10 +85,26 @@ sensor:
           icon_template: mdi:cast
           entity_id: "device_tracker.living_room_movie_system"
           value_template: "{{ 'Online' if is_state('device_tracker.master_bedroom_movie_system', 'home') else 'Offline' }}"
-        system_netgear_router:
-          friendly_name: 'Netgear Router'
-          entity_id: "device_tracker.netgear_router"
-          value_template: "{{ 'Online' if is_state('device_tracker.netgear_router', 'home') else 'Offline' }}"
+        system_ziggo_router:
+          friendly_name: 'Ziggo Router'
+          icon_template: mdi:wifi
+          entity_id: "device_tracker.ziggo_router"
+          value_template: "{{ 'Online' if is_state('device_tracker.ziggo_router', 'home') else 'Offline' }}"
+        system_tplink_router:
+          friendly_name: 'TP-Link Router'
+          icon_template: mdi:wifi
+          entity_id: "device_tracker.tplink_router"
+          value_template: "{{ 'Online' if is_state('device_tracker.tplink_router', 'home') else 'Offline' }}"
+        system_linksys_router:
+          friendly_name: 'Linksys Router'
+          icon_template: mdi:wifi
+          entity_id: "device_tracker.linksys_router"
+          value_template: "{{ 'Online' if is_state('device_tracker.linksys_router', 'home') else 'Offline' }}"
+        system_pwerline_router:
+          friendly_name: 'Powerline Router'
+          icon_template: mdi:wifi
+          entity_id: "device_tracker.powerline_router"
+          value_template: "{{ 'Online' if is_state('device_tracker.powerline_router', 'home') else 'Offline' }}"
         system_shield:
           friendly_name: 'NVidia Shield'
           entity_id: "device_tracker.nvidia_shield"
@@ -134,66 +146,14 @@ sensor:
           friendly_name: 'iPad'
           entity_id: "device_tracker.paddan"
           value_template: "{{ 'Online' if is_state('device_tracker.paddan', 'home') else 'Offline' }}"
-        # system_galaxy_tab:
-        #   friendly_name: 'Galaxy Tab'
-        #   entity_id: "device_tracker.android8c0fc07d9694a5a2"
-        #   value_template: "{{ 'Online' if is_state('device_tracker.android8c0fc07d9694a5a2', 'home') else 'Offline' }}"
-        # system_hue_hub:
-        #   friendly_name: 'Philips Hue Gateway'
-        #   entity_id: "device_tracker."
-        #   value_template: "{{ 'Online' if is_state('device_tracker.philipshue', 'home') else 'Offline' }}"
         system_asus_router:
           friendly_name: 'Asus Router'
           entity_id: "device_tracker.router_asus"
           value_template: "{{ 'Online' if is_state('device_tracker.router_asus', 'home') else 'Offline' }}"
-        system_ip_camera:
-          friendly_name: 'Sannce Camera'
-          entity_id: "device_tracker.sannce_ip_camera"
-          value_template: "{{ 'Online' if is_state('device_tracker.sannce_ip_camera', 'home') else 'Offline' }}"
-        system_ir_blaster:
-          friendly_name: 'Broadlink IR Blaster Hallway'
-          entity_id: "device_tracker.broadlink_hallway"
-          value_template: "{{ 'Online' if is_state('device_tracker.broadlink_hallway', 'home') else 'Offline' }}"
-        system_withings_scale:
-          friendly_name: 'Withings scale'
-          entity_id: "device_tracker.0024e40a2868"
-          value_template: "{{ 'Online' if is_state('device_tracker.0024e40a2868', 'home') else 'Offline' }}"
-        system_ir_blaster_bedroom:
-          friendly_name: 'Broadlink IR Blaster Bedroom'
-          entity_id: "device_tracker.broadlink_bedroom"
-          value_template: "{{ 'Online' if is_state('device_tracker.broadlink_bedroom', 'home') else 'Offline' }}"
-        system_ir_blaster_living_room:
-          friendly_name: 'Broadlink IR Blaster Living Room'
-          entity_id: "device_tracker.broadlink_rmminiccec6f"
-          value_template: "{{ 'Online' if is_state('device_tracker.broadlink_rmminiccec6f', 'home') else 'Offline' }}"
-        # system_ikea_gateway:
-        #   friendly_name: 'Ikea Trådfri Gateway'
-        #   entity_id: "device_tracker."
-        #   value_template: "{{ 'Online' if is_state('device_tracker.tradfri_gateway', 'home') else 'Offline' }}"
-        system_xiaomi_gateway:
-          friendly_name: 'Xiaomi Gateway'
-          entity_id: "device_tracker.xiaomi_gateway"
-          value_template: "{{ 'Online' if is_state('device_tracker.xiaomi_gateway', 'home') else 'Offline' }}"
-        system_sonos:
-          friendly_name: 'Sonos'
-          entity_id: "device_tracker.sonos_play_3"
-          value_template: "{{ 'Online' if is_state('device_tracker.sonos_play_3', 'home') else 'Offline' }}"
-        system_magic_mirror_rpi:
-          friendly_name: 'Dashboard RPi'
-          entity_id: "device_tracker.raspberrypi_3"
-          value_template: "{{ 'Online' if is_state('device_tracker.raspberrypi_3', 'home') else 'Offline' }}"
         system_hass_rpi:
           friendly_name: 'Hass RPi'
           entity_id: "device_tracker.raspberrypi"
           value_template: "{{ 'Online' if is_state('device_tracker.raspberrypi', 'home') else 'Offline' }}"
-        system_dashboard_rpi:
-          friendly_name: '7" Dashboard RPi'
-          entity_id: "device_tracker.raspberrypi_2"
-          value_template: "{{ 'Online' if is_state('device_tracker.raspberrypi_2', 'home') else 'Offline' }}"
-        system_rpi_zero:
-          friendly_name: 'RPi Zero'
-          entity_id: "device_tracker.raspberrypi_4"
-          value_template: "{{ 'Online' if is_state('device_tracker.raspberrypi_4', 'home') else 'Offline' }}"
         system_ring_doorbell:
           friendly_name: 'Doorbell'
           icon_template: mdi:doorbell-video
@@ -255,8 +215,10 @@ automation:
     trigger:
          - platform: state
            entity_id:
-            #   - sensor.system_asus_router
-            #   - sensor.system_netgear_router
+            #   - sensor.system_ziggo_router
+            #   - sensor.system_tplink_router
+            #   - sensor.system_linksys_router
+            #   - sensor.system_powerline_router
             #   - sensor.system_printer
             #   - sensor.system_nas
             #   # - sensor.system_hue_hub
