@@ -1,0 +1,24 @@
+rest_command:
+  google_backup:
+    url: 'http://localhost:8055/gb/doBackup'
+    timeout: '300'
+
+automation:
+  - alias: '[System] Daily snapshot'
+    initial_state: 'true'
+    trigger:
+    - platform: time
+      at: '2:00:00'
+    action:
+    - data_template:
+        name: Automated backup {{ now().strftime('%Y-%m-%d') }}
+        password: !secret snapshot_password
+      service: hassio.snapshot_full
+
+  - alias: '[System] Google Backup'
+    initial_state: 'true'
+    trigger:
+    - platform: time
+      at: '2:30:00'
+    action:
+    - service: rest_command.google_backup
