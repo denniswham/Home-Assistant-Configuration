@@ -35,7 +35,7 @@ cards:
                         show:
                           icon: false
                           graph: "bar"
-                        name: Cpu use
+                        name: CPU Use
                         entities:
                           - sensor.processor_use
                         line_color: "#389638"
@@ -49,9 +49,9 @@ cards:
                       - type: custom:mini-graph-card
                         show:
                           icon: false
-                        name: Ram free
+                        name: CPU Temp
                         entities:
-                          - sensor.memory_free
+                          - sensor.cpu_temperature
                         font_size: 50
                         line_color: "#389638"
                   - type: horizontal-stack
@@ -60,9 +60,9 @@ cards:
                         show:
                           icon: false
                           graph: "bar"
-                        name: Cpu use
+                        name: RAM Free
                         entities:
-                          - sensor.cpu_temperature
+                          - sensor.memory_free
                         line_color: "#389638"
                         color_thresholds:
                           - value: 50
@@ -74,9 +74,9 @@ cards:
                       - type: custom:mini-graph-card
                         show:
                           icon: false
-                        name: Ram free
+                        name: RAM Use
                         entities:
-                          - sensor.memory_free
+                          - sensor.memory_use_percent
                         font_size: 50
                         line_color: "#389638"
           - break
