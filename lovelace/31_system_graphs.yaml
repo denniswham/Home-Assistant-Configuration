@@ -109,44 +109,41 @@ cards:
           - type: vertical-stack
             cards:
               - type: custom:vertical-stack-in-card
-                title: AdGuard Home
+                title: Raspberry Pi
                 cards:
-                  - type: entities
-                    show_header_toggle: false
-                    entities:
-                        - type: horizontal-stack
-                          cards:
-                            - type: custom:mini-graph-card
-                              show:
-                                icon: false
-                              name: DNS Queries
-                              entities:
-                                - sensor.adguard_dns_queries
-                              font_size: 50
-                              line_color: "#389638"
-                            - type: custom:mini-graph-card
-                              show:
-                                icon: false
-                              name: Blocked by filters
-                              entities:
-                                - sensor.adguard_dns_queries_blocked_ratio
-                              font_size: 50
-                              line_color: "#389638"
-                        - type: horizontal-stack
-                          cards:
-                            - type: custom:mini-graph-card
-                              show:
-                                icon: false
-                              name: Blocked malware/phishing
-                              entities:
-                                - sensor.adguard_safe_browsing_blocked
-                              font_size: 50
-                              line_color: "#389638"                        
-                            - type: custom:mini-graph-card
-                              show:
-                                icon: false
-                              name: Blocked adult wedsites
-                              entities:
-                                - sensor.adguard_parental_control_blocked
-                              font_size: 50
-                              line_color: "#389638"                        
+                  - type: horizontal-stack
+                    cards:
+                      - type: custom:mini-graph-card
+                        show:
+                          icon: false
+                        name: DNS Queries
+                        entities:
+                          - sensor.adguard_dns_queries
+                        font_size: 50
+                        line_color: "#389638"
+                      - type: custom:mini-graph-card
+                        show:
+                          icon: false
+                        name: Blocked by Filters
+                        entities:
+                          - sensor.adguard_dns_queries_blocked
+                        font_size: 50
+                        line_color: "#389638"
+                  - type: horizontal-stack
+                    cards:
+                      - type: custom:mini-graph-card
+                        show:
+                          icon: false
+                        name: 'Blocked malware/phishing'
+                        entities:
+                          - sensor.adguard_safe_browsing_blocked
+                        font_size: 50
+                        line_color: "#389638"
+                      - type: custom:mini-graph-card
+                        show:
+                          icon: false
+                        name: Blocked adult websites
+                        entities:
+                          - sensor.adguard_parental_control_blocked
+                        font_size: 50
+                        line_color: "#389638"
