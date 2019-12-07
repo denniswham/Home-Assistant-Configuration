@@ -111,10 +111,39 @@ cards:
             - type: entities
               show_header_toggle: false
               entities:
-#                - type: custom:dummy-entity-row
-#                  entity: sun.sun
-#                  icon: mdi:nope
-#                  name: !secret 7inch_name
-                - entity: binary_sensor.upstairs_hallway_dashboard_ping
-                  name: 7inch
-                  icon: mdi:raspberry-pi
+                  - type: horizontal-stack
+                    cards:
+                      - type: custom:mini-graph-card
+                        show:
+                          icon: false
+                        name: DNS Queries
+                        entities:
+                          - sensor.adguard_dns_queries
+                        font_size: 50
+                        line_color: "#389638"
+                      - type: custom:mini-graph-card
+                        show:
+                          icon: false
+                        name: Blocked by filters
+                        entities:
+                          - sensor.adguard_dns_queries_blocked_ratio
+                        font_size: 50
+                        line_color: "#389638"
+                  - type: horizontal-stack
+                    cards:
+                      - type: custom:mini-graph-card
+                        show:
+                          icon: false
+                        name: Blocked malware/phishing
+                        entities:
+                          - sensor.adguard_safe_browsing_blocked
+                        font_size: 50
+                        line_color: "#389638"                        
+                      - type: custom:mini-graph-card
+                        show:
+                          icon: false
+                        name: Blocked adult wedsites
+                        entities:
+                          - sensor.adguard_parental_control_blocked
+                        font_size: 50
+                        line_color: "#389638"                        
