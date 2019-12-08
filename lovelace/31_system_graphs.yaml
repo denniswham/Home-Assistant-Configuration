@@ -85,31 +85,19 @@ cards:
               - type: entities
                 show_header_toggle: false
                 entities:
-#                  - type: custom:dummy-entity-row
-#                    entity: sun.sun
-#                    icon: mdi:nope
-#                    name: !secret dashboard_name
-                  - entity: binary_sensor.living_room_dashboard_ping
-                    name: Dashboard
-                    icon: mdi:raspberry-pi
-
-              - type: entities
-                show_header_toggle: false
-                entities:
-#                  - type: custom:dummy-entity-row
-#                    entity: sun.sun
-#                    icon: mdi:nope
-#                    name: !secret zero_name
-                  - entity: binary_sensor.konnected
-                    name: RPi Zero
-                    icon: mdi:raspberry-pi
+                  - entity: sensor.speedtest_upload
+                    name: Upload
+                  - entity: sensor.speedtest_download
+                    name: Upload
+                  - entity: sensor.speedtest_ping
+                    name: Upload
 
           - break
 
           - type: vertical-stack
             cards:
               - type: custom:vertical-stack-in-card
-                title: Raspberry Pi
+                title: AdGuard Home
                 cards:
                   - type: horizontal-stack
                     cards:

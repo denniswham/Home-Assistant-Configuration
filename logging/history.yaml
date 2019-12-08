@@ -3,10 +3,20 @@ include:
   domains:
     - alarm_control_panel
     - light
-    - person
     - sun
   entities:
     - climate.living_room
+    - person.dennis
+    - device_tracker.life360_dennis
+    - device_tracker.sm_g960f
+    - person.stephanie
+    - device_tracker.life360_stephanie
+    - device_tracker.iphone_van_stephanie_3
+    - person.lucas
+    - device_tracker.life360_lucas_ham
+    - device_tracker.iphone_van_lucas_2
+    - person.timo
+    - device_tracker.life360_timo
     - cover.master_bedroom_roller_shutter_level
     - cover.lucas_room_roller_shutter_level
     - sensor.living_room_thermostat_temperature
