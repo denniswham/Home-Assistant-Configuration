@@ -24,6 +24,7 @@ cloud:
 # ########################################
 ios: !include notify/ios_config.yaml
 mobile_app:
+map:
 
 # ########################################
 # ###                GUI               ###
