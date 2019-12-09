@@ -5,11 +5,11 @@
 - name: Stephanie
   id: f3e26345b9554f2eae385de7e93fba4f
   device_trackers:
-    - device_tracker.stephanie_iphone_van_stephanie
+    - device_tracker.iphone_van_stephanie
 - name: Lucas
   id: 608b08fbb0e64b37a098a2c1a226dc93
   device_trackers:
-    - device_tracker.iphone_van_lucas_2
+    - device_tracker.iphone_van_lucas
 - name: Timo
   id: 54e9c7f85a4f4f7ab83c443f63e3f761
   device_trackers:
