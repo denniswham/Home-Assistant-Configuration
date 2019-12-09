@@ -54,23 +54,23 @@ cards:
                     group_config:
                       secondary_info: last-changed
                     items:
-                      - entity: device_tracker.isabella_s_iphone_x_beta
-                        name: Isa beta ios
+                      - entity: device_tracker.iphone_van_stephanie
+                        name: Stephanie iOS
                         icon: mdi:apple
-                      - sensor.isa_activity
-                      - sensor.isa_average_active_pace
-                      - sensor.isa_bssid
-                      - sensor.isa_battery_level
-                      - sensor.isa_battery_state
-                      - sensor.isa_connection_type
-                      - sensor.isa_distance
-                      - sensor.isa_floors_ascended
-                      - sensor.isa_floors_descended
-                      - sensor.isa_geocoded_location
-                      - sensor.isa_last_update_trigger
-                      - sensor.isa_sim
-                      - sensor.isa_ssid
-                      - sensor.isa_steps
+                      - sensor.stephanie_activity
+                      - sensor.stephanie_average_active_pace
+                      - sensor.stephanie_bssid
+                      - sensor.stephanie_battery_level
+                      - sensor.stephanie_battery_state
+                      - sensor.stephanie_connection_type
+                      - sensor.stephanie_distance
+                      - sensor.stephanie_floors_ascended
+                      - sensor.stephanie_floors_descended
+                      - sensor.stephanie_geocoded_location
+                      - sensor.stephanie_last_update_trigger
+                      - sensor.stephanie_sim_1
+                      - sensor.stephanie_ssid
+                      - sensor.stephanie_steps
 
  
                   - type: custom:fold-entity-row
