@@ -326,7 +326,7 @@ cards:
                   - entity: calendar.cleaning_day
                     icon: mdi:broom
                   - input_boolean.guest_mode
-                  - entity: input_boolean.isa_mode
+                  - entity: input_boolean.dennis_mode
                     name: Isa Mode
                     tap_action:
                       action: toggle

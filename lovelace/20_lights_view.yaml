@@ -130,7 +130,7 @@ cards:
         #   toggle: true
         #   hide_when_off: true
           
-        # - entity: light.isa_ceiling_light
+        # - entity: light.dennis_ceiling_light
         #   name: Isa
         #   icon: bha:ceiling-lamp
         #   type: custom:slider-entity-row

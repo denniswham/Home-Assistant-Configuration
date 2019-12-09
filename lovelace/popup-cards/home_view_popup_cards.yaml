@@ -53,14 +53,14 @@
                 - entity: device_tracker.isabella_s_iphone_x_beta
                   name: Isa beta ios
                   icon: mdi:apple
-                - sensor.isa_battery_level
-                - sensor.isa_battery_state
-                - sensor.isa_connection_type
-                - sensor.isa_geocoded_location
-                - sensor.isa_last_update_trigger
-                - sensor.isa_ssid
-                - sensor.isa_activity
-                - sensor.isa_steps
+                - sensor.stephanie_battery_level
+                - sensor.stephanie_battery_state
+                - sensor.stephanie_connection_type
+                - sensor.stephanie_geocoded_location
+                - sensor.stephanie_last_update_trigger
+                - sensor.stephanie_ssid
+                - sensor.stephanie_activity
+                - sensor.stephanie_steps
         - type: map
           default_zoom: 14
           entities:

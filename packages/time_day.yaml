@@ -107,13 +107,13 @@ automation:
 
         ## All computers off (not reliable, due to sometimes leaving on, how to fix?)
         # - condition: state
-        #   entity_id: sensor.isa_computer
+        #   entity_id: sensor.dennis_computer
         #   state: Offline
         # - condition: state
-        #   entity_id: sensor.isa_laptop
+        #   entity_id: sensor.dennis_laptop
         #   state: Offline
         # - condition: state
-        #   entity_id: sensor.stefan_computer
+        #   entity_id: sensor.stephanie_computer
         #   state: Offline
 
         # - condition: state
