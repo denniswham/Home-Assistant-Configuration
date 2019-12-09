@@ -327,7 +327,7 @@ cards:
                     icon: mdi:broom
                   - input_boolean.guest_mode
                   - entity: input_boolean.dennis_mode
-                    name: Isa Mode
+                    name: Dennis Mode
                     tap_action:
                       action: toggle
 
@@ -342,11 +342,13 @@ cards:
                       extrema: true
                       icon: false
                     entities:
-                      - sensor.living_room_thermostat_temperature
+                      - entity: sensor.living_room_thermostat_temperature
+                        name: Temperature
                   - type: custom:mini-graph-card
                     show:
                       graph: false
                       extrema: true
                       icon: false
                     entities:
-                      - sensor.living_room_thermostat_humidity
+                      - entity: sensor.living_room_thermostat_humidity
+                        name: Humidity
