@@ -1,8 +1,23 @@
+include:
+  domains:
+    - alarm_control_panel
+    - climate
+    - cover
+    - input_boolean
+    - input_select
+    - light
+    - media_player
+    - switch
+    - person
+  entities:
+    - device_tracker.iphone_van_stephanie
+    - device_tracker.iphone_van_lucas
+    - device_tracker.sm_g960f
+      
 exclude:
   domains:
     - alert
     - camera
-    - media_player
     - calendar
     - group
     - binary_sensor

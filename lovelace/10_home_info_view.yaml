@@ -325,11 +325,7 @@ cards:
                     name: Vacation
                   - entity: calendar.cleaning_day
                     icon: mdi:broom
-                  - input_boolean.guest_mode
-                  - entity: input_boolean.dennis_mode
-                    name: Dennis Mode
-                    tap_action:
-                      action: toggle
+                  - entity: input_boolean.guest_mode
 
           - break
           - type: vertical-stack
