@@ -1,5 +1,5 @@
-  person.dennis:
-    title: Dennis
+  person.stephanie:
+    title: Stephanie
     card:
       type: vertical-stack
       cards:
@@ -12,29 +12,21 @@
               group_config:
                 secondary_info: last-changed
               items:
-                - entity: sensor.isabellas_iphone_x_battery_level
+                - entity: sensor.stephanie_battery_level
                   name: Battery
-                - entity: sensor.isabellas_iphone_x_battery_state
+                - entity: sensor.stephanie_battery_state
                   name: State
                 - entity: device_tracker.isa_addon_presence
                   name: Isa presence
                   secondary_info: 
                   icon: mdi:map-marker-circle
-                - entity: device_tracker.isabellas_iphone_x
+                - entity: device_tracker.iphone_van_stephanie
                   name: Isa ios
                   icon: mdi:apple
                   secondary_info: last-changed
-                - entity: device_tracker.isabellas_iphone_x_wifi
+                - entity: device_tracker.78_88_6d_4a_1c_4e
                   name: Isa Wifi
                   icon: mdi:wifi
-                  secondary_info: last-changed
-                - entity: sensor.dining_room_isabellas_iphone_x_bt
-                  name: Isa bt dining room
-                  icon: mdi:bluetooth
-                  secondary_info: last-changed
-                - entity: sensor.living_room_isabellas_iphone_x_bt
-                  name: Isa bt living room
-                  icon: mdi:bluetooth
                   secondary_info: last-changed
                 - entity: proximity.home_isa
                   name: Proximity to home
@@ -50,8 +42,8 @@
               group_config:
                 secondary_info: last-changed
               items:
-                - entity: device_tracker.isabella_s_iphone_x_beta
-                  name: Isa beta ios
+                - entity: device_tracker.iphone_van_stephanie
+                  name: Stephanie beta iOS
                   icon: mdi:apple
                 - sensor.stephanie_battery_level
                 - sensor.stephanie_battery_state
@@ -64,10 +56,10 @@
         - type: map
           default_zoom: 14
           entities:
-            - device_tracker.isabellas_iphone_x
+            - device_tracker.iphone_van_stephanie
 
-  person.stephanie:
-    title: Stephanie
+  person.dennis:
+    title: Dennis
     card:
       type: vertical-stack
       cards:
