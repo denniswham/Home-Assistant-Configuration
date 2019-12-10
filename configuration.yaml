@@ -6,25 +6,29 @@ homeassistant:
   whitelist_external_dirs:
     - /config
 
-config:
-hassio:
-system_health:
+default_config:
+#cloud:
+#config:
+#map:
+#mobile_app:
 #ssdp:
+#sun:
+#system_health:
 #zeroconf:
+
+
+hassio:
 http:
 discovery:
 
 # ########################################
 # ###           ASSISTANT             ###
 # ########################################
-cloud:
 
 # ########################################
 # ###             MOBILE               ###
 # ########################################
 ios: !include notify/ios_config.yaml
-mobile_app:
-map:
 
 # ########################################
 # ###                GUI               ###
@@ -74,7 +78,6 @@ device_tracker: !include entities/device_tracker.yaml
 # ########################################
 # ###             SERVICES             ###
 # ########################################
-sun:
 notify: !include notify/notify.yaml
 
 ffmpeg:
