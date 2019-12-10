@@ -37,13 +37,13 @@ cards:
                     columns: 4
                     entities:
                       - entity: sensor.system_living_room_thermostat
-                        name: Entryway Nest Protect
+                        name: Thermostat
                       - entity: sensor.system_entryway_smokeco
-                        name: Entryway Nest Protect
+                        name: Entryway
                       - entity: sensor.system_hallway_smokeco
-                        name: Hallway Nest Protect
+                        name: Hallway
                       - entity: sensor.system_attic_smokeco
-                        name: Attic Nest Protect
+                        name: Attic
                     style:
                       --primary-text-color: white
                       left: 50%
