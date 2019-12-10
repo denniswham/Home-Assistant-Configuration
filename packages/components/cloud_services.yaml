@@ -1,24 +1,6 @@
-# homeassistant:
-#   customize:
-
 ring:
   username: !secret ring_username
   password: !secret ring_password
-
-life360:
-  driving_speed: 30
-  interval_seconds: 10
-  max_gps_accuracy: 200
-  max_update_wait:
-    minutes: 45
-  warning_threshold: 2
-  error_threshold: 3
-
-#alexa_media:
-#  accounts:
-#    email: !secret amazon_user
-#    password: !secret amazon_password
-#    url: amazon.com
 
 group:
   alexa:
