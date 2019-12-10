@@ -107,28 +107,28 @@ sensor:
       system_living_room_echo_dot:
         friendly_name: 'Living Room'
         icon_template: mdi:amazon-alexa
-        entity_id: "device_tracker.38_f7_3d_36_bb_35"
-        value_template: "{{ 'Online' if is_state('device_tracker.38_f7_3d_36_bb_35', 'home') else 'Offline' }}"
+        entity_id: "device_tracker.alexa_living_room"
+        value_template: "{{ 'Online' if is_state('device_tracker.alexa_living_room', 'home') else 'Offline' }}"
       system_master_bedroom_echo_dot:
         friendly_name: 'Master Bedroom'
         icon_template: mdi:amazon-alexa
-        entity_id: "device_tracker.fc_a6_67_f7_a7_a8"
-        value_template: "{{ 'Online' if is_state('device_tracker.fc_a6_67_f7_a7_a8', 'home') else 'Offline' }}"
+        entity_id: "device_tracker.alexa_master_bedroom"
+        value_template: "{{ 'Online' if is_state('device_tracker.alexa_master_bedroom', 'home') else 'Offline' }}"
       system_lucas_bedroom_echo_dot:
         friendly_name: 'Lucas'
         icon_template: mdi:amazon-alexa
-        entity_id: "device_tracker.50_dc_e7_d3_96_9b"
-        value_template: "{{ 'Online' if is_state('device_tracker.50_dc_e7_d3_96_9b', 'home') else 'Offline' }}"
+        entity_id: "device_tracker.alexa_lucas_bedroom"
+        value_template: "{{ 'Online' if is_state('device_tracker.alexa_lucas_bedroom', 'home') else 'Offline' }}"
       system_timo_s_bedroom_echo_dot:
         friendly_name: 'Timo'
         icon_template: mdi:amazon-alexa
-        entity_id: "device_tracker.50_dc_e7_86_6b_b7"
-        value_template: "{{ 'Online' if is_state('device_tracker.50_dc_e7_86_6b_b7', 'home') else 'Offline' }}"
+        entity_id: "device_tracker.alexa_timo_bedroom"
+        value_template: "{{ 'Online' if is_state('device_tracker.alexa_timo_bedroom', 'home') else 'Offline' }}"
       system_emilie_s_bedroom_echo_dot:
         friendly_name: 'Emilie'
         icon_template: mdi:amazon-alexa
-        entity_id: "device_tracker.50_dc_e7_d1_65_55"
-        value_template: "{{ 'Online' if is_state('device_tracker.50_dc_e7_d1_65_55', 'home') else 'Offline' }}"
+        entity_id: "device_tracker.alexa_emilie_bedroom"
+        value_template: "{{ 'Online' if is_state('device_tracker.alexa_emilie_bedroom', 'home') else 'Offline' }}"
 
 automation:
   - alias: '[System] Device Status'

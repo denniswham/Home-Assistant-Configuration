@@ -19,6 +19,6 @@
 - name: Timo
   id: 54e9c7f85a4f4f7ab83c443f63e3f761
   device_trackers:
-#    - device_tracker.life360_timo
+    - device_tracker.oneplus_a5010
     - device_tracker.94_65_2d_c7_0b_9e
     - device_tracker.oneplus_5t

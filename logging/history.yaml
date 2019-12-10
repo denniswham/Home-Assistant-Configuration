@@ -13,6 +13,7 @@ include:
     - person.lucas
     - device_tracker.iphone_van_lucas
     - person.timo
+    - device_tracker.oneplus_a5010
     - cover.master_bedroom_roller_shutter_level
     - cover.lucas_room_roller_shutter_level
     - sensor.living_room_thermostat_temperature
