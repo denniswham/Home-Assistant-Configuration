@@ -3,7 +3,7 @@
   device_trackers:
     - device_tracker.sm_g960f
     - device_tracker.galaxy_s9
-    - devvice_tracker.08_c5_e1_41_9e_d4
+    - device_tracker.08_c5_e1_41_9e_d4
 - name: Stephanie
   id: f3e26345b9554f2eae385de7e93fba4f
   device_trackers:
