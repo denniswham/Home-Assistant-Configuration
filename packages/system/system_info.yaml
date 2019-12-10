@@ -13,7 +13,7 @@ sensor:
         friendly_name: 'Hass RPi'
         icon_template: mdi:home-assistant
         entity_id: "device_tracker.raspberrypi"
-        value_template: "{{ 'Online' if is_state('device_tracker.raspberrypi', 'home') else 'Offline' }}"
+        value_template: "{{ 'Online' }}"
       system_konnected:
         friendly_name: 'Konnected'
         icon_template: mdi:raspberry-pi
