@@ -159,7 +159,7 @@ automation:
            for:
              minutes: 5
     action:
-      - service: notify.html5_galaxy_s9
+      - service: notify.mobile_app_sm_g960f
         data_template:
           title: 'Device {{ trigger.to_state.name }} is'
           message: >

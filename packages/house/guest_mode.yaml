@@ -30,11 +30,11 @@ automation:
         entity_id: input_boolean.guest_mode
         to: 'on'
   action:
-    - service: notify.html5_galaxy_s9
+    - service: notify.mobile_app_sm_g960f
       data_template:
-        title: 'Guest mode on'
+        title: Guest mode on
         message: >
-          'Some automations turned off'
+          Some automations turned off
 
 - alias: '[House] Guest Mode Off'
   initial_state: 'on'
@@ -43,8 +43,8 @@ automation:
         entity_id: input_boolean.guest_mode
         to: 'off'
   action:
-    - service: notify.html5_galaxy_s9
+    - service: notify.mobile_app_sm_g960f
       data_template:
-        title: 'Guest mode off'
+        title: Guest mode off
         message: >
-          'Automations turned on again'
+          Automations turned on again
