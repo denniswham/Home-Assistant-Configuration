@@ -8,42 +8,12 @@
             - type: custom:fold-entity-row
               head:
                 type: section
-                label: Real app
-              group_config:
-                secondary_info: last-changed
-              items:
-                - entity: sensor.stephanie_battery_level
-                  name: Battery
-                - entity: sensor.stephanie_battery_state
-                  name: State
-                - entity: device_tracker.isa_addon_presence
-                  name: Isa presence
-                  secondary_info: 
-                  icon: mdi:map-marker-circle
-                - entity: device_tracker.iphone_van_stephanie
-                  name: Isa ios
-                  icon: mdi:apple
-                  secondary_info: last-changed
-                - entity: device_tracker.78_88_6d_4a_1c_4e
-                  name: Isa Wifi
-                  icon: mdi:wifi
-                  secondary_info: last-changed
-                - entity: proximity.home_isa
-                  name: Proximity to home
-                  type: custom:multiple-entity-row
-                  primary:
-                    entity: proximity.home_isa
-                    attribute: dir_of_travel
-                    name: false
-            - type: custom:fold-entity-row
-              head:
-                type: section
-                label: Beta test
+                label: Mobile App
               group_config:
                 secondary_info: last-changed
               items:
                 - entity: device_tracker.iphone_van_stephanie
-                  name: Stephanie beta iOS
+                  name: Stephanie iOS
                   icon: mdi:apple
                 - sensor.stephanie_battery_level
                 - sensor.stephanie_battery_state
@@ -57,6 +27,36 @@
           default_zoom: 14
           entities:
             - device_tracker.iphone_van_stephanie
+
+  person.lucas:
+    title: Lucas
+    card:
+      type: vertical-stack
+      cards:
+        - type: entities
+          entities:
+            - type: custom:fold-entity-row
+              head:
+                type: section
+                label: Mobile App
+              group_config:
+                secondary_info: last-changed
+              items:
+                - entity: device_tracker.iphone_van_lucas
+                  name: Lucas iOS
+                  icon: mdi:apple
+                - sensor.lucas_battery_level
+                - sensor.lucas_battery_state
+                - sensor.lucas_connection_type
+                - sensor.lucas_geocoded_location
+                - sensor.lucas_last_update_trigger
+                - sensor.lucas_ssid
+                - sensor.lucas_activity
+                - sensor.lucas_steps
+        - type: map
+          default_zoom: 14
+          entities:
+            - device_tracker.iphone_van_lucas
 
   person.dennis:
     title: Dennis
