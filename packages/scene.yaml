@@ -54,8 +54,6 @@ scene:
       climate.living_room:
         state: heat
         temperature: 17.0
-      media_player.living_room_xbox_one:
-        state: "off"
       light.living_room_spot_lights_dimmer_level:
         state: "off"
       light.office_spot_lights_dimmer_level:

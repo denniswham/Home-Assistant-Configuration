@@ -8,6 +8,3 @@
 - platform: spotify
   client_id: !secret spotify_client_id
   client_secret: !secret spotify_client_secret
-- platform: xboxone
-  device: !secret xbox_device
-  name: Living Room Xbox One
