@@ -3,6 +3,10 @@
     card:
       type: vertical-stack
       cards:
+        - type: map
+          default_zoom: 14
+          entities:
+            - device_tracker.iphone_van_stephanie
         - type: entities
           entities:
             - type: custom:fold-entity-row
@@ -23,16 +27,16 @@
                 - sensor.stephanie_ssid
                 - sensor.stephanie_activity
                 - sensor.stephanie_steps
-        - type: map
-          default_zoom: 14
-          entities:
-            - device_tracker.iphone_van_stephanie
 
   person.lucas:
     title: Lucas
     card:
       type: vertical-stack
       cards:
+        - type: map
+          default_zoom: 14
+          entities:
+            - device_tracker.iphone_van_lucas
         - type: entities
           entities:
             - type: custom:fold-entity-row
@@ -53,16 +57,16 @@
                 - sensor.lucas_ssid
                 - sensor.lucas_activity
                 - sensor.lucas_steps
-        - type: map
-          default_zoom: 14
-          entities:
-            - device_tracker.iphone_van_lucas
 
   person.dennis:
     title: Dennis
     card:
       type: vertical-stack
       cards:
+        - type: map
+          default_zoom: 14
+          entities:
+            - device_tracker.sm_g960f
         - type: entities
           entities:
             - type: custom:fold-entity-row
@@ -83,16 +87,16 @@
                 - sensor.dennis_ssid
                 - sensor.dennis_activity
                 - sensor.dennis_steps
-        - type: map
-          default_zoom: 14
-          entities:
-            - device_tracker.sm_g960f
 
   person.timo:
     title: Timo
     card:
       type: vertical-stack
       cards:
+        - type: map
+          default_zoom: 14
+          entities:
+            - device_tracker.oneplus_a5010
         - type: entities
           entities:
             - type: custom:fold-entity-row
@@ -113,10 +117,6 @@
                 - sensor.timo_ssid
                 - sensor.timo_activity
                 - sensor.timo_steps
-        - type: map
-          default_zoom: 14
-          entities:
-            - device_tracker.oneplus_a5010
 
   sensor.outer_doors:
     title: Doors

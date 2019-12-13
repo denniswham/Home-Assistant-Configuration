@@ -25,7 +25,6 @@ lovelace-dev
 .uuid
 core
 google_calendars.yaml
-html5_push_registrations.conf
 ip_bans.yaml
 known_devices.yaml
 options.xml
