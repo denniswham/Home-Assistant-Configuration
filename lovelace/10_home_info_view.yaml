@@ -50,7 +50,7 @@ cards:
                   - type: custom:fold-entity-row
                     head:
                       type: section
-                      label: Beta test
+                      label: Presence
                     group_config:
                       secondary_info: last-changed
                     items:
@@ -95,227 +95,114 @@ cards:
                     group_config:
                       secondary_info: last-changed
                     items:
-                      - entity: sensor.isabellas_iphone_x_battery_level
+                      - entity: sensor.dennis_battery_level
                         type: custom:secondaryinfo-entity-row
-                        secondary_info: "[[ sensor.isabellas_iphone_x_battery_state.state ]]"
-                      - entity: device_tracker.isa_addon_presence
-                        name: Isa presence
-                        secondary_info: last-changed
-                        icon: mdi:map-marker-circle
-                      - entity: device_tracker.isabellas_iphone_x
+                        secondary_info: sensor.dennis_battery_state
+                      - entity: device_tracker.iphone_van_stephanie
                         type: custom:secondaryinfo-entity-row
-                        name: Isa ios
-                        icon: mdi:apple
+                        name: Dennis Android
+                        icon: mdi:android
                         secondary_info: "[[ device_tracker.isabellas_iphone_x.attributes.timestamp ]]"
-                      - entity: device_tracker.isabellas_iphone_x_wifi
-                        name: Isa Wifi
+                      - entity: sensor.dennis_ssid
+                        name: Dennis Wifi
                         icon: mdi:wifi
                         secondary_info: last-changed
-                      - entity: sensor.dining_room_isabellas_iphone_x_bt
-                        name: Isa bt dining room
-                        icon: mdi:bluetooth
-                        secondary_info: last-changed
-                      - entity: sensor.living_room_isabellas_iphone_x_bt
-                        name: Isa bt living room
-                        icon: mdi:bluetooth
-                        secondary_info: last-changed
-                      - entity: proximity.home_isa
+                      - entity: proximity.dennis
                         name: Proximity to home
                         type: custom:multiple-entity-row
                         primary:
-                          entity: proximity.home_isa
-                          attribute: dir_of_travel
-                          name: false
+                      - entity: proximity.dennis
+                        attribute: dir_of_travel
+                        name: false
                       
                       - type: divider
 
-                      - entity: sensor.igrims_battery_level
+                      - entity: sensor.stephanie_battery_level
                         type: custom:secondaryinfo-entity-row
-                        secondary_info: "[[ sensor.igrims_battery_state.state ]]"
-                      - entity: device_tracker.stefan_addon_presence
-                        name: Stefan presence
-                        icon: mdi:map-marker-circle
-                        secondary_info: last-changed
-                      - entity: device_tracker.stefan_iphone_7
-                        name: Stefan ios
+                        secondary_info: sensor.stephanie_battery_state
+                      - entity: device_tracker.iphone_van_stephanie
+                        type: custom:secondaryinfo-entity-row
+                        name: Stephanie iOS
                         icon: mdi:apple
-                        type: custom:secondaryinfo-entity-row
-                        secondary_info: "[[ device_tracker.stefan_iphone_7.attributes.timestamp ]]"
-                      - entity: device_tracker.stefan_iphone_7_wifi
-                        name: Stefan Wifi
+                        secondary_info: "[[ device_tracker.isabellas_iphone_x.attributes.timestamp ]]"
+                      - entity: sensor.stephanie_ssid
+                        name: Stephanie Wifi
                         icon: mdi:wifi
                         secondary_info: last-changed
-                      - entity: sensor.dining_room_stefan_iphone_7_bt
-                        name: Stefan bt dining room
-                        icon: mdi:bluetooth
-                        secondary_info: last-changed
-                      - entity: sensor.living_room_stefan_iphone_7_bt
-                        name: Stefan bt living room
-                        icon: mdi:bluetooth
-                        secondary_info: last-changed
-                      - entity: proximity.home_stefan
+                      - entity: proximity.stephanie
                         name: Proximity to home
                         type: custom:multiple-entity-row
                         primary:
-                          entity: proximity.home_stefan
-                          attribute: dir_of_travel
-                          name: false
+                      - entity: proximity.stephanie
+                        attribute: dir_of_travel
+                        name: false
                         
-                      - type: divider
+                      # - type: divider
                       
-                      - entity: sensor.unlocked_by
-                        name: Front door last unlocked by
-                        secondary_info: last-changed
-                      - entity: sensor.monitor_dining_room
-                        name: Monitor status
-                        secondary_info: last-changed
-                      - entity: sensor.monitor_living_room
-                        name: Monitor Living Room status
-                        secondary_info: last-changed
-                      - entity: sensor.trash
+                      # - entity: sensor.unlocked_by
+                      #   name: Front door last unlocked by
+                      #   secondary_info: last-changed
+                      # - entity: sensor.monitor_dining_room
+                      #   name: Monitor status
+                      #   secondary_info: last-changed
+                      # - entity: sensor.monitor_living_room
+                      #   name: Monitor Living Room status
+                      #   secondary_info: last-changed
+                      # - entity: sensor.trash
           - break
           - type: vertical-stack
             cards:
 
-              # - type: horizontal-stack
-              #   cards:
-              #     - type: custom:mini-graph-card
-              #       show:
-              #         icon: false
-              #         extrema: true
-              #       entities:
-              #         - sensor.temperature_bedroom
-              #       height: 75
-              #       color_thresholds:
-              #         - value: 0
-              #           color: "#CCE5FF"
-              #         - value: 10
-              #           color: "#66B2FF"
-              #         - value: 18
-              #           color: "#0080FF"
-              #         - value: 20
-              #           color: "#87c087"
-              #         - value: 21
-              #           color: "#389638"
-              #         - value: 24
-              #           color: "#FF9932"
-              #         - value: 25
-              #           color: "#FF8000"
-              #         - value: 26
-              #           color: "#ff0000"
-              #     - type: custom:mini-graph-card
-              #       show:
-              #         icon: false
-              #         extrema: true
-              #       entities:
-              #         - sensor.temperature_stefan
-              #       height: 75
-              #       color_thresholds:
-              #         - value: 0
-              #           color: "#CCE5FF"
-              #         - value: 10
-              #           color: "#66B2FF"
-              #         - value: 18
-              #           color: "#0080FF"
-              #         - value: 20
-              #           color: "#87c087"
-              #         - value: 21
-              #           color: "#389638"
-              #         - value: 24
-              #           color: "#FF9932"
-              #         - value: 25
-              #           color: "#FF8000"
-              #         - value: 26
-              #           color: "#ff0000"
-              # - type: horizontal-stack
-              #   cards:
-              #     - type: custom:mini-graph-card
-              #       show:
-              #         icon: false
-              #         extrema: true
-              #       entities:
-              #         - sensor.temperature_passage
-              #       height: 75
-              #       color_thresholds:
-              #         - value: 0
-              #           color: "#CCE5FF"
-              #         - value: 10
-              #           color: "#66B2FF"
-              #         - value: 18
-              #           color: "#0080FF"
-              #         - value: 20
-              #           color: "#87c087"
-              #         - value: 21
-              #           color: "#389638"
-              #         - value: 24
-              #           color: "#FF9932"
-              #         - value: 25
-              #           color: "#FF8000"
-              #         - value: 26
-              #           color: "#ff0000"
-              #     - type: custom:mini-graph-card
-              #       show:
-              #         icon: false
-              #         extrema: true
-              #       entities:
-              #         - sensor.temperature_downstairs_bathroom
-              #       height: 75
-              #       color_thresholds:
-              #         - value: 0
-              #           color: "#CCE5FF"
-              #         - value: 10
-              #           color: "#66B2FF"
-              #         - value: 18
-              #           color: "#0080FF"
-              #         - value: 20
-              #           color: "#87c087"
-              #         - value: 21
-              #           color: "#389638"
-              #         - value: 24
-              #           color: "#FF9932"
-              #         - value: 25
-              #           color: "#FF8000"
-              #         - value: 26
-              #           color: "#ff0000"
-              # - type: horizontal-stack
-              #   cards:
-              #     - type: custom:mini-graph-card
-              #       show:
-              #         icon: false
-              #         extrema: true
-              #         fill: fade
-              #       entities:
-              #         - sensor.temperature_storage
-              #       # height: 75
-              #       color_thresholds:
-              #         - value: -5
-              #           color: "#66B2FF"
-              #         - value: 3
-              #           color: "#87c087"
-              #         - value: 5
-              #           color: "#389638"
-              #     - type: custom:mini-graph-card
-              #       show:
-              #         icon: false
-              #         extrema: true
-              #       entities:
-              #         - sensor.refrigerator
-              #       height: 75
-              #       color_thresholds:
-              #         - value: -5
-              #           color: "#66B2FF"
-              #         - value: 0
-              #           color: "#ff0000"
-              #         - value: 2
-              #           color: "#66B2FF"
-              #         - value: 3
-              #           color: "#0080FF"
-              #         - value: 4
-              #           color: "#389638"
-              #         - value: 7
-              #           color: "#FF9932"
-              #         - value: 8
-              #           color: "#ff0000"
+              - type: horizontal-stack
+                cards:
+                  - type: custom:mini-graph-card
+                    show:
+                      icon: false
+                      extrema: true
+                    entities:
+                      - sensor.living_room_thermostat_temperature
+                    height: 75
+                    color_thresholds:
+                      - value: 0
+                        color: "#CCE5FF"
+                      - value: 10
+                        color: "#66B2FF"
+                      - value: 18
+                        color: "#0080FF"
+                      - value: 20
+                        color: "#87c087"
+                      - value: 21
+                        color: "#389638"
+                      - value: 24
+                        color: "#FF9932"
+                      - value: 25
+                        color: "#FF8000"
+                      - value: 26
+                        color: "#ff0000"
+                  - type: custom:mini-graph-card
+                    show:
+                      icon: false
+                      extrema: true
+                    entities:
+                      - sensor.br_temperature
+                    height: 75
+                    color_thresholds:
+                      - value: 0
+                        color: "#CCE5FF"
+                      - value: 10
+                        color: "#66B2FF"
+                      - value: 18
+                        color: "#0080FF"
+                      - value: 20
+                        color: "#87c087"
+                      - value: 21
+                        color: "#389638"
+                      - value: 24
+                        color: "#FF9932"
+                      - value: 25
+                        color: "#FF8000"
+                      - value: 26
+                        color: "#ff0000"
 
               - type: glance
                 show_header_toggle: false

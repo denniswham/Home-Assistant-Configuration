@@ -12,3 +12,15 @@ proximity:
       - person.stephanie
     tolerance: 50
     unit_of_measurement: km
+
+  dennis:
+    devices:
+      - person.dennis
+    tolerance: 50
+    unit_of_measurement: km
+
+  stephanie:
+    devices:
+      - person.stephanie
+    tolerance: 50
+    unit_of_measurement: km
