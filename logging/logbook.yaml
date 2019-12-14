@@ -12,8 +12,8 @@ include:
   entities:
     - device_tracker.iphone_van_stephanie
     - device_tracker.iphone_van_lucas
-    - device_tracker.dennis_galaxy
-    - device_tracker.timo_s_oneplus
+    - device_tracker.smg960f
+    - device_tracker.oneplus_a5010
       
 exclude:
   domains:
