@@ -54,47 +54,6 @@ cards:
                     group_config:
                       secondary_info: last-changed
                     items:
-                      - entity: device_tracker.iphone_van_stephanie
-                        name: Stephanie iOS
-                        icon: mdi:apple
-                      - sensor.stephanie_activity
-                      - sensor.stephanie_average_active_pace
-                      - sensor.stephanie_bssid
-                      - sensor.stephanie_battery_level
-                      - sensor.stephanie_battery_state
-                      - sensor.stephanie_connection_type
-                      - sensor.stephanie_distance
-                      - sensor.stephanie_floors_ascended
-                      - sensor.stephanie_floors_descended
-                      - sensor.stephanie_geocoded_location
-                      - sensor.stephanie_last_update_trigger
-                      - sensor.stephanie_sim_1
-                      - sensor.stephanie_ssid
-                      - sensor.stephanie_steps
-
- 
-                  - type: custom:fold-entity-row
-                    head:
-                      type: section
-                      label: Security
-                    group_config:
-                      secondary_info: last-changed
-                    items:
-                      - binary_sensor.entryway
-                      - binary_sensor.kitchen
-                      - binary_sensor.living_room
-                      - binary_sensor.office
-                      - binary_sensor.garage
-                      - binary_sensor.ring_front_door_motion
-                      - binary_sensor.ring_backyard_motion
-
-                  - type: custom:fold-entity-row
-                    head:
-                      type: section
-                      label: Presence
-                    group_config:
-                      secondary_info: last-changed
-                    items:
                       - entity: sensor.dennis_battery_level
                         type: custom:secondaryinfo-entity-row
                         secondary_info: sensor.dennis_battery_state
@@ -137,6 +96,47 @@ cards:
                         attribute: dir_of_travel
                         name: false
                         
+                  - type: custom:fold-entity-row
+                    head:
+                      type: section
+                      label: Presence
+                    group_config:
+                      secondary_info: last-changed
+                    items:
+                      - entity: device_tracker.iphone_van_stephanie
+                        name: Stephanie iOS
+                        icon: mdi:apple
+                      - sensor.stephanie_activity
+                      - sensor.stephanie_average_active_pace
+                      - sensor.stephanie_bssid
+                      - sensor.stephanie_battery_level
+                      - sensor.stephanie_battery_state
+                      - sensor.stephanie_connection_type
+                      - sensor.stephanie_distance
+                      - sensor.stephanie_floors_ascended
+                      - sensor.stephanie_floors_descended
+                      - sensor.stephanie_geocoded_location
+                      - sensor.stephanie_last_update_trigger
+                      - sensor.stephanie_sim_1
+                      - sensor.stephanie_ssid
+                      - sensor.stephanie_steps
+
+ 
+                  - type: custom:fold-entity-row
+                    head:
+                      type: section
+                      label: Security
+                    group_config:
+                      secondary_info: last-changed
+                    items:
+                      - binary_sensor.entryway
+                      - binary_sensor.kitchen
+                      - binary_sensor.living_room
+                      - binary_sensor.office
+                      - binary_sensor.garage
+                      - binary_sensor.ring_front_door_motion
+                      - binary_sensor.ring_backyard_motion
+
                       # - type: divider
                       
                       # - entity: sensor.unlocked_by
