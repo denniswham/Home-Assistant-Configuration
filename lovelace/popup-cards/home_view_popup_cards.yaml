@@ -66,7 +66,7 @@
         - type: map
           default_zoom: 14
           entities:
-            - device_tracker.sm_g960f
+            - device_tracker.dennis_galaxy
         - type: entities
           entities:
             - type: custom:fold-entity-row
@@ -76,7 +76,7 @@
               group_config:
                 secondary_info: last-changed
               items:
-                - entity: device_tracker.sm_g960f
+                - entity: device_tracker.dennis_galaxy
                   name: Dennis Android
                   icon: mdi:android
                 - sensor.dennis_battery_level
@@ -96,7 +96,7 @@
         - type: map
           default_zoom: 14
           entities:
-            - device_tracker.oneplus_a5010
+            - device_tracker.timo_s_oneplus
         - type: entities
           entities:
             - type: custom:fold-entity-row
@@ -106,7 +106,7 @@
               group_config:
                 secondary_info: last-changed
               items:
-                - entity: device_tracker.oneplus_a5010
+                - entity: device_tracker.timo_s_oneplus
                   name: Timo Android
                   icon: mdi:android
                 - sensor.timo_battery_level

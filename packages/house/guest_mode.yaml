@@ -30,7 +30,7 @@ automation:
         entity_id: input_boolean.guest_mode
         to: 'on'
   action:
-    - service: notify.mobile_app_sm_g960f
+    - service: notify.mobile_app_dennis_galaxy
       data_template:
         title: Guest mode on
         message: >
@@ -43,7 +43,7 @@ automation:
         entity_id: input_boolean.guest_mode
         to: 'off'
   action:
-    - service: notify.mobile_app_sm_g960f
+    - service: notify.mobile_app_dennis_galaxy
       data_template:
         title: Guest mode off
         message: >

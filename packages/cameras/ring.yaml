@@ -76,7 +76,7 @@ automation:
       data_template:
         message: "{{ trigger.entity_id.name }} reported low battery, please charge."
         title: Ring Battery Low
-    - service: notify.mobile_app_sm_g960f
+    - service: notify.mobile_app_dennis_galaxy
       data_template:
         message: "{{ trigger.entity_id.name }} reported low battery, please charge."
         title: Ring Battery Low
