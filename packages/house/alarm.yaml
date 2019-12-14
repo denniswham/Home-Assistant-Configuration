@@ -256,7 +256,7 @@ automation:
         target:
           - group.alexa
         message: Your alarm was activated
-    - service: notify.html5
+    - service: notify.all_devices
       data:
         title: Konnected
         message: Your alarm was activated
@@ -268,13 +268,6 @@ automation:
           tag: konnected-alarm-notification
           ttl: 86400
           priority: high      
-    - service: notify.notify
-      data:
-        message: "Your alarm was activated"
-        data:
-          push:
-            badge: 0
-            category: alarm_control_panel.Konnected_Alarm
 
   - alias: '[Alarm] Pending alarm'
     initial_state: 'true'
@@ -338,26 +331,6 @@ sensor:
           {% else %}
             silent
           {% endif %}
-
-  # - platform: template           #doublecheck
-  #   switches:
-  #     security_armed:
-  #       friendly_name: Home Security Arm
-  #       value_template: "{{states('alarm_control_panel.konnected_alarm') != 'disarmed'}}"
-  #       turn_on:
-  #         - service: alarm_control_panel.alarm_arm_away
-  #           entity_id:
-  #             - alarm_control_panel.konnected_alarm
-  #       turn_off:
-  #         - service: alarm_control_panel.alarm_disarm
-  #           entity_id:
-  #             - alarm_control_panel.konnected_alarm
-
-# input_boolean:
-#   konnectedupdate:
-#     name: Alarm Updates
-#     initial: on
-#     icon: mdi:security_armed
 
 input_select:
   konnectedstatus:

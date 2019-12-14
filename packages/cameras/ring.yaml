@@ -38,7 +38,7 @@ automation:
         target:
           - group.alexa
         message: "Motion in the backyard"
-    - service: notify.html5
+    - service: notify.all_devices
       data:
         title: Ring
         message: There is motion at your backyard
@@ -50,13 +50,6 @@ automation:
           tag: ring_alert
           ttl: 86400
           priority: high      
-    - service: notify.notify
-      data:
-        message: There is motion at your backyard
-        data:
-          push:
-            badge: 0
-            category: ring_alert  
 
   - alias: '[Ring] Low Battery Notification'
     initial_state: 'on'
