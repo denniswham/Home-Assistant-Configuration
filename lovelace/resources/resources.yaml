@@ -20,7 +20,8 @@
     type: js
   - url: /community_plugin/vertical-stack-in-card/vertical-stack-in-card.js
     type: js
-
+  - url: /community_plugin/lovelace-multiple-entity-row/multiple-entity-row.js
+    type: js
 
   - url: /community_plugin/lovelace-auto-entities/auto-entities.js
     type: module

@@ -7,14 +7,16 @@ homeassistant:
     - /config
 
 default_config:
-#cloud:
-#config:
-#map:
-#mobile_app:
-#ssdp:
-#sun:
-#system_health:
-#zeroconf:
+# cloud:
+# config:
+# ios: !include notify/ios_config.yaml
+# map:
+# mobile_app:
+# person: !include entities/person.yaml
+# ssdp:
+# sun:
+# system_health:
+# zeroconf:
 
 
 hassio:
@@ -28,7 +30,6 @@ discovery:
 # ########################################
 # ###             MOBILE               ###
 # ########################################
-ios: !include notify/ios_config.yaml
 
 # ########################################
 # ###                GUI               ###
@@ -71,7 +72,6 @@ logger: !include logging/logger.yaml
 # ########################################
 # ###              ENTITIES             ###
 # ########################################
-person: !include entities/person.yaml
 media_player: !include entities/media_player.yaml
 device_tracker: !include entities/device_tracker.yaml
 
