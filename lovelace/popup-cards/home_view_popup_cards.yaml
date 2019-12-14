@@ -79,14 +79,14 @@
                 - entity: device_tracker.dennis_galaxy
                   name: Dennis Android
                   icon: mdi:android
-                - sensor.dennis_battery_level
-                - sensor.dennis_battery_state
-                - sensor.dennis_connection_type
-                - sensor.dennis_geocoded_location
-                - sensor.dennis_last_update_trigger
-                - sensor.dennis_ssid
-                - sensor.dennis_activity
-                - sensor.dennis_steps
+                # - sensor.dennis_battery_level
+                # - sensor.dennis_battery_state
+                # - sensor.dennis_connection_type
+                # - sensor.dennis_geocoded_location
+                # - sensor.dennis_last_update_trigger
+                # - sensor.dennis_ssid
+                # - sensor.dennis_activity
+                # - sensor.dennis_steps
 
   person.timo:
     title: Timo
@@ -109,14 +109,14 @@
                 - entity: device_tracker.timo_s_oneplus
                   name: Timo Android
                   icon: mdi:android
-                - sensor.timo_battery_level
-                - sensor.timo_battery_state
-                - sensor.timo_connection_type
-                - sensor.timo_geocoded_location
-                - sensor.timo_last_update_trigger
-                - sensor.timo_ssid
-                - sensor.timo_activity
-                - sensor.timo_steps
+                # - sensor.timo_battery_level
+                # - sensor.timo_battery_state
+                # - sensor.timo_connection_type
+                # - sensor.timo_geocoded_location
+                # - sensor.timo_last_update_trigger
+                # - sensor.timo_ssid
+                # - sensor.timo_activity
+                # - sensor.timo_steps
 
   sensor.outer_doors:
     title: Doors
