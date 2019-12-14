@@ -22,6 +22,8 @@
     type: js
   - url: /community_plugin/lovelace-multiple-entity-row/multiple-entity-row.js
     type: js
+  - url: /community_plugin/secondaryinfo-entity-row/
+    type:     
 
   - url: /community_plugin/lovelace-auto-entities/auto-entities.js
     type: module
