@@ -42,7 +42,7 @@ cards:
                     hide:
                       power_state: false
                   - type: custom:mini-media-player
-                    entity: media_player.living_room_chromecast
+                    entity: media_player.living_room_fire_tv_stick
                     group: true
                     artwork: cover
                     hide:
@@ -59,7 +59,7 @@ cards:
               - type: entities
                 entities:
                   - type: custom:mini-media-player
-                    entity: media_player.bedroom_chromecast
+                    entity: media_player.master_bedroom_fire_tv_stick
                     group: true
                     artwork: cover
                     hide:

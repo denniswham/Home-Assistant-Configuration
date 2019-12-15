@@ -39,6 +39,4 @@ views:
   - !include lovelace/80_automations_view.yaml
   - !include lovelace/99_settings_view.yaml
   - !include lovelace/102_nest_dashboard.yaml
-  - !include lovelace/01_homekit_view.yaml
-
   - !include lovelace/media.yaml

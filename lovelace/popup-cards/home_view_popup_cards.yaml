@@ -194,22 +194,19 @@
         - entity: light.outdoor_yard_light_net
           name: Light net
           icon: bha:light-string
-  weather.smhi_home:
+
+  weather.lopik_cabauw:
     title: Weather
     card:
       type: vertical-stack
       cards:
         - type: custom:simple-weather-card
-          entity: weather.smhi_home
+          entity: weather.lopik_cabauw
           name: " "
         - type: custom:vertical-stack-in-card
           cards:
           - type: picture-entity
-            entity: camera.fisksatra_meteogram
-            show_name: false
-            show_state: false
-          - type: picture-entity
-            entity: camera.stockholm_meteogram
+            entity: camera.meteogram
             show_name: false
             show_state: false
 
