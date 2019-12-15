@@ -125,12 +125,17 @@ cards:
                       #   secondary_info: last-changed
                       # - entity: sensor.trash
           - break
+          - type: vertical-stack
+            cards:
+
               - type: glance
                 show_header_toggle: false
-                columns: 2
+                columns: 3
                 entities:
                   - entity: input_boolean.vacation_mode
                     name: Vacation
+                  - entity: calendar.cleaning_day
+                    icon: mdi:broom
                   - entity: input_boolean.guest_mode
 
           - break
