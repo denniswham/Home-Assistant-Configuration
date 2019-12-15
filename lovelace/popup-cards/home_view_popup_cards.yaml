@@ -210,6 +210,21 @@
             show_name: false
             show_state: false
 
+  sensor.sirens:
+    title: Sirens
+    card:
+      type: entities
+      show_header_toggle: false
+      entities:
+        - type: section
+          label: Frontdoor
+        - entity: switch.siren
+          name: Alarm Siren
+        - type: section
+          label: Backyard
+        - entity: switch.backyard_siren
+          name: Cam Siren
+
   sensor.house_movement:
     title: Movement
     card:
