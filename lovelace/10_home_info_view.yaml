@@ -125,68 +125,12 @@ cards:
                       #   secondary_info: last-changed
                       # - entity: sensor.trash
           - break
-          - type: vertical-stack
-            cards:
-
-              - type: horizontal-stack
-                cards:
-                  - type: custom:mini-graph-card
-                    show:
-                      icon: false
-                      extrema: true
-                    entities:
-                      - sensor.living_room_thermostat_temperature
-                    height: 75
-                    color_thresholds:
-                      - value: 0
-                        color: "#CCE5FF"
-                      - value: 10
-                        color: "#66B2FF"
-                      - value: 18
-                        color: "#0080FF"
-                      - value: 20
-                        color: "#87c087"
-                      - value: 21
-                        color: "#389638"
-                      - value: 24
-                        color: "#FF9932"
-                      - value: 25
-                        color: "#FF8000"
-                      - value: 26
-                        color: "#ff0000"
-                  - type: custom:mini-graph-card
-                    show:
-                      icon: false
-                      extrema: true
-                    entities:
-                      - sensor.br_temperature
-                    height: 75
-                    color_thresholds:
-                      - value: 0
-                        color: "#CCE5FF"
-                      - value: 10
-                        color: "#66B2FF"
-                      - value: 18
-                        color: "#0080FF"
-                      - value: 20
-                        color: "#87c087"
-                      - value: 21
-                        color: "#389638"
-                      - value: 24
-                        color: "#FF9932"
-                      - value: 25
-                        color: "#FF8000"
-                      - value: 26
-                        color: "#ff0000"
-
               - type: glance
                 show_header_toggle: false
-                columns: 3
+                columns: 2
                 entities:
                   - entity: input_boolean.vacation_mode
                     name: Vacation
-                  - entity: calendar.cleaning_day
-                    icon: mdi:broom
                   - entity: input_boolean.guest_mode
 
           - break
