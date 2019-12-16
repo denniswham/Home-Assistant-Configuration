@@ -1,0 +1,58 @@
+  - alias: '[Ring]  Motion in backyard'
+    initial_state: 'true'
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.ring_backyard_motion
+      to: 'on'
+    condition:
+      condition: or
+      conditions:
+      - condition: state
+        entity_id: alarm_control_panel.Konnected_Alarm
+        state: armed_away
+      - condition: state
+        entity_id: alarm_control_panel.Konnected_Alarm
+        state: armed_home
+    action:
+    - service: notify.alexa_media
+      data:
+        data:
+          type: tts
+        target:
+          - group.alexa
+        message: "Motion in the backyard"
+    - service: notify.all_devices
+      data:
+        title: Ring
+        message: There is motion at your backyard
+        data:
+          actions:
+            - action: open
+              icon: "/local/icons/konnected.png"
+              title: Open Home Assistant
+          tag: ring_alert
+          ttl: 86400
+          priority: high      
+
+  - alias: '[Ring] Low Battery Notification'
+    initial_state: 'on'
+    trigger:
+    - platform: numeric_state
+      entity_id:
+        - sensor.ring_front_door_battery
+        - sensor.ring_backyard_battery
+      below: 15
+    - platform: numeric_state
+      entity_id:
+        - sensor.ring_front_door_battery
+        - sensor.ring_backyard_battery
+      below: 10
+    action:
+    - service: persistent_notification.create
+      data_template:
+        message: "{{ trigger.entity_id.name }} reported low battery, please charge."
+        title: Ring Battery Low
+    - service: notify.mobile_app_sm_g960f
+      data_template:
+        message: "{{ trigger.entity_id.name }} reported low battery, please charge."
+        title: Ring Battery Low
