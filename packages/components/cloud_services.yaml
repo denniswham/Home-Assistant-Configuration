@@ -16,7 +16,7 @@ group:
     - media_player.living_room_fire_tv_stick
     - media_player.master_bedroom_fire_tv_stick
 
-automation:
+automation old:
   - alias: "[Alexa] Enable Do Not Disturb"
     initial_state: 'on'
     trigger:

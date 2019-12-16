@@ -22,7 +22,7 @@ input_boolean:
     name: Guest Mode
     icon: mdi:account-group
 
-automation:
+automation old:
 - alias: '[House] Guest Mode On'
   initial_state: 'on'
   trigger:

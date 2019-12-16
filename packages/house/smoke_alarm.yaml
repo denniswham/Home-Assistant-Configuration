@@ -19,7 +19,7 @@ homeassistant:
     sensor.attic_nest_protect_co_status:
       icon: bha:smoke-detector
 
-automation:
+automation old:
   - alias: '[Nest] Nest Protect Offline'
     initial_state: 'on'
     trigger:

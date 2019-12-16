@@ -1,4 +1,4 @@
-scene:
+scene old:
   - name: RiseAndShine
     entities:
       alarm_control_panel.konnected_alarm:

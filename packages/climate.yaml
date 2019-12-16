@@ -7,7 +7,7 @@ input_boolean:
     initial: on
     icon: mdi:thermostat
 
-automation:
+automation old:
   - alias: '[Climate] Cancel thermostat ETA'
     initial_state: 'true'
     condition:

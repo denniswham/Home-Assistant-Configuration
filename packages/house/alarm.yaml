@@ -44,7 +44,7 @@ alarm_control_panel:
       pending_time: 300
       delay_time: 20
 
-automation:
+automation old:
   - alias: '[Alarm] Arm Konnected'
     initial_state: 'true'
     condition:

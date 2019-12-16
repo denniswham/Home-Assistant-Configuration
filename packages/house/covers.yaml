@@ -18,7 +18,7 @@ cover:
       - cover.master_bedroom_roller_shutter_level  
       - cover.lucas_room_roller_shutter_level
 
-automation:
+automation old:
   - alias: '[Covers] Open in the morning in Master Bedroom'
     initial_state: 'true'
     condition:

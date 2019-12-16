@@ -22,7 +22,7 @@ sensor:
       - type: processor_use
       - type: last_boot
 
-automation:
+automation old:
   - alias: '[System] Update Notifications'
     initial_state: 'on'
     condition:

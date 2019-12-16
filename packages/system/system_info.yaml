@@ -131,7 +131,7 @@ sensor:
         entity_id: "device_tracker.alexa_emilie_bedroom"
         value_template: "{{ 'Online' if is_state('device_tracker.alexa_emilie_bedroom', 'home') else 'Offline' }}"
 
-automation:
+automation old:
   - alias: '[System] Device Status'
     initial_state: 'off'
     trigger:

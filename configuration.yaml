@@ -65,9 +65,9 @@ browser_mod:
 # ########################################
 
 recorder: !include logging/recorder.yaml
-history: !include logging/history.yaml
-logbook: # !include logging/logbook.yaml
-logger: !include logging/logger.yaml
+# history: !include logging/history.yaml
+# logbook: # !include logging/logbook.yaml
+# logger: !include logging/logger.yaml
 
 # ########################################
 # ###              ENTITIES             ###
@@ -78,6 +78,9 @@ device_tracker: !include entities/device_tracker.yaml
 # ########################################
 # ###             SERVICES             ###
 # ########################################
+scene: !include scenes.yaml
+automation: !include automation.yaml
 notify: !include notify/notify.yaml
 
 ffmpeg:
+
