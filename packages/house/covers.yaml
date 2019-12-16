@@ -101,6 +101,26 @@ automation:
           - cover.lucas_room_roller_shutter_level
         position: 10
 
+  - alias: '[Covers] Close with strong winds'
+    initial_state: 'true'
+    condition:
+    - condition: state
+      entity_id: input_boolean.guest_mode
+      state: 'off'
+    - condition: state
+      entity_id: sun.sun
+      state: below_horizon
+    trigger:
+    - condition: numeric_state
+      entity_id: sensor.br_wind_force
+      above: 4
+    action:
+    - service: cover.close_cover
+      data:
+        entity_id:
+          - cover.master_bedroom_roller_shutter_level
+          - cover.lucas_room_roller_shutter_level
+
   - alias: '[Covers] Open when arriving 1'
     initial_state: 'true'
     condition:
@@ -140,7 +160,7 @@ automation:
       below: 25
     - condition: state
       entity_id: sun.sun
-      state: below_horizon # at night
+      state: below_horizon
     - condition: template
       value_template: "{%- if states.automation.covers_close_when_leaving.attributes.last_triggered\
         \ -%}\n  {{ (as_timestamp(now()) - as_timestamp(states.automation.covers_close_when_leaving.attributes.last_triggered))\
