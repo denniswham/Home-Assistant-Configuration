@@ -79,7 +79,7 @@ device_tracker: !include entities/device_tracker.yaml
 # ###             SERVICES             ###
 # ########################################
 scene: !include scenes.yaml
-automation: !include automation.yaml
+automation: !include automations.yaml
 notify: !include notify/notify.yaml
 
 ffmpeg:
