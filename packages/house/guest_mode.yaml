@@ -21,30 +21,3 @@ input_boolean:
   guest_mode:
     name: Guest Mode
     icon: mdi:account-group
-
-automation old:
-- alias: '[House] Guest Mode On'
-  initial_state: 'on'
-  trigger:
-      - platform: state
-        entity_id: input_boolean.guest_mode
-        to: 'on'
-  action:
-    - service: notify.mobile_app_sm_g960f
-      data_template:
-        title: Guest mode on
-        message: >
-          Some automations turned off
-
-- alias: '[House] Guest Mode Off'
-  initial_state: 'on'
-  trigger:
-      - platform: state
-        entity_id: input_boolean.guest_mode
-        to: 'off'
-  action:
-    - service: notify.mobile_app_sm_g960f
-      data_template:
-        title: Guest mode off
-        message: >
-          Automations turned on again
