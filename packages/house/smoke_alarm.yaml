@@ -19,43 +19,6 @@ homeassistant:
     sensor.attic_nest_protect_co_status:
       icon: bha:smoke-detector
 
-automation old:
-  - alias: '[Nest] Nest Protect Offline'
-    initial_state: 'on'
-    trigger:
-    - platform: state
-      entity_id:
-        - binary_sensor.entryway_nest_protect_online
-        - binary_sensor.hallway_nest_protect_online
-        - binary_sensor.attic_nest_protect_online
-      from: 'on'
-      to: 'off'
-    action:
-    - service: persistent_notification.create
-      data_template:
-        message: "{{ trigger.entity_id.name }} reported offline."
-        title: Nest Protect Offline
-    - service: notify.mobile_app_sm_g960f
-      data_template:
-        message: "{{ trigger.entity_id.name }} reported offline."
-        title: Nest Protect Offline
-
-  - alias: '[Nest] Smoke/CO Detected'
-    initial_state: 'on'
-    trigger:
-    - platform: state
-      entity_id: sensor.smoke_co_detection
-      from: 'All clear'
-    action:
-    - service: persistent_notification.create
-      data_template:
-        message: "Smoke or CO detected"
-        title: Nest Protect
-    - service: notify.mobile_app_sm_g960f
-      data_template:
-        message: "Smoke or CO detected"
-        title: Nest Protect
-
 sensor:
   - platform: template
     sensors:

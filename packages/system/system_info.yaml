@@ -131,40 +131,6 @@ sensor:
         entity_id: "device_tracker.alexa_emilie_bedroom"
         value_template: "{{ 'Online' if is_state('device_tracker.alexa_emilie_bedroom', 'home') else 'Offline' }}"
 
-automation old:
-  - alias: '[System] Device Status'
-    initial_state: 'off'
-    trigger:
-         - platform: state
-           entity_id:
-              - sensor.system_hass_rpi
-              - sensor.system_konnected
-              - sensor.system_ziggo_router
-              - sensor.system_tplink_router
-              - sensor.system_linksys_router
-              - sensor.system_powerline_router
-              - sensor.system_ring_doorbell
-              - sensor.system_ring_backyard_cam
-              - sensor.system_ring_chime
-              - sensor.system_living_room_thermostat
-              - sensor.system_entryway_smokeco
-              - sensor.system_hallway_smokeco
-              - sensor.system_attic_smokeco
-              - sensor.system_living_room_echo_dot
-              - sensor.system_master_bedroom_echo_dot
-              - sensor.system_lucas_bedroom_echo_dot
-              - sensor.system_timo_s_bedroom_echo_dot
-              - sensor.system_emilie_s_bedroom_echo_dot
-           to: 'Offline'
-           for:
-             minutes: 5
-    action:
-      - service: notify.mobile_app_sm_g960f
-        data_template:
-          title: 'Device {{ trigger.to_state.name }} is'
-          message: >
-            '{{ trigger.to_state.state }}'
-
 speedtestdotnet:
   scan_interval:
     minutes: 30

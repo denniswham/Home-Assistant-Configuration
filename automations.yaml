@@ -842,10 +842,43 @@
         entity_id: input_select.house_mode
         option: Night
 
+- id: 60a1fa21-52f7-42c7-b5dc-ec3b1e01e262
+  alias: '[Nest] Nest Protect Offline'
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id:
+        - binary_sensor.entryway_nest_protect_online
+        - binary_sensor.hallway_nest_protect_online
+        - binary_sensor.attic_nest_protect_online
+      from: 'on'
+      to: 'off'
+  action:
+    - service: persistent_notification.create
+      data_template:
+        message: "{{ trigger.entity_id.name }} reported offline."
+        title: Nest Protect Offline
+    - service: notify.mobile_app_sm_g960f
+      data_template:
+        message: "{{ trigger.entity_id.name }} reported offline."
+        title: Nest Protect Offline
 
-
-
-
+- id: f1ac429c-e0c6-4859-a3a1-d271136334fa
+  alias: '[Nest] Smoke/CO Detected'
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: sensor.smoke_co_detection
+      from: 'All clear'
+  action:
+    - service: persistent_notification.create
+      data_template:
+        message: "Smoke or CO detected"
+        title: Nest Protect
+    - service: notify.mobile_app_sm_g960f
+      data_template:
+        message: "Smoke or CO detected"
+        title: Nest Protect
 
 - id: 2ae00756-b4a9-4068-acc8-c574a8a60fd4
   alias: '[Ring]  Motion in backyard'
@@ -907,3 +940,134 @@
       data_template:
         message: "{{ trigger.entity_id.name }} reported low battery, please charge."
         title: Ring Battery Low
+
+- id: bce438cb-9828-454f-822d-21aa14810445
+  alias: '[System] Device Status'
+  initial_state: 'off'
+  trigger:
+        - platform: state
+          entity_id:
+            - sensor.system_hass_rpi
+            - sensor.system_konnected
+            - sensor.system_ziggo_router
+            - sensor.system_tplink_router
+            - sensor.system_linksys_router
+            - sensor.system_powerline_router
+            - sensor.system_ring_doorbell
+            - sensor.system_ring_backyard_cam
+            - sensor.system_ring_chime
+            - sensor.system_living_room_thermostat
+            - sensor.system_entryway_smokeco
+            - sensor.system_hallway_smokeco
+            - sensor.system_attic_smokeco
+            - sensor.system_living_room_echo_dot
+            - sensor.system_master_bedroom_echo_dot
+            - sensor.system_lucas_bedroom_echo_dot
+            - sensor.system_timo_s_bedroom_echo_dot
+            - sensor.system_emilie_s_bedroom_echo_dot
+          to: 'Offline'
+          for:
+            minutes: 5
+  action:
+    - service: notify.mobile_app_sm_g960f
+      data_template:
+        title: 'Device {{ trigger.to_state.name }} is'
+        message: >
+          '{{ trigger.to_state.state }}'
+
+- id: d7132414-4610-41a6-9830-8080b980447f
+  alias: '[System] Update Notifications'
+  initial_state: 'on'
+  condition:
+  - condition: template
+    value_template: '{{ states.sensor.latest_version.state != states.sensor.current_version.state }}'
+  trigger:
+  - platform: time
+    at: 04:00:00
+  - platform: state
+    entity_id: person.dennis
+    from: 'not_home'
+    to: 'home'
+  action:
+  - delay: 00:30:00
+  - service: notify.mobile_app_sm_g960f
+    data:
+      title: Home Assistant Update
+      message: "Version {{ states.sensor.latest_version.state }} is available!"
+
+# - id: e96f392c-aae1-470d-8859-936c3addf5a7
+#   alias: '[System] Hass Started'
+#   initial_state: 'on'
+#   trigger:
+#     platform: homeassistant
+#     event: start
+#   action:
+#     - service: notify.discord_system_hook
+#       data:
+#         message: "@here Hass.io Online"
+#     - service: mqtt.publish
+#       data:
+#         topic: monitor/scan/arrive
+
+# - id: e2730db2-3e4d-4ad5-aafc-ec66daecd95b
+#   alias: '[System] Hass Ready'
+#   initial_state: 'on'
+#   trigger:
+#     platform: event
+#     event_type: zwave.network_ready
+#   action:
+#     - service: notify.discord_system_hook
+#       data:
+#         message: "Z-wave network now ready"
+#     - delay: 00:05
+#     - service: homekit.start
+    
+# - id: 7cfe4b21-6cac-4f36-ba7d-fa3c9131cae3
+#   alias: '[System] Hass Stopped'
+#   initial_state: 'on'
+#   trigger:
+#     platform: homeassistant
+#     event: shutdown
+#   action:
+#     - service: notify.discord_system_hook
+#       data:
+#         message: "@here Hass.io Offline"
+      
+# - id: 43ba010f-3add-4d79-93dd-72f70ee7f83d
+#   alias: '[System] Hass New Device Tracked'
+#   initial_state: 'on'
+#   trigger:
+#     platform: event
+#     event_type: device_tracker_new_device
+#   action:
+#     - service: notify.discord_system_hook
+#       data_template:
+#         message: >
+#           New Device Tracked: {{trigger.event.data.host_name}} ({{trigger.event.data.entity_id}})
+
+# - id: de0d7fa1-7590-496d-9582-ca1e48bbe3f5
+#   alias: '[System] Hass New Platform Discovered'
+#   initial_state: 'on'
+#   trigger:
+#     platform: event
+#     event_type: PLATFORM_DISCOVERED
+#   action:
+#     - service: notify.discord_system_hook
+#       data_template:
+#         message: >
+#           New Platform Discovered: {{trigger.event.data.service}} ({{trigger.event.data.discovered}})
+
+# - id: d9139af6-f2c1-4dfb-8d44-978b661a3892
+#   alias: '[System] Ip Ban Notify'
+#   initial_state: 'on'
+#   trigger:
+#     - platform: state
+#       entity_id: persistent_notification.ipban
+#   condition:
+#     - condition: template
+#       value_template: "{{ trigger.to_state.state != off }}"
+#   action:
+#     - service: notify.discord_system_hook
+#       data_template:
+#         message: >
+#           '@here {{ trigger.state.attributes.message }}. Ip address has been banned.'
