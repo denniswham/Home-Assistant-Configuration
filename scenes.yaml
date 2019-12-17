@@ -1,0 +1,79 @@
+- name: RiseAndShine
+  entities:
+    alarm_control_panel.konnected_alarm:
+      state: disarmed
+    climate.living_room:
+      state: heat
+      temperature: 20.5
+    light.living_room_spot_lights_dimmer_level:
+      state: on  
+      brightness: 15
+
+- name: Work time
+  entities:
+    light.living_room_spot_lights_dimmer_level:
+      state: off  
+    light.office_spot_lights_dimmer_level:
+      state: on  
+      brightness: 25
+
+- name: Lunch time
+  entities: 
+    light.living_room_spot_lights_dimmer_level:
+      state: on 
+      brightness: 15
+    light.office_spot_lights_dimmer_level:
+      state: off
+
+- name: Dinner time
+  entities: 
+    light.living_room_spot_lights_dimmer_level:
+      state: on  
+      brightness: 15
+    light.office_spot_lights_dimmer_level:
+      state: on  
+      brightness: 10
+
+- name: Lounge time
+  entities: 
+    light.living_room_spot_lights_dimmer_level:
+      state: on  
+      brightness: 15
+    light.office_spot_lights_dimmer_level:
+      state: on  
+      brightness: 10
+
+- name: Bed time
+  entities: 
+    cover.master_bedroom_roller_shutter_level:
+      state: open
+      current_position: 10
+    alarm_control_panel.konnected_alarm:
+      state: armed_home
+    climate.living_room:
+      state: heat
+      temperature: 17.0
+    light.living_room_spot_lights_dimmer_level:
+      state: "off"
+    light.office_spot_lights_dimmer_level:
+      state: "off"
+    switch.master_bedroom_echo_dot_do_not_disturb_switch:
+      state: "on"
+    switch.master_bedroom_fire_tv_stick_do_not_disturb_switch:
+      state: "on"  
+    switch.lucas_room_echo_dot_do_not_disturb_switch:
+      state: "on"
+    switch.timo_s_room_echo_dot_do_not_disturb_switch:
+      state: "on"
+    switch.emilie_s_room_echo_dot_do_not_disturb_switch:
+      state: "on"
+
+- name: Romance time
+  entities: 
+    alarm_control_panel.konnected_alarm:
+      state: armed_home
+    cover.master_bedroom_roller_shutter_level:
+      state: closed
+    switch.master_bedroom_echo_dot_do_not_disturb_switch:
+      state: "on"
+      
