@@ -1,3 +1,274 @@
+- id: 3c28420d-2670-4215-bd93-7b2ca445fbb4
+  alias: '[Alarm] Arm Konnected'
+  initial_state: 'true'
+  condition:
+    - condition: state
+      entity_id: input_boolean.guest_mode
+      state: 'off'
+    - condition: template
+      value_template: "{%- if states.automation.alarm_disarm_konnected_from_away.attributes.last_triggered\
+        \ -%}\n  {{ (as_timestamp(now()) - as_timestamp(states.automation.alarm_disarm_konnected_from_away.attributes.last_triggered))\
+        \ > 240 }}\n{%- else -%}\n  true\n{%- endif -%}\n"
+    - condition: template
+      value_template: '{{ states(''input_select.konnectedstatus'') != ''armed_away'' 
+        }}'
+    - condition: template
+      value_template: '{{ states(''alarm_control_panel.konnected_alarm'') == ''disarmed''
+        }}'
+  trigger:
+    - platform: state
+      entity_id: group.household
+      from: 'home'
+      to: 'not_home'
+    - platform: state
+      entity_id: group.household
+      from: 'home'
+      to: 'not_home'
+      for: 00:05:00
+  action:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.konnectedstatus
+        option: armed_away
+    - service: alarm_control_panel.alarm_arm_away
+      entity_id:
+        - alarm_control_panel.konnected_alarm
+    - service: notify.alexa_media
+      data:
+        data:
+          type: tts
+        target:
+        - group.alexa
+        message: I'll start guarding now
+
+- id: f586bfa3-cec3-4881-8cbb-bb2ceb9aea62
+  alias: '[Alarm] Deactivate siren'
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.Konnected_Alarm
+      to: triggered
+      for: 00:20:00
+    - platform: state
+      entity_id: alarm_control_panel.Konnected_Alarm
+      to: disarmed
+  action:
+    - service: switch.turn_off
+      entity_id: switch.siren
+    - service: switch.turn_off
+      entity_id: switch.backyard_siren
+
+- id: 2d57cc0c-7317-486f-a2f2-b755c59ac660
+  alias: '[Alarm] Disarm Konnected at night'
+  initial_state: 'true'
+  condition:
+    - condition: state
+      entity_id: input_boolean.guest_mode
+      state: 'off'
+  trigger:
+    - platform: state
+      entity_id:
+      - person.dennis
+      - person.stephanie
+      - person.lucas
+      - person.timo
+      to: home
+  action:
+    - service: homeassistant.turn_on
+      entity_id: script.konnectedstandby
+
+- id: d4ce8893-a219-499b-bd45-18a2bc5bc6c2
+  alias: '[Alarm] Disarm Konnected from Away'
+  initial_state: 'true'
+  condition:
+    - condition: state
+      entity_id: input_select.konnectedstatus
+      state: armed_away
+    - condition: state
+      entity_id: input_boolean.guest_mode
+      state: 'off'
+    - condition: template
+      value_template: "{%- if states.automation.alarm_arm_konnected.attributes.last_triggered\
+        \ -%}\n  {{ (as_timestamp(now()) - as_timestamp(states.automation.alarm_arm_konnected.attributes.last_triggered))\
+        \ > 240 }}\n{%- else -%}\n  true\n{%- endif -%}\n"
+  trigger:
+    - platform: state
+      entity_id: group.household
+      from: not_home
+      to: home
+  action:
+    - service: homeassistant.turn_on
+      entity_id: script.konnectedstandby
+
+- id: b937f244-4e93-4ab7-9310-a1c77a7c05d4
+  alias: '[Alarm] Disarm Konnected in the morning'
+  initial_state: 'true'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: group.household
+        state: home
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state: 'off'
+  trigger:
+    - platform: time
+      at: 06:00:00
+  action:
+    - service: homeassistant.turn_on
+      entity_id: script.konnectedstandby
+
+- id: 8efa2a7d-23c9-4bb3-b163-4e1bf820976d
+  alias: '[Alarm] Konnected Standby'
+  initial_state: 'true'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: group.household
+        state: home
+      - condition: time
+        after: 06:15:00
+        before: '21:00:00'
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state: 'off'
+      - condition: template
+        value_template: "{%- if states.input_select.konnectedstatus.last_changed -%}\n\
+          \  {{ (as_timestamp(now()) - as_timestamp(states.input_select.konnectedstatus.last_changed))\
+          \ > 300 }}\n{%- else -%}\n  true\n{%- endif -%}\n"
+      - condition: or
+        conditions:
+        - condition: state
+          entity_id: input_select.konnectedstatus
+          state: armed_home
+        - condition: state
+          entity_id: input_select.konnectedstatus
+          state: armed_away
+  trigger:
+    - platform: time_pattern
+      minutes: /10
+      seconds: 0
+  action:
+    - service: homeassistant.turn_on
+      entity_id: script.konnectedstandby
+
+- id: 72a6ac29-9e75-4f47-a22b-407609b26ee9
+  alias: '[Alarm] Konnected Log Motion'
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.entryway
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.kitchen
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.living_room
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.office
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.garage
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.ring_backyard_motion
+      to: 'on'
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: alarm_control_panel.Konnected_Alarm
+        state: armed_away
+      - condition: state
+        entity_id: alarm_control_panel.Konnected_Alarm
+        state: armed_home
+      - condition: state
+        entity_id: alarm_control_panel.Konnected_Alarm
+        state: pending
+      - condition: state
+        entity_id: alarm_control_panel.Konnected_Alarm
+        state: triggered
+  action:
+    - service: logbook.log
+      data_template:
+        name: "Motion detected: "
+        message: >-
+          {{ trigger.entity_id }}
+
+- id: 0c082214-fab9-4833-9efc-7f220b337811
+  alias: '[Alarm] Trigger Alarm'
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.Konnected_Alarm
+      to: triggered
+  action:
+    - service: switch.turn_on
+      entity_id: switch.siren
+    - service: switch.turn_on
+      entity_id: switch.backyard_siren
+    - service: notify.alexa_media
+      data:
+        data:
+          type: tts
+        target:
+          - group.alexa
+        message: Your alarm was activated
+    - service: notify.all_devices
+      data:
+        title: Konnected
+        message: Your alarm was activated
+        data:
+          actions:
+            - action: open
+              icon: "/local/icons/konnected.png"
+              title: Open Home Assistant
+          tag: konnected-alarm-notification
+          ttl: 86400
+          priority: high      
+
+- id: 583df5d2-69c7-49e2-93a2-0c49d936b0fb
+  alias: '[Alarm] Pending alarm'
+  initial_state: 'true'
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.entryway
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.kitchen
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.living_room
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.office
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.garage
+      to: 'on'
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: alarm_control_panel.Konnected_Alarm
+        state: armed_away
+      - condition: state
+        entity_id: alarm_control_panel.Konnected_Alarm
+        state: armed_home
+  action:
+    - service: alarm_control_panel.alarm_trigger
+      entity_id: alarm_control_panel.Konnected_Alarm
+    - service: notify.alexa_media
+      data:
+        data:
+          type: tts
+        target:
+          - group.alexa
+        message: Motion detected, the alarm will activate shortly. Motion detected, the alarm will activate shortly.
+
 - id: f22881d0-2a37-46f6-86fa-0feaac19de59
   alias: '[Covers] Open in the morning in Master Bedroom'
   initial_state: 'true'
