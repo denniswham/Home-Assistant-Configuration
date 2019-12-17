@@ -1,4 +1,5 @@
-- name: RiseAndShine
+- id: 685e8c80-6c92-46db-bead-beb258b660c9
+  name: RiseAndShine
   entities:
     alarm_control_panel.konnected_alarm:
       state: disarmed
@@ -9,7 +10,8 @@
       state: on  
       brightness: 15
 
-- name: Work time
+- id: 1a8eb245-e797-448b-809e-6cd0da75ad24
+  name: Work time
   entities:
     light.living_room_spot_lights_dimmer_level:
       state: off  
@@ -17,7 +19,8 @@
       state: on  
       brightness: 25
 
-- name: Lunch time
+- id: 7c5734bc-3aa7-43d8-990b-2d6546511245
+  name: Lunch time
   entities: 
     light.living_room_spot_lights_dimmer_level:
       state: on 
@@ -25,7 +28,8 @@
     light.office_spot_lights_dimmer_level:
       state: off
 
-- name: Dinner time
+- id: 0d010e40-8560-42ce-8b86-b743bbf355ad
+  name: Dinner time
   entities: 
     light.living_room_spot_lights_dimmer_level:
       state: on  
@@ -34,7 +38,8 @@
       state: on  
       brightness: 10
 
-- name: Lounge time
+- id: 78e4c286-6d53-4465-a213-6c61984d8eac
+  name: Lounge time
   entities: 
     light.living_room_spot_lights_dimmer_level:
       state: on  
@@ -43,7 +48,8 @@
       state: on  
       brightness: 10
 
-- name: Bed time
+- id: 0d80f036-53f7-40de-81ff-77ad45bc8150
+  name: Bed time
   entities: 
     cover.master_bedroom_roller_shutter_level:
       state: open
@@ -68,7 +74,8 @@
     switch.emilie_s_room_echo_dot_do_not_disturb_switch:
       state: "on"
 
-- name: Romance time
+- id: 7667fee3-afa3-4797-a79d-777a61f55453
+  name: Romance time
   entities: 
     alarm_control_panel.konnected_alarm:
       state: armed_home
@@ -76,4 +83,3 @@
       state: closed
     switch.master_bedroom_echo_dot_do_not_disturb_switch:
       state: "on"
-      
