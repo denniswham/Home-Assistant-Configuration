@@ -269,6 +269,38 @@
           - group.alexa
         message: Motion detected, the alarm will activate shortly. Motion detected, the alarm will activate shortly.
 
+- id: 39c8ea32-61d3-4971-9b20-f07eb370cfe3
+  alias: "[Alexa] Enable Do Not Disturb"
+  initial_state: 'on'
+  trigger:
+    - platform: time
+      at: "22:00:00"
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id:
+          - switch.master_bedroom_echo_dot_do_not_disturb_switch
+          - switch.master_bedroom_fire_tv_stick_do_not_disturb_switch
+          - switch.lucas_room_echo_dot_do_not_disturb_switch
+          - switch.timo_s_room_echo_dot_do_not_disturb_switch
+          - switch.emilie_s_room_echo_dot_do_not_disturb_switch
+
+- id: c875f801-c67e-493a-9cf3-643789134ad1
+  alias: "[Alexa] Disable Do Not Disturb"
+  initial_state: 'on'
+  trigger:
+    - platform: time
+      at: "07:00:00"
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id:
+          - switch.master_bedroom_echo_dot_do_not_disturb_switch
+          - switch.master_bedroom_fire_tv_stick_do_not_disturb_switch
+          - switch.lucas_room_echo_dot_do_not_disturb_switch
+          - switch.timo_s_room_echo_dot_do_not_disturb_switch
+          - switch.emilie_s_room_echo_dot_do_not_disturb_switch
+
 - id: d2851e95-9ef6-49bf-973d-9ed51545414c
   alias: '[Climate] Cancel thermostat ETA'
   initial_state: 'true'
