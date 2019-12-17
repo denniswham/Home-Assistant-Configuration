@@ -7,17 +7,6 @@ homeassistant:
     - /config
 
 default_config:
-# cloud:
-# config:
-# ios: !include notify/ios_config.yaml
-# map:
-# mobile_app:
-# person: !include entities/person.yaml
-# ssdp:
-# sun:
-# system_health:
-# zeroconf:
-
 
 hassio:
 http:
@@ -46,8 +35,8 @@ frontend:
     
 #panel_custom: !include panels/panel_custom.yaml
 
-hacs:
-  token: !secret hacs_token
+# hacs:
+#   token: !secret hacs_token
 #  appdaemon: true
   
 
