@@ -28,6 +28,7 @@
     type: module
 
 
+
   - url: /community_plugin/lovelace-auto-entities/auto-entities.js
     type: module
   - url: /community_plugin/calendar-card/calendar-card.js
