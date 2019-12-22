@@ -2,7 +2,7 @@ notify:
   - name: all_devices
     platform: group
     services:
-      - service: mobile_app_sm_g960f
+      - service: mobile_app_dennis_galaxy
       - service: mobile_app_iphone_van_stephanie
       - service: mobile_app_iphone_van_lucas
       - service: mobile_app_oneplus_a5010

@@ -666,7 +666,7 @@
         entity_id: input_boolean.guest_mode
         to: 'on'
   action:
-    - service: notify.mobile_app_sm_g960f
+    - service: notify.mobile_app_dennis_galaxy
       data_template:
         title: Guest mode on
         message: >
@@ -680,7 +680,7 @@
         entity_id: input_boolean.guest_mode
         to: 'off'
   action:
-    - service: notify.mobile_app_sm_g960f
+    - service: notify.mobile_app_dennis_galaxy
       data_template:
         title: Guest mode off
         message: >
@@ -833,7 +833,7 @@
       #     state: Offline
 
   action:
-    - service: notify.mobile_app_sm_g960f
+    - service: notify.mobile_app_dennis_galaxy
       data:
         message: 'It seems like everyone is asleep'
         title: 'Good night!'
@@ -858,7 +858,7 @@
       data_template:
         message: "{{ trigger.entity_id.name }} reported offline."
         title: Nest Protect Offline
-    - service: notify.mobile_app_sm_g960f
+    - service: notify.mobile_app_dennis_galaxy
       data_template:
         message: "{{ trigger.entity_id.name }} reported offline."
         title: Nest Protect Offline
@@ -875,7 +875,7 @@
       data_template:
         message: "Smoke or CO detected"
         title: Nest Protect
-    - service: notify.mobile_app_sm_g960f
+    - service: notify.mobile_app_dennis_galaxy
       data_template:
         message: "Smoke or CO detected"
         title: Nest Protect
@@ -936,7 +936,7 @@
       data_template:
         message: "{{ trigger.entity_id.name }} reported low battery, please charge."
         title: Ring Battery Low
-    - service: notify.mobile_app_sm_g960f
+    - service: notify.mobile_app_dennis_galaxy
       data_template:
         message: "{{ trigger.entity_id.name }} reported low battery, please charge."
         title: Ring Battery Low
@@ -969,7 +969,7 @@
           for:
             minutes: 5
   action:
-    - service: notify.mobile_app_sm_g960f
+    - service: notify.mobile_app_dennis_galaxy
       data_template:
         title: 'Device {{ trigger.to_state.name }} is'
         message: >
@@ -990,7 +990,7 @@
     to: 'home'
   action:
   - delay: 00:30:00
-  - service: notify.mobile_app_sm_g960f
+  - service: notify.mobile_app_dennis_galaxy
     data:
       title: Home Assistant Update
       message: "Version {{ states.sensor.latest_version.state }} is available!"
