@@ -118,52 +118,6 @@
                 # - sensor.timo_activity
                 # - sensor.timo_steps
 
-  sensor.outer_doors:
-    title: Doors
-    card:
-      type: vertical-stack
-      cards:
-        - type: entities
-          entities:
-            - entity: sensor.front_door
-              secondary_info: last-changed
-            - entity: sensor.back_door
-              secondary_info: last-changed
-            - entity: sensor.yard_door
-              secondary_info: last-changed
-            - entity: sensor.balcony_door
-              secondary_info: last-changed
-            - entity: sensor.bedroom_door
-              secondary_info: last-changed
-
-  sensor.outer_windows:
-    title: Windows
-    card:
-      type: vertical-stack
-      cards:
-        - type: entities
-          entities:
-            - entity: sensor.dining_room_window
-              secondary_info: last-changed
-            - entity: sensor.bedroom_window
-              secondary_info: last-changed
-
-  input_select.ebike_charger_status:
-    title: Bike
-    card:
-      type: vertical-stack
-      cards:
-        - type: entities
-          entities:
-            - device_tracker.tile_8b84f9654688b3ec
-            - input_select.ebike_charger_status
-            - sensor.ebike_charger
-            - entity: switch.bike_charger
-              type: custom:multiple-entity-row
-              primary:
-                entity: sensor.ebike_charger
-            - entity: switch.bike_charger
-
   light.outdoor_lights:
     title: Outdoor Lights
     card:
@@ -256,3 +210,17 @@
         - entity: binary_sensor.ring_backyard_motion
           name: Backyard Motion
           secondary_info: last-changed
+
+  input_boolean.guest_mode:          
+    title: Guest Mode
+    card:
+      type: entities
+      entities:
+        - entity: input_boolean.guest_mode
+
+  input_select.house_mode:
+    title: House Mode
+    card:
+      type: entities
+      entities:
+        - entity: input_select.house_mode

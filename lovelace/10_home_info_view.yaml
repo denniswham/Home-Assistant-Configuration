@@ -130,12 +130,10 @@ cards:
 
               - type: glance
                 show_header_toggle: false
-                columns: 3
+                columns: 2
                 entities:
                   - entity: input_boolean.vacation_mode
                     name: Vacation
-                  - entity: calendar.cleaning_day
-                    icon: mdi:broom
                   - entity: input_boolean.guest_mode
 
           - break
