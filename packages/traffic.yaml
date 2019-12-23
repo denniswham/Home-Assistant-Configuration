@@ -10,25 +10,7 @@ sensor:
     destination: person.stephanie
     region: EU
   - platform: waze_travel_time
-    name: Dennis to Work
-    origin: zone.home
-    destination: zone.microsoft
-    region: EU
-  - platform: waze_travel_time
     name: Stephanie to Home
     origin: person.stephanie
     destination: zone.home
     region: EU
-  - platform: waze_travel_time
-    name: Stephanie to Work
-    origin: person.stephanie
-    destination: zone.hrm_online
-    region: EU
-
-#camera:
-# - platform: generic
-#   name: A12 t.h.v. Oudenrijn
-#   still_image_url: https://rijkswaterstaatverkeersinformatie.nl/ImageCamera/cam_46#1569965512645
-# - platform: generic
-#   name: A4 t.h.v. Roelofarendsveen
-#   still_image_url: https://rijkswaterstaatverkeersinformatie.nl/ImageCamera/cam_12#1569965576691

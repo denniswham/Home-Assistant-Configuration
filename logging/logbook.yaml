@@ -47,3 +47,6 @@ exclude:
     - sensor.br_wind_force
     - sensor.ring_backyard_last_activity
     - sensor.ring_front_door_last_activity
+    - sensor.date
+    - sensor.date_time
+    - sensor.time
