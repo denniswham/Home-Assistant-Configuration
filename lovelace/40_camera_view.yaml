@@ -21,30 +21,30 @@ cards:
                 icon: mdi:alarm-bell
                 tap_action:
                   action: toggle
-#              - type: custom:button-card
-#                template: camera_button
-#                entity: light.hallway_window_light
-#                icon: mdi:ceiling-light
-              - type: custom:button-card
-                template: camera_button
-                entity: script.sannce_down
-                icon: mdi:chevron-down
-              - type: custom:button-card
-                template: camera_button
-                entity: script.sannce_up
-                icon: mdi:chevron-up
-              - type: custom:button-card
-                template: camera_button
-                entity: script.sannce_left
-                icon: mdi:chevron-left
-              - type: custom:button-card
-                template: camera_button
-                entity: script.sannce_right
-                icon: mdi:chevron-right
-              - type: custom:button-card
-                template: camera_button
-                entity: script.sannce_calibrate
-                icon: mdi:reload
+              # - type: custom:button-card
+              #   template: camera_button
+              #   entity: light.hallway_window_light
+              #   icon: mdi:ceiling-light
+              # - type: custom:button-card
+              #   template: camera_button
+              #   entity: script.sannce_down
+              #   icon: mdi:chevron-down
+              # - type: custom:button-card
+              #   template: camera_button
+              #   entity: script.sannce_up
+              #   icon: mdi:chevron-up
+              # - type: custom:button-card
+              #   template: camera_button
+              #   entity: script.sannce_left
+              #   icon: mdi:chevron-left
+              # - type: custom:button-card
+              #   template: camera_button
+              #   entity: script.sannce_right
+              #   icon: mdi:chevron-right
+              # - type: custom:button-card
+              #   template: camera_button
+              #   entity: script.sannce_calibrate
+              #   icon: mdi:reload
           - type: entities
             entities:
               - type: custom:fold-entity-row
@@ -54,22 +54,27 @@ cards:
                 group_config:
                   secondary_info: last-changed
                 items:
-                  - entity: binary_sensor.hallway_motion
+                  - entity: binary_sensor.ring_front_door_ding
+                    name: Ding
+                    secondary_info: last-changed
+                  - entity: binary_sensor.ring_front_door_motion
                     name: Motion
                     secondary_info: last-changed
-                  - entity: camera.snapshot_hallway
-                    name: Last Motion Snapshot
+                  - entity: sensor.ring_front_door_last_activity
+                    name: Last Activity
                     secondary_info: last-changed
-                  - entity: sensor.front_door
-                    name: Front Door
+                  - entity: sensor.ring_front_door_last_ding
+                    name: Last Ding
                     secondary_info: last-changed
-                  - entity: camera.front_door
-                    name: Ring Last Motion
-                  - entity: binary_sensor.ring_front_door_motion
-                    name: Ring Motion
+                  - entity: sensor.ring_front_door_last_motion
+                    name: Last Motion
                     secondary_info: last-changed
                   - entity: sensor.ring_front_door_battery
-                    name: Ring Battery
+                    name: Battery
+                    secondary_info: last-changed
+                  - entity: sensor.ring_front_door_wifi_signal_category
+                    name: Wifi Signal
+                    secondary_info: last-changed
             style: |
               #states {
                 padding-top: 0;
@@ -85,36 +90,36 @@ cards:
             show_name: false
           - type: horizontal-stack
             cards:
-#              - type: custom:button-card
-#                template: camera_button
-#                entity: light.living_room_spotlights_level
-#                icon: bha:ceiling-lamp-plafond
               - type: custom:button-card
                 template: camera_button
                 entity: switch.backyard_siren
                 icon: mdi:alarm-bell
                 tap_action:
                   action: toggle
-              - type: custom:button-card
-                template: camera_button
-                entity: light.living_room_ceiling_light_level
-                icon: bha:ceiling-lamp-round
-              - type: custom:button-card
-                template: camera_button
-                entity: light.candles
-                icon: mdi:candle
-              - type: custom:button-card
-                template: camera_button
-                entity: light.outdoor_yard_light
-                icon: bha:outdoor-lamp
-              - type: custom:button-card
-                template: camera_button
-                entity: light.outdoor_hanging_lights
-                icon: bha:light-string
-              - type: custom:button-card
-                color_type: blank-card
-              - type: custom:button-card
-                color_type: blank-card
+              # - type: custom:button-card
+              #   template: camera_button
+              #   entity: light.living_room_spotlights_level
+              #   icon: bha:ceiling-lamp-plafond
+              # - type: custom:button-card
+              #   template: camera_button
+              #   entity: light.living_room_ceiling_light_level
+              #   icon: bha:ceiling-lamp-round
+              # - type: custom:button-card
+              #   template: camera_button
+              #   entity: light.candles
+              #   icon: mdi:candle
+              # - type: custom:button-card
+              #   template: camera_button
+              #   entity: light.outdoor_yard_light
+              #   icon: bha:outdoor-lamp
+              # - type: custom:button-card
+              #   template: camera_button
+              #   entity: light.outdoor_hanging_lights
+              #   icon: bha:light-string
+              # - type: custom:button-card
+              #   color_type: blank-card
+              # - type: custom:button-card
+              #   color_type: blank-card
           - type: entities
             entities:
               - type: custom:fold-entity-row
@@ -124,14 +129,20 @@ cards:
                 group_config:
                   secondary_info: last-changed
                 items:
-                  - entity: binary_sensor.living_room_axis_motion_0
+                  - entity: binary_sensor.ring_backyard_motion
                     name: Motion
                     secondary_info: last-changed
-                  - entity: camera.snapshot_living_room
-                    name: Last Motion Snapshot
+                  - entity: sensor.ring_backyard_last_activity
+                    name: Last Activity
                     secondary_info: last-changed
-                  - entity: sensor.back_door
-                    name: Back Door
+                  - entity: sensor.ring_backyard_last_motion
+                    name: Last Motion
+                    secondary_info: last-changed
+                  - entity: sensor.ring_backyard_battery
+                    name: Battery
+                    secondary_info: last-changed
+                  - entity: sensor.ring_backyard_wifi_signal_category
+                    name: Wifi Signal
                     secondary_info: last-changed
             style: |
               #states {

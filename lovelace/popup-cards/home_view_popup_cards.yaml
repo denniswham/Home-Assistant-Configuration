@@ -172,8 +172,10 @@
       entities:
         - entity: switch.siren
           name: Alarm Siren
+          icon: mdi:alarm-bell
         - entity: switch.backyard_siren
           name: Backyard Siren
+          icon: mdi:alarm-bell
 
   sensor.house_movement:
     title: House Motion
