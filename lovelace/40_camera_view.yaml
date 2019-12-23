@@ -21,30 +21,30 @@ cards:
                 icon: mdi:alarm-bell
                 tap_action:
                   action: toggle
-              # - type: custom:button-card
-              #   template: camera_button
-              #   entity: light.hallway_window_light
-              #   icon: mdi:ceiling-light
-              # - type: custom:button-card
-              #   template: camera_button
-              #   entity: script.sannce_down
-              #   icon: mdi:chevron-down
-              # - type: custom:button-card
-              #   template: camera_button
-              #   entity: script.sannce_up
-              #   icon: mdi:chevron-up
-              # - type: custom:button-card
-              #   template: camera_button
-              #   entity: script.sannce_left
-              #   icon: mdi:chevron-left
-              # - type: custom:button-card
-              #   template: camera_button
-              #   entity: script.sannce_right
-              #   icon: mdi:chevron-right
-              # - type: custom:button-card
-              #   template: camera_button
-              #   entity: script.sannce_calibrate
-              #   icon: mdi:reload
+              - type: custom:button-card
+                template: camera_button
+                entity: light.hallway_window_light
+                icon: mdi:ceiling-light
+              - type: custom:button-card
+                template: camera_button
+                entity: script.sannce_down
+                icon: mdi:chevron-down
+              - type: custom:button-card
+                template: camera_button
+                entity: script.sannce_up
+                icon: mdi:chevron-up
+              - type: custom:button-card
+                template: camera_button
+                entity: script.sannce_left
+                icon: mdi:chevron-left
+              - type: custom:button-card
+                template: camera_button
+                entity: script.sannce_right
+                icon: mdi:chevron-right
+              - type: custom:button-card
+                template: camera_button
+                entity: script.sannce_calibrate
+                icon: mdi:reload
           - type: entities
             entities:
               - type: custom:fold-entity-row
@@ -96,30 +96,30 @@ cards:
                 icon: mdi:alarm-bell
                 tap_action:
                   action: toggle
-              # - type: custom:button-card
-              #   template: camera_button
-              #   entity: light.living_room_spotlights_level
-              #   icon: bha:ceiling-lamp-plafond
-              # - type: custom:button-card
-              #   template: camera_button
-              #   entity: light.living_room_ceiling_light_level
-              #   icon: bha:ceiling-lamp-round
-              # - type: custom:button-card
-              #   template: camera_button
-              #   entity: light.candles
-              #   icon: mdi:candle
-              # - type: custom:button-card
-              #   template: camera_button
-              #   entity: light.outdoor_yard_light
-              #   icon: bha:outdoor-lamp
-              # - type: custom:button-card
-              #   template: camera_button
-              #   entity: light.outdoor_hanging_lights
-              #   icon: bha:light-string
-              # - type: custom:button-card
-              #   color_type: blank-card
-              # - type: custom:button-card
-              #   color_type: blank-card
+              - type: custom:button-card
+                template: camera_button
+                entity: light.hallway_window_light
+                icon: mdi:ceiling-light
+              - type: custom:button-card
+                template: camera_button
+                entity: script.sannce_down
+                icon: mdi:chevron-down
+              - type: custom:button-card
+                template: camera_button
+                entity: script.sannce_up
+                icon: mdi:chevron-up
+              - type: custom:button-card
+                template: camera_button
+                entity: script.sannce_left
+                icon: mdi:chevron-left
+              - type: custom:button-card
+                template: camera_button
+                entity: script.sannce_right
+                icon: mdi:chevron-right
+              - type: custom:button-card
+                template: camera_button
+                entity: script.sannce_calibrate
+                icon: mdi:reload
           - type: entities
             entities:
               - type: custom:fold-entity-row
