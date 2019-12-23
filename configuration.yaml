@@ -54,8 +54,8 @@ browser_mod:
 # ########################################
 
 recorder: !include logging/recorder.yaml
-# history: !include logging/history.yaml
-# logbook: # !include logging/logbook.yaml
+history: !include logging/history.yaml
+logbook: # !include logging/logbook.yaml
 # logger: !include logging/logger.yaml
 
 # ########################################
