@@ -216,33 +216,43 @@
       type: entities
       show_header_toggle: false
       entities:
-        - type: section
-          label: Frontdoor
         - entity: switch.siren
           name: Alarm Siren
-        - type: section
-          label: Backyard
         - entity: switch.backyard_siren
-          name: Cam Siren
+          name: Backyard Siren
 
   sensor.house_movement:
-    title: Movement
+    title: House Motion
     card:
       type: entities
       entities:
-        - entity: sensor.living_room_axis_movement
-          name: Living Room Movement
+        - entity: binary_sensor.entryway
+          name: Entryway
           secondary_info: last-changed
-        - entity: sensor.living_room_axis_movement_2
-          name: Living Room Movement 2
+        - entity: binary_sensor.kitchen
+          name: Kitchen
           secondary_info: last-changed
-        - entity: sensor.passage_movement
+        - entity: binary_sensor.living_room
+          name: Living Room
           secondary_info: last-changed
-        - entity: sensor.upstairs_hallway_movement
-          name: Stairs Movement
+        - entity: binary_sensor.office
+          name: Office
           secondary_info: last-changed
-        - entity: sensor.stefans_office_movement
-          name: Stefans Office Movement
+        - entity: binary_sensor.garage
+          name: Garage
           secondary_info: last-changed
-        - entity: sensor.ring_front_door_last_motion
-          name: Front Door Last Movement
+
+  sensor.outdoor_movement:
+    title: Outdoor Activity
+    card:
+      type: entities
+      entities:
+        - entity: binary_sensor.ring_front_door_motion
+          name: Front Door Motion
+          secondary_info: last-changed
+        - entity: binary_sensor.ring_front_door_ding
+          name: Front Door Ding
+          secondary_info: last-changed
+        - entity: binary_sensor.ring_backyard_motion
+          name: Backyard Motion
+          secondary_info: last-changed
