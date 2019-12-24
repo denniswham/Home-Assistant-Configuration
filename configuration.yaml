@@ -7,22 +7,10 @@ homeassistant:
     - /config
 
 default_config:
-
 hassio:
 http:
 discovery:
 
-# ########################################
-# ###           ASSISTANT             ###
-# ########################################
-
-# ########################################
-# ###             MOBILE               ###
-# ########################################
-
-# ########################################
-# ###                GUI               ###
-# ########################################
 lovelace:
   mode: yaml
 
@@ -42,27 +30,16 @@ browser_mod:
     785ee2cf_44edd526:
       name: Dennis Samsung S9
       
-# ########################################
-# ###              LOGGING             ###
-# ########################################
-
 recorder: !include logging/recorder.yaml
 history: !include logging/history.yaml
-logbook: # !include logging/logbook.yaml
+logbook: !include logging/logbook.yaml
 logger: !include logging/logger.yaml
 
-# ########################################
-# ###              ENTITIES             ###
-# ########################################
 media_player: !include entities/media_player.yaml
 device_tracker: !include entities/device_tracker.yaml
 
-# ########################################
-# ###             SERVICES             ###
-# ########################################
 scene: !include scenes.yaml
 automation: !include automations.yaml
 notify: !include notify/notify.yaml
 
 ffmpeg:
-
