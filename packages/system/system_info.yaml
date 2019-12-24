@@ -2,10 +2,9 @@ homeassistant:
   customize_glob:
     sensor.system_*:
       templates:
-        icon_color: 
-          if (state === 'Online') return 'white';
-          else if (state === 'Unknown') return 'blue';
-          else if (state === 'Offline') return 'red';
+        hs_color: "if (state === 'Online') return [0, 0];
+        else if (state === 'Unknown') return [40, 70];
+        else if (state === 'Offline') return [0, 85];" 
 
 sensor:
   - platform: template

@@ -943,11 +943,10 @@
 
 - id: bce438cb-9828-454f-822d-21aa14810445
   alias: '[System] Device Status'
-  initial_state: 'off'
+  initial_state: 'on'
   trigger:
         - platform: state
           entity_id:
-            - sensor.system_hass_rpi
             - sensor.system_konnected
             - sensor.system_ziggo_router
             - sensor.system_tplink_router
@@ -958,13 +957,15 @@
             - sensor.system_ring_chime
             - sensor.system_living_room_thermostat
             - sensor.system_entryway_smokeco
-            - sensor.system_hallway_smokeco
+#             - sensor.system_hallway_smokeco
             - sensor.system_attic_smokeco
             - sensor.system_living_room_echo_dot
             - sensor.system_master_bedroom_echo_dot
             - sensor.system_lucas_bedroom_echo_dot
             - sensor.system_timo_s_bedroom_echo_dot
             - sensor.system_emilie_s_bedroom_echo_dot
+            - sensor.system_firetvstick_living_room
+            - sensor.system_firetvstick_master_bedroom
           to: 'Offline'
           for:
             minutes: 5
