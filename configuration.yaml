@@ -26,19 +26,14 @@ discovery:
 lovelace:
   mode: yaml
 
-#customizer:
-#  custom_ui: hosted
+customizer:
+  custom_ui: hosted
 
 frontend:
   extra_html_url:
     - /local/hass-bha-icons.html
     
 #panel_custom: !include panels/panel_custom.yaml
-
-# hacs:
-#   token: !secret hacs_token
-#  appdaemon: true
-  
 
 browser_mod:
   devices:
