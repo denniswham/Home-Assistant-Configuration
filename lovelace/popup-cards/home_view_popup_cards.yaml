@@ -212,18 +212,4 @@
         - entity: binary_sensor.ring_backyard_motion
           name: Backyard Motion
           secondary_info: last-changed
-
-  # input_boolean.guest_mode:          
-  #   title: Guest Mode
-  #   card:
-  #     type: entities
-  #     entities:
-  #       - entity: input_boolean.guest_mode
-
-  # input_select.house_mode:
-  #   title: House Mode
-  #   card:
-  #     type: entities
-  #     entities:
-  #       - entity: input_select.house_mode
             
