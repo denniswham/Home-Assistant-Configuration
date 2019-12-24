@@ -33,8 +33,6 @@ frontend:
   extra_html_url:
     - /local/hass-bha-icons.html
     
-panel_custom: !include panels/panel_custom.yaml
-
 browser_mod:
   devices:
     e7d1eb1b_8c9bcf1c:
