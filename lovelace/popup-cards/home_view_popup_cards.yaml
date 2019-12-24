@@ -226,3 +226,4 @@
       type: entities
       entities:
         - entity: input_select.house_mode
+            

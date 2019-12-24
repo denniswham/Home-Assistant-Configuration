@@ -14,7 +14,7 @@ cards:
                 image: /local/lovelace_ui/info/pi_background.jpg
                 elements:
                   - type: custom:hui-glance-card
-                    show_state: true
+                    show_state: false
                     columns: 2
                     entities:
                       - entity: sensor.system_hass_rpi
@@ -33,7 +33,7 @@ cards:
                 image: /local/lovelace_ui/info/protect_background.jpg
                 elements:
                   - type: custom:hui-glance-card
-                    show_state: true
+                    show_state: false
                     columns: 4
                     entities:
                       - entity: sensor.system_living_room_thermostat
@@ -56,7 +56,7 @@ cards:
                 image: /local/lovelace_ui/info/dots_background.jpg
                 elements:
                   - type: custom:hui-glance-card
-                    show_state: true
+                    show_state: false
                     columns: 5
                     entities:
                       - entity: sensor.system_living_room_echo_dot
@@ -104,6 +104,7 @@ cards:
                 image: /local/lovelace_ui/info/ring_background.jpg
                 elements:
                   - type: custom:hui-glance-card
+                    show_state: true
                     columns: 3
                     entities:
                       - entity: sensor.ring_front_door_battery
@@ -128,7 +129,7 @@ cards:
                 image: /local/lovelace_ui/info/tv_background.jpg
                 elements:
                   - type: custom:hui-glance-card
-                    show_state: true
+                    show_state: false
                     columns: 5
                     entities:
                       - entity: sensor.system_vieratv
