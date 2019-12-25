@@ -1,21 +1,65 @@
 use_include_order: True
+# include:
+#   domains:
+#     - alarm_control_panel
+#     - climate
+#     - light
+#     - sun
+#     - person
+#   entities:
+#     - cover.master_bedroom_roller_shutter_level
+#     - cover.lucas_room_roller_shutter_level
+#     - sensor.living_room_thermostat_temperature
+#     - sensor.living_room_thermostat_humidity
+#     - sensor.retsinagaard_eta
+
 include:
   domains:
     - alarm_control_panel
+    - climate
+    - cover
+    - input_boolean
+    - input_select
     - light
-    - sun
+    - media_player
+    - switch
+    - person
   entities:
-    - climate.living_room
-    - person.dennis
-    - device_tracker.smg960f
-    - person.stephanie
-    - device_tracker.iphone_van_stephanie
-    - person.lucas
-    - device_tracker.iphone_van_lucas
-    - person.timo
-    - device_tracker.oneplus_a5010
-    - cover.master_bedroom_roller_shutter_level
-    - cover.lucas_room_roller_shutter_level
+    - sensor.system_hass_rpi
+    - sensor.system_konnected
+    - sensor.system_vieratv
+    - sensor.system_samsungtv
+    - sensor.system_firetvstick_living_room
+    - sensor.system_firetvstick_master_bedroom
+    - sensor.system_ziggo_router
+    - sensor.system_tplink_router
+    - sensor.system_linksys_router
+    - sensor.system_powerline_router
+    - sensor.system_xbox_one
+    - sensor.system_invoke
+    - sensor.system_ring_doorbell
+    - sensor.system_ring_backyard_cam
+    - sensor.system_ring_chime
+    - sensor.system_living_room_thermostat
+    - sensor.system_entryway_smokeco
+    - sensor.system_hallway_smokeco
+    - sensor.system_attic_smokeco
+    - sensor.system_living_room_echo_dot
+    - sensor.system_master_bedroom_echo_dot
+    - sensor.system_lucas_bedroom_echo_dot
+    - sensor.system_timo_s_bedroom_echo_dot
+    - sensor.system_emilie_s_bedroom_echo_dot
     - sensor.living_room_thermostat_temperature
     - sensor.living_room_thermostat_humidity
     - sensor.retsinagaard_eta
+
+# exclude:
+#   domains:
+#     - alert
+#     - camera
+#     - calendar
+#     - group
+#     - binary_sensor
+#     - device_tracker
+#     - sensor
+#   entities:
