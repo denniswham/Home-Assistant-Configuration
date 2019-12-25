@@ -21,11 +21,6 @@ frontend:
   extra_html_url:
     - /local/hass-bha-icons.html
     
-browser_mod:
-  devices:
-    cda4f452_7fae9c44:
-      name: Dennis Surface Book 2
-      
 recorder: !include logging/recorder.yaml
 history: !include logging/history.yaml
 logbook: !include logging/logbook.yaml
