@@ -14,7 +14,9 @@ include:
     - device_tracker.iphone_van_lucas
     - device_tracker.smg960f
     - device_tracker.oneplus_a5010
-      
+
+
+
 exclude:
   domains:
     - alert
@@ -23,30 +25,5 @@ exclude:
     - group
     - binary_sensor
     - device_tracker
+    - sensor
   entities:
-    - binary_sensor.entryway
-    - binary_sensor.kitchen
-    - binary_sensor.living_room
-    - binary_sensor.office
-    - binary_sensor.garage
-    - sensor.br_condition_1d
-    - sensor.br_condition_2d
-    - sensor.br_condition_3d
-    - sensor.br_condition_4d
-    - sensor.br_condition_5d
-    - sensor.br_detailed_condition
-    - sensor.br_detailed_condition_1d
-    - sensor.br_full_condition
-    - sensor.br_full_condition_1d
-    - sensor.br_humidity
-    - sensor.br_precipitation
-    - sensor.br_rainchance_1d
-    - sensor.br_sunchance_1d
-    - sensor.br_symbol
-    - sensor.br_temperature
-    - sensor.br_wind_force
-    - sensor.ring_backyard_last_activity
-    - sensor.ring_front_door_last_activity
-    - sensor.date
-    - sensor.date_time
-    - sensor.time

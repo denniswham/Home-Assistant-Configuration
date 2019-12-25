@@ -1,12 +1,4 @@
 homeassistant:
-  customize:
-    sensor.system_hass_rpi:
-      icon: mdi:home-assistant
-    sensor.system_konnected:
-      icon: mdi:raspberry-pi
-    sensor.system_xbox_one:
-      icon: mdi:xbox
-
   customize_glob:
     sensor.system_*:
       templates:
@@ -19,10 +11,12 @@ sensor:
     sensors:
       system_hass_rpi:
         friendly_name: 'Hass RPi'
+        icon_template: mdi:home-assistant
         entity_id: "device_tracker.raspberrypi"
         value_template: "{{ 'Online' }}"
       system_konnected:
         friendly_name: 'Konnected'
+        icon_template: mdi:raspberry-pi
         entity_id: "device_tracker.konnected"
         value_template: "{{ 'Online' if is_state('device_tracker.konnected', 'home') else 'Offline' }}"
       system_vieratv:
@@ -67,6 +61,7 @@ sensor:
         value_template: "{{ 'Online' if is_state('device_tracker.powerline_router', 'home') else 'Offline' }}"
       system_xbox_one:
         friendly_name: 'Xbox One'
+        icon_template: mdi:xbox
         entity_id: "device_tracker.xbox_one"
         value_template: "{{ 'Online' if is_state('device_tracker.xbox_one', 'home') else 'Offline' }}"
       system_invoke:
