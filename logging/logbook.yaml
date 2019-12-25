@@ -47,4 +47,3 @@ exclude:
     - binary_sensor
     - device_tracker
     - sensor
-  entities:
