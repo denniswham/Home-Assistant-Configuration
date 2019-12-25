@@ -294,11 +294,6 @@ cards:
                     - entity: sensor.hallway_nest_protect_smoke_status
                     - entity: sensor.attic_nest_protect_co_status
                     - entity: sensor.attic_nest_protect_smoke_status
-                    - entity: binary_sensor.entryway
-                    - entity: binary_sensor.kitchen
-                    - entity: binary_sensor.living_room
-                    - entity: binary_sensor.office
-                    - entity: binary_sensor.garage
                   state_filter:
                     - "on"
                     - Warning
