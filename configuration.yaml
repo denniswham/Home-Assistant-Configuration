@@ -23,12 +23,8 @@ frontend:
     
 browser_mod:
   devices:
-    e7d1eb1b_8c9bcf1c:
-      name: Stephanie iPhone
-    7be6c772_d289a5ae:
+    cda4f452_7fae9c44:
       name: Dennis Surface Book 2
-    785ee2cf_44edd526:
-      name: Dennis Samsung S9
       
 recorder: !include logging/recorder.yaml
 history: !include logging/history.yaml

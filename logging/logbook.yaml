@@ -9,6 +9,7 @@ include:
     - media_player
     - switch
     - person
+    - automation
   entities:
     - sensor.system_hass_rpi
     - sensor.system_konnected
@@ -34,6 +35,8 @@ include:
     - sensor.system_lucas_bedroom_echo_dot
     - sensor.system_timo_s_bedroom_echo_dot
     - sensor.system_emilie_s_bedroom_echo_dot
+    - switch.siren
+    - switch.backyard_siren
 
 exclude:
   domains:
