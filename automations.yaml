@@ -842,26 +842,26 @@
         entity_id: input_select.house_mode
         option: Night
 
-- id: 60a1fa21-52f7-42c7-b5dc-ec3b1e01e262
-  alias: '[Nest] Nest Protect Offline'
-  initial_state: 'on'
-  trigger:
-    - platform: state
-      entity_id:
-        - binary_sensor.entryway_nest_protect_online
-        - binary_sensor.hallway_nest_protect_online
-        - binary_sensor.attic_nest_protect_online
-      from: 'on'
-      to: 'off'
-  action:
-    - service: persistent_notification.create
-      data_template:
-        message: "{{ trigger.entity_id.name }} reported offline."
-        title: Nest Protect Offline
-    - service: notify.mobile_app_dennis_galaxy
-      data_template:
-        message: "{{ trigger.entity_id.name }} reported offline."
-        title: Nest Protect Offline
+# - id: 60a1fa21-52f7-42c7-b5dc-ec3b1e01e262
+#   alias: '[Nest] Nest Protect Offline'
+#   initial_state: 'on'
+#   trigger:
+#     - platform: state
+#       entity_id:
+#         - binary_sensor.entryway_nest_protect_online
+#         - binary_sensor.hallway_nest_protect_online
+#         - binary_sensor.attic_nest_protect_online
+#       from: 'on'
+#       to: 'off'
+#   action:
+#     - service: persistent_notification.create
+#       data_template:
+#         message: "{{ trigger.entity_id.name }} reported offline."
+#         title: Nest Protect Offline
+#     - service: notify.mobile_app_dennis_galaxy
+#       data_template:
+#         message: "{{ trigger.entity_id.name }} reported offline."
+#         title: Nest Protect Offline
 
 - id: f1ac429c-e0c6-4859-a3a1-d271136334fa
   alias: '[Nest] Smoke/CO Detected'
