@@ -968,7 +968,7 @@
             - sensor.system_firetvstick_master_bedroom
           to: 'Offline'
           for:
-            minutes: 5
+            minutes: 10
   action:
     - service: notify.mobile_app_dennis_galaxy
       data_template:
