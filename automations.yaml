@@ -980,21 +980,40 @@
   alias: '[System] Update Notifications'
   initial_state: 'on'
   condition:
-  - condition: template
-    value_template: '{{ states.sensor.latest_version.state != states.sensor.current_version.state }}'
+    - condition: template
+      value_template: '{{ states.sensor.latest_version.state != states.sensor.current_version.state }}'
   trigger:
-  - platform: time
-    at: 04:00:00
-  - platform: state
-    entity_id: person.dennis
-    from: 'not_home'
-    to: 'home'
+    - platform: time
+      at: 04:00:00
+    - platform: state
+      entity_id: person.dennis
+      from: 'not_home'
+      to: 'home'
   action:
-  - delay: 00:30:00
-  - service: notify.mobile_app_dennis_galaxy
-    data:
-      title: Home Assistant Update
-      message: "Version {{ states.sensor.latest_version.state }} is available!"
+    - delay: 00:30:00
+    - service: notify.mobile_app_dennis_galaxy
+      data:
+        title: Home Assistant Update
+        message: "Version {{ states.sensor.latest_version.state }} is available!"
+
+- id: d4bb6a9b-fb3d-4c78-b457-85840a731e3b
+  alias: '[System] Notification to turn off Xbox'
+  initial_state: 'on'
+  condition:
+    - condition: state
+      entity_id: sensor.system_xbox_one
+      state: Online
+  trigger:
+    - platform: state
+      entity_id: sensor.system_vieratv
+      from: Online
+      to: Offline
+      for: 00:05:00
+  action:
+    - service: notify.mobile_app_dennis_galaxy
+      data:
+        title: Xbox is truned on
+        message: "TV is off, turn off Xbox"
 
 # - id: e96f392c-aae1-470d-8859-936c3addf5a7
 #   alias: '[System] Hass Started'

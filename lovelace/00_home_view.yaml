@@ -288,6 +288,20 @@ cards:
                 - type: entity-filter
                   show_empty: false
                   entities:
+                    - entity: sensor.system_vieratv
+                    - entity: sensor.system_firetvstick_living_room
+                    - entity: sensor.system_samsungtv
+                    - entity: sensor.system_firetvstick_master_bedroom
+                    - entity: sensor.system_xbox_one
+                    - entity: sensor.system_invoke
+                  state_filter:
+                    - Online
+                  card: 
+                    type: glance
+                    show_state: false
+                - type: entity-filter
+                  show_empty: false
+                  entities:
                     - entity: sensor.entryway_nest_protect_co_status
                     - entity: sensor.entryway_nest_protect_smoke_status
                     - entity: sensor.hallway_nest_protect_co_status
@@ -296,16 +310,10 @@ cards:
                     - entity: sensor.attic_nest_protect_smoke_status
                     - entity: sensor.system_hass_rpi
                     - entity: sensor.system_konnected
-                    - entity: sensor.system_vieratv
-                    - entity: sensor.system_samsungtv
-                    - entity: sensor.system_firetvstick_living_room
-                    - entity: sensor.system_firetvstick_master_bedroom
                     - entity: sensor.system_ziggo_router
                     - entity: sensor.system_tplink_router
                     - entity: sensor.system_linksys_router
                     - entity: sensor.system_powerline_router
-                    - entity: sensor.system_xbox_one
-                    - entity: sensor.system_invoke
                     - entity: sensor.system_ring_doorbell
                     - entity: sensor.system_ring_backyard_cam
                     - entity: sensor.system_ring_chime
