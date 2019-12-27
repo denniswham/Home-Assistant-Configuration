@@ -17,6 +17,8 @@ lovelace:
 customizer:
   custom_ui: hosted
 
+browser_mod:
+
 frontend:
   extra_html_url:
     - /local/hass-bha-icons.html
