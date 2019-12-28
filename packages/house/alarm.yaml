@@ -1,11 +1,10 @@
 homeassistant:
   customize:
-    # input_boolean.konnectedupdate:
-    #   friendly_name: Auto Alarm
-    #   icon: mdi:security
     switch.siren:
       friendly_name: Alarm siren
       icon: mdi:alarm-bell
+    alarm_control_panel.alexa_guard_7514f:
+      friendly_name: Alexa Guard
 
 konnected:
   access_token: !secret konnected_access_token
