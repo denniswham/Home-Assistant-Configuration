@@ -958,7 +958,6 @@
             - sensor.system_ring_chime
             - sensor.system_living_room_thermostat
             - sensor.system_entryway_smokeco
-#             - sensor.system_hallway_smokeco
             - sensor.system_attic_smokeco
             - sensor.system_living_room_echo_dot
             - sensor.system_master_bedroom_echo_dot
@@ -970,6 +969,12 @@
           to: 'Offline'
           for:
             minutes: 10
+        - platform: state
+          entity_id:
+            - sensor.system_hallway_smokeco
+          to: 'Offline'
+          for:
+            days: 1
   action:
     - service: notify.mobile_app_dennis_galaxy
       data_template:

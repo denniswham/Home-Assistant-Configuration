@@ -288,50 +288,12 @@ cards:
                 - type: entity-filter
                   show_empty: false
                   entities:
-                    - entity: sensor.system_vieratv
-                    - entity: sensor.system_samsungtv
-                    - entity: sensor.system_xbox_one
-                    - entity: sensor.system_invoke
+                    - sensor.system_vieratv
+                    - sensor.system_samsungtv
+                    - sensor.system_xbox_one
+                    - sensor.system_invoke
                   state_filter:
                     - Online
-                  card: 
-                    type: glance
-                    show_state: false
-                - type: entity-filter
-                  show_empty: false
-                  entities:
-                    - entity: sensor.entryway_nest_protect_co_status
-                    - entity: sensor.entryway_nest_protect_smoke_status
-                    - entity: sensor.hallway_nest_protect_co_status
-                    - entity: sensor.hallway_nest_protect_smoke_status
-                    - entity: sensor.attic_nest_protect_co_status
-                    - entity: sensor.attic_nest_protect_smoke_status
-                    - entity: sensor.system_hass_rpi
-                    - entity: sensor.system_konnected
-                    - entity: sensor.system_ziggo_router
-                    - entity: sensor.system_tplink_router
-                    - entity: sensor.system_linksys_router
-                    - entity: sensor.system_powerline_router
-                    - entity: sensor.system_ring_doorbell
-                    - entity: sensor.system_ring_backyard_cam
-                    - entity: sensor.system_ring_chime
-                    - entity: sensor.system_living_room_thermostat
-                    - entity: sensor.system_entryway_smokeco
-                    - entity: sensor.system_hallway_smokeco
-                    - entity: sensor.system_attic_smokeco
-                    - entity: sensor.system_living_room_echo_dot
-                    - entity: sensor.system_master_bedroom_echo_dot
-                    - entity: sensor.system_lucas_bedroom_echo_dot
-                    - entity: sensor.system_timo_s_bedroom_echo_dot
-                    - entity: sensor.system_emilie_s_bedroom_echo_dot
-                    - entity: sensor.system_firetvstick_living_room
-                    - entity: sensor.system_firetvstick_master_bedroom
-                  state_filter:
-                    - "on"
-                    - Warning
-                    - Emergency
-                    - Offline
-                    - Unknown
                   card: 
                     type: glance
                     show_state: false
@@ -345,6 +307,32 @@ cards:
                     - person.stephanie
                     - person.lucas
                     - person.timo
+                    - sensor.entryway_nest_protect_co_status
+                    - sensor.entryway_nest_protect_smoke_status
+                    - sensor.hallway_nest_protect_co_status
+                    - sensor.hallway_nest_protect_smoke_status
+                    - sensor.attic_nest_protect_co_status
+                    - sensor.attic_nest_protect_smoke_status
+                    - sensor.system_hass_rpi
+                    - sensor.system_konnected
+                    - sensor.system_ziggo_router
+                    - sensor.system_tplink_router
+                    - sensor.system_linksys_router
+                    - sensor.system_powerline_router
+                    - sensor.system_ring_doorbell
+                    - sensor.system_ring_backyard_cam
+                    - sensor.system_ring_chime
+                    - sensor.system_living_room_thermostat
+                    - sensor.system_entryway_smokeco
+                    - sensor.system_hallway_smokeco
+                    - sensor.system_attic_smokeco
+                    - sensor.system_living_room_echo_dot
+                    - sensor.system_master_bedroom_echo_dot
+                    - sensor.system_lucas_bedroom_echo_dot
+                    - sensor.system_timo_s_bedroom_echo_dot
+                    - sensor.system_emilie_s_bedroom_echo_dot
+                    - sensor.system_firetvstick_living_room
+                    - sensor.system_firetvstick_master_bedroom
           - break
           - type: vertical-stack
             cards:
