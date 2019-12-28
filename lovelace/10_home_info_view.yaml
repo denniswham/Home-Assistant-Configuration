@@ -15,7 +15,6 @@ cards:
                 states:
                   - arm_home
                   - arm_away
-                  - arm_night
 
               - type: entities
                 entities:

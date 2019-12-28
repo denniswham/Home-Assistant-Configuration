@@ -3,6 +3,8 @@
   entities:
     alarm_control_panel.konnected_alarm:
       state: disarmed
+    alarm_control_panel.alexa_guard_7514f:
+      state: disarmed
     climate.living_room:
       state: heat
       temperature: 20.5

@@ -33,6 +33,7 @@
     - service: alarm_control_panel.alarm_arm_away
       entity_id:
         - alarm_control_panel.konnected_alarm
+        - alarm_control_panel.alexa_guard_7514f
     - service: notify.alexa_media
       data:
         data:
