@@ -15,6 +15,10 @@ cards:
                 states:
                   - arm_home
                   - arm_away
+              - type: alarm-panel
+                entity: alarm_control_panel.alexa_guard_7514f
+                states:
+                  - arm_away
 
               - type: entities
                 entities:
