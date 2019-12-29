@@ -45,10 +45,10 @@
   entities: 
     light.living_room_spot_lights_dimmer_level:
       state: on  
-      brightness: 15
+      brightness: 5
     light.office_spot_lights_dimmer_level:
       state: on  
-      brightness: 10
+      brightness: 5
 
 - id: 0d80f036-53f7-40de-81ff-77ad45bc8150
   name: Bed time
