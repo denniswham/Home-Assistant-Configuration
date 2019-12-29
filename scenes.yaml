@@ -1,5 +1,5 @@
 - id: 685e8c80-6c92-46db-bead-beb258b660c9
-  name: RiseAndShine
+  name: Rise and Shine
   entities:
     alarm_control_panel.konnected_alarm:
       state: disarmed
@@ -41,7 +41,7 @@
       brightness: 10
 
 - id: 78e4c286-6d53-4465-a213-6c61984d8eac
-  name: Lounge time
+  name: TV time
   entities: 
     light.living_room_spot_lights_dimmer_level:
       state: on  
