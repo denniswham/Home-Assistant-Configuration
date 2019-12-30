@@ -25,30 +25,22 @@ include:
     - switch
     - person
   entities:
-    - sensor.system_hass_rpi
-    - sensor.system_konnected
-    - sensor.system_vieratv
-    - sensor.system_samsungtv
-    - sensor.system_firetvstick_living_room
-    - sensor.system_firetvstick_master_bedroom
-    - sensor.system_ziggo_router
-    - sensor.system_tplink_router
-    - sensor.system_linksys_router
-    - sensor.system_powerline_router
-    - sensor.system_xbox_one
-    - sensor.system_invoke
-    - sensor.system_ring_doorbell
-    - sensor.system_ring_backyard_cam
-    - sensor.system_ring_chime
-    - sensor.system_living_room_thermostat
-    - sensor.system_entryway_smokeco
-    - sensor.system_hallway_smokeco
-    - sensor.system_attic_smokeco
-    - sensor.system_living_room_echo_dot
-    - sensor.system_master_bedroom_echo_dot
-    - sensor.system_lucas_bedroom_echo_dot
-    - sensor.system_timo_s_bedroom_echo_dot
-    - sensor.system_emilie_s_bedroom_echo_dot
+    - person.dennis
+    - device_tracker.smg960f
+    - device_tracker.galaxy_s9
+    - device_tracker.08_c5_e1_41_9e_d4
+    - person.stephanie
+    - device_tracker.iphone_van_stephanie
+    - device_tracker.iphone_van_stephanie_2
+    - device_tracker.78_88_6d_4a_1c_4e
+    - person.lucas
+    - device_tracker.iphone_van_lucas
+#    - device_tracker.
+    - device_tracker.f0_99_b6_0f_3c_c1
+    - person.timo
+    - device_tracker.oneplus_a5010
+    - device_tracker.94_65_2d_c7_0b_9e
+    - device_tracker.oneplus_5t
     - sensor.living_room_thermostat_temperature
     - sensor.living_room_thermostat_humidity
     - sensor.retsinagaard_eta
