@@ -19,8 +19,8 @@ cover:
       - cover.lucas_room_roller_shutter_level
 
 script:
-  # "Alexa, open the cover"
   alexa_open_the_cover:
+    alias: Alexa - Open the cover
     sequence:
       - service: cover.open_cover
         data_template:
@@ -28,14 +28,14 @@ script:
             {# Use the name of each Echo to determine which room the command likely came from. #}
             {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
 
-            {%- if room == "master_bedroom" -%}
+            {%- if room == "master_bedroom_echo_dot" -%}
               cover.master_bedroom_roller_shutter_level
-            {%- elif room == "lucas_room" -%}
+            {%- elif room == "lucas_room_echo_dot" -%}
               cover.lucas_room_roller_shutter_level
             {%- endif -%}
 
-  # "Alexa, close the cover"
   alexa_close_the_cover:
+    alias: Alexa - Close the cover
     sequence:
       - service: cover.close_cover
         data_template:
@@ -43,8 +43,8 @@ script:
             {# Use the name of each Echo to determine which room the command likely came from. #}
             {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
 
-            {%- if room == "master_bedroom" -%}
+            {%- if room == "master_bedroom_echo_dot" -%}
               cover.master_bedroom_roller_shutter_level
-            {%- elif room == "lucas_room" -%}
+            {%- elif room == "lucas_room_echo_dot" -%}
               cover.lucas_room_roller_shutter_level
             {%- endif -%}

@@ -130,7 +130,7 @@ cards:
                 elements:
                   - type: custom:hui-glance-card
                     show_state: false
-                    columns: 5
+                    columns: 3
                     entities:
                       - entity: sensor.system_vieratv
                         name: TV
@@ -142,6 +142,8 @@ cards:
                         name: Bed TV
                       - entity: sensor.system_firetvstick_master_bedroom
                         name: Bed Fire TV
+                      - entity: sensor.system_invoke
+                        name: HK Invoke
                     style:
                       --primary-text-color: white
                       left: 50%
