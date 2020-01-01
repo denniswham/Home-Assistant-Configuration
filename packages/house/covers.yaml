@@ -20,7 +20,7 @@ cover:
 
 script:
   alexa_open_the_cover:
-    alias: Alexa - Open the cover
+    alias: Open the cover
     sequence:
       - service: cover.open_cover
         data_template:
@@ -35,7 +35,7 @@ script:
             {%- endif -%}
 
   alexa_close_the_cover:
-    alias: Alexa - Close the cover
+    alias: Close the cover
     sequence:
       - service: cover.close_cover
         data_template:
