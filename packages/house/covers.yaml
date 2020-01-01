@@ -20,7 +20,7 @@ cover:
 
 script:
   alexa_open_the_cover:
-    alias: Open the cover
+    alias: '[Alexa] Open the cover'
     sequence:
       - service: cover.open_cover
         data_template:
@@ -35,7 +35,7 @@ script:
             {%- endif -%}
 
   alexa_close_the_cover:
-    alias: Close the cover
+    alias: '[Alexa] Close the cover'
     sequence:
       - service: cover.close_cover
         data_template:
@@ -48,3 +48,19 @@ script:
             {%- elif room == "lucas_room" -%}
               cover.lucas_room_roller_shutter_level
             {%- endif -%}
+
+  alexa_close_the_cover_with-ventilation:
+    alias: '[Alexa] Close the cover with ventilation'
+    sequence:
+      - service: cover.set_cover_position
+        data_template:
+          entity_id: >-
+            {# Use the name of each Echo to determine which room the command likely came from. #}
+            {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
+
+            {%- if room == "master_bedroom" -%}
+              cover.master_bedroom_roller_shutter_level
+            {%- elif room == "lucas_room" -%}
+              cover.lucas_room_roller_shutter_level
+            {%- endif -%}  
+          position: 10
