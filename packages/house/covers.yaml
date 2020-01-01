@@ -49,7 +49,7 @@ script:
               cover.lucas_room_roller_shutter_level
             {%- endif -%}
 
-  alexa_close_the_cover_with-ventilation:
+  alexa_close_the_cover_with_ventilation:
     alias: '[Alexa] Close the cover with ventilation'
     sequence:
       - service: cover.set_cover_position
