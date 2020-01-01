@@ -45,7 +45,7 @@ alarm_control_panel:
 
 script:
   konnectedstandby:
-    alias: Alarm - Konnected Standby
+    alias: '[Alarm] Konnected Standby'
     sequence:
       - service: input_select.select_option
         data:
