@@ -104,27 +104,27 @@ sensor:
         icon_template: bha:smoke-detector
         entity_id: "device_tracker.attic_protect"
         value_template: "{{ 'Online' if is_state('device_tracker.attic_protect', 'home') else 'Offline' }}"
-      system_living_room_echo_dot:
+      system_living_room:
         friendly_name: 'Living Room'
         icon_template: mdi:amazon-alexa
         entity_id: "device_tracker.alexa_living_room"
         value_template: "{{ 'Online' if is_state('device_tracker.alexa_living_room', 'home') else 'Offline' }}"
-      system_master_bedroom_echo_dot:
+      system_master_bedroom:
         friendly_name: 'Master Bedroom'
         icon_template: mdi:amazon-alexa
         entity_id: "device_tracker.alexa_master_bedroom"
         value_template: "{{ 'Online' if is_state('device_tracker.alexa_master_bedroom', 'home') else 'Offline' }}"
-      system_lucas_bedroom_echo_dot:
+      system_lucas_bedroom:
         friendly_name: 'Lucas'
         icon_template: mdi:amazon-alexa
         entity_id: "device_tracker.alexa_lucas_bedroom"
         value_template: "{{ 'Online' if is_state('device_tracker.alexa_lucas_bedroom', 'home') else 'Offline' }}"
-      system_timo_s_bedroom_echo_dot:
+      system_timo_s_bedroom:
         friendly_name: 'Timo'
         icon_template: mdi:amazon-alexa
         entity_id: "device_tracker.alexa_timo_bedroom"
         value_template: "{{ 'Online' if is_state('device_tracker.alexa_timo_bedroom', 'home') else 'Offline' }}"
-      system_emilie_s_bedroom_echo_dot:
+      system_emilie_s_bedroom:
         friendly_name: 'Emilie'
         icon_template: mdi:amazon-alexa
         entity_id: "device_tracker.alexa_emilie_bedroom"

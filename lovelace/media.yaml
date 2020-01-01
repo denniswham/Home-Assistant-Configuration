@@ -48,11 +48,11 @@ cards:
                     hide:
                       power_state: false
 
-                  - entity: switch.livingroom_tv
+                  - entity: switch.living_room_tv
                     name: Tv
                     icon: mdi:television-classic
                     type: custom:toggle-lock-entity-row
-                  - entity: switch.livingroom_movie_system
+                  - entity: switch.living_room_movie_system
                     name: Movie system
                     icon: mdi:movie
                     type: custom:toggle-lock-entity-row

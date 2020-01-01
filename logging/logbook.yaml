@@ -30,11 +30,11 @@ include:
     - sensor.system_entryway_smokeco
     - sensor.system_hallway_smokeco
     - sensor.system_attic_smokeco
-    - sensor.system_living_room_echo_dot
-    - sensor.system_master_bedroom_echo_dot
-    - sensor.system_lucas_bedroom_echo_dot
-    - sensor.system_timo_s_bedroom_echo_dot
-    - sensor.system_emilie_s_bedroom_echo_dot
+    - sensor.system_living_room
+    - sensor.system_master_bedroom
+    - sensor.system_lucas_bedroom
+    - sensor.system_timo_s_bedroom
+    - sensor.system_emilie_s_bedroom
     - switch.siren
     - switch.backyard_siren
 

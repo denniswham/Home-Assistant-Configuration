@@ -59,15 +59,15 @@ cards:
                     show_state: false
                     columns: 5
                     entities:
-                      - entity: sensor.system_living_room_echo_dot
+                      - entity: sensor.system_living_room
                         name: Living Room
-                      - entity: sensor.system_master_bedroom_echo_dot
+                      - entity: sensor.system_master_bedroom
                         name: Master Bedroom
-                      - entity: sensor.system_lucas_bedroom_echo_dot
+                      - entity: sensor.system_lucas_bedroom
                         name: Lucas' Room
-                      - entity: sensor.system_timo_s_bedroom_echo_dot
+                      - entity: sensor.system_timo_s_bedroom
                         name: Timo's Room
-                      - entity: sensor.system_emilie_s_bedroom_echo_dot
+                      - entity: sensor.system_emilie_s_bedroom
                         name: Emilie's Room
                     style:
                       --primary-text-color: white

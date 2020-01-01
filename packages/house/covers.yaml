@@ -28,9 +28,9 @@ script:
             {# Use the name of each Echo to determine which room the command likely came from. #}
             {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
 
-            {%- if room == "master_bedroom_echo_dot" -%}
+            {%- if room == "master_bedroom" -%}
               cover.master_bedroom_roller_shutter_level
-            {%- elif room == "lucas_room_echo_dot" -%}
+            {%- elif room == "lucas_room" -%}
               cover.lucas_room_roller_shutter_level
             {%- endif -%}
 
@@ -43,8 +43,8 @@ script:
             {# Use the name of each Echo to determine which room the command likely came from. #}
             {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
 
-            {%- if room == "master_bedroom_echo_dot" -%}
+            {%- if room == "master_bedroom" -%}
               cover.master_bedroom_roller_shutter_level
-            {%- elif room == "lucas_room_echo_dot" -%}
+            {%- elif room == "lucas_room" -%}
               cover.lucas_room_roller_shutter_level
             {%- endif -%}

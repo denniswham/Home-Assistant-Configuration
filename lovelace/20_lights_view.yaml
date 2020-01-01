@@ -39,14 +39,14 @@ cards:
       show_header_toggle: false
       entities:
         - entity: light.living_room_spot_lights_dimmer_level
-          name: Livingroom spots
+          name: Living Room Spots
           icon: bha:ceiling-lamp-plafond
           type: custom:slider-entity-row
           toggle: true
           hide_when_off: false
           
         - entity: light.office_spot_lights_dimmer_level
-          name: Office spots
+          name: Office Spots
           icon: bha:ceiling-lamp-plafond
           type: custom:slider-entity-row
           toggle: true

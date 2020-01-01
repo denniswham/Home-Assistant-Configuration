@@ -7,12 +7,12 @@ group:
     - media_player.dennis_s_alexa_app_on_surface_pro_4
     - media_player.dennis_s_alexa_apps
     - media_player.dennis_s_alexa_on_cortana
-    - media_player.emilie_s_room_echo_dot
-    - media_player.living_room_echo_dot
-    - media_player.lucas_room_echo_dot
-    - media_player.master_bedroom_echo_dot
+    - media_player.emilie_s_room
+    - media_player.living_room
+    - media_player.lucas_room
+    - media_player.master_bedroom
     - media_player.this_device
-    - media_player.timo_s_room_echo_dot
+    - media_player.timo_s_room
     - media_player.living_room_fire_tv_stick
     - media_player.master_bedroom_fire_tv_stick
 
@@ -21,10 +21,10 @@ sensor:
     sensors:
         last_alexa:
           entity_id:
-            - media_player.emilie_s_room_echo_dot
-            - media_player.living_room_echo_dot
-            - media_player.lucas_room_echo_dot
-            - media_player.master_bedroom_echo_dot
-            - media_player.timo_s_room_echo_dot
+            - media_player.emilie_s_room
+            - media_player.living_room
+            - media_player.lucas_room
+            - media_player.master_bedroom
+            - media_player.timo_s_room
           value_template: >
             {{ states.media_player | selectattr('attributes.last_called','eq',True) | map(attribute='entity_id') | first }}    
