@@ -64,3 +64,19 @@ script:
               cover.lucas_room_roller_shutter_level
             {%- endif -%}  
           position: 10
+
+  alexa_open_the_cover_halfway:
+    alias: '[Alexa] Open the cover halfway'
+    sequence:
+      - service: cover.set_cover_position
+        data_template:
+          entity_id: >-
+            {# Use the name of each Echo to determine which room the command likely came from. #}
+            {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
+
+            {%- if room == "master_bedroom" -%}
+              cover.master_bedroom_roller_shutter_level
+            {%- elif room == "lucas_room" -%}
+              cover.lucas_room_roller_shutter_level
+            {%- endif -%}  
+          position: 60          
