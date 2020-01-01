@@ -15,3 +15,16 @@ group:
     - media_player.timo_s_room_echo_dot
     - media_player.living_room_fire_tv_stick
     - media_player.master_bedroom_fire_tv_stick
+
+sensor:
+  - platform: template
+    sensors:
+        last_alexa:
+          entity_id:
+            - media_player.emilie_s_room_echo_dot
+            - media_player.living_room_echo_dot
+            - media_player.lucas_room_echo_dot
+            - media_player.master_bedroom_echo_dot
+            - media_player.timo_s_room_echo_dot
+          value_template: >
+            {{ states.media_player | selectattr('attributes.last_called','eq',True) | map(attribute='entity_id') | first }}    

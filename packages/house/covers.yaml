@@ -18,3 +18,33 @@ cover:
       - cover.master_bedroom_roller_shutter_level  
       - cover.lucas_room_roller_shutter_level
 
+script:
+  # "Alexa, open the cover"
+  alexa_open_the_cover:
+    sequence:
+      - service: cover.open_cover
+        data_template:
+          entity_id: >-
+            {# Use the name of each Echo to determine which room the command likely came from. #}
+            {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
+
+            {%- if room == "master_bedroom" -%}
+              cover.master_bedroom_roller_shutter_level
+            {%- elif room == "lucas_room" -%}
+              cover.lucas_room_roller_shutter_level
+            {%- endif -%}
+
+  # "Alexa, close the cover"
+  alexa_close_the_cover:
+    sequence:
+      - service: cover.close_cover
+        data_template:
+          entity_id: >-
+            {# Use the name of each Echo to determine which room the command likely came from. #}
+            {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
+
+            {%- if room == "master_bedroom" -%}
+              cover.master_bedroom_roller_shutter_level
+            {%- elif room == "lucas_room" -%}
+              cover.lucas_room_roller_shutter_level
+            {%- endif -%}
