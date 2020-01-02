@@ -6,3 +6,136 @@ input_boolean:
     name: Thermostat Updates
     initial: on
     icon: mdi:thermostat
+
+automation:
+  - id: d2851e95-9ef6-49bf-973d-9ed51545414c
+    alias: '[Climate] Cancel thermostat ETA'
+    initial_state: 'true'
+    condition:
+      - condition: template
+        value_template: '{{ states.sensor.retsinagaard_eta != "1970-01-01 00:00:00+00:00"
+          }}'
+    trigger:
+      - platform: state
+        entity_id: group.household
+        from: not_home
+        to: home
+      - platform: template
+        value_template: "{% if is_state_attr('proximity.home', 'dir_of_travel', 'towards') %}false{% endif %}"
+        for: '00:05:00'
+    action:
+      - service: nest.cancel_eta
+        data:
+          trip_id: ETA set by HAS
+          structure:
+            - Retsinagaard
+      - service: homeassistant.turn_on
+        data_template:
+          entity_id: "{%- if states('switch.living_room_away') == 'on' -%}\n  switch.living_room_away\n\
+            {%- endif -%}\n"
+
+  - id: 763d3d6d-c8f2-473b-86ed-ad6d41ff0083
+    alias: '[Climate] Disable thermostat away'
+    initial_state: 'true'
+    condition:
+      - condition: template
+        value_template: '{{states(''input_select.konnectedstatus'') == ''disarmed'' and
+          states(''group.thermostats'') == ''on''}}
+
+          '
+    trigger:
+      - platform: time_pattern
+        minutes: /5
+        seconds: 0
+    action:
+      - service: homeassistant.turn_off
+        data_template:
+          entity_id: "{%- if states('switch.living_room_away') == 'on' -%}\n  switch.living_room_away\n\
+            {%- endif -%}\n"
+
+  - id: e7d7fec6-be05-4aa2-bdd5-e8b2a4c585e7
+    alias: '[Climate] Enable thermostat away'
+    initial_state: 'true'
+    condition:
+      - condition: or
+        conditions:
+          - condition: template
+            value_template: '{{states(''input_select.konnectedstatus'') == ''armed_away''
+              and states(''switch.living_room_away'') == ''off''}}
+
+              '
+    trigger:
+      - platform: time_pattern
+        minutes: /5
+        seconds: 0
+    action:
+      - service: homeassistant.turn_on
+        data_template:
+          entity_id: "{%- if states('switch.living_room_away') == 'off' -%}\n  switch.living_room_away\n\
+            {%- endif -%}\n"
+
+  - id: 82e04eda-e291-4af7-be6f-f6ec33719802
+    alias: '[Climate] Set thermostat ETA'
+    initial_state: 'true'
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: group.household
+          state: not_home
+        - condition: state
+          entity_id: binary_sensor.retsinagaard_away
+          state: 'on'
+    trigger:
+      - platform: template
+        value_template: "{%- if is_state_attr('proximity.home', 'dir_of_travel', 'towards')\
+          \ -%}\n  true\n{%- endif -%}\n"
+    action:
+      - service: nest.set_eta
+        data_template:
+          eta: >
+            {% if is_state_attr('proximity.home', 'nearest', 'Dennis') %}
+              {{ ((( states.sensor.dennis_to_home.state | int) * 60) - 3600) | timestamp_custom('%H:%M:%S') }}
+            {% elif is_state_attr('proximity.home', 'nearest', 'Dennis, Stephanie') %}
+              {{ ((( states.sensor.dennis_to_home.state | int) * 60) - 3600) | timestamp_custom('%H:%M:%S') }}
+            {% elif is_state_attr('proximity.home', 'nearest', 'Stephanie') %}
+              {{ ((( states.sensor.stephanie_to_home.state | int) * 60) - 3600) | timestamp_custom('%H:%M:%S') }}
+            {% endif %}
+          eta_window: 00:01
+          trip_id: ETA set by HAS
+          structure:
+            - Retsinagaard
+
+  - id: 811e963d-f24e-47bd-b0fb-b519bb0e6dbb
+    alias: '[Climate] Away Mode'
+    initial_state: 'true'
+    trigger:
+      - platform: state
+        entity_id: group.household
+        from: home
+        to: not_home
+      - platform: state
+        entity_id: group.household
+        from: 'home'
+        to: 'not_home'
+        for: 00:05:00
+    action:
+      - service: climate.set_preset_mode
+        entity_id:
+          - climate.living_room
+        data: {"preset_mode": "away"}
+
+  - id: 039d5bb6-5335-4c0c-9c37-c0d286bcecae
+    alias: '[Climate] Home Mode'
+    initial_state: 'true'
+    trigger:
+      - platform: state
+        entity_id: group.household
+        from: not_home
+        to: home
+    action:
+      - service: climate.set_preset_mode
+        entity_id:
+          - climate.living_room
+        data: {"preset_mode": "home"}
+

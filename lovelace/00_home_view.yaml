@@ -291,7 +291,6 @@ cards:
                     - sensor.system_vieratv
                     - sensor.system_samsungtv
                     - sensor.system_xbox_one
-                    - sensor.system_invoke
                   state_filter:
                     - Online
                   card: 
@@ -333,6 +332,7 @@ cards:
                     - sensor.system_emilie_s_bedroom
                     - sensor.system_firetvstick_living_room
                     - sensor.system_firetvstick_master_bedroom
+                    - sensor.system_invoke
           - break
           - type: vertical-stack
             cards:

@@ -33,3 +33,21 @@ sensor:
           {% else %}
             All clear 
           {% endif %}
+
+automation:
+  - id: f1ac429c-e0c6-4859-a3a1-d271136334fa
+    alias: '[Nest] Smoke/CO Detected'
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: sensor.smoke_co_detection
+        from: 'All clear'
+    action:
+      - service: persistent_notification.create
+        data_template:
+          message: "Smoke or CO detected"
+          title: Nest Protect
+      - service: notify.mobile_app_dennis_galaxy
+        data_template:
+          message: "Smoke or CO detected"
+          title: Nest Protect

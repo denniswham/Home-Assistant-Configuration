@@ -30,6 +30,99 @@ sensor:
             {{ states.media_player | selectattr('attributes.last_called','eq',True) | map(attribute='entity_id') | first }}
 
 automation:
+  - id: 39c8ea32-61d3-4971-9b20-f07eb370cfe3
+    alias: "[Alexa] Enable Do Not Disturb"
+    initial_state: 'on'
+    trigger:
+      - platform: time
+        at: "22:00:00"
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id:
+            - switch.master_bedroom_do_not_disturb_switch
+            - switch.master_bedroom_fire_tv_stick_do_not_disturb_switch
+            - switch.lucas_room_do_not_disturb_switch
+            - switch.timo_s_room_do_not_disturb_switch
+            - switch.emilie_s_room_do_not_disturb_switch
+
+  - id: c875f801-c67e-493a-9cf3-643789134ad1
+    alias: "[Alexa] Disable Do Not Disturb"
+    initial_state: 'on'
+    trigger:
+      - platform: time
+        at: "07:00:00"
+    action:
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.master_bedroom_do_not_disturb_switch
+            - switch.master_bedroom_fire_tv_stick_do_not_disturb_switch
+            - switch.lucas_room_do_not_disturb_switch
+            - switch.timo_s_room_do_not_disturb_switch
+            - switch.emilie_s_room_do_not_disturb_switch
+
+  - id: 2ae00756-b4a9-4068-acc8-c574a8a60fd4
+    alias: '[Ring]  Motion in backyard'
+    initial_state: 'true'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.ring_backyard_motion
+        to: 'on'
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: alarm_control_panel.Konnected_Alarm
+          state: armed_away
+        - condition: state
+          entity_id: alarm_control_panel.Konnected_Alarm
+          state: armed_home
+    action:
+      - service: notify.alexa_media
+        data:
+          data:
+            type: tts
+          target:
+            - group.alexa
+          message: "Motion in the backyard"
+      - service: notify.all_devices
+        data:
+          title: Ring
+          message: There is motion at your backyard
+          data:
+            actions:
+              - action: open
+                icon: "/local/icons/konnected.png"
+                title: Open Home Assistant
+            tag: ring_alert
+            ttl: 86400
+            priority: high      
+
+  - id: 6afbd950-7db2-44df-8eb4-d6c46d57f7af
+    alias: '[Ring] Low Battery Notification'
+    initial_state: 'on'
+    trigger:
+      - platform: numeric_state
+        entity_id:
+          - sensor.ring_front_door_battery
+          - sensor.ring_backyard_battery
+        below: 15
+      - platform: numeric_state
+        entity_id:
+          - sensor.ring_front_door_battery
+          - sensor.ring_backyard_battery
+        below: 10
+    action:
+      - service: persistent_notification.create
+        data_template:
+          message: "{{ trigger.entity_id.name }} reported low battery, please charge."
+          title: Ring Battery Low
+      - service: notify.mobile_app_dennis_galaxy
+        data_template:
+          message: "{{ trigger.entity_id.name }} reported low battery, please charge."
+          title: Ring Battery Low
+
   - id: 18bb3b86-f2d8-47d9-908a-b6f1555a15e9
     alias: '[Ring] Play doorbell chime on Echos'
     trigger:

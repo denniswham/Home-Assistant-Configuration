@@ -16,3 +16,188 @@ sensor:
       - 'date_time'
       # - 'time_date'
       # - 'time_utc'
+
+automation:
+  - id: 0fbfb0c5-7e5e-4964-8447-ebff3202d9c4
+    alias: '[House] Guest Mode On'
+    initial_state: 'on'
+    trigger:
+        - platform: state
+          entity_id: input_boolean.guest_mode
+          to: 'on'
+    action:
+      - service: notify.mobile_app_dennis_galaxy
+        data_template:
+          title: Guest mode on
+          message: >
+            Some automations turned off
+
+  - id: 380b5572-0d01-4a26-a61a-53cc9a1d679f
+    alias: '[House] Guest Mode Off'
+    initial_state: 'on'
+    trigger:
+        - platform: state
+          entity_id: input_boolean.guest_mode
+          to: 'off'
+    action:
+      - service: notify.mobile_app_dennis_galaxy
+        data_template:
+          title: Guest mode off
+          message: >
+            Automations turned on again
+
+
+
+  ###################################
+  ##  Set to evening               ##
+  ###################################
+
+  - id: e684aed6-800b-42c3-8614-3f0079958a8e
+    alias: '[House] Day Mode To Evening'
+    initial_state: 'on'
+    trigger:
+      - platform: sun
+        event: sunset
+        offset: '-00:45:00'
+
+    action:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.house_mode
+          option: Evening
+
+  ###################################
+  ##  Set to morning               ##
+  ###################################
+
+  - id: 1d88c7c6-2720-4854-a2d3-9d48e36171a9
+    alias: '[House] Day Mode To Morning'
+    initial_state: 'on'
+    trigger:
+      - platform: sun
+        event: sunrise
+
+    action:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.house_mode
+          option: Morning
+
+  # ###################################
+  # ##  Set to day                   ##
+  # ###################################
+
+  - id: 1ee5fa81-d1a5-4f97-9941-61ca679d745c
+    alias: '[House] Day Mode To Day'
+    initial_state: 'on'
+    trigger:
+      - platform: time
+        at: "09:00:00"
+
+    action:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.house_mode
+          option: Day
+
+  ###################################
+  ##  Set to night                 ##
+  ###################################
+
+  - id: 126f8a12-ce80-45e7-a064-4764643ab0b7
+    alias: '[House] Day Mode To Night'
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: alarm_control_panel.konnected_alarm
+        to: 'armed_home'
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: input_select.house_mode
+          state: 'Evening'
+        ## Has to be between 22 and 06
+        - condition: time
+          after: '22:00:00'
+          before: '06:00:00'
+
+        # ## Someone has to be home
+        - condition: state
+          entity_id: group.household
+          state: 'home'
+
+        # ## No movement detected
+        # # - condition: state
+        # #   entity_id: sensor.upstairs_hallway_movement
+        # #   state: 'No movement'
+        # # - condition: state
+        # #   entity_id: sensor.passage_movement
+        # #   state: 'No movement'
+
+        # - condition: state
+        #   entity_id: light.lights_automation
+        #   state: 'off'
+
+        ## All computers off (not reliable, due to sometimes leaving on, how to fix?)
+        # - condition: state
+        #   entity_id: sensor.dennis_computer
+        #   state: Offline
+        # - condition: state
+        #   entity_id: sensor.dennis_laptop
+        #   state: Offline
+        # - condition: state
+        #   entity_id: sensor.stephanie_computer
+        #   state: Offline
+
+        # - condition: state
+        #   entity_id: sensor.isabellas_iphone_x_battery_state
+        #   state: Charging
+        #   ## fel namn?
+        # - condition: state
+        #   entity_id: sensor.igrims_battery_state
+        #   state: Charging
+
+        ## Tv-system bottenvåning avstängt
+        ## group.media_player_view?
+        # - condition: state
+        #   entity_id: sensor.movie_system
+        #   state: Offline
+        # - condition: state
+        #   entity_id: sensor.samsung65
+        #   state: Offline
+        # ## Tv sovrum avstängd
+        # - condition: state
+        #   entity_id: sensor.samsung49
+        #   state: Offline
+        #   ## försöker täcka alla olika states för shield
+        # - condition: or
+        #   conditions:
+        #   - condition: state
+        #     entity_id: media_player.plex_shield
+        #     state: idle
+        #   - condition: state
+        #     entity_id: media_player.plex_shield
+        #     state: 'off'
+        #   - condition: state
+        #     entity_id: media_player.living_room_fire_tv_stick
+        #     state: idle
+        #   - condition: state
+        #     entity_id: media_player.living_room_fire_tv_stick
+        #     state: 'off'
+        #   - condition: state
+        #     entity_id: sensor.shield
+        #     state: Offline
+        #   - condition: state
+        #     entity_id: sensor.shield_2
+        #     state: Offline
+
+    action:
+      - service: notify.mobile_app_dennis_galaxy
+        data:
+          message: 'It seems like everyone is asleep'
+          title: 'Good night!'
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.house_mode
+          option: Night

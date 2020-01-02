@@ -30,3 +30,47 @@ light:
       - light.outdoor_backyard_light
       - light.outdoor_yard_light
 
+script:
+  alexa_turn_on_the_light:
+    alias: '[Light] Turn on the light'
+    id: 524b56b4-60e1-4421-930c-ba5f329285c8
+    sequence:
+      - service: homeassistant.turn_on
+        data_template:
+          entity_id: >-
+            {# Use the name of each Echo to determine which room the command likely came from. #}
+            {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
+
+            {%- if room == "living_room" -%}
+              group.downstairs_lights
+            {%- elif room == "master_bedroom" -%}
+              light.master_bedroom
+            {%- elif room == "lucas_room" -%}
+              light.lucas_room
+            {%- elif room == "timo_s_room" -%}
+              light.timo_s_room
+            {%- elif room == "emilie_s_room" -%}
+              light.emilie_s_room
+            {%- endif -%}
+
+  alexa_turn_off_the_light:
+    alias: '[Light] Turn off the light'
+    id: 8b45b6a3-fe79-4233-b7b3-b8850f7b1779
+    sequence:
+      - service: homeassistant.turn_on
+        data_template:
+          entity_id: >-
+            {# Use the name of each Echo to determine which room the command likely came from. #}
+            {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
+
+            {%- if room == "living_room" -%}
+              group.downstairs_lights
+            {%- elif room == "master_bedroom" -%}
+              light.master_bedroom
+            {%- elif room == "lucas_room" -%}
+              light.lucas_room
+            {%- elif room == "timo_s_room" -%}
+              light.timo_s_room
+            {%- elif room == "emilie_s_room" -%}
+              light.emilie_s_room
+            {%- endif -%}
