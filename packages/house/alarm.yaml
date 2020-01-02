@@ -43,19 +43,6 @@ alarm_control_panel:
       pending_time: 300
       delay_time: 20
 
-script:
-  konnectedstandby:
-    alias: '[Alarm] Konnected Standby'
-    sequence:
-      - service: input_select.select_option
-        data:
-          entity_id: input_select.konnectedstatus
-          option: disarmed
-      - service: alarm_control_panel.alarm_disarm
-        entity_id:
-          - alarm_control_panel.konnected_alarm
-          - alarm_control_panel.alexa_guard_7514f
-
 sensor:
   - platform: template
     sensors:
@@ -351,3 +338,16 @@ automation:
           target:
             - group.alexa
           message: Motion detected, the alarm will activate shortly. Motion detected, the alarm will activate shortly.
+
+script:
+  konnectedstandby:
+    alias: '[Alarm] Konnected Standby'
+    sequence:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.konnectedstatus
+          option: disarmed
+      - service: alarm_control_panel.alarm_disarm
+        entity_id:
+          - alarm_control_panel.konnected_alarm
+          - alarm_control_panel.alexa_guard_7514f

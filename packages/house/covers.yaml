@@ -248,7 +248,6 @@ automation:
 script:
   alexa_open_the_cover:
     alias: '[Alexa] Open the cover'
-    id: e4e56505-666c-4761-9a41-476402eb0198
     sequence:
       - service: cover.open_cover
         data_template:
@@ -264,7 +263,6 @@ script:
 
   alexa_close_the_cover:
     alias: '[Alexa] Close the cover'
-    id: 042c4f07-87de-4594-b49b-c450a8dd6e5c
     sequence:
       - service: cover.close_cover
         data_template:
@@ -308,4 +306,4 @@ script:
             {%- elif room == "lucas_room" -%}
               cover.lucas_room_roller_shutter_level
             {%- endif -%}  
-          position: 60          
+          position: 60

@@ -45,7 +45,6 @@ light:
 script:
   alexa_turn_on_the_light:
     alias: '[Light] Turn on the light'
-    id: 524b56b4-60e1-4421-930c-ba5f329285c8
     sequence:
       - service: homeassistant.turn_on
         data_template:
@@ -67,7 +66,6 @@ script:
 
   alexa_turn_off_the_light:
     alias: '[Light] Turn off the light'
-    id: 8b45b6a3-fe79-4233-b7b3-b8850f7b1779
     sequence:
       - service: homeassistant.turn_on
         data_template:
