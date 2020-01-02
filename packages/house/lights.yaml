@@ -23,12 +23,24 @@ light:
     entities:
       - light.living_room_spot_lights_dimmer_level  
       - light.office_spot_lights_dimmer_level
+      - light.entryway
+
+  - platform: group
+    name: 'Upstairs lights'
+    entities:
+      - light.hallway
+      - light.master_bedroom
+      - light.timo_s_room
+      - light.bathroom
+      - light.attic
+      - light.lucas_room
+      - light.emilie_s_room
 
   - platform: group
     name: 'Outdoor lights'
     entities:
-      - light.outdoor_backyard_light
-      - light.outdoor_yard_light
+      - light.front_door
+      - light.backyard
 
 script:
   alexa_turn_on_the_light:
