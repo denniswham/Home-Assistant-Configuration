@@ -27,4 +27,21 @@ sensor:
             - media_player.master_bedroom
             - media_player.timo_s_room
           value_template: >
-            {{ states.media_player | selectattr('attributes.last_called','eq',True) | map(attribute='entity_id') | first }}    
+            {{ states.media_player | selectattr('attributes.last_called','eq',True) | map(attribute='entity_id') | first }}
+
+automation:
+  - id: 18bb3b86-f2d8-47d9-908a-b6f1555a15e9
+    alias: '[Ring] Play doorbell chime on Echos'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.ring_front_door_ding
+        from: 'off'
+        to: 'on'
+    condition:
+    action:
+      - service: media_player.play_media
+        data_template:
+          media_content_id: 'amzn_sfx_doorbell_chime_02'
+          media_content_type: sound  
+        entity_id: 
+          - media_player.living_room

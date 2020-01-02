@@ -32,7 +32,7 @@ media_player: !include entities/media_player.yaml
 device_tracker: !include entities/device_tracker.yaml
 
 scene: !include scenes.yaml
-automation: !include automations.yaml
+automation old: !include automations.yaml
 notify: !include notify/notify.yaml
 
 ffmpeg:
