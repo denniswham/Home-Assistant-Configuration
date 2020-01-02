@@ -17,30 +17,31 @@ include:
   domains:
     - alarm_control_panel
     - climate
-    - cover
     - input_boolean
     - input_select
     - light
-    - media_player
+    # - media_player
     - switch
     - person
   entities:
     - person.dennis
     - device_tracker.smg960f
-    - device_tracker.galaxy_s9
-    - device_tracker.08_c5_e1_41_9e_d4
+    # - device_tracker.galaxy_s9
+    # - device_tracker.08_c5_e1_41_9e_d4
     - person.stephanie
     - device_tracker.iphone_van_stephanie
-    - device_tracker.iphone_van_stephanie_2
-    - device_tracker.78_88_6d_4a_1c_4e
+    # - device_tracker.iphone_van_stephanie_2
+    # - device_tracker.78_88_6d_4a_1c_4e
     - person.lucas
     - device_tracker.iphone_van_lucas
-#    - device_tracker.
-    - device_tracker.f0_99_b6_0f_3c_c1
+    # - device_tracker.
+    # - device_tracker.f0_99_b6_0f_3c_c1
     - person.timo
     - device_tracker.oneplus_a5010
-    - device_tracker.94_65_2d_c7_0b_9e
-    - device_tracker.oneplus_5t
+    # - device_tracker.94_65_2d_c7_0b_9e
+    # - device_tracker.oneplus_5t
+    - cover.master_bedroom_roller_shutter_level
+    - cover.lucas_room_roller_shutter_level
     - sensor.living_room_thermostat_temperature
     - sensor.living_room_thermostat_humidity
     - sensor.retsinagaard_eta
