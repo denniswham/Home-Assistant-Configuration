@@ -53,7 +53,7 @@ script:
             {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
 
             {%- if room == "living_room" -%}
-              group.downstairs_lights
+              light.downstairs_lights
             {%- elif room == "master_bedroom" -%}
               light.master_bedroom
             {%- elif room == "lucas_room" -%}
@@ -74,7 +74,7 @@ script:
             {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
 
             {%- if room == "living_room" -%}
-              group.downstairs_lights
+              light.downstairs_lights
             {%- elif room == "master_bedroom" -%}
               light.master_bedroom
             {%- elif room == "lucas_room" -%}

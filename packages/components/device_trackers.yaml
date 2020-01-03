@@ -19,3 +19,8 @@ device_tracker:
     home_interval: 3
     new_device_defaults:
     track_new_devices: false
+
+  - platform: upc_connect
+    password: !secret upc_connect_password
+    host: !secret upc_connect_host
+    
