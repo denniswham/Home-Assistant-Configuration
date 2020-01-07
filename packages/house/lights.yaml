@@ -1,28 +1,32 @@
 homeassistant:
   customize:
-    light.living_room_spot_lights_dimmer_level:
+    light.living_room_spot_dimmer_level:
       friendly_name: Living Room Spot Lights
     light.living_room_table_light_dimmer_level:
       friendly_name: Living Room Table Light       
-    light.office_spot_lights_dimmer_level:
+    light.office_spot_dimmer_level:
       friendly_name: Office Spot Lights
-    sensor.living_room_spot_lights_dimmer_power:
+    sensor.living_room_spot_dimmer_power:
         friendly_name: Living Room Spot Lights Power
-    sensor.office_spot_lights_dimmer_power:
+    sensor.office_spot_dimmer_power:
         friendly_name: Office Spot Lights Power
 
 light:
   - platform: group
     name: 'Inside lights'
     entities:
-      - light.living_room_spot_lights_dimmer_level  
-      - light.office_spot_lights_dimmer_level
+      - light.living_room_spot_dimmer_level
+      - light.living_room_wall_dimmer_level
+      - light.living_room_dining_table_dimmer_level  
+      - light.office_spot_dimmer_level
 
   - platform: group
     name: 'Downstairs lights'
     entities:
-      - light.living_room_spot_lights_dimmer_level  
-      - light.office_spot_lights_dimmer_level
+      - light.living_room_spot_dimmer_level  
+      - light.office_spot_dimmer_level
+      - light.living_room_wall_dimmer_level
+      - light.living_room_dining_table_dimmer_level  
       - light.entryway
 
   - platform: group

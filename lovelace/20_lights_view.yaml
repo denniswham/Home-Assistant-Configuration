@@ -38,14 +38,26 @@ cards:
       title: Downstairs
       show_header_toggle: false
       entities:
-        - entity: light.living_room_spot_lights_dimmer_level
+        - entity: light.living_room_spot_dimmer_level
+          name: Living Room Spots
+          icon: bha:ceiling-lamp-plafond
+          type: custom:slider-entity-row
+          toggle: true
+          hide_when_off: false
+        - entity: light.living_room_wall_dimmer_level
+          name: Living Room Spots
+          icon: bha:ceiling-lamp-plafond
+          type: custom:slider-entity-row
+          toggle: true
+          hide_when_off: false
+        - entity: light.living_room_dining_table_dimmer_level
           name: Living Room Spots
           icon: bha:ceiling-lamp-plafond
           type: custom:slider-entity-row
           toggle: true
           hide_when_off: false
           
-        - entity: light.office_spot_lights_dimmer_level
+        - entity: light.office_spot_dimmer_level
           name: Office Spots
           icon: bha:ceiling-lamp-plafond
           type: custom:slider-entity-row

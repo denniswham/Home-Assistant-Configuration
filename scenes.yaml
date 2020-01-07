@@ -8,45 +8,45 @@
     climate.living_room:
       state: heat
       temperature: 20.5
-    light.living_room_spot_lights_dimmer_level:
+    light.living_room_spot_dimmer_level:
       state: on  
       brightness: 15
 
 - id: 1a8eb245-e797-448b-809e-6cd0da75ad24
   name: Work time
   entities:
-    light.living_room_spot_lights_dimmer_level:
+    light.living_room_spot_dimmer_level:
       state: off
-    light.office_spot_lights_dimmer_level:
+    light.office_spot_dimmer_level:
       state: on
       brightness: 25
 
 - id: 7c5734bc-3aa7-43d8-990b-2d6546511245
   name: Lunch time
   entities: 
-    light.living_room_spot_lights_dimmer_level:
+    light.living_room_spot_dimmer_level:
       state: on 
       brightness: 15
-    light.office_spot_lights_dimmer_level:
+    light.office_spot_dimmer_level:
       state: off
 
 - id: 0d010e40-8560-42ce-8b86-b743bbf355ad
   name: Dinner time
   entities: 
-    light.living_room_spot_lights_dimmer_level:
+    light.living_room_spot_dimmer_level:
       state: on  
       brightness: 15
-    light.office_spot_lights_dimmer_level:
+    light.office_spot_dimmer_level:
       state: on  
       brightness: 10
 
 - id: 78e4c286-6d53-4465-a213-6c61984d8eac
   name: TV time
   entities: 
-    light.living_room_spot_lights_dimmer_level:
+    light.living_room_spot_dimmer_level:
       state: on  
       brightness: 10
-    light.office_spot_lights_dimmer_level:
+    light.office_spot_dimmer_level:
       state: on  
       brightness: 5
 
@@ -61,9 +61,9 @@
     climate.living_room:
       state: heat
       temperature: 17.0
-    light.living_room_spot_lights_dimmer_level:
+    light.living_room_spot_dimmer_level:
       state: "off"
-    light.office_spot_lights_dimmer_level:
+    light.office_spot_dimmer_level:
       state: "off"
     switch.master_bedroom_do_not_disturb_switch:
       state: "on"
