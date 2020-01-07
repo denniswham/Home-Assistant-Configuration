@@ -40,26 +40,21 @@ cards:
       entities:
         - entity: light.living_room_spot_dimmer_level
           name: Living Room Spots
-          icon: bha:ceiling-lamp-plafond
           type: custom:slider-entity-row
           toggle: true
           hide_when_off: false
         - entity: light.living_room_wall_dimmer_level
-          name: Living Room Spots
-          icon: bha:ceiling-lamp-plafond
+          name: Living Room Wall
           type: custom:slider-entity-row
           toggle: true
           hide_when_off: false
         - entity: light.living_room_dining_table_dimmer_level
-          name: Living Room Spots
-          icon: bha:ceiling-lamp-plafond
+          name: Living Room Dining Table
           type: custom:slider-entity-row
           toggle: true
           hide_when_off: false
-          
         - entity: light.office_spot_dimmer_level
           name: Office Spots
-          icon: bha:ceiling-lamp-plafond
           type: custom:slider-entity-row
           toggle: true
           hide_when_off: false
