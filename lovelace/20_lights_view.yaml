@@ -36,7 +36,7 @@ cards:
 
     - type: entities
       title: Living Room
-      show_header_toggle: false
+      show_header_toggle: true
       entities:
         - entity: light.living_room_spot_dimmer_level
           name: Spots
@@ -56,7 +56,7 @@ cards:
 
     - type: entities
       title: Office
-      show_header_toggle: false
+      show_header_toggle: true
       entities:
         - entity: light.office_spot_dimmer_level
           name: Spots
