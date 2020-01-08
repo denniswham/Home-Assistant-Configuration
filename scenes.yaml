@@ -33,11 +33,17 @@
 - id: 0d010e40-8560-42ce-8b86-b743bbf355ad
   name: Dinner time
   entities: 
+    light.living_room_dining_table_dimmer_level:
+      state: on
+      brightness: 20
+    light.living_room_wall_dimmer_level:
+      state: on
+      brightness: 45
     light.living_room_spot_dimmer_level:
-      state: on  
+      state: on
       brightness: 15
     light.office_spot_dimmer_level:
-      state: on  
+      state: on
       brightness: 10
 
 - id: 78e4c286-6d53-4465-a213-6c61984d8eac
