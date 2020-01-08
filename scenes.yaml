@@ -81,6 +81,14 @@
       state: "on"
     switch.emilie_s_room_do_not_disturb_switch:
       state: "on"
+    light.living_room_dining_table_dimmer_level:
+      state: "off"
+    light.living_room_wall_dimmer_level:
+      state: "off"
+    light.living_room_spot_dimmer_level:
+      state: "off"
+    light.office_spot_dimmer_level:
+      state: "off"
 
 - id: 7667fee3-afa3-4797-a79d-777a61f55453
   name: Romance time
