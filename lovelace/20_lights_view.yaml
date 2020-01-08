@@ -41,7 +41,7 @@ cards:
         - entity: light.living_room_dining_table_dimmer_level
           name: Dining Table
           type: custom:slider-entity-row
-          icon: mdi:globe-light
+          icon: mdi:ceiling-light
           toggle: true
           hide_when_off: false
         - entity: light.living_room_wall_dimmer_level
@@ -53,7 +53,7 @@ cards:
         - entity: light.living_room_spot_dimmer_level
           name: Spots
           type: custom:slider-entity-row
-          icon: mdi:vanity-ligh
+          icon: mdi:vanity-light
           toggle: true
           hide_when_off: false
 
@@ -64,7 +64,7 @@ cards:
         - entity: light.office_spot_dimmer_level
           name: Spots
           type: custom:slider-entity-row
-          icon: mdi:vanity-ligh
+          icon: mdi:vanity-light
           toggle: true
           hide_when_off: false
 
