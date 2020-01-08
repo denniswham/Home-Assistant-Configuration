@@ -49,12 +49,18 @@
 - id: 78e4c286-6d53-4465-a213-6c61984d8eac
   name: TV time
   entities: 
+    light.living_room_dining_table_dimmer_level:
+      state: "on"
+      brightness: 36
+    light.living_room_wall_dimmer_level:
+      state: "on"
+      brightness: 98
     light.living_room_spot_dimmer_level:
-      state: "on"  
-      brightness: 10
+      state: "on"
+      brightness: 36
     light.office_spot_dimmer_level:
-      state: "on"  
-      brightness: 5
+      state: "on"
+      brightness: 8
 
 - id: 0d80f036-53f7-40de-81ff-77ad45bc8150
   name: Bed time
