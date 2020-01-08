@@ -9,51 +9,51 @@
       state: heat
       temperature: 20.5
     light.living_room_spot_dimmer_level:
-      state: on  
+      state: "on"  
       brightness: 15
 
 - id: 1a8eb245-e797-448b-809e-6cd0da75ad24
   name: Work time
   entities:
     light.living_room_spot_dimmer_level:
-      state: off
+      state: "off"
     light.office_spot_dimmer_level:
-      state: on
+      state: "on"
       brightness: 25
 
 - id: 7c5734bc-3aa7-43d8-990b-2d6546511245
   name: Lunch time
   entities: 
     light.living_room_spot_dimmer_level:
-      state: on 
+      state: "on" 
       brightness: 15
     light.office_spot_dimmer_level:
-      state: off
+      state: "off"
 
 - id: 0d010e40-8560-42ce-8b86-b743bbf355ad
   name: Dinner time
   entities: 
     light.living_room_dining_table_dimmer_level:
-      state: on
-      brightness: 20
+      state: "on"
+      brightness: 40
     light.living_room_wall_dimmer_level:
-      state: on
+      state: "on"
       brightness: 45
     light.living_room_spot_dimmer_level:
-      state: on
+      state: "on"
       brightness: 15
     light.office_spot_dimmer_level:
-      state: on
+      state: "on"
       brightness: 10
 
 - id: 78e4c286-6d53-4465-a213-6c61984d8eac
   name: TV time
   entities: 
     light.living_room_spot_dimmer_level:
-      state: on  
+      state: "on"  
       brightness: 10
     light.office_spot_dimmer_level:
-      state: on  
+      state: "on"  
       brightness: 5
 
 - id: 0d80f036-53f7-40de-81ff-77ad45bc8150
@@ -104,14 +104,14 @@
   name: Emergency
   entities: 
     light.living_room_dining_table_dimmer_level:
-      state: on
+      state: "on"
       brightness: 100
     light.living_room_wall_dimmer_level:
-      state: on
+      state: "on"
       brightness: 100
     light.living_room_spot_dimmer_level:
-      state: on
+      state: "on"
       brightness: 100
     light.office_spot_dimmer_level:
-      state: on
+      state: "on"
       brightness: 100
