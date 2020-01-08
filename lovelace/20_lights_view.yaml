@@ -35,30 +35,35 @@ cards:
               entity_id: scene.lounge_time
 
     - type: entities
-      title: Downstairs
+      title: Living Room
       show_header_toggle: false
       entities:
         - entity: light.living_room_spot_dimmer_level
-          name: Living Room Spots
+          name: Spots
           type: custom:slider-entity-row
           toggle: true
           hide_when_off: false
         - entity: light.living_room_wall_dimmer_level
-          name: Living Room Wall
+          name: Wall lights
           type: custom:slider-entity-row
           toggle: true
           hide_when_off: false
         - entity: light.living_room_dining_table_dimmer_level
-          name: Living Room Dining Table
+          name: Dining Table
           type: custom:slider-entity-row
           toggle: true
           hide_when_off: false
+
+    - type: entities
+      title: Office
+      show_header_toggle: false
+      entities:
         - entity: light.office_spot_dimmer_level
-          name: Office Spots
+          name: Spots
           type: custom:slider-entity-row
           toggle: true
           hide_when_off: false
-          
+
     - type: horizontal-stack
       cards:
         - type: entity-button
