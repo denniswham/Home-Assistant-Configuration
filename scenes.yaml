@@ -35,16 +35,16 @@
   entities: 
     light.living_room_dining_table_dimmer_level:
       state: "on"
-      brightness: 40
+      brightness: 95
     light.living_room_wall_dimmer_level:
       state: "on"
-      brightness: 45
+      brightness: 108
     light.living_room_spot_dimmer_level:
       state: "on"
-      brightness: 15
+      brightness: 36
     light.office_spot_dimmer_level:
       state: "on"
-      brightness: 10
+      brightness: 23
 
 - id: 78e4c286-6d53-4465-a213-6c61984d8eac
   name: TV time
