@@ -85,3 +85,19 @@
       state: closed
     switch.master_bedroom_do_not_disturb_switch:
       state: "on"
+
+- id: 28a21e8f-b94f-4229-9a92-7b5417e1bd1b
+  name: Emergency
+  entities: 
+    light.living_room_dining_table_dimmer_level:
+      state: on
+      brightness: 100
+    light.living_room_wall_dimmer_level:
+      state: on
+      brightness: 100
+    light.living_room_spot_dimmer_level:
+      state: on
+      brightness: 100
+    light.office_spot_dimmer_level:
+      state: on
+      brightness: 100

@@ -51,3 +51,29 @@ automation:
         data_template:
           message: "Smoke or CO detected"
           title: Nest Protect
+
+
+  - id: d28bb847-8061-473b-b632-7a7d684cee78
+    alias: '[Nest] Turn on lights with an emergency'
+    trigger:
+      - platform: state
+        entity_id: sensor.entryway_nest_protect_smoke_status
+        to: emergency
+      - platform: state
+        entity_id: sensor.hallway_nest_protect_smoke_status
+        to: emergency
+      - platform: state
+        entity_id: sensor.attic_nest_protect_smoke_status
+        to: emergency
+      - platform: state
+        entity_id: sensor.entryway_nest_protect_co_status
+        to: emergency
+      - platform: state
+        entity_id: sensor.hallway_nest_protect_co_status
+        to: emergency
+      - platform: state
+        entity_id: sensor.attic_nest_protect_co_status
+        to: emergency
+    action:
+      - service: scene.turn_on
+        entity_id: scene.emergency 
