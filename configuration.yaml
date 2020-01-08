@@ -20,8 +20,8 @@ customizer:
 browser_mod:
 
 frontend:
-  extra_html_url:
-    - /local/hass-bha-icons.html
+  # extra_html_url:
+  #   - /local/hass-bha-icons.html
     
 recorder: !include logging/recorder.yaml
 history: !include logging/history.yaml

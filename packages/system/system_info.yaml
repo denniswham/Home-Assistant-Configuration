@@ -91,17 +91,17 @@ sensor:
         value_template: "{{ 'Online' if is_state('device_tracker.nest_thermostat', 'home') else 'Offline' }}"
       system_entryway_smokeco:
         friendly_name: 'Entryway'
-        icon_template: bha:smoke-detector
+        icon_template: mdi:smoke-detector
         entity_id: "device_tracker.entryway_protect"
         value_template: "{{ 'Online' if is_state('device_tracker.entryway_protect', 'home') else 'Offline' }}"
       system_hallway_smokeco:
         friendly_name: 'Hallway'
-        icon_template: bha:smoke-detector
+        icon_template: mdi:smoke-detector
         entity_id: "device_tracker.hallway_protect"
         value_template: "{{ 'Online' if is_state('device_tracker.hallway_protect', 'home') else 'Offline' }}"
       system_attic_smokeco:
         friendly_name: 'Attic'
-        icon_template: bha:smoke-detector
+        icon_template: mdi:smoke-detector
         entity_id: "device_tracker.attic_protect"
         value_template: "{{ 'Online' if is_state('device_tracker.attic_protect', 'home') else 'Offline' }}"
       system_living_room:

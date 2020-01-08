@@ -7,17 +7,17 @@ homeassistant:
     binary_sensor.attic_nest_protect_online:
       friendly_name: Attic Nest Protect
     sensor.entryway_nest_protect_smoke_status:
-      icon: bha:smoke-detector
+      icon: mdi:smoke-detector
     sensor.hallway_nest_protect_smoke_status:
-      icon: bha:smoke-detector
+      icon: mdi:smoke-detector
     sensor.attic_nest_protect_smoke_status:
-      icon: bha:smoke-detector
+      icon: mdi:smoke-detector
     sensor.entryway_nest_protect_co_status:
-      icon: bha:smoke-detector
+      icon: mdi:smoke-detector
     sensor.hallway_nest_protect_co_status:
-      icon: bha:smoke-detector
+      icon: mdi:smoke-detector
     sensor.attic_nest_protect_co_status:
-      icon: bha:smoke-detector
+      icon: mdi:smoke-detector
 
 sensor:
   - platform: template
