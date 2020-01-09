@@ -8,9 +8,17 @@
     climate.living_room:
       state: heat
       temperature: 20.5
+    light.living_room_dining_table_dimmer_level:
+      state: "on"
+      brightness: 70
+    light.living_room_wall_dimmer_level:
+      state: "on"
+      brightness: 98
     light.living_room_spot_dimmer_level:
-      state: "on"  
-      brightness: 15
+      state: "on"
+      brightness: 36
+    light.office_spot_dimmer_level:
+      state: "off"
 
 - id: 1a8eb245-e797-448b-809e-6cd0da75ad24
   name: Work time
@@ -51,7 +59,7 @@
   entities: 
     light.living_room_dining_table_dimmer_level:
       state: "on"
-      brightness: 36
+      brightness: 46
     light.living_room_wall_dimmer_level:
       state: "on"
       brightness: 98

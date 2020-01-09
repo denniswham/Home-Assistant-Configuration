@@ -97,7 +97,7 @@ script:
 
 automation:
   - id: 9664f92b-26b9-4cc0-a422-4a03382a86a1
-    alias: '[Light] Turn of all lights when away'
+    alias: '[Lights] Turn of all lights when away'
     trigger:
       - platform: state
         entity_id: group.household
