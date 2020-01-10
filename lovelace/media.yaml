@@ -43,11 +43,11 @@ cards:
                       power_state: false
                   - type: custom:mini-media-player
                     entity: media_player.living_room_fire_tv_stick
+                    icon: mdi:alexa
                     group: true
                     artwork: cover
                     hide:
                       power_state: false
-
                   - entity: switch.living_room_tv
                     name: Tv
                     icon: mdi:television-classic
@@ -60,6 +60,17 @@ cards:
                 entities:
                   - type: custom:mini-media-player
                     entity: media_player.master_bedroom_fire_tv_stick
+                    icon: mdi:alexa
+                    group: true
+                    artwork: cover
+                    hide:
+                      power_state: false
+                      progress: true
+              - type: entities
+                entities:
+                  - type: custom:mini-media-player
+                    entity: media_player.apple_tv_5
+                    icon: mdi:apple
                     group: true
                     artwork: cover
                     hide:
