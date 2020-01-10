@@ -62,7 +62,7 @@
       brightness: 46
     light.living_room_wall_dimmer_level:
       state: "on"
-      brightness: 98
+      brightness: 108
     light.living_room_spot_dimmer_level:
       state: "on"
       brightness: 36

@@ -142,7 +142,7 @@ script:
       - wait_template: "{{ states.sensor.time.state >= '21:00' }}"
       - delay: "00:{{ (range(1, 30)|random|int) }}:00"
       - condition: state
-        entity_id: below_horizon
+        entity_id: sun.sun
         state: below_horizon
 
       # Switch light on for between 10 and 30 minutes
