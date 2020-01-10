@@ -111,7 +111,6 @@ automation:
       - service: homeassistant.turn_off
         entity_id: light.inside_lights
 
-automation:
   - id: e4519647-e24b-4f1b-8682-51aaa8ce4576
     alias: '[Lights] Turn on lights when arriving home at night'
     trigger:
