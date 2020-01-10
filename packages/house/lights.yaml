@@ -97,7 +97,7 @@ script:
 
 automation:
   - id: 9664f92b-26b9-4cc0-a422-4a03382a86a1
-    alias: '[Lights] Turn of all lights when away'
+    alias: '[Lights] Turn off all lights when away'
     trigger:
       - platform: state
         entity_id: group.household
@@ -110,3 +110,29 @@ automation:
     action:
       - service: homeassistant.turn_off
         entity_id: light.inside_lights
+
+automation:
+  - id: e4519647-e24b-4f1b-8682-51aaa8ce4576
+    alias: '[Lights] Turn on lights when arriving home at night'
+    trigger:
+      - platform: state
+        entity_id: group.household
+        from: not_home
+        to: home
+    condition:
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state: 'off'
+      - condition: state
+        entity_id: sun.sun
+        state: below_horizon
+    action:
+      - service: light.turn_on
+        data:
+          entity_id: light.living_room_dining_table_dimmer_level
+          brightness: 95
+      - service: light.turn_on
+        data:
+          entity_id: light.living_room_wall_dimmer_level
+          brightness: 108
+

@@ -127,7 +127,7 @@ automation:
             - cover.lucas_room_roller_shutter_level
 
   - id: d3a773bf-fc19-4f77-8ad7-00097a2a8bfa
-    alias: '[Covers] Open when arriving 1'
+    alias: '[Covers] Open when arriving at daytime'
     initial_state: 'true'
     condition:
       - condition: state
@@ -138,7 +138,7 @@ automation:
         below: 25
       - condition: state
         entity_id: sun.sun
-        state: above_horizon # at daytime
+        state: above_horizon
       - condition: template
         value_template: "{%- if states.automation.covers_close_when_leaving.attributes.last_triggered\
           \ -%}\n  {{ (as_timestamp(now()) - as_timestamp(states.automation.covers_close_when_leaving.attributes.last_triggered))\
@@ -156,7 +156,7 @@ automation:
             - cover.lucas_room_roller_shutter_level
 
   - id: 9c7f65fd-fc67-47e1-a81d-e02afcacdc3e
-    alias: '[Covers] Open when arriving 2'
+    alias: '[Covers] Open when arriving at night'
     initial_state: 'true'
     condition:
       - condition: state

@@ -81,10 +81,6 @@
     climate.living_room:
       state: heat
       temperature: 17.0
-    light.living_room_spot_dimmer_level:
-      state: "off"
-    light.office_spot_dimmer_level:
-      state: "off"
     switch.master_bedroom_do_not_disturb_switch:
       state: "on"
     switch.master_bedroom_fire_tv_stick_do_not_disturb_switch:
