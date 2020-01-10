@@ -26,7 +26,7 @@ input_datetime:
     has_time: true
     initial: '23:00'
 
-binary sensor:
+binary_sensor:
  - platform: template
    sensors:
      dark_outside:
