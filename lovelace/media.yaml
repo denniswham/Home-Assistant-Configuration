@@ -43,7 +43,7 @@ cards:
                       power_state: false
                   - type: custom:mini-media-player
                     entity: media_player.living_room_fire_tv_stick
-                    icon: mdi:alexa
+                    icon: mdi:amazon-alexa
                     group: true
                     artwork: cover
                     hide:
@@ -60,7 +60,7 @@ cards:
                 entities:
                   - type: custom:mini-media-player
                     entity: media_player.master_bedroom_fire_tv_stick
-                    icon: mdi:alexa
+                    icon: mdi:amazon-alexa
                     group: true
                     artwork: cover
                     hide:

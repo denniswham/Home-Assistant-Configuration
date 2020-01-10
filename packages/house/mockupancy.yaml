@@ -26,19 +26,12 @@ input_datetime:
     has_time: true
     initial: '23:00'
 
-binary_sensor:
- - platform: template
-   sensors:
-     dark_outside:
-       value_template: "{{ is_state('sun.sun', 'below_horizon') }}"
-       friendly_name: "Dark Outside"
-
  # The main mockupancy script...
 script:
   mockupancy:
     sequence:
       # Wait until it is after 6pm and dark to start the routine
-      - wait_template: "{{ states.sensor.time.state >= '18:00' and is_state('binary_sensor.dark_outside' , 'on') }}"
+      - wait_template: "{{ states.sensor.time.state >= '18:00' and is_state('sun.sun' , 'below_horizon') }}"
 
       # Check that it Vacation mode is still on
       - condition: state
@@ -102,7 +95,7 @@ script:
   #    - wait_template: "{{ now().hour == 7 }}"
       - wait_template: "{{ states.sensor.time.state == '07:00' }}"
       - service_template: >
-          {% if states('binary_sensor.dark_outside' , 'on') %} script.morning_mockupancy
+          {% if states('sun.sun' , 'below_horizon') %} script.morning_mockupancy
           {% else %} script.mockupancy_loop {% endif %}
 
 
@@ -120,7 +113,7 @@ script:
         entity_id: scene.rise_and_shine
 
       # Wait until it is light, switch off lights and loop
-      - wait_template: "{{ is_state('binary_sensor.dark_outside' , 'off') }}"
+      - wait_template: "{{ is_state('sun.sun' , 'above_horizon') }}"
       - service: script.mockupancy_loop
 
 
@@ -149,8 +142,8 @@ script:
       - wait_template: "{{ states.sensor.time.state >= '21:00' }}"
       - delay: "00:{{ (range(1, 30)|random|int) }}:00"
       - condition: state
-        entity_id: binary_sensor.dark_outside
-        state: 'on'
+        entity_id: below_horizon
+        state: below_horizon
 
       # Switch light on for between 10 and 30 minutes
       - service: homeassistant.turn_on
