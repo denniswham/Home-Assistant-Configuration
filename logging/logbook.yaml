@@ -1,5 +1,7 @@
 include:
   entities:
+    - cover.lucas_room_roller_shutter_level
+    - cover.master_bedroom_roller_shutter_level
     - light.downstairs_lights
     - light.inside_lights
     - light.living_room_dining_table_dimmer_level
@@ -37,11 +39,16 @@ include:
 
 exclude:
   domains:
-    - alert
-    - camera
-    - calendar
-    - group
     - binary_sensor
+    - calendar
+    - camera
+    - cover
     - device_tracker
-    - sensor
+    - group
     - light
+    - media_player
+    - sensor
+    - switch
+  entities:
+    - automation.system_device_status
+    - automation.system_request_location_update
