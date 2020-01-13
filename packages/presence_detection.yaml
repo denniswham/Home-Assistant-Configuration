@@ -10,17 +10,17 @@ proximity:
     devices:
       - person.dennis
       - person.stephanie
-    tolerance: 50
+    tolerance: 100
     unit_of_measurement: km
 
   dennis:
     devices:
       - person.dennis
-    tolerance: 50
+    tolerance: 100
     unit_of_measurement: km
 
   stephanie:
     devices:
       - person.stephanie
-    tolerance: 50
+    tolerance: 100
     unit_of_measurement: km
