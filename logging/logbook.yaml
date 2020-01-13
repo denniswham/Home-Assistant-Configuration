@@ -34,6 +34,7 @@ include:
     - sensor.system_lucas_bedroom
     - sensor.system_timo_s_bedroom
     - sensor.system_emilie_s_bedroom
+    - sensor.smoke_co_detection
     - switch.siren
     - switch.backyard_siren
 

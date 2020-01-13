@@ -41,7 +41,10 @@ automation:
     trigger:
       - platform: state
         entity_id: sensor.smoke_co_detection
-        from: 'All clear'
+        to: Smoke Detected
+      - platform: state
+        entity_id: sensor.smoke_co_detection
+        to: CO Detected
     action:
       - service: persistent_notification.create
         data_template:
@@ -76,4 +79,4 @@ automation:
         to: emergency
     action:
       - service: scene.turn_on
-        entity_id: scene.emergency 
+        entity_id: scene.emergency

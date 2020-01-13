@@ -37,6 +37,11 @@ alarm_control_panel:
     pending_time: 60
     delay_time: 20
     trigger_time: 300
+    disarmed:
+      trigger_time: 0
+    armed_home:
+      pending_time: 300
+      delay_time: 0
 
 sensor:
   - platform: template

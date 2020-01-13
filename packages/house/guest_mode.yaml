@@ -21,3 +21,42 @@ input_boolean:
   guest_mode:
     name: Guest Mode
     icon: mdi:account-group
+
+automation:
+  - id: 0fbfb0c5-7e5e-4964-8447-ebff3202d9c4
+    alias: '[House] Guest Mode On'
+    initial_state: 'on'
+    trigger:
+        - platform: state
+          entity_id: input_boolean.guest_mode
+          to: 'on'
+    action:
+      - service: notify.mobile_app_dennis_galaxy
+        data_template:
+          title: Guest mode on
+          message: >
+            Some automations turned off
+      - service: notify.mobile_app_iphone_van_stephanie
+        data_template:
+          title: Guest mode on
+          message: >
+            Some automations turned off
+
+  - id: 380b5572-0d01-4a26-a61a-53cc9a1d679f
+    alias: '[House] Guest Mode Off'
+    initial_state: 'on'
+    trigger:
+        - platform: state
+          entity_id: input_boolean.guest_mode
+          to: 'off'
+    action:
+      - service: notify.mobile_app_dennis_galaxy
+        data_template:
+          title: Guest mode off
+          message: >
+            Automations turned on again
+      - service: notify.mobile_app_iphone_van_stephanie
+        data_template:
+          title: Guest mode off
+          message: >
+            Automations turned on again
