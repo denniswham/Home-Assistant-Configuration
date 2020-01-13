@@ -23,7 +23,7 @@ cards:
             action: call-service
             service: scene.turn_on
             service_data:
-              entity_id: scene.riseandshine
+              entity_id: scene.rise_and_shine
         - type: picture
           image: /local/images/lounge-time.jpg
           tap_action:
@@ -32,7 +32,7 @@ cards:
             action: call-service
             service: scene.turn_on
             service_data:
-              entity_id: scene.lounge_time
+              entity_id: scene.tv_time
 
     - type: entities
       title: Living Room
