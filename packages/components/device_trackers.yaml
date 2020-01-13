@@ -14,18 +14,18 @@ device_tracker:
     new_device_defaults:
       track_new_devices: true
 
-  - platform: nmap_tracker
-    hosts: 192.168.178.0/24
-    home_interval: 3
-    new_device_defaults:
-    track_new_devices: false
+  # - platform: nmap_tracker
+  #   hosts: 192.168.178.0/24
+  #   home_interval: 3
+  #   new_device_defaults:
+  #   track_new_devices: false
 
   - platform: upc_connect
     password: !secret upc_connect_password
     host: !secret upc_connect_host
     
 automation:
-  - id: 2ae00756-b4a9-4068-acc8-c574a8a60fd4
+  - id: 7321cea0-b530-4d2c-9b88-59eabd8693a6
     alias: '[System] Request Location Update'
     initial_state: 'true'
     trigger:
