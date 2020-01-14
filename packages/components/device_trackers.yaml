@@ -23,16 +23,3 @@ device_tracker:
   # - platform: upc_connect
   #   password: !secret upc_connect_password
   #   host: !secret upc_connect_host
-    
-automation:
-  - id: 7321cea0-b530-4d2c-9b88-59eabd8693a6
-    alias: '[System] Request Location Update'
-    initial_state: 'true'
-    trigger:
-      - platform: time_pattern
-    # This will match every 5 minutes
-        minutes: "/5"
-    action:
-      - service: notify.mobile_app_dennis_galaxy
-        data:
-          message: "request_location_update"
