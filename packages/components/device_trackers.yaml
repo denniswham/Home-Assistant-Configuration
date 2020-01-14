@@ -14,15 +14,15 @@ device_tracker:
     new_device_defaults:
       track_new_devices: true
 
-  # - platform: nmap_tracker
-  #   hosts: 192.168.178.0/24
-  #   home_interval: 3
-  #   new_device_defaults:
-  #   track_new_devices: false
+  - platform: nmap_tracker
+    hosts: 192.168.178.0/24
+    home_interval: 3
+    new_device_defaults:
+    track_new_devices: true
 
-  - platform: upc_connect
-    password: !secret upc_connect_password
-    host: !secret upc_connect_host
+  # - platform: upc_connect
+  #   password: !secret upc_connect_password
+  #   host: !secret upc_connect_host
     
 automation:
   - id: 7321cea0-b530-4d2c-9b88-59eabd8693a6
