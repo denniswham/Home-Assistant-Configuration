@@ -13,7 +13,24 @@ use_include_order: True
 #     - sensor.living_room_thermostat_humidity
 #     - sensor.retsinagaard_eta
 
+exclude:
+  domains:
+    - binary_sensor
+    - camera
+    - calendar
+    - cover
+    - device_tracker
+    - group
+    - light
+    - media_player
+    - sensor
+    - switch
+    - weather
+
 include:
+  domains:
+    - alarm_control_panel
+    - climate
   entities:
     - person.dennis
     - person.stephanie
@@ -31,18 +48,3 @@ include:
     - switch.siren
     - switch.backyard_siren
 
-exclude:
-  domains:
-    - alert
-    - camera
-    - calendar
-    - climate
-    - cover
-    - group
-    - binary_sensor
-    - device_tracker
-    - light
-    - media_player
-    - sensor
-    - weather
-    - switch
