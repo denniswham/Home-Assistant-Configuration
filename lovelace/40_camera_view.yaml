@@ -72,9 +72,6 @@ cards:
                   - entity: sensor.front_door_battery
                     name: Battery
                     secondary_info: last-changed
-                  - entity: sensor.front_door_wifi_signal_category
-                    name: Wifi Signal
-                    secondary_info: last-changed
             style: |
               #states {
                 padding-top: 0;
@@ -140,9 +137,6 @@ cards:
                     secondary_info: last-changed
                   - entity: sensor.backyard_battery
                     name: Battery
-                    secondary_info: last-changed
-                  - entity: sensor.backyard_wifi_signal_category
-                    name: Wifi Signal
                     secondary_info: last-changed
             style: |
               #states {
