@@ -9,7 +9,7 @@ cards:
       - type: custom:vertical-stack-in-card
         cards:
           - type: picture-entity
-            entity: camera.front_door
+            entity: 
             camera_view: live
             show_state: false
             show_name: false
@@ -54,25 +54,25 @@ cards:
                 group_config:
                   secondary_info: last-changed
                 items:
-                  - entity: binary_sensor.ring_front_door_ding
+                  - entity: binary_sensor.front_door_ding
                     name: Ding
                     secondary_info: last-changed
-                  - entity: binary_sensor.ring_front_door_motion
+                  - entity: binary_sensor.front_door_motion
                     name: Motion
                     secondary_info: last-changed
-                  - entity: sensor.ring_front_door_last_activity
+                  - entity: sensor.front_door_last_activity
                     name: Last Activity
                     secondary_info: last-changed
-                  - entity: sensor.ring_front_door_last_ding
+                  - entity: sensor.front_door_last_ding
                     name: Last Ding
                     secondary_info: last-changed
-                  - entity: sensor.ring_front_door_last_motion
+                  - entity: sensor.front_door_last_motion
                     name: Last Motion
                     secondary_info: last-changed
-                  - entity: sensor.ring_front_door_battery
+                  - entity: sensor.front_door_battery
                     name: Battery
                     secondary_info: last-changed
-                  - entity: sensor.ring_front_door_wifi_signal_category
+                  - entity: sensor.front_door_wifi_signal_category
                     name: Wifi Signal
                     secondary_info: last-changed
             style: |
@@ -129,19 +129,19 @@ cards:
                 group_config:
                   secondary_info: last-changed
                 items:
-                  - entity: binary_sensor.ring_backyard_motion
+                  - entity: binary_sensor.backyard_motion
                     name: Motion
                     secondary_info: last-changed
-                  - entity: sensor.ring_backyard_last_activity
+                  - entity: sensor.backyard_last_activity
                     name: Last Activity
                     secondary_info: last-changed
-                  - entity: sensor.ring_backyard_last_motion
+                  - entity: sensor.backyard_last_motion
                     name: Last Motion
                     secondary_info: last-changed
-                  - entity: sensor.ring_backyard_battery
+                  - entity: sensor.backyard_battery
                     name: Battery
                     secondary_info: last-changed
-                  - entity: sensor.ring_backyard_wifi_signal_category
+                  - entity: sensor.backyard_wifi_signal_category
                     name: Wifi Signal
                     secondary_info: last-changed
             style: |

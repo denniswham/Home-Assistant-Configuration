@@ -87,8 +87,8 @@ cards:
 
                       - type: divider
                       
-                      - binary_sensor.ring_front_door_motion
-                      - binary_sensor.ring_backyard_motion
+                      - binary_sensor.front_door_motion
+                      - binary_sensor.backyard_motion
 
                       # - entity: sensor.unlocked_by
                       #   name: Front door last unlocked by

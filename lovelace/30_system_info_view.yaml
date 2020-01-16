@@ -87,7 +87,7 @@ cards:
                     show_state: true
                     columns: 2
                     entities:
-                      - entity: sensor.ring_backyard_battery
+                      - entity: sensor.backyard_battery
                         name: Backyard Cam
                       - entity: sensor.system_ring_backyard_cam
                         name: Backyard Cam
@@ -107,7 +107,7 @@ cards:
                     show_state: true
                     columns: 3
                     entities:
-                      - entity: sensor.ring_front_door_battery
+                      - entity: sensor.front_door_battery
                         name: Doorbell
                       - entity: sensor.system_ring_doorbell
                         name: Doorbell

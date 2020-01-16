@@ -63,7 +63,7 @@ automation:
     initial_state: 'true'
     trigger:
       - platform: state
-        entity_id: binary_sensor.ring_backyard_motion
+        entity_id: binary_sensor.backyard_motion
         to: 'on'
     condition:
       condition: or
@@ -101,13 +101,13 @@ automation:
     trigger:
       - platform: numeric_state
         entity_id:
-          - sensor.ring_front_door_battery
-          - sensor.ring_backyard_battery
+          - sensor.front_door_battery
+          - sensor.backyard_battery
         below: 15
       - platform: numeric_state
         entity_id:
-          - sensor.ring_front_door_battery
-          - sensor.ring_backyard_battery
+          - sensor.front_door_battery
+          - sensor.backyard_battery
         below: 10
     action:
       - service: persistent_notification.create
@@ -123,7 +123,7 @@ automation:
     alias: '[Ring] Play doorbell chime on Echos'
     trigger:
       - platform: state
-        entity_id: binary_sensor.ring_front_door_ding
+        entity_id: binary_sensor.front_door_ding
         from: 'off'
         to: 'on'
     condition:

@@ -203,13 +203,13 @@
     card:
       type: entities
       entities:
-        - entity: binary_sensor.ring_front_door_motion
+        - entity: binary_sensor.front_door_motion
           name: Front Door Motion
           secondary_info: last-changed
-        - entity: binary_sensor.ring_front_door_ding
+        - entity: binary_sensor.front_door_ding
           name: Front Door Ding
           secondary_info: last-changed
-        - entity: binary_sensor.ring_backyard_motion
+        - entity: binary_sensor.backyard_motion
           name: Backyard Motion
           secondary_info: last-changed
             

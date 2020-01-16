@@ -244,7 +244,7 @@ automation:
         entity_id: binary_sensor.garage
         to: 'on'
       - platform: state
-        entity_id: binary_sensor.ring_backyard_motion
+        entity_id: binary_sensor.backyard_motion
         to: 'on'
     condition:
       condition: or
