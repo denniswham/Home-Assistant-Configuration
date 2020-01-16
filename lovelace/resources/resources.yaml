@@ -1,5 +1,5 @@
   - url: /community_plugin/lovelace-card-tools/card-tools.js
-    type: js
+    type: module
   - url: /community_plugin/lovelace-layout-card/layout-card.js
     type: module
   - url: /community_plugin/bignumber-card/bignumber-card.js
