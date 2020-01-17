@@ -141,7 +141,7 @@ speedtestdotnet:
 automation:
   - id: bce438cb-9828-454f-822d-21aa14810445
     alias: '[System] Device Status'
-    initial_state: 'on'
+    initial_state: 'off'
     trigger:
           - platform: state
             entity_id:

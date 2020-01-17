@@ -133,6 +133,9 @@ automation:
     initial_state: 'true'
     condition:
       - condition: state
+        entity_id: input_select.konnectedstatus
+        state: armed_home
+      - condition: state
         entity_id: input_boolean.guest_mode
         state: 'off'
     trigger:
