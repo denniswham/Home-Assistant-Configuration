@@ -9,6 +9,9 @@ homeassistant:
 default_config:
 hassio:
 http:
+  trusted_proxies:
+    - 127.0.0.1
+    
 discovery:
 
 lovelace:

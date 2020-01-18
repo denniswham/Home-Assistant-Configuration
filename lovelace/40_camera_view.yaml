@@ -9,7 +9,7 @@ cards:
       - type: custom:vertical-stack-in-card
         cards:
           - type: picture-entity
-            entity: 
+            entity: camera.front_door
             camera_view: live
             show_state: false
             show_name: false
