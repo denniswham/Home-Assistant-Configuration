@@ -33,3 +33,7 @@ exclude:
     - automation.system_device_status
     - automation.system_request_location_update
     - automation.alarm_konnected_log_motion
+    - automation.house_day_mode_to_day
+    - automation.house_day_mode_to_evening
+    - automation.house_day_mode_to_morning
+    - automation.house_day_mode_to_night
