@@ -24,3 +24,18 @@ proximity:
       - person.stephanie
     tolerance: 100
     unit_of_measurement: km
+
+automation:
+  - id: 9f06a214-339a-49bd-91ba-2e359a84538b
+    alias: '[Presence] Lucas or Timo arriving at Gouvernantelaan 8'
+    trigger:
+      - platform: state
+        entity_id:
+            - person.lucas
+            - person.timo
+        to: Gouvernantelaan
+    action:
+      - service: notify.mobile_app_dennis_galaxy
+        data_template:
+          message: "{{ trigger.entity_id.name }} arrived at {{ trigger.entity_id.state }}"
+          title: Presence detection
