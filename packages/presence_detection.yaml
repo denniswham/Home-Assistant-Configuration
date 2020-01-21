@@ -29,6 +29,10 @@ automation:
   - id: 9f06a214-339a-49bd-91ba-2e359a84538b
     alias: '[Presence] Lucas or Timo arriving at Gouvernantelaan'
     initial_state: 'true'
+    condition:
+      - condition: time
+        after: '22:00:00'
+        before: '07:00:00'
     trigger:
       - platform: zone
         entity_id:
@@ -40,20 +44,4 @@ automation:
       - service: notify.mobile_app_dennis_galaxy
         data_template:
           message: "{{ trigger.to_state.name }} arrived at Gouvernantelaan"
-          title: Presence detection
-
-  - id: e5df89e7-3c2c-4faa-8b11-c4615f4a38de
-    alias: '[Presence] Lucas or Timo leaving from at Gouvernantelaan'
-    initial_state: 'true'
-    trigger:
-      - platform: zone
-        entity_id:
-            - person.lucas
-            - person.timo
-        zone: zone.gouvernantelaan
-        event: leave
-    action:
-      - service: notify.mobile_app_dennis_galaxy
-        data_template:
-          message: "{{ trigger.to_state.name }} leaving Gouvernantelaan"
           title: Presence detection
