@@ -37,3 +37,4 @@ exclude:
     - automation.house_day_mode_to_evening
     - automation.house_day_mode_to_morning
     - automation.house_day_mode_to_night
+    - automation.presence_lucas_or_timo_arriving_at_gouvernantelaan
