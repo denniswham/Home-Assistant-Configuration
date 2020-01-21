@@ -114,11 +114,6 @@ automation:
         entity_id: group.household
         zone: zone.home
         event: leave
-      - platform: zone
-        entity_id: group.household
-        zone: zone.home
-        event: leave
-        for: 00:05:00
     action:
       - service: climate.set_preset_mode
         entity_id:
