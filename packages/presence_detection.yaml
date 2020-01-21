@@ -41,3 +41,19 @@ automation:
         data_template:
           message: "{{ trigger.to_state.name }} arrived at Gouvernantelaan"
           title: Presence detection
+
+  - id: e5df89e7-3c2c-4faa-8b11-c4615f4a38de
+    alias: '[Presence] Lucas or Timo leaving from at Gouvernantelaan'
+    initial_state: 'true'
+    trigger:
+      - platform: zone
+        entity_id:
+            - person.lucas
+            - person.timo
+        zone: zone.gouvernantelaan
+        event: leave
+    action:
+      - service: notify.mobile_app_dennis_galaxy
+        data_template:
+          message: "{{ trigger.to_state.name }} leaving Gouvernantelaan"
+          title: Presence detection
