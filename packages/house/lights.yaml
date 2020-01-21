@@ -99,10 +99,10 @@ automation:
   - id: 9664f92b-26b9-4cc0-a422-4a03382a86a1
     alias: '[Lights] Turn off all lights when away'
     trigger:
-      - platform: state
+      - platform: zone
         entity_id: group.household
-        from: home
-        to: not_home
+        zone: zone.home
+        event: leave
     condition:
       - condition: state
         entity_id: input_boolean.guest_mode
@@ -114,10 +114,10 @@ automation:
   - id: e4519647-e24b-4f1b-8682-51aaa8ce4576
     alias: '[Lights] Turn on lights when arriving home at night'
     trigger:
-      - platform: state
+      - platform: zone
         entity_id: group.household
-        from: not_home
-        to: home
+        zone: zone.home
+        event: enter
     condition:
       - condition: state
         entity_id: input_boolean.guest_mode

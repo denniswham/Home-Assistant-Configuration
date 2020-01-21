@@ -5,15 +5,15 @@ homeassistant:
     camera.backyard:
       friendly_name: Last Motion Backyard
 
-binary_sensor:
-  - platform: ring
+# binary_sensor:
+#   - platform: ring
 
-sensor:
-  - platform: ring
+# sensor:
+#   - platform: ring
 
-camera:
-  - platform: ring
+# camera:
+#   - platform: ring
 
-switch:
-  - platform: ring
+# switch:
+#   - platform: ring
 

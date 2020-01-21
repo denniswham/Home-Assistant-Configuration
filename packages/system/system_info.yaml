@@ -188,10 +188,10 @@ automation:
     trigger:
       - platform: time
         at: 04:00:00
-      - platform: state
-        entity_id: person.dennis
-        from: 'not_home'
-        to: 'home'
+      - platform: zone
+        entity_id: group.household
+        zone: zone.home
+        event: enter
     action:
       - delay: 00:30:00
       - service: notify.mobile_app_dennis_galaxy
