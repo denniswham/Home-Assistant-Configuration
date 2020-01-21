@@ -12,7 +12,7 @@ automation:
     trigger:
       - platform: state
         entity_id: group.household
-        state: not_home
+        to: not_home
         for:
           hours: 24
     action:
