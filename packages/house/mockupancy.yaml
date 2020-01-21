@@ -10,10 +10,9 @@ automation:
   - id: 27c20369-e108-462b-8c62-84999df3499c
     alias: '[Mockupancy] Turn on vacation mode'
     trigger:
-      - platform: zone
+      - platform: state
         entity_id: group.household
-        zone: zone.home
-        event: leave
+        state: not_home
         for:
           hours: 24
     action:
