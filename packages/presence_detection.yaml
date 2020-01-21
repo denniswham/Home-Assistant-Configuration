@@ -39,5 +39,5 @@ automation:
     action:
       - service: notify.mobile_app_dennis_galaxy
         data_template:
-          message: "{{trigger.to_state.name}} arrived at {{trigger.to_state.state}}"
+          message: "{{ trigger.to_state.name }} arrived at {{ trigger.to_state.state }}"
           title: Presence detection
