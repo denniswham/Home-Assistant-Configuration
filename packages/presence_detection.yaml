@@ -27,7 +27,7 @@ proximity:
 
 automation:
   - id: 9f06a214-339a-49bd-91ba-2e359a84538b
-    alias: '[Presence] Lucas or Timo arriving at Gouvernantelaan 8'
+    alias: '[Presence] Lucas or Timo arriving at Gouvernantelaan'
     initial_state: 'true'
     trigger:
       - platform: zone
