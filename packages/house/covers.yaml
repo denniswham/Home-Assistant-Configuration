@@ -144,10 +144,10 @@ automation:
           \ -%}\n  {{ (as_timestamp(now()) - as_timestamp(states.automation.covers_close_when_leaving.attributes.last_triggered))\
           \ > 240 }}\n{%- else -%}\n  true\n{%- endif -%}\n"
     trigger:
-      - platform: zone
+      - platform: state
         entity_id: group.household
-        zone: zone.home
-        event: leave
+        from: home
+        to: not_home
     action:
       - service: cover.open_cover
         data:
@@ -173,10 +173,10 @@ automation:
           \ -%}\n  {{ (as_timestamp(now()) - as_timestamp(states.automation.covers_close_when_leaving.attributes.last_triggered))\
           \ > 240 }}\n{%- else -%}\n  true\n{%- endif -%}\n"
     trigger:
-      - platform: zone
+      - platform: state
         entity_id: group.household
-        zone: zone.home
-        event: enter
+        from: not_home
+        to: home
     action:
       - service: cover.set_cover_position
         data:
@@ -201,10 +201,10 @@ automation:
           \ -%}\n  {{ (as_timestamp(now()) - as_timestamp(states.automation.covers_open_when_arriving_2.attributes.last_triggered))\
           \ > 240 }}\n{%- else -%}\n  true\n{%- endif -%}\n"
     trigger:
-      - platform: zone
+      - platform: state
         entity_id: group.household
-        zone: zone.home
-        event: leave
+        from: home
+        to: not_home
       - platform: numeric_state
         entity_id: sensor.br_temperature
         above: 25

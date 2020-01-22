@@ -16,10 +16,10 @@ automation:
         value_template: '{{ states.sensor.retsinagaard_eta != "1970-01-01 00:00:00+00:00"
           }}'
     trigger:
-      - platform: zone
+      - platform: state
         entity_id: group.household
-        zone: zone.home
-        event: enter
+        from: not_home
+        to: home
       - platform: template
         value_template: "{% if is_state_attr('proximity.home', 'dir_of_travel', 'towards') %}false{% endif %}"
         for: '00:05:00'
@@ -110,10 +110,10 @@ automation:
     alias: '[Climate] Away Mode'
     initial_state: 'true'
     trigger:
-      - platform: zone
+      - platform: state
         entity_id: group.household
-        zone: zone.home
-        event: leave
+        from: home
+        to: not_home
     action:
       - service: climate.set_preset_mode
         entity_id:
@@ -124,10 +124,10 @@ automation:
     alias: '[Climate] Home Mode'
     initial_state: 'true'
     trigger:
-      - platform: zone
+      - platform: state
         entity_id: group.household
-        zone: zone.home
-        event: enter
+        from: not_home
+        to: home
     action:
       - service: climate.set_preset_mode
         entity_id:

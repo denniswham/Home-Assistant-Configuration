@@ -85,14 +85,16 @@ automation:
         value_template: '{{ states(''alarm_control_panel.konnected_alarm'') == ''disarmed''
           }}'
     trigger:
-      - platform: zone
+      - platform: state
         entity_id: group.household
-        zone: zone.home
-        event: leave
-      - platform: zone
+        from: home
+        to: not_home
+      - platform: state
         entity_id: group.household
-        zone: zone.home
-        event: leave
+        from: home
+        to: not_home
+        for:
+          minutes: 5
     action:
       - service: input_select.select_option
         data:
@@ -165,10 +167,10 @@ automation:
           \ -%}\n  {{ (as_timestamp(now()) - as_timestamp(states.automation.alarm_arm_konnected.attributes.last_triggered))\
           \ > 240 }}\n{%- else -%}\n  true\n{%- endif -%}\n"
     trigger:
-      - platform: zone
+      - platform: state
         entity_id: group.household
-        zone: zone.home
-        event: enter
+        from: not_home
+        to: home
     action:
       - service: homeassistant.turn_on
         entity_id: script.konnectedstandby
