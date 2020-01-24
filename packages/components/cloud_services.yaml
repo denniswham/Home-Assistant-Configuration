@@ -25,8 +25,26 @@ sensor:
           value_template: >
             {{ states.media_player | selectattr('attributes.last_called','eq',True) | map(attribute='entity_id') | first }}
 
+mqtt:
+  broker: 127.0.0.1
+  username: !secret mqtt_user
+  password: !secret mqtt_password
+  discovery: true
+  discovery_prefix: homeassistant
+
+  birth_message:
+    topic: 'hass/status'
+    payload: 'online'
+    qos: 0
+    retain: false
+
+  will_message:
+    topic: 'hass/status'
+    payload: 'offline'
+
 alarm_control_panel:
   - platform: manual_mqtt
+    name: Ring Mode
     state_topic: hass/alarm
     command_topic: home/alarm/set
     pending_time: 0
