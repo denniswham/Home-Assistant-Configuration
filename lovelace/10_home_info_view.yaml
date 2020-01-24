@@ -20,12 +20,12 @@ cards:
                 states:
                   - arm_away
                 name: Alexa Guard
-              - type: alarm-panel
-                entity: alarm_control_panel.ring_mode
-                states:
-                  - arm_home
-                  - arm_away
-                name: Ring Modes
+              # - type: alarm-panel
+              #   entity: alarm_control_panel.ring_mode
+              #   states:
+              #     - arm_home
+              #     - arm_away
+              #   name: Ring Modes
 
               - type: entities
                 entities:

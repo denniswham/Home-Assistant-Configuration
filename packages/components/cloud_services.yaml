@@ -42,13 +42,6 @@ mqtt:
     topic: 'hass/status'
     payload: 'offline'
 
-alarm_control_panel:
-  - platform: manual_mqtt
-    name: Ring Mode
-    state_topic: ring
-    command_topic: home/alarm/set
-    pending_time: 0
-
 automation:
   - id: 39c8ea32-61d3-4971-9b20-f07eb370cfe3
     alias: "[Alexa] Enable Do Not Disturb"
