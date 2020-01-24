@@ -45,7 +45,7 @@ mqtt:
 alarm_control_panel:
   - platform: manual_mqtt
     name: Ring Mode
-    state_topic: hass/alarm
+    state_topic: ring
     command_topic: home/alarm/set
     pending_time: 0
 
