@@ -45,3 +45,23 @@ automation:
         data_template:
           message: "{{ trigger.to_state.name }} arrived at Gouvernantelaan at {{ states('sensor.time') }}"
           title: Presence detection
+
+  - id: 416925c0-9e01-44e2-98b3-f9442d46e94e
+    alias: '[Presence] Lucas or Timo left Gouvernantelaan'
+    initial_state: 'true'
+    # condition:
+    #   - condition: time
+    #     after: '22:00:00'
+    #     before: '07:00:00'
+    trigger:
+      - platform: zone
+        entity_id:
+            - person.lucas
+            - person.timo
+        zone: zone.gouvernantelaan
+        event: leave
+    action:
+      - service: notify.mobile_app_dennis_galaxy
+        data_template:
+          message: "{{ trigger.to_state.name }} left Gouvernantelaan at {{ states('sensor.time') }}"
+          title: Presence detection

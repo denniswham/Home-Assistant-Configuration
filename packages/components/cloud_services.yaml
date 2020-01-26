@@ -129,11 +129,11 @@ automation:
     action:
       - service: persistent_notification.create
         data_template:
-          message: "{{ trigger.entity_id.name }} reported low battery, please charge."
+          message: "{{ trigger.to_state.name }} reported low battery, please charge."
           title: Ring Battery Low
       - service: notify.mobile_app_dennis_galaxy
         data_template:
-          message: "{{ trigger.entity_id.name }} reported low battery, please charge."
+          message: "{{ trigger.to_state.name }} reported low battery, please charge."
           title: Ring Battery Low
 
   - id: 18bb3b86-f2d8-47d9-908a-b6f1555a15e9
