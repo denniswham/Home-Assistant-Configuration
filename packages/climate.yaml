@@ -22,7 +22,7 @@ automation:
         to: home
       - platform: template
         value_template: "{% if is_state_attr('proximity.home', 'dir_of_travel', 'towards') %}false{% endif %}"
-        for: '00:05:00'
+        for: '00:10:00'
     action:
       - service: nest.cancel_eta
         data:

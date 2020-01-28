@@ -140,7 +140,7 @@ automation:
         entity_id: input_boolean.guest_mode
         state: 'off'
     trigger:
-      - platform: zone
+      - platform: 
         entity_id:
           - person.dennis
           - person.stephanie
