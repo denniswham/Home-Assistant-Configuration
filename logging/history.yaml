@@ -18,19 +18,16 @@ exclude:
     - binary_sensor
     - camera
     - calendar
-    - cover
     - device_tracker
     - group
-    - light
     - media_player
-    - sensor
-    - switch
     - weather
 
 include:
   domains:
     - alarm_control_panel
     - climate
+    - sun
   entities:
     - person.dennis
     - person.stephanie
