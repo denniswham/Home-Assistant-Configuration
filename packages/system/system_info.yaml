@@ -49,11 +49,6 @@ sensor:
         icon_template: mdi:wifi
         entity_id: "device_tracker.tplink_router"
         value_template: "{{ 'Online' if is_state('device_tracker.tplink_router', 'home') else 'Offline' }}"
-      system_linksys_router:
-        friendly_name: 'Linksys Router'
-        icon_template: mdi:wifi
-        entity_id: "device_tracker.linksys_router"
-        value_template: "{{ 'Online' if is_state('device_tracker.linksys_router', 'home') else 'Offline' }}"
       system_powerline_router:
         friendly_name: 'Powerline Router'
         icon_template: mdi:wifi
@@ -148,7 +143,6 @@ automation:
               - sensor.system_konnected
               - sensor.system_ziggo_router
               - sensor.system_tplink_router
-              - sensor.system_linksys_router
               - sensor.system_powerline_router
               - sensor.system_ring_doorbell
               - sensor.system_ring_backyard_cam

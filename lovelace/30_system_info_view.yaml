@@ -160,14 +160,12 @@ cards:
               elements:
                 - type: custom:hui-glance-card
                   show_state: true
-                  columns: 4
+                  columns: 3
                   entities:
                     - entity: sensor.system_ziggo_router
                       name: Ziggo
                     - entity: sensor.system_tplink_router
                       name: TP-Link
-                    - entity: sensor.system_linksys_router
-                      name: Linksys
                     - entity: sensor.system_powerline_router
                       name: Powerline
                   style:

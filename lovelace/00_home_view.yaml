@@ -316,7 +316,6 @@ cards:
                     - sensor.system_konnected
                     - sensor.system_ziggo_router
                     - sensor.system_tplink_router
-                    - sensor.system_linksys_router
                     - sensor.system_powerline_router
                     - sensor.system_ring_doorbell
                     - sensor.system_ring_backyard_cam
