@@ -193,18 +193,41 @@ automation:
         entity_id: input_boolean.guest_mode
         state: 'off'
       - condition: template
-        value_template: "{%- if states.automation.covers_open_when_arriving_1.attributes.last_triggered\
-          \ -%}\n  {{ (as_timestamp(now()) - as_timestamp(states.automation.covers_open_when_arriving_1.attributes.last_triggered))\
+        value_template: "{%- if states.automation.covers_open_when_arriving_at_daytime.attributes.last_triggered\
+          \ -%}\n  {{ (as_timestamp(now()) - as_timestamp(states.automation.covers_open_when_arriving_at_daytime.attributes.last_triggered))\
           \ > 240 }}\n{%- else -%}\n  true\n{%- endif -%}\n"
       - condition: template
-        value_template: "{%- if states.automation.covers_open_when_arriving_2.attributes.last_triggered\
-          \ -%}\n  {{ (as_timestamp(now()) - as_timestamp(states.automation.covers_open_when_arriving_2.attributes.last_triggered))\
+        value_template: "{%- if states.automation.covers_open_when_arriving_at_night.attributes.last_triggered\
+          \ -%}\n  {{ (as_timestamp(now()) - as_timestamp(states.automation.covers_open_when_arriving_at_night.attributes.last_triggered))\
           \ > 240 }}\n{%- else -%}\n  true\n{%- endif -%}\n"
     trigger:
       - platform: state
         entity_id: group.household
         from: home
         to: not_home
+    action:
+      - service: cover.close_cover
+        data:
+          entity_id:
+            - cover.master_bedroom_roller_shutter_level
+            - cover.lucas_room_roller_shutter_level
+
+  - id: 6c9a2404-5bd8-43e4-beb2-c38afd7d21c5
+    alias: '[Covers] Close when high temperature'
+    initial_state: 'true'
+    condition:
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state: 'off'
+      - condition: template
+        value_template: "{%- if states.automation.covers_open_when_arriving_at_daytime.attributes.last_triggered\
+          \ -%}\n  {{ (as_timestamp(now()) - as_timestamp(states.automation.covers_open_when_arriving_at_daytime.attributes.last_triggered))\
+          \ > 240 }}\n{%- else -%}\n  true\n{%- endif -%}\n"
+      - condition: template
+        value_template: "{%- if states.automation.covers_open_when_arriving_at_night.attributes.last_triggered\
+          \ -%}\n  {{ (as_timestamp(now()) - as_timestamp(states.automation.covers_open_when_arriving_at_night.attributes.last_triggered))\
+          \ > 240 }}\n{%- else -%}\n  true\n{%- endif -%}\n"
+    trigger:
       - platform: numeric_state
         entity_id: sensor.br_temperature
         above: 25
