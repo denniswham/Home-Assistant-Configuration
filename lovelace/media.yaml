@@ -40,14 +40,14 @@ cards:
                     artwork: cover
                     hide:
                       power_state: false
-                  - entity: switch.living_room_tv
-                    name: Tv
-                    icon: mdi:television-classic
-                    type: custom:toggle-lock-entity-row
-                  - entity: switch.living_room_movie_system
-                    name: Movie system
-                    icon: mdi:movie
-                    type: custom:toggle-lock-entity-row
+                  # - entity: switch.living_room_tv
+                  #   name: Tv
+                  #   icon: mdi:television-classic
+                  #   type: custom:toggle-lock-entity-row
+                  # - entity: switch.living_room_movie_system
+                  #   name: Movie system
+                  #   icon: mdi:movie
+                  #   type: custom:toggle-lock-entity-row
               - type: entities
                 entities:
                   - type: custom:mini-media-player
