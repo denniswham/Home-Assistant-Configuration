@@ -20,6 +20,6 @@ homeassistant:
 camera:
   - platform: generic
     name: Ring Livestream
-    stream_source: http://hassio.local:port/public/stream.m3u8
-    still_image_url: http://hassio.local:port/public/stream.m3u8
+    stream_source: http://hassio.local:3000/public/stream.m3u8
+    still_image_url: http://hassio.local:3000/public/stream.m3u8
 
