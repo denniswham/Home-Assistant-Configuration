@@ -8,6 +8,10 @@ cards:
     cards:
       - type: custom:vertical-stack-in-card
         cards:
+          - type: picture-glance
+            title: Front garden
+            entities: []
+            camera_image: camera.ring_livestream
           - type: picture-entity
             entity: camera.front_door
             camera_view: live
