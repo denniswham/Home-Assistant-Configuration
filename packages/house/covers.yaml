@@ -146,8 +146,8 @@ automation:
     trigger:
       - platform: state
         entity_id: group.household
-        from: home
-        to: not_home
+        from: not_home
+        to: home
     action:
       - service: cover.open_cover
         data:
