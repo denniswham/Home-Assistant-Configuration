@@ -26,7 +26,8 @@
     type: module
   - url: /community_plugin/simple-weather-card/simple-weather-card-bundle.js
     type: module
-
+  - url: /community_plugin/custom-header/custom-header.js
+    type: module
 
 
   - url: /community_plugin/lovelace-auto-entities/auto-entities.js

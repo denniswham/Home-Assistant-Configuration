@@ -23,39 +23,42 @@ cards:
         cards:
           - type: "custom:button-card"
             entity: scene.rise_and_shine
+            icon: mdi:sunrise
             lock:
               enabled: true
           - type: "custom:button-card"
             entity: scene.dinner_time
+            icon: mdi:silverware-fork-knife
             lock:
               enabled: true
           - type: "custom:button-card"
             entity: scene.tv_time
+            icon: mdi:television
             lock:
               enabled: true
 
-      - type: horizontal-stack
-        cards:
-          - type: entity-button
-            entity: cover.roller_shutters
-            icon: mdi:window-shutter
-            tap_action:
-              action: none
-            hold_action:
-              action: call-service
-              service: cover.close_cover
-              service_data:
-                entity_id: cover.roller_shutters
-          - type: entity-button
-            entity: cover.roller_shutters
-            icon: mdi:window-shutter-open
-            tap_action:
-              action: none
-            hold_action:
-              action: call-service
-              service: cover.open_cover
-              service_data:
-                entity_id: cover.roller_shutters
+      # - type: horizontal-stack
+      #   cards:
+      #     - type: entity-button
+      #       entity: cover.roller_shutters
+      #       icon: mdi:window-shutter
+      #       tap_action:
+      #         action: none
+      #       hold_action:
+      #         action: call-service
+      #         service: cover.close_cover
+      #         service_data:
+      #           entity_id: cover.roller_shutters
+      #     - type: entity-button
+      #       entity: cover.roller_shutters
+      #       icon: mdi:window-shutter-open
+      #       tap_action:
+      #         action: none
+      #       hold_action:
+      #         action: call-service
+      #         service: cover.open_cover
+      #         service_data:
+      #           entity_id: cover.roller_shutters
       - type: alarm-panel
         entity: alarm_control_panel.konnected_alarm
         states:

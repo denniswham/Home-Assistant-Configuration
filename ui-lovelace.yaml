@@ -1,24 +1,8 @@
 resources:
   !include lovelace/resources/resources.yaml
 
-cch:
-  disable: false
-  header: true
-  menu: show
-  sidebar_swipe: true
-  notifications: show
-  voice: hide
-  options: clock
-  clock_format: 24
-  clock_date: true
-  date_locale: sv-SE
-  swipe: true
-  exceptions:
-    - conditions:
-        user: dashboard
-      config:
-        show_tabs: 9
-        kiosk_mode: true
+custom_header:
+  compact_mode: true
 
 button_card_templates:
   !include lovelace/button_card_templates/button_card_templates.yaml
