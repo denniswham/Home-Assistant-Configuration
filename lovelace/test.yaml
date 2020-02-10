@@ -145,15 +145,10 @@ cards:
         title: Roller Shutters
         show_header_toggle: false
         entities:
-          - type: section
-            label: Master Bedroom
           - entity: cover.master_bedroom_roller_shutter_level
             name: Master Bedroom
             type: custom:slider-entity-row
             toggle: true
-            
-          - type: section
-            label: Lucas' Room
           - entity: cover.lucas_room_roller_shutter_level
             name: Lucas' Room
             toggle: true
