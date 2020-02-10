@@ -75,6 +75,16 @@ cards:
                     hide:
                       power_state: false
                       progress: true
+              - type: entities
+                entities:
+                  - type: custom:mini-media-player
+                    entity: media_player.spotify_115579534
+                    icon: mdi:spotify
+                    group: true
+                    artwork: cover
+                    hide:
+                      power_state: false
+                      progress: true
           - type: vertical-stack
             cards:
               - type: custom:upcoming-media-card
