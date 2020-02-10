@@ -23,7 +23,7 @@ cards:
         cards:
           - type: "custom:button-card"
             entity: scene.rise_and_shine
-            icon: mdi:sunrise
+            icon: mdi:weather-sunset-up
             lock:
               enabled: true
           - type: "custom:button-card"
