@@ -1,8 +1,7 @@
-name: "Home"
+title: Home
 view: true
 icon: mdi:home
-
-background: center / cover no-repeat url("/local/lovelace_ui/bg1.jpeg")
+background: center / cover no-repeat url("/local/lovelace_ui/bg1.jpeg") fixed
 
 popup_cards: !include popup-cards/home_view_popup_cards.yaml
 
@@ -87,8 +86,10 @@ cards:
       - type: custom:mini-graph-card
         name: Home Humidity
         entities:
-          - sensor.living_room_thermostat_humidity
-          - sensor.br_humidity
+          - entity: sensor.living_room_thermostat_humidity
+            name: Living Room
+          - entity: sensor.br_humidity
+            name: Outdoor
         font_size: 50
         line_color: "#389638"
 
