@@ -73,14 +73,6 @@ cards:
       #     - arm_home
       #     - arm_away
       #   name: Ring Modes
-      - type: glance
-        show_header_toggle: false
-        columns: 2
-        entities:
-          - entity: input_boolean.vacation_mode
-            name: Vacation
-          - entity: input_boolean.guest_mode
-
       - type: custom:fold-entity-row
         head:
           type: section
@@ -183,3 +175,10 @@ cards:
             name: Lucas' Room
             toggle: true
             type: custom:slider-entity-row
+      - type: glance
+        show_header_toggle: false
+        columns: 2
+        entities:
+          - entity: input_boolean.vacation_mode
+            name: Vacation
+          - entity: input_boolean.guest_mode
