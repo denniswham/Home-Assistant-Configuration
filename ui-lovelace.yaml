@@ -39,3 +39,4 @@ views:
   - !include lovelace/80_automations_view.yaml
   - !include lovelace/99_settings_view.yaml
   - !include lovelace/media.yaml
+  - !include lovelace/test.yaml
