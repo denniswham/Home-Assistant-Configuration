@@ -1,6 +1,7 @@
 title: Graphs
 icon: mdi:chart-line
 path: graphs
+background: center / cover no-repeat url("/local/lovelace_ui/bg1.jpeg") fixed
 panel: true
 cards:  
   - type: vertical-stack

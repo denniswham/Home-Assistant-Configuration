@@ -1,6 +1,7 @@
 title: Info
 icon: mdi:lan
 path: info
+background: center / cover no-repeat url("/local/lovelace_ui/bg1.jpeg") fixed
 panel: true
 cards:  
   - type: vertical-stack
