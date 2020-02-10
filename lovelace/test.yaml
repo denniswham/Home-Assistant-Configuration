@@ -24,16 +24,19 @@ cards:
           - type: "custom:button-card"
             entity: scene.rise_and_shine
             icon: mdi:weather-sunset-up
+            name: "Rise 'n shine"
             lock:
               enabled: true
           - type: "custom:button-card"
             entity: scene.dinner_time
             icon: mdi:silverware-fork-knife
+            name: Dinner time
             lock:
               enabled: true
           - type: "custom:button-card"
             entity: scene.tv_time
             icon: mdi:television
+            name: Relax time
             lock:
               enabled: true
 
