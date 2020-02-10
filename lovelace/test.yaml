@@ -1,6 +1,11 @@
 name: "Home"
 view: true
 icon: mdi:home
+
+background: center / cover no-repeat url("/local/lovelace_ui/bg1.jpeg")
+
+popup_cards: !include popup-cards/home_view_popup_cards.yaml
+
 badges:
   - alarm_control_panel.konnected_alarm
   - person.dennis
