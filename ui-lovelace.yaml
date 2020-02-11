@@ -13,12 +13,12 @@ decluttering_templates:
 title: Home
 background: var(--background)
 views:
-  - !include lovelace/00_home_view.yaml
+  - !include lovelace/test.yaml
+  - !include lovelace/media.yaml
+  # - !include lovelace/00_home_view.yaml
   - !include lovelace/10_home_info_view.yaml
   - !include lovelace/20_lights_view.yaml
   - !include lovelace/25_covers_view.yaml
-  - !include lovelace/test.yaml
-  - !include lovelace/media.yaml
   - !include lovelace/30_system_info_view.yaml
   - !include lovelace/31_system_graphs.yaml
   # - !include lovelace/40_camera_view.yaml
