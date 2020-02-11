@@ -23,4 +23,4 @@ views:
   - !include lovelace/31_system_graphs.yaml
   # - !include lovelace/40_camera_view.yaml
   - !include lovelace/80_automations_view.yaml
-  - !include lovelace/99_settings_view.yaml
+  # - !include lovelace/99_settings_view.yaml

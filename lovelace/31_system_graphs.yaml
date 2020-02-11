@@ -93,10 +93,6 @@ cards:
                   - entity: sensor.speedtest_upload
                     name: Upload
 
-          - break
-
-          - type: vertical-stack
-            cards:
               - type: custom:vertical-stack-in-card
                 title: AdGuard Home
                 cards:
@@ -136,3 +132,21 @@ cards:
                           - sensor.adguard_parental_control_blocked
                         font_size: 50
                         line_color: "#389638"
+
+          - break
+
+          - type: vertical-stack
+            cards:
+              - type: custom:auto-entities
+                card:
+                  type: entities
+                  title: Power consumption
+                  show_header_toggle: false
+                filter:
+                  include:
+                    - entity_id: sensor.daily_energy_consumption
+                    - entity_id: sensor.monthly_energy_consumption
+                    - entity_id: "*_power"
+                  exclude:
+                    - entity_id: "*_2"
+                    - entity_id: "*_management"
