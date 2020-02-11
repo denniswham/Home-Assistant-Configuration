@@ -29,12 +29,6 @@ cards:
               - type: entities
                 entities:
                   - type: custom:mini-media-player
-                    entity: media_player.shield_3
-                    group: true
-                    artwork: cover
-                    hide:
-                      power_state: false
-                  - type: custom:mini-media-player
                     entity: media_player.living_room_fire_tv_stick
                     icon: mdi:amazon-alexa
                     group: true
