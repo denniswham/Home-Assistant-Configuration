@@ -1,6 +1,9 @@
 title: Automations
 icon: mdi:flash-auto
 path: automations
+
+background: center / cover no-repeat url("/local/lovelace_ui/bg1.jpeg") fixed
+
 cards:
   - type: custom:auto-entities
     show_empty: false
