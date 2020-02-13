@@ -167,7 +167,7 @@ automation:
             for:
               days: 1
     action:
-      - service: notify.mobile_app_dennis_galaxy
+      - service: notify.mobile_app_sm_g960f
         data_template:
           title: 'Device {{ trigger.to_state.name }} is'
           message: >
@@ -188,7 +188,7 @@ automation:
         to: home
     action:
       - delay: 00:30:00
-      - service: notify.mobile_app_dennis_galaxy
+      - service: notify.mobile_app_sm_g960f
         data:
           title: Home Assistant Update
           message: "Version {{ states.sensor.latest_version.state }} is available!"
@@ -207,7 +207,7 @@ automation:
         to: Offline
         for: 00:05:00
     action:
-      - service: notify.mobile_app_dennis_galaxy
+      - service: notify.mobile_app_sm_g960f
         data:
           title: Xbox is truned on
           message: "TV is off, turn off Xbox"

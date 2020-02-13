@@ -164,7 +164,7 @@ automation:
         #     state: Offline
 
     action:
-      - service: notify.mobile_app_dennis_galaxy
+      - service: notify.mobile_app_sm_g960f
         data:
           message: 'It seems like everyone is asleep'
           title: 'Good night!'
