@@ -77,7 +77,6 @@ cards:
                   - sensor.memory_use_percent
                 font_size: 50
                 line_color: "#389638"
-  - break
   - type: vertical-stack
     cards:
       - type: entities
@@ -129,8 +128,6 @@ cards:
                   - sensor.adguard_parental_control_blocked
                 font_size: 50
                 line_color: "#389638"
-
-  - break
 
   - type: vertical-stack
     cards:
