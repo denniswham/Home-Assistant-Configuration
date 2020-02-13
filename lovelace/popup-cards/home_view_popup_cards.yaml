@@ -114,7 +114,7 @@
                 # - sensor.timo_connection_type
                 # - sensor.timo_geocoded_location
                 # - sensor.timo_last_update_trigger
-                - sensor.dennis_wifi_connection
+                - sensor.timo_wifi_connection
                 # - sensor.timo_activity
                 # - sensor.timo_steps
 
