@@ -36,14 +36,14 @@ cards:
                     group_config:
                       secondary_info: last-changed
                     items:
-                      - entity: "[[ device_tracker.smg960f.attributes.battery_level ]]"
+                      - entity: "[[ device_tracker.sm_g960f.attributes.battery_level ]]"
                         type: custom:secondaryinfo-entity-row
                         secondary_info: sensor.dennis_battery_state
-                      - entity: device_tracker.smg960f
+                      - entity: device_tracker.sm_g960f
                         type: custom:secondaryinfo-entity-row
                         name: Dennis Android
                         icon: mdi:android
-                        secondary_info: "[[ device_tracker.smg960f.attributes.timestamp ]]"
+                        secondary_info: "[[ device_tracker.sm_g960f.attributes.timestamp ]]"
                       - entity: sensor.dennis_ssid
                         name: Dennis Wifi
                         icon: mdi:wifi
