@@ -175,25 +175,15 @@ cards:
             name: Lucas' Room
             toggle: true
             type: custom:slider-entity-row
-      - type: glance
-        show_header_toggle: false
-        columns: 2
-        entities:
-          - entity: input_boolean.vacation_mode
-            name: Vacation
-          - entity: input_boolean.guest_mode
-
       - type: horizontal-stack
         cards:
           - type: "custom:button-card"
             entity: input_boolean.vacation_mode
-            icon: mdi:weather-sunset-up
             name: "Vacation Mode"
             lock:
               enabled: true
           - type: "custom:button-card"
             entity: input_boolean.guest_mode
-            icon: mdi:silverware-fork-knife
             name: Guest Mode
             lock:
               enabled: true
