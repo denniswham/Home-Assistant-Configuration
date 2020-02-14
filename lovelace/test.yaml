@@ -24,7 +24,7 @@ cards:
           - type: "custom:button-card"
             entity: scene.rise_and_shine
             icon: mdi:weather-sunset-up
-            color: rgb(169,169,169)
+            color: rgb(251, 210, 41)
             name: "Rise 'n shine"
             lock:
               enabled: true
@@ -38,6 +38,7 @@ cards:
           - type: "custom:button-card"
             entity: scene.dinner_time
             icon: mdi:silverware-fork-knife
+            color: rgb(135,206,235)
             name: Dinner time
             lock:
               enabled: true
@@ -51,6 +52,7 @@ cards:
           - type: "custom:button-card"
             entity: scene.tv_time
             icon: mdi:television
+            color: rgb(169,169,169)
             name: Relax time
             lock:
               enabled: true
