@@ -24,21 +24,43 @@ cards:
           - type: "custom:button-card"
             entity: scene.rise_and_shine
             icon: mdi:weather-sunset-up
+            color: rgb(169,169,169)
             name: "Rise 'n shine"
             lock:
               enabled: true
+            tap_action:
+              action: call-service
+              service: scene.turn_on
+              service_data:
+                entity_id: scene.rise_and_shine
+            hold_action:
+              action: none
           - type: "custom:button-card"
             entity: scene.dinner_time
             icon: mdi:silverware-fork-knife
             name: Dinner time
             lock:
               enabled: true
+            tap_action:
+              action: call-service
+              service: scene.turn_on
+              service_data:
+                entity_id: scene.dinner_time
+            hold_action:
+              action: none
           - type: "custom:button-card"
             entity: scene.tv_time
             icon: mdi:television
             name: Relax time
             lock:
               enabled: true
+            tap_action:
+              action: call-service
+              service: scene.turn_on
+              service_data:
+                entity_id: scene.tv_time
+            hold_action:
+              action: none
 
       # - type: horizontal-stack
       #   cards:
