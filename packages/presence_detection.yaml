@@ -1,3 +1,19 @@
+customize:
+  person.dennis:
+    entity_picture: "/local/images/dennis_square.jpg"
+
+homeassistant:
+  customize:
+    person.dennis:
+      entity_picture: "/local/images/dennis_square.jpg"
+    person.stephanie:
+      entity_picture: "/local/images/stephanie_square.jpg"
+    person.lucas:
+      entity_picture: "/local/images/lucas_square.jpg"
+    person.timo:
+      entity_picture: "/local/images/timo_square.jpg"
+
+
 group:
   household:
     - person.dennis
