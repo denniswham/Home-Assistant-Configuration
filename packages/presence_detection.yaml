@@ -5,13 +5,13 @@ customize:
 homeassistant:
   customize:
     person.dennis:
-      entity_picture: "/local/images/dennis_square.jpg"
+      entity_picture: "/local/images/dennis-square.jpg"
     person.stephanie:
-      entity_picture: "/local/images/stephanie_square.jpg"
+      entity_picture: "/local/images/stephanie-square.jpg"
     person.lucas:
-      entity_picture: "/local/images/lucas_square.jpg"
+      entity_picture: "/local/images/lucas-square.jpg"
     person.timo:
-      entity_picture: "/local/images/timo_square.jpg"
+      entity_picture: "/local/images/timo-square.jpg"
 
 
 group:
