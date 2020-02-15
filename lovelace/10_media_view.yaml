@@ -60,6 +60,8 @@ cards:
                     hide:
                       power_state: false
                       progress: true
+          - type: vertical-stack
+            cards:
               - type: entities
                 entities:
                   - type: custom:mini-media-player
