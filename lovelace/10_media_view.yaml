@@ -63,7 +63,7 @@ cards:
               - type: entities
                 entities:
                   - type: custom:mini-media-player
-                    entity: media_player.apple_tv_5
+                    entity: media_player.lucas_room_apple_tV
                     icon: mdi:apple
                     group: true
                     artwork: cover
