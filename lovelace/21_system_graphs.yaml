@@ -88,7 +88,6 @@ cards:
             name: Upload
 
       - type: vertical-stack
-        title: AdGuard Home
         cards:
           - type: horizontal-stack
             cards:
