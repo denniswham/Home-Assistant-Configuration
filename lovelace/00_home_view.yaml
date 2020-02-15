@@ -98,21 +98,23 @@ cards:
       #     - arm_home
       #     - arm_away
       #   name: Ring Modes
-      - type: custom:fold-entity-row
-        head:
-          type: section
-          label: Security
-        group_config:
-          secondary_info: last-changed
-        items:
-          - binary_sensor.entryway
-          - binary_sensor.kitchen
-          - binary_sensor.living_room
-          - binary_sensor.office
-          - binary_sensor.garage
-          - type: divider
-          - binary_sensor.front_door_motion
-          - binary_sensor.backyard_motion
+      - type: entities
+        entities:
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Security
+            group_config:
+              secondary_info: last-changed
+            items:
+              - binary_sensor.entryway
+              - binary_sensor.kitchen
+              - binary_sensor.living_room
+              - binary_sensor.office
+              - binary_sensor.garage
+              - type: divider
+              - binary_sensor.front_door_motion
+              - binary_sensor.backyard_motion
 
   - type: vertical-stack
     cards:
