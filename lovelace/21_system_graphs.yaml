@@ -7,78 +7,77 @@ background: center / cover no-repeat url("/local/lovelace_ui/bg1.jpeg") fixed
 cards:  
   - type: vertical-stack
     cards:
-      - type: custom:vertical-stack-in-card
+      - type: entities
         title: Raspberry Pi
-        cards:
-          - type: entities
-            show_header_toggle: false
-            entities:
+        show_header_toggle: false
+        entities:
 #                      - type: custom:dummy-entity-row
 #                        entity: sun.sun
 #                        icon: mdi:nope
 #                        name: !secret nuc_name
-              - entity: sensor.last_boot
-                name: Last boot
-              - entity: sensor.snapshot_backup
-                name: Snapshot status
-                icon: mdi:cloud-upload-outline
-                format: datetime
-              - entity: binary_sensor.snapshots_stale
-                name: Snapshots Stale
-                icon: mdi:cloud-upload-outline
-          - type: horizontal-stack
-            cards:
-              - type: custom:mini-graph-card
-                show:
-                  icon: false
-                  graph: "bar"
-                name: CPU Use
-                entities:
-                  - sensor.processor_use
-                line_color: "#389638"
-                color_thresholds:
-                  - value: 50
-                    color: green
-                  - value: 70
-                    color: orange
-                  - value: 80
-                    color: red
-              - type: custom:mini-graph-card
-                show:
-                  icon: false
-                name: CPU Temp
-                entities:
-                  - sensor.cpu_temperature
-                font_size: 50
-                line_color: "#389638"
-          - type: horizontal-stack
-            cards:
-              - type: custom:mini-graph-card
-                show:
-                  icon: false
-                  graph: "bar"
-                name: RAM Free
-                entities:
-                  - sensor.memory_free
-                line_color: "#389638"
-                color_thresholds:
-                  - value: 50
-                    color: green
-                  - value: 70
-                    color: orange
-                  - value: 80
-                    color: red
-              - type: custom:mini-graph-card
-                show:
-                  icon: false
-                name: RAM Use
-                entities:
-                  - sensor.memory_use_percent
-                font_size: 50
-                line_color: "#389638"
+          - entity: sensor.last_boot
+            name: Last boot
+          - entity: sensor.snapshot_backup
+            name: Snapshot status
+            icon: mdi:cloud-upload-outline
+            format: datetime
+          - entity: binary_sensor.snapshots_stale
+            name: Snapshots Stale
+            icon: mdi:cloud-upload-outline
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            show:
+              icon: false
+              graph: "bar"
+            name: CPU Use
+            entities:
+              - sensor.processor_use
+            line_color: "#389638"
+            color_thresholds:
+              - value: 50
+                color: green
+              - value: 70
+                color: orange
+              - value: 80
+                color: red
+          - type: custom:mini-graph-card
+            show:
+              icon: false
+            name: CPU Temp
+            entities:
+              - sensor.cpu_temperature
+            font_size: 50
+            line_color: "#389638"
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            show:
+              icon: false
+              graph: "bar"
+            name: RAM Free
+            entities:
+              - sensor.memory_free
+            line_color: "#389638"
+            color_thresholds:
+              - value: 50
+                color: green
+              - value: 70
+                color: orange
+              - value: 80
+                color: red
+          - type: custom:mini-graph-card
+            show:
+              icon: false
+            name: RAM Use
+            entities:
+              - sensor.memory_use_percent
+            font_size: 50
+            line_color: "#389638"
   - type: vertical-stack
     cards:
       - type: entities
+        title: Network
         show_header_toggle: false
         entities:
           - entity: sensor.speedtest_ping
@@ -88,7 +87,7 @@ cards:
           - entity: sensor.speedtest_upload
             name: Upload
 
-      - type: custom:vertical-stack-in-card
+      - type: vertical-stack
         title: AdGuard Home
         cards:
           - type: horizontal-stack
