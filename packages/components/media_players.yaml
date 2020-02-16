@@ -1,4 +1,5 @@
 media_player:
   - platform: panasonic_viera
     host: !secret panasonic_viera_host
+    mac: !secret panasonic_viera_mac
     name: Living Room TV
