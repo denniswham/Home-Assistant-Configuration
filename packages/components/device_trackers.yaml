@@ -19,7 +19,5 @@ device_tracker:
     home_interval: 3
     new_device_defaults:
     track_new_devices: true
-
-  # - platform: upc_connect
-  #   password: !secret upc_connect_password
-  #   host: !secret upc_connect_host
+    exclude:
+     - 192.168.178.105
