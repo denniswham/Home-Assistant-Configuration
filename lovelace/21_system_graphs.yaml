@@ -11,10 +11,6 @@ cards:
         title: Raspberry Pi
         show_header_toggle: false
         entities:
-#                      - type: custom:dummy-entity-row
-#                        entity: sun.sun
-#                        icon: mdi:nope
-#                        name: !secret nuc_name
           - entity: sensor.last_boot
             name: Last boot
           - entity: sensor.snapshot_backup
