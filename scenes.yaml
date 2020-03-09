@@ -115,13 +115,13 @@
   entities: 
     light.living_room_dining_table_dimmer_level:
       state: "on"
-      brightness: 100
+      brightness_pct: 100
     light.living_room_wall_dimmer_level:
       state: "on"
-      brightness: 100
+      brightness_pct: 100
     light.living_room_spot_dimmer_level:
       state: "on"
-      brightness: 100
+      brightness_pct: 100
     light.office_spot_dimmer_level:
       state: "on"
-      brightness: 100
+      brightness_pct: 100

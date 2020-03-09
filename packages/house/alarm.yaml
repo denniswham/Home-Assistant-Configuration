@@ -59,16 +59,6 @@ sensor:
             silent
           {% endif %}
 
-# input_select:
-#   konnectedstatus:
-#     name: Alarm status
-#     options:
-#       - disarmed
-#       - armed_home
-#       - armed_away
-#     initial: disarmed
-#     icon: mdi:security
-
 automation:
   - id: 3c28420d-2670-4215-bd93-7b2ca445fbb4
     alias: '[Alarm] Arm Konnected'
