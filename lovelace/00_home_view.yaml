@@ -64,28 +64,6 @@ cards:
             hold_action:
               action: none
 
-      # - type: horizontal-stack
-      #   cards:
-      #     - type: entity-button
-      #       entity: cover.roller_shutters
-      #       icon: mdi:window-shutter
-      #       tap_action:
-      #         action: none
-      #       hold_action:
-      #         action: call-service
-      #         service: cover.close_cover
-      #         service_data:
-      #           entity_id: cover.roller_shutters
-      #     - type: entity-button
-      #       entity: cover.roller_shutters
-      #       icon: mdi:window-shutter-open
-      #       tap_action:
-      #         action: none
-      #       hold_action:
-      #         action: call-service
-      #         service: cover.open_cover
-      #         service_data:
-      #           entity_id: cover.roller_shutters
       - type: alarm-panel
         entity: alarm_control_panel.konnected_alarm
         states:
