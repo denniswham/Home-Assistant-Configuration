@@ -1,121 +1,121 @@
-  person.stephanie:
-    title: Stephanie
-    card:
-      type: vertical-stack
-      cards:
-        - type: map
-          default_zoom: 14
-          entities:
-            - device_tracker.iphone_van_stephanie
-        - type: entities
-          entities:
-            - type: custom:fold-entity-row
-              head:
-                type: section
-                label: Mobile App
-              group_config:
-                secondary_info: last-changed
-              items:
-                - entity: device_tracker.iphone_van_stephanie
-                  name: Stephanie iOS
-                  icon: mdi:apple
-                - sensor.stephanie_to_home
-                - sensor.stephanie_battery_level
-                - sensor.stephanie_battery_state
-                - sensor.stephanie_connection_type
-                - sensor.stephanie_geocoded_location
-                - sensor.stephanie_last_update_trigger
-                - sensor.stephanie_ssid
-                - sensor.stephanie_activity
-                - sensor.stephanie_steps
+  # person.stephanie:
+  #   title: Stephanie
+  #   card:
+  #     type: vertical-stack
+  #     cards:
+  #       - type: map
+  #         default_zoom: 14
+  #         entities:
+  #           - device_tracker.iphone_van_stephanie
+  #       - type: entities
+  #         entities:
+  #           - type: custom:fold-entity-row
+  #             head:
+  #               type: section
+  #               label: Mobile App
+  #             group_config:
+  #               secondary_info: last-changed
+  #             items:
+  #               - entity: device_tracker.iphone_van_stephanie
+  #                 name: Stephanie iOS
+  #                 icon: mdi:apple
+  #               - sensor.stephanie_to_home
+  #               - sensor.stephanie_battery_level
+  #               - sensor.stephanie_battery_state
+  #               - sensor.stephanie_connection_type
+  #               - sensor.stephanie_geocoded_location
+  #               - sensor.stephanie_last_update_trigger
+  #               - sensor.stephanie_ssid
+  #               - sensor.stephanie_activity
+  #               - sensor.stephanie_steps
 
-  person.lucas:
-    title: Lucas
-    card:
-      type: vertical-stack
-      cards:
-        - type: map
-          default_zoom: 14
-          entities:
-            - device_tracker.iphone_van_lucas
-        - type: entities
-          entities:
-            - type: custom:fold-entity-row
-              head:
-                type: section
-                label: Mobile App
-              group_config:
-                secondary_info: last-changed
-              items:
-                - entity: device_tracker.iphone_van_lucas
-                  name: Lucas iOS
-                  icon: mdi:apple
-                - sensor.lucas_battery_level
-                - sensor.lucas_battery_state
-                - sensor.lucas_connection_type
-                - sensor.lucas_geocoded_location
-                - sensor.lucas_last_update_trigger
-                - sensor.lucas_ssid
-                - sensor.lucas_activity
-                - sensor.lucas_steps
+  # person.lucas:
+  #   title: Lucas
+  #   card:
+  #     type: vertical-stack
+  #     cards:
+  #       - type: map
+  #         default_zoom: 14
+  #         entities:
+  #           - device_tracker.iphone_van_lucas
+  #       - type: entities
+  #         entities:
+  #           - type: custom:fold-entity-row
+  #             head:
+  #               type: section
+  #               label: Mobile App
+  #             group_config:
+  #               secondary_info: last-changed
+  #             items:
+  #               - entity: device_tracker.iphone_van_lucas
+  #                 name: Lucas iOS
+  #                 icon: mdi:apple
+  #               - sensor.lucas_battery_level
+  #               - sensor.lucas_battery_state
+  #               - sensor.lucas_connection_type
+  #               - sensor.lucas_geocoded_location
+  #               - sensor.lucas_last_update_trigger
+  #               - sensor.lucas_ssid
+  #               - sensor.lucas_activity
+  #               - sensor.lucas_steps
 
-  person.dennis:
-    title: Dennis
-    card:
-      type: vertical-stack
-      cards:
-        - type: map
-          default_zoom: 14
-          entities:
-            - device_tracker.sm_g960f
-        - type: entities
-          entities:
-            - type: custom:fold-entity-row
-              head:
-                type: section
-                label: Mobile App
-              group_config:
-                secondary_info: last-changed
-              items:
-                - entity: device_tracker.sm_g960f
-                  name: Dennis Android
-                  icon: mdi:android
-                - sensor.dennis_to_home
-                - sensor.dennis_battery_level
-                # - sensor.dennis_battery_state
-                # - sensor.dennis_connection_type
-                # - sensor.dennis_geocoded_location
-                # - sensor.dennis_last_update_trigger
-                - sensor.dennis_wifi_connection
-                # - sensor.dennis_activity
-                # - sensor.dennis_steps
+  # person.dennis:
+  #   title: Dennis
+  #   card:
+  #     type: vertical-stack
+  #     cards:
+  #       - type: map
+  #         default_zoom: 14
+  #         entities:
+  #           - device_tracker.sm_g960f
+  #       - type: entities
+  #         entities:
+  #           - type: custom:fold-entity-row
+  #             head:
+  #               type: section
+  #               label: Mobile App
+  #             group_config:
+  #               secondary_info: last-changed
+  #             items:
+  #               - entity: device_tracker.sm_g960f
+  #                 name: Dennis Android
+  #                 icon: mdi:android
+  #               - sensor.dennis_to_home
+  #               - sensor.dennis_battery_level
+  #               # - sensor.dennis_battery_state
+  #               # - sensor.dennis_connection_type
+  #               # - sensor.dennis_geocoded_location
+  #               # - sensor.dennis_last_update_trigger
+  #               - sensor.dennis_wifi_connection
+  #               # - sensor.dennis_activity
+  #               # - sensor.dennis_steps
 
-  person.timo:
-    title: Timo
-    card:
-      type: vertical-stack
-      cards:
-        - type: map
-          default_zoom: 14
-          entities:
-            - device_tracker.oneplus_a5010
-        - type: entities
-          entities:
-            - type: custom:fold-entity-row
-              head:
-                type: section
-                label: Mobile App
-              group_config:
-                secondary_info: last-changed
-              items:
-                - entity: device_tracker.oneplus_a5010
-                  name: Timo Android
-                  icon: mdi:android
-                - sensor.timo_battery_level
-                # - sensor.timo_battery_state
-                # - sensor.timo_connection_type
-                # - sensor.timo_geocoded_location
-                # - sensor.timo_last_update_trigger
-                - sensor.timo_wifi_connection
-                # - sensor.timo_activity
-                # - sensor.timo_steps
+  # person.timo:
+  #   title: Timo
+  #   card:
+  #     type: vertical-stack
+  #     cards:
+  #       - type: map
+  #         default_zoom: 14
+  #         entities:
+  #           - device_tracker.oneplus_a5010
+  #       - type: entities
+  #         entities:
+  #           - type: custom:fold-entity-row
+  #             head:
+  #               type: section
+  #               label: Mobile App
+  #             group_config:
+  #               secondary_info: last-changed
+  #             items:
+  #               - entity: device_tracker.oneplus_a5010
+  #                 name: Timo Android
+  #                 icon: mdi:android
+  #               - sensor.timo_battery_level
+  #               # - sensor.timo_battery_state
+  #               # - sensor.timo_connection_type
+  #               # - sensor.timo_geocoded_location
+  #               # - sensor.timo_last_update_trigger
+  #               - sensor.timo_wifi_connection
+  #               # - sensor.timo_activity
+  #               # - sensor.timo_steps
