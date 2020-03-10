@@ -10,13 +10,13 @@
       temperature: 20.5
     light.living_room_dining_table_dimmer_level:
       state: "on"
-      brightness: 70
+      brightness_pct: 25
     light.living_room_wall_dimmer_level:
       state: "on"
-      brightness: 98
+      brightness_pct: 35
     light.living_room_spot_dimmer_level:
       state: "on"
-      brightness: 36
+      brightness_pct: 10
     light.office_spot_dimmer_level:
       state: "off"
 
@@ -27,48 +27,39 @@
       state: "off"
     light.office_spot_dimmer_level:
       state: "on"
-      brightness: 25
-
-- id: 7c5734bc-3aa7-43d8-990b-2d6546511245
-  name: Lunch time
-  entities: 
-    light.living_room_spot_dimmer_level:
-      state: "on" 
-      brightness: 15
-    light.office_spot_dimmer_level:
-      state: "off"
+      brightness_pct: 25
 
 - id: 0d010e40-8560-42ce-8b86-b743bbf355ad
   name: Dinner time
   entities: 
     light.living_room_dining_table_dimmer_level:
       state: "on"
-      brightness: 95
+      brightness_pct: 35
     light.living_room_wall_dimmer_level:
       state: "on"
-      brightness: 108
+      brightness_pct: 40
     light.living_room_spot_dimmer_level:
       state: "on"
-      brightness: 36
+      brightness_pct: 10
     light.office_spot_dimmer_level:
       state: "on"
-      brightness: 23
+      brightness_pct: 10
 
 - id: 78e4c286-6d53-4465-a213-6c61984d8eac
   name: TV time
   entities: 
     light.living_room_dining_table_dimmer_level:
       state: "on"
-      brightness: 46
+      brightness_pct: 15
     light.living_room_wall_dimmer_level:
       state: "on"
-      brightness: 108
+      brightness_pct: 40
     light.living_room_spot_dimmer_level:
       state: "on"
-      brightness: 36
+      brightness_pct: 10
     light.office_spot_dimmer_level:
       state: "on"
-      brightness: 8
+      brightness_pct: 5
 
 - id: 0d80f036-53f7-40de-81ff-77ad45bc8150
   name: Bed time
