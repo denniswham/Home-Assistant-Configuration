@@ -100,7 +100,7 @@ automation:
       - service: notify.alexa_media
         data:
           data:
-            type: tts
+            type: announce
           target:
           - group.alexa
           message: I'll start guarding now
@@ -283,7 +283,7 @@ automation:
       - service: notify.alexa_media
         data:
           data:
-            type: tts
+            type: announce
           target:
             - group.alexa
           message: Your alarm was activated
@@ -334,7 +334,7 @@ automation:
       - service: notify.alexa_media
         data:
           data:
-            type: tts
+            type: announce
           target:
             - group.alexa
           message: Motion detected, the alarm will activate shortly. Motion detected, the alarm will activate shortly.

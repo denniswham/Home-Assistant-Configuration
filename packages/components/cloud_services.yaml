@@ -95,7 +95,7 @@ automation:
       - service: notify.alexa_media
         data:
           data:
-            type: tts
+            type: announce
           target:
             - group.alexa
           message: "Motion in the backyard"

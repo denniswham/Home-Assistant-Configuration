@@ -1,40 +1,36 @@
   - url: /hacsfiles/lovelace-card-tools/card-tools.js
     type: module
-  - url: /community_plugin/lovelace-layout-card/layout-card.js
+  - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
     type: module
-  - url: /community_plugin/button-card/button-card.js
-    type: module
-  - url: /community_plugin/decluttering-card/decluttering-card.js
-    type: module
-  - url: /local/plugins/nest-layout-card.js
-    type: module
-  - url: /community_plugin/lovelace-fold-entity-row/fold-entity-row.js
-    type: module
-  - url: /local/plugins/toggle-lock-entity-row.js
-    type: js
-  - url: /community_plugin/vertical-stack-in-card/vertical-stack-in-card.js
-    type: js
-  - url: /community_plugin/weather-card/weather-card.js
-    type: module
-  - url: /community_plugin/custom-header/custom-header.js
-    type: module
-  - url: /community_plugin/lovelace-auto-entities/auto-entities.js
+  - url: /hacsfiles/mini-media-player/mini-media-player-bundle.js
     type: module
   - url: /hacsfiles/lovelace-card-mod/card-mod.js
     type: module
-  - url: /community_plugin/check-button-card/check-button-card.js
+  - url: /hacsfiles/decluttering-card/decluttering-card.js
     type: module
-  - url: /community_plugin/lovelace-markdown-mod/markdown-mod.js
+  - url: /hacsfiles/button-card/button-card.js
     type: module
-  - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
+  - url: /hacsfiles/lovelace-fold-entity-row/fold-entity-row.js
     type: module
-  - url: /community_plugin/mini-media-player/mini-media-player.js
+  - url: /hacsfiles/custom-header/custom-header.js
+    type:	module
+  - url: /hacsfiles/lovelace-auto-entities/auto-entities.js
     type: module
-  - url: /community_plugin/lovelace-more-info-card/more-info-card.js
-    type: js
-  - url: /community_plugin/lovelace-slider-entity-row/slider-entity-row.js
+  - url: /hacsfiles/weather-card/weather-card.js
     type: module
-  - url: /community_plugin/lovelace-state-switch/state-switch.js
+  - url: /hacsfiles/lovelace-slider-entity-row/slider-entity-row.js
+    type: module
+  - url: /local/plugins/toggle-lock-entity-row.js
     type: js
 
+  # - url: /community_plugin/lovelace-layout-card/layout-card.js
+  #   type: module
+  # - url: /local/plugins/nest-layout-card.js
+  #   type: module
+  # - url: /community_plugin/vertical-stack-in-card/vertical-stack-in-card.js
+  #   type: js
+  # - url: /community_plugin/check-button-card/check-button-card.js
+  #   type: module
+  # - url: /community_plugin/lovelace-markdown-mod/markdown-mod.js
+  #   type: module
 
