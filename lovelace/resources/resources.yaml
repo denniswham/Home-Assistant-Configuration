@@ -12,9 +12,9 @@
     type: module
   - url: /hacsfiles/lovelace-fold-entity-row/fold-entity-row.js
     type: module
-  - url: /hacsfiles/custom-header/custom-header.js
-    type:	module
   - url: /hacsfiles/lovelace-auto-entities/auto-entities.js
+    type: module
+  - url: /hacsfiles/custom-header/custom-header.js
     type: module
   - url: /hacsfiles/weather-card/weather-card.js
     type: module
