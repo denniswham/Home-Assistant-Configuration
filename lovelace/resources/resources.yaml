@@ -22,15 +22,3 @@
     type: module
   - url: /local/plugins/toggle-lock-entity-row.js
     type: js
-
-  # - url: /community_plugin/lovelace-layout-card/layout-card.js
-  #   type: module
-  # - url: /local/plugins/nest-layout-card.js
-  #   type: module
-  # - url: /community_plugin/vertical-stack-in-card/vertical-stack-in-card.js
-  #   type: js
-  # - url: /community_plugin/check-button-card/check-button-card.js
-  #   type: module
-  # - url: /community_plugin/lovelace-markdown-mod/markdown-mod.js
-  #   type: module
-
