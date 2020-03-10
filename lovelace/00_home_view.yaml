@@ -3,7 +3,7 @@ view: true
 icon: mdi:home
 background: center / cover no-repeat url("/local/lovelace_ui/bg1.jpeg") fixed
 
-popup_cards: !include popup-cards/home_view_popup_cards.yaml
+# popup_cards: !include popup-cards/home_view_popup_cards.yaml
 
 badges:
   - person.dennis
