@@ -106,7 +106,7 @@ cards:
             name: Outdoor
             entities:
               - sensor.br_temperature
-            # font_size: 50
+            font_size: 100
             line_color: "#389638"
       - type: custom:mini-graph-card
         name: Home Humidity
