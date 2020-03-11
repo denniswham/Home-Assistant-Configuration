@@ -97,16 +97,17 @@ cards:
     cards:
       - type: horizontal-stack
         cards:
-          - type: sensor
+          - type: custom:mini-graph-card
             name: Living Room
-            entity: sensor.living_room_thermostat_temperature
-            # font_size: 50
-            # line_color: "#389638"
+            entities:
+              - sensor.living_room_thermostat_temperature
+            font_size: 50
+            line_color: "#389638"
           - type: custom:mini-graph-card
             name: Outdoor
             entities:
               - sensor.br_temperature
-            font_size: 75
+            font_size: 50
             line_color: "#389638"
       - type: custom:mini-graph-card
         name: Home Humidity
