@@ -97,12 +97,11 @@ cards:
     cards:
       - type: horizontal-stack
         cards:
-          - type: custom:mini-graph-card
+          - type: sensor
             name: Living Room
-            entities:
-              - sensor.living_room_thermostat_temperature
-            font_size: 50
-            line_color: "#389638"
+            entities: sensor.living_room_thermostat_temperature
+            # font_size: 50
+            # line_color: "#389638"
           - type: custom:mini-graph-card
             name: Outdoor
             entities:
