@@ -65,7 +65,7 @@ cards:
               action: none
 
       - type: alarm-panel
-        entity: alarm_control_panel.konnected_alarm
+        entity: alarm_control_panel.Konnected_Alarm
         states:
           - arm_home
           - arm_away

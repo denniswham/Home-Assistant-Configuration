@@ -1,7 +1,7 @@
 - id: 685e8c80-6c92-46db-bead-beb258b660c9
   name: Rise and Shine
   entities:
-    alarm_control_panel.konnected_alarm:
+    alarm_control_panel.Konnected_Alarm:
       state: disarmed
     alarm_control_panel.alexa_guard_7514f:
       state: disarmed
@@ -67,7 +67,7 @@
     cover.master_bedroom_roller_shutter_level:
       state: open
       current_position: 10
-    alarm_control_panel.konnected_alarm:
+    alarm_control_panel.Konnected_Alarm:
       state: armed_home
     climate.living_room:
       state: heat
@@ -94,7 +94,7 @@
 - id: 7667fee3-afa3-4797-a79d-777a61f55453
   name: Romance time
   entities: 
-    alarm_control_panel.konnected_alarm:
+    alarm_control_panel.Konnected_Alarm:
       state: armed_home
     cover.master_bedroom_roller_shutter_level:
       state: closed

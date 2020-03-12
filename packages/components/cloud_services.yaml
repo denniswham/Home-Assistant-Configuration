@@ -1,9 +1,8 @@
 homeassistant:
   customize:
-    switch.siren:
-      friendly_name: Alarm Siren
     switch.backyard_siren:
       friendly_name: Backyard Siren
+      icon: mdi:alarm-bell
 
 group:
   alexa:

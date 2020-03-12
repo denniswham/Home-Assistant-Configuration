@@ -39,7 +39,7 @@ automation:
     initial_state: 'true'
     condition:
       - condition: template
-        value_template: '{{states(''alarm_control_panel.konnected_alarm'') == ''disarmed'' and
+        value_template: '{{states(''alarm_control_panel.Konnected_Alarm'') == ''disarmed'' and
           states(''group.thermostats'') == ''on''}}
 
           '
@@ -60,7 +60,7 @@ automation:
       - condition: or
         conditions:
           - condition: template
-            value_template: '{{states(''alarm_control_panel.konnected_alarm'') == ''armed_away''
+            value_template: '{{states(''alarm_control_panel.Konnected_Alarm'') == ''armed_away''
               and states(''switch.living_room_away'') == ''off''}}
 
               '
