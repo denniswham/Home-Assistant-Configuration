@@ -80,7 +80,7 @@ automation:
     initial_state: 'on'
     trigger:
       - platform: state
-        entity_id: alarm_control_panel.Konnected_Alarm
+        entity_id: alarm_control_panel.konnected_alarm
         to: 'armed_home'
     condition:
       condition: and

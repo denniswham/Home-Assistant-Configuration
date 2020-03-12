@@ -92,10 +92,10 @@ automation:
       condition: or
       conditions:
         - condition: state
-          entity_id: alarm_control_panel.Konnected_Alarm
+          entity_id: alarm_control_panel.konnected_alarm
           state: armed_away
         - condition: state
-          entity_id: alarm_control_panel.Konnected_Alarm
+          entity_id: alarm_control_panel.konnected_alarm
           state: armed_home
     action:
       - service: notify.alexa_media

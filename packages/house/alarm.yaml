@@ -3,7 +3,7 @@ homeassistant:
     switch.siren:
       friendly_name: Alarm Siren
       icon: mdi:alarm-bell
-    alarm_control_panel.Konnected_Alarm:
+    alarm_control_panel.konnected_alarm:
       friendly_name: Home Alarm
       entity_picture: "/local/icons/konnected.jpg"
     alarm_control_panel.alexa_guard_7514f:
@@ -72,10 +72,10 @@ automation:
           \ -%}\n  {{ (as_timestamp(now()) - as_timestamp(states.automation.alarm_disarm_konnected_from_away.attributes.last_triggered))\
           \ > 240 }}\n{%- else -%}\n  true\n{%- endif -%}\n"
       - condition: template
-        value_template: '{{ states(''alarm_control_panel.Konnected_Alarm'') != ''armed_away'' 
+        value_template: '{{ states(''alarm_control_panel.konnected_alarm'') != ''armed_away'' 
           }}'
       - condition: template
-        value_template: '{{ states(''alarm_control_panel.Konnected_Alarm'') == ''disarmed''
+        value_template: '{{ states(''alarm_control_panel.konnected_alarm'') == ''disarmed''
           }}'
     trigger:
       - platform: state
@@ -91,11 +91,11 @@ automation:
     action:
       - service: input_select.select_option
         data:
-          entity_id: alarm_control_panel.Konnected_Alarm
+          entity_id: alarm_control_panel.konnected_alarm
           option: armed_away
       - service: alarm_control_panel.alarm_arm_away
         entity_id:
-          - alarm_control_panel.Konnected_Alarm
+          - alarm_control_panel.konnected_alarm
           - alarm_control_panel.alexa_guard_7514f
       - service: notify.alexa_media
         data:
@@ -110,11 +110,11 @@ automation:
     initial_state: 'true'
     trigger:
       - platform: state
-        entity_id: alarm_control_panel.Konnected_Alarm
+        entity_id: alarm_control_panel.konnected_alarm
         to: triggered
         for: 00:20:00
       - platform: state
-        entity_id: alarm_control_panel.Konnected_Alarm
+        entity_id: alarm_control_panel.konnected_alarm
         to: disarmed
     action:
       - service: switch.turn_off
@@ -127,7 +127,7 @@ automation:
     initial_state: 'true'
     condition:
       - condition: state
-        entity_id: alarm_control_panel.Konnected_Alarm
+        entity_id: alarm_control_panel.konnected_alarm
         state: armed_home
       - condition: state
         entity_id: input_boolean.guest_mode
@@ -150,7 +150,7 @@ automation:
     initial_state: 'true'
     condition:
       - condition: state
-        entity_id: alarm_control_panel.Konnected_Alarm
+        entity_id: alarm_control_panel.konnected_alarm
         state: armed_away
       - condition: state
         entity_id: input_boolean.guest_mode
@@ -203,16 +203,16 @@ automation:
           entity_id: input_boolean.guest_mode
           state: 'off'
         - condition: template
-          value_template: "{%- if states.alarm_control_panel.Konnected_Alarm.last_changed -%}\n\
-            \  {{ (as_timestamp(now()) - as_timestamp(states.alarm_control_panel.Konnected_Alarm.last_changed))\
+          value_template: "{%- if states.alarm_control_panel.konnected_alarm.last_changed -%}\n\
+            \  {{ (as_timestamp(now()) - as_timestamp(states.alarm_control_panel.konnected_alarm.last_changed))\
             \ > 300 }}\n{%- else -%}\n  true\n{%- endif -%}\n"
         - condition: or
           conditions:
           - condition: state
-            entity_id: alarm_control_panel.Konnected_Alarm
+            entity_id: alarm_control_panel.konnected_alarm
             state: armed_home
           - condition: state
-            entity_id: alarm_control_panel.Konnected_Alarm
+            entity_id: alarm_control_panel.konnected_alarm
             state: armed_away
     trigger:
       - platform: time_pattern
@@ -248,16 +248,16 @@ automation:
       condition: or
       conditions:
         - condition: state
-          entity_id: alarm_control_panel.Konnected_Alarm
+          entity_id: alarm_control_panel.konnected_alarm
           state: armed_away
         - condition: state
-          entity_id: alarm_control_panel.Konnected_Alarm
+          entity_id: alarm_control_panel.konnected_alarm
           state: armed_home
         - condition: state
-          entity_id: alarm_control_panel.Konnected_Alarm
+          entity_id: alarm_control_panel.konnected_alarm
           state: pending
         - condition: state
-          entity_id: alarm_control_panel.Konnected_Alarm
+          entity_id: alarm_control_panel.konnected_alarm
           state: triggered
     action:
       - service: logbook.log
@@ -271,7 +271,7 @@ automation:
     initial_state: 'true'
     trigger:
       - platform: state
-        entity_id: alarm_control_panel.Konnected_Alarm
+        entity_id: alarm_control_panel.konnected_alarm
         to: triggered
     action:
       - service: switch.turn_on
@@ -323,14 +323,14 @@ automation:
       condition: or
       conditions:
         - condition: state
-          entity_id: alarm_control_panel.Konnected_Alarm
+          entity_id: alarm_control_panel.konnected_alarm
           state: armed_away
         - condition: state
-          entity_id: alarm_control_panel.Konnected_Alarm
+          entity_id: alarm_control_panel.konnected_alarm
           state: armed_home
     action:
       - service: alarm_control_panel.alarm_trigger
-        entity_id: alarm_control_panel.Konnected_Alarm
+        entity_id: alarm_control_panel.konnected_alarm
       - service: notify.alexa_media
         data:
           data:
@@ -345,9 +345,9 @@ script:
     sequence:
       - service: input_select.select_option
         data:
-          entity_id: alarm_control_panel.Konnected_Alarm
+          entity_id: alarm_control_panel.konnected_alarm
           option: disarmed
       - service: alarm_control_panel.alarm_disarm
         entity_id:
-          - alarm_control_panel.Konnected_Alarm
+          - alarm_control_panel.konnected_alarm
           - alarm_control_panel.alexa_guard_7514f
