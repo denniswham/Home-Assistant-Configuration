@@ -76,11 +76,12 @@ cards:
       #     - arm_away
       #   name: Ring Modes
       - type: entities
+        title: Security
         entities:
           - type: custom:fold-entity-row
             head:
               type: section
-              label: Security
+              label: Motion Detectors
             group_config:
               secondary_info: last-changed
             items:
@@ -89,10 +90,17 @@ cards:
               - binary_sensor.living_room
               - binary_sensor.office
               - binary_sensor.garage
-              - switch.siren
               - type: divider
               - binary_sensor.front_door_motion
               - binary_sensor.backyard_motion
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Sirens
+            group_config:
+              secondary_info: last-changed
+            items:
+              - switch.siren
               - switch.backyard_siren
 
   - type: vertical-stack
