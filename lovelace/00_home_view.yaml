@@ -92,6 +92,9 @@ cards:
               - type: divider
               - binary_sensor.front_door_motion
               - binary_sensor.backyard_motion
+              - type: divider
+              - switch.siren
+              - switch.backyard_siren
 
   - type: vertical-stack
     cards:
