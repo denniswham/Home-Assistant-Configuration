@@ -1,3 +1,10 @@
+homeassistant:
+  customize:
+    switch.siren:
+      friendly_name: Alarm Siren
+    switch.backyard_siren:
+      friendly_name: Backyard Siren
+
 group:
   alexa:
     - media_player.dennis_s_alexa_app_on_surface_pro_4
