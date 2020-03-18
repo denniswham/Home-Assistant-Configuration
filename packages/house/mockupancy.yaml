@@ -47,7 +47,7 @@ script:
       # Start the routine, switch on the 'usual' lights
       - service: homeassistant.turn_on
         entity_id:
-          - scene.tv_time
+          - scene.relax_time
 
       # # Start scripts to randomise occasional lights
       # - service: script.random_entryway

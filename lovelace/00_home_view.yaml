@@ -50,7 +50,7 @@ cards:
             hold_action:
               action: none
           - type: "custom:button-card"
-            entity: scene.tv_time
+            entity: scene.relax_time
             icon: mdi:television
             color: rgb(169,169,169)
             name: Relax time
@@ -60,7 +60,7 @@ cards:
               action: call-service
               service: scene.turn_on
               service_data:
-                entity_id: scene.tv_time
+                entity_id: scene.relax_time
             hold_action:
               action: none
 
