@@ -172,7 +172,7 @@ cards:
             toggle: true
             hide_when_off: false
           - entity: light.office_spot_dimmer_level
-            name: Spots
+            name: Office Spots
             type: custom:slider-entity-row
             icon: mdi:vanity-light
             toggle: true
