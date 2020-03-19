@@ -10,9 +10,9 @@ homeassistant:
       friendly_name: Timo
 
 device_tracker:
-  - platform: bluetooth_tracker
-    new_device_defaults:
-      track_new_devices: true
+  ## - platform: bluetooth_tracker
+  #   new_device_defaults:
+  #     track_new_devices: true
 
   - platform: nmap_tracker
     hosts: 192.168.178.0/24
