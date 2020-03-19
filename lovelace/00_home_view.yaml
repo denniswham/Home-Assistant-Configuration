@@ -36,7 +36,7 @@ cards:
             hold_action:
               action: none
           - type: "custom:button-card"
-            entity: scene.dinner_time
+            entity: scene.relax_time
             icon: mdi:silverware-fork-knife
             color: rgb(135,206,235)
             name: Dinner time
