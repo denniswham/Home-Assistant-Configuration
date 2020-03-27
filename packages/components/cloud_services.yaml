@@ -3,6 +3,22 @@ homeassistant:
     switch.backyard_siren:
       friendly_name: Backyard Siren
       icon: mdi:alarm-bell
+    switch.living_room_do_not_disturb_switch:
+      friendly_name: Living Room Echo Dot
+    switch.living_room_fire_tv_stick_do_not_disturb_switch:
+      friendly_name: Living Room FireTV Stick
+    switch.master_bedroom_do_not_disturb_switch:
+      friendly_name: Master Bedroom Echo Dot
+    switch.master_bedroom_fire_tv_stick_do_not_disturb_switch:
+      friendly_name: Master Bedroom FireTV Stick
+    switch.lucas_room_do_not_disturb_switch:
+      friendly_name: Lucas' Room Echo Dot
+    switch.timo_s_room_do_not_disturb_switch:
+      friendly_name: Timo's Room Echo Dot
+    switch.emilie_s_room_do_not_disturb_switch:
+      friendly_name: Emilie's Room Echo Dot
+
+
 
 group:
   alexa:
