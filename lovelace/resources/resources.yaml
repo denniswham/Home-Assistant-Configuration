@@ -22,3 +22,5 @@
     type: module
   - url: /local/plugins/toggle-lock-entity-row.js
     type: js
+  - url: /hacsfiles/lovelace-layout-card/layout-card.js
+    type: module

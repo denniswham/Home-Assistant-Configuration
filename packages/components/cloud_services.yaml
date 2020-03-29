@@ -18,8 +18,6 @@ homeassistant:
     switch.emilie_s_room_do_not_disturb_switch:
       friendly_name: Emilie's Room Echo Dot
 
-
-
 group:
   alexa:
     - media_player.dennis_s_alexa_app_on_surface_pro_4
