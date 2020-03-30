@@ -16,8 +16,10 @@ device_tracker:
 
   - platform: nmap_tracker
     hosts: 192.168.178.0/24
-    home_interval: 3
+    #home_interval: 10
+    interval_seconds: 15 #60
+    track_new_devices: false
+    consider_home: 300
     new_device_defaults:
-    track_new_devices: true
     exclude:
      - 192.168.178.105
