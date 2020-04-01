@@ -1,0 +1,60 @@
+substitutions:
+  name: "backyard_lights"
+  friendly_name: "Garage Lights"
+
+esphome:
+  name: ${name}
+  platform: ESP8266
+  board: esp01_1m
+
+wifi:
+  ssid: !secret esphome_wifi_1_ssid
+  password: !secret esphome_wifi_1_password
+  
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "${friendly_name} Fallback Hotspot"
+    password: !secret esphome_ap_password 
+
+# Enable logging
+logger:
+
+api:
+  password: !secret esphome_api_password
+
+ota:
+  password: !secret esphome_ota_password
+
+# captive_portal: 
+
+# web_server:
+#   port: 80
+#   auth:
+#     username: admin
+#     password: !secret esphome_webserver_password
+
+binary_sensor:
+  - platform: gpio
+    pin: GPIO5
+    name: "backyard_switch" 
+    on_press:
+      then:
+        - light.toggle: ${name}
+    on_release:
+      then:
+        - light.toggle: ${name}
+
+light:
+  - platform: binary
+    id: backyard_light
+    name: ${name}
+    output: backyard_relay
+
+output:
+  - platform: gpio
+    id: backyard_relay
+    pin: GPIO4
+ 
+switch:
+  - platform: restart
+    name: "${name} Restart"
