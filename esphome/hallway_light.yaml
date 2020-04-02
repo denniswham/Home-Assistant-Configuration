@@ -1,5 +1,5 @@
 esphome:
-  name: backyard_light
+  name: hallway_light
   platform: ESP8266
   board: esp01_1m
 
@@ -9,7 +9,7 @@ wifi:
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: "Backyard Light Fallback Hotspot"
+    ssid: "Hallway Light Fallback Hotspot"
     password: !secret esphome_ap_password
 
 captive_portal:
