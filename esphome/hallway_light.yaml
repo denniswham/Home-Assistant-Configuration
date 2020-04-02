@@ -19,7 +19,7 @@ logger:
 
 # Enable Home Assistant API
 api:
-  password: !secret esphome_ota_password
+  password: !secret esphome_api_password
 
 ota:
   password: !secret esphome_ota_password
