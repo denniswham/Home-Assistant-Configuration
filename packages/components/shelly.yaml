@@ -1,3 +1,6 @@
 shelly:
   username: !secret shelly_username
   password: !secret shelly_password
+  devices:  #configure devices
+  - id: "F27A0A"
+    light_switch: true  #add this switch as a light
