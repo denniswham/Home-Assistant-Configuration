@@ -1,1 +1,3 @@
 shelly:
+  username: !secret shelly_username
+  password: !secret shelly_password
