@@ -8,6 +8,8 @@ homeassistant:
       friendly_name: Living Room Dining Table Light       
     light.office_spot_dimmer_level:
       friendly_name: Office Spot Lights
+    light.backyard_light:
+      friendly_name: BackYard Lights
     sensor.living_room_spot_dimmer_power:
         friendly_name: Living Room Spot Lights Power
     sensor.living_room_wall_dimmer_power:
@@ -16,6 +18,8 @@ homeassistant:
       friendly_name: Living Room Dining Table Light Power       
     sensor.office_spot_dimmer_power:
         friendly_name: Office Spot Lights Power
+    sensor.backyard_light_current_consumption:
+        friendly_name: Backyard Lights Power
 
 light:
   - platform: group
@@ -135,3 +139,69 @@ automation:
           entity_id: light.living_room_wall_dimmer_level
           brightness: 108
 
+  - id: d558b383-921e-4740-bafd-9a888b45fa9a
+    alias: '[Lights] Turn on backyard lights when dark outside'
+    trigger:
+      platform: numeric_state
+      entity_id: sun.sun
+      value_template: "{{ state_attr('sun.sun', 'elevation') }}"
+      below: -4.0
+    condition:
+    action:
+      service: light.turn_on
+      entity_id: light.backyard_light
+
+  - id: 1802426d-6f61-4dde-ab2c-5cd3b5233243
+    alias: '[Lights] Turn off backyard lights at midnight'
+    trigger:
+      platform: time
+      at: "00:00:00"
+    condition:
+    action:
+      service: light.turn_off
+      entity_id: light.backyard_light
+
+  - id: 0f21c88f-c82e-459d-81c5-c5cf170e6279
+    alias: '[Lights] Turn on backyard lights when motion'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.backyard_motion
+        to: 'on'
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: alarm_control_panel.konnected_alarm
+          state: armed_away
+        - condition: state
+          entity_id: alarm_control_panel.konnected_alarm
+          state: armed_home
+    action:
+      service: light.turn_on
+      entity_id: light.backyard_light
+
+  - id: 5199be8b-2458-44b0-bd98-6bda33cd96f0
+    alias: '[Lights] Turn off backyard lights when no motion'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.backyard_motion
+        to: 'off'
+        for: "00:10:00"
+    condition:
+      condition: and
+      conditions:
+        - condition: numeric_state
+          entity_id: sun.sun
+          value_template: "{{ state_attr('sun.sun', 'elevation') }}"
+          below: -4.0
+        - condition: or
+          conditions:
+            - condition: state
+              entity_id: alarm_control_panel.konnected_alarm
+              state: armed_away
+            - condition: state
+              entity_id: alarm_control_panel.konnected_alarm
+              state: armed_home
+    action:
+      service: light.turn_on
+      entity_id: light.backyard_light

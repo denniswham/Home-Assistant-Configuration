@@ -195,6 +195,10 @@ cards:
             icon: mdi:vanity-light
             toggle: true
             hide_when_off: false
+          - type: divider
+          - entity: light.backyard_light
+            name: Backyard Lights
+
 
       - type: entities
         title: Roller Shutters
