@@ -4,6 +4,7 @@ shelly:
   cloud_auth_key: !secret shelly_cloud_auth_key
   cloud_server: !secret shelly_cloud_server
   upgrade_switch: true
+  power_decimals: 1
   devices:  #configure devices
     - id: "F27A0A"
       light_switch: true  #add this switch as a light
