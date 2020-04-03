@@ -53,8 +53,7 @@ light:
   - platform: group
     name: 'Outdoor lights'
     entities:
-      - light.front_door
-      - light.backyard
+      - light.backyard_light
 
 script:
   alexa_turn_on_the_light:
