@@ -141,7 +141,7 @@ script:
     - service: climate.set_temperature
       data_template:
         entity_id: climate.living_room
-        temperature: "{{(state_attr('climate.living_room' , 'current_temperature')|round(number * 2.0) / 2.0) + 1 }}"
+        temperature: "{{(state_attr('climate.living_room' , 'current_temperature') | float | round(1) + 1 }}
 
   cool_dowm:
     alias: cool_down
@@ -149,4 +149,4 @@ script:
     - service: climate.set_temperature
       data_template:
         entity_id: climate.living_room
-        temperature: "{{(state_attr('climate.living_room' , 'current_temperature')|round(number * 2.0) / 2.0) - 1 }}"
+        temperature: "{{(state_attr('climate.living_room' , 'current_temperature') | float | round(1) + 1 }}
