@@ -20,6 +20,8 @@ homeassistant:
         friendly_name: Office Spot Lights Power
     sensor.backyard_light_current_consumption:
         friendly_name: Backyard Lights Power
+    sensor.backyard_light_total_consumption_attr:
+        friendly_name: Backyard Lights Total consumption
 
 light:
   - platform: group
