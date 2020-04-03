@@ -134,3 +134,19 @@ automation:
           - climate.living_room
         data: {"preset_mode": "home"}
 
+script:
+  heat_up:
+    alias: heat_up
+    sequence:
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.living_room
+        temperature: "{{(state_attr('climate.living_room' , 'current_temperature')|round(number * 2.0) / 2.0) + 1 }}"
+
+  cool_dowm:
+    alias: cool_down
+    sequence:
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.living_room
+        temperature: "{{(state_attr('climate.living_room' , 'current_temperature')|round(number * 2.0) / 2.0) - 1 }}"
