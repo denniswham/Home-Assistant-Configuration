@@ -136,7 +136,7 @@ automation:
 
 script:
   heat_up:
-    alias: heat_up
+    alias: '[Climate] Increase temperature with 1 degree'
     sequence:
     - service: climate.set_temperature
       data_template:
@@ -144,7 +144,7 @@ script:
         temperature: "{{ state_attr('climate.living_room' , 'current_temperature') | float | round(1) + 1 }}"
 
   cool_down:
-    alias: cool_down
+    alias: '[Climate] Decrease temperature with 1 degree'
     sequence:
     - service: climate.set_temperature
       data_template:
