@@ -9,7 +9,7 @@ homeassistant:
     light.office_spot_dimmer_level:
       friendly_name: Office Spot Lights
     light.backyard_light:
-      friendly_name: BackYard Lights
+      friendly_name: Backyard Lights
     sensor.living_room_spot_dimmer_power:
         friendly_name: Living Room Spot Lights Power
     sensor.living_room_wall_dimmer_power:
@@ -21,7 +21,7 @@ homeassistant:
     sensor.backyard_light_current_consumption:
         friendly_name: Backyard Lights Power
     sensor.backyard_light_total_consumption_attr:
-        friendly_name: Backyard Lights Total consumption
+        friendly_name: Backyard Lights Total Consumption
 
 light:
   - platform: group
