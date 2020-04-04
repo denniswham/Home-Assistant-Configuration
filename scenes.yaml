@@ -52,7 +52,7 @@
   entities: 
     light.living_room_dining_table_dimmer_level:
       state: "on"
-      brightness_pct: 15
+      brightness_pct: 20
     light.living_room_wall_dimmer_level:
       state: "on"
       brightness_pct: 40

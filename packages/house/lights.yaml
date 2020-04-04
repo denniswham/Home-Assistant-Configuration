@@ -194,5 +194,5 @@ automation:
         after: '00:00:00'
         before: '12:00:00'
     action:
-      service: light.turn_on
+      service: light.turn_off
       entity_id: light.backyard_light
