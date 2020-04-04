@@ -196,6 +196,9 @@ cards:
             toggle: true
             hide_when_off: false
           - type: divider
+          - entity: light.hallway_light
+            name: Hallway Light
+          - type: divider
           - entity: light.backyard_light
             name: Backyard Lights
 
