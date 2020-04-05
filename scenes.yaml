@@ -19,8 +19,6 @@
     #   brightness_pct: 10
     # light.office_spot_dimmer_level:
     #   state: "off"
-    light.hallway_light:
-      state: "on"
 
 - id: 1a8eb245-e797-448b-809e-6cd0da75ad24
   name: Work time

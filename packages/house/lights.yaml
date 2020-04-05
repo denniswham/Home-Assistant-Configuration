@@ -42,14 +42,8 @@ light:
   - platform: group
     name: 'Upstairs lights'
     entities:
-      - light.hallway
-      - light.master_bedroom
-      - light.timo_room
-      - light.bathroom
-      - light.attic
-      - light.lucas_room
-      - light.emilie_room
-
+      - light.hallway_light
+      
   - platform: group
     name: 'Outdoor lights'
     entities:
