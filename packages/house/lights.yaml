@@ -51,7 +51,7 @@ light:
 
 script:
   alexa_turn_on_the_light:
-    alias: '[Light] Turn on the light'
+    alias: '[Lights] Turn on the light'
     sequence:
       - service: homeassistant.turn_on
         data_template:
@@ -72,7 +72,7 @@ script:
             {%- endif -%}
 
   alexa_turn_off_the_light:
-    alias: '[Light] Turn off the light'
+    alias: '[Lights] Turn off the light'
     sequence:
       - service: homeassistant.turn_on
         data_template:
@@ -133,7 +133,7 @@ automation:
           brightness: 108
 
   - id: 11e9f0f4a-99b9-427c-85f7-b703a564a511
-    alias: '[Light] Turn off hallway and attic light after 10 minutes'
+    alias: '[Lights] Turn off hallway and attic light after 10 minutes'
     trigger:
       - platform: state
         entity_id:
