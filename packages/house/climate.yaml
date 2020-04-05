@@ -158,7 +158,7 @@ script:
         data_template:
           data:
             type: tts
-          target_id: >-
+          target: >-
             {# Use the name of each Echo to determine which room the command likely came from. #}
             {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
 
