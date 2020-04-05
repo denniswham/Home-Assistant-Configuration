@@ -144,7 +144,7 @@ automation:
     condition:
     action:
       service: light.turn_off
-      entity_id: {{ trigger.entity_id }}
+      entity_id: "{{ trigger.entity_id }}"
 
   - id: d558b383-921e-4740-bafd-9a888b45fa9a
     alias: '[Lights] Turn on backyard lights when dark outside'
