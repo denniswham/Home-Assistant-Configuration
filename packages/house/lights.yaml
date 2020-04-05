@@ -132,13 +132,27 @@ automation:
           entity_id: light.living_room_wall_dimmer_level
           brightness: 108
 
+  - id: 11e9f0f4a-99b9-427c-85f7-b703a564a511
+    alias: '[Light] Turn off hallway and attic light after 10 minutes'
+    trigger:
+      - platform: state
+        entity_id:
+          - light.hallway_light
+          - light.entryway_light
+        to: 'on'
+        for: "00:10:00"
+    condition:
+    action:
+      service: light.turn_off
+      entity_id: {{ trigger.entity_id }}
+
   - id: d558b383-921e-4740-bafd-9a888b45fa9a
     alias: '[Lights] Turn on backyard lights when dark outside'
     trigger:
       platform: numeric_state
       entity_id: sun.sun
       value_template: "{{ state_attr('sun.sun', 'elevation') }}"
-      below: -4.0
+      below: -3.0
     condition:
     action:
       service: light.turn_on
@@ -164,7 +178,7 @@ automation:
       - condition: numeric_state
         entity_id: sun.sun
         value_template: "{{ state_attr('sun.sun', 'elevation') }}"
-        below: -4.0
+        below: -3.0
       - condition: time
         after: '00:00:00'
         before: '12:00:00'
@@ -183,7 +197,7 @@ automation:
       - condition: numeric_state
         entity_id: sun.sun
         value_template: "{{ state_attr('sun.sun', 'elevation') }}"
-        below: -4.0
+        below: -3.0
       - condition: time
         after: '00:00:00'
         before: '12:00:00'
