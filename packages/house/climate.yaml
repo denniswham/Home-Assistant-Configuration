@@ -165,7 +165,7 @@ script:
 
               {%- if room == "living_room" -%}
                 media_player.living_room
-              {%- if room == "living_room_fire_tv_stick" -%}
+              {%- elif room == "living_room_fire_tv_stick" -%}
                 media_player.living_room_fire_tv_stick
               {%- elif room == "master_bedroom" -%}
                 media_player.master_bedroom
