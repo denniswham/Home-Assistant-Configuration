@@ -137,8 +137,9 @@ automation:
     trigger:
       - platform: state
         entity_id:
+          # - light.entryway_light
           - light.hallway_light
-          - light.entryway_light
+          # - light.attic_light
         to: 'on'
         for: "00:10:00"
     condition:
