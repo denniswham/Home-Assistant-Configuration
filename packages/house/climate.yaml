@@ -158,24 +158,24 @@ script:
         data_template:
           data:
             type: tts
-          target_id: >-
-            {# Use the name of each Echo to determine which room the command likely came from. #}
-            {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
+            message: "The current living room temperature is {{ state_attr('climate.living_room' , 'current_temperature') }} degrees celsius"
+            target_id: >-
+              {# Use the name of each Echo to determine which room the command likely came from. #}
+              {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
 
-            {%- if room == "living_room" -%}
-              media_player.living_room
-            {%- if room == "living_room_fire_tv_stick" -%}
-              media_player.living_room_fire_tv_stick
-            {%- elif room == "master_bedroom" -%}
-              media_player.master_bedroom
-            {%- elif room == "master_bedroom_fire_tv_stick" -%}
-              media_player.master_bedroom_fire_tv_stick
-            {%- elif room == "lucas_room" -%}
-              media_player.lucas_room
-            {%- elif room == "timo_s_room" -%}
-              media_player.timo_s_room
-            {%- elif room == "emilie_s_room" -%}
-              media_player.emilie_s_room
-            {%- endif -%}
-          message: "The current living room temperature is {{ state_attr('climate.living_room' , 'current_temperature') }} degrees celsius"
+              {%- if room == "living_room" -%}
+                media_player.living_room
+              {%- if room == "living_room_fire_tv_stick" -%}
+                media_player.living_room_fire_tv_stick
+              {%- elif room == "master_bedroom" -%}
+                media_player.master_bedroom
+              {%- elif room == "master_bedroom_fire_tv_stick" -%}
+                media_player.master_bedroom_fire_tv_stick
+              {%- elif room == "lucas_room" -%}
+                media_player.lucas_room
+              {%- elif room == "timo_s_room" -%}
+                media_player.timo_s_room
+              {%- elif room == "emilie_s_room" -%}
+                media_player.emilie_s_room
+              {%- endif -%}
 
