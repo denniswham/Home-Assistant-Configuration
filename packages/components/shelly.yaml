@@ -1,7 +1,10 @@
 shelly:
-  settings:
-    current_consumption: { decimals: 1 }
-
+  username: !secret shelly_username
+  password: !secret shelly_password
+  cloud_auth_key: !secret shelly_cloud_auth_key
+  cloud_server: !secret shelly_cloud_server
+  upgrade_switch: true
+  
   devices:  #configure devices
     - id: F27A0A
       light_switch: true
