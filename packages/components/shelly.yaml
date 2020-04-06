@@ -1,6 +1,6 @@
 shelly:
   settings:
-    current_consumption: { decimals:1 }
+    current_consumption: { decimals: 1 }
 
   devices:  #configure devices
     - id: F27A0A
