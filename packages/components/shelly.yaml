@@ -1,0 +1,9 @@
+shelly:
+  settings:
+    current_consumption: { decimals:1 }
+
+  devices:  #configure devices
+    - id: F27A0A
+      light_switch: true
+    - id: F2F9BF
+      light_switch: true
