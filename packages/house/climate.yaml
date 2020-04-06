@@ -1,12 +1,6 @@
 climate:
   platform: nest
   
-input_boolean:
-  climateupdate: 
-    name: Thermostat Updates
-    initial: on
-    icon: mdi:thermostat
-
 automation:
   - id: d2851e95-9ef6-49bf-973d-9ed51545414c
     alias: '[Climate] Cancel thermostat ETA'

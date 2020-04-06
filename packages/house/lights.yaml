@@ -16,10 +16,6 @@ homeassistant:
       friendly_name: Living Room Dining Table Light Power       
     sensor.office_spot_dimmer_power:
         friendly_name: Office Spot Lights Power
-    sensor.backyard_light_current_consumption:
-        friendly_name: Backyard Lights Power
-    sensor.backyard_light_total_consumption_attr:
-        friendly_name: Backyard Lights Total Consumption
 
 light:
   - platform: group
@@ -29,6 +25,9 @@ light:
       - light.living_room_wall_dimmer_level
       - light.living_room_dining_table_dimmer_level  
       - light.office_spot_dimmer_level
+      - light.entryway_light
+      - light.hallway_light
+      - light.attic_light
 
   - platform: group
     name: 'Downstairs lights'
@@ -43,6 +42,7 @@ light:
     name: 'Upstairs lights'
     entities:
       - light.hallway_light
+      - light.attic_light
       
   - platform: group
     name: 'Outdoor lights'
@@ -94,9 +94,9 @@ automation:
     trigger:
       - platform: state
         entity_id:
-          # - light.entryway_light
+          - light.entryway_light
           - light.hallway_light
-          # - light.attic_light
+          - light.attic_light
         to: 'on'
         for: "00:10:00"
     condition:
