@@ -11,7 +11,7 @@ dashboards:
   lovelace-yaml:
     mode: yaml
     title: YAML
-    icon: mdi:script
+    icon: mdi:view-dashboard
     show_in_sidebar: true
     filename: lovelace.yaml
 
