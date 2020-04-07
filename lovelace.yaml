@@ -1,0 +1,8 @@
+title: Home
+background: var(--background)
+views:
+  - !include lovelace/00_home_view.yaml
+  - !include lovelace/10_media_view.yaml
+  - !include lovelace/20_system_info_view.yaml
+  - !include lovelace/21_system_graphs.yaml
+  - !include lovelace/80_automations_view.yaml
