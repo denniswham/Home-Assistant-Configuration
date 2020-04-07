@@ -40,7 +40,7 @@ lovelace:
     lovelace-mobile:
       mode: yaml
       title: Mobile
-      icon: mdi:cellphone_android
+      icon: mdi:cellphone-android
       show_in_sidebar: true
       filename: lovelace_mobile.yaml
 
