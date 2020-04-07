@@ -1,3 +1,9 @@
+custom_header:
+  compact_mode: true
+
+decluttering_templates:
+  !include lovelace/decluttering_templates/decluttering_templates.yaml
+
 title: Home
 background: var(--background)
 views:
