@@ -26,8 +26,8 @@ lovelace:
   # custom_header:
   #   compact_mode: true
 
-  decluttering_templates:
-    !include lovelace/decluttering_templates/decluttering_templates.yaml
+  # decluttering_templates:
+  #   !include lovelace/decluttering_templates/decluttering_templates.yaml
 
   dashboards:
     lovelace-yaml:
