@@ -4,11 +4,11 @@ resources:
 custom_header:
   compact_mode: true
 
-button_card_templates:
-  !include lovelace/button_card_templates/button_card_templates.yaml
+# button_card_templates:
+#   !include lovelace/button_card_templates/button_card_templates.yaml
 
-decluttering_templates:
-  !include lovelace/decluttering_templates/decluttering_templates.yaml
+# decluttering_templates:
+#   !include lovelace/decluttering_templates/decluttering_templates.yaml
 
 title: Home
 background: var(--background)
