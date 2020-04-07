@@ -1,5 +1,7 @@
 custom_header:
-  compact_mode: true
+  kiosk_mode: true
+  footer_mode: true
+  reverse_tab_direction: true
 
 decluttering_templates:
   !include lovelace/decluttering_templates/decluttering_templates.yaml
