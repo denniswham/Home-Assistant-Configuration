@@ -20,29 +20,6 @@ discovery:
 
 lovelace:
   mode: yaml
-  resources:
-    !include lovelace/resources/resources.yaml
-
-  # custom_header:
-  #   compact_mode: true
-
-  # decluttering_templates:
-  #   !include lovelace/decluttering_templates/decluttering_templates.yaml
-
-  dashboards:
-    lovelace-yaml:
-      mode: yaml
-      title: Overview
-      icon: mdi:view-dashboard
-      show_in_sidebar: true
-      filename: lovelace.yaml
-
-    lovelace-mobile:
-      mode: yaml
-      title: Mobile
-      icon: mdi:cellphone-android
-      show_in_sidebar: true
-      filename: lovelace_mobile.yaml
 
 customizer:
   custom_ui: hosted
