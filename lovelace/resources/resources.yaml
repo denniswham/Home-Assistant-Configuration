@@ -24,3 +24,7 @@
     type: js
   - url: /hacsfiles/lovelace-layout-card/layout-card.js
     type: module
+  - url: /hacsfiles/lovelace-state-switch/state-switch.js
+    type: module
+  - url: /hacsfiles/simple-weather-card/simple-weather-card-bundle.js
+    type: module
