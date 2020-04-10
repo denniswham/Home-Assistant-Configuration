@@ -1,3 +1,6 @@
 binary_sensor:
   - platform: workday
     country: NL
+    add_holidays:
+      - '2020-04-13' #Goede Vrijdag
+      - '2020-05-22' #Dag na Hemelvaart

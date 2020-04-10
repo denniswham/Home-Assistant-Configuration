@@ -4,22 +4,3 @@ homeassistant:
       friendly_name: Front Door
     camera.backyard:
       friendly_name: Backyard
-
-# binary_sensor:
-#   - platform: ring
-
-# sensor:
-#   - platform: ring
-
-# camera:
-#   - platform: ring
-
-# switch:
-#   - platform: ring
-
-camera:
-  - platform: generic
-    name: Ring Livestream
-    stream_source: http://hassio.local:3000/public/stream.m3u8
-    still_image_url: http://hassio.local:3000/public/stream.m3u8
-
