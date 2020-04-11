@@ -2,5 +2,11 @@ binary_sensor:
   - platform: workday
     country: NL
     add_holidays:
-      - '2020-04-13' #Goede Vrijdag
-      - '2020-05-22' #Dag na Hemelvaart
+      - '2020-04-13' #Goede Vrijdag 2020
+      - '2020-05-22' #Dag na Hemelvaart 2020
+      - '2021-04-02' #Goede Vrijdag 2021
+      - '2021-05-05' #Bevrijdingsdag 2021
+      - '2021-05-14' #Dag na Hemelvaart 2021
+      - '2022-04-15' #Goede Vrijdag 2022
+      - '2022-05-05' #Bevrijdingsdag 2022
+      - '2022-05-27' #Dag na Hemelvaart 2022
