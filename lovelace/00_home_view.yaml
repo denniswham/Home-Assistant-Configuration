@@ -201,7 +201,7 @@ cards:
             hide_when_off: false
           - entity: light.hallway_light
             name: Hallway Light
-            icon: mdi:ceiling-spotlight
+            icon: mdi:ceiling-light
           - entity: light.backyard_light
             name: Backyard Lights
             icon: mdi:outdoor-lamp
