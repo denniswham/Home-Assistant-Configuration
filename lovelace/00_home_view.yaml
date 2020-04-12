@@ -10,6 +10,7 @@ badges:
   - person.stephanie
   - person.lucas
   - person.timo
+  - alarm_control_panel.konnected_alarm
 cards:
   - type: vertical-stack
     cards:
@@ -18,90 +19,53 @@ cards:
         current: true
         details: false
         forecast: true
-      - type: horizontal-stack
-        cards:
-          - type: "custom:button-card"
-            entity: scene.rise_and_shine
-            icon: mdi:weather-sunset-up
-            color: rgb(251, 210, 41)
-            name: "Rise 'n shine"
-            lock:
-              enabled: true
-            tap_action:
-              action: call-service
-              service: scene.turn_on
-              service_data:
-                entity_id: scene.rise_and_shine
-            hold_action:
-              action: none
-          - type: "custom:button-card"
-            entity: scene.relax_time
-            icon: mdi:silverware-fork-knife
-            color: rgb(135,206,235)
-            name: Dinner time
-            lock:
-              enabled: true
-            tap_action:
-              action: call-service
-              service: scene.turn_on
-              service_data:
-                entity_id: scene.dinner_time
-            hold_action:
-              action: none
-          - type: "custom:button-card"
-            entity: scene.relax_time
-            icon: mdi:television
-            color: rgb(169,169,169)
-            name: Relax time
-            lock:
-              enabled: true
-            tap_action:
-              action: call-service
-              service: scene.turn_on
-              service_data:
-                entity_id: scene.relax_time
-            hold_action:
-              action: none
+      - type: thermostat
+        entity: climate.living_room
+      # - type: horizontal-stack
+      #   cards:
+      #     - type: "custom:button-card"
+      #       entity: scene.rise_and_shine
+      #       icon: mdi:weather-sunset-up
+      #       color: rgb(251, 210, 41)
+      #       name: "Rise 'n shine"
+      #       lock:
+      #         enabled: true
+      #       tap_action:
+      #         action: call-service
+      #         service: scene.turn_on
+      #         service_data:
+      #           entity_id: scene.rise_and_shine
+      #       hold_action:
+      #         action: none
+      #     - type: "custom:button-card"
+      #       entity: scene.relax_time
+      #       icon: mdi:silverware-fork-knife
+      #       color: rgb(135,206,235)
+      #       name: Dinner time
+      #       lock:
+      #         enabled: true
+      #       tap_action:
+      #         action: call-service
+      #         service: scene.turn_on
+      #         service_data:
+      #           entity_id: scene.dinner_time
+      #       hold_action:
+      #         action: none
+      #     - type: "custom:button-card"
+      #       entity: scene.relax_time
+      #       icon: mdi:television
+      #       color: rgb(169,169,169)
+      #       name: Relax time
+      #       lock:
+      #         enabled: true
+      #       tap_action:
+      #         action: call-service
+      #         service: scene.turn_on
+      #         service_data:
+      #           entity_id: scene.relax_time
+      #       hold_action:
+      #         action: none
 
-      - type: alarm-panel
-        entity: alarm_control_panel.konnected_alarm
-        states:
-          - arm_home
-          - arm_away
-      # - type: alarm-panel
-      #   entity: alarm_control_panel.ring_mode
-      #   states:
-      #     - arm_home
-      #     - arm_away
-      #   name: Ring Modes
-      - type: entities
-        title: Security
-        show_header_toggle: false
-        entities:
-          - type: custom:fold-entity-row
-            head:
-              type: section
-              label: Motion Detectors
-            group_config:
-              secondary_info: last-changed
-            items:
-              - binary_sensor.entryway
-              - binary_sensor.kitchen
-              - binary_sensor.living_room
-              - binary_sensor.office
-              - binary_sensor.garage
-              - type: divider
-              - binary_sensor.front_door_motion
-              - binary_sensor.backyard_motion
-          - type: custom:fold-entity-row
-            head:
-              type: section
-              label: Sirens
-            group_config:
-              secondary_info: last-changed
-            items:
-              - switch.siren
-              - switch.backyard_siren
 
   - type: vertical-stack
     cards:
@@ -143,30 +107,67 @@ cards:
             camera_view: live
             show_state: false
             show_name: true
+      # - type: entities
+      #   title: Alexa DND
+      #   show_header_toggle: false
+      #   entities:
+      #     - type: custom:fold-entity-row
+      #       head:
+      #         type: section
+      #         label: Echo Devices
+      #       group_config:
+      #         secondary_info: last-changed
+      #       items:
+      #         - switch.living_room_do_not_disturb_switch
+      #         - switch.living_room_fire_tv_stick_do_not_disturb_switch
+      #         - switch.master_bedroom_do_not_disturb_switch
+      #         - switch.master_bedroom_fire_tv_stick_do_not_disturb_switch
+      #         - switch.lucas_room_do_not_disturb_switch
+      #         - switch.timo_s_room_do_not_disturb_switch
+      #         - switch.emilie_s_room_do_not_disturb_switch
+
+
+  - type: vertical-stack
+    cards:
+      - type: alarm-panel
+        entity: alarm_control_panel.konnected_alarm
+        states:
+          - arm_home
+          - arm_away
+      # - type: alarm-panel
+      #   entity: alarm_control_panel.ring_mode
+      #   states:
+      #     - arm_home
+      #     - arm_away
+      #   name: Ring Modes
       - type: entities
-        title: Alexa DND
+        title: Security
         show_header_toggle: false
         entities:
           - type: custom:fold-entity-row
             head:
               type: section
-              label: Echo Devices
+              label: Motion Detectors
             group_config:
               secondary_info: last-changed
             items:
-              - switch.living_room_do_not_disturb_switch
-              - switch.living_room_fire_tv_stick_do_not_disturb_switch
-              - switch.master_bedroom_do_not_disturb_switch
-              - switch.master_bedroom_fire_tv_stick_do_not_disturb_switch
-              - switch.lucas_room_do_not_disturb_switch
-              - switch.timo_s_room_do_not_disturb_switch
-              - switch.emilie_s_room_do_not_disturb_switch
-
-      - type: thermostat
-        entity: climate.living_room
-
-  - type: vertical-stack
-    cards:
+              - binary_sensor.entryway
+              - binary_sensor.kitchen
+              - binary_sensor.living_room
+              - binary_sensor.office
+              - binary_sensor.garage
+              - type: divider
+              - binary_sensor.front_door_motion
+              - binary_sensor.backyard_motion
+          - type: custom:fold-entity-row
+            head:
+              type: section
+              label: Sirens
+            group_config:
+              secondary_info: last-changed
+            items:
+              - switch.siren
+              - switch.backyard_siren
       - type: entities
         title: Lights
         show_header_toggle: true
@@ -174,7 +175,7 @@ cards:
           - entity: light.living_room_dining_table_dimmer_level
             name: Dining Table
             type: custom:slider-entity-row
-            icon: mdi:ceiling-light
+            icon: mdi:globe-light
             toggle: true
             hide_when_off: false
           - entity: light.living_room_wall_dimmer_level
@@ -186,21 +187,21 @@ cards:
           - entity: light.living_room_spot_dimmer_level
             name: Spots
             type: custom:slider-entity-row
-            icon: mdi:vanity-light
+            icon: mdi:spotlight
             toggle: true
             hide_when_off: false
           - entity: light.office_spot_dimmer_level
             name: Office Spots
             type: custom:slider-entity-row
-            icon: mdi:vanity-light
+            icon: mdi:mdi:spotlight
             toggle: true
             hide_when_off: false
-          - type: divider
           - entity: light.hallway_light
             name: Hallway Light
-          - type: divider
+            icon: mdi:ceiling-spotlight
           - entity: light.backyard_light
             name: Backyard Lights
+            icon: mdi:outdoor-lamp
 
 
       - type: entities
@@ -215,15 +216,15 @@ cards:
             name: Lucas' Room
             toggle: true
             type: custom:slider-entity-row
-      - type: horizontal-stack
-        cards:
-          - type: "custom:button-card"
-            entity: input_boolean.vacation_mode
-            name: "Vacation Mode"
-            lock:
-              enabled: true
-          - type: "custom:button-card"
-            entity: input_boolean.guest_mode
-            name: Guest Mode
-            lock:
-              enabled: true
+      # - type: horizontal-stack
+      #   cards:
+      #     - type: "custom:button-card"
+      #       entity: input_boolean.vacation_mode
+      #       name: "Vacation Mode"
+      #       lock:
+      #         enabled: true
+      #     - type: "custom:button-card"
+      #       entity: input_boolean.guest_mode
+      #       name: Guest Mode
+      #       lock:
+      #         enabled: true
