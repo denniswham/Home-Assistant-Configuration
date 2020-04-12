@@ -168,6 +168,9 @@ cards:
             items:
               - switch.siren
               - switch.backyard_siren
+
+  - type: vertical-stack
+    cards:
       - type: entities
         title: Lights
         show_header_toggle: true
