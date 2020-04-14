@@ -20,6 +20,12 @@ discovery:
 
 lovelace:
   mode: yaml
+  resources:
+    !include lovelace/resources/resources.yaml
+  custom_header:
+    compact_mode: true
+  decluttering_templates:
+    !include lovelace/decluttering_templates/decluttering_templates.yaml
 
 browser_mod:
 

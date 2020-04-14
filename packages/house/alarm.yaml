@@ -9,31 +9,6 @@ homeassistant:
     alarm_control_panel.alexa_guard_7514f:
       friendly_name: Alexa Guard
 
-# konnected:
-#   access_token: !secret konnected_access_token
-#   devices:
-#     - id: !secret konnected_device_id
-#       binary_sensors:
-#         - zone: 1
-#           type: motion
-#           name: 'Entryway'
-#         - zone: 2
-#           type: motion
-#           name: 'Kitchen'
-#         - zone: 3
-#           type: motion
-#           name: 'Living Room'
-#         - zone: 4
-#           type: motion
-#           name: 'Office'
-#         - zone: 5
-#           type: motion
-#           name: 'Garage'
-#       switches:
-#         - zone: out
-#           name: 'Siren'
-#       blink: false
-
 alarm_control_panel:
   - platform: manual
     name: Konnected Alarm
@@ -45,6 +20,7 @@ alarm_control_panel:
     armed_home:
       pending_time: 0
       delay_time: 0
+      trigger_time: 300
 
 automation:
   - id: 3c28420d-2670-4215-bd93-7b2ca445fbb4
