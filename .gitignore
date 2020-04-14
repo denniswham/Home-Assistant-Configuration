@@ -14,7 +14,7 @@ deps
 lib
 icloud
 tts
-lovelace-dev
+custom_components
 
 # Specific file ignores
 .config_entries.json
