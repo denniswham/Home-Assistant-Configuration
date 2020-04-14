@@ -21,9 +21,6 @@ discovery:
 lovelace:
   mode: yaml
 
-customizer:
-  custom_ui: hosted
-
 browser_mod:
 
 frontend:

@@ -46,19 +46,6 @@ alarm_control_panel:
       pending_time: 0
       delay_time: 0
 
-sensor:
-  - platform: template
-    sensors:
-      sirens:
-        friendly_name: 'Siren sound'
-        entity_id: switch.siren, switch.backyard_siren
-        value_template: >-
-          {% if is_state('switch.siren', 'on') or is_state("switch.siren", "on") %}
-            signaling
-          {% else %}
-            silent
-          {% endif %}
-
 automation:
   - id: 3c28420d-2670-4215-bd93-7b2ca445fbb4
     alias: '[Alarm] Arm Konnected'

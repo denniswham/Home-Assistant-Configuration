@@ -10,7 +10,12 @@ include:
     - light.office_spot_dimmer_level
     - light.outdoor_lights
     - light.upstairs_lights
-    - sensor.smoke_co_detection
+    - sensor.entryway_nest_protect_smoke_status
+    - sensor.hallway_nest_protect_smoke_status
+    - sensor.attic_nest_protect_smoke_status
+    - sensor.entryway_nest_protect_co_status
+    - sensor.hallway_nest_protect_co_status
+    - sensor.attic_nest_protect_co_status
     - switch.siren
     - switch.backyard_siren
 
