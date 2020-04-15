@@ -1,5 +1,6 @@
 - id: 685e8c80-6c92-46db-bead-beb258b660c9
   name: Rise and Shine
+  icon: mdi:weather-sunset-up
   entities:
     alarm_control_panel.konnected_alarm:
       state: disarmed
@@ -10,59 +11,63 @@
       temperature: 20.5
     light.living_room_dining_table_dimmer_level:
       state: "on"
-      brightness_pct: 25
+      brightness: 62
     # light.living_room_wall_dimmer_level:
     #   state: "on"
-    #   brightness_pct: 35
+    #   brightness: 85
     # light.living_room_spot_dimmer_level:
     #   state: "on"
-    #   brightness_pct: 10
+    #   brightness: 23
     # light.office_spot_dimmer_level:
     #   state: "off"
 
 - id: 1a8eb245-e797-448b-809e-6cd0da75ad24
   name: Work time
+  icon: mdi:laptop
   entities:
     light.living_room_spot_dimmer_level:
       state: "off"
     light.office_spot_dimmer_level:
       state: "on"
-      brightness_pct: 25
+      brightness: 59
 
 - id: 0d010e40-8560-42ce-8b86-b743bbf355ad
   name: Dinner time
+  icon: mdi:silverware-fork-knife
   entities: 
     light.living_room_dining_table_dimmer_level:
       state: "on"
-      brightness_pct: 35
+      brightness: 89
     # light.living_room_wall_dimmer_level:
     #   state: "on"
-    #   brightness_pct: 40
+    #   brightness: 102
     # light.living_room_spot_dimmer_level:
     #   state: "on"
-    #   brightness_pct: 10
+    #   brightness: 26
     # light.office_spot_dimmer_level:
     #   state: "on"
-    #   brightness_pct: 10
+    #   brightness: 26
 
 - id: 78e4c286-6d53-4465-a213-6c61984d8eac
   name: Relax time
+  icon: mdi:sofa
   entities: 
     light.living_room_dining_table_dimmer_level:
       state: "on"
-      brightness_pct: 20
+      brightness: 51
     light.living_room_wall_dimmer_level:
       state: "on"
-      brightness_pct: 40
+      brightness: 102
     light.living_room_spot_dimmer_level:
       state: "on"
-      brightness_pct: 10
+      brightness: 26
     light.office_spot_dimmer_level:
       state: "on"
-      brightness_pct: 5
+      brightness: 13
 
 - id: 0d80f036-53f7-40de-81ff-77ad45bc8150
   name: Bed time
+  icon: mdi:bed-king
   entities: 
     cover.master_bedroom_roller_shutter_level:
       state: open
@@ -83,6 +88,7 @@
 
 - id: c16a7d40-ed34-49c2-a488-a8034e9b899d
   name: Sleep time
+  icon: mdi:sleep
   entities: 
     alarm_control_panel.konnected_alarm:
       state: armed_home
@@ -109,6 +115,7 @@
 
 - id: 7667fee3-afa3-4797-a79d-777a61f55453
   name: Romance time
+  icon: mdi:heart-multiple
   entities: 
     alarm_control_panel.konnected_alarm:
       state: armed_home
@@ -119,16 +126,17 @@
 
 - id: 28a21e8f-b94f-4229-9a92-7b5417e1bd1b
   name: Emergency
+  icon: mdi:exit-run
   entities: 
     light.living_room_dining_table_dimmer_level:
       state: "on"
-      brightness_pct: 100
+      brightness: 255
     light.living_room_wall_dimmer_level:
       state: "on"
-      brightness_pct: 100
+      brightness: 255
     light.living_room_spot_dimmer_level:
       state: "on"
-      brightness_pct: 100
+      brightness: 255
     light.office_spot_dimmer_level:
       state: "on"
-      brightness_pct: 100
+      brightness: 255
