@@ -34,6 +34,7 @@ logbook: !include logging/logbook.yaml
 logger: !include logging/logger.yaml
 
 scene: !include scenes.yaml
+automation: !include automations.yaml
 notify: !include notify/notify.yaml
 
 ffmpeg:

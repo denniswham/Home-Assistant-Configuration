@@ -5,19 +5,6 @@
  # system is in Vacation mode                 #
  #                                            #
  ##############################################
-automation:
-  # Automation I use to turn on vacation mode
-  - id: 27c20369-e108-462b-8c62-84999df3499c
-    alias: '[Mockupancy] Turn on vacation mode'
-    trigger:
-      - platform: state
-        entity_id: group.household
-        to: not_home
-        for:
-          hours: 24
-    action:
-      - service: input_boolean.turn_on
-        entity_id: input_boolean.vacation_mode
 
  # This is used to set a random bedtime for our phantom house guest
 input_datetime:

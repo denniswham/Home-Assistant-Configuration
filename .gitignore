@@ -18,10 +18,7 @@ custom_components
 
 # Specific file ignores
 .config_entries.json
-.homekit.state
-.ios.conf
 .spotify-token-cache
-.tradfri_psk.conf
 .uuid
 core
 google_calendars.yaml
@@ -34,7 +31,6 @@ secrets.yaml
 zwcfg_*
 zwscene.xml
 zwave_device_config.yaml
-ui-lovelace-dev.yaml
 
 # ESPHome ignores
 esphome/secrets.yaml

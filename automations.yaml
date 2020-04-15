@@ -1,7 +1,1171 @@
+  - id: 3c28420d-2670-4215-bd93-7b2ca445fbb4
+    alias: '[Alarm] Arm Konnected'
+    initial_state: 'true'
+    condition:
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state: 'off'
+      - condition: template
+        value_template: "{%- if states.automation.alarm_disarm_konnected_from_away.attributes.last_triggered\
+          \ -%}\n  {{ (as_timestamp(now()) - as_timestamp(states.automation.alarm_disarm_konnected_from_away.attributes.last_triggered))\
+          \ > 240 }}\n{%- else -%}\n  true\n{%- endif -%}\n"
+      - condition: template
+        value_template: '{{ states(''alarm_control_panel.konnected_alarm'') != ''armed_away'' 
+          }}'
+      - condition: template
+        value_template: '{{ states(''alarm_control_panel.konnected_alarm'') == ''disarmed''
+          }}'
+    trigger:
+      - platform: state
+        entity_id: group.household
+        from: home
+        to: not_home
+      - platform: state
+        entity_id: group.household
+        from: home
+        to: not_home
+        for:
+          minutes: 5
+    action:
+      - service: input_select.select_option
+        data:
+          entity_id: alarm_control_panel.konnected_alarm
+          option: armed_away
+      - service: alarm_control_panel.alarm_arm_away
+        entity_id:
+          - alarm_control_panel.konnected_alarm
+          - alarm_control_panel.alexa_guard_7514f
+      - service: notify.alexa_media
+        data:
+          data:
+            type: announce
+          target:
+          - group.alexa
+          message: I'll start guarding now
 
+  - id: f586bfa3-cec3-4881-8cbb-bb2ceb9aea62
+    alias: '[Alarm] Deactivate siren'
+    initial_state: 'true'
+    trigger:
+      - platform: state
+        entity_id: alarm_control_panel.konnected_alarm
+        to: triggered
+        for: 00:20:00
+      - platform: state
+        entity_id: alarm_control_panel.konnected_alarm
+        to: disarmed
+    action:
+      - service: switch.turn_off
+        entity_id: switch.siren
+      - service: switch.turn_off
+        entity_id: switch.backyard_siren
 
+  - id: 2d57cc0c-7317-486f-a2f2-b755c59ac660
+    alias: '[Alarm] Disarm Konnected at night'
+    initial_state: 'true'
+    condition:
+      - condition: state
+        entity_id: alarm_control_panel.konnected_alarm
+        state: armed_home
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state: 'off'
+    trigger:
+      - platform: zone
+        entity_id:
+          - person.dennis
+          - person.stephanie
+          - person.lucas
+          - person.timo
+        zone: zone.home
+        event: enter
+    action:
+      - service: homeassistant.turn_on
+        entity_id: script.konnectedstandby
 
+  - id: d4ce8893-a219-499b-bd45-18a2bc5bc6c2
+    alias: '[Alarm] Disarm Konnected from Away'
+    initial_state: 'true'
+    condition:
+      - condition: state
+        entity_id: alarm_control_panel.konnected_alarm
+        state: armed_away
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state: 'off'
+      - condition: template
+        value_template: "{%- if states.automation.alarm_arm_konnected.attributes.last_triggered\
+          \ -%}\n  {{ (as_timestamp(now()) - as_timestamp(states.automation.alarm_arm_konnected.attributes.last_triggered))\
+          \ > 240 }}\n{%- else -%}\n  true\n{%- endif -%}\n"
+    trigger:
+      - platform: state
+        entity_id: group.household
+        from: not_home
+        to: home
+    action:
+      - service: homeassistant.turn_on
+        entity_id: script.konnectedstandby
 
+  - id: b937f244-4e93-4ab7-9310-a1c77a7c05d4
+    alias: '[Alarm] Disarm Konnected in the morning'
+    initial_state: 'true'
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: group.household
+          state: home
+        - condition: state
+          entity_id: input_boolean.guest_mode
+          state: 'off'
+    trigger:
+      - platform: time
+        at: 06:00:00
+    action:
+      - service: homeassistant.turn_on
+        entity_id: script.konnectedstandby
+
+  - id: 8efa2a7d-23c9-4bb3-b163-4e1bf820976d
+    alias: '[Alarm] Konnected Standby'
+    initial_state: 'true'
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: group.household
+          state: home
+        - condition: time
+          after: 06:15:00
+          before: '21:00:00'
+        - condition: state
+          entity_id: input_boolean.guest_mode
+          state: 'off'
+        - condition: template
+          value_template: "{%- if states.alarm_control_panel.konnected_alarm.last_changed -%}\n\
+            \  {{ (as_timestamp(now()) - as_timestamp(states.alarm_control_panel.konnected_alarm.last_changed))\
+            \ > 300 }}\n{%- else -%}\n  true\n{%- endif -%}\n"
+        - condition: or
+          conditions:
+          - condition: state
+            entity_id: alarm_control_panel.konnected_alarm
+            state: armed_home
+          - condition: state
+            entity_id: alarm_control_panel.konnected_alarm
+            state: armed_away
+    trigger:
+      - platform: time_pattern
+        minutes: /10
+        seconds: 0
+    action:
+      - service: homeassistant.turn_on
+        entity_id: script.konnectedstandby
+
+  - id: 72a6ac29-9e75-4f47-a22b-407609b26ee9
+    alias: '[Alarm] Konnected Log Motion'
+    initial_state: 'true'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.entryway
+        to: 'on'
+      - platform: state
+        entity_id: binary_sensor.kitchen
+        to: 'on'
+      - platform: state
+        entity_id: binary_sensor.living_room
+        to: 'on'
+      - platform: state
+        entity_id: binary_sensor.office
+        to: 'on'
+      - platform: state
+        entity_id: binary_sensor.garage
+        to: 'on'
+      - platform: state
+        entity_id: binary_sensor.backyard_motion
+        to: 'on'
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: alarm_control_panel.konnected_alarm
+          state: armed_away
+        - condition: state
+          entity_id: alarm_control_panel.konnected_alarm
+          state: armed_home
+        - condition: state
+          entity_id: alarm_control_panel.konnected_alarm
+          state: pending
+        - condition: state
+          entity_id: alarm_control_panel.konnected_alarm
+          state: triggered
+    action:
+      - service: logbook.log
+        data_template:
+          name: "Motion detected: "
+          message: >-
+            {{ trigger.entity_id }}
+
+  - id: 0c082214-fab9-4833-9efc-7f220b337811
+    alias: '[Alarm] Trigger Alarm'
+    initial_state: 'true'
+    trigger:
+      - platform: state
+        entity_id: alarm_control_panel.konnected_alarm
+        to: triggered
+    action:
+      - service: switch.turn_on
+        entity_id: switch.siren
+      - service: switch.turn_on
+        entity_id: switch.backyard_siren
+      - service: scene.turn_on
+        entity_id: scene.emergency
+      - service: notify.alexa_media
+        data:
+          data:
+            type: announce
+          target:
+            - group.alexa
+          message: Your alarm was activated
+      - service: notify.all_devices
+        data:
+          title: Konnected
+          message: Your alarm was activated
+          data:
+            actions:
+              - action: open
+                icon: "/local/icons/konnected.png"
+                title: Open Home Assistant
+            tag: konnected-alarm-notification
+            ttl: 86400
+            priority: high      
+
+  - id: 583df5d2-69c7-49e2-93a2-0c49d936b0fb
+    alias: '[Alarm] Pending alarm'
+    initial_state: 'true'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.entryway
+        to: 'on'
+      - platform: state
+        entity_id: binary_sensor.kitchen
+        to: 'on'
+      - platform: state
+        entity_id: binary_sensor.living_room
+        to: 'on'
+      - platform: state
+        entity_id: binary_sensor.office
+        to: 'on'
+      - platform: state
+        entity_id: binary_sensor.garage
+        to: 'on'
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: alarm_control_panel.konnected_alarm
+          state: armed_away
+        - condition: state
+          entity_id: alarm_control_panel.konnected_alarm
+          state: armed_home
+    action:
+      - service: alarm_control_panel.alarm_trigger
+        entity_id: alarm_control_panel.konnected_alarm
+      - service: notify.alexa_media
+        data:
+          data:
+            type: announce
+          target:
+            - group.alexa
+          message: Motion detected, the alarm will activate shortly. Motion detected, the alarm will activate shortly.
+
+  - id: 39c8ea32-61d3-4971-9b20-f07eb370cfe3
+    alias: "[Alexa] Enable Do Not Disturb"
+    initial_state: 'on'
+    trigger:
+      - platform: time
+        at: "22:00:00"
+    action:
+      - service: switch.turn_on
+        data:
+          entity_id:
+            - switch.master_bedroom_do_not_disturb_switch
+            - switch.master_bedroom_fire_tv_stick_do_not_disturb_switch
+            - switch.lucas_room_do_not_disturb_switch
+            - switch.timo_s_room_do_not_disturb_switch
+            - switch.emilie_s_room_do_not_disturb_switch
+
+  - id: c875f801-c67e-493a-9cf3-643789134ad1
+    alias: "[Alexa] Disable Do Not Disturb"
+    initial_state: 'on'
+    trigger:
+      - platform: time
+        at: "07:00:00"
+    action:
+      - service: switch.turn_off
+        data:
+          entity_id:
+            - switch.master_bedroom_do_not_disturb_switch
+            - switch.master_bedroom_fire_tv_stick_do_not_disturb_switch
+            - switch.lucas_room_do_not_disturb_switch
+            - switch.timo_s_room_do_not_disturb_switch
+            - switch.emilie_s_room_do_not_disturb_switch
+
+  - id: d2851e95-9ef6-49bf-973d-9ed51545414c
+    alias: '[Climate] Cancel thermostat ETA'
+    initial_state: 'true'
+    condition:
+      - condition: template
+        value_template: '{{ states.sensor.retsinagaard_eta != "1970-01-01 00:00:00+00:00"
+          }}'
+    trigger:
+      - platform: state
+        entity_id: group.household
+        from: not_home
+        to: home
+      - platform: template
+        value_template: "{% if is_state_attr('proximity.home', 'dir_of_travel', 'towards') %}false{% endif %}"
+        for: '00:10:00'
+    action:
+      - service: nest.cancel_eta
+        data:
+          trip_id: ETA set by HAS
+          structure:
+            - Retsinagaard
+      - service: homeassistant.turn_on
+        data_template:
+          entity_id: "{%- if states('switch.living_room_away') == 'on' -%}\n  switch.living_room_away\n\
+            {%- endif -%}\n"
+
+  - id: 763d3d6d-c8f2-473b-86ed-ad6d41ff0083
+    alias: '[Climate] Disable thermostat away'
+    initial_state: 'true'
+    condition:
+      - condition: template
+        value_template: '{{states(''alarm_control_panel.konnected_alarm'') == ''disarmed'' and
+          states(''group.thermostats'') == ''on''}}
+
+          '
+    trigger:
+      - platform: time_pattern
+        minutes: /5
+        seconds: 0
+    action:
+      - service: homeassistant.turn_off
+        data_template:
+          entity_id: "{%- if states('switch.living_room_away') == 'on' -%}\n  switch.living_room_away\n\
+            {%- endif -%}\n"
+
+  - id: e7d7fec6-be05-4aa2-bdd5-e8b2a4c585e7
+    alias: '[Climate] Enable thermostat away'
+    initial_state: 'true'
+    condition:
+      - condition: or
+        conditions:
+          - condition: template
+            value_template: '{{states(''alarm_control_panel.konnected_alarm'') == ''armed_away''
+              and states(''switch.living_room_away'') == ''off''}}
+
+              '
+    trigger:
+      - platform: time_pattern
+        minutes: /5
+        seconds: 0
+    action:
+      - service: homeassistant.turn_on
+        data_template:
+          entity_id: "{%- if states('switch.living_room_away') == 'off' -%}\n  switch.living_room_away\n\
+            {%- endif -%}\n"
+
+  - id: 82e04eda-e291-4af7-be6f-f6ec33719802
+    alias: '[Climate] Set thermostat ETA'
+    initial_state: 'true'
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: group.household
+          state: not_home
+        - condition: state
+          entity_id: binary_sensor.retsinagaard_away
+          state: 'on'
+    trigger:
+      - platform: template
+        value_template: "{%- if is_state_attr('proximity.home', 'dir_of_travel', 'towards')\
+          \ -%}\n  true\n{%- endif -%}\n"
+    action:
+      - service: nest.set_eta
+        data_template:
+          eta: >
+            {% if is_state_attr('proximity.home', 'nearest', 'Dennis') %}
+              {{ ((( states.sensor.dennis_to_home.state | int) * 60) - 3600) | timestamp_custom('%H:%M:%S') }}
+            {% elif is_state_attr('proximity.home', 'nearest', 'Dennis, Stephanie') %}
+              {{ ((( states.sensor.dennis_to_home.state | int) * 60) - 3600) | timestamp_custom('%H:%M:%S') }}
+            {% elif is_state_attr('proximity.home', 'nearest', 'Stephanie') %}
+              {{ ((( states.sensor.stephanie_to_home.state | int) * 60) - 3600) | timestamp_custom('%H:%M:%S') }}
+            {% endif %}
+          eta_window: 00:01
+          trip_id: ETA set by HAS
+          structure:
+            - Retsinagaard
+
+  - id: 811e963d-f24e-47bd-b0fb-b519bb0e6dbb
+    alias: '[Climate] Away Mode'
+    initial_state: 'true'
+    trigger:
+      - platform: state
+        entity_id: group.household
+        from: home
+        to: not_home
+    action:
+      - service: climate.set_preset_mode
+        entity_id:
+          - climate.living_room
+        data: {"preset_mode": "away"}
+
+  - id: 039d5bb6-5335-4c0c-9c37-c0d286bcecae
+    alias: '[Climate] Home Mode'
+    initial_state: 'true'
+    trigger:
+      - platform: state
+        entity_id: group.household
+        from: not_home
+        to: home
+    action:
+      - service: climate.set_preset_mode
+        entity_id:
+          - climate.living_room
+        data: {"preset_mode": "home"}
+
+  - id: f22881d0-2a37-46f6-86fa-0feaac19de59
+    alias: '[Covers] Open in the morning in Master Bedroom'
+    initial_state: 'true'
+    condition:
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state: 'off'
+      - condition: state
+        entity_id: group.household
+        state: 'home'
+      - condition: state
+        entity_id: binary_sensor.workday_sensor
+        state: 'on'
+    trigger:
+      - platform: time
+        at: "08:30:00"
+    action:
+      - service: cover.open_cover
+        data:
+          entity_id: cover.master_bedroom_roller_shutter_level
+
+  - id: 2c0fabaa-793e-4d83-a6f6-488b799384e7
+    alias: '[Covers] Open in the morning in Lucas Room'
+    initial_state: 'true'
+    condition:
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state: 'off'
+      - condition: state
+        entity_id: group.household
+        state: 'home'
+      - condition: state
+        entity_id: binary_sensor.workday_sensor
+        state: 'on'
+    trigger:
+      - platform: time
+        at: "09:00:00"
+    action:
+      - service: cover.open_cover
+        data:
+          entity_id: cover.lucas_room_roller_shutter_level
+
+  - id: 9168307a-6555-489d-b686-643216ff76e9
+    alias: '[Covers] Open in the morning during the weekends and holidays'
+    initial_state: 'true'
+    condition:
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state: 'off'
+      - condition: state
+        entity_id: group.household
+        state: 'home'
+      - condition: state
+        entity_id: binary_sensor.workday_sensor
+        state: 'off'
+    trigger:
+      - platform: time
+        at: "11:00:00"
+    action:
+      - service: cover.open_cover
+        data:
+          entity_id:
+            - cover.master_bedroom_roller_shutter_level
+            - cover.lucas_room_roller_shutter_level
+
+  - id: 58a2e68e-7adf-4d08-93d1-a4dd43faeb12
+    alias: '[Covers] Close in the evening'
+    initial_state: 'true'
+    condition:
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state: 'off'
+      - condition: state
+        entity_id: group.household
+        state: 'home'
+    trigger:
+      - platform: sun
+        event: sunset
+    action:
+      - service: cover.set_cover_position
+        data:
+          entity_id:
+            - cover.master_bedroom_roller_shutter_level
+            - cover.lucas_room_roller_shutter_level
+          position: 10
+
+  - id: 36999f33-8fcb-423e-972d-425b4efca279
+    alias: '[Covers] Close with strong winds'
+    initial_state: 'true'
+    condition:
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state: 'off'
+      - condition: state
+        entity_id: sun.sun
+        state: below_horizon
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.br_wind_force
+        above: 4
+    action:
+      - service: cover.close_cover
+        data:
+          entity_id:
+            - cover.master_bedroom_roller_shutter_level
+            - cover.lucas_room_roller_shutter_level
+
+  - id: d3a773bf-fc19-4f77-8ad7-00097a2a8bfa
+    alias: '[Covers] Open when arriving at daytime'
+    initial_state: 'true'
+    condition:
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state: 'off'
+      - condition: numeric_state
+        entity_id: sensor.br_temperature
+        below: 25
+      - condition: state
+        entity_id: sun.sun
+        state: above_horizon
+      - condition: template
+        value_template: "{%- if states.automation.covers_close_when_leaving.attributes.last_triggered\
+          \ -%}\n  {{ (as_timestamp(now()) - as_timestamp(states.automation.covers_close_when_leaving.attributes.last_triggered))\
+          \ > 240 }}\n{%- else -%}\n  true\n{%- endif -%}\n"
+    trigger:
+      - platform: state
+        entity_id: group.household
+        from: not_home
+        to: home
+    action:
+      - service: cover.open_cover
+        data:
+          entity_id:
+            - cover.master_bedroom_roller_shutter_level
+            - cover.lucas_room_roller_shutter_level
+
+  - id: 9c7f65fd-fc67-47e1-a81d-e02afcacdc3e
+    alias: '[Covers] Open when arriving at night'
+    initial_state: 'true'
+    condition:
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state: 'off'
+      - condition: numeric_state
+        entity_id: sensor.br_temperature
+        below: 25
+      - condition: state
+        entity_id: sun.sun
+        state: below_horizon
+      - condition: template
+        value_template: "{%- if states.automation.covers_close_when_leaving.attributes.last_triggered\
+          \ -%}\n  {{ (as_timestamp(now()) - as_timestamp(states.automation.covers_close_when_leaving.attributes.last_triggered))\
+          \ > 240 }}\n{%- else -%}\n  true\n{%- endif -%}\n"
+    trigger:
+      - platform: state
+        entity_id: group.household
+        from: not_home
+        to: home
+    action:
+      - service: cover.set_cover_position
+        data:
+          entity_id:
+            - cover.master_bedroom_roller_shutter_level
+            - cover.lucas_room_roller_shutter_level
+          position: 10
+
+  - id: 153b5394-3dde-4ebd-8e3f-4d2bb43e8529
+    alias: '[Covers] Close when leaving'
+    initial_state: 'true'
+    condition:
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state: 'off'
+      - condition: template
+        value_template: "{%- if states.automation.covers_open_when_arriving_at_daytime.attributes.last_triggered\
+          \ -%}\n  {{ (as_timestamp(now()) - as_timestamp(states.automation.covers_open_when_arriving_at_daytime.attributes.last_triggered))\
+          \ > 240 }}\n{%- else -%}\n  true\n{%- endif -%}\n"
+      - condition: template
+        value_template: "{%- if states.automation.covers_open_when_arriving_at_night.attributes.last_triggered\
+          \ -%}\n  {{ (as_timestamp(now()) - as_timestamp(states.automation.covers_open_when_arriving_at_night.attributes.last_triggered))\
+          \ > 240 }}\n{%- else -%}\n  true\n{%- endif -%}\n"
+    trigger:
+      - platform: state
+        entity_id: group.household
+        from: home
+        to: not_home
+    action:
+      - service: cover.close_cover
+        data:
+          entity_id:
+            - cover.master_bedroom_roller_shutter_level
+            - cover.lucas_room_roller_shutter_level
+
+  - id: 6c9a2404-5bd8-43e4-beb2-c38afd7d21c5
+    alias: '[Covers] Close when high temperature'
+    initial_state: 'true'
+    condition:
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state: 'off'
+      - condition: template
+        value_template: "{%- if states.automation.covers_open_when_arriving_at_daytime.attributes.last_triggered\
+          \ -%}\n  {{ (as_timestamp(now()) - as_timestamp(states.automation.covers_open_when_arriving_at_daytime.attributes.last_triggered))\
+          \ > 240 }}\n{%- else -%}\n  true\n{%- endif -%}\n"
+      - condition: template
+        value_template: "{%- if states.automation.covers_open_when_arriving_at_night.attributes.last_triggered\
+          \ -%}\n  {{ (as_timestamp(now()) - as_timestamp(states.automation.covers_open_when_arriving_at_night.attributes.last_triggered))\
+          \ > 240 }}\n{%- else -%}\n  true\n{%- endif -%}\n"
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.br_temperature
+        above: 25
+    action:
+      - service: cover.close_cover
+        data:
+          entity_id:
+            - cover.master_bedroom_roller_shutter_level
+            - cover.lucas_room_roller_shutter_level
+
+  - id: c209375b-d473-4d56-8f02-41c3146eae35
+    alias: '[Covers] Open when smoke or CO detected'
+    initial_state: 'true'
+    condition:
+    trigger:
+      - platform: state
+        entity_id: sensor.entryway_nest_protect_smoke_status
+        from: 'ok'
+      - platform: state
+        entity_id: sensor.entryway_nest_protect_co_status
+        from: 'ok'
+      - platform: state
+        entity_id: sensor.hallway_nest_protect_smoke_status
+        from: 'ok'
+      - platform: state
+        entity_id: sensor.hallway_nest_protect_co_status
+        from: 'ok'
+      - platform: state
+        entity_id: sensor.attic_nest_protect_smoke_status
+        from: 'ok'
+      - platform: state
+        entity_id: sensor.attic_nest_protect_co_status
+        from: 'ok'
+    action:
+      - service: cover.open_cover
+        data:
+          entity_id:
+            - cover.master_bedroom_roller_shutter_level
+            - cover.lucas_room_roller_shutter_level
+
+  - id: 050a6124-23bb-4f5b-acde-e23e1c69361b
+    alias: '[House] Reminder Guest Mode on'
+    initial_state: 'on'
+    condition:
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state:  'on'
+    trigger:
+      - platform: time
+        at: "06:00:00"
+    action:
+      - service: notify.mobile_app_sm_g960f
+        data_template:
+          title: Guest Mode is still turned on
+          message: >
+            Do you want to turn it off so that automations start working again?
+      - service: notify.mobile_app_iphone_van_stephanie
+        data_template:
+          title: Guest Mode is still turned on
+          message: >
+            Do you want to turn it off so that automations start working again?
+
+  - id: 0fbfb0c5-7e5e-4964-8447-ebff3202d9c4
+    alias: '[House] Guest Mode On'
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: input_boolean.guest_mode
+        to: 'on'
+    action:
+      - service: notify.mobile_app_sm_g960f
+        data_template:
+          title: Guest mode on
+          message: >
+            Some automations turned off
+      - service: notify.mobile_app_iphone_van_stephanie
+        data_template:
+          title: Guest mode on
+          message: >
+            Some automations turned off
+
+  - id: 380b5572-0d01-4a26-a61a-53cc9a1d679f
+    alias: '[House] Guest Mode Off'
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: input_boolean.guest_mode
+        to: 'off'
+    action:
+      - service: notify.mobile_app_sm_g960f
+        data_template:
+          title: Guest mode off
+          message: >
+            Automations turned on again
+      - service: notify.mobile_app_iphone_van_stephanie
+        data_template:
+          title: Guest mode off
+          message: >
+            Automations turned on again
+
+  - id: 9664f92b-26b9-4cc0-a422-4a03382a86a1
+    alias: '[Lights] Turn off all lights when away'
+    trigger:
+      - platform: state
+        entity_id: group.household
+        from: home
+        to: not_home
+    condition:
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state: 'off'
+    action:
+      - service: homeassistant.turn_off
+        entity_id: light.inside_lights
+
+  - id: e4519647-e24b-4f1b-8682-51aaa8ce4576
+    alias: '[Lights] Turn on lights when arriving home at night'
+    trigger:
+      - platform: state
+        entity_id: group.household
+        from: not_home
+        to: home
+    condition:
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state: 'off'
+      - condition: state
+        entity_id: sun.sun
+        state: below_horizon
+    action:
+      - service: light.turn_on
+        data:
+          entity_id: light.living_room_dining_table_dimmer_level
+          brightness: 95
+      - service: light.turn_on
+        data:
+          entity_id: light.living_room_wall_dimmer_level
+          brightness: 108
+
+  - id: 11e9f0f4a-99b9-427c-85f7-b703a564a511
+    alias: '[Lights] Turn off hallway and attic light after 10 minutes'
+    trigger:
+      - platform: state
+        entity_id:
+          - light.entryway_light
+          - light.hallway_light
+          - light.attic_light
+        to: 'on'
+        for: "00:10:00"
+    condition:
+    action:
+      service: light.turn_off
+      data_template:
+        entity_id: "{{ trigger.entity_id }}"
+
+  - id: d558b383-921e-4740-bafd-9a888b45fa9a
+    alias: '[Lights] Turn on backyard lights when dark outside'
+    trigger:
+      platform: numeric_state
+      entity_id: sun.sun
+      value_template: "{{ state_attr('sun.sun', 'elevation') }}"
+      below: -3.0
+    condition:
+    action:
+      service: light.turn_on
+      entity_id: light.backyard_light
+
+  - id: 1802426d-6f61-4dde-ab2c-5cd3b5233243
+    alias: '[Lights] Turn off backyard lights at midnight'
+    trigger:
+      platform: time
+      at: "00:00:00"
+    condition:
+    action:
+      service: light.turn_off
+      entity_id: light.backyard_light
+
+  - id: 0f21c88f-c82e-459d-81c5-c5cf170e6279
+    alias: '[Lights] Turn on backyard lights when motion'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.backyard_motion
+        to: 'on'
+    condition:
+      - condition: numeric_state
+        entity_id: sun.sun
+        value_template: "{{ state_attr('sun.sun', 'elevation') }}"
+        below: -3.0
+      - condition: time
+        after: '00:00:00'
+        before: '12:00:00'
+    action:
+      service: light.turn_on
+      entity_id: light.backyard_light
+
+  - id: 5199be8b-2458-44b0-bd98-6bda33cd96f0
+    alias: '[Lights] Turn off backyard lights when no motion'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.backyard_motion
+        to: 'off'
+        for: "00:10:00"
+    condition:
+      - condition: numeric_state
+        entity_id: sun.sun
+        value_template: "{{ state_attr('sun.sun', 'elevation') }}"
+        below: -3.0
+      - condition: time
+        after: '00:00:00'
+        before: '12:00:00'
+    action:
+      service: light.turn_off
+      entity_id: light.backyard_light
+
+  # Automation I use to turn on vacation mode
+  - id: 27c20369-e108-462b-8c62-84999df3499c
+    alias: '[Mockupancy] Turn on vacation mode'
+    trigger:
+      - platform: state
+        entity_id: group.household
+        to: not_home
+        for:
+          hours: 24
+    action:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.vacation_mode
+
+  - id: 2ae00756-b4a9-4068-acc8-c574a8a60fd4
+    alias: '[Ring]  Motion in backyard'
+    initial_state: 'true'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.backyard_motion
+        to: 'on'
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: alarm_control_panel.konnected_alarm
+          state: armed_away
+        - condition: state
+          entity_id: alarm_control_panel.konnected_alarm
+          state: armed_home
+    action:
+      - service: notify.alexa_media
+        data:
+          data:
+            type: announce
+          target:
+            - group.alexa
+          message: "Motion in the backyard"
+      - service: notify.all_devices
+        data:
+          title: Ring
+          message: There is motion at your backyard
+          data:
+            actions:
+              - action: open
+                icon: "/local/icons/konnected.png"
+                title: Open Home Assistant
+            tag: ring_alert
+            ttl: 86400
+            priority: high      
+
+  - id: 6afbd950-7db2-44df-8eb4-d6c46d57f7af
+    alias: '[Ring] Low Battery Notification'
+    initial_state: 'on'
+    trigger:
+      - platform: numeric_state
+        entity_id:
+          - sensor.front_door_battery
+          - sensor.backyard_battery
+        below: 15
+      - platform: numeric_state
+        entity_id:
+          - sensor.front_door_battery
+          - sensor.backyard_battery
+        below: 10
+    action:
+      - service: persistent_notification.create
+        data_template:
+          message: "{{ trigger.to_state.name }} reported low battery, please charge."
+          title: Ring Battery Low
+      - service: notify.mobile_app_sm_g960f
+        data_template:
+          message: "{{ trigger.to_state.name }} reported low battery, please charge."
+          title: Ring Battery Low
+
+  - id: 18bb3b86-f2d8-47d9-908a-b6f1555a15e9
+    alias: '[Ring] Play doorbell chime on Echos'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.front_door_ding
+        from: 'off'
+        to: 'on'
+    condition:
+    action:
+      - service: media_player.play_media
+        data_template:
+          media_content_id: 'amzn_sfx_doorbell_chime_02'
+          media_content_type: sound  
+        entity_id: 
+          - media_player.living_room
+          - media_player.master_bedroom
+          - media_player.lucas_room
+          - media_player.timo_s_room
+          - media_player.emilie_s_room
+
+  ###################################
+  ##  Set to evening               ##
+  ###################################
+  - id: e684aed6-800b-42c3-8614-3f0079958a8e
+    alias: '[House] Day Mode To Evening'
+    initial_state: 'on'
+    trigger:
+      - platform: sun
+        event: sunset
+        offset: '-00:45:00'
+
+    action:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.house_mode
+          option: Evening
+
+  ###################################
+  ##  Set to morning               ##
+  ###################################
+
+  - id: 1d88c7c6-2720-4854-a2d3-9d48e36171a9
+    alias: '[House] Day Mode To Morning'
+    initial_state: 'on'
+    trigger:
+      - platform: sun
+        event: sunrise
+
+    action:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.house_mode
+          option: Morning
+
+  # ###################################
+  # ##  Set to day                   ##
+  # ###################################
+
+  - id: 1ee5fa81-d1a5-4f97-9941-61ca679d745c
+    alias: '[House] Day Mode To Day'
+    initial_state: 'on'
+    trigger:
+      - platform: time
+        at: "09:00:00"
+
+    action:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.house_mode
+          option: Day
+
+  ###################################
+  ##  Set to night                 ##
+  ###################################
+
+  - id: 126f8a12-ce80-45e7-a064-4764643ab0b7
+    alias: '[House] Day Mode To Night'
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: alarm_control_panel.konnected_alarm
+        to: 'armed_home'
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: input_select.house_mode
+          state: 'Evening'
+        ## Has to be between 22 and 06
+        - condition: time
+          after: '22:00:00'
+          before: '06:00:00'
+
+        # ## Someone has to be home
+        - condition: state
+          entity_id: group.household
+          state: 'home'
+    action:
+      - service: notify.mobile_app_sm_g960f
+        data:
+          message: 'It seems like everyone is asleep'
+          title: 'Good night!'
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.house_mode
+          option: Night
+
+  - id: f1ac429c-e0c6-4859-a3a1-d271136334fa
+    alias: '[Nest] Smoke Detected'
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: sensor.entryway_nest_protect_smoke_status
+        to: emergency
+      - platform: state
+        entity_id: sensor.hallway_nest_protect_smoke_status
+        to: emergency
+      - platform: state
+        entity_id: sensor.attic_nest_protect_smoke_status
+        to: emergency
+      - platform: state
+        entity_id: sensor.entryway_nest_protect_smoke_status
+        to: warning
+      - platform: state
+        entity_id: sensor.hallway_nest_protect_smoke_status
+        to: warning
+      - platform: state
+        entity_id: sensor.attic_nest_protect_smoke_status
+        to: warning
+    action:
+      - service: persistent_notification.create
+        data_template:
+          message: "Smoke detected"
+          title: Nest Protect
+      - service: notify.mobile_app_sm_g960f
+        data_template:
+          message: "Smoke detected"
+          title: Nest Protect
+
+  - id: a3f8f81e-db50-480b-87a5-146530934099
+    alias: '[Nest] CO Detected'
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: sensor.entryway_nest_protect_co_status
+        to: emergency
+      - platform: state
+        entity_id: sensor.hallway_nest_protect_co_status
+        to: emergency
+      - platform: state
+        entity_id: sensor.attic_nest_protect_co_status
+        to: emergency
+      - platform: state
+        entity_id: sensor.entryway_nest_protect_co_status
+        to: warning
+      - platform: state
+        entity_id: sensor.hallway_nest_protect_co_status
+        to: warning
+      - platform: state
+        entity_id: sensor.attic_nest_protect_co_status
+        to: warning
+    action:
+      - service: persistent_notification.create
+        data_template:
+          message: "CO detected"
+          title: Nest Protect
+      - service: notify.mobile_app_sm_g960f
+        data_template:
+          message: "CO detected"
+          title: Nest Protect
+
+  - id: d28bb847-8061-473b-b632-7a7d684cee78
+    alias: '[Nest] Turn on lights with an emergency'
+    trigger:
+      - platform: state
+        entity_id: sensor.entryway_nest_protect_smoke_status
+        to: emergency
+      - platform: state
+        entity_id: sensor.hallway_nest_protect_smoke_status
+        to: emergency
+      - platform: state
+        entity_id: sensor.attic_nest_protect_smoke_status
+        to: emergency
+      - platform: state
+        entity_id: sensor.entryway_nest_protect_co_status
+        to: emergency
+      - platform: state
+        entity_id: sensor.hallway_nest_protect_co_status
+        to: emergency
+      - platform: state
+        entity_id: sensor.attic_nest_protect_co_status
+        to: emergency
+    action:
+      - service: scene.turn_on
+        entity_id: scene.emergency
+
+  - id: d7132414-4610-41a6-9830-8080b980447f
+    alias: '[System] Update Notifications'
+    initial_state: 'on'
+    condition:
+      - condition: template
+        value_template: '{{ states.sensor.latest_version.state != states.sensor.current_version.state }}'
+    trigger:
+      - platform: time
+        at: 04:00:00
+      - platform: state
+        entity_id: group.household
+        from: not_home
+        to: home
+    action:
+      - delay: 00:30:00
+      - service: notify.mobile_app_sm_g960f
+        data:
+          title: Home Assistant Update
+          message: "Version {{ states.sensor.latest_version.state }} is available!"
+
+  # - id: d4bb6a9b-fb3d-4c78-b457-85840a731e3b
+  #   alias: '[System] Notification to turn off Xbox'
+  #   initial_state: 'on'
+  #   condition:
+  #     - condition: state
+  #       entity_id: sensor.system_xbox_one
+  #       state: Online
+  #   trigger:
+  #     - platform: state
+  #       entity_id: sensor.system_vieratv
+  #       from: Online
+  #       to: Offline
+  #       for: 00:05:00
+  #   action:
+  #     - service: notify.mobile_app_sm_g960f
+  #       data:
+  #         title: Xbox is truned on
+  #         message: "TV is off, turn off Xbox"
 
 
 
