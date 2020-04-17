@@ -20,6 +20,28 @@
     #   brightness: 23
     # light.office_spot_dimmer_level:
     #   state: "off"
+    media_player.master_bedroom:
+      state: standby
+      volume_level: 1.0
+    media_player.lucas_room:
+      state: standby
+      volume_level: 0.7
+    media_player.timo_s_room:
+      state: standby
+      volume_level: 0.7
+    media_player.emilie_s_room:
+      state: standby
+      volume_level: 0.7
+    switch.master_bedroom_do_not_disturb_switch:
+      state: "off"
+    switch.master_bedroom_fire_tv_stick_do_not_disturb_switch:
+      state: "off"  
+    switch.lucas_room_do_not_disturb_switch:
+      state: "off"
+    switch.timo_s_room_do_not_disturb_switch:
+      state: "off"
+    switch.emilie_s_room_do_not_disturb_switch:
+      state: "off"
 
 - id: 1a8eb245-e797-448b-809e-6cd0da75ad24
   name: Work time
@@ -92,16 +114,6 @@
   entities: 
     alarm_control_panel.konnected_alarm:
       state: armed_home
-    switch.master_bedroom_do_not_disturb_switch:
-      state: "on"
-    switch.master_bedroom_fire_tv_stick_do_not_disturb_switch:
-      state: "on"  
-    switch.lucas_room_do_not_disturb_switch:
-      state: "on"
-    switch.timo_s_room_do_not_disturb_switch:
-      state: "on"
-    switch.emilie_s_room_do_not_disturb_switch:
-      state: "on"
     light.living_room_dining_table_dimmer_level:
       state: "off"
     light.living_room_wall_dimmer_level:
@@ -112,6 +124,28 @@
       state: "off"
     light.hallway_light:
       state: "off"
+    media_player.master_bedroom:
+      state: standby
+      volume_level: 0.3
+    media_player.lucas_room:
+      state: standby
+      volume_level: 0.4
+    media_player.timo_s_room:
+      state: standby
+      volume_level: 0.4
+    media_player.emilie_s_room:
+      state: standby
+      volume_level: 0.3
+    switch.master_bedroom_do_not_disturb_switch:
+      state: "on"
+    switch.master_bedroom_fire_tv_stick_do_not_disturb_switch:
+      state: "on"  
+    switch.lucas_room_do_not_disturb_switch:
+      state: "on"
+    switch.timo_s_room_do_not_disturb_switch:
+      state: "on"
+    switch.emilie_s_room_do_not_disturb_switch:
+      state: "on"
 
 - id: 7667fee3-afa3-4797-a79d-777a61f55453
   name: Romance time

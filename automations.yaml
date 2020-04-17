@@ -281,8 +281,9 @@
     alias: "[Alexa] Enable Do Not Disturb"
     initial_state: 'on'
     trigger:
-      - platform: time
-        at: "22:00:00"
+      - platform: state
+        entity_id: alarm_control_panel.konnected_alarm
+        to: armed_home
     action:
       - service: switch.turn_on
         data:
