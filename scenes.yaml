@@ -157,6 +157,8 @@
       state: closed
     switch.master_bedroom_do_not_disturb_switch:
       state: "on"
+    switch.master_bedroom_fire_tv_stick_do_not_disturb_switch:
+      state: "on"  
 
 - id: 28a21e8f-b94f-4229-9a92-7b5417e1bd1b
   name: Emergency
