@@ -20,6 +20,9 @@
     #   brightness: 23
     # light.office_spot_dimmer_level:
     #   state: "off"
+    media_player.living_room:
+      state: standby
+      volume_level: 1.0
     media_player.master_bedroom:
       state: standby
       volume_level: 1.0
@@ -124,6 +127,9 @@
       state: "off"
     light.hallway_light:
       state: "off"
+    media_player.living_room:
+      state: standby
+      volume_level: 1.0
     media_player.master_bedroom:
       state: standby
       volume_level: 0.3

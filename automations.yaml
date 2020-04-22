@@ -1148,6 +1148,11 @@
         data:
           title: Home Assistant Update
           message: "Version {{ states.sensor.latest_version.state }} is available!"
+          data:
+            actions:
+              - action: "URI" # Must be set to URI if you plan to use a URI
+                title: "Open Url"
+                uri: "/hassio/dashboard" # URL to open when action is selected, can also be a lovelace view
 
   # - id: d4bb6a9b-fb3d-4c78-b457-85840a731e3b
   #   alias: '[System] Notification to turn off Xbox'
