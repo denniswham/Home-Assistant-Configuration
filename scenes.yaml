@@ -28,13 +28,13 @@
       volume_level: 1.0
     media_player.lucas_room:
       state: standby
-      volume_level: 0.7
+      volume_level: 0.6
     media_player.timo_s_room:
       state: standby
-      volume_level: 0.7
+      volume_level: 0.6
     media_player.emilie_s_room:
       state: standby
-      volume_level: 0.7
+      volume_level: 0.6
     switch.master_bedroom_do_not_disturb_switch:
       state: "off"
     switch.master_bedroom_fire_tv_stick_do_not_disturb_switch:
@@ -94,6 +94,8 @@
   name: Bed time
   icon: mdi:bed-king
   entities: 
+    alarm_control_panel.konnected_alarm:
+      state: armed_home
     cover.master_bedroom_roller_shutter_level:
       state: open
       current_position: 10
@@ -110,23 +112,6 @@
       state: "off"
     light.hallway_light:
       state: "on"
-
-- id: c16a7d40-ed34-49c2-a488-a8034e9b899d
-  name: Sleep time
-  icon: mdi:sleep
-  entities: 
-    alarm_control_panel.konnected_alarm:
-      state: armed_home
-    light.living_room_dining_table_dimmer_level:
-      state: "off"
-    light.living_room_wall_dimmer_level:
-      state: "off"
-    light.living_room_spot_dimmer_level:
-      state: "off"
-    light.office_spot_dimmer_level:
-      state: "off"
-    light.hallway_light:
-      state: "off"
     media_player.living_room:
       state: standby
       volume_level: 1.0
