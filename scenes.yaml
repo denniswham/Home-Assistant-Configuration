@@ -92,7 +92,7 @@
 
 - id: 0d80f036-53f7-40de-81ff-77ad45bc8150
   name: Bed time
-  icon: mdi:bed-king
+  icon: mdi:sleep
   entities: 
     alarm_control_panel.konnected_alarm:
       state: armed_home
