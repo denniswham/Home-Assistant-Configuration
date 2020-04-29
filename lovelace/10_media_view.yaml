@@ -24,7 +24,7 @@ cards:
       - type: entities
         entities:
           - type: custom:mini-media-player
-            entity: media_player.ue46es6710_ue46es6710
+            entity: media_player.master_bedroom_tv
             icon: mdi:television
             group: true
             artwork: cover
