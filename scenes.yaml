@@ -35,16 +35,6 @@
     media_player.emilie_s_room:
       state: standby
       volume_level: 0.6
-    switch.master_bedroom_do_not_disturb_switch:
-      state: "off"
-    switch.master_bedroom_fire_tv_stick_do_not_disturb_switch:
-      state: "off"  
-    switch.lucas_room_do_not_disturb_switch:
-      state: "off"
-    switch.timo_s_room_do_not_disturb_switch:
-      state: "off"
-    switch.emilie_s_room_do_not_disturb_switch:
-      state: "off"
 
 - id: 1a8eb245-e797-448b-809e-6cd0da75ad24
   name: Work time

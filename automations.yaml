@@ -124,6 +124,14 @@
     action:
       - service: homeassistant.turn_on
         entity_id: script.konnectedstandby
+      - service: homeassistant.turn_off
+        entity_id:
+          - switch.master_bedroom_do_not_disturb_switch
+          - switch.master_bedroom_fire_tv_stick_do_not_disturb_switch
+          - switch.lucas_room_do_not_disturb_switch
+          - switch.timo_s_room_do_not_disturb_switch
+          - switch.emilie_s_room_do_not_disturb_switch
+        
 
   - id: 8efa2a7d-23c9-4bb3-b163-4e1bf820976d
     alias: '[Alarm] Konnected Standby'
