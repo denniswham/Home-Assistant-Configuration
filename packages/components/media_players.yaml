@@ -1,10 +1,10 @@
-panasonic_viera:
-  host: !secret panasonic_viera_host
-  name: Living Room TV
-  turn_on_action:
-    - service: wake_on_lan.send_magic_packet
-      data:
-        mac: !secret panasonic_viera_mac
+# panasonic_viera:
+#   host: !secret panasonic_viera_host
+#   name: Living Room TV
+#   turn_on_action:
+#     - service: wake_on_lan.send_magic_packet
+#       data:
+#         mac: !secret panasonic_viera_mac
 
 samsungtv:
   host: !secret samsungtv_host

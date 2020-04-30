@@ -13,6 +13,7 @@ cards:
   - type: vertical-stack
     cards:
       - type: weather-forecast
+        name: Weather
         entity: weather.lopik_cabauw
       - type: thermostat
         entity: climate.living_room

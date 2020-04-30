@@ -881,6 +881,44 @@
       - service: input_boolean.turn_on
         entity_id: input_boolean.vacation_mode
 
+  - id: 4757886e-74b9-4cfc-b888-845c757fea87
+    alias: '[Power] Washing machine finished'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.washer_on
+        from: "on"
+        to: "off"
+    action:
+      - service: notify.mobile_app_sm_g960f
+        data_template:
+          title: Washing machine
+          message: >
+            The washing machine is finished
+      - service: notify.mobile_app_iphone_van_stephanie
+        data_template:
+          title: Washing machine
+          message: >
+            The washing machine is finished
+
+  - id: e18cf2bf-5c8a-4b4a-8add-10559655b7dd
+    alias: '[Power] Dryer finished'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.dryer_on
+        from: "on"
+        to: "off"
+    action:
+      - service: notify.mobile_app_sm_g960f
+        data_template:
+          title: Dryer
+          message: >
+            The dryer is finished
+      - service: notify.mobile_app_iphone_van_stephanie
+        data_template:
+          title: Dryer
+          message: >
+            The dryer is finished
+
   - id: 2ae00756-b4a9-4068-acc8-c574a8a60fd4
     alias: '[Ring]  Motion in backyard'
     initial_state: 'true'
