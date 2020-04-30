@@ -14,58 +14,10 @@ badges:
 cards:
   - type: vertical-stack
     cards:
-      - type: custom:weather-card
+      - type: weather-forecast
         entity: weather.lopik_cabauw
-        current: true
-        details: false
-        forecast: true
       - type: thermostat
         entity: climate.living_room
-      # - type: horizontal-stack
-      #   cards:
-      #     - type: "custom:button-card"
-      #       entity: scene.rise_and_shine
-      #       icon: mdi:weather-sunset-up
-      #       color: rgb(251, 210, 41)
-      #       name: "Rise 'n shine"
-      #       lock:
-      #         enabled: true
-      #       tap_action:
-      #         action: call-service
-      #         service: scene.turn_on
-      #         service_data:
-      #           entity_id: scene.rise_and_shine
-      #       hold_action:
-      #         action: none
-      #     - type: "custom:button-card"
-      #       entity: scene.relax_time
-      #       icon: mdi:silverware-fork-knife
-      #       color: rgb(135,206,235)
-      #       name: Dinner time
-      #       lock:
-      #         enabled: true
-      #       tap_action:
-      #         action: call-service
-      #         service: scene.turn_on
-      #         service_data:
-      #           entity_id: scene.dinner_time
-      #       hold_action:
-      #         action: none
-      #     - type: "custom:button-card"
-      #       entity: scene.relax_time
-      #       icon: mdi:television
-      #       color: rgb(169,169,169)
-      #       name: Relax time
-      #       lock:
-      #         enabled: true
-      #       tap_action:
-      #         action: call-service
-      #         service: scene.turn_on
-      #         service_data:
-      #           entity_id: scene.relax_time
-      #       hold_action:
-      #         action: none
-
 
   - type: vertical-stack
     cards:
