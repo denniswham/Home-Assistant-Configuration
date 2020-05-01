@@ -28,7 +28,7 @@ browser_mod:
 frontend:
   themes: !include_dir_merge_named ../themes
 
-recorder: !include logging/recorder.yaml
+recorder:
 history: !include logging/history.yaml
 logbook: !include logging/logbook.yaml
 logger: !include logging/logger.yaml
