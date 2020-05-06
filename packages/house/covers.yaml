@@ -7,9 +7,9 @@ homeassistant:
     cover.backyard_sunscreen:
       friendly_name: Backyard Sunscreen
     sensor.lucas_room_roller_shutter_power:
-      friendly_name: Lucas Room Roller Shutter Power  
+      friendly_name: Lucas Room Roller Shutter  
     sensor.master_bedroom_roller_shutter_power:
-      friendly_name: Master Bedroom Roller Shutter Power
+      friendly_name: Master Bedroom Roller Shutter
 
 cover:
   - platform: group

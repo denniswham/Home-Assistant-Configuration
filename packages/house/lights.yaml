@@ -9,42 +9,41 @@ homeassistant:
     light.office_spot_dimmer_level:
       friendly_name: Office Spot Lights
     sensor.living_room_spot_dimmer_power:
-        friendly_name: Living Room Spot Lights Power
+        friendly_name: Living Room Spot Lights
     sensor.living_room_wall_dimmer_power:
-      friendly_name: Living Room Wall Lights Power
+      friendly_name: Living Room Wall Lights
     sensor.living_room_dining_table_dimmer_power:
-      friendly_name: Living Room Dining Table Light Power       
+      friendly_name: Living Room Dining Table Light       
     sensor.office_spot_dimmer_power:
-        friendly_name: Office Spot Lights Power
+        friendly_name: Office Spot Lights
 
-# light:
-#   - platform: group
-#     name: 'Inside lights'
-#     entities:
-#       - light.living_room_spot_dimmer_level
-#       - light.living_room_wall_dimmer_level
-#       - light.living_room_dining_table_dimmer_level  
-#       - light.office_spot_dimmer_level
-#       - light.entryway_light
-#       - light.hallway_light
-#       - light.attic_light
+script:
+  alexa_turn_on_light:
+    alias: '[Alexa] Turn on Light'
+    sequence:
+      - service: light.turn_on
+        data_template:
+          entity_id: >-
+            {# Use the name of each Echo to determine which room the command likely came from. #}
+            {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
 
-#   - platform: group
-#     name: 'Downstairs lights'
-#     entities:
-#       - light.living_room_spot_dimmer_level  
-#       - light.office_spot_dimmer_level
-#       - light.living_room_wall_dimmer_level
-#       - light.living_room_dining_table_dimmer_level  
-#       - light.entryway
+            {%- if room == "master_bedroom" -%}
+              light.master_bedroom_roller_shutter_level
+            {%- elif room == "timo_s_room" -%}
+              light.timo_s_room_desk_light
+            {%- endif -%}
 
-#   - platform: group
-#     name: 'Upstairs lights'
-#     entities:
-#       - light.hallway_light
-#       - light.attic_light
-      
-#   - platform: group
-#     name: 'Outdoor lights'
-#     entities:
-#       - light.backyard_light
+  alexa_turn_off_light:
+    alias: '[Alexa] Turn off Light'
+    sequence:
+      - service: light.turn_off
+        data_template:
+          entity_id: >-
+            {# Use the name of each Echo to determine which room the command likely came from. #}
+            {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
+
+            {%- if room == "master_bedroom" -%}
+              light.master_bedroom_roller_shutter_level
+            {%- elif room == "timo_s_room" -%}
+              light.timo_s_room_desk_light
+            {%- endif -%}
