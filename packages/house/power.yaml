@@ -1,7 +1,7 @@
 binary_sensor:
   - platform: template
     sensors:
-      washer_on:
+      washing_machine_on:
         friendly_name: "Washing machine on"
         device_class: power
         delay_on:
@@ -9,7 +9,7 @@ binary_sensor:
         delay_off: 
           minutes: 2
         value_template: >
-          {{ states('sensor.attic_washer_current_consumption')| float > 10 }}
+          {{ states('sensor.attic_washing_machine_current_consumption')| float > 10 }}
       dryer_on:
         friendly_name: "Dryer on"
         device_class: power
@@ -24,10 +24,3 @@ binary_sensor:
         #   minutes: 2
         value_template: >
           {{ states('sensor.living_room_amplifier_current_consumption')| float > 10 }}
-      desklamp_on:
-        friendly_name: "Desk Lamp on"
-        device_class: power
-        # delay_off:
-        #   minutes: 2
-        value_template: >
-          {{ states('sensor.timo_s_room_desk_lamp_current_consumption')| float > 1 }}

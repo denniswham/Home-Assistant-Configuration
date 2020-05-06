@@ -885,7 +885,7 @@
     alias: '[Power] Washing machine finished'
     trigger:
       - platform: state
-        entity_id: binary_sensor.washer_on
+        entity_id: binary_sensor.washing_machine_on
         from: "on"
         to: "off"
     action:
