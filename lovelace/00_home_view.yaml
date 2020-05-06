@@ -175,5 +175,7 @@ cards:
       - type: glance
         title: Laundry
         entities:
-          - binary_sensor.washing_machine_on
-          - binary_sensor.dryer_on
+          - entity: binary_sensor.washing_machine_on
+            icon: mdi:washing-machine
+          - entity: binary_sensor.dryer_on
+            icon: mdi:tumble-dryer
