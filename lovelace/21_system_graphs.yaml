@@ -100,7 +100,7 @@ cards:
                   icon: false
                 name: Blocked by Filters
                 entities:
-                  - sensor.adguard_dns_queries_blocked
+                  - sensor.adguard_dns_queries_blocked_ratio
                 font_size: 50
                 line_color: "#389638"
           - type: horizontal-stack
@@ -134,7 +134,7 @@ cards:
             - entity_id: sensor.daily_energy_consumption
             - entity_id: sensor.monthly_energy_consumption
             - entity_id: "*_power"
-            - entity_id: "*_consumption"
+            - entity_id: "*_current_consumption"
           exclude:
             - entity_id: "*_2"
             - entity_id: "*_management"
