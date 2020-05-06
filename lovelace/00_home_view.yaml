@@ -172,15 +172,8 @@ cards:
             name: Lucas' Room
             toggle: true
             type: custom:slider-entity-row
-      # - type: horizontal-stack
-      #   cards:
-      #     - type: "custom:button-card"
-      #       entity: input_boolean.vacation_mode
-      #       name: "Vacation Mode"
-      #       lock:
-      #         enabled: true
-      #     - type: "custom:button-card"
-      #       entity: input_boolean.guest_mode
-      #       name: Guest Mode
-      #       lock:
-      #         enabled: true
+      - type: glance
+        title: Laundry
+        entities:
+          - binary_sensor.washing_machine_on
+          - binary_sensor.dryer_on
