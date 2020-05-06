@@ -843,7 +843,7 @@
         value_template: "{{ state_attr('sun.sun', 'elevation') }}"
         below: -3.0
       - condition: time
-        after: '00:00:00'
+        after: '00:00:02'
         before: '12:00:00'
     action:
       service: light.turn_on

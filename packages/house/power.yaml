@@ -9,25 +9,25 @@ binary_sensor:
         delay_off: 
           minutes: 2
         value_template: >
-          {{ states('sensor.wall_plug_washer_power')| float > 10 }}
+          {{ states('sensor.wall_plug_washer_current_consumption')| float > 10 }}
       dryer_on:
         friendly_name: "Dryer on"
         device_class: power
         delay_off:
           minutes: 2
         value_template: >
-          {{ states('sensor.wall_plug_dryer_power')| float > 400 }}
+          {{ states('sensor.wall_plug_dryer_current_consumption')| float > 400 }}
       amplifier_on:
         friendly_name: "Amplifier on"
         device_class: power
         # delay_off:
         #   minutes: 2
         value_template: >
-          {{ states('sensor.wall_plug_amplifier_power')| float > 10 }}
+          {{ states('sensor.wall_plug_amplifier_current_consumption')| float > 10 }}
       desklamp_on:
         friendly_name: "Desk Lamp on"
         device_class: power
         # delay_off:
         #   minutes: 2
         value_template: >
-          {{ states('sensor.wall_plug_desk_lamp_power')| float > 1 }}
+          {{ states('sensor.wall_plug_desk_lamp_current_consumption')| float > 1 }}
