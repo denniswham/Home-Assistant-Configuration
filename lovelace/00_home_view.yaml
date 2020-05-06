@@ -156,9 +156,9 @@ cards:
           - entity: light.hallway_light
             name: Hallway Light
             icon: mdi:ceiling-light
-          - entity: light.hallway_light
-            name: Hallway Light
-            icon: mdi:ceiling-light
+          - entity: light.backyard_light
+            name: Backyard Light
+            icon: mdi:outdoor-lamp
 
       - type: entities
         title: Roller Shutters
