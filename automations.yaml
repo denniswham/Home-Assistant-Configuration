@@ -1205,14 +1205,19 @@
     alias: '[Power] Send notification when amplifier is on when TV is turned off'
     initial_state: 'on'
     condition:
-      - condition: state
-        entity_id: xbox
-        state: Online
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: binary_sensor.amplifier_on
+          state: 'on'
+        - condition: state
+          entity_id: media_player.living_room_xbox_one
+          state: 'on'
     trigger:
       - platform: state
-        entity_id: device_tracker.living_room_tv
-        from: home
-        to: not_home
+        entity_id: binary_sensor.vieratv_on
+        from: 'on'
+        to: 'off'
         for: 00:05:00
     action:
       - service: notify.mobile_app_sm_g960f
