@@ -7,6 +7,8 @@ cards:
   - type: vertical-stack
     cards:
       - type: entities
+        title: Living Room
+        show_header_toggle: false
         entities:
           - entity: binary_sensor.vieratv_on
             icon: mdi:television
@@ -27,6 +29,8 @@ cards:
             hide:
               power_state: false
       - type: entities
+        title: Master Bedroom
+        show_header_toggle: false
         entities:
           - type: custom:mini-media-player
             entity: media_player.master_bedroom_tv
@@ -46,6 +50,8 @@ cards:
   - type: vertical-stack
     cards:
       - type: entities
+        title: Lucas' Room
+        show_header_toggle: false
         entities:
           - type: custom:mini-media-player
             entity: media_player.apple_tv
@@ -56,6 +62,8 @@ cards:
               power_state: false
               progress: true
       - type: entities
+        title: Misc
+        show_header_toggle: false
         entities:
           - type: custom:mini-media-player
             entity: media_player.spotify_115579534
