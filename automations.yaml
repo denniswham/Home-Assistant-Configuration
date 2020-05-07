@@ -1201,24 +1201,23 @@
                 title: "Open Url"
                 uri: "/hassio/dashboard" # URL to open when action is selected, can also be a lovelace view
 
-  # - id: d4bb6a9b-fb3d-4c78-b457-85840a731e3b
-  #   alias: '[System] Notification to turn off Xbox'
-  #   initial_state: 'on'
-  #   condition:
-  #     - condition: state
-  #       entity_id: sensor.system_xbox_one
-  #       state: Online
-  #   trigger:
-  #     - platform: state
-  #       entity_id: sensor.system_vieratv
-  #       from: Online
-  #       to: Offline
-  #       for: 00:05:00
-  #   action:
-  #     - service: notify.mobile_app_sm_g960f
-  #       data:
-  #         title: Xbox is truned on
-  #         message: "TV is off, turn off Xbox"
-
+  - id: ef7a15bf-f601-4e75-9e2a-f3a796d37750
+    alias: '[Power] Send notification when amplifier is on when TV is turned off'
+    initial_state: 'on'
+    condition:
+      - condition: state
+        entity_id: xbox
+        state: Online
+    trigger:
+      - platform: state
+        entity_id: device_tracker.living_room_tv
+        from: home
+        to: not_home
+        for: 00:05:00
+    action:
+      - service: notify.mobile_app_sm_g960f
+        data:
+          title: Xbox is truned on
+          message: "TV is turned off, now turn off amplifier and/or Xbox"
 
 

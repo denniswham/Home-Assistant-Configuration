@@ -8,16 +8,20 @@ cards:
     cards:
       - type: entities
         entities:
-          - type: custom:mini-media-player
-            entity: media_player.living_room_tv
+          - entity: binary_sensor.vieratv_on
             icon: mdi:television
+          - entity: binary_sensor.amplifier_on
+            icon: mdi:amplifier
+          - type: custom:mini-media-player
+            entity: media_player.living_room_fire_tv_stick
+            icon: mdi:amazon-alexa
             group: true
             artwork: cover
             hide:
               power_state: false
           - type: custom:mini-media-player
-            entity: media_player.living_room_fire_tv_stick
-            icon: mdi:amazon-alexa
+            entity: media_player.living_room_xbox_one
+            icon: mdi:microsoft-xbox
             group: true
             artwork: cover
             hide:
