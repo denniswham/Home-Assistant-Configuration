@@ -12,11 +12,14 @@ cards:
         entities:
           - entity: binary_sensor.vieratv_on
             icon: mdi:television
+            name: Television
           - entity: binary_sensor.amplifier_on
             icon: mdi:amplifier
+            name: Audio
           - type: custom:mini-media-player
             entity: media_player.living_room_fire_tv_stick
             icon: mdi:amazon-alexa
+            name: FireTV Stick
             group: true
             artwork: cover
             hide:
@@ -24,6 +27,7 @@ cards:
           - type: custom:mini-media-player
             entity: media_player.living_room_xbox_one
             icon: mdi:microsoft-xbox
+            name: Xbox One
             group: true
             artwork: cover
             hide:
@@ -35,6 +39,7 @@ cards:
           - type: custom:mini-media-player
             entity: media_player.master_bedroom_tv
             icon: mdi:television
+            name: Television
             group: true
             artwork: cover
             hide:
@@ -42,6 +47,7 @@ cards:
           - type: custom:mini-media-player
             entity: media_player.master_bedroom_fire_tv_stick
             icon: mdi:amazon-alexa
+            name: FireTV Stick
             group: true
             artwork: cover
             hide:
@@ -56,6 +62,7 @@ cards:
           - type: custom:mini-media-player
             entity: media_player.apple_tv
             icon: mdi:apple
+            name: Apple TV
             group: true
             artwork: cover
             hide:
