@@ -1222,7 +1222,11 @@
     action:
       - service: notify.mobile_app_sm_g960f
         data:
-          title: Xbox is truned on
-          message: "TV is turned off, now turn off amplifier and/or Xbox"
+          title: TV turned off
+          message: "TV is turned off, dont't forget to turn of the amplifier and/or Xbox"
+      - service: notify.mobile_app_iphone_van_stephanie
+        data:
+          title: TV turned off
+          message: "TV is turned off, dont't forget to turn of the amplifier and/or Xbox"
 
 
