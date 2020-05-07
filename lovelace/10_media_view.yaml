@@ -16,68 +16,35 @@ cards:
           - entity: binary_sensor.amplifier_on
             icon: mdi:amplifier
             name: Audio
-          - type: custom:mini-media-player
-            entity: media_player.living_room_fire_tv_stick
+          - entity: media_player.living_room_fire_tv_stick
             icon: mdi:amazon-alexa
             name: FireTV Stick
-            group: true
-            artwork: cover
-            hide:
-              power_state: false
-          - type: custom:mini-media-player
-            entity: media_player.living_room_xbox_one
+          - entity: media_player.living_room_xbox_one
             icon: mdi:microsoft-xbox
             name: Xbox One
-            group: true
-            artwork: cover
-            hide:
-              power_state: false
       - type: entities
         title: Master Bedroom
         show_header_toggle: false
         entities:
-          - type: custom:mini-media-player
-            entity: media_player.master_bedroom_tv
+          - entity: media_player.master_bedroom_tv
             icon: mdi:television
             name: Television
-            group: true
-            artwork: cover
-            hide:
-              power_state: false
-          - type: custom:mini-media-player
-            entity: media_player.master_bedroom_fire_tv_stick
+          - entity: media_player.master_bedroom_fire_tv_stick
             icon: mdi:amazon-alexa
             name: FireTV Stick
-            group: true
-            artwork: cover
-            hide:
-              power_state: false
-              progress: true
   - type: vertical-stack
     cards:
       - type: entities
         title: Lucas' Room
         show_header_toggle: false
         entities:
-          - type: custom:mini-media-player
-            entity: media_player.apple_tv
+          - entity: media_player.apple_tv
             icon: mdi:apple
             name: Apple TV
-            group: true
-            artwork: cover
-            hide:
-              power_state: false
-              progress: true
       - type: entities
         title: Misc
         show_header_toggle: false
         entities:
-          - type: custom:mini-media-player
-            entity: media_player.spotify_115579534
+          - entity: media_player.spotify_115579534
             name: Spotify
             icon: mdi:spotify
-            group: true
-            artwork: cover
-            hide:
-              power_state: false
-              progress: true
