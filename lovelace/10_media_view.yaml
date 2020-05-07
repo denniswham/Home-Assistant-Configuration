@@ -16,20 +16,24 @@ cards:
           - entity: binary_sensor.amplifier_on
             icon: mdi:amplifier
             name: Audio
-          - entity: media_player.living_room_fire_tv_stick
+          - type: custom:mini-media-player
+            entity: media_player.living_room_fire_tv_stick
             icon: mdi:amazon-alexa
             name: FireTV Stick
-          - entity: media_player.living_room_xbox_one
+          - type: custom:mini-media-player
+            entity: media_player.living_room_xbox_one
             icon: mdi:microsoft-xbox
             name: Xbox One
       - type: entities
         title: Master Bedroom
         show_header_toggle: false
         entities:
-          - entity: media_player.master_bedroom_tv
+          - type: custom:mini-media-player
+            entity: media_player.master_bedroom_tv
             icon: mdi:television
             name: Television
-          - entity: media_player.master_bedroom_fire_tv_stick
+          - type: custom:mini-media-player
+            entity: media_player.master_bedroom_fire_tv_stick
             icon: mdi:amazon-alexa
             name: FireTV Stick
   - type: vertical-stack
@@ -38,13 +42,15 @@ cards:
         title: Lucas' Room
         show_header_toggle: false
         entities:
-          - entity: media_player.apple_tv
+          - type: custom:mini-media-player
+            entity: media_player.apple_tv
             icon: mdi:apple
             name: Apple TV
       - type: entities
         title: Misc
         show_header_toggle: false
         entities:
-          - entity: media_player.spotify_115579534
+          - type: custom:mini-media-player
+            entity: media_player.spotify_115579534
             name: Spotify
             icon: mdi:spotify
