@@ -14,9 +14,9 @@ binary_sensor:
         friendly_name: "Dryer"
         device_class: power
         delay_off:
-          minutes: 1
+          minutes: 5
         value_template: >
-          {{ states('sensor.attic_dryer_current_consumption')| float > 400 }}
+          {{ states('sensor.attic_dryer_current_consumption')| float > 150 }}
       vieratv_on:
         friendly_name: 'Living Room TV'
         device_class: power
