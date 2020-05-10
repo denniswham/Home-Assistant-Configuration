@@ -1083,10 +1083,10 @@
           entity_id: group.household
           state: 'home'
     action:
-      - service: notify.mobile_app_sm_g960f
-        data:
-          message: 'It seems like everyone is asleep'
-          title: 'Good night!'
+      # - service: notify.mobile_app_sm_g960f
+      #   data:
+      #     message: 'It seems like everyone is asleep'
+      #     title: 'Good night!'
       - service: input_select.select_option
         data:
           entity_id: input_select.house_mode

@@ -1,14 +1,14 @@
 shelly:
-  username: !secret shelly_username
-  password: !secret shelly_password
-  cloud_auth_key: !secret shelly_cloud_auth_key
-  cloud_server: !secret shelly_cloud_server
-  upgrade_switch: true
+  # username: !secret shelly_username
+  # password: !secret shelly_password
+  # cloud_auth_key: !secret shelly_cloud_auth_key
+  # cloud_server: !secret shelly_cloud_server
+  # upgrade_switch: true
   
-  devices:  #configure devices
-    - id: F27A0A
-      light_switch: true
-    - id: F2F9BF
-      light_switch: true
-    - id: 8016cb
-      light_switch: true
+  # devices:  #configure devices
+  #   - id: F27A0A
+  #     light_switch: true
+  #   - id: F2F9BF
+  #     light_switch: true
+  #   - id: 8016cb
+  #     light_switch: true
