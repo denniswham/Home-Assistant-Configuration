@@ -765,6 +765,9 @@
       - condition: state
         entity_id: input_boolean.guest_mode
         state: 'off'
+      - condition: state
+        entity_id: sun.sun
+        state: 'above_horizon'        
     action:
       - service: homeassistant.turn_off
         entity_id: light.inside_lights
@@ -784,14 +787,8 @@
         entity_id: sun.sun
         state: below_horizon
     action:
-      - service: light.turn_on
-        data:
-          entity_id: light.living_room_dining_table_dimmer_level
-          brightness: 95
-      - service: light.turn_on
-        data:
-          entity_id: light.living_room_wall_dimmer_level
-          brightness: 108
+      - service: scene.turn_on
+        entity_id: scene.dinner_time  
 
   - id: 11e9f0f4a-99b9-427c-85f7-b703a564a511
     alias: '[Lights] Turn off hallway and attic light after 10 minutes'
