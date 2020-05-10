@@ -157,7 +157,7 @@ cards:
             name: Backyard Light
             icon: mdi:outdoor-lamp
           - entity: light.backyard_light_2
-            name: Backyard Light
+            name: Backyard Light 2
             icon: mdi:outdoor-lamp
 
       - type: entities
