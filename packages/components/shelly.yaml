@@ -10,5 +10,5 @@ shelly:
       light_switch: true
     - id: F2F9BF
       light_switch: true
-    - id: 8016CB
+    - id: 8016cb
       light_switch: true

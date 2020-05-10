@@ -150,13 +150,13 @@ cards:
             icon: mdi:mdi:spotlight
             toggle: true
             hide_when_off: false
-          - entity: light.timo_s_room_desk_light
-            name: Timo's Room Desk Lamp
-            icon: mdi:desk-lamp
           - entity: light.hallway_light
             name: Hallway Light
             icon: mdi:ceiling-light
           - entity: light.backyard_light
+            name: Backyard Light
+            icon: mdi:outdoor-lamp
+          - entity: light.backyard_light_2
             name: Backyard Light
             icon: mdi:outdoor-lamp
 
