@@ -817,13 +817,9 @@
     action:
       service: light.turn_on
       data_template:
-        entity_id: >
-          {% if (as_timestamp(now()) as_timestamp(states.binary_sensor.backyard_motion.last_changed)) > 1800 %}
-            light.backyard_light
-          {% else %}
-            light.backyard_light
-            light.backyard_light_2
-          {% endif %}
+        entity_id: "{%- if states.binary_sensor.backyard_motion.last_changed -%}\n\
+            \  {{ (as_timestamp(now()) - as_timestamp(states.binary_sensor.backyard_motion.last_changed))\
+            \ > 1800 }}\n  light.backyard_light\n{%- else -%}\n  light.backyard_light_2\n{%- endif -%}\n"
 
   - id: 1802426d-6f61-4dde-ab2c-5cd3b5233243
     alias: '[Lights] Turn off backyard lights at midnight'
