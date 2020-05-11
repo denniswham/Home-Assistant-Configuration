@@ -8,7 +8,7 @@ cards:
     cards:
       - type: entities
         title: Living Room
-        show_header_toggle: false
+        show_header_toggle: true
         entities:
           - entity: binary_sensor.vieratv_on
             icon: mdi:television
