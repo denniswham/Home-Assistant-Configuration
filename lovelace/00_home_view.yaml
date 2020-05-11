@@ -172,9 +172,9 @@ cards:
             name: Lucas' Room
             toggle: true
             type: custom:slider-entity-row
-      - type: glance
+      - type: entities
         title: Laundry
-        columns: 2
+        show_header_toggle: false
         entities:
           - entity: binary_sensor.washing_machine_on
             icon: mdi:washing-machine
