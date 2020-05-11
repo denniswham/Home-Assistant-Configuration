@@ -246,6 +246,7 @@
             ttl: 86400
             priority: high      
             channel: Alarm
+            sticky: 'true'
 
   - id: 583df5d2-69c7-49e2-93a2-0c49d936b0fb
     alias: '[Alarm] Pending alarm'
@@ -917,7 +918,7 @@
           title: Washing machine
           message: The washing machine is finished
           data:
-             channel: Laundry
+            channel: Laundry
       - service: notify.mobile_app_iphone_van_stephanie
         data_template:
           title: Washing machine
@@ -936,7 +937,7 @@
           title: Tumble Dryer
           message: The tumble dryer is finished
           data:
-             channel: Laundry
+            channel: Laundry
       - service: notify.mobile_app_iphone_van_stephanie
         data_template:
           title: Tumble Dryer
@@ -1110,6 +1111,7 @@
       #     title: 'Good night!'
           # data:
           #    channel: Alarm
+          #    sticky: 'true'
       - service: input_select.select_option
         data:
           entity_id: input_select.house_mode
@@ -1147,7 +1149,8 @@
           message: Smoke detected
           title: Nest Protect
           data:
-             channel: Alarm
+            channel: Alarm
+            sticky: 'true'
 
   - id: a3f8f81e-db50-480b-87a5-146530934099
     alias: '[Nest] CO Detected'
@@ -1181,7 +1184,8 @@
           message: CO detected
           title: Nest Protect
           data:
-             channel: Alarm
+            channel: Alarm
+            sticky: 'true'
 
   - id: d28bb847-8061-473b-b632-7a7d684cee78
     alias: '[Nest] Turn on lights with an emergency'
@@ -1228,10 +1232,7 @@
           title: Home Assistant Update
           message: "Version {{ states.sensor.latest_version.state }} is available!"
           data:
-            actions:
-              - action: "URI" # Must be set to URI if you plan to use a URI
-                title: "Open Url"
-                uri: "/hassio/dashboard" # URL to open when action is selected, can also be a lovelace view
+             clickAction: "/hassio/dashboard"
 
   - id: ef7a15bf-f601-4e75-9e2a-f3a796d37750
     alias: '[Power] Send notification when amplifier is on when TV is turned off'
