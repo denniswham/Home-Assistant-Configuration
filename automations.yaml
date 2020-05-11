@@ -754,23 +754,23 @@
           message: >
             Automations turned on again
 
-  - id: 9664f92b-26b9-4cc0-a422-4a03382a86a1
-    alias: '[Lights] Turn off all lights when away'
-    trigger:
-      - platform: state
-        entity_id: group.household
-        from: home
-        to: not_home
-    condition:
-      - condition: state
-        entity_id: input_boolean.guest_mode
-        state: 'off'
-      - condition: state
-        entity_id: sun.sun
-        state: 'above_horizon'        
-    action:
-      - service: homeassistant.turn_off
-        entity_id: light.inside_lights
+  # - id: 9664f92b-26b9-4cc0-a422-4a03382a86a1
+  #   alias: '[Lights] Turn off all lights when away'
+  #   trigger:
+  #     - platform: state
+  #       entity_id: group.household
+  #       from: home
+  #       to: not_home
+  #   condition:
+  #     - condition: state
+  #       entity_id: input_boolean.guest_mode
+  #       state: 'off'
+  #     - condition: state
+  #       entity_id: sun.sun
+  #       state: 'above_horizon'        
+  #   action:
+  #     - service: homeassistant.turn_off
+  #       entity_id: light.inside_lights
 
   - id: e4519647-e24b-4f1b-8682-51aaa8ce4576
     alias: '[Lights] Turn on lights when arriving home at night'
@@ -813,20 +813,41 @@
       entity_id: sun.sun
       value_template: "{{ state_attr('sun.sun', 'elevation') }}"
       below: -2.0
-    condition:
     action:
       service: light.turn_on
       data_template:
-        entity_id: "{%- if states.binary_sensor.backyard_motion.last_changed -%}\n\
-            \  {{ (as_timestamp(now()) - as_timestamp(states.binary_sensor.backyard_motion.last_changed))\
-            \ > 1800 }}\n  light.backyard_light\n{%- else -%}\n  light.backyard_light_2\n{%- endif -%}\n"
+        entity_id: >
+          {% if (as_timestamp(now()) - as_timestamp(states.binary_sensor.backyard_motion.last_changed)) > 1800 %}
+            light.backyard_light
+          {% else %}
+            light.backyard_light, light.backyard_light_2
+          {% endif %}
+
+  - id: 0e58a3aa-8e64-4b24-bdba-b32dd6a68322
+    alias: '[Lights] Turn off backyard light 2 after 30 minutes no motion'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.backyard_motion
+        from: "on"
+        to: "off"
+        for: "00:30:00"
+    condition:
+      - condition: numeric_state
+        entity_id: sun.sun
+        value_template: "{{ state_attr('sun.sun', 'elevation') }}"
+        below: -2.0
+      - condition: time
+        before: '00:00:00'
+    action:
+      service: light.turn_off
+      entity_id:
+        - light.backyard_light_2
 
   - id: 1802426d-6f61-4dde-ab2c-5cd3b5233243
     alias: '[Lights] Turn off backyard lights at midnight'
     trigger:
       platform: time
       at: "00:00:00"
-    condition:
     action:
       service: light.turn_off
       entity_id:
@@ -845,8 +866,7 @@
         value_template: "{{ state_attr('sun.sun', 'elevation') }}"
         below: -2.0
       - condition: time
-        after: '00:00:02'
-        before: '12:00:00'
+        after: '00:00:00'
     action:
       service: light.turn_on
       entity_id:
@@ -867,7 +887,6 @@
         below: -2.0
       - condition: time
         after: '00:00:00'
-        before: '12:00:00'
     action:
       service: light.turn_off
       entity_id:
@@ -895,11 +914,11 @@
         from: "on"
         to: "off"
     action:
-      - service: notify.mobile_app_sm_g960f
-        data_template:
-          title: Washing machine
-          message: >
-            The washing machine is finished
+      # - service: notify.mobile_app_sm_g960f
+      #   data_template:
+      #     title: Washing machine
+      #     message: >
+      #       The washing machine is finished
       - service: notify.mobile_app_iphone_van_stephanie
         data_template:
           title: Washing machine

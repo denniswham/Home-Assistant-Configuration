@@ -1,4 +1,4 @@
-shelly:
+# shelly:
   # username: !secret shelly_username
   # password: !secret shelly_password
   # cloud_auth_key: !secret shelly_cloud_auth_key
