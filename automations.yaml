@@ -245,6 +245,7 @@
             tag: konnected-alarm-notification
             ttl: 86400
             priority: high      
+            channel: Alarm
 
   - id: 583df5d2-69c7-49e2-93a2-0c49d936b0fb
     alias: '[Alarm] Pending alarm'
@@ -708,13 +709,11 @@
       - service: notify.mobile_app_sm_g960f
         data_template:
           title: Guest Mode is still turned on
-          message: >
-            Do you want to turn it off so that automations start working again?
+          message: Do you want to turn it off so that automations start working again?
       - service: notify.mobile_app_iphone_van_stephanie
         data_template:
           title: Guest Mode is still turned on
-          message: >
-            Do you want to turn it off so that automations start working again?
+          message: Do you want to turn it off so that automations start working again?
 
   - id: 0fbfb0c5-7e5e-4964-8447-ebff3202d9c4
     alias: '[House] Guest Mode On'
@@ -727,13 +726,11 @@
       - service: notify.mobile_app_sm_g960f
         data_template:
           title: Guest mode on
-          message: >
-            Some automations turned off
+          message: Some automations turned off
       - service: notify.mobile_app_iphone_van_stephanie
         data_template:
           title: Guest mode on
-          message: >
-            Some automations turned off
+          message: Some automations turned off
 
   - id: 380b5572-0d01-4a26-a61a-53cc9a1d679f
     alias: '[House] Guest Mode Off'
@@ -746,13 +743,11 @@
       - service: notify.mobile_app_sm_g960f
         data_template:
           title: Guest mode off
-          message: >
-            Automations turned on again
+          message: Automations turned on again
       - service: notify.mobile_app_iphone_van_stephanie
         data_template:
           title: Guest mode off
-          message: >
-            Automations turned on again
+          message: Automations turned on again
 
   # - id: 9664f92b-26b9-4cc0-a422-4a03382a86a1
   #   alias: '[Lights] Turn off all lights when away'
@@ -837,6 +832,7 @@
         value_template: "{{ state_attr('sun.sun', 'elevation') }}"
         below: -2.0
       - condition: time
+        after: '16:30:00'
         before: '00:00:00'
     action:
       service: light.turn_off
@@ -866,7 +862,8 @@
         value_template: "{{ state_attr('sun.sun', 'elevation') }}"
         below: -2.0
       - condition: time
-        after: '00:00:00'
+        after: '00:00:01'
+        before: '08:30:00'
     action:
       service: light.turn_on
       entity_id:
@@ -886,7 +883,8 @@
         value_template: "{{ state_attr('sun.sun', 'elevation') }}"
         below: -2.0
       - condition: time
-        after: '00:00:00'
+        after: '00:00:01'
+        before: '08:30:00'
     action:
       service: light.turn_off
       entity_id:
@@ -914,16 +912,16 @@
         from: "on"
         to: "off"
     action:
-      # - service: notify.mobile_app_sm_g960f
-      #   data_template:
-      #     title: Washing machine
-      #     message: >
-      #       The washing machine is finished
+      - service: notify.mobile_app_sm_g960f
+        data_template:
+          title: Washing machine
+          message: The washing machine is finished
+          data:
+             channel: Laundry
       - service: notify.mobile_app_iphone_van_stephanie
         data_template:
           title: Washing machine
-          message: >
-            The washing machine is finished
+          message: The washing machine is finished
 
   - id: e18cf2bf-5c8a-4b4a-8add-10559655b7dd
     alias: '[Power] Tumble Dryer finished'
@@ -936,13 +934,13 @@
       - service: notify.mobile_app_sm_g960f
         data_template:
           title: Tumble Dryer
-          message: >
-            The tumble dryer is finished
+          message: The tumble dryer is finished
+          data:
+             channel: Laundry
       - service: notify.mobile_app_iphone_van_stephanie
         data_template:
           title: Tumble Dryer
-          message: >
-            The tumble dryer is finished
+          message: The tumble dryer is finished
 
   - id: 2ae00756-b4a9-4068-acc8-c574a8a60fd4
     alias: '[Ring]  Motion in backyard'
@@ -980,6 +978,7 @@
             tag: ring_alert
             ttl: 86400
             priority: high      
+            channel: Alarm
 
   - id: 6afbd950-7db2-44df-8eb4-d6c46d57f7af
     alias: '[Ring] Low Battery Notification'
@@ -1004,6 +1003,8 @@
         data_template:
           message: "{{ trigger.to_state.name }} reported low battery, please charge."
           title: Ring Battery Low
+          data:
+             channel: Battery
 
   - id: 18bb3b86-f2d8-47d9-908a-b6f1555a15e9
     alias: '[Ring] Play doorbell chime on Echos'
@@ -1107,6 +1108,8 @@
       #   data:
       #     message: 'It seems like everyone is asleep'
       #     title: 'Good night!'
+          # data:
+          #    channel: Alarm
       - service: input_select.select_option
         data:
           entity_id: input_select.house_mode
@@ -1137,12 +1140,14 @@
     action:
       - service: persistent_notification.create
         data_template:
-          message: "Smoke detected"
+          message: Smoke detected
           title: Nest Protect
       - service: notify.mobile_app_sm_g960f
         data_template:
-          message: "Smoke detected"
+          message: Smoke detected
           title: Nest Protect
+          data:
+             channel: Alarm
 
   - id: a3f8f81e-db50-480b-87a5-146530934099
     alias: '[Nest] CO Detected'
@@ -1169,12 +1174,14 @@
     action:
       - service: persistent_notification.create
         data_template:
-          message: "CO detected"
+          message: CO detected
           title: Nest Protect
       - service: notify.mobile_app_sm_g960f
         data_template:
-          message: "CO detected"
+          message: CO detected
           title: Nest Protect
+          data:
+             channel: Alarm
 
   - id: d28bb847-8061-473b-b632-7a7d684cee78
     alias: '[Nest] Turn on lights with an emergency'
@@ -1217,7 +1224,7 @@
     action:
       - delay: 00:30:00
       - service: notify.mobile_app_sm_g960f
-        data:
+        data_template:
           title: Home Assistant Update
           message: "Version {{ states.sensor.latest_version.state }} is available!"
           data:
@@ -1248,10 +1255,10 @@
       - service: notify.mobile_app_sm_g960f
         data:
           title: TV turned off
-          message: "TV is turned off, dont't forget to turn of the amplifier and/or Xbox"
+          message: TV is turned off, dont't forget to turn of the amplifier and/or Xbox
       - service: notify.mobile_app_iphone_van_stephanie
         data:
           title: TV turned off
-          message: "TV is turned off, dont't forget to turn of the amplifier and/or Xbox"
+          message: TV is turned off, dont't forget to turn of the amplifier and/or Xbox
 
 
