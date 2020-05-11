@@ -174,8 +174,13 @@ cards:
             type: custom:slider-entity-row
       - type: glance
         title: Laundry
+        columns: 2
         entities:
           - entity: binary_sensor.washing_machine_on
             icon: mdi:washing-machine
+          - entity: switch.attic_washing_machine
+            icon: mdi:power-socket-eu
           - entity: binary_sensor.dryer_on
             icon: mdi:tumble-dryer
+          - entity: switch.attic_dryer
+            icon: mdi:power-socket-eu
