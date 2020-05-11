@@ -15,9 +15,10 @@ cards:
             name: Television
           - entity: binary_sensor.amplifier_on
             icon: mdi:amplifier
-            name: Audio
+            name: Amplifier
           - entity: switch.living_room_amplifier
             icon: mdi:power-socket-eu
+            name: Amplifier Power Socket
           - type: custom:mini-media-player
             entity: media_player.living_room_fire_tv_stick
             icon: mdi:amazon-alexa

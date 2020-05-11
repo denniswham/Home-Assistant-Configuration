@@ -926,7 +926,7 @@
             The washing machine is finished
 
   - id: e18cf2bf-5c8a-4b4a-8add-10559655b7dd
-    alias: '[Power] Dryer finished'
+    alias: '[Power] Tumble Dryer finished'
     trigger:
       - platform: state
         entity_id: binary_sensor.dryer_on
@@ -935,14 +935,14 @@
     action:
       - service: notify.mobile_app_sm_g960f
         data_template:
-          title: Dryer
+          title: Tumble Dryer
           message: >
-            The dryer is finished
+            The tumble dryer is finished
       - service: notify.mobile_app_iphone_van_stephanie
         data_template:
-          title: Dryer
+          title: Tumble Dryer
           message: >
-            The dryer is finished
+            The tumble dryer is finished
 
   - id: 2ae00756-b4a9-4068-acc8-c574a8a60fd4
     alias: '[Ring]  Motion in backyard'
