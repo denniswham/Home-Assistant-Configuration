@@ -812,13 +812,16 @@
       platform: numeric_state
       entity_id: sun.sun
       value_template: "{{ state_attr('sun.sun', 'elevation') }}"
-      below: -3.0
+      below: -2.0
     condition:
     action:
       service: light.turn_on
-      entity_id:
-        - light.backyard_light
-        - light.backyard_light_2
+      data_template:
+        entity_id:
+          - light.backyard_light
+          - "{%- if states.binary_sensor.backyard_motion.last_changed -%}\n\
+              \  {{ (as_timestamp(now()) - as_timestamp(states.binary_sensor.backyard_motion.last_changed))\
+              \ < 1800 }}\n  light.backyard_light_2\n{%- endif -%}\n"
 
   - id: 1802426d-6f61-4dde-ab2c-5cd3b5233243
     alias: '[Lights] Turn off backyard lights at midnight'
@@ -842,7 +845,7 @@
       - condition: numeric_state
         entity_id: sun.sun
         value_template: "{{ state_attr('sun.sun', 'elevation') }}"
-        below: -3.0
+        below: -2.0
       - condition: time
         after: '00:00:02'
         before: '12:00:00'
@@ -863,7 +866,7 @@
       - condition: numeric_state
         entity_id: sun.sun
         value_template: "{{ state_attr('sun.sun', 'elevation') }}"
-        below: -3.0
+        below: -2.0
       - condition: time
         after: '00:00:00'
         before: '12:00:00'
