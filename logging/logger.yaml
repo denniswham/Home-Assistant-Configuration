@@ -1,9 +1,9 @@
 default: warning
 logs:
   homeassistant.components.device_tracker: error
-  homeassistant.components.http.view: error
-  homeassistant.components.apple_tv.media_player: error
-  homeassistant.components.waze_travel_time.sensor: error
+  homeassistant.components.http: error
+  homeassistant.components.apple_tv: error
+  homeassistant.components.waze_travel_time: error
   homeassistant.components.konnected: error
-  custom_components.xboxone.media_player: debug
+  custom_components.xboxone: debug
   custom_components.alexa_media: error
