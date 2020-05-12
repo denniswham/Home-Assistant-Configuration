@@ -238,15 +238,12 @@
           title: Konnected
           message: Your alarm was activated
           data:
-            actions:
-              - action: open
-                icon: "/local/icons/konnected.png"
-                title: Open Home Assistant
-            tag: konnected-alarm-notification
-            ttl: 86400
+            ttl: 0
             priority: high      
             channel: Alarm
+            tag: alarm
             sticky: 'true'
+            color: 'red'
 
   - id: 583df5d2-69c7-49e2-93a2-0c49d936b0fb
     alias: '[Alarm] Pending alarm'
@@ -666,35 +663,35 @@
             - cover.master_bedroom_roller_shutter_level
             - cover.lucas_room_roller_shutter_level
 
-  - id: c209375b-d473-4d56-8f02-41c3146eae35
-    alias: '[Covers] Open when smoke or CO detected'
-    initial_state: 'true'
-    condition:
-    trigger:
-      - platform: state
-        entity_id: sensor.entryway_nest_protect_smoke_status
-        from: 'ok'
-      - platform: state
-        entity_id: sensor.entryway_nest_protect_co_status
-        from: 'ok'
-      - platform: state
-        entity_id: sensor.hallway_nest_protect_smoke_status
-        from: 'ok'
-      - platform: state
-        entity_id: sensor.hallway_nest_protect_co_status
-        from: 'ok'
-      - platform: state
-        entity_id: sensor.attic_nest_protect_smoke_status
-        from: 'ok'
-      - platform: state
-        entity_id: sensor.attic_nest_protect_co_status
-        from: 'ok'
-    action:
-      - service: cover.open_cover
-        data:
-          entity_id:
-            - cover.master_bedroom_roller_shutter_level
-            - cover.lucas_room_roller_shutter_level
+  # - id: c209375b-d473-4d56-8f02-41c3146eae35
+  #   alias: '[Covers] Open when smoke or CO detected'
+  #   initial_state: 'true'
+  #   condition:
+  #   trigger:
+  #     - platform: state
+  #       entity_id: sensor.entryway_nest_protect_smoke_status
+  #       from: 'ok'
+  #     - platform: state
+  #       entity_id: sensor.entryway_nest_protect_co_status
+  #       from: 'ok'
+  #     - platform: state
+  #       entity_id: sensor.hallway_nest_protect_smoke_status
+  #       from: 'ok'
+  #     - platform: state
+  #       entity_id: sensor.hallway_nest_protect_co_status
+  #       from: 'ok'
+  #     - platform: state
+  #       entity_id: sensor.attic_nest_protect_smoke_status
+  #       from: 'ok'
+  #     - platform: state
+  #       entity_id: sensor.attic_nest_protect_co_status
+  #       from: 'ok'
+  #   action:
+  #     - service: cover.open_cover
+  #       data:
+  #         entity_id:
+  #           - cover.master_bedroom_roller_shutter_level
+  #           - cover.lucas_room_roller_shutter_level
 
   - id: 050a6124-23bb-4f5b-acde-e23e1c69361b
     alias: '[House] Reminder Guest Mode on'
@@ -919,6 +916,7 @@
           message: The washing machine is finished
           data:
             channel: Laundry
+            tag: laundry
       - service: notify.mobile_app_iphone_van_stephanie
         data_template:
           title: Washing machine
@@ -938,6 +936,7 @@
           message: The tumble dryer is finished
           data:
             channel: Laundry
+            tag: laundry
       - service: notify.mobile_app_iphone_van_stephanie
         data_template:
           title: Tumble Dryer
@@ -972,14 +971,9 @@
           title: Ring
           message: There is motion at your backyard
           data:
-            actions:
-              - action: open
-                icon: "/local/icons/konnected.png"
-                title: Open Home Assistant
-            tag: ring_alert
-            ttl: 86400
-            priority: high      
-            channel: Alarm
+            tag: motion
+            channel: Motion
+            clickAction: '/lovelace/camera'
 
   - id: 6afbd950-7db2-44df-8eb4-d6c46d57f7af
     alias: '[Ring] Low Battery Notification'
@@ -1005,7 +999,8 @@
           message: "{{ trigger.to_state.name }} reported low battery, please charge."
           title: Ring Battery Low
           data:
-             channel: Battery
+            tag: alert
+            channel: Alert
 
   - id: 18bb3b86-f2d8-47d9-908a-b6f1555a15e9
     alias: '[Ring] Play doorbell chime on Echos'
@@ -1110,7 +1105,8 @@
       #     message: 'It seems like everyone is asleep'
       #     title: 'Good night!'
           # data:
-          #    channel: Alarm
+          #    channel: Alert
+          #    tag: alert
           #    sticky: 'true'
       - service: input_select.select_option
         data:
@@ -1140,6 +1136,11 @@
         entity_id: sensor.attic_nest_protect_smoke_status
         to: warning
     action:
+      - service: cover.open_cover
+        data:
+          entity_id:
+            - cover.master_bedroom_roller_shutter_level
+            - cover.lucas_room_roller_shutter_level
       - service: persistent_notification.create
         data_template:
           message: Smoke detected
@@ -1149,8 +1150,12 @@
           message: Smoke detected
           title: Nest Protect
           data:
+            ttl: 0
+            priority: high      
             channel: Alarm
+            tag: alarm
             sticky: 'true'
+            color: 'red'
 
   - id: a3f8f81e-db50-480b-87a5-146530934099
     alias: '[Nest] CO Detected'
@@ -1175,6 +1180,11 @@
         entity_id: sensor.attic_nest_protect_co_status
         to: warning
     action:
+      - service: cover.open_cover
+        data:
+          entity_id:
+            - cover.master_bedroom_roller_shutter_level
+            - cover.lucas_room_roller_shutter_level
       - service: persistent_notification.create
         data_template:
           message: CO detected
@@ -1184,8 +1194,12 @@
           message: CO detected
           title: Nest Protect
           data:
+            ttl: 0
+            priority: high      
             channel: Alarm
+            tag: alarm
             sticky: 'true'
+            color: 'red'
 
   - id: d28bb847-8061-473b-b632-7a7d684cee78
     alias: '[Nest] Turn on lights with an emergency'
