@@ -1276,4 +1276,29 @@
           title: TV turned off
           message: TV is turned off, dont't forget to turn of the amplifier and/or Xbox
 
-
+  - id: c93f7aa4-2fd8-4088-88b3-8f07226a7fc5
+    alias: '[House] Turn on Rise and Shine scene in the morning'
+    condition:
+      - condition: template
+        value_template: "{%- if binary_sensor.entryway.last_changed -%}\n\
+            \  {{ (as_timestamp(now()) - as_timestamp(states.binary_sensor.entryway.last_changed))\
+            \ > 14400 }}\n{%- else -%}\n  true\n{%- endif -%}\n"
+      - condition: time
+        after: '06:00:00'
+        before: '10:00:00'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.entryway
+        from: 'off'
+        to: 'on'
+    action:
+      - service: scene.turn_on
+        entity_id: scene.rise_and_shine
+      - delay:
+          seconds: 30
+      - service: media_player.play_media
+        data:
+          entity_id: media_player.living_room
+          media_content_id: good morning
+          media_content_type: routine
+        

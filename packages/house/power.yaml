@@ -5,9 +5,9 @@ binary_sensor:
         friendly_name: "Washing Machine"
         device_class: power
         delay_on:
-          minutes: 2
+          minutes: 1
         delay_off: 
-          minutes: 2
+          minutes: 1
         value_template: >
           {{ states('sensor.attic_washing_machine_current_consumption')| float > 10 }}
       dryer_on:
