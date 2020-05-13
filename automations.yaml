@@ -244,6 +244,11 @@
             tag: alarm
             sticky: 'true'
             color: 'red'
+            push:
+            thread-id: "alarm"
+            presentation_options:
+              - alert
+              - badge
 
   - id: 583df5d2-69c7-49e2-93a2-0c49d936b0fb
     alias: '[Alarm] Pending alarm'
@@ -705,13 +710,19 @@
         at: "06:00:00"
     action:
       - service: notify.mobile_app_sm_g960f
-        data_template:
+        data:
           title: Guest Mode is still turned on
           message: Do you want to turn it off so that automations start working again?
+          data:
+            channel: Alert
+            tag: alert
       - service: notify.mobile_app_iphone_van_stephanie
         data_template:
           title: Guest Mode is still turned on
           message: Do you want to turn it off so that automations start working again?
+          data:
+            push:
+              thread-id: "alert"
 
   - id: 0fbfb0c5-7e5e-4964-8447-ebff3202d9c4
     alias: '[House] Guest Mode On'
@@ -725,10 +736,16 @@
         data_template:
           title: Guest mode on
           message: Some automations turned off
+          data:
+            channel: Alert
+            tag: alert
       - service: notify.mobile_app_iphone_van_stephanie
         data_template:
           title: Guest mode on
           message: Some automations turned off
+          data:
+            push:
+              thread-id: "alert"
 
   - id: 380b5572-0d01-4a26-a61a-53cc9a1d679f
     alias: '[House] Guest Mode Off'
@@ -739,13 +756,20 @@
         to: 'off'
     action:
       - service: notify.mobile_app_sm_g960f
-        data_template:
+        data:
           title: Guest mode off
           message: Automations turned on again
+          data:
+            channel: Alert
+            tag: alert
       - service: notify.mobile_app_iphone_van_stephanie
         data_template:
           title: Guest mode off
           message: Automations turned on again
+          data:
+            push:
+              thread-id: "alert"
+
 
   # - id: 9664f92b-26b9-4cc0-a422-4a03382a86a1
   #   alias: '[Lights] Turn off all lights when away'
@@ -910,17 +934,20 @@
         from: "on"
         to: "off"
     action:
-      - service: notify.mobile_app_sm_g960f
-        data_template:
+      # - service: notify.mobile_app_sm_g960f
+      #   data:
+      #     title: Washing machine
+      #     message: The washing machine is finished
+      #     data:
+      #       channel: Laundry
+      #       tag: laundry
+      - service: notify.mobile_app_iphone_van_stephanie
+        data:
           title: Washing machine
           message: The washing machine is finished
           data:
-            channel: Laundry
-            tag: laundry
-      - service: notify.mobile_app_iphone_van_stephanie
-        data_template:
-          title: Washing machine
-          message: The washing machine is finished
+            push:
+              thread-id: "laundry"
 
   - id: e18cf2bf-5c8a-4b4a-8add-10559655b7dd
     alias: '[Power] Tumble Dryer finished'
@@ -930,17 +957,20 @@
         from: "on"
         to: "off"
     action:
-      - service: notify.mobile_app_sm_g960f
-        data_template:
+      # - service: notify.mobile_app_sm_g960f
+      #   data:
+      #     title: Tumble Dryer
+      #     message: The tumble dryer is finished
+      #     data:
+      #       channel: Laundry
+      #       tag: laundry
+      - service: notify.mobile_app_iphone_van_stephanie
+        data:
           title: Tumble Dryer
           message: The tumble dryer is finished
           data:
-            channel: Laundry
-            tag: laundry
-      - service: notify.mobile_app_iphone_van_stephanie
-        data_template:
-          title: Tumble Dryer
-          message: The tumble dryer is finished
+            push:
+              thread-id: "laundry"
 
   - id: 2ae00756-b4a9-4068-acc8-c574a8a60fd4
     alias: '[Ring]  Motion in backyard'
@@ -974,6 +1004,8 @@
             tag: motion
             channel: Motion
             clickAction: '/lovelace/camera'
+            push:
+              thread-id: "motion"
 
   - id: 6afbd950-7db2-44df-8eb4-d6c46d57f7af
     alias: '[Ring] Low Battery Notification'
@@ -1012,7 +1044,7 @@
     condition:
     action:
       - service: media_player.play_media
-        data_template:
+        data:
           media_content_id: 'amzn_sfx_doorbell_chime_02'
           media_content_type: sound  
         entity_id: 
@@ -1113,6 +1145,32 @@
           entity_id: input_select.house_mode
           option: Night
 
+  - id: c93f7aa4-2fd8-4088-88b3-8f07226a7fc5
+    alias: '[House] Turn on Rise and Shine scene in the morning'
+    condition:
+      - condition: template
+        value_template: "{%- if binary_sensor.entryway.last_changed -%}\n\
+            \  {{ (as_timestamp(now()) - as_timestamp(states.binary_sensor.entryway.last_changed))\
+            \ > 14400 }}\n{%- else -%}\n  true\n{%- endif -%}\n"
+      - condition: time
+        after: '06:00:00'
+        before: '10:00:00'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.entryway
+        from: 'off'
+        to: 'on'
+    action:
+      - service: scene.turn_on
+        entity_id: scene.rise_and_shine
+      - delay:
+          seconds: 30
+      - service: media_player.play_media
+        data:
+          entity_id: media_player.living_room
+          media_content_id: good morning
+          media_content_type: routine
+
   - id: f1ac429c-e0c6-4859-a3a1-d271136334fa
     alias: '[Nest] Smoke Detected'
     initial_state: 'on'
@@ -1142,11 +1200,11 @@
             - cover.master_bedroom_roller_shutter_level
             - cover.lucas_room_roller_shutter_level
       - service: persistent_notification.create
-        data_template:
+        data:
           message: Smoke detected
           title: Nest Protect
       - service: notify.mobile_app_sm_g960f
-        data_template:
+        data:
           message: Smoke detected
           title: Nest Protect
           data:
@@ -1186,11 +1244,11 @@
             - cover.master_bedroom_roller_shutter_level
             - cover.lucas_room_roller_shutter_level
       - service: persistent_notification.create
-        data_template:
+        data:
           message: CO detected
           title: Nest Protect
       - service: notify.mobile_app_sm_g960f
-        data_template:
+        data:
           message: CO detected
           title: Nest Protect
           data:
@@ -1246,7 +1304,10 @@
           title: Home Assistant Update
           message: "Version {{ states.sensor.latest_version.state }} is available!"
           data:
-             clickAction: "/hassio/dashboard"
+            clickAction: "/hassio/dashboard"
+            channel: General
+            tag: general
+
 
   - id: ef7a15bf-f601-4e75-9e2a-f3a796d37750
     alias: '[Power] Send notification when amplifier is on when TV is turned off'
@@ -1271,34 +1332,17 @@
         data:
           title: TV turned off
           message: TV is turned off, dont't forget to turn of the amplifier and/or Xbox
+          data:
+            channel: Alert
+            tag: alert
       - service: notify.mobile_app_iphone_van_stephanie
         data:
           title: TV turned off
           message: TV is turned off, dont't forget to turn of the amplifier and/or Xbox
-
-  - id: c93f7aa4-2fd8-4088-88b3-8f07226a7fc5
-    alias: '[House] Turn on Rise and Shine scene in the morning'
-    condition:
-      - condition: template
-        value_template: "{%- if binary_sensor.entryway.last_changed -%}\n\
-            \  {{ (as_timestamp(now()) - as_timestamp(states.binary_sensor.entryway.last_changed))\
-            \ > 14400 }}\n{%- else -%}\n  true\n{%- endif -%}\n"
-      - condition: time
-        after: '06:00:00'
-        before: '10:00:00'
-    trigger:
-      - platform: state
-        entity_id: binary_sensor.entryway
-        from: 'off'
-        to: 'on'
-    action:
-      - service: scene.turn_on
-        entity_id: scene.rise_and_shine
-      - delay:
-          seconds: 30
-      - service: media_player.play_media
-        data:
-          entity_id: media_player.living_room
-          media_content_id: good morning
-          media_content_type: routine
+          data:
+            push:
+              thread-id: "alert"
+              presentation_options:
+                - alert
+                - badge
         
