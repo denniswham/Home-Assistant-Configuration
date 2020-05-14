@@ -1151,7 +1151,7 @@
       - condition: template
         value_template: "{%- if binary_sensor.entryway.last_changed -%}\n\
             \  {{ (as_timestamp(now()) - as_timestamp(states.binary_sensor.entryway.last_changed))\
-            \ < 300 }}\n{%- else -%}\n  true\n{%- endif -%}\n"
+            \ > 30 }}\n{%- else -%}\n  true\n{%- endif -%}\n"
       - condition: time
         after: '06:00:00'
         before: '10:00:00'
