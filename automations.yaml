@@ -668,36 +668,6 @@
             - cover.master_bedroom_roller_shutter_level
             - cover.lucas_room_roller_shutter_level
 
-  # - id: c209375b-d473-4d56-8f02-41c3146eae35
-  #   alias: '[Covers] Open when smoke or CO detected'
-  #   initial_state: 'true'
-  #   condition:
-  #   trigger:
-  #     - platform: state
-  #       entity_id: sensor.entryway_nest_protect_smoke_status
-  #       from: 'ok'
-  #     - platform: state
-  #       entity_id: sensor.entryway_nest_protect_co_status
-  #       from: 'ok'
-  #     - platform: state
-  #       entity_id: sensor.hallway_nest_protect_smoke_status
-  #       from: 'ok'
-  #     - platform: state
-  #       entity_id: sensor.hallway_nest_protect_co_status
-  #       from: 'ok'
-  #     - platform: state
-  #       entity_id: sensor.attic_nest_protect_smoke_status
-  #       from: 'ok'
-  #     - platform: state
-  #       entity_id: sensor.attic_nest_protect_co_status
-  #       from: 'ok'
-  #   action:
-  #     - service: cover.open_cover
-  #       data:
-  #         entity_id:
-  #           - cover.master_bedroom_roller_shutter_level
-  #           - cover.lucas_room_roller_shutter_level
-
   - id: 050a6124-23bb-4f5b-acde-e23e1c69361b
     alias: '[House] Reminder Guest Mode on'
     initial_state: 'on'
@@ -985,9 +955,9 @@
         - condition: state
           entity_id: alarm_control_panel.konnected_alarm
           state: armed_away
-        - condition: state
-          entity_id: alarm_control_panel.konnected_alarm
-          state: armed_home
+        - condition: time
+          after: '00:00:00'
+          before: '07:00:00'
     action:
       - service: notify.alexa_media
         data:

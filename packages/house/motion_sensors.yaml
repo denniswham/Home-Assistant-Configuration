@@ -1,1 +1,9 @@
-         
+sensor:
+  - platform: history_stats
+    name: Entryway Motion Trigger Count
+    entity_id: binary_sensor.entryway
+    state: 'on'
+    type: count
+    start: '{{ now().replace(hour=6, minute=0, second=0) }}'
+    duration:
+      hours: 4
