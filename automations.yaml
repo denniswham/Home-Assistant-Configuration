@@ -1118,8 +1118,9 @@
   - id: c93f7aa4-2fd8-4088-88b3-8f07226a7fc5
     alias: '[House] Turn on Rise and Shine scene in the morning'
     condition:
-      - condition: template
-        value_template: "{{ (as_timestamp(now()) - as_timestamp(states.binary_sensor.entryway.last_changed)) > 14400 }}"
+      - condition: numeric_state
+        entity_id: sensor.entryway_motion_trigger_count
+        below: 1
       - condition: time
         after: '06:00:00'
         before: '10:00:00'
@@ -1131,13 +1132,13 @@
     action:
       - service: scene.turn_on
         entity_id: scene.rise_and_shine
-      - delay:
-          seconds: 30
-      - service: media_player.play_media
-        data:
-          entity_id: media_player.living_room
-          media_content_id: good morning
-          media_content_type: routine
+      # - delay:
+      #     seconds: 30
+      # - service: media_player.play_media
+      #   data:
+      #     entity_id: media_player.living_room
+      #     media_content_id: good morning
+      #     media_content_type: routine
 
   - id: f1ac429c-e0c6-4859-a3a1-d271136334fa
     alias: '[Nest] Smoke Detected'
