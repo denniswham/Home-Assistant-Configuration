@@ -124,14 +124,6 @@
     action:
       - service: homeassistant.turn_on
         entity_id: script.konnectedstandby
-      - service: homeassistant.turn_off
-        entity_id:
-          - switch.master_bedroom_do_not_disturb_switch
-          - switch.master_bedroom_fire_tv_stick_do_not_disturb_switch
-          - switch.lucas_room_do_not_disturb_switch
-          - switch.timo_s_room_do_not_disturb_switch
-          - switch.emilie_s_room_do_not_disturb_switch
-        
 
   - id: 8efa2a7d-23c9-4bb3-b163-4e1bf820976d
     alias: '[Alarm] Konnected Standby'
@@ -943,7 +935,7 @@
               thread-id: "laundry"
 
   - id: 2ae00756-b4a9-4068-acc8-c574a8a60fd4
-    alias: '[Ring]  Motion in backyard'
+    alias: '[Motion]  Motion in backyard at night'
     initial_state: 'true'
     trigger:
       - platform: state
@@ -978,7 +970,7 @@
               thread-id: "motion"
 
   - id: 6afbd950-7db2-44df-8eb4-d6c46d57f7af
-    alias: '[Ring] Low Battery Notification'
+    alias: '[Alert] Low Battery Notification'
     initial_state: 'on'
     trigger:
       - platform: numeric_state
@@ -1005,7 +997,8 @@
             channel: Alert
 
   - id: 18bb3b86-f2d8-47d9-908a-b6f1555a15e9
-    alias: '[Ring] Play doorbell chime on Echos'
+    alias: '[Alert] Play doorbell chime on Echos'
+    initial_state: 'on'
     trigger:
       - platform: state
         entity_id: binary_sensor.front_door_ding
@@ -1018,7 +1011,6 @@
           media_content_id: 'amzn_sfx_doorbell_chime_02'
           media_content_type: sound  
         entity_id: 
-          - media_player.living_room
           - media_player.master_bedroom
           - media_player.lucas_room
           - media_player.timo_s_room
@@ -1028,7 +1020,7 @@
   ##  Set to evening               ##
   ###################################
   - id: e684aed6-800b-42c3-8614-3f0079958a8e
-    alias: '[House] Day Mode To Evening'
+    alias: '[General] Day Mode To Evening'
     initial_state: 'on'
     trigger:
       - platform: sun
@@ -1046,7 +1038,7 @@
   ###################################
 
   - id: 1d88c7c6-2720-4854-a2d3-9d48e36171a9
-    alias: '[House] Day Mode To Morning'
+    alias: '[General] Day Mode To Morning'
     initial_state: 'on'
     trigger:
       - platform: sun
@@ -1080,7 +1072,7 @@
   ###################################
 
   - id: 126f8a12-ce80-45e7-a064-4764643ab0b7
-    alias: '[House] Day Mode To Night'
+    alias: '[General] Day Mode To Night'
     initial_state: 'on'
     trigger:
       - platform: state
@@ -1116,7 +1108,7 @@
           option: Night
 
   - id: c93f7aa4-2fd8-4088-88b3-8f07226a7fc5
-    alias: '[House] Turn on Rise and Shine scene in the morning'
+    alias: '[General] Turn on Rise and Shine scene in the morning'
     condition:
       - condition: numeric_state
         entity_id: sensor.entryway_motion_trigger_count
@@ -1141,7 +1133,7 @@
       #     media_content_type: routine
 
   - id: f1ac429c-e0c6-4859-a3a1-d271136334fa
-    alias: '[Nest] Smoke Detected'
+    alias: '[Alarm] Smoke Detected'
     initial_state: 'on'
     trigger:
       - platform: state
@@ -1185,7 +1177,7 @@
             color: 'red'
 
   - id: a3f8f81e-db50-480b-87a5-146530934099
-    alias: '[Nest] CO Detected'
+    alias: '[Alarm] CO Detected'
     initial_state: 'on'
     trigger:
       - platform: state
@@ -1229,7 +1221,7 @@
             color: 'red'
 
   - id: d28bb847-8061-473b-b632-7a7d684cee78
-    alias: '[Nest] Turn on lights with an emergency'
+    alias: '[Alarm] Turn on lights with an emergency'
     trigger:
       - platform: state
         entity_id: sensor.entryway_nest_protect_smoke_status
@@ -1254,7 +1246,7 @@
         entity_id: scene.emergency
 
   - id: d7132414-4610-41a6-9830-8080b980447f
-    alias: '[System] Update Notifications'
+    alias: '[General] Update Notifications'
     initial_state: 'on'
     condition:
       - condition: template
@@ -1279,7 +1271,7 @@
 
 
   - id: ef7a15bf-f601-4e75-9e2a-f3a796d37750
-    alias: '[Power] Send notification when amplifier is on when TV is turned off'
+    alias: '[Alert] Send notification when amplifier is on when TV is turned off'
     initial_state: 'on'
     condition:
       condition: or
