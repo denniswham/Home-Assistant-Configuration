@@ -24,13 +24,7 @@ core
 google_calendars.yaml
 ip_bans.yaml
 known_devices.yaml
-options.xml
-OZW_Log.txt
-pyozw.sqlite
 secrets.yaml
-zwcfg_*
-zwscene.xml
-zwave_device_config.yaml
 
 # ESPHome ignores
 esphome/secrets.yaml

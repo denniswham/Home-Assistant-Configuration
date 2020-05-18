@@ -37,7 +37,6 @@ exclude:
     - sensor
     - switch
     - weather
-    - zwave
   entities:
     - automation.system_device_status
     - automation.system_request_location_update
