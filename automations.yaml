@@ -754,10 +754,8 @@
   - id: d558b383-921e-4740-bafd-9a888b45fa9a
     alias: '[Lights] Turn on backyard lights when dark outside'
     trigger:
-      platform: numeric_state
-      entity_id: sun.sun
-      value_template: "{{ state_attr('sun.sun', 'elevation') }}"
-      below: -2.0
+      platform: sun
+      event: sunset
     action:
       service: light.turn_on
       data_template:
@@ -777,10 +775,9 @@
         to: "off"
         for: "00:30:00"
     condition:
-      - condition: numeric_state
+      - condition: state 
         entity_id: sun.sun
-        value_template: "{{ state_attr('sun.sun', 'elevation') }}"
-        below: -2.0
+        state: below_horizon
       - condition: time
         after: '16:30:00'
         before: '00:00:00'
@@ -807,10 +804,9 @@
         entity_id: binary_sensor.backyard_motion
         to: 'on'
     condition:
-      - condition: numeric_state
+      - condition: state 
         entity_id: sun.sun
-        value_template: "{{ state_attr('sun.sun', 'elevation') }}"
-        below: -2.0
+        state: below_horizon
       - condition: time
         after: '00:00:01'
         before: '08:30:00'
@@ -828,10 +824,9 @@
         to: 'off'
         for: "00:10:00"
     condition:
-      - condition: numeric_state
+      - condition: state 
         entity_id: sun.sun
-        value_template: "{{ state_attr('sun.sun', 'elevation') }}"
-        below: -2.0
+        state: below_horizon
       - condition: time
         after: '00:00:01'
         before: '08:30:00'
