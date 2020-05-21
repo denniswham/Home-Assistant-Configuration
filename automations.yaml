@@ -5,27 +5,16 @@
       - condition: state
         entity_id: input_boolean.guest_mode
         state: 'off'
-      - condition: template
-        value_template: "{%- if states.automation.alarm_disarm_konnected_from_away.attributes.last_triggered\
-          \ -%}\n  {{ (as_timestamp(now()) - as_timestamp(states.automation.alarm_disarm_konnected_from_away.attributes.last_triggered))\
-          \ > 240 }}\n{%- else -%}\n  true\n{%- endif -%}\n"
-      - condition: template
-        value_template: '{{ states(''alarm_control_panel.konnected_alarm'') != ''armed_away'' 
-          }}'
-      - condition: template
-        value_template: '{{ states(''alarm_control_panel.konnected_alarm'') == ''disarmed''
-          }}'
+      - condition: not
+        conditions:
+          - condition: state
+            entity_id: alarm_control_panel.konnected_alarm
+            state: armed_away
     trigger:
       - platform: state
         entity_id: group.household
         from: home
         to: not_home
-      - platform: state
-        entity_id: group.household
-        from: home
-        to: not_home
-        for:
-          minutes: 5
     action:
       - service: input_select.select_option
         data:
@@ -46,6 +35,15 @@
   - id: f586bfa3-cec3-4881-8cbb-bb2ceb9aea62
     alias: '[Alarm] Deactivate siren'
     initial_state: 'true'
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: switch.siren
+          state: 'on'
+        - condition: state
+          entity_id: switch.backyard_siren
+          state: 'on'
     trigger:
       - platform: state
         entity_id: alarm_control_panel.konnected_alarm
@@ -93,10 +91,6 @@
       - condition: state
         entity_id: input_boolean.guest_mode
         state: 'off'
-      - condition: template
-        value_template: "{%- if states.automation.alarm_arm_konnected.attributes.last_triggered\
-          \ -%}\n  {{ (as_timestamp(now()) - as_timestamp(states.automation.alarm_arm_konnected.attributes.last_triggered))\
-          \ > 240 }}\n{%- else -%}\n  true\n{%- endif -%}\n"
     trigger:
       - platform: state
         entity_id: group.household
@@ -527,10 +521,6 @@
       - condition: state
         entity_id: sun.sun
         state: above_horizon
-      - condition: template
-        value_template: "{%- if states.automation.covers_close_when_leaving.attributes.last_triggered\
-          \ -%}\n  {{ (as_timestamp(now()) - as_timestamp(states.automation.covers_close_when_leaving.attributes.last_triggered))\
-          \ > 240 }}\n{%- else -%}\n  true\n{%- endif -%}\n"
     trigger:
       - platform: state
         entity_id: group.household
@@ -556,10 +546,6 @@
       - condition: state
         entity_id: sun.sun
         state: below_horizon
-      - condition: template
-        value_template: "{%- if states.automation.covers_close_when_leaving.attributes.last_triggered\
-          \ -%}\n  {{ (as_timestamp(now()) - as_timestamp(states.automation.covers_close_when_leaving.attributes.last_triggered))\
-          \ > 240 }}\n{%- else -%}\n  true\n{%- endif -%}\n"
     trigger:
       - platform: state
         entity_id: group.household
@@ -580,14 +566,6 @@
       - condition: state
         entity_id: input_boolean.guest_mode
         state: 'off'
-      - condition: template
-        value_template: "{%- if states.automation.covers_open_when_arriving_at_daytime.attributes.last_triggered\
-          \ -%}\n  {{ (as_timestamp(now()) - as_timestamp(states.automation.covers_open_when_arriving_at_daytime.attributes.last_triggered))\
-          \ > 240 }}\n{%- else -%}\n  true\n{%- endif -%}\n"
-      - condition: template
-        value_template: "{%- if states.automation.covers_open_when_arriving_at_night.attributes.last_triggered\
-          \ -%}\n  {{ (as_timestamp(now()) - as_timestamp(states.automation.covers_open_when_arriving_at_night.attributes.last_triggered))\
-          \ > 240 }}\n{%- else -%}\n  true\n{%- endif -%}\n"
     trigger:
       - platform: state
         entity_id: group.household
@@ -607,14 +585,6 @@
       - condition: state
         entity_id: input_boolean.guest_mode
         state: 'off'
-      - condition: template
-        value_template: "{%- if states.automation.covers_open_when_arriving_at_daytime.attributes.last_triggered\
-          \ -%}\n  {{ (as_timestamp(now()) - as_timestamp(states.automation.covers_open_when_arriving_at_daytime.attributes.last_triggered))\
-          \ > 240 }}\n{%- else -%}\n  true\n{%- endif -%}\n"
-      - condition: template
-        value_template: "{%- if states.automation.covers_open_when_arriving_at_night.attributes.last_triggered\
-          \ -%}\n  {{ (as_timestamp(now()) - as_timestamp(states.automation.covers_open_when_arriving_at_night.attributes.last_triggered))\
-          \ > 240 }}\n{%- else -%}\n  true\n{%- endif -%}\n"
     trigger:
       - platform: numeric_state
         entity_id: sensor.br_temperature
@@ -697,25 +667,6 @@
           data:
             push:
               thread-id: "alert"
-
-
-  # - id: 9664f92b-26b9-4cc0-a422-4a03382a86a1
-  #   alias: '[Lights] Turn off all lights when away'
-  #   trigger:
-  #     - platform: state
-  #       entity_id: group.household
-  #       from: home
-  #       to: not_home
-  #   condition:
-  #     - condition: state
-  #       entity_id: input_boolean.guest_mode
-  #       state: 'off'
-  #     - condition: state
-  #       entity_id: sun.sun
-  #       state: 'above_horizon'        
-  #   action:
-  #     - service: homeassistant.turn_off
-  #       entity_id: light.inside_lights
 
   - id: e4519647-e24b-4f1b-8682-51aaa8ce4576
     alias: '[Lights] Turn on lights when arriving home at night'
