@@ -1,13 +1,13 @@
-homeassistant:
-  customize:
-    switch.siren:
-      friendly_name: Alarm Siren
-      icon: mdi:alarm-bell
-    alarm_control_panel.konnected_alarm:
-      friendly_name: Home Alarm
-      entity_picture: "/local/icons/konnected.png"
-    alarm_control_panel.alexa_guard_7514f:
-      friendly_name: Alexa Guard
+# homeassistant:
+#   customize:
+#     switch.siren:
+#       friendly_name: Alarm Siren
+#       icon: mdi:alarm-bell
+#     alarm_control_panel.konnected_alarm:
+#       friendly_name: Home Alarm
+#       entity_picture: "/local/icons/konnected.png"
+#     alarm_control_panel.alexa_guard_7514f:
+#       friendly_name: Alexa Guard
 
 alarm_control_panel:
   - platform: manual
