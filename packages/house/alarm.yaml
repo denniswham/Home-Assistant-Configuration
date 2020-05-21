@@ -12,10 +12,10 @@ homeassistant:
 alarm_control_panel:
   - platform: manual
     name: Konnected Alarm
-    arming_time: 0   # 60
-    delay_time: 20   # 60
-    trigger_time: 300   # 120
-#     disarm_after_trigger: 'false'
+    arming_time: 0
+    delay_time: 0
+    trigger_time: 300
+    disarm_after_trigger: 'false'
     disarmed:
       trigger_time: 0
     armed_home:
@@ -31,3 +31,8 @@ script:
         entity_id:
           - alarm_control_panel.konnected_alarm
           - alarm_control_panel.alexa_guard_7514f
+      - service: switch.turn_off
+        entity_id: switch.siren
+      - service: switch.turn_off
+        entity_id: switch.backyard_siren
+

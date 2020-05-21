@@ -16,6 +16,10 @@
         from: home
         to: not_home
     action:
+      - service: switch.turn_off
+        entity_id: switch.siren
+      - service: switch.turn_off
+        entity_id: switch.backyard_siren
       - service: input_select.select_option
         data:
           entity_id: alarm_control_panel.konnected_alarm
@@ -32,31 +36,31 @@
           - group.alexa
           message: I'll start guarding now
 
-  - id: f586bfa3-cec3-4881-8cbb-bb2ceb9aea62
-    alias: '[Alarm] Deactivate siren'
-    initial_state: 'true'
-    condition:
-      condition: or
-      conditions:
-        - condition: state
-          entity_id: switch.siren
-          state: 'on'
-        - condition: state
-          entity_id: switch.backyard_siren
-          state: 'on'
-    trigger:
-      - platform: state
-        entity_id: alarm_control_panel.konnected_alarm
-        to: triggered
-        for: 00:20:00
-      - platform: state
-        entity_id: alarm_control_panel.konnected_alarm
-        to: disarmed
-    action:
-      - service: switch.turn_off
-        entity_id: switch.siren
-      - service: switch.turn_off
-        entity_id: switch.backyard_siren
+  # - id: f586bfa3-cec3-4881-8cbb-bb2ceb9aea62
+  #   alias: '[Alarm] Deactivate siren'
+  #   initial_state: 'true'
+  #   condition:
+  #     condition: or
+  #     conditions:
+  #       - condition: state
+  #         entity_id: switch.siren
+  #         state: 'on'
+  #       - condition: state
+  #         entity_id: switch.backyard_siren
+  #         state: 'on'
+  #   trigger:
+  #     - platform: state
+  #       entity_id: alarm_control_panel.konnected_alarm
+  #       to: triggered
+  #       for: 00:20:00
+  #     - platform: state
+  #       entity_id: alarm_control_panel.konnected_alarm
+  #       to: disarmed
+  #   action:
+  #     - service: switch.turn_off
+  #       entity_id: switch.siren
+  #     - service: switch.turn_off
+  #       entity_id: switch.backyard_siren
 
   - id: 2d57cc0c-7317-486f-a2f2-b755c59ac660
     alias: '[Alarm] Disarm Konnected at night'
@@ -78,7 +82,7 @@
         zone: zone.home
         event: enter
     action:
-      - service: homeassistant.turn_on
+      - service: script.turn_on
         entity_id: script.konnectedstandby
 
   - id: d4ce8893-a219-499b-bd45-18a2bc5bc6c2
@@ -97,7 +101,7 @@
         from: not_home
         to: home
     action:
-      - service: homeassistant.turn_on
+      - service: script.turn_on
         entity_id: script.konnectedstandby
 
   - id: b937f244-4e93-4ab7-9310-a1c77a7c05d4
@@ -116,7 +120,7 @@
       - platform: time
         at: 06:00:00
     action:
-      - service: homeassistant.turn_on
+      - service: script.turn_on
         entity_id: script.konnectedstandby
 
   - id: 8efa2a7d-23c9-4bb3-b163-4e1bf820976d
@@ -134,10 +138,6 @@
         - condition: state
           entity_id: input_boolean.guest_mode
           state: 'off'
-        - condition: template
-          value_template: "{%- if states.alarm_control_panel.konnected_alarm.last_changed -%}\n\
-            \  {{ (as_timestamp(now()) - as_timestamp(states.alarm_control_panel.konnected_alarm.last_changed))\
-            \ > 300 }}\n{%- else -%}\n  true\n{%- endif -%}\n"
         - condition: or
           conditions:
           - condition: state
@@ -151,7 +151,7 @@
         minutes: /10
         seconds: 0
     action:
-      - service: homeassistant.turn_on
+      - service: script.turn_on
         entity_id: script.konnectedstandby
 
   - id: 72a6ac29-9e75-4f47-a22b-407609b26ee9
@@ -177,20 +177,11 @@
         entity_id: binary_sensor.backyard_motion
         to: 'on'
     condition:
-      condition: or
+      condition: not
       conditions:
         - condition: state
           entity_id: alarm_control_panel.konnected_alarm
-          state: armed_away
-        - condition: state
-          entity_id: alarm_control_panel.konnected_alarm
-          state: armed_home
-        - condition: state
-          entity_id: alarm_control_panel.konnected_alarm
-          state: pending
-        - condition: state
-          entity_id: alarm_control_panel.konnected_alarm
-          state: triggered
+          state: disarmed
     action:
       - service: logbook.log
         data_template:
@@ -241,19 +232,12 @@
     initial_state: 'true'
     trigger:
       - platform: state
-        entity_id: binary_sensor.entryway
-        to: 'on'
-      - platform: state
-        entity_id: binary_sensor.kitchen
-        to: 'on'
-      - platform: state
-        entity_id: binary_sensor.living_room
-        to: 'on'
-      - platform: state
-        entity_id: binary_sensor.office
-        to: 'on'
-      - platform: state
-        entity_id: binary_sensor.garage
+        entity_id:
+          - binary_sensor.entryway
+          - binary_sensor.kitchen
+          - binary_sensor.living_room
+          - binary_sensor.office
+          - binary_sensor.garage
         to: 'on'
     condition:
       condition: or
@@ -279,9 +263,11 @@
     alias: '[Climate] Cancel thermostat ETA'
     initial_state: 'true'
     condition:
-      - condition: template
-        value_template: '{{ states.sensor.retsinagaard_eta != "1970-01-01 00:00:00+00:00"
-          }}'
+      - condition: not
+        conditions:
+          - condition: state
+            entity_id: sensor.retsinagaard_eta
+            state: "1970-01-01 00:00:00+00:00"
     trigger:
       - platform: state
         entity_id: group.household
@@ -296,7 +282,7 @@
           trip_id: ETA set by HAS
           structure:
             - Retsinagaard
-      - service: homeassistant.turn_on
+      - service: switch.turn_on
         data_template:
           entity_id: "{%- if states('switch.living_room_away') == 'on' -%}\n  switch.living_room_away\n\
             {%- endif -%}\n"
@@ -315,7 +301,7 @@
         minutes: /5
         seconds: 0
     action:
-      - service: homeassistant.turn_off
+      - service: switch.turn_off
         data_template:
           entity_id: "{%- if states('switch.living_room_away') == 'on' -%}\n  switch.living_room_away\n\
             {%- endif -%}\n"
@@ -336,7 +322,7 @@
         minutes: /5
         seconds: 0
     action:
-      - service: homeassistant.turn_on
+      - service: switch.turn_on
         data_template:
           entity_id: "{%- if states('switch.living_room_away') == 'off' -%}\n  switch.living_room_away\n\
             {%- endif -%}\n"
@@ -787,7 +773,6 @@
         - light.backyard_light
         - light.backyard_light_2
 
-  # Automation I use to turn on vacation mode
   - id: 27c20369-e108-462b-8c62-84999df3499c
     alias: '[Mockupancy] Turn on vacation mode'
     trigger:
@@ -928,9 +913,6 @@
           - media_player.timo_s_room
           - media_player.emilie_s_room
 
-  ###################################
-  ##  Set to evening               ##
-  ###################################
   - id: e684aed6-800b-42c3-8614-3f0079958a8e
     alias: '[General] Day Mode To Evening'
     initial_state: 'on'
@@ -945,10 +927,6 @@
           entity_id: input_select.house_mode
           option: Evening
 
-  ###################################
-  ##  Set to morning               ##
-  ###################################
-
   - id: 1d88c7c6-2720-4854-a2d3-9d48e36171a9
     alias: '[General] Day Mode To Morning'
     initial_state: 'on'
@@ -961,10 +939,6 @@
         data:
           entity_id: input_select.house_mode
           option: Morning
-
-  # ###################################
-  # ##  Set to day                   ##
-  # ###################################
 
   - id: 1ee5fa81-d1a5-4f97-9941-61ca679d745c
     alias: '[House] Day Mode To Day'
@@ -979,10 +953,6 @@
           entity_id: input_select.house_mode
           option: Day
 
-  ###################################
-  ##  Set to night                 ##
-  ###################################
-
   - id: 126f8a12-ce80-45e7-a064-4764643ab0b7
     alias: '[General] Day Mode To Night'
     initial_state: 'on'
@@ -996,12 +966,9 @@
         - condition: state
           entity_id: input_select.house_mode
           state: 'Evening'
-        ## Has to be between 22 and 06
         - condition: time
           after: '22:00:00'
           before: '06:00:00'
-
-        # ## Someone has to be home
         - condition: state
           entity_id: group.household
           state: 'home'
@@ -1010,10 +977,10 @@
       #   data:
       #     message: 'It seems like everyone is asleep'
       #     title: 'Good night!'
-          # data:
-          #    channel: Alert
-          #    tag: alert
-          #    sticky: 'true'
+      #     data:
+      #        channel: Alert
+      #        tag: alert
+      #        sticky: 'true'
       - service: input_select.select_option
         data:
           entity_id: input_select.house_mode
@@ -1036,13 +1003,13 @@
     action:
       - service: scene.turn_on
         entity_id: scene.rise_and_shine
-      # - delay:
-      #     seconds: 30
-      # - service: media_player.play_media
-      #   data:
-      #     entity_id: media_player.living_room
-      #     media_content_id: good morning
-      #     media_content_type: routine
+      - delay:
+          seconds: 30
+      - service: media_player.play_media
+        data:
+          entity_id: media_player.living_room
+          media_content_id: good morning
+          media_content_type: routine
 
   - id: f1ac429c-e0c6-4859-a3a1-d271136334fa
     alias: '[Alarm] Smoke Detected'
