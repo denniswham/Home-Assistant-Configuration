@@ -20,10 +20,6 @@
         entity_id: switch.siren
       - service: switch.turn_off
         entity_id: switch.backyard_siren
-      - service: input_select.select_option
-        data:
-          entity_id: alarm_control_panel.konnected_alarm
-          option: armed_away
       - service: alarm_control_panel.alarm_arm_away
         entity_id:
           - alarm_control_panel.konnected_alarm
