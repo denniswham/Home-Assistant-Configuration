@@ -891,7 +891,7 @@
 
   - id: 18bb3b86-f2d8-47d9-908a-b6f1555a15e9
     alias: '[Alert] Play doorbell chime on Echos'
-    initial_state: 'on'
+    initial_state: 'off'
     trigger:
       - platform: state
         entity_id: binary_sensor.front_door_ding
