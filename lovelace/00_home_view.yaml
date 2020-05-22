@@ -126,32 +126,27 @@ cards:
         title: Lights
         show_header_toggle: true
         entities:
-          - entity: light.living_room_dining_table_dimmer_level
-            name: Dining Table
+          - entity: light.shelly_shdm_1_d17b0e
             type: custom:slider-entity-row
             icon: mdi:globe-light
             toggle: true
             hide_when_off: false
-          - entity: light.living_room_wall_dimmer_level
-            name: Wall lights
+          - entity: light.shelly_shdm_1_d48409
             type: custom:slider-entity-row
             icon: mdi:wall-sconce-flat
             toggle: true
             hide_when_off: false
-          - entity: light.living_room_spot_dimmer_level
-            name: Spots
+          - entity: light.shelly_shdm_1_d17712
             type: custom:slider-entity-row
             icon: mdi:spotlight
             toggle: true
             hide_when_off: false
           - entity: light.living_room_ledstrip_dimmer_level
-            name: LED Strip
             type: custom:slider-entity-row
             icon: mdi:led-strip
             toggle: true
             hide_when_off: false
-          - entity: light.office_spot_dimmer_level
-            name: Office Spots
+          - entity: light.shelly_shdm_1_d47c54
             type: custom:slider-entity-row
             icon: mdi:mdi:spotlight
             toggle: true
@@ -162,33 +157,26 @@ cards:
           #   icon: mdi:led-strip
           #   toggle: true
           #   hide_when_off: false
-          - entity: light.hallway_light
-            name: Hallway Light
+          - entity: light.shelly_shsw_pm_f2f9bf
             icon: mdi:ceiling-light
-          - entity: light.attic_light
-            name: Attic Light
+          - entity: light.shelly_shsw_pm_b98825
             icon: mdi:ceiling-light
-          - entity: light.backyard_light
-            name: Backyard Light
+          - entity: light.shelly_shsw_pm_f27a0a
             icon: mdi:outdoor-lamp
-          - entity: light.backyard_light_2
-            name: Backyard Light 2
+          - entity: light.shelly_shplg_s_8016cb
             icon: mdi:outdoor-lamp
 
       - type: entities
         title: Covers
         show_header_toggle: false
         entities:
-          - entity: cover.master_bedroom_roller_shutter_level
-            name: Master Bedroom
+          - entity: cover.shelly_shsw_25_c4c964
             type: custom:slider-entity-row
             toggle: true
-          - entity: cover.lucas_room_roller_shutter_level
-            name: Lucas' Room
+          - entity: cover.shelly_shsw_25_c4c695
             toggle: true
             type: custom:slider-entity-row
-          - entity: cover.backyard_awning_level
-            name: Lucas' Room
+          - entity: cover.shelly_shsw_25_c4c708
             toggle: true
             type: custom:slider-entity-row
       - type: entities

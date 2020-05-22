@@ -7,8 +7,8 @@ use_include_order: True
 #     - sun
 #     - person
 #   entities:
-#     - cover.master_bedroom_roller_shutter_level
-#     - cover.lucas_room_roller_shutter_level
+#     - cover.shelly_shsw_25_c4c964
+#     - cover.shelly_shsw_25_c4c695
 #     - sensor.living_room_thermostat_temperature
 #     - sensor.living_room_thermostat_humidity
 #     - sensor.retsinagaard_eta
@@ -36,15 +36,16 @@ include:
     - input_boolean.guest_mode
     - input_boolean.vacation_mode
     - input_select.house_mode
-    - cover.master_bedroom_roller_shutter_level
-    - cover.lucas_room_roller_shutter_level
-    - light.living_room_dining_table_dimmer_level
-    - light.living_room_wall_dimmer_level
-    - light.living_room_spot_dimmer_level
-    - light.office_spot_dimmer_level
-    - light.hallway_light
-    - light.backyard_light
-    - light.backyard_light_2
+    - cover.shelly_shsw_25_c4c964
+    - cover.shelly_shsw_25_c4c695
+    - cover.shelly_shsw_25_c4c708
+    - light.shelly_shdm_1_d17b0e
+    - light.shelly_shdm_1_d48409
+    - light.shelly_shdm_1_d17712
+    - light.shelly_shdm_1_d47c54
+    - light.shelly_shsw_pm_f2f9bf
+    - light.shelly_shsw_pm_f27a0a
+    - light.shelly_shplg_s_8016cb
     - binary_sensor.washing_machine_on
     - binary_sensor.dryer_on
     - device_tracker.living_room_tv

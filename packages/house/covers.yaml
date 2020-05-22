@@ -1,22 +1,9 @@
-homeassistant:
-  customize:
-    cover.master_bedroom_roller_shutter_level:
-      friendly_name: Master Bedroom Roller Shutter
-    cover.lucas_room_roller_shutter_level:
-      friendly_name: Lucas Room Roller Shutter
-    cover.backyard_sunscreen:
-      friendly_name: Backyard Sunscreen
-    sensor.lucas_room_roller_shutter_power:
-      friendly_name: Lucas Room Roller Shutter  
-    sensor.master_bedroom_roller_shutter_power:
-      friendly_name: Master Bedroom Roller Shutter
-
 cover:
   - platform: group
     name: 'Roller Shutters'
     entities:
-      - cover.master_bedroom_roller_shutter_level  
-      - cover.lucas_room_roller_shutter_level
+      - cover.shelly_shsw_25_c4c964  
+      - cover.shelly_shsw_25_c4c695
 
 script:
   alexa_open_the_cover:
@@ -29,9 +16,9 @@ script:
             {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
 
             {%- if room == "master_bedroom" -%}
-              cover.master_bedroom_roller_shutter_level
+              cover.shelly_shsw_25_c4c964
             {%- elif room == "lucas_room" -%}
-              cover.lucas_room_roller_shutter_level
+              cover.shelly_shsw_25_c4c695
             {%- endif -%}
 
   alexa_close_the_cover:
@@ -44,9 +31,9 @@ script:
             {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
 
             {%- if room == "master_bedroom" -%}
-              cover.master_bedroom_roller_shutter_level
+              cover.shelly_shsw_25_c4c964
             {%- elif room == "lucas_room" -%}
-              cover.lucas_room_roller_shutter_level
+              cover.shelly_shsw_25_c4c695
             {%- endif -%}
 
   alexa_close_the_cover_with_ventilation:
@@ -59,9 +46,9 @@ script:
             {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
 
             {%- if room == "master_bedroom" -%}
-              cover.master_bedroom_roller_shutter_level
+              cover.shelly_shsw_25_c4c964
             {%- elif room == "lucas_room" -%}
-              cover.lucas_room_roller_shutter_level
+              cover.shelly_shsw_25_c4c695
             {%- endif -%}  
           position: 10
 
@@ -75,8 +62,8 @@ script:
             {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
 
             {%- if room == "master_bedroom" -%}
-              cover.master_bedroom_roller_shutter_level
+              cover.shelly_shsw_25_c4c964
             {%- elif room == "lucas_room" -%}
-              cover.lucas_room_roller_shutter_level
+              cover.shelly_shsw_25_c4c695
             {%- endif -%}  
           position: 60

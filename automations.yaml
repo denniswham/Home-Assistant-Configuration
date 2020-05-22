@@ -402,7 +402,7 @@
     action:
       - service: cover.open_cover
         data:
-          entity_id: cover.master_bedroom_roller_shutter_level
+          entity_id: cover.shelly_shsw_25_c4c964
 
   - id: 2c0fabaa-793e-4d83-a6f6-488b799384e7
     alias: '[Covers] Open in the morning in Lucas Room'
@@ -423,7 +423,7 @@
     action:
       - service: cover.open_cover
         data:
-          entity_id: cover.lucas_room_roller_shutter_level
+          entity_id: cover.shelly_shsw_25_c4c695
 
   - id: 9168307a-6555-489d-b686-643216ff76e9
     alias: '[Covers] Open in the morning during the weekends and holidays'
@@ -445,8 +445,8 @@
       - service: cover.open_cover
         data:
           entity_id:
-            - cover.master_bedroom_roller_shutter_level
-            - cover.lucas_room_roller_shutter_level
+            - cover.shelly_shsw_25_c4c964
+            - cover.shelly_shsw_25_c4c695
 
   - id: 58a2e68e-7adf-4d08-93d1-a4dd43faeb12
     alias: '[Covers] Close in the evening'
@@ -465,8 +465,8 @@
       - service: cover.set_cover_position
         data:
           entity_id:
-            - cover.master_bedroom_roller_shutter_level
-            - cover.lucas_room_roller_shutter_level
+            - cover.shelly_shsw_25_c4c964
+            - cover.shelly_shsw_25_c4c695
           position: 10
 
   - id: 36999f33-8fcb-423e-972d-425b4efca279
@@ -487,8 +487,8 @@
       - service: cover.close_cover
         data:
           entity_id:
-            - cover.master_bedroom_roller_shutter_level
-            - cover.lucas_room_roller_shutter_level
+            - cover.shelly_shsw_25_c4c964
+            - cover.shelly_shsw_25_c4c695
 
   - id: d3a773bf-fc19-4f77-8ad7-00097a2a8bfa
     alias: '[Covers] Open when arriving at daytime'
@@ -512,8 +512,8 @@
       - service: cover.open_cover
         data:
           entity_id:
-            - cover.master_bedroom_roller_shutter_level
-            - cover.lucas_room_roller_shutter_level
+            - cover.shelly_shsw_25_c4c964
+            - cover.shelly_shsw_25_c4c695
 
   - id: 9c7f65fd-fc67-47e1-a81d-e02afcacdc3e
     alias: '[Covers] Open when arriving at night'
@@ -537,8 +537,8 @@
       - service: cover.set_cover_position
         data:
           entity_id:
-            - cover.master_bedroom_roller_shutter_level
-            - cover.lucas_room_roller_shutter_level
+            - cover.shelly_shsw_25_c4c964
+            - cover.shelly_shsw_25_c4c695
           position: 10
 
   - id: 153b5394-3dde-4ebd-8e3f-4d2bb43e8529
@@ -557,8 +557,8 @@
       - service: cover.close_cover
         data:
           entity_id:
-            - cover.master_bedroom_roller_shutter_level
-            - cover.lucas_room_roller_shutter_level
+            - cover.shelly_shsw_25_c4c964
+            - cover.shelly_shsw_25_c4c695
 
   - id: 6c9a2404-5bd8-43e4-beb2-c38afd7d21c5
     alias: '[Covers] Close when high temperature'
@@ -575,8 +575,8 @@
       - service: cover.close_cover
         data:
           entity_id:
-            - cover.master_bedroom_roller_shutter_level
-            - cover.lucas_room_roller_shutter_level
+            - cover.shelly_shsw_25_c4c964
+            - cover.shelly_shsw_25_c4c695
 
   - id: 050a6124-23bb-4f5b-acde-e23e1c69361b
     alias: '[House] Reminder Guest Mode on'
@@ -674,8 +674,8 @@
       - platform: state
         entity_id:
           - light.entryway_light
-          - light.hallway_light
-          - light.attic_light
+          - light.shelly_shsw_pm_f2f9bf
+          - light.shelly_shsw_pm_b98825
         to: 'on'
         for: "00:10:00"
     condition:
@@ -694,9 +694,9 @@
       data_template:
         entity_id: >
           {% if (as_timestamp(now()) - as_timestamp(states.binary_sensor.backyard_motion.last_changed)) > 1800 %}
-            light.backyard_light
+            light.shelly_shsw_pm_f27a0a
           {% else %}
-            light.backyard_light, light.backyard_light_2
+            light.shelly_shsw_pm_f27a0a, light.shelly_shplg_s_8016cb
           {% endif %}
 
   - id: 0e58a3aa-8e64-4b24-bdba-b32dd6a68322
@@ -717,7 +717,7 @@
     action:
       service: light.turn_off
       entity_id:
-        - light.backyard_light_2
+        - light.shelly_shplg_s_8016cb
 
   - id: 1802426d-6f61-4dde-ab2c-5cd3b5233243
     alias: '[Lights] Turn off backyard lights at midnight'
@@ -727,8 +727,8 @@
     action:
       service: light.turn_off
       entity_id:
-        - light.backyard_light
-        - light.backyard_light_2
+        - light.shelly_shsw_pm_f27a0a
+        - light.shelly_shplg_s_8016cb
 
   - id: 0f21c88f-c82e-459d-81c5-c5cf170e6279
     alias: '[Lights] Turn on backyard lights when motion'
@@ -746,8 +746,8 @@
     action:
       service: light.turn_on
       entity_id:
-        - light.backyard_light
-        - light.backyard_light_2
+        - light.shelly_shsw_pm_f27a0a
+        - light.shelly_shplg_s_8016cb
 
   - id: 5199be8b-2458-44b0-bd98-6bda33cd96f0
     alias: '[Lights] Turn off backyard lights when no motion'
@@ -766,8 +766,8 @@
     action:
       service: light.turn_off
       entity_id:
-        - light.backyard_light
-        - light.backyard_light_2
+        - light.shelly_shsw_pm_f27a0a
+        - light.shelly_shplg_s_8016cb
 
   - id: 27c20369-e108-462b-8c62-84999df3499c
     alias: '[Mockupancy] Turn on vacation mode'
@@ -1033,8 +1033,8 @@
       - service: cover.open_cover
         data:
           entity_id:
-            - cover.master_bedroom_roller_shutter_level
-            - cover.lucas_room_roller_shutter_level
+            - cover.shelly_shsw_25_c4c964
+            - cover.shelly_shsw_25_c4c695
       - service: persistent_notification.create
         data:
           message: Smoke detected
@@ -1077,8 +1077,8 @@
       - service: cover.open_cover
         data:
           entity_id:
-            - cover.master_bedroom_roller_shutter_level
-            - cover.lucas_room_roller_shutter_level
+            - cover.shelly_shsw_25_c4c964
+            - cover.shelly_shsw_25_c4c695
       - service: persistent_notification.create
         data:
           message: CO detected
