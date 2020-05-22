@@ -7,7 +7,7 @@ include:
     - light.shelly_shdm_1_d17b0e
     - light.shelly_shdm_1_d17712
     - light.shelly_shdm_1_d48409
-    - light.living_room_ledstrip_dimmer_level
+    - light.shelly_shdm_1_d0f0af
     - light.shelly_shdm_1_d47c54
     - light.office_ledstrip_dimmer_level
     - light.shelly_shsw_pm_f2f9bf

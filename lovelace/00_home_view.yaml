@@ -141,7 +141,7 @@ cards:
             icon: mdi:spotlight
             toggle: true
             hide_when_off: false
-          - entity: light.living_room_ledstrip_dimmer_level
+          - entity: light.shelly_shdm_1_d0f0af
             type: custom:slider-entity-row
             icon: mdi:led-strip
             toggle: true
