@@ -144,14 +144,29 @@ cards:
             icon: mdi:spotlight
             toggle: true
             hide_when_off: false
+          - entity: light.living_room_ledstrip_dimmer_level
+            name: LED Strip
+            type: custom:slider-entity-row
+            icon: mdi:led-strip
+            toggle: true
+            hide_when_off: false
           - entity: light.office_spot_dimmer_level
             name: Office Spots
             type: custom:slider-entity-row
             icon: mdi:mdi:spotlight
             toggle: true
             hide_when_off: false
+          # - entity: light.office_ledstrip_dimmer_level
+          #   name: Office LED Strip
+          #   type: custom:slider-entity-row
+          #   icon: mdi:led-strip
+          #   toggle: true
+          #   hide_when_off: false
           - entity: light.hallway_light
             name: Hallway Light
+            icon: mdi:ceiling-light
+          - entity: light.attic_light
+            name: Attic Light
             icon: mdi:ceiling-light
           - entity: light.backyard_light
             name: Backyard Light
@@ -161,7 +176,7 @@ cards:
             icon: mdi:outdoor-lamp
 
       - type: entities
-        title: Roller Shutters
+        title: Covers
         show_header_toggle: false
         entities:
           - entity: cover.master_bedroom_roller_shutter_level
@@ -169,6 +184,10 @@ cards:
             type: custom:slider-entity-row
             toggle: true
           - entity: cover.lucas_room_roller_shutter_level
+            name: Lucas' Room
+            toggle: true
+            type: custom:slider-entity-row
+          - entity: cover.backyard_awning_level
             name: Lucas' Room
             toggle: true
             type: custom:slider-entity-row

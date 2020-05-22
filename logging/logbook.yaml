@@ -2,11 +2,15 @@ include:
   entities:
     - cover.lucas_room_roller_shutter_level
     - cover.master_bedroom_roller_shutter_level
+    - cover.backyard_awning_level
     - light.living_room_dining_table_dimmer_level
     - light.living_room_spot_dimmer_level
     - light.living_room_wall_dimmer_level
+    - light.living_room_ledstrip_dimmer_level
     - light.office_spot_dimmer_level
+    - light.office_ledstrip_dimmer_level
     - light.hallway_light
+    - light.attic_light
     - light.backyard_light
     - light.backyard_light_2
     - binary_sensor.washing_machine_on
