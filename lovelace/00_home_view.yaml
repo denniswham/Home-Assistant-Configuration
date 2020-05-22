@@ -148,7 +148,7 @@ cards:
             hide_when_off: false
           - entity: light.shelly_shdm_1_d47c54
             type: custom:slider-entity-row
-            icon: mdi:mdi:spotlight
+            icon: mdi:spotlight
             toggle: true
             hide_when_off: false
           # - entity: light.office_ledstrip_dimmer_level
