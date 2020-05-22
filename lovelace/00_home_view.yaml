@@ -185,11 +185,11 @@ cards:
         entities:
           - entity: binary_sensor.washing_machine_on
             icon: mdi:washing-machine
-          # - entity: switch.attic_washing_machine
+          # - entity: switch.shelly_shplg_s_f8d1ea
           #   icon: mdi:power-socket-eu
           #   name: Washing Machine Power Socket
           - entity: binary_sensor.dryer_on
             icon: mdi:tumble-dryer
-          - entity: switch.attic_tumble_dryer
+          - entity: switch.shelly_shplg_s_f8d1fa
             icon: mdi:power-socket-eu
             name: Tumble Dryer Power Socket

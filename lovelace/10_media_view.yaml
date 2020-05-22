@@ -16,7 +16,7 @@ cards:
           - entity: binary_sensor.amplifier_on
             icon: mdi:amplifier
             name: Amplifier
-          - entity: switch.living_room_amplifier
+          - entity: switch.shelly_shplg_s_8013cd
             icon: mdi:power-socket-eu
             name: Amplifier Power Socket
           - type: custom:mini-media-player
