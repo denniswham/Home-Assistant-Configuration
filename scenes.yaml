@@ -113,6 +113,8 @@
       state: "off"
     light.shelly_shdm_1_d47c54:
       state: "off"
+    light.shelly_shdm_1_d0f0af:
+      state: "off"
     light.shelly_shsw_pm_f2f9bf:
       state: "on"
     media_player.living_room:
