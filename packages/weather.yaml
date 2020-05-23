@@ -13,9 +13,7 @@ sensor:
       - precipitation
       - precipitation_forecast_total
       - conditionexact
-      - conditionexact_1d
       - conditiondetailed
-      - conditiondetailed_1d
       - condition_1d
       - condition_2d
       - condition_3d
