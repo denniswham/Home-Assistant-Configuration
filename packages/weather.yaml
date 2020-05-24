@@ -6,18 +6,11 @@ sensor:
   - platform: buienradar
     timeframe: 15
     monitored_conditions:
-      - symbol
       - humidity
       - temperature
       - windforce
       - precipitation
       - precipitation_forecast_total
-      - conditionexact
-      - conditiondetailed
-      - condition_1d
-      - condition_2d
-      - condition_3d
-      - condition_4d
-      - condition_5d
+      - condition
 
 
