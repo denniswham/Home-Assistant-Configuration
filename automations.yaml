@@ -384,7 +384,7 @@
         data: {"preset_mode": "home"}
 
   - id: f22881d0-2a37-46f6-86fa-0feaac19de59
-    alias: '[Covers] Open in the morning in Master Bedroom'
+    alias: '[Covers] Open Master Bedroom roller shutter in the morning'
     initial_state: 'true'
     condition:
       - condition: state
@@ -405,7 +405,7 @@
           entity_id: cover.shelly_shsw_25_c4c964
 
   - id: 2c0fabaa-793e-4d83-a6f6-488b799384e7
-    alias: '[Covers] Open in the morning in Lucas Room'
+    alias: '[Covers] Open Lucas Room roller shutter in the morning'
     initial_state: 'true'
     condition:
       - condition: state
@@ -426,7 +426,7 @@
           entity_id: cover.shelly_shsw_25_c4c695
 
   - id: 9168307a-6555-489d-b686-643216ff76e9
-    alias: '[Covers] Open in the morning during the weekends and holidays'
+    alias: '[Covers] Open roller shutters in the morning during the weekends and holidays'
     initial_state: 'true'
     condition:
       - condition: state
@@ -449,7 +449,7 @@
             - cover.shelly_shsw_25_c4c695
 
   - id: 58a2e68e-7adf-4d08-93d1-a4dd43faeb12
-    alias: '[Covers] Close in the evening'
+    alias: '[Covers] Close roller shutters in the evening'
     initial_state: 'true'
     condition:
       - condition: state
@@ -470,7 +470,7 @@
           position: 10
 
   - id: 36999f33-8fcb-423e-972d-425b4efca279
-    alias: '[Covers] Close with strong winds'
+    alias: '[Covers] Close roller shutters with strong winds'
     initial_state: 'true'
     condition:
       - condition: state
@@ -491,7 +491,7 @@
             - cover.shelly_shsw_25_c4c695
 
   - id: d3a773bf-fc19-4f77-8ad7-00097a2a8bfa
-    alias: '[Covers] Open when arriving at daytime'
+    alias: '[Covers] Open roller shutters when arriving at daytime'
     initial_state: 'true'
     condition:
       - condition: state
@@ -516,7 +516,7 @@
             - cover.shelly_shsw_25_c4c695
 
   - id: 9c7f65fd-fc67-47e1-a81d-e02afcacdc3e
-    alias: '[Covers] Open when arriving at night'
+    alias: '[Covers] Open roller shutters when arriving at night'
     initial_state: 'true'
     condition:
       - condition: state
@@ -542,7 +542,7 @@
           position: 10
 
   - id: 153b5394-3dde-4ebd-8e3f-4d2bb43e8529
-    alias: '[Covers] Close when leaving'
+    alias: '[Covers] Close covers when leaving'
     initial_state: 'true'
     condition:
       - condition: state
@@ -562,7 +562,7 @@
             - cover.shelly_shsw_25_c4c708
 
   - id: 6c9a2404-5bd8-43e4-beb2-c38afd7d21c5
-    alias: '[Covers] Close when high temperature'
+    alias: '[Covers] Close roller shutters when high temperature'
     initial_state: 'true'
     condition:
       - condition: state
