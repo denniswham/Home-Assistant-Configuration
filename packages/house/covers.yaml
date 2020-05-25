@@ -19,6 +19,8 @@ script:
               cover.shelly_shsw_25_c4c964
             {%- elif room == "lucas_room" -%}
               cover.shelly_shsw_25_c4c695
+            {%- elif room == "living_room" -%}
+              cover.shelly_shsw_25_c4c708
             {%- endif -%}
 
   alexa_close_the_cover:
@@ -34,6 +36,8 @@ script:
               cover.shelly_shsw_25_c4c964
             {%- elif room == "lucas_room" -%}
               cover.shelly_shsw_25_c4c695
+            {%- elif room == "living_room" -%}
+              cover.shelly_shsw_25_c4c708
             {%- endif -%}
 
   alexa_close_the_cover_with_ventilation:
@@ -65,5 +69,7 @@ script:
               cover.shelly_shsw_25_c4c964
             {%- elif room == "lucas_room" -%}
               cover.shelly_shsw_25_c4c695
+            {%- elif room == "living_room" -%}
+              cover.shelly_shsw_25_c4c708
             {%- endif -%}  
           position: 60
