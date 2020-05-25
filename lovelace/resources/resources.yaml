@@ -20,4 +20,6 @@
     type: module
   - url: /hacsfiles/lovelace-layout-card/layout-card.js
     type: module
+  - url: /hacsfiles/firetv-card/firetv-card.js
+    type: module
 

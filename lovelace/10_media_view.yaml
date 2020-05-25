@@ -19,10 +19,22 @@ cards:
           - entity: switch.shelly_shplg_s_8013cd
             icon: mdi:power-socket-eu
             name: Amplifier Power Socket
-          - type: custom:mini-media-player
-            entity: media_player.living_room_fire_tv_stick
-            icon: mdi:amazon-alexa
-            name: FireTV Stick
+
+          - type: 'custom:firetv-card'
+            theme: Backend-selected
+            tv: false
+            entity: sun.sun
+            name: FireTV
+            power:
+              service: androidtv.adb_command
+              service_data:
+                command: "input keyevent 26"
+                entity_id: media_player.living_room_fire_tv_stick
+
+          # - type: custom:mini-media-player
+          #   entity: media_player.living_room_fire_tv_stick
+          #   icon: mdi:amazon-alexa
+          #   name: FireTV Stick
           - type: custom:mini-media-player
             entity: media_player.living_room_xbox_one
             icon: mdi:microsoft-xbox
@@ -35,10 +47,20 @@ cards:
             entity: media_player.master_bedroom_tv
             icon: mdi:television
             name: Television
-          - type: custom:mini-media-player
-            entity: media_player.master_bedroom_fire_tv_stick
-            icon: mdi:amazon-alexa
-            name: FireTV Stick
+          - type: 'custom:firetv-card'
+            theme: Backend-selected
+            tv: false
+            entity: sun.sun
+            name: FireTV
+            power:
+              service: androidtv.adb_command
+              service_data:
+                command: "input keyevent 26"
+                entity_id: media_player.master_bedroom_fire_tv_stick
+          # - type: custom:mini-media-player
+          #   entity: media_player.master_bedroom_fire_tv_stick
+          #   icon: mdi:amazon-alexa
+          #   name: FireTV Stick
   - type: vertical-stack
     cards:
       - type: entities
