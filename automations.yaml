@@ -1264,7 +1264,7 @@
     alias: Start WireGuard add-on
     trigger:
       platform: zone
-      entity_id: person_dennis
+      entity_id: device_tracker.sm_g960f
       zone: zone.home      
       event: leave
     action:
@@ -1276,7 +1276,7 @@
     alias: Stop WireGuard add-on
     trigger:
       platform: zone
-      entity_id: person_dennis
+      entity_id: device_tracker.sm_g960f
       zone: zone.home      
       event: enter
     action:
