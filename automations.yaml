@@ -1260,3 +1260,26 @@
                 - alert
                 - badge
         
+  - id: b33f5e19-c075-4bc7-85c0-30c9b759ef38
+    alias: Start WireGuard add-on
+    trigger:
+      platform: zone
+      entity_id: person_dennis
+      zone: zone.home      
+      event: leave
+    action:
+      - service: hassio.addon_start
+        data:
+          addon: a0d7b954_wireguard
+
+  - id: 73fc8e0a-e551-496f-b8b9-b9369a861d2a
+    alias: Stop WireGuard add-on
+    trigger:
+      platform: zone
+      entity_id: person_dennis
+      zone: zone.home      
+      event: enter
+    action:
+      - service: hassio.addon_stop
+        data:
+          addon: a0d7b954_wireguard
