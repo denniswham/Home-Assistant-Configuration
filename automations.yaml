@@ -770,7 +770,7 @@
           {% endif %}
 
   - id: 0e58a3aa-8e64-4b24-bdba-b32dd6a68322
-    alias: '[Lights] Turn off backyard light 2 after 30 minutes no motion'
+    alias: '[Lights] Turn off backyard garden light after 30 minutes no motion'
     trigger:
       - platform: state
         entity_id: binary_sensor.backyard_motion
@@ -778,9 +778,8 @@
         to: "off"
         for: "00:30:00"
     condition:
-      - condition: state 
-        entity_id: sun.sun
-        state: below_horizon
+      - condition: sun
+        after: sunset
       - condition: time
         after: '16:30:00'
         before: '00:00:00'
@@ -1261,7 +1260,7 @@
                 - badge
         
   - id: b33f5e19-c075-4bc7-85c0-30c9b759ef38
-    alias: Start WireGuard add-on
+    alias: '[House] Start WireGuard add-on'
     trigger:
       platform: zone
       entity_id: device_tracker.sm_g960f
@@ -1273,7 +1272,7 @@
           addon: a0d7b954_wireguard
 
   - id: 73fc8e0a-e551-496f-b8b9-b9369a861d2a
-    alias: Stop WireGuard add-on
+    alias: '[House] Stop WireGuard add-on'
     trigger:
       platform: zone
       entity_id: device_tracker.sm_g960f
