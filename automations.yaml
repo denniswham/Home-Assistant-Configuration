@@ -1105,6 +1105,10 @@
           entity_id:
             - cover.shelly_shsw_25_c4c964
             - cover.shelly_shsw_25_c4c695
+      - service: cover.close_cover
+        data:
+          entity_id:
+            - cover.shelly_shsw_25_c4c708
       - service: persistent_notification.create
         data:
           message: Smoke detected
@@ -1149,6 +1153,10 @@
           entity_id:
             - cover.shelly_shsw_25_c4c964
             - cover.shelly_shsw_25_c4c695
+      - service: cover.close_cover
+        data:
+          entity_id:
+            - cover.shelly_shsw_25_c4c708
       - service: persistent_notification.create
         data:
           message: CO detected

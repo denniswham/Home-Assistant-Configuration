@@ -132,6 +132,8 @@
     media_player.emilie_s_room:
       state: standby
       volume_level: 0.3
+    cover.shelly_shsw_25_c4c708:
+      state: closed
     switch.master_bedroom_do_not_disturb_switch:
       state: "on"
     switch.master_bedroom_fire_tv_stick_do_not_disturb_switch:
