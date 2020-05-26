@@ -459,8 +459,10 @@
         entity_id: group.household
         state: 'home'
     trigger:
-      - platform: sun
-        event: sunset
+      - platform: numeric_state
+        entity_id: sun.sun
+        value_template: "{{ state_attr('sun.sun', 'elevation') }}"
+        below: 0.0
     action:
       - service: cover.set_cover_position
         data:
@@ -612,9 +614,9 @@
       - condition: state
         entity_id: cover.shelly_shsw_25_c4c708
         state: open
-      - condition: state 
+      - condition: state
         entity_id: sun.sun
-        state: below_horizon
+        state: 'below_horizon'
     action:
       - service: cover.close_cover
         data:
@@ -757,8 +759,10 @@
   - id: d558b383-921e-4740-bafd-9a888b45fa9a
     alias: '[Lights] Turn on backyard lights when dark outside'
     trigger:
-      platform: sun
-      event: sunset
+      - platform: numeric_state
+        entity_id: sun.sun
+        value_template: "{{ state_attr('sun.sun', 'elevation') }}"
+        below: 0.0
     action:
       service: light.turn_on
       data_template:
@@ -770,7 +774,7 @@
           {% endif %}
 
   - id: 0e58a3aa-8e64-4b24-bdba-b32dd6a68322
-    alias: '[Lights] Turn off backyard garden light after 30 minutes no motion'
+    alias: '[Lights] Turn off backyard garden lights after 30 minutes no motion'
     trigger:
       - platform: state
         entity_id: binary_sensor.backyard_motion
@@ -778,8 +782,9 @@
         to: "off"
         for: "00:30:00"
     condition:
-      - condition: sun
-        after: sunset
+      - condition: state
+        entity_id: sun.sun
+        state: 'below_horizon'
       - condition: time
         after: '16:30:00'
         before: '00:00:00'
@@ -806,9 +811,9 @@
         entity_id: binary_sensor.backyard_motion
         to: 'on'
     condition:
-      - condition: state 
+      - condition: state
         entity_id: sun.sun
-        state: below_horizon
+        state: 'below_horizon'
       - condition: time
         after: '00:00:01'
         before: '08:30:00'
