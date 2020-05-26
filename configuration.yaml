@@ -4,7 +4,7 @@ homeassistant:
   elevation: !secret home_elev
   unit_system: metric
   time_zone: Europe/Amsterdam
-  name: Les Jambons
+  name: Home
   customize_glob: !include customglob.yaml
   packages: !include_dir_named packages
   auth_mfa_modules:

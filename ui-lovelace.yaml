@@ -3,7 +3,7 @@
 decluttering_templates:
   !include lovelace/decluttering_templates/decluttering_templates.yaml
 
-title: Home
+title: Les Jambons
 background: var(--background)
 views:
   - !include lovelace/00_home_view.yaml
