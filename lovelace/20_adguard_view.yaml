@@ -27,10 +27,11 @@ cards:
         title: General Settings
         show_header_toggle: false
         entities:
-          - entity: switch.adguard_filtering
-          - entity: switch.adguard_parental_control
           - entity: switch.adguard_protection
+          - type: divider
+          - entity: switch.adguard_filtering
           - entity: switch.adguard_safe_browsing
+          - entity: switch.adguard_parental_control
           - entity: switch.adguard_safe_search
 
   - type: vertical-stack
