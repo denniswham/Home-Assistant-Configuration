@@ -653,7 +653,7 @@
             - cover.shelly_shsw_25_c4c708
       - service: logbook.log
         data_template:
-          name: "Awning closing: "
+          name: "Awning closing due to "
           message: >-
             {{ trigger.entity_id }}
 
