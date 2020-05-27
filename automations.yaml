@@ -485,8 +485,8 @@
         state: below_horizon
     trigger:
       - platform: numeric_state
-        entity_id: sensor.br_wind_force
-        above: 4
+        entity_id: sensor.br_wind_speed
+        above: 10
     action:
       - service: cover.close_cover
         data:
@@ -595,8 +595,8 @@
         entity_id: sensor.br_precipitation_forecast_total
         from: '0.0'
       - platform: numeric_state
-        entity_id: sensor.br_wind_force
-        above: 3
+        entity_id: sensor.br_wind_speed
+        above: 10
     action:
       - service: cover.close_cover
         data:
@@ -640,8 +640,8 @@
                 entity_id: sensor.br_precipitation_forecast_total
                 state: '0.0'
           - condition: numeric_state
-            entity_id: sensor.br_wind_force
-            above: 3
+            entity_id: sensor.br_wind_speed
+            above: 10
     trigger:
       - platform: time_pattern
         minutes: /5
