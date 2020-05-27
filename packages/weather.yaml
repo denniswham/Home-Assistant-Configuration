@@ -9,6 +9,7 @@ sensor:
       - humidity
       - temperature
       - windforce
+      - winddirection
       - precipitation
       - precipitation_forecast_total
       - condition
