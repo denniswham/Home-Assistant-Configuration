@@ -486,7 +486,7 @@
     trigger:
       - platform: numeric_state
         entity_id: sensor.br_wind_speed
-        above: 10
+        above: 35 #km/h
     action:
       - service: cover.close_cover
         data:
@@ -596,7 +596,7 @@
         from: '0.0'
       - platform: numeric_state
         entity_id: sensor.br_wind_speed
-        above: 10
+        above: 35 #km/h
     action:
       - service: cover.close_cover
         data:
@@ -641,7 +641,7 @@
                 state: '0.0'
           - condition: numeric_state
             entity_id: sensor.br_wind_speed
-            above: 10
+            above: 35 #km/h
     trigger:
       - platform: time_pattern
         minutes: /5
