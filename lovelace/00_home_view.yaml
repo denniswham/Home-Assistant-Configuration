@@ -19,9 +19,13 @@ cards:
         show_header_toggle: false
         entities:
           - entity: sensor.br_wind_force
-          - entity: sensor.br_wind_speed
-          - entity: sensor.br_wind_direction
           - entity: sensor.br_precipitation_forecast_total
+          - type: custom:mini-graph-card
+            name: Wind Speed
+            entities:
+              - sensor.br_wind_speed
+            font_size: 50
+            line_color: "#389638"
       - type: thermostat
         entity: climate.living_room
 

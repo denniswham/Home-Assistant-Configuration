@@ -651,11 +651,6 @@
         data:
           entity_id:
             - cover.shelly_shsw_25_c4c708
-      - service: logbook.log
-        data_template:
-          name: "Awning closing due to "
-          message: >-
-            {{ trigger.entity_id }}
 
   - id: 050a6124-23bb-4f5b-acde-e23e1c69361b
     alias: '[House] Reminder Guest Mode on'
