@@ -60,12 +60,12 @@
   name: Dinner time
   icon: mdi:silverware-fork-knife
   entities: 
-    light.shelly_shdm_1_d17b0e:
+    light.shelly_shdm_1_d17b0e:   # living room dining table light
       state: "on"
       brightness: 89
-    light.shelly_shdm_1_d48409:
-      state: "on"
-      brightness: 102
+    # light.shelly_shdm_1_d48409:   # living room wall lights
+    #   state: "on"
+    #   brightness: 102
     # light.shelly_shdm_1_d17712:
     #   state: "on"
     #   brightness: 26

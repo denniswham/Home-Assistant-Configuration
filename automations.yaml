@@ -1212,7 +1212,7 @@
         value_template: '{{ states.sensor.latest_version.state != states.sensor.current_version.state }}'
     trigger:
       - platform: time
-        at: 04:00:00
+        at: 06:00:00
       - platform: state
         entity_id: group.household
         from: not_home
@@ -1289,3 +1289,15 @@
       - service: hassio.addon_stop
         data:
           addon: a0d7b954_wireguard
+
+  - id: 9853b928-ccfd-4615-a93b-5458c3ca5887
+    alias: '[General] Update Host at night'
+    initial_state: 'off'
+    trigger:
+      - platform: time
+        at: 04:00:00
+    condition:
+      - condition: template
+        value_template: '{{ states.sensor.latest_version.state != states.sensor.current_version.state }}'
+    action:
+      - service: shell_command.update_host
