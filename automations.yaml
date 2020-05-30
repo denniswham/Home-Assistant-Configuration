@@ -1305,18 +1305,24 @@
           addon: a0d7b954_ssh
           input: "ha core update"
 
-  - id: 9853b928-ccfd-4615-a93b-5458c3ca5887
+  - id: 80e577ef-0cb7-43b9-a427-2982efdb3003
     alias: '[Alexa] Notification to refresh token'
     initial_state: 'on'
     trigger:
-      - platform: time
-        at: 04:00:00
-    condition:
-      - condition: ala
-        entity_id: entity id
-        state:  unavailable
+      - platform: state
+        entity_id:
+          - alarm_control_panel.alexa_guard_7514f
+          - media_player.living_room
+          - media_player.master_bedroom
+          - media_player.lucas_room
+          - media_player.timo_s_room
+          - media_player.emilie_s_room
+        to: unavailable
     action:
-      - service: hassio.addon_stdin
+      - service: notify.mobile_app_sm_g960f
         data:
-          addon: a0d7b954_ssh
-          input: "ha core update"
+          title: Alexa Token
+          message: Alexa authentication need refreshing!
+          data:
+            channel: Alert
+            tag: alert
