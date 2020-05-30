@@ -22,4 +22,8 @@ sensor:
       - type: processor_use
       - type: last_boot
 shell_command:
+<<<<<<< HEAD
   update_host: 'ha host update'
+=======
+    update_host: 'ha host update'
+>>>>>>> d526359de491c01238cabe0fc2cb807189890386
