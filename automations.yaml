@@ -1238,9 +1238,9 @@
         - condition: state
           entity_id: binary_sensor.amplifier_on
           state: 'on'
-        - condition: state
-          entity_id: media_player.living_room_xbox_one
-          state: 'on'
+        # - condition: state
+        #   entity_id: media_player.living_room_xbox_one
+        #   state: 'on'
     trigger:
       - platform: state
         entity_id: binary_sensor.vieratv_on
@@ -1251,14 +1251,14 @@
       - service: notify.mobile_app_sm_g960f
         data:
           title: TV turned off
-          message: TV is turned off, dont't forget to turn of the amplifier and/or Xbox
+          message: TV is turned off, dont't forget to turn of the amplifier
           data:
             channel: Alert
             tag: alert
       - service: notify.mobile_app_iphone_van_stephanie
         data:
           title: TV turned off
-          message: TV is turned off, dont't forget to turn of the amplifier and/or Xbox
+          message: TV is turned off, dont't forget to turn of the amplifier
           data:
             push:
               thread-id: "alert"
@@ -1299,6 +1299,22 @@
     condition:
       - condition: template
         value_template: '{{ states.sensor.latest_version.state != states.sensor.current_version.state }}'
+    action:
+      - service: hassio.addon_stdin
+        data:
+          addon: a0d7b954_ssh
+          input: "ha core update"
+
+  - id: 9853b928-ccfd-4615-a93b-5458c3ca5887
+    alias: '[Alexa] Notification to refresh token'
+    initial_state: 'on'
+    trigger:
+      - platform: time
+        at: 04:00:00
+    condition:
+      - condition: ala
+        entity_id: entity id
+        state:  unavailable
     action:
       - service: hassio.addon_stdin
         data:
