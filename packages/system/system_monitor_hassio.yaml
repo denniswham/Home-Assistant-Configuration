@@ -21,3 +21,5 @@ sensor:
       - type: memory_use_percent
       - type: processor_use
       - type: last_boot
+shell_command:
+    update_host: 'ha host update'

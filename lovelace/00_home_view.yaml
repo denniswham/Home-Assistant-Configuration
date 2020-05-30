@@ -28,7 +28,7 @@ cards:
             entities:
               - entity: sensor.br_wind_force
               - entity: sensor.br_precipitation_forecast_total
-      - type: thermostat
+      # - type: thermostat
         entity: climate.living_room
 
   - type: vertical-stack
