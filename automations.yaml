@@ -35,13 +35,14 @@
   - id: f586bfa3-cec3-4881-8cbb-bb2ceb9aea62
     alias: '[Alarm] Deactivate siren and Alexa Guard'
     initial_state: 'true'
+    condition:
       - condition: or
         conditions:
-        - condition: not
-          conditions:
-            - condition: state
-              entity_id: alarm_control_panel.alexa_guard_7514f
-              state: disarmed
+          - condition: not
+            conditions:
+              - condition: state
+                entity_id: alarm_control_panel.alexa_guard_7514f
+                state: disarmed
           - condition: state
             entity_id: switch.siren
             state: 'on'
