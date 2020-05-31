@@ -16,10 +16,10 @@
         from: home
         to: not_home
     action:
-      - service: switch.turn_off
-        entity_id: switch.siren
-      - service: switch.turn_off
-        entity_id: switch.backyard_siren
+      # - service: switch.turn_off
+      #   entity_id: switch.siren
+      # - service: switch.turn_off
+      #   entity_id: switch.backyard_siren
       - service: alarm_control_panel.alarm_arm_away
         entity_id:
           - alarm_control_panel.konnected_alarm
@@ -32,31 +32,33 @@
           - group.alexa
           message: I'll start guarding now
 
-  # - id: f586bfa3-cec3-4881-8cbb-bb2ceb9aea62
-  #   alias: '[Alarm] Deactivate siren'
-  #   initial_state: 'true'
-  #   condition:
-  #     condition: or
-  #     conditions:
-  #       - condition: state
-  #         entity_id: switch.siren
-  #         state: 'on'
-  #       - condition: state
-  #         entity_id: switch.backyard_siren
-  #         state: 'on'
-  #   trigger:
-  #     - platform: state
-  #       entity_id: alarm_control_panel.konnected_alarm
-  #       to: triggered
-  #       for: 00:20:00
-  #     - platform: state
-  #       entity_id: alarm_control_panel.konnected_alarm
-  #       to: disarmed
-  #   action:
-  #     - service: switch.turn_off
-  #       entity_id: switch.siren
-  #     - service: switch.turn_off
-  #       entity_id: switch.backyard_siren
+  - id: f586bfa3-cec3-4881-8cbb-bb2ceb9aea62
+    alias: '[Alarm] Deactivate siren and Alexa Guard'
+    initial_state: 'true'
+      - condition: or
+        conditions:
+        - condition: not
+          conditions:
+            - condition: state
+              entity_id: alarm_control_panel.alexa_guard_7514f
+              state: disarmed
+          - condition: state
+            entity_id: switch.siren
+            state: 'on'
+          - condition: state
+            entity_id: switch.backyard_siren
+            state: 'on'
+    trigger:
+      - platform: state
+        entity_id: alarm_control_panel.konnected_alarm
+        to: disarmed
+    action:
+      - service: switch.turn_off
+        entity_id: switch.siren
+      - service: switch.turn_off
+        entity_id: switch.backyard_siren
+      - service: alarm_control_panel.alarm_disarm
+        entity_id: alarm_control_panel.alexa_guard_7514f
 
   - id: 2d57cc0c-7317-486f-a2f2-b755c59ac660
     alias: '[Alarm] Disarm Konnected at night'
@@ -1313,7 +1315,9 @@
         entity_id:
           - alarm_control_panel.alexa_guard_7514f
           - media_player.living_room
+          - media_player.living_room_fire_tv_stick
           - media_player.master_bedroom
+          - media_player.master_bedroom_fire_tv_stick
           - media_player.lucas_room
           - media_player.timo_s_room
           - media_player.emilie_s_room

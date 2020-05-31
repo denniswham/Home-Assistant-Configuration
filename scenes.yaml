@@ -79,19 +79,19 @@
   entities: 
     light.shelly_shdm_1_d17b0e:
       state: "on"
-      brightness: 51
+      brightness: 38
     light.shelly_shdm_1_d48409:
       state: "on"
       brightness: 102
     light.shelly_shdm_1_d17712:
       state: "on"
-      brightness: 26
-    light.shelly_shdm_1_d47c54:
-      state: "on"
-      brightness: 13
+      brightness: 12
     light.shelly_shdm_1_d0f0af:
       state: "on"
       brightness: 51
+    light.shelly_shdm_1_d47c54:
+      state: "on"
+      brightness: 12
 
 - id: 0d80f036-53f7-40de-81ff-77ad45bc8150
   name: Bed time
@@ -174,3 +174,7 @@
     light.shelly_shdm_1_d47c54:
       state: "on"
       brightness: 255
+    light.shelly_shsw_pm_f2f9bf:
+      state: "on"
+    light.shelly_shsw_pm_b98825:
+      state: "on"
