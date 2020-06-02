@@ -2,3 +2,9 @@ binary_sensor:
   - platform: ping
     name: Konnected
     host: !secret konnected_host
+
+sensor:
+  - platform: github
+    access_token: !secret github_access_token
+    repositories:
+      - path: 'konnected-io/konnected-security'
