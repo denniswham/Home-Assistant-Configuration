@@ -1339,7 +1339,7 @@
         hours: /24
     condition:
       - condition: template
-        value_template: '{{ as_timestamp(states.sensor.konnected_security.last_changed)) - (as_timestamp(now()) < 259200 }}'
+        value_template: '{{ (as_timestamp(states.sensor.konnected_security.last_changed) - as_timestamp(now())) < 259200 }}'
     action:
       - service: notify.notify 
         data:
@@ -1356,7 +1356,7 @@
         entity_id: group.shelly_firmware
         state: 'on'
       - condition: template
-        value_template: '{{ as_timestamp(states.group.shelly_firmware.last_changed)) - (as_timestamp(now()) < 259200 }}'
+        value_template: '{{ (as_timestamp(states.group.shelly_firmware.last_changed) - as_timestamp(now())) < 259200 }}'
     action:
       - service: notify.notify 
         data:
