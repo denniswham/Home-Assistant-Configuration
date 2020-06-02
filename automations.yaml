@@ -1331,3 +1331,34 @@
           data:
             channel: Alert
             tag: alert
+
+  - id: 11ea5a9d-fcd9-40ee-8a48-338ecf79b0bc
+    alias: '[Notification] Konnected Firmware Update'
+    trigger:
+      - platform: time_pattern
+        hours: /24
+    condition:
+      - condition: template
+        value_template: '{{ as_timestamp(states.sensor.konnected_security.last_changed)) - (as_timestamp(now()) < 259200 }}'
+    action:
+      - service: notify.notify 
+        data:
+          message: Firmware update
+          title: Konnected firmware update is available. Check the Konnected app.
+
+  - id: ac0497f2-2c86-4b4f-87e5-0db3949e030d
+    alias: '[Notification] Shelly Firmware Update'
+    trigger:
+      - platform: time_pattern
+        hours: /24
+    condition:
+      - condition: state
+        entity_id: group.shelly_firmware
+        state: 'on'
+      - condition: template
+        value_template: '{{ as_timestamp(states.group.shelly_firmware.last_changed)) - (as_timestamp(now()) < 259200 }}'
+    action:
+      - service: notify.notify 
+        data:
+          message: Firmware update
+          title: Shelly firmware update is available. Check the Shelly app.

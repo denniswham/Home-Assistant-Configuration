@@ -1,14 +1,19 @@
-# shelly:
-  # username: !secret shelly_username
-  # password: !secret shelly_password
-  # cloud_auth_key: !secret shelly_cloud_auth_key
-  # cloud_server: !secret shelly_cloud_server
-  # upgrade_switch: true
-  
-  # devices:  #configure devices
-  #   - id: F27A0A
-  #     light_switch: true
-  #   - id: F2F9BF
-  #     light_switch: true
-  #   - id: 8016cb
-  #     light_switch: true
+group:
+  shelly_firmware:
+    name: Shelly Firmware
+    entities:
+      - cover.shelly_shsw_25_c4c695_firmware_update
+      - cover.shelly_shsw_25_c4c708_firmware_update
+      - cover.shelly_shsw_25_c4c964_firmware_update
+      - light.shelly_shdm_1_d0f0af_firmware_update
+      - light.shelly_shdm_1_d17712_firmware_update
+      - light.shelly_shdm_1_d17b0e_firmware_update
+      - light.shelly_shdm_1_d47c54_firmware_update
+      - light.shelly_shdm_1_d48409_firmware_update
+      - light.shelly_shplg_s_8016cb_firmware_update
+      - light.shelly_shsw_pm_b98825_firmware_update
+      - light.shelly_shsw_pm_f27a0a_firmware_update
+      - light.shelly_shsw_pm_f2f9bf_firmware_update
+      - switch.shelly_shplg_s_8013cd_firmware_update
+      - switch.shelly_shplg_s_f8d1ea_firmware_update
+      - switch.shelly_shplg_s_f8d1fa_firmware_update
