@@ -16,10 +16,6 @@
         from: home
         to: not_home
     action:
-      # - service: switch.turn_off
-      #   entity_id: switch.siren
-      # - service: switch.turn_off
-      #   entity_id: switch.backyard_siren
       - service: alarm_control_panel.alarm_arm_away
         entity_id:
           - alarm_control_panel.konnected_alarm
@@ -36,6 +32,9 @@
     alias: '[Alarm] Deactivate siren and Alexa Guard'
     initial_state: 'true'
     condition:
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state: 'off'
       - condition: or
         conditions:
           - condition: not
@@ -107,14 +106,12 @@
     alias: '[Alarm] Disarm Konnected in the morning'
     initial_state: 'true'
     condition:
-      condition: and
-      conditions:
-        - condition: state
-          entity_id: group.household
-          state: home
-        - condition: state
-          entity_id: input_boolean.guest_mode
-          state: 'off'
+      - condition: state
+        entity_id: group.household
+        state: home
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state: 'off'
     trigger:
       - platform: time
         at: 06:00:00
@@ -126,25 +123,23 @@
     alias: '[Alarm] Konnected Standby'
     initial_state: 'true'
     condition:
-      condition: and
-      conditions:
+      - condition: state
+        entity_id: group.household
+        state: home
+      - condition: time
+        after: 06:15:00
+        before: '21:00:00'
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state: 'off'
+      - condition: or
+        conditions:
         - condition: state
-          entity_id: group.household
-          state: home
-        - condition: time
-          after: 06:15:00
-          before: '21:00:00'
+          entity_id: alarm_control_panel.konnected_alarm
+          state: armed_home
         - condition: state
-          entity_id: input_boolean.guest_mode
-          state: 'off'
-        - condition: or
-          conditions:
-          - condition: state
-            entity_id: alarm_control_panel.konnected_alarm
-            state: armed_home
-          - condition: state
-            entity_id: alarm_control_panel.konnected_alarm
-            state: armed_away
+          entity_id: alarm_control_panel.konnected_alarm
+          state: armed_away
     trigger:
       - platform: time_pattern
         minutes: /10
@@ -266,6 +261,10 @@
         entity_id: group.household
         from: home
         to: not_home
+    condition:
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state: 'off'
     action:
       - service: climate.set_preset_mode
         entity_id:
@@ -318,6 +317,9 @@
       - condition: state
         entity_id: binary_sensor.retsinagaard_away
         state:  'off'
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state: 'off'
     trigger:
       - platform: time_pattern
         minutes: /5
@@ -483,9 +485,8 @@
       - condition: state
         entity_id: input_boolean.guest_mode
         state: 'off'
-      - condition: state
-        entity_id: sun.sun
-        state: below_horizon
+      - condition: template
+        value_template: '{{ state_attr("sun.sun", "elevation") < 0 }}'
     trigger:
       - platform: numeric_state
         entity_id: sensor.br_wind_speed
@@ -507,9 +508,8 @@
       - condition: numeric_state
         entity_id: sensor.br_temperature
         below: 25
-      - condition: state
-        entity_id: sun.sun
-        state: above_horizon
+      - condition: template
+        value_template: '{{ state_attr("sun.sun", "elevation") > 0 }}'
     trigger:
       - platform: state
         entity_id: group.household
@@ -532,9 +532,8 @@
       - condition: numeric_state
         entity_id: sensor.br_temperature
         below: 25
-      - condition: state
-        entity_id: sun.sun
-        state: below_horizon
+      - condition: template
+        value_template: '{{ state_attr("sun.sun", "elevation") < 0 }}'
     trigger:
       - platform: state
         entity_id: group.household
@@ -619,9 +618,8 @@
       - condition: state
         entity_id: cover.shelly_shsw_25_c4c708
         state: open
-      - condition: state
-        entity_id: sun.sun
-        state: 'below_horizon'
+      - condition: template
+        value_template: '{{ state_attr("sun.sun", "elevation") < 0 }}'
     action:
       - service: cover.close_cover
         data:
@@ -738,9 +736,8 @@
       - condition: state
         entity_id: input_boolean.guest_mode
         state: 'off'
-      - condition: state
-        entity_id: sun.sun
-        state: below_horizon
+      - condition: template
+        value_template: '{{ state_attr("sun.sun", "elevation") < 0 }}'
     action:
       - service: scene.turn_on
         entity_id: scene.dinner_time  
@@ -787,9 +784,8 @@
         to: "off"
         for: "00:30:00"
     condition:
-      - condition: state
-        entity_id: sun.sun
-        state: 'below_horizon'
+      - condition: template
+        value_template: '{{ state_attr("sun.sun", "elevation") < 0 }}'
       - condition: time
         after: '16:30:00'
         before: '00:00:00'
@@ -816,9 +812,8 @@
         entity_id: binary_sensor.backyard_motion
         to: 'on'
     condition:
-      - condition: state
-        entity_id: sun.sun
-        state: 'below_horizon'
+      - condition: template
+        value_template: '{{ state_attr("sun.sun", "elevation") < 0 }}'
       - condition: time
         after: '00:00:01'
         before: '08:30:00'
@@ -836,9 +831,8 @@
         to: 'off'
         for: "00:10:00"
     condition:
-      - condition: state 
-        entity_id: sun.sun
-        state: below_horizon
+      - condition: template
+        value_template: '{{ state_attr("sun.sun", "elevation") < 0 }}'
       - condition: time
         after: '00:00:01'
         before: '08:30:00'
@@ -1070,6 +1064,9 @@
       - condition: time
         after: '06:00:00'
         before: '10:00:00'
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state: 'off'
     trigger:
       - platform: state
         entity_id: binary_sensor.entryway
