@@ -936,7 +936,7 @@
               thread-id: "motion"
 
   - id: 6afbd950-7db2-44df-8eb4-d6c46d57f7af
-    alias: '[Alert] Low Battery Notification'
+    alias: '[Notification] Low Battery Notification'
     initial_state: 'on'
     trigger:
       - platform: numeric_state
@@ -954,13 +954,6 @@
         data_template:
           message: "{{ trigger.to_state.name }} reported low battery, please charge."
           title: Ring Battery Low
-      - service: notify.mobile_app_sm_g960f
-        data_template:
-          message: "{{ trigger.to_state.name }} reported low battery, please charge."
-          title: Ring Battery Low
-          data:
-            tag: alert
-            channel: Alert
 
   - id: 18bb3b86-f2d8-47d9-908a-b6f1555a15e9
     alias: '[Alert] Play doorbell chime on Echos'
@@ -1130,6 +1123,14 @@
             tag: alarm
             sticky: 'true'
             color: 'red'
+      - service: notify.mobile_app_iphone_van_stephanie
+        data:
+          message: Smoke detected
+          title: Nest Protect
+      - service: persistent_notification.create
+        data:
+          message: Smoke detected
+          title: Nest Protect
 
   - id: a3f8f81e-db50-480b-87a5-146530934099
     alias: '[Alarm] CO Detected'
@@ -1178,6 +1179,14 @@
             tag: alarm
             sticky: 'true'
             color: 'red'
+      - service: notify.mobile_app_iphone_van_stephanie
+        data:
+          message: CO detected
+          title: Nest Protect
+      - service: persistent_notification.create
+        data:
+          message: CO detected
+          title: Nest Protect
 
   - id: d28bb847-8061-473b-b632-7a7d684cee78
     alias: '[Alarm] Turn on lights with an emergency'
@@ -1205,7 +1214,7 @@
         entity_id: scene.emergency
 
   - id: d7132414-4610-41a6-9830-8080b980447f
-    alias: '[General] Update Notifications'
+    alias: '[Notification] Home Assistant Update Available'
     initial_state: 'on'
     condition:
       - condition: template
@@ -1219,15 +1228,10 @@
         to: home
     action:
       - delay: 00:30:00
-      - service: notify.mobile_app_sm_g960f
+      - service: persistent_notification.create
         data_template:
           title: Home Assistant Update
           message: "Version {{ states.sensor.latest_version.state }} is available!"
-          data:
-            clickAction: "/hassio/dashboard"
-            channel: General
-            tag: general
-
 
   - id: ef7a15bf-f601-4e75-9e2a-f3a796d37750
     alias: '[Alert] Send notification when amplifier is on when TV is turned off'
@@ -1295,15 +1299,30 @@
     initial_state: 'off'
     trigger:
       - platform: time
-        at: 04:00:00
-    condition:
-      - condition: template
-        value_template: '{{ states.sensor.latest_version.state != states.sensor.current_version.state }}'
+        at: 03:30:00
+    # condition:
+    #   - condition: template
+    #     value_template: '{{ states.sensor.latest_version.state != states.sensor.current_version.state }}'
     action:
       - service: hassio.addon_stdin
         data:
           addon: a0d7b954_ssh
           input: "ha core update"
+
+  - id: 216fef01-3136-40f1-801d-fdf4dfc4edcb
+    alias: '[General] Update supervisor at night'
+    initial_state: 'off'
+    trigger:
+      - platform: time
+        at: 04:00:00
+    # condition:
+    #   - condition: template
+    #     value_template: '{{ states.sensor.latest_version.state != states.sensor.current_version.state }}'
+    action:
+      - service: hassio.addon_stdin
+        data:
+          addon: a0d7b954_ssh
+          input: "ha supervisor update"
 
   - id: 80e577ef-0cb7-43b9-a427-2982efdb3003
     alias: '[Alexa] Notification to refresh token'
@@ -1321,6 +1340,10 @@
           - media_player.emilie_s_room
         to: unavailable
     action:
+      - service: persistent_notification.create
+        data:
+          title: Alexa Token
+          message: Alexa authentication need refreshing!
       - service: notify.mobile_app_sm_g960f
         data:
           title: Alexa Token
@@ -1336,12 +1359,12 @@
         hours: /24
     condition:
       - condition: template
-        value_template: '{{ (as_timestamp(states.sensor.konnected_security.last_changed) - as_timestamp(now())) < 259200 }}'
+        value_template: '{{ (as_timestamp(now()) - as_timestamp(states.group.shelly_firmware.last_changed)) < 259200 }}'
     action:
-      - service: notify.notify 
+      - service: persistent_notification.create 
         data:
           message: Firmware update
-          title: Konnected firmware update is available. Check the Konnected app.
+          title: A firmware update for Konnected is available. Check the Konnected app.
 
   - id: ac0497f2-2c86-4b4f-87e5-0db3949e030d
     alias: '[Notification] Shelly Firmware Update'
@@ -1353,9 +1376,9 @@
         entity_id: group.shelly_firmware
         state: 'on'
       - condition: template
-        value_template: '{{ (as_timestamp(states.group.shelly_firmware.last_changed) - as_timestamp(now())) < 259200 }}'
+        value_template: '{{ (as_timestamp(now()) - as_timestamp(states.group.shelly_firmware.last_changed)) < 259200 }}'
     action:
-      - service: notify.notify 
+      - service: persistent_notification.create 
         data:
           message: Firmware update
-          title: Shelly firmware update is available. Check the Shelly app.
+          title: A firmware update for Shelly devices is available. Check the Shelly app.
