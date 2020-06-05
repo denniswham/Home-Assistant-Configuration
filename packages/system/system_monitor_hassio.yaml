@@ -4,15 +4,23 @@ sensor:
     command: "cat /sys/class/thermal/thermal_zone0/temp"
     unit_of_measurement: "°C"
     value_template: '{{ value | multiply(0.001) }}'
-  - platform: version
   - platform: filesize
     file_paths:
       - /config/home-assistant_v2.db
+  - platform: version
   - platform: rest
     resource: https://pypi.python.org/pypi/homeassistant/json
     name: Latest Version
     value_template: '{{ value_json.info.version }}'
     scan_interval: 3600
+  - platform: command_line
+    name: Supervisor updates
+    command: 'curl http://supervisor/supervisor/info -H "Authorization: Bearer $(printenv SUPERVISOR_TOKEN)" | jq ''{"newest_version":.data.version_latest,"current_version":.data.version,"addons":[.data.addons[] | select(.version != .installed)]}'''
+    value_template: "{{ value_json.addons | length }}"
+    json_attributes:
+    - newest_version
+    - current_version
+    - addons
   - platform: systemmonitor
     resources:
       - type: disk_use_percent
@@ -22,5 +30,31 @@ sensor:
       - type: processor_use
       - type: last_boot
 
-shell_command:
-  update_host: 'ha host update'
+binary_sensor:
+  - platform: template
+    sensors:
+      # True if there's an update available for supervisor
+      updater_supervisor:
+        friendly_name: 'Updater - Supervisor'
+        device_class: problem
+        entity_id:
+        - sensor.supervisor_updates
+        value_template: "{{ state_attr('sensor.supervisor_updates', 'current_version') != state_attr('sensor.supervisor_updates', 'newest_version') }}"
+        availability_template: "{{ (states('sensor.supervisor_updates') | int(-1)) > -1 }}"
+
+      # True if there's updates available for any HACS components
+      updater_hacs:
+        friendly_name: 'Updater - HACS'
+        device_class: problem
+        entity_id:
+        - sensor.hacs
+        value_template: "{{ states('sensor.hacs') | int > 0 }}"
+
+      # True if there's updates available for any addons
+      updater_addons:
+        friendly_name: 'Updater - Addons'
+        device_class: problem
+        entity_id:
+        - sensor.supervisor_updates
+        value_template: "{{ states('sensor.supervisor_updates') | int > 0 }}"
+

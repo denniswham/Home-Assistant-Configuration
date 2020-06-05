@@ -1214,7 +1214,7 @@
         entity_id: scene.emergency
 
   - id: d7132414-4610-41a6-9830-8080b980447f
-    alias: '[ HA ] Home Assistant Update Available'
+    alias: '[ HA ] Update Available - Home Assistant'
     initial_state: 'on'
     condition:
       - condition: template
@@ -1359,7 +1359,7 @@
             tag: alert
 
   - id: 11ea5a9d-fcd9-40ee-8a48-338ecf79b0bc
-    alias: '[ HA ] Konnected Firmware Update'
+    alias: '[ HA ] Update Available - Konnected Firmware'
     initial_state: 'off'
     trigger:
       - platform: time_pattern
@@ -1374,7 +1374,7 @@
           title: A firmware update for Konnected is available. Check the Konnected app.
 
   - id: ac0497f2-2c86-4b4f-87e5-0db3949e030d
-    alias: '[ HA ] Shelly Firmware Update'
+    alias: '[ HA ] Update Available - Shelly Firmware'
     initial_state: 'on'
     trigger:
       - platform: time_pattern
