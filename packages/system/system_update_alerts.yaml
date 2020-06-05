@@ -201,16 +201,16 @@ alert:
       tag: 'addon-update-available'
       url: 'http://hassio.local/hassio/dashboard'
 
-old automation:
-  - id: '1585256741683'
-    alias: Check config with update
-    description: Starts the check config addon when an update becomes available
-    trigger:
-    - entity_id: sensor.updater_core
-      platform: state
-      to: 'on'
-    condition: []
-    action:
-    - data:
-        addon: core_check_config
-      service: hassio.addon_start
+# old automation:
+#   - id: '1585256741683'
+#     alias: Check config with update
+#     description: Starts the check config addon when an update becomes available
+#     trigger:
+#     - entity_id: sensor.updater_core
+#       platform: state
+#       to: 'on'
+#     condition: []
+#     action:
+#     - data:
+#         addon: core_check_config
+#       service: hassio.addon_start
