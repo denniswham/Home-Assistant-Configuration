@@ -253,6 +253,34 @@
             - group.alexa
           message: Motion detected, the alarm will activate shortly. Motion detected, the alarm will activate shortly.
 
+  - id: 80e577ef-0cb7-43b9-a427-2982efdb3003
+    alias: '[Alexa] Notification to refresh token'
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id:
+          - alarm_control_panel.alexa_guard_7514f
+          - media_player.living_room
+          - media_player.living_room_fire_tv_stick
+          - media_player.master_bedroom
+          - media_player.master_bedroom_fire_tv_stick
+          - media_player.lucas_room
+          - media_player.timo_s_room
+          - media_player.emilie_s_room
+        to: unavailable
+    action:
+      - service: persistent_notification.create
+        data:
+          title: Alexa Token
+          message: Alexa authentication need refreshing!
+      - service: notify.mobile_app_sm_g960f
+        data:
+          title: Alexa Token
+          message: Alexa authentication need refreshing!
+          data:
+            channel: Alert
+            tag: alert
+
   - id: 811e963d-f24e-47bd-b0fb-b519bb0e6dbb
     alias: '[Climate] Away Mode'
     initial_state: 'true'
@@ -1294,99 +1322,152 @@
         data:
           addon: a0d7b954_wireguard
 
-  - id: 9853b928-ccfd-4615-a93b-5458c3ca5887
-    alias: '[ HA ] Update host at night'
-    initial_state: 'off'
-    trigger:
-      - platform: time
-        at: 03:30:00
-    action:
-      - service: hassio.addon_stdin
-        data:
-          addon: a0d7b954_ssh
-          input: "ha core update"
+  # - id: d7132414-4610-41a6-9830-8080b980447f
+  #   alias: '[ HA ] Update Available - Home Assistant'
+  #   initial_state: 'on'
+  #   condition:
+  #     - condition: template
+  #       value_template: '{{ states.sensor.latest_version.state != states.sensor.current_version.state }}'
+  #   trigger:
+  #     - platform: time
+  #       at: 06:00:00
+  #     - platform: state
+  #       entity_id: group.household
+  #       from: not_home
+  #       to: home
+  #   action:
+  #     - delay: 00:30:00
+  #     - service: persistent_notification.create
+  #       data_template:
+  #         title: Home Assistant Update
+  #         message: "Version {{ states.sensor.latest_version.state }} is available!"
 
-  - id: 216fef01-3136-40f1-801d-fdf4dfc4edcb
-    alias: '[ HA ] Update supervisor at night'
-    initial_state: 'off'
-    trigger:
-      - platform: time
-        at: 04:00:00
-    action:
-      - service: hassio.addon_stdin
-        data:
-          addon: a0d7b954_ssh
-          input: "ha supervisor update"
+  # - id: c75acd69-1d2c-4bd5-8115-c7b40b733ddb
+  #   alias: '[ HA ] Update Available - Supervisor'
+  #   initial_state: 'on'
+  #   condition:
+  #     - condition: status
+  #       entity_id: binary_sensor.updater_supervisor
+  #   trigger:
+  #     - platform: time
+  #       at: 06:00:00
+  #     - platform: state
+  #       entity_id: group.household
+  #       from: not_home
+  #       to: home
+  #   action:
+  #     - delay: 00:30:00
+  #     - service: persistent_notification.create
+  #       data_template:
+  #         title: Home Assistant Update
+  #         message: "Version {{ states.sensor.latest_version.state }} is available!"
 
-  - id: 318de4ad-cf10-40a2-aff9-048c899f3f94
-    alias: '[ HA ] Update OS at night'
-    initial_state: 'off'
-    trigger:
-      - platform: time
-        at: 04:30:00
-    action:
-      - service: hassio.addon_stdin
-        data:
-          addon: a0d7b954_ssh
-          input: "ha os update"
+  # - id: 62a23ae7-3236-4db0-8c9e-557e42452bc6
+  #   alias: '[ HA ] Update Available - HACS'
+  #   initial_state: 'on'
+  #   condition:
+  #     - condition: status
+  #       entity_id: binary_sensor.updater_hacs
+  #   trigger:
+  #     - platform: time
+  #       at: 06:00:00
+  #     - platform: state
+  #       entity_id: group.household
+  #       from: not_home
+  #       to: home
+  #   action:
+  #     - delay: 00:30:00
+  #     - service: persistent_notification.create
+  #       data_template:
+  #         title: Home Assistant Update
+  #         message: "Version {{ states.sensor.latest_version.state }} is available!"
 
-  - id: 80e577ef-0cb7-43b9-a427-2982efdb3003
-    alias: '[Alexa] Notification to refresh token'
-    initial_state: 'on'
-    trigger:
-      - platform: state
-        entity_id:
-          - alarm_control_panel.alexa_guard_7514f
-          - media_player.living_room
-          - media_player.living_room_fire_tv_stick
-          - media_player.master_bedroom
-          - media_player.master_bedroom_fire_tv_stick
-          - media_player.lucas_room
-          - media_player.timo_s_room
-          - media_player.emilie_s_room
-        to: unavailable
-    action:
-      - service: persistent_notification.create
-        data:
-          title: Alexa Token
-          message: Alexa authentication need refreshing!
-      - service: notify.mobile_app_sm_g960f
-        data:
-          title: Alexa Token
-          message: Alexa authentication need refreshing!
-          data:
-            channel: Alert
-            tag: alert
+  # - id: d839d8ef-908e-4318-8a64-7263e838e118
+  #   alias: '[ HA ] Update Available - Addons'
+  #   initial_state: 'on'
+  #   condition:
+  #     - condition: status
+  #       entity_id: binary_sensor.updater_addons
+  #   trigger:
+  #     - platform: time
+  #       at: 06:00:00
+  #     - platform: state
+  #       entity_id: group.household
+  #       from: not_home
+  #       to: home
+  #   action:
+  #     - delay: 00:30:00
+  #     - service: persistent_notification.create
+  #       data_template:
+  #         title: Home Assistant Update
+  #         message: "Version {{ states.sensor.latest_version.state }} is available!"
 
-  - id: 11ea5a9d-fcd9-40ee-8a48-338ecf79b0bc
-    alias: '[ HA ] Update Available - Konnected Firmware'
-    initial_state: 'off'
-    trigger:
-      - platform: time_pattern
-        hours: /24
-    condition:
-      - condition: template
-        value_template: '{{ (as_timestamp(now()) - as_timestamp(states.group.shelly_firmware.last_changed)) < 259200 }}'
-    action:
-      - service: persistent_notification.create 
-        data:
-          message: Firmware update
-          title: A firmware update for Konnected is available. Check the Konnected app.
+#   - id: 11ea5a9d-fcd9-40ee-8a48-338ecf79b0bc
+#     alias: '[ HA ] Update Available - Konnected Firmware'
+#     initial_state: 'off'
+#     trigger:
+#       - platform: time_pattern
+#         hours: /24
+#     condition:
+#       - condition: template
+#         value_template: '{{ (as_timestamp(now()) - as_timestamp(states.group.shelly_firmware.last_changed)) < 259200 }}'
+#     action:
+#       - service: persistent_notification.create 
+#         data:
+#           message: Firmware update
+#           title: A firmware update for Konnected is available. Check the Konnected app.
 
-  - id: ac0497f2-2c86-4b4f-87e5-0db3949e030d
-    alias: '[ HA ] Update Available - Shelly Firmware'
-    initial_state: 'on'
-    trigger:
-      - platform: time_pattern
-        hours: /24
-    condition:
-      - condition: state
-        entity_id: group.shelly_firmware
-        state: 'on'
-      - condition: template
-        value_template: '{{ (as_timestamp(now()) - as_timestamp(states.group.shelly_firmware.last_changed)) < 259200 }}'
-    action:
-      - service: persistent_notification.create 
-        data:
-          message: Firmware update
-          title: A firmware update for Shelly devices is available. Check the Shelly app.
+#   - id: ac0497f2-2c86-4b4f-87e5-0db3949e030d
+#     alias: '[ HA ] Update Available - Shelly Firmware'
+#     initial_state: 'on'
+#     trigger:
+#       - platform: time_pattern
+#         hours: /24
+#     condition:
+#       - condition: state
+#         entity_id: group.shelly_firmware
+#         state: 'on'
+#       - condition: template
+#         value_template: '{{ (as_timestamp(now()) - as_timestamp(states.group.shelly_firmware.last_changed)) < 259200 }}'
+#     action:
+#       - service: persistent_notification.create 
+#         data:
+#           message: Firmware update
+#           title: A firmware update for Shelly devices is available. Check the Shelly app.
+
+#   - id: 9853b928-ccfd-4615-a93b-5458c3ca5887
+#     alias: '[ HA ] Update host at night'
+#     initial_state: 'off'
+#     trigger:
+#       - platform: time
+#         at: 03:30:00
+#     action:
+#       - service: hassio.addon_stdin
+#         data:
+#           addon: a0d7b954_ssh
+#           input: "ha core update"
+
+#   - id: 216fef01-3136-40f1-801d-fdf4dfc4edcb
+#     alias: '[ HA ] Update supervisor at night'
+#     initial_state: 'off'
+#     trigger:
+#       - platform: time
+#         at: 04:00:00
+#     action:
+#       - service: hassio.addon_stdin
+#         data:
+#           addon: a0d7b954_ssh
+#           input: "ha supervisor update"
+
+#   - id: 318de4ad-cf10-40a2-aff9-048c899f3f94
+#     alias: '[ HA ] Update OS at night'
+#     initial_state: 'off'
+#     trigger:
+#       - platform: time
+#         at: 04:30:00
+#     action:
+#       - service: hassio.addon_stdin
+#         data:
+#           addon: a0d7b954_ssh
+#           input: "ha os update"
+
