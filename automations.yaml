@@ -855,7 +855,7 @@
         entity_id: input_boolean.vacation_mode
 
   - id: 4757886e-74b9-4cfc-b888-845c757fea87
-    alias: '[Power] Washing machine finished'
+    alias: '[Notification] Washing machine finished'
     trigger:
       - platform: state
         entity_id: binary_sensor.washing_machine_on
@@ -878,7 +878,7 @@
               thread-id: "laundry"
 
   - id: e18cf2bf-5c8a-4b4a-8add-10559655b7dd
-    alias: '[Power] Tumble Dryer finished'
+    alias: '[Notification] Tumble Dryer finished'
     trigger:
       - platform: state
         entity_id: binary_sensor.dryer_on
@@ -956,7 +956,7 @@
           title: Ring Battery Low
 
   - id: 18bb3b86-f2d8-47d9-908a-b6f1555a15e9
-    alias: '[Alert] Play doorbell chime on Echos'
+    alias: '[Notification] Play doorbell chime on Echos'
     initial_state: 'off'
     trigger:
       - platform: state
@@ -976,7 +976,7 @@
           - media_player.emilie_s_room
 
   - id: e684aed6-800b-42c3-8614-3f0079958a8e
-    alias: '[General] Day Mode To Evening'
+    alias: '[House] Day Mode To Evening'
     initial_state: 'on'
     trigger:
       - platform: sun
@@ -990,7 +990,7 @@
           option: Evening
 
   - id: 1d88c7c6-2720-4854-a2d3-9d48e36171a9
-    alias: '[General] Day Mode To Morning'
+    alias: '[House] Day Mode To Morning'
     initial_state: 'on'
     trigger:
       - platform: sun
@@ -1016,7 +1016,7 @@
           option: Day
 
   - id: 126f8a12-ce80-45e7-a064-4764643ab0b7
-    alias: '[General] Day Mode To Night'
+    alias: '[House] Day Mode To Night'
     initial_state: 'on'
     trigger:
       - platform: state
@@ -1049,7 +1049,7 @@
           option: Night
 
   - id: c93f7aa4-2fd8-4088-88b3-8f07226a7fc5
-    alias: '[General] Turn on Rise and Shine scene in the morning'
+    alias: '[House] Turn on Rise and Shine scene in the morning'
     condition:
       - condition: numeric_state
         entity_id: sensor.entryway_motion_trigger_count
@@ -1214,7 +1214,7 @@
         entity_id: scene.emergency
 
   - id: d7132414-4610-41a6-9830-8080b980447f
-    alias: '[Notification] Home Assistant Update Available'
+    alias: '[ HA ] Home Assistant Update Available'
     initial_state: 'on'
     condition:
       - condition: template
@@ -1234,7 +1234,7 @@
           message: "Version {{ states.sensor.latest_version.state }} is available!"
 
   - id: ef7a15bf-f601-4e75-9e2a-f3a796d37750
-    alias: '[Alert] Send notification when amplifier is on when TV is turned off'
+    alias: '[Notification] Send notification when amplifier is on when TV is turned off'
     initial_state: 'on'
     condition:
       condition: or
@@ -1359,7 +1359,7 @@
             tag: alert
 
   - id: 11ea5a9d-fcd9-40ee-8a48-338ecf79b0bc
-    alias: '[Notification] Konnected Firmware Update'
+    alias: '[ HA ] Konnected Firmware Update'
     initial_state: 'off'
     trigger:
       - platform: time_pattern
@@ -1374,7 +1374,7 @@
           title: A firmware update for Konnected is available. Check the Konnected app.
 
   - id: ac0497f2-2c86-4b4f-87e5-0db3949e030d
-    alias: '[Notification] Shelly Firmware Update'
+    alias: '[ HA ] Shelly Firmware Update'
     initial_state: 'on'
     trigger:
       - platform: time_pattern
