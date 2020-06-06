@@ -52,7 +52,7 @@ script:
 #       tag: 'konnected_update_available'
 #     # url: 'https://my.shelly.cloud/#dashboard'
 
-Automation:
+automation:
   - id: 3c28420d-2670-4215-bd93-7b2ca445fbb4
     alias: '[Alarm] Arm Konnected'
     initial_state: 'true'
