@@ -216,7 +216,7 @@ automation:
       service: hassio.addon_start
 
   - id: 9853b928-ccfd-4615-a93b-5458c3ca5887
-    alias: '[ HA ] Update host at night'
+    alias: '[ HA ] Update HA at night'
     initial_state: 'off'
     trigger:
       - platform: time
