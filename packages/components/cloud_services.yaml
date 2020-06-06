@@ -45,19 +45,31 @@ sensor:
           value_template: >
             {{ states.media_player | selectattr('attributes.last_called','eq',True) | map(attribute='entity_id') | first }}
 
-# mqtt:
-#   broker: 127.0.0.1
-#   username: !secret mqtt_user
-#   password: !secret mqtt_password
-#   discovery: true
-#   discovery_prefix: homeassistant
-
-#   birth_message:
-#     topic: 'hass/status'
-#     payload: 'online'
-#     qos: 0
-#     retain: false
-
-#   will_message:
-#     topic: 'hass/status'
-#     payload: 'offline'
+automation:
+  - id: 80e577ef-0cb7-43b9-a427-2982efdb3003
+    alias: '[Alexa] Notification to refresh token'
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id:
+          - alarm_control_panel.alexa_guard_7514f
+          - media_player.living_room
+          - media_player.living_room_fire_tv_stick
+          - media_player.master_bedroom
+          - media_player.master_bedroom_fire_tv_stick
+          - media_player.lucas_room
+          - media_player.timo_s_room
+          - media_player.emilie_s_room
+        to: unavailable
+    action:
+      - service: persistent_notification.create
+        data:
+          title: Alexa Token
+          message: Alexa authentication need refreshing!
+      - service: notify.mobile_app_sm_g960f
+        data:
+          title: Alexa Token
+          message: Alexa authentication need refreshing!
+          data:
+            channel: Alert
+            tag: alert

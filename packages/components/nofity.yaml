@@ -1,5 +1,5 @@
 notify:
-  - name: all_devices
+  - name: all
     platform: group
     services:
       - service: mobile_app_sm_g960f
@@ -7,8 +7,3 @@ notify:
       - service: mobile_app_iphone_van_lucas
       - service: mobile_app_oneplus_a5010
 
-  # For alerts
-  - name: me
-    platform: group
-    services:
-      - service: mobile_app_sm_g960f

@@ -1,0 +1,170 @@
+automation:
+  - id: 050a6124-23bb-4f5b-acde-e23e1c69361b
+    alias: '[House] Reminder Guest Mode on'
+    initial_state: 'on'
+    condition:
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state:  'on'
+    trigger:
+      - platform: time
+        at: "06:00:00"
+    action:
+      - service: notify.mobile_app_sm_g960f
+        data:
+          title: Guest Mode is still turned on
+          message: Do you want to turn it off so that automations start working again?
+          data:
+            channel: Alert
+            tag: alert
+      - service: notify.mobile_app_iphone_van_stephanie
+        data_template:
+          title: Guest Mode is still turned on
+          message: Do you want to turn it off so that automations start working again?
+          data:
+            push:
+              thread-id: "alert"
+
+  - id: 0fbfb0c5-7e5e-4964-8447-ebff3202d9c4
+    alias: '[House] Guest Mode On'
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: input_boolean.guest_mode
+        to: 'on'
+    action:
+      - service: notify.mobile_app_sm_g960f
+        data_template:
+          title: Guest mode on
+          message: Some automations turned off
+          data:
+            channel: Alert
+            tag: alert
+      - service: notify.mobile_app_iphone_van_stephanie
+        data_template:
+          title: Guest mode on
+          message: Some automations turned off
+          data:
+            push:
+              thread-id: "alert"
+
+  - id: 380b5572-0d01-4a26-a61a-53cc9a1d679f
+    alias: '[House] Guest Mode Off'
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: input_boolean.guest_mode
+        to: 'off'
+    action:
+      - service: notify.mobile_app_sm_g960f
+        data:
+          title: Guest mode off
+          message: Automations turned on again
+          data:
+            channel: Alert
+            tag: alert
+      - service: notify.mobile_app_iphone_van_stephanie
+        data_template:
+          title: Guest mode off
+          message: Automations turned on again
+          data:
+            push:
+              thread-id: "alert"
+
+  - id: e684aed6-800b-42c3-8614-3f0079958a8e
+    alias: '[House] Day Mode To Evening'
+    initial_state: 'on'
+    trigger:
+      - platform: sun
+        event: sunset
+        offset: '-00:45:00'
+    action:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.house_mode
+          option: Evening
+
+  - id: 1d88c7c6-2720-4854-a2d3-9d48e36171a9
+    alias: '[House] Day Mode To Morning'
+    initial_state: 'on'
+    trigger:
+      - platform: sun
+        event: sunrise
+    action:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.house_mode
+          option: Morning
+
+  - id: 1ee5fa81-d1a5-4f97-9941-61ca679d745c
+    alias: '[House] Day Mode To Day'
+    initial_state: 'on'
+    trigger:
+      - platform: time
+        at: "09:00:00"
+    action:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.house_mode
+          option: Day
+
+  - id: 126f8a12-ce80-45e7-a064-4764643ab0b7
+    alias: '[House] Day Mode To Night'
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: alarm_control_panel.konnected_alarm
+        to: 'armed_home'
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: input_select.house_mode
+          state: 'Evening'
+        - condition: time
+          after: '22:00:00'
+          before: '06:00:00'
+        - condition: state
+          entity_id: group.household
+          state: 'home'
+    action:
+      # - service: notify.mobile_app_sm_g960f
+      #   data:
+      #     message: 'It seems like everyone is asleep'
+      #     title: 'Good night!'
+      #     data:
+      #        channel: Alert
+      #        tag: alert
+      #        sticky: 'true'
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.house_mode
+          option: Night
+
+  - id: c93f7aa4-2fd8-4088-88b3-8f07226a7fc5
+    alias: '[House] Turn on Rise and Shine scene in the morning'
+    condition:
+      - condition: numeric_state
+        entity_id: sensor.entryway_motion_trigger_count
+        below: 1
+      - condition: time
+        after: '06:00:00'
+        before: '10:00:00'
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state: 'off'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.entryway
+        from: 'off'
+        to: 'on'
+    action:
+      - service: scene.turn_on
+        entity_id: scene.rise_and_shine
+      # - delay:
+      #     seconds: 30
+      # - service: media_player.play_media
+      #   data:
+      #     entity_id: media_player.living_room
+      #     media_content_id: good morning
+      #     media_content_type: routine

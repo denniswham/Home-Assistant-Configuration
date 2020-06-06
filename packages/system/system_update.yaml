@@ -91,7 +91,7 @@ alert:
     title: 'Update for HA available'
     message: "New version is {{ state_attr('sensor.updater_core', 'newest_version') }}. Currently on {{ state_attr('sensor.updater_core', 'current_version') }}"
     notifiers:
-    - 'me'
+    - mobile_app_sm_g960f
     data:
       tag: 'ha-update-available'
       url: 'http://hassio.local/hassio/addon/core_check_config'
@@ -106,7 +106,7 @@ alert:
     title: 'Update for HA Supervisor available'
     message: "New version is {{ state_attr('sensor.supervisor_updates', 'newest_version') }}. Currently on {{ state_attr('sensor.supervisor_updates', 'current_version') }}"
     notifiers:
-    - 'me'
+    - mobile_app_sm_g960f
     data:
       tag: 'supervisor-update-available'
       url: 'http://hassio.local/hassio/dashboard'
@@ -121,7 +121,7 @@ alert:
     title: 'Update for HA Audio available'
     message: "New version is {{ state_attr('sensor.updater_audio', 'newest_version') }}. Currently on {{ state_attr('sensor.updater_audio', 'current_version') }}"
     notifiers:
-    - 'me'
+    - mobile_app_sm_g960f
     data:
       tag: 'audio_update_available'
       url: 'http://hassio.local/hassio/dashboard'
@@ -136,7 +136,7 @@ alert:
     title: 'Update for HA DNS available'
     message: "New version is {{ state_attr('sensor.updater_dns', 'newest_version') }}. Currently on {{ state_attr('sensor.updater_dns', 'current_version') }}"
     notifiers:
-    - 'me'
+    - mobile_app_sm_g960f
     data:
       tag: 'dns_update_available'
       url: 'http://hassio.local/hassio/dashboard'
@@ -151,7 +151,7 @@ alert:
     title: 'Update for HA CLI available'
     message: "New version is {{ state_attr('sensor.updater_cli', 'newest_version') }}. Currently on {{ state_attr('sensor.updater_cli', 'current_version') }}"
     notifiers:
-    - 'me'
+    - mobile_app_sm_g960f
     data:
       tag: 'cli_update_available'
       url: 'http://hassio.local/hassio/dashboard'
@@ -166,7 +166,7 @@ alert:
     title: 'Update for HA Multicast available'
     message: "New version is {{ state_attr('sensor.updater_multicast', 'newest_version') }}. Currently on {{ state_attr('sensor.updater_multicast', 'current_version') }}"
     notifiers:
-    - 'me'
+    - mobile_app_sm_g960f
     data:
       tag: 'multicast_update_available'
       url: 'http://hassio.local/hassio/dashboard'
@@ -181,7 +181,7 @@ alert:
     title: "Updates available in {{ states('sensor.hacs') }} HACS repo{% if states('sensor.hacs') | int > 1 %}s{% endif %}"
     message: ""
     notifiers:
-      - 'me'
+      - mobile_app_sm_g960f
     data:
       tag: 'hacs-update-available'
       url: 'http://hassio.local/hacs/installed'
@@ -196,21 +196,57 @@ alert:
     title: "Updates available for {{ states('sensor.supervisor_updates') }} HA addon{% if states('sensor.supervisor_updates') | int > 1 %}s{% endif %}"
     message: ""
     notifiers:
-    - 'me'
+    - mobile_app_sm_g960f
     data:
       tag: 'addon-update-available'
       url: 'http://hassio.local/hassio/dashboard'
 
-# old automation:
-#   - id: '1585256741683'
-#     alias: Check config with update
-#     description: Starts the check config addon when an update becomes available
-#     trigger:
-#     - entity_id: sensor.updater_core
-#       platform: state
-#       to: 'on'
-#     condition: []
-#     action:
-#     - data:
-#         addon: core_check_config
-#       service: hassio.addon_start
+automation:
+  - id: e14918df-1e9d-41b8-9960-c8c32cd9c21e
+    alias: '[System] Check config with update'
+    description: Starts the check config addon when an update becomes available
+    trigger:
+    - entity_id: sensor.updater_core
+      platform: state
+      to: 'on'
+    condition: []
+    action:
+    - data:
+        addon: core_check_config
+      service: hassio.addon_start
+
+  - id: 9853b928-ccfd-4615-a93b-5458c3ca5887
+    alias: '[ HA ] Update host at night'
+    initial_state: 'off'
+    trigger:
+      - platform: time
+        at: 03:30:00
+    action:
+      - service: hassio.addon_stdin
+        data:
+          addon: a0d7b954_ssh
+          input: "ha core update"
+
+  - id: 216fef01-3136-40f1-801d-fdf4dfc4edcb
+    alias: '[ HA ] Update supervisor at night'
+    initial_state: 'off'
+    trigger:
+      - platform: time
+        at: 04:00:00
+    action:
+      - service: hassio.addon_stdin
+        data:
+          addon: a0d7b954_ssh
+          input: "ha supervisor update"
+
+  - id: 318de4ad-cf10-40a2-aff9-048c899f3f94
+    alias: '[ HA ] Update OS at night'
+    initial_state: 'off'
+    trigger:
+      - platform: time
+        at: 04:30:00
+    action:
+      - service: hassio.addon_stdin
+        data:
+          addon: a0d7b954_ssh
+          input: "ha os update"
