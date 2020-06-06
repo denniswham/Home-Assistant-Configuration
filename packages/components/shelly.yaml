@@ -26,7 +26,7 @@ binary_sensor:
         friendly_name: 'Updater - Shelly'
         device_class: problem
         entity_id:
-        - group.shelly_firmware
+          - group.shelly_firmware
         value_template: "{{ states('group.shelly_firmware') }}"
         availability_template: "{{ states('group.shelly_firmware') != 'unknown' }}"
 
@@ -34,8 +34,7 @@ alert:
   # Shelly update is available - un-acknowledgeable, auto-dismiss, me only
   shelly_update_available:
     name: Shelly has an update
-    entity_id:
-      - group.shelly_firmware
+    entity_id: group.shelly_firmware
     state: 'on'
     can_acknowledge: false
     repeat: 360
