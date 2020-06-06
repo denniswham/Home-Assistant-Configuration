@@ -54,7 +54,7 @@ script:
 
 alert:
   # Alarm triggers - un-acknowledgeble, auto-dismiss, all
-  ha_update_available:
+  alarm_triggered:
     name: Alarm has triggered
     entity_id: alarm_control_panel.konnected_alarm
     state: 'triggered'
