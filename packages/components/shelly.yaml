@@ -27,7 +27,7 @@ binary_sensor:
         device_class: problem
         entity_id:
         - group.shelly_firmware
-        value_template: "{{ (states('group.shelly_firmware') }}"
+        value_template: "{{ states('group.shelly_firmware') }}"
         availability_template: "{{ states('group.shelly_firmware') != 'unknown' }}"
 
 alert:
