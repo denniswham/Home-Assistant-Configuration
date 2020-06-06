@@ -41,7 +41,7 @@ alert:
     title: 'Update for Shelly available'
     message: "Updates available for Shelly"
     notifiers:
-    - mobile_app_sm_g960f
+    - 'dennis'
     data:
       tag: 'shelly_update_available'
       url: 'https://my.shelly.cloud/#dashboard'
