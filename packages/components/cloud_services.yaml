@@ -61,8 +61,8 @@ binary_sensor:
 alert:
   alexa_guard_unavailable:
     name: Alexa Guard unavailable
-    entity_id: binary_sensor
-    state: 'unavailable'
+    entity_id: binary_sensor.alexa_guard_unavailable
+    state: 'on'
     repeat: 30
     can_acknowledge: false
     skip_first: false
