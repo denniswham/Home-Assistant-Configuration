@@ -3,6 +3,7 @@ alert:
     name: 'Guest Mode is on'
     entity_id: input_boolean.guest_mode
     state: 'on'
+    repeat: 30
     can_acknowledge: false
     skip_first: false
     notifiers:
@@ -15,6 +16,7 @@ alert:
     name: 'Guest Mode is off'
     entity_id: input_boolean.guest_mode
     state: 'off'
+    repeat: 30
     can_acknowledge: false
     skip_first: false
     notifiers:
