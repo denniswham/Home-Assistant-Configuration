@@ -1,6 +1,6 @@
 alert:
   guest_mode_on:
-    name: Guest Mode is on
+    name: 'Guest Mode is on'
     entity_id: input_boolean.guest_mode
     state: 'on'
     can_acknowledge: false
@@ -12,7 +12,7 @@ alert:
       tag: 'guest-mode-on'
 
   guest_mode_off:
-    name: Guest Mode is off
+    name: 'Guest Mode is off'
     entity_id: input_boolean.guest_mode
     state: 'off'
     can_acknowledge: false
