@@ -30,53 +30,35 @@ binary_sensor:
         value_template: >
           {{ states('sensor.shelly_shplg_s_8013cd_current_consumption')| float > 10 }}
 
+alert:
+  washing_machine_finished:
+    name: Washing machine is finished
+    entity_id: binary_sensor.washing_machine_on
+    state: 'off'
+    repeat: 30
+    can_acknowledge: false
+    skip_first: false
+    notifiers:
+      - mobile_app_sm_g960f
+      - mobile_app_iphone_van_stephanie
+    data:
+      tag: 'washing-machine-finished'
+
+  tumble_dryer_finished:
+    name: Tumble dryer is finished
+    entity_id: binary_sensor.dryer_on
+    state: 'off'
+    repeat: 30
+    can_acknowledge: false
+    skip_first: false
+    notifiers:
+      - mobile_app_sm_g960f
+      - mobile_app_iphone_van_stephanie
+    data:
+      tag: 'tumble-dryer-finished'
+
+
 automation:
-  - id: 4757886e-74b9-4cfc-b888-845c757fea87
-    alias: '[Notification] Washing machine finished'
-    trigger:
-      - platform: state
-        entity_id: binary_sensor.washing_machine_on
-        from: "on"
-        to: "off"
-    action:
-      # - service: notify.mobile_app_sm_g960f
-      #   data:
-      #     title: Washing machine
-      #     message: The washing machine is finished
-      #     data:
-      #       channel: Laundry
-      #       tag: laundry
-      - service: notify.mobile_app_iphone_van_stephanie
-        data:
-          title: Washing machine
-          message: The washing machine is finished
-          data:
-            push:
-              thread-id: "laundry"
-
-  - id: e18cf2bf-5c8a-4b4a-8add-10559655b7dd
-    alias: '[Notification] Tumble Dryer finished'
-    trigger:
-      - platform: state
-        entity_id: binary_sensor.dryer_on
-        from: "on"
-        to: "off"
-    action:
-      # - service: notify.mobile_app_sm_g960f
-      #   data:
-      #     title: Tumble Dryer
-      #     message: The tumble dryer is finished
-      #     data:
-      #       channel: Laundry
-      #       tag: laundry
-      - service: notify.mobile_app_iphone_van_stephanie
-        data:
-          title: Tumble Dryer
-          message: The tumble dryer is finished
-          data:
-            push:
-              thread-id: "laundry"
-
   - id: ef7a15bf-f601-4e75-9e2a-f3a796d37750
     alias: '[Notification] Send notification when amplifier is on when TV is turned off'
     initial_state: 'on'

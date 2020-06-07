@@ -132,6 +132,8 @@ cards:
             items:
               - switch.siren
               - switch.backyard_siren
+          - type: entity
+            entity: input_boolean.guest_mode
 
   - type: vertical-stack
     cards:

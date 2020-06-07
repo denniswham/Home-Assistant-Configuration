@@ -1,76 +1,30 @@
+alert:
+  guest_mode_on:
+    name: Guest Mode is on
+    entity_id: input_boolean.guest_mode
+    state: 'on'
+    can_acknowledge: false
+    skip_first: false
+    notifiers:
+      - mobile_app_sm_g960f
+      - mobile_app_iphone_van_stephanie
+    data:
+      tag: 'guest-mode-on'
+
+  guest_mode_off:
+    name: Guest Mode is off
+    entity_id: input_boolean.guest_mode
+    state: 'off'
+    can_acknowledge: false
+    skip_first: false
+    notifiers:
+      - mobile_app_sm_g960f
+      - mobile_app_iphone_van_stephanie
+    data:
+      tag: 'guest-mode-off'
+
+
 automation:
-  - id: 050a6124-23bb-4f5b-acde-e23e1c69361b
-    alias: '[House] Reminder Guest Mode on'
-    initial_state: 'on'
-    condition:
-      - condition: state
-        entity_id: input_boolean.guest_mode
-        state:  'on'
-    trigger:
-      - platform: time
-        at: "06:00:00"
-    action:
-      - service: notify.mobile_app_sm_g960f
-        data:
-          title: Guest Mode is still turned on
-          message: Do you want to turn it off so that automations start working again?
-          data:
-            channel: Alert
-            tag: alert
-      - service: notify.mobile_app_iphone_van_stephanie
-        data_template:
-          title: Guest Mode is still turned on
-          message: Do you want to turn it off so that automations start working again?
-          data:
-            push:
-              thread-id: "alert"
-
-  - id: 0fbfb0c5-7e5e-4964-8447-ebff3202d9c4
-    alias: '[House] Guest Mode On'
-    initial_state: 'on'
-    trigger:
-      - platform: state
-        entity_id: input_boolean.guest_mode
-        to: 'on'
-    action:
-      - service: notify.mobile_app_sm_g960f
-        data_template:
-          title: Guest mode on
-          message: Some automations turned off
-          data:
-            channel: Alert
-            tag: alert
-      - service: notify.mobile_app_iphone_van_stephanie
-        data_template:
-          title: Guest mode on
-          message: Some automations turned off
-          data:
-            push:
-              thread-id: "alert"
-
-  - id: 380b5572-0d01-4a26-a61a-53cc9a1d679f
-    alias: '[House] Guest Mode Off'
-    initial_state: 'on'
-    trigger:
-      - platform: state
-        entity_id: input_boolean.guest_mode
-        to: 'off'
-    action:
-      - service: notify.mobile_app_sm_g960f
-        data:
-          title: Guest mode off
-          message: Automations turned on again
-          data:
-            channel: Alert
-            tag: alert
-      - service: notify.mobile_app_iphone_van_stephanie
-        data_template:
-          title: Guest mode off
-          message: Automations turned on again
-          data:
-            push:
-              thread-id: "alert"
-
   - id: e684aed6-800b-42c3-8614-3f0079958a8e
     alias: '[House] Day Mode To Evening'
     initial_state: 'on'

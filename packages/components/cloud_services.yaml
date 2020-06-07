@@ -42,34 +42,35 @@ sensor:
           - media_player.lucas_room
           - media_player.timo_s_room
           - media_player.emilie_s_room
+          - media_player.living_room_fire_tv_stick
+          - media_player.master_bedroom_fire_tv_stick
           value_template: >
             {{ states.media_player | selectattr('attributes.last_called','eq',True) | map(attribute='entity_id') | first }}
 
-automation:
-  - id: 80e577ef-0cb7-43b9-a427-2982efdb3003
-    alias: '[Alexa] Notification to refresh token'
-    initial_state: 'on'
-    trigger:
-      - platform: state
-        entity_id:
-          - alarm_control_panel.alexa_guard_7514f
-          - media_player.living_room
-          - media_player.living_room_fire_tv_stick
-          - media_player.master_bedroom
-          - media_player.master_bedroom_fire_tv_stick
-          - media_player.lucas_room
-          - media_player.timo_s_room
-          - media_player.emilie_s_room
-        to: unavailable
-    action:
-      - service: persistent_notification.create
-        data:
-          title: Alexa Token
-          message: Alexa authentication need refreshing!
-      - service: notify.mobile_app_sm_g960f
-        data:
-          title: Alexa Token
-          message: Alexa authentication need refreshing!
-          data:
-            channel: Alert
-            tag: alert
+binary_sensor:
+  - platform: template
+    sensors:
+      alexa_guard_unavailable:
+      friendly_name: "Alexa Guard" 
+      device_class: problem
+      delay_off:
+        minutes: 5
+      entity_id:
+      - alarm_control_panel.alexa_guard_7514f
+      value_template: > 
+        {% if not is_state('alarm_control_panel.alexa_guard_7514f', 'unavailable') %} 'off' {% else %} 'on' {% endif %}
+
+alert:
+  alexa_guard_unavailable:
+    name: Alexa Guard unavailable
+    entity_id: binary_sensor
+    state: 'unavailable'
+    repeat: 30
+    can_acknowledge: false
+    skip_first: false
+    message: "Check refresh token for Alexa Media Player Custom Component"
+    done_message: "Alexa Media Player Custom Component has restored itself" 
+    notifiers:
+      - mobile_app_sm_g960f
+    data:
+      tag: 'alexa-guard-unavailable'

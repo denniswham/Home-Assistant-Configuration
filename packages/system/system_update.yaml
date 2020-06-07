@@ -123,7 +123,7 @@ alert:
     notifiers:
     - dennis
     data:
-      tag: 'audio_update_available'
+      tag: 'audio-update-available'
       url: 'http://hassio.local/hassio/dashboard'
 
   # DNS update is available - un-acknowledgeable, auto-dismiss, me only
@@ -138,7 +138,7 @@ alert:
     notifiers:
     - dennis
     data:
-      tag: 'dns_update_available'
+      tag: 'dns-update-available'
       url: 'http://hassio.local/hassio/dashboard'
 
   # CLI update is available - un-acknowledgeable, auto-dismiss, me only
@@ -153,7 +153,7 @@ alert:
     notifiers:
     - dennis
     data:
-      tag: 'cli_update_available'
+      tag: 'cli-update-available'
       url: 'http://hassio.local/hassio/dashboard'
 
   # Multicast update is available - un-acknowledgeable, auto-dismiss, me only
@@ -168,7 +168,7 @@ alert:
     notifiers:
     - dennis
     data:
-      tag: 'multicast_update_available'
+      tag: 'multicast-update-available'
       url: 'http://hassio.local/hassio/dashboard'
 
   # HACS repos have updates available - unacknowledgeable, auto-dismiss, me only
