@@ -1,2 +1,11 @@
 - platform: alexa_media
   name: alexa_media
+
+- platform: group id
+  name: all devices
+  view: no
+  entities:
+    - service: notify.mobile_app_sm_g960f
+    - service: notify.mobile_app_iphone_van_stephanie
+    - service: notify.mobile_app_iphone_van_lucas
+    - service: notify.mobile_app_timo_s_oneplus
