@@ -46,6 +46,13 @@ sensor:
     json_attributes:
     - newest_version
     - current_version
+  - platform: command_line
+    name: Updater OS
+    command: 'curl http://supervisor/os/info -H "Authorization: Bearer $(printenv SUPERVISOR_TOKEN)" | jq ''{"newest_version":.data.version_latest,"current_version":.data.version}'''
+    value_template: "{% if value_json.newest_version != value_json.current_version %}on{% else %}off{% endif %}"
+    json_attributes:
+    - newest_version
+    - current_version
   
 
 binary_sensor:
@@ -110,6 +117,22 @@ alert:
     data:
       tag: 'supervisor-update-available'
       url: 'http://hassio.local/hassio/dashboard'
+
+  # OS update is available - un-acknowledgeable, auto-dismiss, me only
+  os_update_available:
+    name: OS has an update
+    entity_id: sensor.updater_os
+    state: 'on'
+    can_acknowledge: false
+    repeat: 360
+    title: 'Update for OS available'
+    message: "New version is {{ state_attr('sensor.updater_os', 'newest_version') }}. Currently on {{ state_attr('sensor.updater_os', 'current_version') }}"
+    notifiers:
+    - dennis
+    data:
+      tag: 'os-update-available'
+      url: 'http://hassio.local/hassio/dashboard'
+
 
   # Audio update is available - un-acknowledgeable, auto-dismiss, me only
   audio_update_available:
