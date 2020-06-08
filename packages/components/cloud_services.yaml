@@ -55,9 +55,12 @@ binary_sensor:
         device_class: problem
         entity_id:
         - alarm_control_panel.alexa_guard_7514f
-        delay_on:
-          minutes: 5
-        value_template: "{% if not is_state('alarm_control_panel.alexa_guard_7514f', 'unavailable') %} 'off' {% else %} 'on' {% endif %}"
+        value_template: >-
+          {% if is_state('alarm_control_panel.alexa_guard_7514f', 'unavailable') %}
+            on
+          {% else %}
+            off
+          {% endif %}
 
 alert:
   alexa_guard_unavailable:
