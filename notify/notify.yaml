@@ -1,7 +1,7 @@
 - platform: alexa_media
   name: alexa_media
 
-- platform: group id
+- platform: group
   name: all devices
   view: no
   entities:
