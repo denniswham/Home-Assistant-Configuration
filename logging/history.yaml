@@ -13,16 +13,6 @@ use_include_order: True
 #     - sensor.living_room_thermostat_humidity
 #     - sensor.retsinagaard_eta
 
-exclude:
-  domains:
-    - binary_sensor
-    - camera
-    - calendar
-    - device_tracker
-    - group
-    - media_player
-    - weather
-
 include:
   domains:
     - alarm_control_panel
@@ -56,4 +46,15 @@ include:
     - sensor.retsinagaard_eta
     - switch.siren
     - switch.backyard_siren
+
+exclude:
+  domains:
+    - binary_sensor
+    - camera
+    - calendar
+    - device_tracker
+    - group
+    - media_player
+    - weather
+
 

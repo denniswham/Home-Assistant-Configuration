@@ -36,10 +36,10 @@ alert:
     entity_id: binary_sensor.washing_machine_on
     state: 'off'
     repeat: 30
-    can_acknowledge: false
+    can_acknowledge: true
     skip_first: false
     notifiers:
-      - mobile_app_sm_g960f
+      # - mobile_app_sm_g960f
       - mobile_app_iphone_van_stephanie
     data:
       tag: 'washing-machine-finished'
@@ -49,10 +49,10 @@ alert:
     entity_id: binary_sensor.dryer_on
     state: 'off'
     repeat: 30
-    can_acknowledge: false
+    can_acknowledge: true
     skip_first: false
     notifiers:
-      - mobile_app_sm_g960f
+      # - mobile_app_sm_g960f
       - mobile_app_iphone_van_stephanie
     data:
       tag: 'tumble-dryer-finished'
