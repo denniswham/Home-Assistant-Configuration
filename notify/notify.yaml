@@ -3,7 +3,6 @@
 
 - platform: group
   name: all devices
-  view: no
   entities:
     - service: notify.mobile_app_sm_g960f
     - service: notify.mobile_app_iphone_van_stephanie
