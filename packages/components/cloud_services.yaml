@@ -51,12 +51,11 @@ binary_sensor:
   - platform: template
     sensors:
       alexa_guard_unavailable:
-      friendly_name: "Alexa Guard" 
-      device_class: problem
-      delay_off:
-        minutes: 5
-      value_template: > 
-        {% if not is_state('alarm_control_panel.alexa_guard_7514f', 'unavailable') %} 'off' {% else %} 'on' {% endif %}
+        friendly_name: "Alexa Guard" 
+        device_class: problem
+        delay_off:
+          minutes: 5
+        value_template: "{% if not is_state('alarm_control_panel.alexa_guard_7514f', 'unavailable') %} 'off' {% else %} 'on' {% endif %}"
 
 alert:
   alexa_guard_unavailable:
