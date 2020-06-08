@@ -4,7 +4,7 @@
 - platform: group
   name: all devices
   services:
-    - service: notify.mobile_app_sm_g960f
-    - service: notify.mobile_app_iphone_van_stephanie
-    - service: notify.mobile_app_iphone_van_lucas
-    - service: notify.mobile_app_timo_s_oneplus
+    - service: mobile_app_sm_g960f
+    - service: mobile_app_iphone_van_stephanie
+    - service: mobile_app_iphone_van_lucas
+    - service: mobile_app_timo_s_oneplus
