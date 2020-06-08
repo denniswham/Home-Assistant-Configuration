@@ -3,7 +3,7 @@
 
 - platform: group
   name: all devices
-  entities:
+  services:
     - service: notify.mobile_app_sm_g960f
     - service: notify.mobile_app_iphone_van_stephanie
     - service: notify.mobile_app_iphone_van_lucas
