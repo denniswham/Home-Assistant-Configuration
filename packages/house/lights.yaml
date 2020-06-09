@@ -59,8 +59,8 @@ automation:
         below: 0.0
     condition:
       - condition: time
-        after: '16:30:00'
-        before: '00:00:00'
+        after: '16:00:00'
+        before: '23:59:59'
     action:
       service: light.turn_on
       data_template:
@@ -83,8 +83,8 @@ automation:
       - condition: template
         value_template: '{{ state_attr("sun.sun", "elevation") < 0 }}'
       - condition: time
-        after: '16:30:00'
-        before: '00:00:00'
+        after: '16:00:00'
+        before: '23:59:59'
     action:
       service: light.turn_off
       entity_id:
@@ -94,7 +94,7 @@ automation:
     alias: '[Lights] Turn off backyard lights at midnight'
     trigger:
       platform: time
-      at: "00:00:00"
+      at: "23:59:59"
     action:
       service: light.turn_off
       entity_id:
@@ -111,7 +111,7 @@ automation:
       - condition: template
         value_template: '{{ state_attr("sun.sun", "elevation") < 0 }}'
       - condition: time
-        after: '00:00:01'
+        after: '00:00:00'
         before: '08:30:00'
     action:
       service: light.turn_on
@@ -130,7 +130,7 @@ automation:
       - condition: template
         value_template: '{{ state_attr("sun.sun", "elevation") < 0 }}'
       - condition: time
-        after: '00:00:01'
+        after: '00:00:00'
         before: '08:30:00'
     action:
       service: light.turn_off
