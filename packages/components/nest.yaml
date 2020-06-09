@@ -35,10 +35,6 @@ automation:
         data:
           entity_id:
             - cover.shelly_shsw_25_c4c708
-      - service: persistent_notification.create
-        data:
-          message: Smoke detected
-          title: Nest Protect
       - service: notify.mobile_app_sm_g960f
         data:
           message: Smoke detected
@@ -51,10 +47,6 @@ automation:
             sticky: 'true'
             color: 'red'
       - service: notify.mobile_app_iphone_van_stephanie
-        data:
-          message: Smoke detected
-          title: Nest Protect
-      - service: persistent_notification.create
         data:
           message: Smoke detected
           title: Nest Protect

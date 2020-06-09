@@ -45,7 +45,6 @@ automation:
           - light.shelly_shsw_pm_b98825
         to: 'on'
         for: "00:10:00"
-    condition:
     action:
       service: light.turn_off
       data_template:
@@ -58,6 +57,10 @@ automation:
         entity_id: sun.sun
         value_template: "{{ state_attr('sun.sun', 'elevation') }}"
         below: 0.0
+    condition:
+      - condition: time
+        after: '16:30:00'
+        before: '00:00:00'
     action:
       service: light.turn_on
       data_template:
