@@ -5,10 +5,6 @@ sensor:
     unit_of_measurement: "°C"
     value_template: '{{ value | multiply(0.001) }}'
 
-  - platform: filesize
-    file_paths:
-      - /config/home-assistant_v2.db
-
   - platform: version
 
   - platform: rest
