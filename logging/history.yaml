@@ -1,18 +1,4 @@
-# use_include_order: True
-# exclude:
-#   domains:
-#     - automation
-#     - binary_sensor
-#     - camera
-#     - calendar
-#     - device_tracker
-#     - group
-#     - media_player
-#     - weather
-
-# include:
-#   entities:
-#     - binary_sensor.amplifier_on
-#     - binary_sensor.dryer_on
-#     - binary_sensor.washing_machine_on
-#     - binary_sensor.alexa_guard_unavailable
+use_include_order: True
+exclude:
+  domains:
+    - automation
