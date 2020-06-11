@@ -44,9 +44,32 @@ sensor:
       - version
       - version_latest
 
+binary_sensor:
+  - platform: template
+    sensors:
+      wireguard_on:
+        friendly_name: 'WireGuard Addon'
+        device_class: power
+        value_template: >
+          {{ is_state('sensor.wireguard', 'started') }}
+
+alert:
+  wireguard_on:
+    name: 'WireGuard has started'
+    entity_id: binary_sensor.wireguard_on
+    state: 'on'
+    repeat: 360
+    can_acknowledge: true
+    skip_first: false
+    done_message: WireGuard has stopped
+    notifiers:
+      - mobile_app_sm_g960f
+    data:
+      tag: 'wireguard-on'
+
 automation:
   - id: b33f5e19-c075-4bc7-85c0-30c9b759ef38
-    alias: '[House] Start WireGuard add-on'
+    alias: '[House] Start WireGuard'
     trigger:
       platform: zone
       entity_id: device_tracker.sm_g960f
@@ -58,7 +81,7 @@ automation:
           addon: a0d7b954_wireguard
 
   - id: 73fc8e0a-e551-496f-b8b9-b9369a861d2a
-    alias: '[House] Stop WireGuard add-on'
+    alias: '[House] Stop WireGuard'
     trigger:
       platform: zone
       entity_id: device_tracker.sm_g960f
