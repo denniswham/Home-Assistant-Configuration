@@ -1,21 +1,23 @@
 use_include_order: True
 include:
   domains:
-    - person
-    - alarm_control_panel
     - light
     - cover
 
   entities:
+    - person.dennis
+    - person.stephanie
+    - person.lucas
+    - person.timo
+  #   - person.emilie
+    - alarm_control_panel.konnected_alarm
+    - alarm_control_panel.alexa_guard_7514f
     - binary_sensor.vieratv_on
     - binary_sensor.amplifier_on
     - media_player.master_bedroom
     - media_player.apple_tv
     - binary_sensor.washing_machine_on
     - binary_sensor.dryer_on
-    - switch.shelly_shplg_s_8013cd
-    - switch.shelly_shplg_s_f8d1ea
-    - switch.shelly_shplg_s_f8d1fa
     - binary_sensor.front_door_ding
     - sensor.br_wind_speed
     - sensor.br_precipitation_forecast_total
@@ -30,3 +32,4 @@ include:
     - input_select.house_mode
     - input_boolean.guest_mode
     - input_boolean.vacation_mode
+
