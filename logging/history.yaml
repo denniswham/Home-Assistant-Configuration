@@ -19,17 +19,17 @@ include:
     - binary_sensor.washing_machine_on
     - binary_sensor.dryer_on
     - binary_sensor.front_door_ding
-    - sensor.br_wind_speed
-    - sensor.br_precipitation_forecast_total
     - switch.siren
     - switch.backyard_siren
     - switch.adguard_protection
     - binary_sensor.retsinagaard_away
     - sensor.retsinagaard_eta
-    - sensor.dennis_to_home
-    - sensor.stephanie_to_home
-    - sensor.dennis_to_stephanie
     - input_select.house_mode
     - input_boolean.guest_mode
     - input_boolean.vacation_mode
 
+    - sensor.br_wind_speed
+    - sensor.br_precipitation_forecast_total
+    - sensor.dennis_to_home
+    - sensor.stephanie_to_home
+    - sensor.dennis_to_stephanie
