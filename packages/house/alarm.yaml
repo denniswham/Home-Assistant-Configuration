@@ -388,3 +388,14 @@ automation:
     action:
       - service: scene.turn_on
         entity_id: scene.emergency
+
+  - id: 8200a4db-99e1-4233-8717-429fdd3ac217
+    alias: Konnected firmware version 
+    trigger:
+      - trigger: event
+        event: device_registry_updated
+        entity_id: alarm_control_panel.konnected_alarm
+    condition: []
+    action:
+      - service: 
+

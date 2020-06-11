@@ -31,6 +31,14 @@ sensor:
       - type: processor_use
       - type: last_boot
 
+  - platform: rest
+    resource: "http://192.168.178.5:8123/api/hassio/addons/a0d7b954_wireguard/info"
+    headers:
+      Authorization: "Bearer [user generated Long-Lived Access Token]"
+      Content-Type: application/json
+    name: WireGuard Add-on
+    value_template: "{{value_json['data']['state']}}"
+
 automation:
   - id: b33f5e19-c075-4bc7-85c0-30c9b759ef38
     alias: '[House] Start WireGuard add-on'
