@@ -32,12 +32,17 @@ sensor:
       - type: last_boot
 
   - platform: rest
-    resource: "http://192.168.178.5:8123/api/hassio/addons/a0d7b954_wireguard/info"
+    resource: http://192.168.178.5:8123/api/hassio/addons/a0d7b954_wireguard/info
+    name: wireguard
+    value_template: '{{ value_json.data.state }}'
+    scan_interval: 60
     headers:
-      Authorization: "Bearer [user generated Long-Lived Access Token]"
+      Authorization: !secret llt
       Content-Type: application/json
-    name: WireGuard Add-on
-    value_template: "{{value_json['data']['state']}}"
+    json_attributes_path: "$.data"
+    json_attributes:
+      - version
+      - version_latest
 
 automation:
   - id: b33f5e19-c075-4bc7-85c0-30c9b759ef38
