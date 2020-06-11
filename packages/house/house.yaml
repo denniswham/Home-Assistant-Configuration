@@ -1,12 +1,12 @@
 alert:
   guest_mode_on:
-    name: 'Guest Mode is on'
+    name: Guest Mode is on
     entity_id: input_boolean.guest_mode
     state: 'on'
     repeat: 360
     can_acknowledge: true
     skip_first: false
-    done_message: Guest mode is turned off
+    done_message: Guest mode is off
     notifiers:
       - mobile_app_sm_g960f
       - mobile_app_iphone_van_stephanie
