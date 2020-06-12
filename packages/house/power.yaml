@@ -42,7 +42,7 @@ alert:
     can_acknowledge: true
     skip_first: false
     notifiers:
-      # - mobile_app_sm_g960f
+      - mobile_app_sm_g960f
       - mobile_app_iphone_van_stephanie
     data:
       tag: 'washing-machine-finished'
@@ -58,7 +58,7 @@ alert:
     can_acknowledge: true
     skip_first: false
     notifiers:
-      # - mobile_app_sm_g960f
+      - mobile_app_sm_g960f
       - mobile_app_iphone_van_stephanie
     data:
       tag: 'tumble-dryer-finished'
