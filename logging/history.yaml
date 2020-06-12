@@ -27,8 +27,8 @@ include:
     - input_select.house_mode
     - input_boolean.guest_mode
     - input_boolean.vacation_mode
-    - sensor.wireguard_add_on
-    - sensor.adguard_home_add_on
+    - sensor.wireguard
+    - sensor.adguard_home
     - sensor.ssh_web_terminal
     - sensor.br_wind_speed
     - sensor.br_precipitation_forecast_total

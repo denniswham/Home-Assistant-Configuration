@@ -33,7 +33,7 @@ sensor:
 
   - platform: rest
     resource: http://192.168.178.5:8123/api/hassio/addons/a0d7b954_wireguard/info
-    name: Wireguard Add-on
+    name: Wireguard
     value_template: '{{ value_json.data.state }}'
     scan_interval: 60
     headers:
@@ -46,7 +46,7 @@ sensor:
 
   - platform: rest
     resource: http://192.168.178.5:8123/api/hassio/addons/a0d7b954_adguard/info
-    name: AdGuard Home Add-on
+    name: AdGuard Home
     value_template: '{{ value_json.data.state }}'
     scan_interval: 60
     headers:
@@ -74,7 +74,7 @@ binary_sensor:
   - platform: template
     sensors:
       wireguard_on:
-        friendly_name: 'WireGuard Add-on'
+        friendly_name: 'WireGuard'
         device_class: power
         value_template: >
           {{ is_state('sensor.wireguard', 'started') }}
@@ -83,13 +83,13 @@ binary_sensor:
         friendly_name: 'AdGuard Home Add-on'
         device_class: power
         value_template: >
-          {{ is_state('sensor.adguard', 'stopped') }}
+          {{ is_state('sensor.adguard_home', 'stopped') }}
 
       ssh_off:
         friendly_name: 'SSH & Web Terminal Add-on'
         device_class: power
         value_template: >
-          {{ is_state('sensor.ssh', 'stopped') }}
+          {{ is_state('sensor.ssh_web_terminal', 'stopped') }}
 
 alert:
   wireguard_on:
