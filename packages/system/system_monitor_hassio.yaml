@@ -44,6 +44,32 @@ sensor:
       - version
       - version_latest
 
+  - platform: rest
+    resource: http://192.168.178.5:8123/api/hassio/addons/a0d7b954_adguard/info
+    name: adguard
+    value_template: '{{ value_json.data.state }}'
+    scan_interval: 60
+    headers:
+      Authorization: !secret llt
+      Content-Type: application/json
+    json_attributes_path: "$.data"
+    json_attributes:
+      - version
+      - version_latest
+
+  - platform: rest
+    resource: http://192.168.178.5:8123/api/hassio/addons/a0d7b954_ssh/info
+    name: ssh
+    value_template: '{{ value_json.data.state }}'
+    scan_interval: 60
+    headers:
+      Authorization: !secret llt
+      Content-Type: application/json
+    json_attributes_path: "$.data"
+    json_attributes:
+      - version
+      - version_latest
+
 binary_sensor:
   - platform: template
     sensors:
@@ -53,9 +79,21 @@ binary_sensor:
         value_template: >
           {{ is_state('sensor.wireguard', 'started') }}
 
+      adguard_off:
+        friendly_name: 'Adguard Addon'
+        device_class: power
+        value_template: >
+          {{ is_state('sensor.adguard', 'stopped') }}
+
+      ssh_off:
+        friendly_name: 'SSH Addon'
+        device_class: power
+        value_template: >
+          {{ is_state('sensor.ssh', 'stopped') }}
+
 alert:
   wireguard_on:
-    name: 'WireGuard has started'
+    name: WireGuard has started
     entity_id: binary_sensor.wireguard_on
     state: 'on'
     repeat: 360
@@ -66,6 +104,38 @@ alert:
       - mobile_app_sm_g960f
     data:
       tag: 'wireguard-on'
+
+  adguard_off:
+    name: Adguard has stopped
+    entity_id: binary_sensor.adguard_off
+    state: 'on'
+    repeat:
+      - 15
+      - 30
+      - 60
+    can_acknowledge: true
+    skip_first: false
+    done_message: Adguard has started
+    notifiers:
+      - mobile_app_sm_g960f
+    data:
+      tag: 'adguard-off'
+
+  ssh_off:
+    name: 'SSH & Web Terminal has stopped'
+    entity_id: binary_sensor.ssh_off
+    state: 'on'
+    repeat:
+      - 15
+      - 30
+      - 60
+    can_acknowledge: true
+    skip_first: false
+    done_message: 'SSH & Web Terminal has started'
+    notifiers:
+      - mobile_app_sm_g960f
+    data:
+      tag: 'ssh-off'
 
 automation:
   - id: b33f5e19-c075-4bc7-85c0-30c9b759ef38
@@ -91,3 +161,18 @@ automation:
       - service: hassio.addon_stop
         data:
           addon: a0d7b954_wireguard
+
+  - id: 3e51dc87-54ce-40ff-b4d5-f0316463990e
+    alias: '[House] Restart Adguard'
+    trigger:
+      - platform: time_pattern
+        minutes: /10
+        seconds: 0
+    condition:
+      condition: state
+      entity_id: binary_sensor.adguard_off
+      state: 'on'
+    action:
+      - service: hassio.addon_start
+        data:
+          addon: a0d7b954_adguard
