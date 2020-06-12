@@ -202,8 +202,10 @@ cards:
           # - entity: switch.shelly_shplg_s_f8d1ea
           #   icon: mdi:power-socket-eu
           #   name: Washing Machine Power Socket
+          - alert.washing_machine_finished
           - entity: binary_sensor.dryer_on
             icon: mdi:tumble-dryer
+          - alert.tumble_dryer_finished
           - entity: switch.shelly_shplg_s_f8d1fa
             icon: mdi:power-socket-eu
             name: Tumble Dryer Power Socket

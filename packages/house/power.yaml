@@ -35,7 +35,10 @@ alert:
     name: Washing machine is finished
     entity_id: binary_sensor.washing_machine_on
     state: 'off'
-    repeat: 30
+    repeat:
+      - 15
+      - 30
+      - 60
     can_acknowledge: true
     skip_first: false
     notifiers:
@@ -48,7 +51,10 @@ alert:
     name: Tumble dryer is finished
     entity_id: binary_sensor.dryer_on
     state: 'off'
-    repeat: 30
+    repeat:
+      - 15
+      - 30
+      - 60
     can_acknowledge: true
     skip_first: false
     notifiers:
