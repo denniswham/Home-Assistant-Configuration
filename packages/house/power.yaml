@@ -46,6 +46,7 @@ alert:
       - mobile_app_iphone_van_stephanie
     data:
       tag: 'washing-machine-finished'
+      url: '/lovelace-mobile/alert'
 
   tumble_dryer_finished:
     name: Tumble dryer is finished
@@ -62,7 +63,7 @@ alert:
       - mobile_app_iphone_van_stephanie
     data:
       tag: 'tumble-dryer-finished'
-
+      url: '/lovelace-mobile/alert'
 
 # automation:
 #   - id: ef7a15bf-f601-4e75-9e2a-f3a796d37750

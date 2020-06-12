@@ -104,6 +104,7 @@ alert:
       - mobile_app_sm_g960f
     data:
       tag: 'wireguard-on'
+      url: '/hassio/addon/a0d7b954_wireguard/info'
 
   adguard_off:
     name: AdGuard Home has stopped
@@ -120,6 +121,7 @@ alert:
       - mobile_app_sm_g960f
     data:
       tag: 'adguard-off'
+      url: '/hassio/addon/a0d7b954_adguard/info'
 
   ssh_off:
     name: 'SSH & Web Terminal has stopped'
@@ -136,6 +138,7 @@ alert:
       - mobile_app_sm_g960f
     data:
       tag: 'ssh-off'
+      url: '/hassio/addon/a0d7b954_ssh/info'
 
 automation:
   - id: b33f5e19-c075-4bc7-85c0-30c9b759ef38
