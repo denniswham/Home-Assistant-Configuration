@@ -101,7 +101,7 @@ alert:
     - 
     data:
       tag: 'ha-update-available'
-      url: 'http://hassio.local/hassio/addon/core_check_config'
+      url: '/hassio/addon/core_check_config'
 
   # Supervisor update is available - un-acknowledgeable, auto-dismiss, me only
   supervisor_update_available:
@@ -116,7 +116,7 @@ alert:
     - mobile_app_sm_g960f
     data:
       tag: 'supervisor-update-available'
-      url: 'http://hassio.local/hassio/dashboard'
+      url: '/hassio/dashboard'
 
   # OS update is available - un-acknowledgeable, auto-dismiss, me only
   os_update_available:
@@ -131,7 +131,7 @@ alert:
     - mobile_app_sm_g960f
     data:
       tag: 'os-update-available'
-      url: 'http://hassio.local/hassio/dashboard'
+      url: '/hassio/dashboard'
 
 
   # Audio update is available - un-acknowledgeable, auto-dismiss, me only
@@ -147,7 +147,7 @@ alert:
     - mobile_app_sm_g960f
     data:
       tag: 'audio-update-available'
-      url: 'http://hassio.local/hassio/dashboard'
+      url: '/hassio/dashboard'
 
   # DNS update is available - un-acknowledgeable, auto-dismiss, me only
   dns_update_available:
@@ -162,7 +162,7 @@ alert:
     - mobile_app_sm_g960f
     data:
       tag: 'dns-update-available'
-      url: 'http://hassio.local/hassio/dashboard'
+      url: '/hassio/dashboard'
 
   # CLI update is available - un-acknowledgeable, auto-dismiss, me only
   cli_update_available:
@@ -177,7 +177,7 @@ alert:
     - mobile_app_sm_g960f
     data:
       tag: 'cli-update-available'
-      url: 'http://hassio.local/hassio/dashboard'
+      url: '/hassio/dashboard'
 
   # Multicast update is available - un-acknowledgeable, auto-dismiss, me only
   multicast_update_available:
@@ -192,7 +192,7 @@ alert:
     - mobile_app_sm_g960f
     data:
       tag: 'multicast-update-available'
-      url: 'http://hassio.local/hassio/dashboard'
+      url: '/hassio/dashboard'
 
   # HACS repos have updates available - unacknowledgeable, auto-dismiss, me only
   hacs_update_available:
@@ -207,7 +207,7 @@ alert:
       - mobile_app_sm_g960f
     data:
       tag: 'hacs-update-available'
-      url: 'http://hassio.local/hacs/installed'
+      url: '/hacs/installed'
 
   # Addons have updates available - unacknowledgeable, auto-dismiss, me only
   addon_update_available:
@@ -222,7 +222,7 @@ alert:
     - mobile_app_sm_g960f
     data:
       tag: 'addon-update-available'
-      url: 'http://hassio.local/hassio/dashboard'
+      url: '/hassio/dashboard'
 
 automation:
   - id: e14918df-1e9d-41b8-9960-c8c32cd9c21e
