@@ -262,7 +262,7 @@ automation:
     trigger:
       - platform: numeric_state
         entity_id: sensor.br_temperature
-        above: 24.9
+        above: 25
     action:
       - service: cover.close_cover
         data:
