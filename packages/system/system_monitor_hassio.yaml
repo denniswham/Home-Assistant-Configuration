@@ -33,7 +33,7 @@ sensor:
 
   - platform: rest
     resource: http://192.168.178.5:8123/api/hassio/addons/a0d7b954_wireguard/info
-    name: wireguard
+    name: Wireguard Add-on
     value_template: '{{ value_json.data.state }}'
     scan_interval: 60
     headers:
@@ -46,7 +46,7 @@ sensor:
 
   - platform: rest
     resource: http://192.168.178.5:8123/api/hassio/addons/a0d7b954_adguard/info
-    name: adguard
+    name: AdGuard Home Add-on
     value_template: '{{ value_json.data.state }}'
     scan_interval: 60
     headers:
@@ -59,7 +59,7 @@ sensor:
 
   - platform: rest
     resource: http://192.168.178.5:8123/api/hassio/addons/a0d7b954_ssh/info
-    name: ssh
+    name: 'SSH & Web Terminal'
     value_template: '{{ value_json.data.state }}'
     scan_interval: 60
     headers:
@@ -74,19 +74,19 @@ binary_sensor:
   - platform: template
     sensors:
       wireguard_on:
-        friendly_name: 'WireGuard Addon'
+        friendly_name: 'WireGuard Add-on'
         device_class: power
         value_template: >
           {{ is_state('sensor.wireguard', 'started') }}
 
       adguard_off:
-        friendly_name: 'Adguard Addon'
+        friendly_name: 'AdGuard Home Add-on'
         device_class: power
         value_template: >
           {{ is_state('sensor.adguard', 'stopped') }}
 
       ssh_off:
-        friendly_name: 'SSH Addon'
+        friendly_name: 'SSH & Web Terminal Add-on'
         device_class: power
         value_template: >
           {{ is_state('sensor.ssh', 'stopped') }}
@@ -106,7 +106,7 @@ alert:
       tag: 'wireguard-on'
 
   adguard_off:
-    name: Adguard has stopped
+    name: AdGuard Home has stopped
     entity_id: binary_sensor.adguard_off
     state: 'on'
     repeat:
@@ -115,7 +115,7 @@ alert:
       - 60
     can_acknowledge: true
     skip_first: false
-    done_message: Adguard has started
+    done_message: AdGuard Home has started
     notifiers:
       - mobile_app_sm_g960f
     data:
@@ -163,7 +163,7 @@ automation:
           addon: a0d7b954_wireguard
 
   - id: 3e51dc87-54ce-40ff-b4d5-f0316463990e
-    alias: '[House] Restart Adguard'
+    alias: '[House] Restart AdGuard Home'
     trigger:
       - platform: time_pattern
         minutes: /10
