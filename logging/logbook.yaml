@@ -27,6 +27,10 @@ include:
     - sensor.attic_nest_protect_co_status
     - switch.siren
     - switch.backyard_siren
+    - binary_sensor.alexa_guard_unavailable
+    - sensor.wireguard
+    - sensor.adguard
+    - sensor.ssh
 
 exclude:
   domains:

@@ -204,6 +204,7 @@ cards:
           #   name: Washing Machine Power Socket
           - entity: alert.washing_machine_finished
             name: Washing Machine Alert
+          - type: divider 
           - entity: binary_sensor.dryer_on
             icon: mdi:tumble-dryer
           - entity: alert.tumble_dryer_finished
