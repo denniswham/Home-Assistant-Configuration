@@ -192,7 +192,7 @@ automation:
         state: 'off'
       - condition: numeric_state
         entity_id: sensor.br_temperature
-        below: 25
+        below: 23
       - condition: template
         value_template: '{{ state_attr("sun.sun", "elevation") > 0 }}'
     trigger:
@@ -216,7 +216,7 @@ automation:
         state: 'off'
       - condition: numeric_state
         entity_id: sensor.br_temperature
-        below: 25
+        below: 23
       - condition: template
         value_template: '{{ state_attr("sun.sun", "elevation") < 0 }}'
     trigger:
@@ -262,9 +262,29 @@ automation:
     trigger:
       - platform: numeric_state
         entity_id: sensor.br_temperature
-        above: 25
+        above: 23
     action:
       - service: cover.close_cover
+        data:
+          entity_id:
+            - cover.shelly_shsw_25_c4c964
+            - cover.shelly_shsw_25_c4c695
+
+  - id: 8f5ef152-5503-4e7a-97cf-3e8884f07572
+    alias: '[Covers] Open roller shutters when temperature gets cooler'
+    initial_state: 'true'
+    condition:
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state: 'off'
+      - condition: template
+        value_template: '{{ state_attr("sun.sun", "elevation") < 0 }}'
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.br_temperature
+        below: 23
+    action:
+      - service: cover.open_cover
         data:
           entity_id:
             - cover.shelly_shsw_25_c4c964
