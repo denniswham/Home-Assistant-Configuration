@@ -278,7 +278,7 @@ automation:
         entity_id: input_boolean.guest_mode
         state: 'off'
       - condition: template
-        value_template: '{{ state_attr("sun.sun", "elevation") < 0 }}'
+        value_template: '{{ state_attr("sun.sun", "elevation") > 0 }}'
     trigger:
       - platform: numeric_state
         entity_id: sensor.br_temperature
