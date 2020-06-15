@@ -30,42 +30,7 @@ binary_sensor:
         value_template: >
           {{ states('sensor.shelly_shplg_s_8013cd_current_consumption')| float > 10 }}
 
-alert:
-  washing_machine_finished:
-    name: Washing machine is finished
-    entity_id: binary_sensor.washing_machine_on
-    state: 'off'
-    repeat:
-      - 15
-      - 30
-      - 60
-    can_acknowledge: true
-    skip_first: false
-    notifiers:
-      - mobile_app_sm_g960f
-      - mobile_app_iphone_van_stephanie
-    data:
-      tag: 'washing-machine-finished'
-      url: '/lovelace-mobile/alert'
-
-  tumble_dryer_finished:
-    name: Tumble dryer is finished
-    entity_id: binary_sensor.dryer_on
-    state: 'off'
-    repeat:
-      - 15
-      - 30
-      - 60
-    can_acknowledge: true
-    skip_first: false
-    notifiers:
-      - mobile_app_sm_g960f
-      - mobile_app_iphone_van_stephanie
-    data:
-      tag: 'tumble-dryer-finished'
-      url: '/lovelace-mobile/alert'
-
-# automation:
+automation:
 #   - id: ef7a15bf-f601-4e75-9e2a-f3a796d37750
 #     alias: '[Notification] Send notification when amplifier is on when TV is turned off'
 #     initial_state: 'on'
@@ -101,3 +66,54 @@ alert:
 #               presentation_options:
 #                 - alert
 #                 - badge
+
+  - id: f1840add-37b8-4936-9160-cbef20e73825
+    alias: '[Notification] Send notification when washing machine is finished'
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.washing_machine_on
+        from: 'on'
+        to: 'off'
+    action:
+      - service: notify.mobile_app_sm_g960f
+        data:
+          title: Washing machine is finished
+          message:
+          data:
+            channel: Alert
+            tag: alert
+      - service: notify.mobile_app_iphone_van_stephanie
+        data:
+          title: Washing machine is finished
+          data:
+            push:
+              thread-id: "alert"
+              presentation_options:
+                - alert
+                - badge
+
+  - id: 1a0462f8-5104-4019-920e-dbb682ec9a5e
+    alias: '[Notification] Send notification when tumble dryer is finished'
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.dryer_on
+        from: 'on'
+        to: 'off'
+    action:
+      - service: notify.mobile_app_sm_g960f
+        data:
+          title: Tumble dryer is finished
+          data:
+            channel: Alert
+            tag: alert
+      - service: notify.mobile_app_iphone_van_stephanie
+        data:
+          title: Tumble dryer is finished
+          data:
+            push:
+              thread-id: "alert"
+              presentation_options:
+                - alert
+                - badge
