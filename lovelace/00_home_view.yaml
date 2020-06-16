@@ -58,40 +58,6 @@ cards:
 
   - type: vertical-stack
     cards:
-      - type: horizontal-stack
-        cards:
-          - type: picture-entity
-            entity: camera.front_door
-            camera_view: live
-            show_state: false
-            show_name: true
-          - type: picture-entity
-            entity: camera.backyard
-            camera_view: live
-            show_state: false
-            show_name: true
-      # - type: entities
-      #   title: Alexa DND
-      #   show_header_toggle: false
-      #   entities:
-      #     - type: custom:fold-entity-row
-      #       head:
-      #         type: section
-      #         label: Echo Devices
-      #       group_config:
-      #         secondary_info: last-changed
-      #       items:
-      #         - switch.living_room_do_not_disturb_switch
-      #         - switch.living_room_fire_tv_stick_do_not_disturb_switch
-      #         - switch.master_bedroom_do_not_disturb_switch
-      #         - switch.master_bedroom_fire_tv_stick_do_not_disturb_switch
-      #         - switch.lucas_room_do_not_disturb_switch
-      #         - switch.timo_s_room_do_not_disturb_switch
-      #         - switch.emilie_s_room_do_not_disturb_switch
-
-
-  - type: vertical-stack
-    cards:
       - type: alarm-panel
         entity: alarm_control_panel.konnected_alarm
         states:
@@ -139,6 +105,18 @@ cards:
           - entity: input_boolean.vacation_mode
   - type: vertical-stack
     cards:
+      - type: horizontal-stack
+        cards:
+          - type: picture-entity
+            entity: camera.front_door
+            camera_view: live
+            show_state: false
+            show_name: true
+          - type: picture-entity
+            entity: camera.backyard
+            camera_view: live
+            show_state: false
+            show_name: true
       - type: entities
         title: Covers
         show_header_toggle: false
