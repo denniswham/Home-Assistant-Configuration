@@ -132,8 +132,12 @@ cards:
             items:
               - switch.siren
               - switch.backyard_siren
-      - entity: input_boolean.guest_mode
-        type: entity
+      - type: entities
+        title: Modes
+        show_header_toggle: false
+        entities:
+          - entity: input_boolean.guest_mode
+          - entity: input_boolean.vacation_mode
   - type: vertical-stack
     cards:
       - type: entities
@@ -199,16 +203,9 @@ cards:
         entities:
           - entity: binary_sensor.washing_machine_on
             icon: mdi:washing-machine
-          # - entity: switch.shelly_shplg_s_f8d1ea
-          #   icon: mdi:power-socket-eu
-          #   name: Washing Machine Power Socket
-          - entity: alert.washing_machine_finished
-            name: Washing Machine Alert
           - type: divider 
           - entity: binary_sensor.dryer_on
             icon: mdi:tumble-dryer
-          - entity: alert.tumble_dryer_finished
-            name: Tumble Dryer Alert
           - entity: switch.shelly_shplg_s_f8d1fa
             icon: mdi:power-socket-eu
             name: Tumble Dryer Power Socket
