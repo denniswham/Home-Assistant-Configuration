@@ -92,36 +92,36 @@ binary_sensor:
           {{ is_state('sensor.ssh_web_terminal', 'stopped') }}
 
 alert:
-  wireguard_on:
-    name: WireGuard has started
-    entity_id: binary_sensor.wireguard_on
-    state: 'on'
-    repeat: 360
-    can_acknowledge: true
-    skip_first: false
-    done_message: WireGuard has stopped
-    notifiers:
-      - mobile_app_sm_g960f
-    data:
-      tag: 'wireguard-on'
-      url: '/hassio/addon/a0d7b954_wireguard/info'
+  # wireguard_on:
+  #   name: WireGuard has started
+  #   entity_id: binary_sensor.wireguard_on
+  #   state: 'on'
+  #   repeat: 360
+  #   can_acknowledge: true
+  #   skip_first: false
+  #   done_message: WireGuard has stopped
+  #   notifiers:
+  #     - mobile_app_sm_g960f
+  #   data:
+  #     tag: 'wireguard-on'
+  #     url: '/hassio/addon/a0d7b954_wireguard/info'
 
-  adguard_off:
-    name: AdGuard Home has stopped
-    entity_id: binary_sensor.adguard_off
-    state: 'on'
-    repeat:
-      - 15
-      - 30
-      - 60
-    can_acknowledge: true
-    skip_first: false
-    done_message: AdGuard Home has started
-    notifiers:
-      - mobile_app_sm_g960f
-    data:
-      tag: 'adguard-off'
-      url: '/hassio/addon/a0d7b954_adguard/info'
+  # adguard_off:
+  #   name: AdGuard Home has stopped
+  #   entity_id: binary_sensor.adguard_off
+  #   state: 'on'
+  #   repeat:
+  #     - 15
+  #     - 30
+  #     - 60
+  #   can_acknowledge: true
+  #   skip_first: false
+  #   done_message: AdGuard Home has started
+  #   notifiers:
+  #     - mobile_app_sm_g960f
+  #   data:
+  #     tag: 'adguard-off'
+  #     url: '/hassio/addon/a0d7b954_adguard/info'
 
   ssh_off:
     name: 'SSH & Web Terminal has stopped'

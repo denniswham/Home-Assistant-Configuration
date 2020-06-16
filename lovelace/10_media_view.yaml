@@ -1,7 +1,6 @@
 title: Media
 icon: mdi:movie
 path: media
-# background: center / cover no-repeat url("/local/lovelace_ui/bg1.jpeg") fixed
 
 cards:
   - type: vertical-stack

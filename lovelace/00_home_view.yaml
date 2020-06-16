@@ -1,7 +1,6 @@
 title: Home
 view: true
 icon: mdi:home
-# background: center / cover no-repeat url("/local/lovelace_ui/bg1.jpeg") fixed
 
 badges:
   - person.dennis
@@ -141,50 +140,6 @@ cards:
   - type: vertical-stack
     cards:
       - type: entities
-        title: Lights
-        show_header_toggle: true
-        entities:
-          - entity: light.shelly_shdm_1_d17b0e
-            type: custom:slider-entity-row
-            icon: mdi:globe-light
-            toggle: true
-            hide_when_off: false
-          - entity: light.shelly_shdm_1_d48409
-            type: custom:slider-entity-row
-            icon: mdi:wall-sconce-flat
-            toggle: true
-            hide_when_off: false
-          - entity: light.shelly_shdm_1_d17712
-            type: custom:slider-entity-row
-            icon: mdi:spotlight
-            toggle: true
-            hide_when_off: false
-          - entity: light.shelly_shdm_1_d0f0af
-            type: custom:slider-entity-row
-            icon: mdi:led-strip
-            toggle: true
-            hide_when_off: false
-          - entity: light.shelly_shdm_1_d47c54
-            type: custom:slider-entity-row
-            icon: mdi:spotlight
-            toggle: true
-            hide_when_off: false
-          # - entity: light.office_ledstrip_dimmer_level
-          #   name: Office LED Strip
-          #   type: custom:slider-entity-row
-          #   icon: mdi:led-strip
-          #   toggle: true
-          #   hide_when_off: false
-          - entity: light.shelly_shsw_pm_f2f9bf
-            icon: mdi:ceiling-light
-          - entity: light.shelly_shsw_pm_b98825
-            icon: mdi:ceiling-light
-          - entity: light.shelly_shsw_pm_f27a0a
-            icon: mdi:outdoor-lamp
-          - entity: light.shelly_shplg_s_8016cb
-            icon: mdi:outdoor-lamp
-
-      - type: entities
         title: Covers
         show_header_toggle: false
         entities:
@@ -197,15 +152,3 @@ cards:
           - entity: cover.shelly_shsw_25_c4c708
             toggle: true
             type: custom:slider-entity-row
-      - type: entities
-        title: Laundry
-        show_header_toggle: false
-        entities:
-          - entity: binary_sensor.washing_machine_on
-            icon: mdi:washing-machine
-          - type: divider 
-          - entity: binary_sensor.dryer_on
-            icon: mdi:tumble-dryer
-          - entity: switch.shelly_shplg_s_f8d1fa
-            icon: mdi:power-socket-eu
-            name: Tumble Dryer Power Socket
