@@ -2,6 +2,7 @@ sensor:
   - platform: afvalinfo
     resources:
       - gft
+      - papier
       - pbd
       - restafval
       - trash_type_today
@@ -14,7 +15,7 @@ sensor:
 
 automation:
   - id: 1f22fb5b-8d24-4130-a5cf-7dba51858e5d
-    alias: '[Notification] Send notification when ytrash is collected today'
+    alias: '[Notification] Send notification when trash is collected today'
     initial_state: 'on'
     condition:
       - condition: template
@@ -27,9 +28,9 @@ automation:
         at: 06:00:00
     action:
       - service: notify.mobile_app_sm_g960f
-        data:
+        data_template:
           title: Trash collection is today
-          message: 
+          message: Today {{ states('sensor.afvalinfo_today') }} 
           data:
             channel: Alert
             tag: alert
@@ -43,3 +44,6 @@ automation:
       #         presentation_options:
       #           - alert
       #           - badge
+
+
+
