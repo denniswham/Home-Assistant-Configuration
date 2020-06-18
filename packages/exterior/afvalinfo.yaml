@@ -30,7 +30,7 @@ automation:
       - service: notify.mobile_app_sm_g960f
         data_template:
           title: Trash collection is today
-          message: Today {{ states('sensor.afvalinfo_today') }} 
+          message: Take {{ states('sensor.afvalinfo_today')|replace(' ',' and ') }} outside
           data:
             channel: Alert
             tag: alert
