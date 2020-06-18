@@ -1,0 +1,45 @@
+sensor:
+  - platform: afvalinfo
+    resources:
+      - gft
+      - pbd
+      - restafval
+      - trash_type_today
+      - trash_type_tomorrow
+    location: !secret afvalinfo_location
+    postcode: !secret afvalinfo_postcode
+    streetnumber: !secret afvalinfo_streetnumber
+    dateformat: '%d-%m-%Y'
+    timespanindays: 2
+
+automation:
+  - id: 1f22fb5b-8d24-4130-a5cf-7dba51858e5d
+    alias: '[Notification] Send notification when ytrash is collected today'
+    initial_state: 'on'
+    condition:
+      - condition: template
+        value_template: '{{ state_attr("sensor.afvalinfo_woerden", "is_collection_date_today") == "true" }}'
+      - condition: state
+        entity_id: group.household
+        state: 'home'
+    trigger:
+      - platform: time
+        at: 06:00:00
+    action:
+      - service: notify.mobile_app_sm_g960f
+        data:
+          title: Trash collection is today
+          message: 
+          data:
+            channel: Alert
+            tag: alert
+      # - service: notify.mobile_app_iphone_van_stephanie
+      #   data:
+      #     title: Trash collection is today
+      #     message: 
+      #     data:
+      #       push:
+      #         thread-id: "alert"
+      #         presentation_options:
+      #           - alert
+      #           - badge
