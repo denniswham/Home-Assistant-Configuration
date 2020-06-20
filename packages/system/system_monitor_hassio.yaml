@@ -32,7 +32,7 @@ sensor:
       - type: last_boot
 
   - platform: rest
-    resource: http://192.168.178.5:8123/api/hassio/addons/a0d7b954_wireguard/info
+    resource: http://192.168.1.10:8123/api/hassio/addons/a0d7b954_wireguard/info
     name: Wireguard
     value_template: '{{ value_json.data.state }}'
     scan_interval: 60
@@ -45,20 +45,7 @@ sensor:
       - version_latest
 
   - platform: rest
-    resource: http://192.168.178.5:8123/api/hassio/addons/a0d7b954_adguard/info
-    name: AdGuard Home
-    value_template: '{{ value_json.data.state }}'
-    scan_interval: 60
-    headers:
-      Authorization: !secret llt
-      Content-Type: application/json
-    json_attributes_path: "$.data"
-    json_attributes:
-      - version
-      - version_latest
-
-  - platform: rest
-    resource: http://192.168.178.5:8123/api/hassio/addons/a0d7b954_ssh/info
+    resource: http://192.168.1.10:8123/api/hassio/addons/a0d7b954_ssh/info
     name: 'SSH & Web Terminal'
     value_template: '{{ value_json.data.state }}'
     scan_interval: 60
@@ -78,12 +65,6 @@ binary_sensor:
         device_class: power
         value_template: >
           {{ is_state('sensor.wireguard', 'started') }}
-
-      adguard_off:
-        friendly_name: 'AdGuard Home Add-on'
-        device_class: power
-        value_template: >
-          {{ is_state('sensor.adguard_home', 'stopped') }}
 
       ssh_off:
         friendly_name: 'SSH & Web Terminal Add-on'
@@ -105,23 +86,6 @@ alert:
   #   data:
   #     tag: 'wireguard-on'
   #     url: '/hassio/addon/a0d7b954_wireguard/info'
-
-  # adguard_off:
-  #   name: AdGuard Home has stopped
-  #   entity_id: binary_sensor.adguard_off
-  #   state: 'on'
-  #   repeat:
-  #     - 15
-  #     - 30
-  #     - 60
-  #   can_acknowledge: true
-  #   skip_first: false
-  #   done_message: AdGuard Home has started
-  #   notifiers:
-  #     - mobile_app_sm_g960f
-  #   data:
-  #     tag: 'adguard-off'
-  #     url: '/hassio/addon/a0d7b954_adguard/info'
 
   ssh_off:
     name: 'SSH & Web Terminal has stopped'
@@ -164,18 +128,3 @@ automation:
       - service: hassio.addon_stop
         data:
           addon: a0d7b954_wireguard
-
-  - id: 3e51dc87-54ce-40ff-b4d5-f0316463990e
-    alias: '[House] Restart AdGuard Home'
-    trigger:
-      - platform: time_pattern
-        minutes: /10
-        seconds: 0
-    condition:
-      condition: state
-      entity_id: binary_sensor.adguard_off
-      state: 'on'
-    action:
-      - service: hassio.addon_start
-        data:
-          addon: a0d7b954_adguard

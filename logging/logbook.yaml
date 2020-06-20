@@ -29,7 +29,6 @@ include:
     - switch.backyard_siren
     - binary_sensor.alexa_guard_unavailable
     - sensor.wireguard
-    - sensor.adguard_home
     - sensor.ssh_web_terminal
 
 exclude:

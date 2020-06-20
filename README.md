@@ -6,7 +6,6 @@ This is my personal Home Assistant configuration, running my home automations.
 Follow me on my journey and be sure to hit the GitHub :star2:
 
 ## Add-ons
-* AdGuard Home
 * Configurator
 * Git Pull
 * Glances
