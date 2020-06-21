@@ -13,4 +13,4 @@ device_tracker:
   - platform: nmap_tracker
     hosts: 192.168.1.0/24
     exclude:
-     - 192.168.1.10
+     - 192.168.2.10
