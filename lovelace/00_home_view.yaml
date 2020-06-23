@@ -7,7 +7,6 @@ badges:
   - person.stephanie
   - person.lucas
   - person.timo
-  - alarm_control_panel.konnected_alarm
 cards:
   - type: vertical-stack
     cards:
