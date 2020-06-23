@@ -5,8 +5,6 @@ homeassistant:
       icon: mdi:alarm-bell
     alarm_control_panel.konnected_alarm:
       friendly_name: Home Alarm
-    alarm_control_panel.alexa_guard_7514f:
-      friendly_name: Alexa Guard
 
 alarm_control_panel:
   - platform: manual
@@ -29,7 +27,6 @@ script:
       - service: alarm_control_panel.alarm_disarm
         entity_id:
           - alarm_control_panel.konnected_alarm
-          - alarm_control_panel.alexa_guard_7514f
       - service: switch.turn_off
         entity_id: switch.siren
       - service: switch.turn_off
@@ -95,7 +92,6 @@ automation:
       - service: alarm_control_panel.alarm_arm_away
         entity_id:
           - alarm_control_panel.konnected_alarm
-          - alarm_control_panel.alexa_guard_7514f
       - service: notify.alexa_media
         data:
           data:
@@ -113,11 +109,6 @@ automation:
         state: 'off'
       - condition: or
         conditions:
-          - condition: not
-            conditions:
-              - condition: state
-                entity_id: alarm_control_panel.alexa_guard_7514f
-                state: disarmed
           - condition: state
             entity_id: switch.siren
             state: 'on'
@@ -133,8 +124,6 @@ automation:
         entity_id: switch.siren
       - service: switch.turn_off
         entity_id: switch.backyard_siren
-      - service: alarm_control_panel.alarm_disarm
-        entity_id: alarm_control_panel.alexa_guard_7514f
 
   - id: 2d57cc0c-7317-486f-a2f2-b755c59ac660
     alias: '[Alarm] Disarm Konnected at night'
@@ -407,3 +396,34 @@ automation:
   #   action:
   #     - service: 
 
+  - id: e2909fc6-e760-413c-b137-a105ed27b8f6
+    alias: '[Alarm] Arm Alexa Guard'
+    trigger:
+      - platform: state
+        entity_id: alarm_control_panel.konnected_alarm
+        to: armed_away
+    condition:
+      - condition: not
+        conditions:
+          - condition: state
+            entity_id: alarm_control_panel.alexa_guard_7514f
+            state: armed_away
+    action:
+      - service: alarm_control_panel.alarm_arm_away
+        entity_id: alarm_control_panel.alexa_guard_7514f
+
+  - id: f2f7b8f8-1299-42fb-85ab-2d86e55362a2
+    alias: '[Alarm] Disarm Alexa Guard'
+    trigger:
+      - platform: state
+        entity_id: alarm_control_panel.konnected_alarm
+        to: disarmed
+    condition:
+      - condition: not
+        conditions:
+          - condition: state
+            entity_id: alarm_control_panel.alexa_guard_7514f
+            state: disarmed
+    action:
+      - service: alarm_control_panel.alarm_disarm
+        entity_id: alarm_control_panel.alexa_guard_7514f
