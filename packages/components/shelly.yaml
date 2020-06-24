@@ -69,3 +69,10 @@ automation:
       id: '{{ trigger.payload_json.id }}'
       mac: '{{ trigger.payload_json.mac }}'
       fw_ver: '{{ trigger.payload_json.fw_ver }}'
+      discovery_prefix: 'hass'
+      qos: 2
+      
+
+      shelly_plug_s_8013cd:
+        relay-0: "switch"
+        force_update_sensors: true
