@@ -70,7 +70,7 @@ automation:
       mac: '{{ trigger.payload_json.mac }}'
       fw_ver: '{{ trigger.payload_json.fw_ver }}'
       discovery_prefix: 'homeassistant'
-      qos: 2
+      qos: 0
       shellyplug-s-8013CD:
         relay-0: "switch"
         relay-0-name: Living Room Amplifier
@@ -90,9 +90,17 @@ automation:
       shellyswitch25-c4c964:
         mode: "roller"
         roller-0-name: Master Bedroom Roller Shutter
+        force_update_sensors: true
       shellyswitch25-c4c695:
         mode: "roller"
         roller-0-name: "Lucas' Room Roller Shutter"
+        force_update_sensors: true
       shellyswitch25-c4c708:
         mode: "roller"
         roller-0-name: Backyard Awning
+        force_update_sensors: true
+
+      shellydimmer-d17b0e:
+        relay-0-name: Living Room Dining Table Light
+        force_update_sensors: true
+

@@ -117,6 +117,8 @@
       state: "off"
     light.shelly_shsw_pm_f2f9bf:
       state: "on"
+    light.shelly_shplg_s_8016cb:
+      state: "off"
     media_player.living_room:
       state: standby
       volume_level: 1.0
