@@ -5,5 +5,7 @@ logs:
   homeassistant.components.apple_tv: error
   homeassistant.components.waze_travel_time: error
   homeassistant.components.konnected: error
-  # custom_components.xboxone: debug
+  homeassistant.components.python_script: debug
   custom_components.alexa_media: error
+
+
