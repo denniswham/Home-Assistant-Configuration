@@ -87,3 +87,12 @@ automation:
         relay-0: "switch"
         relay-0-name: Attic Tumble Dryer
         force_update_sensors: true
+      shellyswitch25-c4c964:
+        mode: "roller"
+        roller-0-name: Master Bedroom Roller Shutter
+      shellyswitch25-c4c695:
+        mode: "roller"
+        roller-0-name: "Lucas' Room Roller Shutter"
+      shellyswitch25-c4c708:
+        mode: "roller"
+        roller-0-name: Backyard Awning
