@@ -79,3 +79,11 @@ automation:
         relay-0: "light"
         relay-0-name: Backyard Garden Lights
         force_update_sensors: true
+      shellyplug-s-F8D1EA:
+        relay-0: "switch"
+        relay-0-name: Attic Washing Machine
+        force_update_sensors: true
+      shellyplug-s-F8D1FA:
+        relay-0: "switch"
+        relay-0-name: Attic Tumble Dryer
+        force_update_sensors: true
