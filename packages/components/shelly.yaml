@@ -69,7 +69,7 @@ automation:
       id: '{{ trigger.payload_json.id }}'
       mac: '{{ trigger.payload_json.mac }}'
       fw_ver: '{{ trigger.payload_json.fw_ver }}'
-      discovery_prefix: 'hass'
+      discovery_prefix: 'homeassistant'
       qos: 2
       shellyplug-s-8013CD:
         relay-0: "switch"
