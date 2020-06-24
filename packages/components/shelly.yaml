@@ -73,11 +73,11 @@ automation:
       qos: 2
       
 
-      shellyplug_s_8013CD:
+      shelly_plug_s_8013CD:
         relay-0: "switch"
         relay-0-name: "Living Room Amplifier"
         force_update_sensors: true
-      shellyplug_s_8016CB:
+      shelly_plug-s-8016CB:
         relay-0: "light"
         relay-0-name: "Backyard Garden Lights"
         force_update_sensors: true
