@@ -78,14 +78,13 @@ automation:
     action:
       - service: notify.mobile_app_sm_g960f
         data:
-          title: Washing machine is finished
-          message:
+          message: Washing machine is finished
           data:
             channel: Alert
             tag: alert
       - service: notify.mobile_app_iphone_van_stephanie
         data:
-          title: Washing machine is finished
+          message: Washing machine is finished
           data:
             push:
               thread-id: "alert"
@@ -104,13 +103,13 @@ automation:
     action:
       - service: notify.mobile_app_sm_g960f
         data:
-          title: Tumble dryer is finished
+          message: Tumble dryer is finished
           data:
             channel: Alert
             tag: alert
       - service: notify.mobile_app_iphone_van_stephanie
         data:
-          title: Tumble dryer is finished
+          message: Tumble dryer is finished
           data:
             push:
               thread-id: "alert"

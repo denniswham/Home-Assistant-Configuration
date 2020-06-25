@@ -18,8 +18,16 @@ automation:
     alias: '[Notification] Send notification when trash is collected today'
     initial_state: 'on'
     condition:
-      - condition: template
-        value_template: '{{ state_attr("sensor.afvalinfo_woerden", "is_collection_date_today") == "true" }}'
+      - condition: or
+        conditions:
+          - condition: template
+            value_template: '{{ is_state_attr('sensor.afvalinfo_gft', 'is_collection_date_today', true) }}'
+          - condition: template
+            value_template: '{{ is_state_attr('sensor.afvalinfo_papier', 'is_collection_date_today', true) }}'
+          - condition: template
+            value_template: '{{ is_state_attr('sensor.afvalinfo_pbd', 'is_collection_date_today', true) }}'
+          - condition: template
+            value_template: '{{ is_state_attr('sensor.afvalinfo_restafval', 'is_collection_date_today', true) }}'
       - condition: state
         entity_id: group.household
         state: 'home'
