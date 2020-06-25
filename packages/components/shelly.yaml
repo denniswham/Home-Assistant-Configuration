@@ -101,7 +101,6 @@ automation:
         force_update_sensors: true
       shellydimmer-d17b0e:
         light-0-name: "Living Room Dining Table Light"
-        relay-0-name: "Living Room Dining Table Light"
         force_update_sensors: true
       shellydimmer-D48409:
         light-0-name: "Living Room Wall Lights"
