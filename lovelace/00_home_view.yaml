@@ -123,7 +123,7 @@ cards:
           - entity: cover.master_bedroom_roller_shutter
             type: custom:slider-entity-row
             toggle: true
-          - entity: cover.shelly_shsw_25_c4c695
+          - entity: cover.lucas_room_roller_shutter
             toggle: true
             type: custom:slider-entity-row
           - entity: cover.backyard_awning

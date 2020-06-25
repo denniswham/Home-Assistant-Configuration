@@ -3,7 +3,7 @@ cover:
     name: 'Roller Shutters'
     entities:
       - cover.master_bedroom_roller_shutter  
-      - cover.shelly_shsw_25_c4c695
+      - cover.lucas_room_roller_shutter
 
 script:
   alexa_open_the_cover:
@@ -18,7 +18,7 @@ script:
             {%- if room == "master_bedroom" -%}
               cover.master_bedroom_roller_shutter
             {%- elif room == "lucas_room" -%}
-              cover.shelly_shsw_25_c4c695
+              cover.lucas_room_roller_shutter
             {%- elif room == "living_room" -%}
               cover.backyard_awning
             {%- endif -%}
@@ -35,7 +35,7 @@ script:
             {%- if room == "master_bedroom" -%}
               cover.master_bedroom_roller_shutter
             {%- elif room == "lucas_room" -%}
-              cover.shelly_shsw_25_c4c695
+              cover.lucas_room_roller_shutter
             {%- elif room == "living_room" -%}
               cover.backyard_awning
             {%- endif -%}
@@ -52,7 +52,7 @@ script:
             {%- if room == "master_bedroom" -%}
               cover.master_bedroom_roller_shutter
             {%- elif room == "lucas_room" -%}
-              cover.shelly_shsw_25_c4c695
+              cover.lucas_room_roller_shutter
             {%- endif -%}  
           position: 10
 
@@ -68,7 +68,7 @@ script:
             {%- if room == "master_bedroom" -%}
               cover.master_bedroom_roller_shutter
             {%- elif room == "lucas_room" -%}
-              cover.shelly_shsw_25_c4c695
+              cover.lucas_room_roller_shutter
             {%- elif room == "living_room" -%}
               cover.backyard_awning
             {%- endif -%}  
@@ -115,7 +115,7 @@ automation:
     action:
       - service: cover.open_cover
         data:
-          entity_id: cover.shelly_shsw_25_c4c695
+          entity_id: cover.lucas_room_roller_shutter
 
   - id: 9168307a-6555-489d-b686-643216ff76e9
     alias: '[Covers] Open roller shutters in the morning during the weekends and holidays'
@@ -138,7 +138,7 @@ automation:
         data:
           entity_id:
             - cover.master_bedroom_roller_shutter
-            - cover.shelly_shsw_25_c4c695
+            - cover.lucas_room_roller_shutter
 
   - id: 58a2e68e-7adf-4d08-93d1-a4dd43faeb12
     alias: '[Covers] Close roller shutters in the evening'
@@ -160,7 +160,7 @@ automation:
         data:
           entity_id:
             - cover.master_bedroom_roller_shutter
-            - cover.shelly_shsw_25_c4c695
+            - cover.lucas_room_roller_shutter
           position: 10
 
   - id: 36999f33-8fcb-423e-972d-425b4efca279
@@ -181,7 +181,7 @@ automation:
         data:
           entity_id:
             - cover.master_bedroom_roller_shutter
-            - cover.shelly_shsw_25_c4c695
+            - cover.lucas_room_roller_shutter
 
   - id: d3a773bf-fc19-4f77-8ad7-00097a2a8bfa
     alias: '[Covers] Open roller shutters when arriving at daytime'
@@ -205,7 +205,7 @@ automation:
         data:
           entity_id:
             - cover.master_bedroom_roller_shutter
-            - cover.shelly_shsw_25_c4c695
+            - cover.lucas_room_roller_shutter
 
   - id: 9c7f65fd-fc67-47e1-a81d-e02afcacdc3e
     alias: '[Covers] Open roller shutters when arriving at night'
@@ -229,7 +229,7 @@ automation:
         data:
           entity_id:
             - cover.master_bedroom_roller_shutter
-            - cover.shelly_shsw_25_c4c695
+            - cover.lucas_room_roller_shutter
           position: 10
 
   - id: 153b5394-3dde-4ebd-8e3f-4d2bb43e8529
@@ -249,7 +249,7 @@ automation:
         data:
           entity_id:
             - cover.master_bedroom_roller_shutter
-            - cover.shelly_shsw_25_c4c695
+            - cover.lucas_room_roller_shutter
             - cover.backyard_awning
 
   - id: 6c9a2404-5bd8-43e4-beb2-c38afd7d21c5
@@ -268,7 +268,7 @@ automation:
         data:
           entity_id:
             - cover.master_bedroom_roller_shutter
-            - cover.shelly_shsw_25_c4c695
+            - cover.lucas_room_roller_shutter
 
   - id: 8f5ef152-5503-4e7a-97cf-3e8884f07572
     alias: '[Covers] Open roller shutters when temperature gets cooler'
@@ -288,7 +288,7 @@ automation:
         data:
           entity_id:
             - cover.master_bedroom_roller_shutter
-            - cover.shelly_shsw_25_c4c695
+            - cover.lucas_room_roller_shutter
 
   - id: 94389708-c03d-43f9-9731-ec93ed511526
     alias: '[Covers] Close awning when expected heavy wind or rain'

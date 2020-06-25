@@ -2,7 +2,7 @@ group:
   shelly_firmware:
     name: Shelly Firmware
     entities:
-      - cover.shelly_shsw_25_c4c695_firmware_update
+      - cover.lucas_room_roller_shutter_firmware_update
       - cover.backyard_awning_firmware_update
       - cover.master_bedroom_roller_shutter_firmware_update
       - light.shelly_dimmer_d0f0af_light_0_firmware_update

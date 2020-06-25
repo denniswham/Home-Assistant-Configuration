@@ -1,6 +1,6 @@
 include:
   entities:
-    - cover.shelly_shsw_25_c4c695
+    - cover.lucas_room_roller_shutter
     - cover.master_bedroom_roller_shutter
     - cover.backyard_awning
     - cover.backyard_awning_level
