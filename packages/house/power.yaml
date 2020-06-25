@@ -9,14 +9,14 @@ binary_sensor:
         delay_off: 
           minutes: 1
         value_template: >
-          {{ states('sensor.shelly_shplg_s_f8d1ea_current_consumption')| float > 10 }}
+          {{ states('sensor.shelly_plug_s_f8d1ea_power_0')| float > 10 }}
       dryer_on:
         friendly_name: "Tumble Dryer" 
         device_class: power
         delay_off:
           minutes: 5
         value_template: >
-          {{ states('sensor.shelly_shplg_s_f8d1fa_current_consumption')| float > 300 }}
+          {{ states('sensor.shelly_plug_s_f8d1fa_power_0')| float > 300 }}
       vieratv_on:
         friendly_name: 'Living Room TV'
         device_class: power
@@ -28,7 +28,7 @@ binary_sensor:
         # delay_off:
         #   minutes: 2
         value_template: >
-          {{ states('sensor.shelly_shplg_s_8013cd_current_consumption')| float > 10 }}
+          {{ states('sensor.shelly_plug_s_8013cd_power_0')| float > 10 }}
 
 automation:
 #   - id: ef7a15bf-f601-4e75-9e2a-f3a796d37750

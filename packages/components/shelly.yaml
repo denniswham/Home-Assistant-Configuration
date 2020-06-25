@@ -3,20 +3,20 @@ group:
     name: Shelly Firmware
     entities:
       - cover.shelly_shsw_25_c4c695_firmware_update
-      - cover.shelly_shsw_25_c4c708_firmware_update
-      - cover.shelly_shsw_25_c4c964_firmware_update
-      - light.shelly_shdm_1_d0f0af_firmware_update
-      - light.shelly_shdm_1_d17712_firmware_update
-      - light.shelly_shdm_1_d17b0e_firmware_update
-      - light.shelly_shdm_1_d47c54_firmware_update
-      - light.shelly_shdm_1_d48409_firmware_update
-      - light.shelly_shplg_s_8016cb_firmware_update
-      - light.shelly_shsw_pm_b98825_firmware_update
-      - light.shelly_shsw_pm_f27a0a_firmware_update
-      - light.shelly_shsw_pm_f2f9bf_firmware_update
-      - switch.shelly_shplg_s_8013cd_firmware_update
-      - switch.shelly_shplg_s_f8d1ea_firmware_update
-      - switch.shelly_shplg_s_f8d1fa_firmware_update
+      - cover.backyard_awning_firmware_update
+      - cover.master_bedroom_roller_shutter_firmware_update
+      - light.shelly_dimmer_d0f0af_light_0_firmware_update
+      - light.shelly_dimmer_d17712_light_0_firmware_update
+      - light.shelly_dimmer_d17b0e_light_0_firmware_update
+      - light.shelly_dimmer_d47c54_light_0_firmware_update
+      - light.shelly_dimmer_d48409_light_0_firmware_update
+      - light.shelly_plug_s_8016cb_relay_0_firmware_update
+      - light.attic_light_firmware_update
+      - light.backyard_wall_lights_firmware_update
+      - light.hallway_light_firmware_update
+      - switch.shelly_plug_s_8013cd_relay_0_firmware_update
+      - switch.shelly_plug_s_f8d1ea_relay_0_firmware_update
+      - switch.shelly_plug_s_f8d1fa_relay_0_firmware_update
 
 binary_sensor:
   - platform: template

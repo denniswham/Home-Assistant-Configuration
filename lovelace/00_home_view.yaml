@@ -120,12 +120,12 @@ cards:
         title: Covers
         show_header_toggle: false
         entities:
-          - entity: cover.shelly_shsw_25_c4c964
+          - entity: cover.master_bedroom_roller_shutter
             type: custom:slider-entity-row
             toggle: true
           - entity: cover.shelly_shsw_25_c4c695
             toggle: true
             type: custom:slider-entity-row
-          - entity: cover.shelly_shsw_25_c4c708
+          - entity: cover.backyard_awning
             toggle: true
             type: custom:slider-entity-row

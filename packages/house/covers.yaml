@@ -2,7 +2,7 @@ cover:
   - platform: group
     name: 'Roller Shutters'
     entities:
-      - cover.shelly_shsw_25_c4c964  
+      - cover.master_bedroom_roller_shutter  
       - cover.shelly_shsw_25_c4c695
 
 script:
@@ -16,11 +16,11 @@ script:
             {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
 
             {%- if room == "master_bedroom" -%}
-              cover.shelly_shsw_25_c4c964
+              cover.master_bedroom_roller_shutter
             {%- elif room == "lucas_room" -%}
               cover.shelly_shsw_25_c4c695
             {%- elif room == "living_room" -%}
-              cover.shelly_shsw_25_c4c708
+              cover.backyard_awning
             {%- endif -%}
 
   alexa_close_the_cover:
@@ -33,11 +33,11 @@ script:
             {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
 
             {%- if room == "master_bedroom" -%}
-              cover.shelly_shsw_25_c4c964
+              cover.master_bedroom_roller_shutter
             {%- elif room == "lucas_room" -%}
               cover.shelly_shsw_25_c4c695
             {%- elif room == "living_room" -%}
-              cover.shelly_shsw_25_c4c708
+              cover.backyard_awning
             {%- endif -%}
 
   alexa_close_the_cover_with_ventilation:
@@ -50,7 +50,7 @@ script:
             {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
 
             {%- if room == "master_bedroom" -%}
-              cover.shelly_shsw_25_c4c964
+              cover.master_bedroom_roller_shutter
             {%- elif room == "lucas_room" -%}
               cover.shelly_shsw_25_c4c695
             {%- endif -%}  
@@ -66,11 +66,11 @@ script:
             {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
 
             {%- if room == "master_bedroom" -%}
-              cover.shelly_shsw_25_c4c964
+              cover.master_bedroom_roller_shutter
             {%- elif room == "lucas_room" -%}
               cover.shelly_shsw_25_c4c695
             {%- elif room == "living_room" -%}
-              cover.shelly_shsw_25_c4c708
+              cover.backyard_awning
             {%- endif -%}  
           position: 60
 
@@ -94,7 +94,7 @@ automation:
     action:
       - service: cover.open_cover
         data:
-          entity_id: cover.shelly_shsw_25_c4c964
+          entity_id: cover.master_bedroom_roller_shutter
 
   - id: 2c0fabaa-793e-4d83-a6f6-488b799384e7
     alias: '[Covers] Open Lucas Room roller shutter in the morning'
@@ -137,7 +137,7 @@ automation:
       - service: cover.open_cover
         data:
           entity_id:
-            - cover.shelly_shsw_25_c4c964
+            - cover.master_bedroom_roller_shutter
             - cover.shelly_shsw_25_c4c695
 
   - id: 58a2e68e-7adf-4d08-93d1-a4dd43faeb12
@@ -159,7 +159,7 @@ automation:
       - service: cover.set_cover_position
         data:
           entity_id:
-            - cover.shelly_shsw_25_c4c964
+            - cover.master_bedroom_roller_shutter
             - cover.shelly_shsw_25_c4c695
           position: 10
 
@@ -180,7 +180,7 @@ automation:
       - service: cover.close_cover
         data:
           entity_id:
-            - cover.shelly_shsw_25_c4c964
+            - cover.master_bedroom_roller_shutter
             - cover.shelly_shsw_25_c4c695
 
   - id: d3a773bf-fc19-4f77-8ad7-00097a2a8bfa
@@ -204,7 +204,7 @@ automation:
       - service: cover.open_cover
         data:
           entity_id:
-            - cover.shelly_shsw_25_c4c964
+            - cover.master_bedroom_roller_shutter
             - cover.shelly_shsw_25_c4c695
 
   - id: 9c7f65fd-fc67-47e1-a81d-e02afcacdc3e
@@ -228,7 +228,7 @@ automation:
       - service: cover.set_cover_position
         data:
           entity_id:
-            - cover.shelly_shsw_25_c4c964
+            - cover.master_bedroom_roller_shutter
             - cover.shelly_shsw_25_c4c695
           position: 10
 
@@ -248,9 +248,9 @@ automation:
       - service: cover.close_cover
         data:
           entity_id:
-            - cover.shelly_shsw_25_c4c964
+            - cover.master_bedroom_roller_shutter
             - cover.shelly_shsw_25_c4c695
-            - cover.shelly_shsw_25_c4c708
+            - cover.backyard_awning
 
   - id: 6c9a2404-5bd8-43e4-beb2-c38afd7d21c5
     alias: '[Covers] Close roller shutters when high temperature'
@@ -267,7 +267,7 @@ automation:
       - service: cover.close_cover
         data:
           entity_id:
-            - cover.shelly_shsw_25_c4c964
+            - cover.master_bedroom_roller_shutter
             - cover.shelly_shsw_25_c4c695
 
   - id: 8f5ef152-5503-4e7a-97cf-3e8884f07572
@@ -287,7 +287,7 @@ automation:
       - service: cover.open_cover
         data:
           entity_id:
-            - cover.shelly_shsw_25_c4c964
+            - cover.master_bedroom_roller_shutter
             - cover.shelly_shsw_25_c4c695
 
   - id: 94389708-c03d-43f9-9731-ec93ed511526
@@ -295,7 +295,7 @@ automation:
     initial_state: 'true'
     condition:
       - condition: state
-        entity_id: cover.shelly_shsw_25_c4c708
+        entity_id: cover.backyard_awning
         state: open
     trigger:
       - platform: state
@@ -308,7 +308,7 @@ automation:
       - service: cover.close_cover
         data:
           entity_id:
-            - cover.shelly_shsw_25_c4c708
+            - cover.backyard_awning
 
   - id: d030ba6f-ee63-4ee6-9cea-a43751aba57b
     alias: '[Covers] Close awning when no motion at night'
@@ -321,7 +321,7 @@ automation:
         for: "00:30:00"
     condition:
       - condition: state
-        entity_id: cover.shelly_shsw_25_c4c708
+        entity_id: cover.backyard_awning
         state: open
       - condition: template
         value_template: '{{ state_attr("sun.sun", "elevation") < 0 }}'
@@ -329,14 +329,14 @@ automation:
       - service: cover.close_cover
         data:
           entity_id:
-            - cover.shelly_shsw_25_c4c708
+            - cover.backyard_awning
 
   - id: 480cedf5-81f6-4321-a83b-f91981fe41e6
     alias: '[Covers] Closed awning'
     initial_state: 'true'
     condition:
       - condition: state
-        entity_id: cover.shelly_shsw_25_c4c708
+        entity_id: cover.backyard_awning
         state: open
       - condition: or
         conditions:
@@ -356,4 +356,4 @@ automation:
       - service: cover.close_cover
         data:
           entity_id:
-            - cover.shelly_shsw_25_c4c708
+            - cover.backyard_awning

@@ -132,7 +132,7 @@ cards:
             - entity_id: sensor.daily_energy_consumption
             - entity_id: sensor.monthly_energy_consumption
             - entity_id: "*_power"
-            - entity_id: "*_current_consumption"
+            - entity_id: "*_power_0"
           exclude:
             - entity_id: "*_2"
             - entity_id: "*_management"

@@ -1,12 +1,12 @@
 homeassistant:
   customize:
-    light.shelly_shdm_1_d17712:
+    light.shelly_dimmer_d17712_light_0:
       friendly_name: Living Room Spot Lights
-    light.shelly_shdm_1_d48409:
+    light.shelly_dimmer_d48409_light_0:
       friendly_name: Living Room Wall Lights
-    light.shelly_shdm_1_d17b0e:
+    light.shelly_dimmer_d17b0e_light_0:
       friendly_name: Living Room Dining Table Light       
-    light.shelly_shdm_1_d47c54:
+    light.shelly_dimmer_d47c54_light_0:
       friendly_name: Office Spot Lights
     sensor.living_room_spot_dimmer_power:
         friendly_name: Living Room Spot Lights
@@ -41,8 +41,8 @@ automation:
       - platform: state
         entity_id:
           - light.entryway_light
-          - light.shelly_shsw_pm_f2f9bf
-          - light.shelly_shsw_pm_b98825
+          - light.hallway_light
+          - light.attic_light
         to: 'on'
         for: "00:10:00"
     action:
@@ -66,9 +66,9 @@ automation:
       data_template:
         entity_id: >
           {% if (as_timestamp(now()) - as_timestamp(states.binary_sensor.backyard_motion.last_changed)) > 1800 %}
-            light.shelly_shsw_pm_f27a0a
+            light.backyard_wall_lights
           {% else %}
-            light.shelly_shsw_pm_f27a0a, light.shelly_shplg_s_8016cb
+            light.backyard_wall_lights, light.shelly_plug_s_8016cb_relay_0
           {% endif %}
 
   - id: 0e58a3aa-8e64-4b24-bdba-b32dd6a68322
@@ -88,7 +88,7 @@ automation:
     action:
       service: light.turn_off
       entity_id:
-        - light.shelly_shplg_s_8016cb
+        - light.shelly_plug_s_8016cb_relay_0
 
   - id: 1802426d-6f61-4dde-ab2c-5cd3b5233243
     alias: '[Lights] Turn off backyard lights at midnight'
@@ -98,8 +98,8 @@ automation:
     action:
       service: light.turn_off
       entity_id:
-        - light.shelly_shsw_pm_f27a0a
-        - light.shelly_shplg_s_8016cb
+        - light.backyard_wall_lights
+        - light.shelly_plug_s_8016cb_relay_0
 
   - id: 0f21c88f-c82e-459d-81c5-c5cf170e6279
     alias: '[Lights] Turn on backyard lights when motion'
@@ -116,8 +116,8 @@ automation:
     action:
       service: light.turn_on
       entity_id:
-        - light.shelly_shsw_pm_f27a0a
-        - light.shelly_shplg_s_8016cb
+        - light.backyard_wall_lights
+        - light.shelly_plug_s_8016cb_relay_0
 
   - id: 5199be8b-2458-44b0-bd98-6bda33cd96f0
     alias: '[Lights] Turn off backyard lights when no motion'
@@ -135,6 +135,6 @@ automation:
     action:
       service: light.turn_off
       entity_id:
-        - light.shelly_shsw_pm_f27a0a
-        - light.shelly_shplg_s_8016cb
+        - light.backyard_wall_lights
+        - light.shelly_plug_s_8016cb_relay_0
 

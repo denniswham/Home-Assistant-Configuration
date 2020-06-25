@@ -1,19 +1,19 @@
 include:
   entities:
     - cover.shelly_shsw_25_c4c695
-    - cover.shelly_shsw_25_c4c964
-    - cover.shelly_shsw_25_c4c708
+    - cover.master_bedroom_roller_shutter
+    - cover.backyard_awning
     - cover.backyard_awning_level
-    - light.shelly_shdm_1_d17b0e
-    - light.shelly_shdm_1_d17712
-    - light.shelly_shdm_1_d48409
-    - light.shelly_shdm_1_d0f0af
-    - light.shelly_shdm_1_d47c54
+    - light.shelly_dimmer_d17b0e_light_0
+    - light.shelly_dimmer_d17712_light_0
+    - light.shelly_dimmer_d48409_light_0
+    - light.shelly_dimmer_d0f0af_light_0
+    - light.shelly_dimmer_d47c54_light_0
     - light.office_ledstrip_dimmer_level
-    - light.shelly_shsw_pm_f2f9bf
-    - light.shelly_shsw_pm_b98825
-    - light.shelly_shsw_pm_f27a0a
-    - light.shelly_shplg_s_8016cb
+    - light.hallway_light
+    - light.attic_light
+    - light.backyard_wall_lights
+    - light.shelly_plug_s_8016cb_relay_0
     - binary_sensor.washing_machine_on
     - binary_sensor.dryer_on
     - device_tracker.living_room_tv

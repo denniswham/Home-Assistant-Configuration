@@ -9,16 +9,16 @@
     climate.living_room:
       state: heat
       temperature: 20.5
-    light.shelly_shdm_1_d17b0e:
+    light.shelly_dimmer_d17b0e_light_0:
       state: "on"
       brightness: 62
-    # light.shelly_shdm_1_d48409:
+    # light.shelly_dimmer_d48409_light_0:
     #   state: "on"
     #   brightness: 85
-    # light.shelly_shdm_1_d17712:
+    # light.shelly_dimmer_d17712_light_0:
     #   state: "on"
     #   brightness: 23
-    # light.shelly_shdm_1_d47c54:
+    # light.shelly_dimmer_d47c54_light_0:
     #   state: "off"
     media_player.living_room:
       state: standby
@@ -50,9 +50,9 @@
   name: Work time
   icon: mdi:laptop
   entities:
-    light.shelly_shdm_1_d17712:
+    light.shelly_dimmer_d17712_light_0:
       state: "off"
-    light.shelly_shdm_1_d47c54:
+    light.shelly_dimmer_d47c54_light_0:
       state: "on"
       brightness: 59
 
@@ -60,16 +60,16 @@
   name: Dinner time
   icon: mdi:silverware-fork-knife
   entities: 
-    light.shelly_shdm_1_d17b0e:   # living room dining table light
+    light.shelly_dimmer_d17b0e_light_0:   # living room dining table light
       state: "on"
       brightness: 89
-    # light.shelly_shdm_1_d48409:   # living room wall lights
+    # light.shelly_dimmer_d48409_light_0:   # living room wall lights
     #   state: "on"
     #   brightness: 102
-    # light.shelly_shdm_1_d17712:
+    # light.shelly_dimmer_d17712_light_0:
     #   state: "on"
     #   brightness: 26
-    # light.shelly_shdm_1_d47c54:
+    # light.shelly_dimmer_d47c54_light_0:
     #   state: "on"
     #   brightness: 26
 
@@ -77,19 +77,19 @@
   name: Relax time
   icon: mdi:sofa
   entities: 
-    light.shelly_shdm_1_d17b0e:
+    light.shelly_dimmer_d17b0e_light_0:
       state: "on"
       brightness: 38
-    light.shelly_shdm_1_d48409:
+    light.shelly_dimmer_d48409_light_0:
       state: "on"
       brightness: 102
-    light.shelly_shdm_1_d17712:
+    light.shelly_dimmer_d17712_light_0:
       state: "on"
       brightness: 12
-    light.shelly_shdm_1_d0f0af:
+    light.shelly_dimmer_d0f0af_light_0:
       state: "on"
       brightness: 51
-    light.shelly_shdm_1_d47c54:
+    light.shelly_dimmer_d47c54_light_0:
       state: "on"
       brightness: 12
 
@@ -99,25 +99,25 @@
   entities: 
     alarm_control_panel.konnected_alarm:
       state: armed_home
-    cover.shelly_shsw_25_c4c964:
+    cover.master_bedroom_roller_shutter:
       state: open
       current_position: 10
     climate.living_room:
       state: heat
       temperature: 17.0
-    light.shelly_shdm_1_d17b0e:
+    light.shelly_dimmer_d17b0e_light_0:
       state: "off"
-    light.shelly_shdm_1_d48409:
+    light.shelly_dimmer_d48409_light_0:
       state: "off"
-    light.shelly_shdm_1_d17712:
+    light.shelly_dimmer_d17712_light_0:
       state: "off"
-    light.shelly_shdm_1_d47c54:
+    light.shelly_dimmer_d47c54_light_0:
       state: "off"
-    light.shelly_shdm_1_d0f0af:
+    light.shelly_dimmer_d0f0af_light_0:
       state: "off"
-    light.shelly_shsw_pm_f2f9bf:
+    light.hallway_light:
       state: "on"
-    light.shelly_shplg_s_8016cb:
+    light.shelly_plug_s_8016cb_relay_0:
       state: "off"
     media_player.living_room:
       state: standby
@@ -134,7 +134,7 @@
     media_player.emilie_s_room:
       state: standby
       volume_level: 0.3
-    cover.shelly_shsw_25_c4c708:
+    cover.backyard_awning:
       state: closed
     switch.master_bedroom_do_not_disturb_switch:
       state: "on"
@@ -153,7 +153,7 @@
   entities: 
     alarm_control_panel.konnected_alarm:
       state: armed_home
-    cover.shelly_shsw_25_c4c964:
+    cover.master_bedroom_roller_shutter:
       state: closed
     switch.master_bedroom_do_not_disturb_switch:
       state: "on"
@@ -164,19 +164,19 @@
   name: Emergency
   icon: mdi:exit-run
   entities: 
-    light.shelly_shdm_1_d17b0e:
+    light.shelly_dimmer_d17b0e_light_0:
       state: "on"
       brightness: 255
-    light.shelly_shdm_1_d48409:
+    light.shelly_dimmer_d48409_light_0:
       state: "on"
       brightness: 255
-    light.shelly_shdm_1_d17712:
+    light.shelly_dimmer_d17712_light_0:
       state: "on"
       brightness: 255
-    light.shelly_shdm_1_d47c54:
+    light.shelly_dimmer_d47c54_light_0:
       state: "on"
       brightness: 255
-    light.shelly_shsw_pm_f2f9bf:
+    light.hallway_light:
       state: "on"
-    light.shelly_shsw_pm_b98825:
+    light.attic_light:
       state: "on"

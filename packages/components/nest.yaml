@@ -29,12 +29,12 @@ automation:
       - service: cover.open_cover
         data:
           entity_id:
-            - cover.shelly_shsw_25_c4c964
+            - cover.master_bedroom_roller_shutter
             - cover.shelly_shsw_25_c4c695
       - service: cover.close_cover
         data:
           entity_id:
-            - cover.shelly_shsw_25_c4c708
+            - cover.backyard_awning
       - service: notify.mobile_app_sm_g960f
         data:
           message: Smoke detected
@@ -77,12 +77,12 @@ automation:
       - service: cover.open_cover
         data:
           entity_id:
-            - cover.shelly_shsw_25_c4c964
+            - cover.master_bedroom_roller_shutter
             - cover.shelly_shsw_25_c4c695
       - service: cover.close_cover
         data:
           entity_id:
-            - cover.shelly_shsw_25_c4c708
+            - cover.backyard_awning
       - service: persistent_notification.create
         data:
           message: CO detected
