@@ -21,13 +21,13 @@ automation:
       - condition: or
         conditions:
           - condition: template
-            value_template: '{{ is_state_attr('sensor.afvalinfo_gft', 'is_collection_date_today', true) }}'
+            value_template: '{{ is_state_attr("sensor.afvalinfo_gft", "is_collection_date_today", true) }}'
           - condition: template
-            value_template: '{{ is_state_attr('sensor.afvalinfo_papier', 'is_collection_date_today', true) }}'
+            value_template: '{{ is_state_attr("sensor.afvalinfo_papier", "is_collection_date_today", true) }}'
           - condition: template
-            value_template: '{{ is_state_attr('sensor.afvalinfo_pbd', 'is_collection_date_today', true) }}'
+            value_template: '{{ is_state_attr("sensor.afvalinfo_pbd", "is_collection_date_today", true) }}'
           - condition: template
-            value_template: '{{ is_state_attr('sensor.afvalinfo_restafval', 'is_collection_date_today', true) }}'
+            value_template: '{{ is_state_attr("sensor.afvalinfo_restafval", "is_collection_date_today", true) }}'
       - condition: state
         entity_id: group.household
         state: 'home'
