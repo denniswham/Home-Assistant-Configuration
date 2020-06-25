@@ -93,7 +93,7 @@ automation:
         force_update_sensors: true
       shellyswitch25-c4c695:
         mode: "roller"
-        roller-0-name: "Lucas' Room Roller Shutter"
+        roller-0-name: "Lucas Room Roller Shutter"
         force_update_sensors: true
       shellyswitch25-c4c708:
         mode: "roller"
