@@ -9,10 +9,10 @@ cards:
         title: Living Room
         show_header_toggle: false
         entities:
-          - entity: binary_sensor.vieratv_on
+          - entity: binary_sensor.vieratv
             icon: mdi:television
             name: Television
-          - entity: binary_sensor.amplifier_on
+          - entity: binary_sensor.amplifier
             icon: mdi:amplifier
             name: Amplifier
           - entity: switch.shelly_plug_s_8013cd_relay_0

@@ -12,12 +12,12 @@ include:
   #   - person.emilie
     - alarm_control_panel.konnected_alarm
     - alarm_control_panel.alexa_guard_7514f
-    - binary_sensor.vieratv_on
-    - binary_sensor.amplifier_on
+    - binary_sensor.vieratv
+    - binary_sensor.amplifier
     - media_player.master_bedroom
     - media_player.apple_tv
-    - binary_sensor.washing_machine_on
-    - binary_sensor.dryer_on
+    - binary_sensor.washing_machine
+    - binary_sensor.dryer
     - binary_sensor.front_door_ding
     - switch.siren
     - switch.backyard_siren

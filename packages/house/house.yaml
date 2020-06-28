@@ -1,5 +1,5 @@
 alert:
-  guest_mode_on:
+  guest_mode:
     name: Guest Mode is on
     entity_id: input_boolean.guest_mode
     state: 'on'

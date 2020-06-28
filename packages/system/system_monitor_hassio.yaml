@@ -60,7 +60,7 @@ sensor:
 binary_sensor:
   - platform: template
     sensors:
-      wireguard_on:
+      wireguard:
         friendly_name: 'WireGuard'
         device_class: power
         value_template: >
@@ -73,9 +73,9 @@ binary_sensor:
           {{ is_state('sensor.ssh_web_terminal', 'stopped') }}
 
 alert:
-  # wireguard_on:
+  # wireguard:
   #   name: WireGuard has started
-  #   entity_id: binary_sensor.wireguard_on
+  #   entity_id: binary_sensor.wireguard
   #   state: 'on'
   #   repeat: 360
   #   can_acknowledge: true

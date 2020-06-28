@@ -1,7 +1,7 @@
 binary_sensor:
   - platform: template
     sensors:
-      washing_machine_on:
+      washing_machine:
         friendly_name: "Washing Machine"
         device_class: power
         delay_on:
@@ -10,19 +10,19 @@ binary_sensor:
           minutes: 1
         value_template: >
           {{ states('sensor.shelly_plug_s_f8d1ea_power_0')| float > 10 }}
-      dryer_on:
+      dryer:
         friendly_name: "Tumble Dryer" 
         device_class: power
         delay_off:
           minutes: 5
         value_template: >
           {{ states('sensor.shelly_plug_s_f8d1fa_power_0')| float > 300 }}
-      vieratv_on:
+      vieratv:
         friendly_name: 'Living Room TV'
         device_class: power
         value_template: >
           {{ is_state('device_tracker.living_room_tv', 'home') }}
-      amplifier_on:
+      amplifier:
         friendly_name: "Amplifier"
         device_class: power
         # delay_off:
@@ -38,14 +38,14 @@ automation:
 #       condition: or
 #       conditions:
 #         - condition: state
-#           entity_id: binary_sensor.amplifier_on
+#           entity_id: binary_sensor.amplifier
 #           state: 'on'
 #         # - condition: state
 #         #   entity_id: media_player.living_room_xbox_one
 #         #   state: 'on'
 #     trigger:
 #       - platform: state
-#         entity_id: binary_sensor.vieratv_on
+#         entity_id: binary_sensor.vieratv
 #         from: 'on'
 #         to: 'off'
 #     action:
@@ -72,7 +72,7 @@ automation:
     initial_state: 'on'
     trigger:
       - platform: state
-        entity_id: binary_sensor.washing_machine_on
+        entity_id: binary_sensor.washing_machine
         from: 'on'
         to: 'off'
     action:
@@ -97,7 +97,7 @@ automation:
     initial_state: 'on'
     trigger:
       - platform: state
-        entity_id: binary_sensor.dryer_on
+        entity_id: binary_sensor.dryer
         from: 'on'
         to: 'off'
     action:
