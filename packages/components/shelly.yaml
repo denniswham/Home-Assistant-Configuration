@@ -108,18 +108,12 @@ automation:
       shellydimmer-D17712:
         relay-0-name: "Living Room Spot Lights"
         force_update_sensors: true
-      shellydimmer-D0F0AF:
-        relay-0-name: "Living Room Led Strips"
-        force_update_sensors: true
+      # shellydimmer-D0F0AF:
+      #   relay-0-name: "Living Room Led Strips"
+      #   force_update_sensors: true
       shellydimmer-d47c54:
         relay-0-name: "Office Spots"
         force_update_sensors: true
-
-
-
-
-
-
       shelly1pm-F2F9BF:
         relay-0: "light"
         relay-0-name: "Hallway Light"
