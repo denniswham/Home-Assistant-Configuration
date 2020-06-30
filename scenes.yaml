@@ -117,7 +117,7 @@
       state: "off"
     light.hallway_light:
       state: "on"
-    light.shelly_plug_s_8016cb_relay_0:
+    light.backyard_garden_lights:
       state: "off"
     media_player.living_room:
       state: standby

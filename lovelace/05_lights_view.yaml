@@ -40,7 +40,7 @@ cards:
             icon: mdi:ceiling-light
           - entity: light.backyard_wall_lights
             icon: mdi:outdoor-lamp
-          - entity: light.shelly_plug_s_8016cb_relay_0
+          - entity: light.backyard_garden_lights
             icon: mdi:outdoor-lamp
       - type: entities
         title: Laundry
@@ -51,6 +51,6 @@ cards:
           - type: divider 
           - entity: binary_sensor.dryer
             icon: mdi:tumble-dryer
-          - entity: switch.shelly_plug_s_f8d1fa_relay_0
+          - entity: switch.attic_tumble_dryer
             icon: mdi:power-socket-eu
             name: Tumble Dryer Power Socket

@@ -13,7 +13,7 @@ include:
     - light.hallway_light
     - light.attic_light
     - light.backyard_wall_lights
-    - light.shelly_plug_s_8016cb_relay_0
+    - light.backyard_garden_lights
     - binary_sensor.washing_machine
     - binary_sensor.dryer
     - device_tracker.living_room_tv
