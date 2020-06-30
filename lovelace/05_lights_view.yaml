@@ -9,27 +9,27 @@ cards:
         title: Lights
         show_header_toggle: true
         entities:
-          - entity: light.shelly_dimmer_d17b0e_light_0
+          - entity: light.living_room_dining_table_light
             type: custom:slider-entity-row
             icon: mdi:globe-light
             toggle: true
             hide_when_off: false
-          - entity: light.shelly_dimmer_d48409_light_0
+          - entity: light.living_room_wall_lights
             type: custom:slider-entity-row
             icon: mdi:wall-sconce-flat
             toggle: true
             hide_when_off: false
-          - entity: light.shelly_dimmer_d17712_light_0
+          - entity: light.living_room_spot_lights
             type: custom:slider-entity-row
             icon: mdi:spotlight
             toggle: true
             hide_when_off: false
-          - entity: light.shelly_dimmer_d0f0af_light_0
+          - entity: light.living_room_led_strips
             type: custom:slider-entity-row
             icon: mdi:led-strip
             toggle: true
             hide_when_off: false
-          - entity: light.shelly_dimmer_d47c54_light_0
+          - entity: light.office_spots
             type: custom:slider-entity-row
             icon: mdi:spotlight
             toggle: true

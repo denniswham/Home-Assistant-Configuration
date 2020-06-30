@@ -9,16 +9,16 @@
     climate.living_room:
       state: heat
       temperature: 20.5
-    light.shelly_dimmer_d17b0e_light_0:
+    light.living_room_dining_table_light:
       state: "on"
       brightness: 62
-    # light.shelly_dimmer_d48409_light_0:
+    # light.living_room_wall_lights:
     #   state: "on"
     #   brightness: 85
-    # light.shelly_dimmer_d17712_light_0:
+    # light.living_room_spot_lights:
     #   state: "on"
     #   brightness: 23
-    # light.shelly_dimmer_d47c54_light_0:
+    # light.office_spots:
     #   state: "off"
     media_player.living_room:
       state: standby
@@ -50,9 +50,9 @@
   name: Work time
   icon: mdi:laptop
   entities:
-    light.shelly_dimmer_d17712_light_0:
+    light.living_room_spot_lights:
       state: "off"
-    light.shelly_dimmer_d47c54_light_0:
+    light.office_spots:
       state: "on"
       brightness: 59
 
@@ -60,16 +60,16 @@
   name: Dinner time
   icon: mdi:silverware-fork-knife
   entities: 
-    light.shelly_dimmer_d17b0e_light_0:   # living room dining table light
+    light.living_room_dining_table_light:   # living room dining table light
       state: "on"
       brightness: 89
-    # light.shelly_dimmer_d48409_light_0:   # living room wall lights
+    # light.living_room_wall_lights:   # living room wall lights
     #   state: "on"
     #   brightness: 102
-    # light.shelly_dimmer_d17712_light_0:
+    # light.living_room_spot_lights:
     #   state: "on"
     #   brightness: 26
-    # light.shelly_dimmer_d47c54_light_0:
+    # light.office_spots:
     #   state: "on"
     #   brightness: 26
 
@@ -77,19 +77,19 @@
   name: Relax time
   icon: mdi:sofa
   entities: 
-    light.shelly_dimmer_d17b0e_light_0:
+    light.living_room_dining_table_light:
       state: "on"
       brightness: 38
-    light.shelly_dimmer_d48409_light_0:
+    light.living_room_wall_lights:
       state: "on"
       brightness: 102
-    light.shelly_dimmer_d17712_light_0:
+    light.living_room_spot_lights:
       state: "on"
       brightness: 12
-    light.shelly_dimmer_d0f0af_light_0:
+    light.living_room_led_strips:
       state: "on"
       brightness: 51
-    light.shelly_dimmer_d47c54_light_0:
+    light.office_spots:
       state: "on"
       brightness: 12
 
@@ -105,15 +105,15 @@
     climate.living_room:
       state: heat
       temperature: 17.0
-    light.shelly_dimmer_d17b0e_light_0:
+    light.living_room_dining_table_light:
       state: "off"
-    light.shelly_dimmer_d48409_light_0:
+    light.living_room_wall_lights:
       state: "off"
-    light.shelly_dimmer_d17712_light_0:
+    light.living_room_spot_lights:
       state: "off"
-    light.shelly_dimmer_d47c54_light_0:
+    light.office_spots:
       state: "off"
-    light.shelly_dimmer_d0f0af_light_0:
+    light.living_room_led_strips:
       state: "off"
     light.hallway_light:
       state: "on"
@@ -164,16 +164,16 @@
   name: Emergency
   icon: mdi:exit-run
   entities: 
-    light.shelly_dimmer_d17b0e_light_0:
+    light.living_room_dining_table_light:
       state: "on"
       brightness: 255
-    light.shelly_dimmer_d48409_light_0:
+    light.living_room_wall_lights:
       state: "on"
       brightness: 255
-    light.shelly_dimmer_d17712_light_0:
+    light.living_room_spot_lights:
       state: "on"
       brightness: 255
-    light.shelly_dimmer_d47c54_light_0:
+    light.office_spots:
       state: "on"
       brightness: 255
     light.hallway_light:

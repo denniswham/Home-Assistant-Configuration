@@ -1,12 +1,12 @@
 homeassistant:
   customize:
-    light.shelly_dimmer_d17712_light_0:
+    light.living_room_spot_lights:
       friendly_name: Living Room Spot Lights
-    light.shelly_dimmer_d48409_light_0:
+    light.living_room_wall_lights:
       friendly_name: Living Room Wall Lights
-    light.shelly_dimmer_d17b0e_light_0:
+    light.living_room_dining_table_light:
       friendly_name: Living Room Dining Table Light       
-    light.shelly_dimmer_d47c54_light_0:
+    light.office_spots:
       friendly_name: Office Spot Lights
     sensor.living_room_spot_dimmer_power:
         friendly_name: Living Room Spot Lights

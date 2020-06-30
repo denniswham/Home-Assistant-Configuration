@@ -5,11 +5,11 @@ group:
       - cover.lucas_room_roller_shutter_firmware_update
       - cover.backyard_awning_firmware_update
       - cover.master_bedroom_roller_shutter_firmware_update
-      - light.shelly_dimmer_d0f0af_light_0_firmware_update
-      - light.shelly_dimmer_d17712_light_0_firmware_update
-      - light.shelly_dimmer_d17b0e_light_0_firmware_update
-      - light.shelly_dimmer_d47c54_light_0_firmware_update
-      - light.shelly_dimmer_d48409_light_0_firmware_update
+      - light.living_room_led_strips_firmware_update
+      - light.living_room_spot_lights_firmware_update
+      - light.living_room_dining_table_light_firmware_update
+      - light.office_spots_firmware_update
+      - light.living_room_wall_lights_firmware_update
       - light.shelly_plug_s_8016cb_relay_0_firmware_update
       - light.attic_light_firmware_update
       - light.backyard_wall_lights_firmware_update

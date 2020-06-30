@@ -4,11 +4,11 @@ include:
     - cover.master_bedroom_roller_shutter
     - cover.backyard_awning
     - cover.backyard_awning_level
-    - light.shelly_dimmer_d17b0e_light_0
-    - light.shelly_dimmer_d17712_light_0
-    - light.shelly_dimmer_d48409_light_0
-    - light.shelly_dimmer_d0f0af_light_0
-    - light.shelly_dimmer_d47c54_light_0
+    - light.living_room_dining_table_light
+    - light.living_room_spot_lights
+    - light.living_room_wall_lights
+    - light.living_room_led_strips
+    - light.office_spots
     - light.office_ledstrip_dimmer_level
     - light.hallway_light
     - light.attic_light
