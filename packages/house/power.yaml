@@ -9,14 +9,14 @@ binary_sensor:
         delay_off: 
           minutes: 1
         value_template: >
-          {{ states('sensor.shelly_plug_s_f8d1ea_power_0')| float > 10 }}
+          {{ states('sensor.attic_washing_machine_power')| float > 10 }}
       dryer:
         friendly_name: "Tumble Dryer" 
         device_class: power
         delay_off:
           minutes: 5
         value_template: >
-          {{ states('sensor.shelly_plug_s_f8d1fa_power_0')| float > 300 }}
+          {{ states('sensor.attic_tumble_dryer_power')| float > 300 }}
       vieratv:
         friendly_name: 'Living Room TV'
         device_class: power
@@ -28,44 +28,44 @@ binary_sensor:
         # delay_off:
         #   minutes: 2
         value_template: >
-          {{ states('sensor.shelly_plug_s_8013cd_power_0')| float > 10 }}
+          {{ states('sensor.living_room_amplifier_power')| float > 10 }}
 
 automation:
-#   - id: ef7a15bf-f601-4e75-9e2a-f3a796d37750
-#     alias: '[Notification] Send notification when amplifier is on when TV is turned off'
-#     initial_state: 'on'
-#     condition:
-#       condition: or
-#       conditions:
-#         - condition: state
-#           entity_id: binary_sensor.amplifier
-#           state: 'on'
-#         # - condition: state
-#         #   entity_id: media_player.living_room_xbox_one
-#         #   state: 'on'
-#     trigger:
-#       - platform: state
-#         entity_id: binary_sensor.vieratv
-#         from: 'on'
-#         to: 'off'
-#     action:
-#       - service: notify.mobile_app_sm_g960f
-#         data:
-#           title: TV turned off
-#           message: TV is turned off, dont't forget to turn of the amplifier
-#           data:
-#             channel: Alert
-#             tag: alert
-#       - service: notify.mobile_app_iphone_van_stephanie
-#         data:
-#           title: TV turned off
-#           message: TV is turned off, dont't forget to turn of the amplifier
-#           data:
-#             push:
-#               thread-id: "alert"
-#               presentation_options:
-#                 - alert
-#                 - badge
+  - id: ef7a15bf-f601-4e75-9e2a-f3a796d37750
+    alias: '[Notification] Send notification when amplifier is on when TV is turned off'
+    initial_state: 'on'
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: binary_sensor.amplifier
+          state: 'on'
+        # - condition: state
+        #   entity_id: media_player.living_room_xbox_one
+        #   state: 'on'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.vieratv
+        from: 'on'
+        to: 'off'
+    action:
+      - service: notify.mobile_app_sm_g960f
+        data:
+          title: TV turned off
+          message: TV is turned off, dont't forget to turn of the amplifier
+          data:
+            channel: Alert
+            tag: alert
+      - service: notify.mobile_app_iphone_van_stephanie
+        data:
+          title: TV turned off
+          message: TV is turned off, dont't forget to turn of the amplifier
+          data:
+            push:
+              thread-id: "alert"
+              presentation_options:
+                - alert
+                - badge
 
   - id: f1840add-37b8-4936-9160-cbef20e73825
     alias: '[Notification] Send notification when washing machine is finished'
