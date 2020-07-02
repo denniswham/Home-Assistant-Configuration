@@ -92,7 +92,7 @@ automation:
         light-0-name: "Living Room Led Strips"
         force_update_sensors: true
       shellydimmer-d47c54:
-        light-0-name: "Office Spots"
+        light-0-name: "Office Spot Lights"
         force_update_sensors: true
       shelly1pm-F2F9BF:
         relay-0: "light"
