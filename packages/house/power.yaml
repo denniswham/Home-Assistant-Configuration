@@ -76,12 +76,12 @@ automation:
         from: 'on'
         to: 'off'
     action:
-      - service: notify.mobile_app_sm_g960f
-        data:
-          message: Washing machine is finished
-          data:
-            channel: Alert
-            tag: alert
+      # - service: notify.mobile_app_sm_g960f
+      #   data:
+      #     message: Washing machine is finished
+      #     data:
+      #       channel: Alert
+      #       tag: alert
       - service: notify.mobile_app_iphone_van_stephanie
         data:
           message: Washing machine is finished
@@ -101,12 +101,12 @@ automation:
         from: 'on'
         to: 'off'
     action:
-      - service: notify.mobile_app_sm_g960f
-        data:
-          message: Tumble dryer is finished
-          data:
-            channel: Alert
-            tag: alert
+      # - service: notify.mobile_app_sm_g960f
+      #   data:
+      #     message: Tumble dryer is finished
+      #     data:
+      #       channel: Alert
+      #       tag: alert
       - service: notify.mobile_app_iphone_van_stephanie
         data:
           message: Tumble dryer is finished
