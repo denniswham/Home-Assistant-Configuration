@@ -9,8 +9,8 @@ homeassistant:
     device_tracker.oneplus_a5010:
       friendly_name: Timo
 
-device_tracker:
-  - platform: nmap_tracker
-    hosts: 192.168.2.0/24
-    exclude:
-     - 192.168.2.10
+# device_tracker:
+#   - platform: nmap_tracker
+#     hosts: 192.168.2.0/24
+#     exclude:
+#      - 192.168.2.10
