@@ -25,7 +25,7 @@
       volume_level: 1.0
     media_player.master_bedroom:
       state: standby
-      volume_level: 1.0
+      volume_level: 0.7
     media_player.lucas_room:
       state: standby
       volume_level: 0.6
