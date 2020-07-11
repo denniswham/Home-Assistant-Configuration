@@ -122,14 +122,13 @@ automation:
     initial_state: 'true'
     condition:
       - condition: state
-        entity_id: input_boolean.guest_mode
+        entity_id:
+          - input_boolean.guest_mode
+          - binary_sensor.workday_sensor
         state: 'off'
       - condition: state
         entity_id: group.household
         state: 'home'
-      - condition: state
-        entity_id: binary_sensor.workday_sensor
-        state: 'off'
     trigger:
       - platform: time
         at: "11:00:00"

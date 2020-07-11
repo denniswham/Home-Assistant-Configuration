@@ -274,22 +274,6 @@ automation:
           target:
             - group.alexa
           message: Your alarm was activated
-      # - service: notify.all_devices
-      #   data:
-      #     title: Konnected
-      #     message: Your alarm was activated
-      #     data:
-      #       ttl: 0
-      #       priority: high      
-      #       channel: Alarm
-      #       tag: alarm
-      #       sticky: 'true'
-      #       color: 'red'
-      #       push:
-      #       thread-id: "alarm"
-      #       presentation_options:
-      #         - alert
-      #         - badge
 
   - id: 583df5d2-69c7-49e2-93a2-0c49d936b0fb
     alias: '[Alarm] Pending alarm'
@@ -385,16 +369,6 @@ automation:
     action:
       - service: scene.turn_on
         entity_id: scene.emergency
-
-  # - id: 8200a4db-99e1-4233-8717-429fdd3ac217
-  #   alias: Konnected firmware version 
-  #   trigger:
-  #     - trigger: event
-  #       event: device_registry_updated
-  #       entity_id: alarm_control_panel.konnected_alarm
-  #   condition: []
-  #   action:
-  #     - service: 
 
   - id: e2909fc6-e760-413c-b137-a105ed27b8f6
     alias: '[Alarm] Arm Alexa Guard'

@@ -232,7 +232,6 @@ automation:
     - entity_id: sensor.updater_core
       platform: state
       to: 'on'
-    condition: []
     action:
     - data:
         addon: core_check_config
