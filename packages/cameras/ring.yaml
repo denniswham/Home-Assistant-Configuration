@@ -45,9 +45,4 @@ automation:
         data:
           media_content_id: 'amzn_sfx_doorbell_chime_02'
           media_content_type: sound  
-        entity_id: 
-          - media_player.living_room
-          # - media_player.master_bedroom
-          # - media_player.lucas_room
-          # - media_player.timo_s_room
-          # - media_player.emilie_s_room
+          entity_id: media_player.living_room
