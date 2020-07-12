@@ -35,7 +35,6 @@ exclude:
     - binary_sensor
     - calendar
     - camera
-    - cover
     - device_tracker
     - group
     - light
