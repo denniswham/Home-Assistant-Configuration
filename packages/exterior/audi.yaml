@@ -38,20 +38,19 @@ automation:
       #           - alert
       #           - badge
 
-    - id: 40ac7f19-d355-4563-be77-ece38b68ea34
-      alias: '[Audi] Send notification when trunk is open'
-      initial_state: 'on'
-      trigger:
-        - platform: state
-          entity_id: binary_sensor.audi_e_tron_50_trunk
-          to: 'on'
-          for: "00:10:00"
-      action:
-        - service: notify.mobile_app_sm_g960f
-          data_template:
-            title: Audi e-tron
-            message: Trunk is open
-            data:
-              channel: Alert
-              tag: alert
-  
+  - id: 40ac7f19-d355-4563-be77-ece38b68ea34
+    alias: '[Audi] Send notification when trunk is open'
+    initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.audi_e_tron_50_trunk
+        to: 'on'
+        for: "00:10:00"
+    action:
+      - service: notify.mobile_app_sm_g960f
+        data_template:
+          title: Audi e-tron
+          message: Trunk is open
+          data:
+            channel: Alert
+            tag: alert
