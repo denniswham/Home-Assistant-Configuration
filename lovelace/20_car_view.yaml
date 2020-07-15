@@ -4,7 +4,7 @@ path: car
 
 cards:
   - type: picture-elements
-    image: /local/images/audi_e_tron_50.jpeg
+    image: /local/images/audi_e_tron_50.png
     style: | 
       ha-card {
         border-radius: 10px;
@@ -71,7 +71,7 @@ cards:
       stroke_width: 15
       gradient: true
       fill: '#aaaaaabb'
-      name: tank
+      name: battery
       units: ' '
       font_style:
         font-size: 1.0em
