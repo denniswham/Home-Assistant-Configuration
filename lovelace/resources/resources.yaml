@@ -20,3 +20,6 @@
     type: module
   - url: /hacsfiles/lovelace-layout-card/layout-card.js
     type: module
+  - url: /hacsfiles/circle-sensor-card/circle-sensor-card.js
+    Type:	module
+    
