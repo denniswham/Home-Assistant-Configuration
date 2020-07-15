@@ -48,11 +48,11 @@ cards:
 
     - type: icon
       icon: mdi:room-service-outline
-      entity: sensor.audi_e_tron_50_service_inspection_time
+      entity: sensor.audi_e_tron_50_service_inspection_distance
       tap_action: more_info
       style: {color: white, left: 70%, top: 86%}
     - type: state-label
-      entity: sensor.audi_e_tron_50_service_inspection_time
+      entity: sensor.audi_e_tron_50_service_inspection_distance
       style: {color: white, left: 70%, top: 95%}
 
     - type: icon
