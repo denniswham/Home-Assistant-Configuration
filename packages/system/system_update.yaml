@@ -202,7 +202,7 @@ alert:
     can_acknowledge: false
     repeat: 360
     title: "Updates available in {{ states('sensor.hacs') }} HACS repo{% if states('sensor.hacs') | int > 1 %}s{% endif %}"
-    message: ""
+    # message: ""
     notifiers:
       - mobile_app_sm_g960f
     data:
@@ -217,7 +217,7 @@ alert:
     can_acknowledge: false
     repeat: 360
     title: "Updates available for {{ states('sensor.supervisor_updates') }} HA addon{% if states('sensor.supervisor_updates') | int > 1 %}s{% endif %}"
-    message: ""
+    # message: ""
     notifiers:
     - mobile_app_sm_g960f
     data:
