@@ -2,6 +2,7 @@ homeassistant:
   customize:
     device_tracker.audi_e_tron_50_position:
       entity_picture: "/local/images/audi_e_tron_50_icon.png"
+      friendly_name: "Audi e-tron"
       
 automation:
   - id: 0c10e45f-53ce-4324-8ddf-60b036c74b3c
