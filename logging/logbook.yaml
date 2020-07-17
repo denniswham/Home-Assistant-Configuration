@@ -1,18 +1,12 @@
 include:
+  domains:
+    - person
+    - alarm
+    - light
+    - cover
+    - lock
+    - automation
   entities:
-    - cover.lucas_room_roller_shutter
-    - cover.master_bedroom_roller_shutter
-    - cover.backyard_awning
-    - light.living_room_dining_table_light
-    - light.living_room_spot_lights
-    - light.living_room_wall_lights
-    - light.living_room_led_strips
-    - light.office_spots
-    - light.office_ledstrip_dimmer_level
-    - light.hallway_light
-    - light.attic_light
-    - light.backyard_wall_lights
-    - light.backyard_garden_lights
     - binary_sensor.washing_machine
     - binary_sensor.dryer
     - device_tracker.living_room_tv
@@ -31,18 +25,6 @@ include:
     - sensor.ssh_web_terminal
 
 exclude:
-  domains:
-    - binary_sensor
-    - calendar
-    - camera
-    - device_tracker
-    - group
-    - light
-    - media_player
-    - script
-    - sensor
-    - switch
-    - weather
   entities:
     - automation.system_device_status
     - automation.system_request_location_update
