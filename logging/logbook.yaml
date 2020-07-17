@@ -36,3 +36,4 @@ exclude:
     - automation.start_wireguard_add_on
     - automation.stop_wireguard_add_on
     - automation.shellies_discovery
+    - automation.shellies_announce
