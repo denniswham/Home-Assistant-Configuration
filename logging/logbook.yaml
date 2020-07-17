@@ -35,3 +35,4 @@ exclude:
     - automation.house_day_mode_to_night
     - automation.start_wireguard_add_on
     - automation.stop_wireguard_add_on
+    - automation.shellies_discovery
