@@ -19,6 +19,7 @@ homeassistant:
 
 script:
   blink_light:
+    alias: '[Light] Blink lights'
     sequence:
       repeat:
         count: 10
