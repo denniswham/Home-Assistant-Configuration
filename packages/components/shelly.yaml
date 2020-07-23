@@ -112,4 +112,4 @@ automation:
             push_off_delay: false
             force_update_sensors: true
       - delay:
-        seconds: 10
+          seconds: 10
