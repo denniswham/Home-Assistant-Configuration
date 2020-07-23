@@ -172,7 +172,7 @@ automation:
       - condition: state
         entity_id: input_boolean.guest_mode
         state: 'off'
-        action:
+    action:
       - service: script.turn_on
         entity_id: script.konnectedstandby
 
@@ -190,7 +190,7 @@ automation:
       - condition: state
         entity_id: input_boolean.guest_mode
         state: 'off'
-        action:
+    action:
       - service: script.turn_on
         entity_id: script.konnectedstandby
 
