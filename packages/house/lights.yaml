@@ -24,7 +24,10 @@ script:
         count: 10
         sequence:
         - service: light.toggle
-          entity_id: light.bulb
+          entity_id:
+            - light.living_room_dining_table_light
+            - light.hallway_light
+            - light.attic_light
         - delay:
             milliseconds: 500
 
