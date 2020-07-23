@@ -47,7 +47,7 @@ automation:
     trigger:
       - platform: time
         at: "09:00:00"
-        mode: single
+    mode: single
     action:
       - service: input_select.select_option
         data:
