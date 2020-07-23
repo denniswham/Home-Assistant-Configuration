@@ -28,7 +28,7 @@ alert:
 
 automation:
   - id: 263db818-00d1-4691-8847-b0bd2d491fbb
-    alias: 'Shellies Announce'
+    alias: '[Shelly] Shellies Announce'
     trigger:
       - platform: homeassistant
         event: start
@@ -40,7 +40,7 @@ automation:
         payload: announce
 
   - id: 9d090e06-286a-437d-9e76-810f938782f0
-    alias: 'Shellies Discovery'
+    alias: '[Shelly] Shellies Discovery'
     trigger:
       - platform: mqtt
         topic: shellies/announce
