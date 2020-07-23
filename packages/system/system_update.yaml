@@ -232,6 +232,7 @@ automation:
     - entity_id: sensor.updater_core
       platform: state
       to: 'on'
+    mode: single
     action:
     - data:
         addon: core_check_config
@@ -243,6 +244,7 @@ automation:
     trigger:
       - platform: time
         at: 03:30:00
+    mode: single
     action:
       - service: hassio.addon_stdin
         data:
@@ -255,6 +257,7 @@ automation:
     trigger:
       - platform: time
         at: 04:00:00
+    mode: single
     action:
       - service: hassio.addon_stdin
         data:
@@ -267,6 +270,7 @@ automation:
     trigger:
       - platform: time
         at: 04:30:00
+    mode: single
     action:
       - service: hassio.addon_stdin
         data:

@@ -17,6 +17,17 @@ homeassistant:
     sensor.office_spot_dimmer_power:
         friendly_name: Office Spot Lights
 
+script:
+  blink_light:
+    sequence:
+      repeat:
+        count: 10
+        sequence:
+        - service: light.toggle
+          entity_id: light.bulb
+        - delay:
+            milliseconds: 500
+
 automation:
   - id: e4519647-e24b-4f1b-8682-51aaa8ce4576
     alias: '[Lights] Turn on lights when arriving home at night'
@@ -25,6 +36,7 @@ automation:
         entity_id: group.household
         from: not_home
         to: home
+    mode: single
     condition:
       - condition: state
         entity_id: input_boolean.guest_mode
@@ -45,6 +57,7 @@ automation:
           - light.attic_light
         to: 'on'
         for: "00:10:00"
+    mode: single
     action:
       service: light.turn_off
       data_template:
@@ -57,6 +70,7 @@ automation:
         entity_id: sun.sun
         value_template: "{{ state_attr('sun.sun', 'elevation') }}"
         below: 0.0
+    mode: single
     condition:
       - condition: time
         after: '16:00:00'
@@ -79,6 +93,7 @@ automation:
         from: "on"
         to: "off"
         for: "00:30:00"
+    mode: single
     condition:
       - condition: template
         value_template: '{{ state_attr("sun.sun", "elevation") < 0 }}'
@@ -95,6 +110,7 @@ automation:
     trigger:
       platform: time
       at: "23:59:59"
+    mode: single
     action:
       service: light.turn_off
       entity_id:
@@ -107,6 +123,7 @@ automation:
       - platform: state
         entity_id: binary_sensor.backyard_motion
         to: 'on'
+    mode: single
     condition:
       - condition: template
         value_template: '{{ state_attr("sun.sun", "elevation") < 0 }}'
@@ -126,6 +143,7 @@ automation:
         entity_id: binary_sensor.backyard_motion
         to: 'off'
         for: "00:10:00"
+    mode: single
     condition:
       - condition: template
         value_template: '{{ state_attr("sun.sun", "elevation") < 0 }}'
@@ -137,4 +155,3 @@ automation:
       entity_id:
         - light.backyard_wall_lights
         - light.backyard_garden_lights
-

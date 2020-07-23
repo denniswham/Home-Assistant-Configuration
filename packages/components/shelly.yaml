@@ -32,6 +32,7 @@ automation:
   trigger:
     - platform: homeassistant
       event: start
+  mode: single
   action:
     service: mqtt.publish
     data:
@@ -43,6 +44,7 @@ automation:
   trigger:
     - platform: mqtt
       topic: shellies/announce
+  mode: single
   action:
     service: python_script.shellies_discovery
     data_template:

@@ -112,6 +112,7 @@ automation:
       entity_id: device_tracker.sm_g960f
       zone: zone.home      
       event: leave
+    mode: single
     action:
       - service: hassio.addon_start
         data:
@@ -124,6 +125,7 @@ automation:
       entity_id: device_tracker.sm_g960f
       zone: zone.home      
       event: enter
+    mode: single
     action:
       - service: hassio.addon_stop
         data:

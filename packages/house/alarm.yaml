@@ -74,6 +74,12 @@ automation:
   - id: 3c28420d-2670-4215-bd93-7b2ca445fbb4
     alias: '[Alarm] Arm Konnected'
     initial_state: 'true'
+    trigger:
+      - platform: state
+        entity_id: group.household
+        from: home
+        to: not_home
+    mode: single
     condition:
       - condition: state
         entity_id: input_boolean.guest_mode
@@ -83,11 +89,6 @@ automation:
           - condition: state
             entity_id: alarm_control_panel.konnected_alarm
             state: armed_away
-    trigger:
-      - platform: state
-        entity_id: group.household
-        from: home
-        to: not_home
     action:
       - service: alarm_control_panel.alarm_arm_away
         entity_id:
@@ -103,22 +104,23 @@ automation:
   - id: f586bfa3-cec3-4881-8cbb-bb2ceb9aea62
     alias: '[Alarm] Deactivate siren and Alexa Guard'
     initial_state: 'true'
-    condition:
-      - condition: state
-        entity_id: input_boolean.guest_mode
-        state: 'off'
-      - condition: or
-        conditions:
-          - condition: state
-            entity_id: switch.siren
-            state: 'on'
-          - condition: state
-            entity_id: switch.backyard_siren
-            state: 'on'
     trigger:
       - platform: state
         entity_id: alarm_control_panel.konnected_alarm
         to: disarmed
+    mode: single
+    condition:
+          - condition: state
+            entity_id: input_boolean.guest_mode
+            state: 'off'
+          - condition: or
+            conditions:
+              - condition: state
+                entity_id: switch.siren
+                state: 'on'
+              - condition: state
+                entity_id: switch.backyard_siren
+                state: 'on'
     action:
       - service: switch.turn_off
         entity_id: switch.siren
@@ -128,13 +130,6 @@ automation:
   - id: 2d57cc0c-7317-486f-a2f2-b755c59ac660
     alias: '[Alarm] Disarm Konnected at night'
     initial_state: 'true'
-    condition:
-      - condition: state
-        entity_id: alarm_control_panel.konnected_alarm
-        state: armed_home
-      - condition: state
-        entity_id: input_boolean.guest_mode
-        state: 'off'
     trigger:
       - platform: zone
         entity_id:
@@ -144,6 +139,14 @@ automation:
           - person.timo
         zone: zone.home
         event: enter
+    mode: single
+    condition:
+      - condition: state
+        entity_id: alarm_control_panel.konnected_alarm
+        state: armed_home
+      - condition: state
+        entity_id: input_boolean.guest_mode
+        state: 'off'
     action:
       - service: script.turn_on
         entity_id: script.konnectedstandby
@@ -151,6 +154,12 @@ automation:
   - id: d4ce8893-a219-499b-bd45-18a2bc5bc6c2
     alias: '[Alarm] Disarm Konnected from Away'
     initial_state: 'true'
+    trigger:
+      - platform: state
+        entity_id: group.household
+        from: not_home
+        to: home
+    mode: single
     condition:
       - condition: or
         conditions:
@@ -163,18 +172,17 @@ automation:
       - condition: state
         entity_id: input_boolean.guest_mode
         state: 'off'
-    trigger:
-      - platform: state
-        entity_id: group.household
-        from: not_home
-        to: home
-    action:
+        action:
       - service: script.turn_on
         entity_id: script.konnectedstandby
 
   - id: b937f244-4e93-4ab7-9310-a1c77a7c05d4
     alias: '[Alarm] Disarm Konnected in the morning'
     initial_state: 'true'
+    trigger:
+      - platform: time
+        at: 06:00:00
+    mode: single
     condition:
       - condition: state
         entity_id: group.household
@@ -182,16 +190,18 @@ automation:
       - condition: state
         entity_id: input_boolean.guest_mode
         state: 'off'
-    trigger:
-      - platform: time
-        at: 06:00:00
-    action:
+        action:
       - service: script.turn_on
         entity_id: script.konnectedstandby
 
   - id: 8efa2a7d-23c9-4bb3-b163-4e1bf820976d
     alias: '[Alarm] Konnected Standby'
     initial_state: 'true'
+    trigger:
+      - platform: time_pattern
+        minutes: /10
+        seconds: 0
+    mode: single
     condition:
       - condition: state
         entity_id: group.household
@@ -210,10 +220,6 @@ automation:
         - condition: state
           entity_id: alarm_control_panel.konnected_alarm
           state: armed_away
-    trigger:
-      - platform: time_pattern
-        minutes: /10
-        seconds: 0
     action:
       - service: script.turn_on
         entity_id: script.konnectedstandby
@@ -240,6 +246,7 @@ automation:
       - platform: state
         entity_id: binary_sensor.backyard_motion
         to: 'on'
+    mode: single
     condition:
       condition: not
       conditions:
@@ -260,6 +267,7 @@ automation:
       - platform: state
         entity_id: alarm_control_panel.konnected_alarm
         to: triggered
+    mode: single
     action:
       - service: switch.turn_on
         entity_id: switch.siren
@@ -287,6 +295,7 @@ automation:
           - binary_sensor.office
           - binary_sensor.garage
         to: 'on'
+    mode: single
     condition:
       condition: or
       conditions:
@@ -314,6 +323,7 @@ automation:
       - platform: state
         entity_id: binary_sensor.backyard_motion
         to: 'on'
+    mode: single
     condition:
       condition: or
       conditions:
@@ -366,6 +376,7 @@ automation:
       - platform: state
         entity_id: sensor.attic_nest_protect_co_status
         to: emergency
+    mode: single
     action:
       - service: scene.turn_on
         entity_id: scene.emergency
@@ -376,6 +387,7 @@ automation:
       - platform: state
         entity_id: alarm_control_panel.konnected_alarm
         to: armed_away
+    mode: single
     condition:
       - condition: not
         conditions:
@@ -392,6 +404,7 @@ automation:
       - platform: state
         entity_id: alarm_control_panel.konnected_alarm
         to: disarmed
+    mode: single
     condition:
       - condition: not
         conditions:

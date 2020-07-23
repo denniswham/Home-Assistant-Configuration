@@ -21,6 +21,7 @@ automation:
       - platform: sun
         event: sunset
         offset: '-00:45:00'
+    mode: single 
     action:
       - service: input_select.select_option
         data:
@@ -33,6 +34,7 @@ automation:
     trigger:
       - platform: sun
         event: sunrise
+    mode: single
     action:
       - service: input_select.select_option
         data:
@@ -45,6 +47,7 @@ automation:
     trigger:
       - platform: time
         at: "09:00:00"
+        mode: single
     action:
       - service: input_select.select_option
         data:
@@ -58,6 +61,7 @@ automation:
       - platform: state
         entity_id: alarm_control_panel.konnected_alarm
         to: 'armed_home'
+    mode: single
     condition:
       condition: and
       conditions:
@@ -86,6 +90,12 @@ automation:
 
   - id: c93f7aa4-2fd8-4088-88b3-8f07226a7fc5
     alias: '[House] Turn on Rise and Shine scene in the morning'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.entryway
+        from: 'off'
+        to: 'on'
+    mode: single
     condition:
       - condition: numeric_state
         entity_id: sensor.entryway_motion_trigger_count
@@ -96,18 +106,7 @@ automation:
       - condition: state
         entity_id: input_boolean.guest_mode
         state: 'off'
-    trigger:
-      - platform: state
-        entity_id: binary_sensor.entryway
-        from: 'off'
-        to: 'on'
     action:
       - service: scene.turn_on
         entity_id: scene.rise_and_shine
-      # - delay:
-      #     seconds: 30
-      # - service: media_player.play_media
-      #   data:
-      #     entity_id: media_player.living_room
-      #     media_content_id: good morning
-      #     media_content_type: routine
+

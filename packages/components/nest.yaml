@@ -25,6 +25,7 @@ automation:
       - platform: state
         entity_id: sensor.attic_nest_protect_smoke_status
         to: warning
+    mode: single
     action:
       - service: cover.open_cover
         data:
@@ -73,6 +74,7 @@ automation:
       - platform: state
         entity_id: sensor.attic_nest_protect_co_status
         to: warning
+    mode: single
     action:
       - service: cover.open_cover
         data:

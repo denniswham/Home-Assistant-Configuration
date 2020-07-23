@@ -34,17 +34,18 @@ automation:
   - id: ef7a15bf-f601-4e75-9e2a-f3a796d37750
     alias: '[Notification] Send notification when amplifier is on when TV is turned off'
     initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.vieratv
+        from: 'on'
+        to: 'off'
+    mode: single
     condition:
       condition: or
       conditions:
         - condition: state
           entity_id: binary_sensor.amplifier
           state: 'on'
-    trigger:
-      - platform: state
-        entity_id: binary_sensor.vieratv
-        from: 'on'
-        to: 'off'
     action:
       - service: notify.mobile_app_sm_g960f
         data:
@@ -72,6 +73,7 @@ automation:
         entity_id: binary_sensor.washing_machine
         from: 'on'
         to: 'off'
+    mode: single
     action:
       # - service: notify.mobile_app_sm_g960f
       #   data:
@@ -97,6 +99,7 @@ automation:
         entity_id: binary_sensor.dryer
         from: 'on'
         to: 'off'
+    mode: single
     action:
       # - service: notify.mobile_app_sm_g960f
       #   data:

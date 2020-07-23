@@ -165,6 +165,7 @@ automation:
         to: not_home
         for:
           hours: 24
+    mode: single
     action:
       - service: input_boolean.turn_on
         entity_id: input_boolean.vacation_mode

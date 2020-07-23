@@ -17,6 +17,10 @@ automation:
   - id: 1f22fb5b-8d24-4130-a5cf-7dba51858e5d
     alias: '[Notification] Send notification when trash is collected today'
     initial_state: 'on'
+    trigger:
+      - platform: time
+        at: 06:00:00
+    mode: single
     condition:
       - condition: or
         conditions:
@@ -31,9 +35,6 @@ automation:
       - condition: state
         entity_id: group.household
         state: 'home'
-    trigger:
-      - platform: time
-        at: 06:00:00
     action:
       - service: notify.mobile_app_sm_g960f
         data_template:

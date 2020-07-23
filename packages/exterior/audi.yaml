@@ -8,6 +8,11 @@ automation:
   - id: 0c10e45f-53ce-4324-8ddf-60b036c74b3c
     alias: '[Audi] Send notification when door unlocked at night'
     initial_state: 'on'
+    trigger:
+      - platform: state
+        entity_id: alarm_control_panel.konnected_alarm
+        to: armed_home
+    mode: single
     condition:
       - condition: not
         conditions:
@@ -24,10 +29,6 @@ automation:
       - condition: zone
         entity_id: device_tracker.audi_e_tron_50_position
         zone: zone.home
-    trigger:
-      - platform: state
-        entity_id: alarm_control_panel.konnected_alarm
-        to: armed_home
     action:
       # - service: lock.lock
       #   entity: lock.audi_e_tron_50_door_lock
@@ -57,6 +58,7 @@ automation:
         entity_id: binary_sensor.audi_e_tron_50_trunk
         to: 'on'
         for: "00:10:00"
+    mode: single
     action:
       - service: notify.mobile_app_sm_g960f
         data_template:
