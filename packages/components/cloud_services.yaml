@@ -68,6 +68,6 @@ alert:
     message: "Check refresh token for Alexa Media Player Custom Component"
     done_message: "Alexa Media Player Custom Component has restored itself" 
     notifiers:
-      - mobile_app_sm_g960f
+      - mobile_app_sm_g986b
     data:
       tag: 'alexa-guard-unavailable'

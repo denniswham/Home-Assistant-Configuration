@@ -32,7 +32,7 @@ automation:
     action:
       # - service: lock.lock
       #   entity: lock.audi_e_tron_50_door_lock
-      - service: notify.mobile_app_sm_g960f
+      - service: notify.mobile_app_sm_g986b
         data_template:
           title: Audi e-tron
           message: Check windows, roof and trunk before falling asleep ;-)
@@ -60,7 +60,7 @@ automation:
         for: "00:10:00"
     mode: single
     action:
-      - service: notify.mobile_app_sm_g960f
+      - service: notify.mobile_app_sm_g986b
         data_template:
           title: Audi e-tron
           message: Trunk is open

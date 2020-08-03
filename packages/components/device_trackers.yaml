@@ -1,6 +1,6 @@
 homeassistant:
   customize:
-    device_tracker.sm_g960f:
+    device_tracker.sm_g986b:
       friendly_name: Dennis
     device_tracker.iphone_van_stephanie:
       friendly_name: Stephanie

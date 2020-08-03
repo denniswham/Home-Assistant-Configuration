@@ -82,7 +82,7 @@ alert:
   #   skip_first: false
   #   done_message: WireGuard has stopped
   #   notifiers:
-  #     - mobile_app_sm_g960f
+  #     - mobile_app_sm_g986b
   #   data:
   #     tag: 'wireguard-on'
   #     url: '/hassio/addon/a0d7b954_wireguard/info'
@@ -99,7 +99,7 @@ alert:
     skip_first: false
     done_message: 'SSH & Web Terminal has started'
     notifiers:
-      - mobile_app_sm_g960f
+      - mobile_app_sm_g986b
     data:
       tag: 'ssh-off'
       url: '/hassio/addon/a0d7b954_ssh/info'
@@ -109,7 +109,7 @@ automation:
     alias: '[House] Start WireGuard'
     trigger:
       platform: zone
-      entity_id: device_tracker.sm_g960f
+      entity_id: device_tracker.sm_g986b
       zone: zone.home      
       event: leave
     mode: single
@@ -122,7 +122,7 @@ automation:
     alias: '[House] Stop WireGuard'
     trigger:
       platform: zone
-      entity_id: device_tracker.sm_g960f
+      entity_id: device_tracker.sm_g986b
       zone: zone.home      
       event: enter
     mode: single

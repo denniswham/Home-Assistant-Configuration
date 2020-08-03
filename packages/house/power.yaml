@@ -47,7 +47,7 @@ automation:
           entity_id: binary_sensor.amplifier
           state: 'on'
     action:
-      - service: notify.mobile_app_sm_g960f
+      - service: notify.mobile_app_sm_g986b
         data:
           title: TV turned off
           message: TV is turned off, dont't forget to turn of the amplifier
@@ -75,7 +75,7 @@ automation:
         to: 'off'
     mode: single
     action:
-      # - service: notify.mobile_app_sm_g960f
+      # - service: notify.mobile_app_sm_g986b
       #   data:
       #     message: Washing machine is finished
       #     data:
@@ -101,7 +101,7 @@ automation:
         to: 'off'
     mode: single
     action:
-      # - service: notify.mobile_app_sm_g960f
+      # - service: notify.mobile_app_sm_g986b
       #   data:
       #     message: Tumble dryer is finished
       #     data:

@@ -2,7 +2,7 @@ notify:
   - name: all
     platform: group
     services:
-      - service: mobile_app_sm_g960f
+      - service: mobile_app_sm_g986b
       - service: mobile_app_iphone_van_stephanie
       - service: mobile_app_iphone_van_lucas
       - service: mobile_app_oneplus_a5010
@@ -10,7 +10,7 @@ notify:
   - name: dennis
     platform: group
     services:
-      - service: mobile_app_sm_g960f
+      - service: mobile_app_sm_g986b
     
   - name: stephanie
     platform: group

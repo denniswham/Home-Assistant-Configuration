@@ -36,7 +36,7 @@ automation:
         data:
           entity_id:
             - cover.backyard_awning
-      - service: notify.mobile_app_sm_g960f
+      - service: notify.mobile_app_sm_g986b
         data:
           message: Smoke detected
           title: Nest Protect
@@ -89,7 +89,7 @@ automation:
         data:
           message: CO detected
           title: Nest Protect
-      - service: notify.mobile_app_sm_g960f
+      - service: notify.mobile_app_sm_g986b
         data:
           message: CO detected
           title: Nest Protect

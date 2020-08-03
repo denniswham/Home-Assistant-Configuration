@@ -98,7 +98,7 @@ alert:
     title: 'Update for HA available'
     message: "New version is {{ state_attr('sensor.updater_core', 'newest_version') }}. Currently on {{ state_attr('sensor.updater_core', 'current_version') }}"
     notifiers:
-    - mobile_app_sm_g960f
+    - mobile_app_sm_g986b
     data:
       tag: 'ha-update-available'
       url: '/hassio/addon/core_check_config'
@@ -113,7 +113,7 @@ alert:
     title: 'Update for HA Supervisor available'
     message: "New version is {{ state_attr('sensor.supervisor_updates', 'newest_version') }}. Currently on {{ state_attr('sensor.supervisor_updates', 'current_version') }}"
     notifiers:
-    - mobile_app_sm_g960f
+    - mobile_app_sm_g986b
     data:
       tag: 'supervisor-update-available'
       url: '/hassio/dashboard'
@@ -128,7 +128,7 @@ alert:
     title: 'Update for OS available'
     message: "New version is {{ state_attr('sensor.updater_os', 'newest_version') }}. Currently on {{ state_attr('sensor.updater_os', 'current_version') }}"
     notifiers:
-    - mobile_app_sm_g960f
+    - mobile_app_sm_g986b
     data:
       tag: 'os-update-available'
       url: '/hassio/dashboard'
@@ -144,7 +144,7 @@ alert:
     title: 'Update for HA Audio available'
     message: "New version is {{ state_attr('sensor.updater_audio', 'newest_version') }}. Currently on {{ state_attr('sensor.updater_audio', 'current_version') }}"
     notifiers:
-    - mobile_app_sm_g960f
+    - mobile_app_sm_g986b
     data:
       tag: 'audio-update-available'
       url: '/hassio/dashboard'
@@ -159,7 +159,7 @@ alert:
     title: 'Update for HA DNS available'
     message: "New version is {{ state_attr('sensor.updater_dns', 'newest_version') }}. Currently on {{ state_attr('sensor.updater_dns', 'current_version') }}"
     notifiers:
-    - mobile_app_sm_g960f
+    - mobile_app_sm_g986b
     data:
       tag: 'dns-update-available'
       url: '/hassio/dashboard'
@@ -174,7 +174,7 @@ alert:
     title: 'Update for HA CLI available'
     message: "New version is {{ state_attr('sensor.updater_cli', 'newest_version') }}. Currently on {{ state_attr('sensor.updater_cli', 'current_version') }}"
     notifiers:
-    - mobile_app_sm_g960f
+    - mobile_app_sm_g986b
     data:
       tag: 'cli-update-available'
       url: '/hassio/dashboard'
@@ -189,7 +189,7 @@ alert:
     title: 'Update for HA Multicast available'
     message: "New version is {{ state_attr('sensor.updater_multicast', 'newest_version') }}. Currently on {{ state_attr('sensor.updater_multicast', 'current_version') }}"
     notifiers:
-    - mobile_app_sm_g960f
+    - mobile_app_sm_g986b
     data:
       tag: 'multicast-update-available'
       url: '/hassio/dashboard'
@@ -204,7 +204,7 @@ alert:
     title: "Updates available in {{ states('sensor.hacs') }} HACS repo{% if states('sensor.hacs') | int > 1 %}s{% endif %}"
     # message: ""
     notifiers:
-      - mobile_app_sm_g960f
+      - mobile_app_sm_g986b
     data:
       tag: 'hacs-update-available'
       url: '/hacs'
@@ -219,7 +219,7 @@ alert:
     title: "Updates available for {{ states('sensor.supervisor_updates') }} HA addon{% if states('sensor.supervisor_updates') | int > 1 %}s{% endif %}"
     # message: ""
     notifiers:
-    - mobile_app_sm_g960f
+    - mobile_app_sm_g986b
     data:
       tag: 'addon-update-available'
       url: '/hassio/dashboard'

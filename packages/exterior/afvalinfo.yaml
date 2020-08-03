@@ -36,7 +36,7 @@ automation:
         entity_id: group.household
         state: 'home'
     action:
-      - service: notify.mobile_app_sm_g960f
+      - service: notify.mobile_app_sm_g986b
         data_template:
           title: Trash collection is today
           message: Take {{ states('sensor.afvalinfo_today')|replace(' ',' and ') }} outside
