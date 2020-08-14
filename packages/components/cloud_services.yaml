@@ -71,3 +71,28 @@ alert:
       - mobile_app_sm_g986b
     data:
       tag: 'alexa-guard-unavailable'
+
+automation:
+  - id: acd769e4-3ab3-4fa1-91f8-6d297527439f
+    alias: '[Alexa] Arm Away Alexa Guard based on Konnected Alarm'
+    trigger:
+      - platform: state
+        entity_id: alarm_control_panel.konnected_alarm
+        to: armed_away
+    mode: single
+    action:
+      - service: alarm_control_panel.alarm_arm_away
+        entity_id:
+          - alarm_control_panel.alexa_guard_7514f
+      
+  - id: b6200c2d-ffa0-42f6-bcd8-5e88ec83ad2c
+    alias: '[Alexa] Disarm Alexa Guard based on Konnected Alarm'
+    trigger:
+      - platform: state
+        entity_id: alarm_control_panel.konnected_alarm
+        to: disarmed
+    mode: single
+    action:
+      - service: alarm_control_panel.alarm_disarm
+        entity_id:
+          - alarm_control_panel.alexa_guard_7514f

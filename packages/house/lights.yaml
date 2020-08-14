@@ -83,31 +83,11 @@ automation:
       service: light.turn_on
       data_template:
         entity_id: >
-          {% if (as_timestamp(now()) - as_timestamp(states.binary_sensor.backyard_motion.last_changed)) > 1800 %}
+          {% if is_state("cover.backyard_awning", "closed") %}
             light.backyard_wall_lights
           {% else %}
             light.backyard_wall_lights, light.backyard_garden_lights
           {% endif %}
-
-  - id: 0e58a3aa-8e64-4b24-bdba-b32dd6a68322
-    alias: '[Lights] Turn off backyard garden lights after 30 minutes no motion'
-    trigger:
-      - platform: state
-        entity_id: binary_sensor.backyard_motion
-        from: "on"
-        to: "off"
-        for: "00:30:00"
-    mode: single
-    condition:
-      - condition: template
-        value_template: '{{ state_attr("sun.sun", "elevation") < 0 }}'
-      - condition: time
-        after: '16:00:00'
-        before: '23:59:59'
-    action:
-      service: light.turn_off
-      entity_id:
-        - light.backyard_garden_lights
 
   - id: 1802426d-6f61-4dde-ab2c-5cd3b5233243
     alias: '[Lights] Turn off backyard lights at midnight'

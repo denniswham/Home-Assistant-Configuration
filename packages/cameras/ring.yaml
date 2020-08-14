@@ -48,3 +48,39 @@ automation:
           media_content_id: 'amzn_sfx_doorbell_chime_02'
           media_content_type: sound  
           entity_id: media_player.living_room
+
+  - id: 2b0fc466-bcbd-4af1-b1fe-215c2ad2ccbd
+    alias: '[Ring] Arm Home Ring Mode based on Konnected Alarm'
+    trigger:
+      - platform: state
+        entity_id: alarm_control_panel.konnected_alarm
+        to: armed_away
+    mode: single
+    action:
+      - service: alarm_control_panel.alarm_arm_home
+        entity_id:
+          - alarm_control_panel.woerden_mode_settings
+
+  - id: e2909fc6-e760-413c-b137-a105ed27b8f6
+    alias: '[Ring] Arm Away Ring Mode based on Konnected Alarm'
+    trigger:
+      - platform: state
+        entity_id: alarm_control_panel.konnected_alarm
+        to: armed_away
+    mode: single
+    action:
+      - service: alarm_control_panel.alarm_arm_away
+        entity_id:
+          - alarm_control_panel.woerden_mode_settings
+      
+  - id: f2f7b8f8-1299-42fb-85ab-2d86e55362a2
+    alias: '[Ring] Disarm Ring Mode based on Konnected Alarm'
+    trigger:
+      - platform: state
+        entity_id: alarm_control_panel.konnected_alarm
+        to: disarmed
+    mode: single
+    action:
+      - service: alarm_control_panel.alarm_disarm
+        entity_id:
+          - alarm_control_panel.woerden_mode_settings          
