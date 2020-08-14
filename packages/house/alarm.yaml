@@ -27,6 +27,7 @@ script:
       - service: alarm_control_panel.alarm_disarm
         entity_id:
           - alarm_control_panel.konnected_alarm
+          - alarm_control_panel.woerden_mode_settings
       - service: switch.turn_off
         entity_id: switch.siren
       - service: switch.turn_off
@@ -381,36 +382,43 @@ automation:
       - service: scene.turn_on
         entity_id: scene.emergency
 
-  - id: e2909fc6-e760-413c-b137-a105ed27b8f6
-    alias: '[Alarm] Arm Alexa Guard'
+  - id: 2b0fc466-bcbd-4af1-b1fe-215c2ad2ccbd
+    alias: '[Alarm] Arm Home Ring Mode according to Konnected Alarm'
     trigger:
       - platform: state
         entity_id: alarm_control_panel.konnected_alarm
         to: armed_away
     mode: single
-    condition:
-      - condition: not
-        conditions:
-          - condition: state
-            entity_id: alarm_control_panel.alexa_guard_7514f
-            state: armed_away
+    action:
+      - service: alarm_control_panel.alarm_arm_home
+        entity_id:
+          - alarm_control_panel.woerden_mode_settings
+      - service: alarm_control_panel.alarm_disarm
+        entity_id:
+          - alarm_control_panel.alexa_guard_7514f
+
+  - id: e2909fc6-e760-413c-b137-a105ed27b8f6
+    alias: '[Alarm] Arm Away Alexa Guard and Ring Mode according to Konnected Alarm'
+    trigger:
+      - platform: state
+        entity_id: alarm_control_panel.konnected_alarm
+        to: armed_away
+    mode: single
     action:
       - service: alarm_control_panel.alarm_arm_away
-        entity_id: alarm_control_panel.alexa_guard_7514f
-
+        entity_id:
+          - alarm_control_panel.alexa_guard_7514f
+          - alarm_control_panel.woerden_mode_settings
+      
   - id: f2f7b8f8-1299-42fb-85ab-2d86e55362a2
-    alias: '[Alarm] Disarm Alexa Guard'
+    alias: '[Alarm] Disarm Alexa Guard and Ring Mode according to Konnected Alarm'
     trigger:
       - platform: state
         entity_id: alarm_control_panel.konnected_alarm
         to: disarmed
     mode: single
-    condition:
-      - condition: not
-        conditions:
-          - condition: state
-            entity_id: alarm_control_panel.alexa_guard_7514f
-            state: disarmed
     action:
       - service: alarm_control_panel.alarm_disarm
-        entity_id: alarm_control_panel.alexa_guard_7514f
+        entity_id:
+          - alarm_control_panel.alexa_guard_7514f
+          - alarm_control_panel.woerden_mode_settings
