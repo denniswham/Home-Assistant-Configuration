@@ -62,12 +62,6 @@ cards:
         states:
           - arm_home
           - arm_away
-      # - type: alarm-panel
-      #   entity: alarm_control_panel.ring_mode
-      #   states:
-      #     - arm_home
-      #     - arm_away
-      #   name: Ring Modes
       - type: entities
         title: Security
         show_header_toggle: false
@@ -104,6 +98,12 @@ cards:
           - entity: input_boolean.vacation_mode
   - type: vertical-stack
     cards:
+      - type: alarm-panel
+        entity: alarm_control_panel.woerden_mode_settings
+        states:
+          - arm_home
+          - arm_away
+        name: Ring Mode
       - type: horizontal-stack
         cards:
           - type: picture-entity
