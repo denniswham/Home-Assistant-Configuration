@@ -333,38 +333,6 @@ automation:
             - cover.backyard_awning
 
   - id: d030ba6f-ee63-4ee6-9cea-a43751aba57b
-    alias: '[Covers] Open awning in the morning'
-    initial_state: 'true'
-    trigger:
-      platform: numeric_state
-      entity_id: sun.sun
-      value_template: "{{ state_attr('sun.sun', 'azimuth') }}"
-      above: 115
-    mode: single
-    condition:
-      - condition: state
-        entity_id: cover.backyard_awning
-        state: close
-      - condition: state
-        entity_id: weather.lopik_cabauw
-        state: sunny
-      - condition: numeric_state
-        entity_id: sensor.br_temperature
-        above: 21
-      - condition: state
-        entity_id: binary_sensor.workday_sensor
-        state: 'off'
-      - condition: state
-        entity_id: group.household
-        state: home
-    action:
-      - service: cover.close_cover
-        data:
-          entity_id:
-            - cover.backyard_awning
-        
-
-  - id: d030ba6f-ee63-4ee6-9cea-a43751aba57b
     alias: '[Covers] Close awning when no motion at night'
     initial_state: 'true'
     trigger:
