@@ -32,7 +32,7 @@ sensor:
       - type: last_boot
 
   - platform: rest
-    resource: http://192.168.1.10:8123/api/hassio/addons/a0d7b954_wireguard/info
+    resource: http://10.0.20.10:8123/api/hassio/addons/a0d7b954_wireguard/info
     name: Wireguard
     value_template: '{{ value_json.data.state }}'
     scan_interval: 60
@@ -45,7 +45,7 @@ sensor:
       - version_latest
 
   - platform: rest
-    resource: http://192.168.1.10:8123/api/hassio/addons/a0d7b954_ssh/info
+    resource: http://10.0.20.10:8123/api/hassio/addons/a0d7b954_ssh/info
     name: 'SSH & Web Terminal'
     value_template: '{{ value_json.data.state }}'
     scan_interval: 60
