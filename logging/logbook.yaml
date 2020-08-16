@@ -18,6 +18,7 @@ include:
     - sensor.entryway_nest_protect_co_status
     - sensor.hallway_nest_protect_co_status
     - sensor.attic_nest_protect_co_status
+    - sensor.entryway_motion_trigger_count
     - switch.siren
     - switch.backyard_siren
     - binary_sensor.alexa_guard_unavailable
