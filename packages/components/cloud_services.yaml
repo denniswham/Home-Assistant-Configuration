@@ -92,6 +92,10 @@ automation:
         entity_id: alarm_control_panel.konnected_alarm
         to: disarmed
     mode: single
+    condition:
+      - condition: state
+        entity_id: alarm_control_panel.alexa_guard_7514f
+        state: armed_away
     action:
       - service: alarm_control_panel.alarm_disarm
         entity_id:
