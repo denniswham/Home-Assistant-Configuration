@@ -54,7 +54,7 @@ automation:
     trigger:
       - platform: state
         entity_id: alarm_control_panel.konnected_alarm
-        to: armed_away
+        to: armed_home
     mode: single
     action:
       - service: alarm_control_panel.alarm_arm_home
