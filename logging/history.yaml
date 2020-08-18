@@ -12,7 +12,7 @@ include:
   #   - person.emilie
     - alarm_control_panel.konnected_alarm
     - alarm_control_panel.alexa_guard_7514f
-    - alarm_control_panel.woerden_mode_settings
+    - alarm_control_panel.woerden_mode
     - binary_sensor.vieratv
     - binary_sensor.amplifier
     - media_player.master_bedroom

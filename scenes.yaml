@@ -6,7 +6,7 @@
       state: disarmed
     alarm_control_panel.alexa_guard_7514f:
       state: disarmed
-    alarm_control_panel.woerden_mode_settings:
+    alarm_control_panel.woerden_mode:
       state: disarmed
     climate.living_room:
       state: heat
@@ -101,7 +101,7 @@
   entities: 
     alarm_control_panel.konnected_alarm:
       state: armed_home
-    alarm_control_panel.woerden_mode_settings:
+    alarm_control_panel.woerden_mode:
       state: armed_home
     cover.master_bedroom_roller_shutter:
       state: open
@@ -157,7 +157,7 @@
   entities: 
     alarm_control_panel.konnected_alarm:
       state: armed_home
-    alarm_control_panel.woerden_mode_settings:
+    alarm_control_panel.woerden_mode:
       state: armed_home
     cover.master_bedroom_roller_shutter:
       state: closed

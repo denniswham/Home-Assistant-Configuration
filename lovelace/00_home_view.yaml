@@ -103,7 +103,7 @@ cards:
   - type: vertical-stack
     cards:
       - type: alarm-panel
-        entity: alarm_control_panel.woerden_mode_settings
+        entity: alarm_control_panel.woerden_mode
         states:
           - arm_home
           - arm_away

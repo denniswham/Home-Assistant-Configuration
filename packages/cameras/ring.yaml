@@ -59,7 +59,7 @@ automation:
     action:
       - service: alarm_control_panel.alarm_arm_home
         entity_id:
-          - alarm_control_panel.woerden_mode_settings
+          - alarm_control_panel.woerden_mode
 
   - id: e2909fc6-e760-413c-b137-a105ed27b8f6
     alias: '[Ring] Arm Away Ring Mode based on Konnected Alarm'
@@ -71,7 +71,7 @@ automation:
     action:
       - service: alarm_control_panel.alarm_arm_away
         entity_id:
-          - alarm_control_panel.woerden_mode_settings
+          - alarm_control_panel.woerden_mode
       
   - id: f2f7b8f8-1299-42fb-85ab-2d86e55362a2
     alias: '[Ring] Disarm Ring Mode based on Konnected Alarm'
@@ -83,4 +83,4 @@ automation:
     action:
       - service: alarm_control_panel.alarm_disarm
         entity_id:
-          - alarm_control_panel.woerden_mode_settings          
+          - alarm_control_panel.woerden_mode          
