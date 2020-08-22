@@ -81,19 +81,19 @@
   entities: 
     light.living_room_dining_table_light:
       state: "on"
-      brightness: 38
+      brightness: 51
     light.living_room_wall_lights:
       state: "on"
-      brightness: 102
+      brightness: 115
     light.living_room_spot_lights:
       state: "on"
-      brightness: 12
+      brightness: 26
     light.living_room_led_strips:
       state: "on"
       brightness: 51
     light.office_spots:
       state: "on"
-      brightness: 12
+      brightness: 26
 
 - id: 0d80f036-53f7-40de-81ff-77ad45bc8150
   name: Bed time
