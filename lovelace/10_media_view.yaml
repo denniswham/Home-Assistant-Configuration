@@ -31,7 +31,7 @@ cards:
         show_header_toggle: false
         entities:
           - type: custom:mini-media-player
-            entity: media_player.master_bedroom_tv
+            entity: media_player.samsung_ue46es6710
             icon: mdi:television
             name: Television
           - type: custom:mini-media-player
