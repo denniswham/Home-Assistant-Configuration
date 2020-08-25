@@ -45,7 +45,7 @@ cards:
         show_header_toggle: false
         entities:
           - type: custom:mini-media-player
-            entity: media_player.apple_tv
+            entity: media_player.lucas_room_apple_tv
             icon: mdi:apple
             name: Apple TV
       - type: entities

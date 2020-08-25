@@ -13,7 +13,7 @@
       temperature: 20.5
     light.living_room_dining_table_light:
       state: "on"
-      brightness: 62
+      brightness: 76
     # light.living_room_wall_lights:
     #   state: "on"
     #   brightness: 85
@@ -93,7 +93,7 @@
       brightness: 51
     light.office_spots:
       state: "on"
-      brightness: 26
+      brightness: 13
 
 - id: 0d80f036-53f7-40de-81ff-77ad45bc8150
   name: Bed time
