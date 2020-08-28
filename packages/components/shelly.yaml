@@ -33,7 +33,7 @@ automation:
           force_update_sensors: true
         shellyplug-s-8016CB:
           relay-0: "light"
-          relay-0-name: "Backyard Garden Lights"
+          relay-0-name: "Lucas Room Floor Lamp"
           force_update_sensors: true
         shellyplug-s-F8D1EA:
           relay-0: "switch"

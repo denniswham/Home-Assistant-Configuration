@@ -38,9 +38,9 @@ cards:
             icon: mdi:ceiling-light
           - entity: light.attic_light
             icon: mdi:ceiling-light
+          - entity: light.Lucas_room_floor_lamp
+            icon: mdi:floor-lamp
           - entity: light.backyard_wall_lights
-            icon: mdi:outdoor-lamp
-          - entity: light.backyard_garden_lights
             icon: mdi:outdoor-lamp
       - type: entities
         title: Laundry
