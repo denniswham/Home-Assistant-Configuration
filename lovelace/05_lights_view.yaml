@@ -29,7 +29,7 @@ cards:
             icon: mdi:led-strip
             toggle: true
             hide_when_off: false
-          - entity: light.office_spots_lights
+          - entity: light.office_spot_lights
             type: custom:slider-entity-row
             icon: mdi:spotlight
             toggle: true

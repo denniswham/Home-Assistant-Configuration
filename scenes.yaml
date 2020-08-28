@@ -20,7 +20,7 @@
     # light.living_room_spot_lights:
     #   state: "on"
     #   brightness: 23
-    # light.office_spots_lights:
+    # light.office_spot_lights:
     #   state: "off"
     media_player.living_room:
       state: standby
@@ -54,7 +54,7 @@
   entities:
     light.living_room_spot_lights:
       state: "off"
-    light.office_spots_lights:
+    light.office_spot_lights:
       state: "on"
       brightness: 59
 
@@ -71,7 +71,7 @@
     # light.living_room_spot_lights:
     #   state: "on"
     #   brightness: 26
-    # light.office_spots_lights:
+    # light.office_spot_lights:
     #   state: "on"
     #   brightness: 26
 
@@ -91,7 +91,7 @@
     light.living_room_led_strips:
       state: "on"
       brightness: 51
-    light.office_spots_lights:
+    light.office_spot_lights:
       state: "on"
       brightness: 13
 
@@ -115,7 +115,7 @@
       state: "off"
     light.living_room_spot_lights:
       state: "off"
-    light.office_spots_lights:
+    light.office_spot_lights:
       state: "off"
     light.living_room_led_strips:
       state: "off"
@@ -179,7 +179,7 @@
     light.living_room_spot_lights:
       state: "on"
       brightness: 255
-    light.office_spots_lights:
+    light.office_spot_lights:
       state: "on"
       brightness: 255
     light.hallway_light:

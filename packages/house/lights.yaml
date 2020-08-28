@@ -6,7 +6,7 @@ homeassistant:
       friendly_name: Living Room Wall Lights
     light.living_room_dining_table_light:
       friendly_name: Living Room Dining Table Light       
-    light.office_spots_lights:
+    light.office_spot_lights:
       friendly_name: Office Spot Lights
     sensor.living_room_spot_dimmer_power:
         friendly_name: Living Room Spot Lights
