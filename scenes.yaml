@@ -121,8 +121,8 @@
       state: "off"
     light.hallway_light:
       state: "on"
-    light.backyard_garden_lights:
-      state: "off"
+    # light.backyard_garden_lights:
+    #   state: "off"
     media_player.living_room:
       state: standby
       volume_level: 1.0

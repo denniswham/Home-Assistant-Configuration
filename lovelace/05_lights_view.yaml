@@ -42,6 +42,8 @@ cards:
             icon: mdi:floor-lamp
           - entity: light.backyard_wall_lights
             icon: mdi:outdoor-lamp
+          # - entity: light.backyard_garden_lights
+          #   icon: mdi:outdoor-lamp
       - type: entities
         title: Laundry
         show_header_toggle: false
