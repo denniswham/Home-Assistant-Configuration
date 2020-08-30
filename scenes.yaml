@@ -65,15 +65,15 @@
     light.living_room_dining_table_light:   # living room dining table light
       state: "on"
       brightness: 89
-    # light.living_room_wall_lights:   # living room wall lights
-    #   state: "on"
-    #   brightness: 102
-    # light.living_room_spot_lights:
-    #   state: "on"
-    #   brightness: 26
-    # light.office_spot_lights:
-    #   state: "on"
-    #   brightness: 26
+    light.living_room_wall_lights:   # living room wall lights
+      state: "on"
+      brightness: 102
+    light.living_room_spot_lights:
+      state: "on"
+      brightness: 26
+    light.office_spot_lights:
+      state: "on"
+      brightness: 26
 
 - id: 78e4c286-6d53-4465-a213-6c61984d8eac
   name: Relax time
