@@ -143,32 +143,22 @@ automation:
         # - light.backyard_garden_lights
 
   - id: 9c912ebd-f7a5-46f5-9215-187dda6e2630
-    alias: '[Lights] Turn off Lucas Room Floor Lamp after 10 minutes'
+    alias: '[Lights] Turn off Lucas Room Floor Lamp'
     trigger:
-      - platform: state
+      - platform: time_pattern
+        minutes: "/10"
         entity_id: light.lucas_room_floor_lamp
-        to: 'on'
-        for: "00:10:00"
     mode: single
     condition:
       - condition: state
         entity_id: person.lucas
         state: not_home
+      - condition: state
+        entity_id: light.lucas_room_floor_lamp
+        state: 'on'
     action:
       service: light.turn_off
       entity_id:
         - light.lucas_room_floor_lamp
       
-  - id: aa2fe7c1-7e31-4f40-ac7f-e007a6673023
-    alias: '[Lights] Turn off Lucas lights when he leaves'
-    trigger:
-      - platform: state
-        entity_id: person.lucas
-        from: home
-        to: not_home
-    mode: single
-    action:
-      service: light.turn_off
-      entity_id:
-        - light.lucas_room_floor_lamp
     
