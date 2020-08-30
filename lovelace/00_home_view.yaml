@@ -99,7 +99,6 @@ cards:
         show_header_toggle: false
         entities:
           - entity: input_boolean.guest_mode
-          - entity: input_boolean.vacation_mode
   - type: vertical-stack
     cards:
       # - type: alarm-panel
