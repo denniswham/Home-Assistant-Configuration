@@ -17,6 +17,11 @@ homeassistant:
       friendly_name: Timo's Room Echo Dot
     switch.emilie_s_room_do_not_disturb_switch:
       friendly_name: Emilie's Room Echo Dot
+    alarm_control_panel.alexa_guard_7514f:
+      friendly_name: Alexa Guard
+      alarm_control_panel.woerden_mode:
+      friendly_name: Ring Mode
+  
 
 group:
   alexa:
