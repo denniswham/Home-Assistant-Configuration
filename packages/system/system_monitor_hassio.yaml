@@ -32,19 +32,6 @@ sensor:
       - type: last_boot
 
   - platform: rest
-    resource: http://10.0.20.10:8123/api/hassio/addons/a0d7b954_wireguard/info
-    name: Wireguard
-    value_template: '{{ value_json.data.state }}'
-    scan_interval: 60
-    headers:
-      Authorization: !secret llt
-      Content-Type: application/json
-    json_attributes_path: "$.data"
-    json_attributes:
-      - version
-      - version_latest
-
-  - platform: rest
     resource: http://10.0.20.10:8123/api/hassio/addons/a0d7b954_ssh/info
     name: 'SSH & Web Terminal'
     value_template: '{{ value_json.data.state }}'
@@ -60,12 +47,6 @@ sensor:
 binary_sensor:
   - platform: template
     sensors:
-      wireguard:
-        friendly_name: 'WireGuard'
-        device_class: power
-        value_template: >
-          {{ is_state('sensor.wireguard', 'started') }}
-
       ssh_off:
         friendly_name: 'SSH & Web Terminal Add-on'
         device_class: power
@@ -73,20 +54,6 @@ binary_sensor:
           {{ is_state('sensor.ssh_web_terminal', 'stopped') }}
 
 alert:
-  # wireguard:
-  #   name: WireGuard has started
-  #   entity_id: binary_sensor.wireguard
-  #   state: 'on'
-  #   repeat: 360
-  #   can_acknowledge: true
-  #   skip_first: false
-  #   done_message: WireGuard has stopped
-  #   notifiers:
-  #     - mobile_app_sm_g986b
-  #   data:
-  #     tag: 'wireguard-on'
-  #     url: '/hassio/addon/a0d7b954_wireguard/info'
-
   ssh_off:
     name: 'SSH & Web Terminal has stopped'
     entity_id: binary_sensor.ssh_off
@@ -103,30 +70,3 @@ alert:
     data:
       tag: 'ssh-off'
       url: '/hassio/addon/a0d7b954_ssh/info'
-
-automation:
-  - id: b33f5e19-c075-4bc7-85c0-30c9b759ef38
-    alias: '[House] Start WireGuard'
-    trigger:
-      platform: zone
-      entity_id: device_tracker.sm_g986b
-      zone: zone.home      
-      event: leave
-    mode: single
-    action:
-      - service: hassio.addon_start
-        data:
-          addon: a0d7b954_wireguard
-
-  - id: 73fc8e0a-e551-496f-b8b9-b9369a861d2a
-    alias: '[House] Stop WireGuard'
-    trigger:
-      platform: zone
-      entity_id: device_tracker.sm_g986b
-      zone: zone.home      
-      event: enter
-    mode: single
-    action:
-      - service: hassio.addon_stop
-        data:
-          addon: a0d7b954_wireguard

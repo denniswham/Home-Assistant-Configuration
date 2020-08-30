@@ -2,8 +2,8 @@ include:
   domains:
     - person
     - alarm
-    - light
     - cover
+    - light
     - lock
     - automation
   entities:
@@ -22,7 +22,6 @@ include:
     - switch.siren
     - switch.backyard_siren
     - binary_sensor.alexa_guard_unavailable
-    - sensor.wireguard
     - sensor.ssh_web_terminal
 
 exclude:
@@ -34,7 +33,6 @@ exclude:
     - automation.house_day_mode_to_evening
     - automation.house_day_mode_to_morning
     - automation.house_day_mode_to_night
-    - automation.start_wireguard_add_on
-    - automation.stop_wireguard_add_on
     - automation.shellies_discovery
     - automation.shellies_announce
+    - automation.s
