@@ -19,7 +19,7 @@ homeassistant:
       friendly_name: Emilie's Room Echo Dot
     alarm_control_panel.alexa_guard_7514f:
       friendly_name: Alexa Guard
-      alarm_control_panel.woerden_mode:
+    alarm_control_panel.woerden_mode:
       friendly_name: Ring Mode
   
 
