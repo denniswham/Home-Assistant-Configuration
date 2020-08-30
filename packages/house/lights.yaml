@@ -147,7 +147,6 @@ automation:
     trigger:
       - platform: time_pattern
         minutes: "/10"
-        entity_id: light.lucas_room_floor_lamp
     mode: single
     condition:
       - condition: state
