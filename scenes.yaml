@@ -14,14 +14,14 @@
     light.living_room_dining_table_light:
       state: "on"
       brightness: 76
-    # light.living_room_wall_lights:
-    #   state: "on"
-    #   brightness: 85
-    # light.living_room_spot_lights:
-    #   state: "on"
-    #   brightness: 23
-    # light.office_spot_lights:
-    #   state: "off"
+    light.living_room_wall_lights:
+      state: "on"
+      brightness: 85
+    light.living_room_spot_lights:
+      state: "on"
+      brightness: 23
+    light.office_spot_lights:
+      state: "off"
     media_player.living_room:
       state: standby
       volume_level: 1.0
@@ -62,10 +62,10 @@
   name: Dinner time
   icon: mdi:silverware-fork-knife
   entities: 
-    light.living_room_dining_table_light:   # living room dining table light
+    light.living_room_dining_table_light:
       state: "on"
       brightness: 89
-    light.living_room_wall_lights:   # living room wall lights
+    light.living_room_wall_lights:
       state: "on"
       brightness: 102
     light.living_room_spot_lights:
