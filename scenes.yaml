@@ -52,7 +52,7 @@
       state: "off"
     light.office_spot_lights:
       state: "on"
-      brightness: 59
+      brightness: 153
 
 - id: 0d010e40-8560-42ce-8b86-b743bbf355ad
   name: Dinner time

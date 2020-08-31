@@ -32,6 +32,32 @@ script:
         - delay:
             milliseconds: 500
 
+  light_turn_on_floor_lamp:
+    alias: '[Light] Turn on floor lamp'
+    sequence:
+      - service: light.turn_on
+        data_template:
+          entity_id: >-
+            {# Use the name of each Echo to determine which room the command likely came from. #}
+            {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
+
+            {%- if room == "lucas_room" -%}
+              light.lucas_room_floor_lamp
+            {%- endif -%}
+
+  light_turn_off_floor_lamp:
+    alias: '[Light] Turn off floor lamp'
+    sequence:
+      - service: light.turn_off
+        data_template:
+          entity_id: >-
+            {# Use the name of each Echo to determine which room the command likely came from. #}
+            {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
+
+            {%- if room == "lucas_room" -%}
+              light.lucas_room_floor_lamp
+            {%- endif -%}
+
 automation:
   - id: e4519647-e24b-4f1b-8682-51aaa8ce4576
     alias: '[Lights] Turn on lights when arriving home at night'
