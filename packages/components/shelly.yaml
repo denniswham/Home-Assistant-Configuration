@@ -1,3 +1,24 @@
+group:
+  shelly_firware_update:
+    name: Shelly Firmware Update
+    entities:
+      - binary_sensor.shelly_1pm_b98825_firmware_update
+      - binary_sensor.shelly_1pm_f27a0a_firmware_update
+      - binary_sensor.shelly_1pm_f2f9bf_firmware_update
+      - binary_sensor.shelly_2_5_c4c695_firmware_update
+      - binary_sensor.shelly_2_5_c4c708_firmware_update
+      - binary_sensor.shelly_2_5_c4c964_firmware_update
+      - binary_sensor.shelly_2_5_c4c964_firmware_update
+      - binary_sensor.shelly_dimmer_d0f0af_firmware_update
+      - binary_sensor.shelly_dimmer_d17712_firmware_update
+      - binary_sensor.shelly_dimmer_d17b0e_firmware_update
+      - binary_sensor.shelly_dimmer_d47c54_firmware_update
+      - binary_sensor.shelly_dimmer_d48409_firmware_update
+      - binary_sensor.shelly_plug_s_8013cd_firmware_update
+      - binary_sensor.shelly_plug_s_8016cb_firmware_update
+      - binary_sensor.shelly_plug_s_f8d1ea_firmware_update
+      - binary_sensor.shelly_plug_s_f8d1fa_firmware_update
+
 script:
   shelly_update_firmware:
     alias: '[Shelly] Update Firmware'
@@ -6,7 +27,6 @@ script:
       data:
         topic: shellies/command
         payload: update_fw
-
 
 automation:
   - id: 263db818-00d1-4691-8847-b0bd2d491fbb
