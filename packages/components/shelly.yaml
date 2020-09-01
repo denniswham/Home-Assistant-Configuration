@@ -122,7 +122,8 @@ automation:
         entity_id: group.shelly_firmware_update
         to: 'on'
     action:
-      service: notify.notify
+      service: persistent_notification.create
       data:
         message: "Updates available for Shelly Firmware"
         title: "Shelly Firmware"
+        notification_id: shelly
