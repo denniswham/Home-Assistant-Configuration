@@ -32,7 +32,7 @@ binary_sensor:
 
 automation:
   - id: ef7a15bf-f601-4e75-9e2a-f3a796d37750
-    alias: '[Notification] Send notification when amplifier is on when TV is turned off'
+    alias: '[Notification] Amplifier on when TV is turned off'
     initial_state: 'on'
     trigger:
       - platform: state
@@ -66,7 +66,7 @@ automation:
                 - badge
 
   - id: f1840add-37b8-4936-9160-cbef20e73825
-    alias: '[Notification] Send notification when washing machine is finished'
+    alias: '[Notification] Washing machine finished'
     initial_state: 'on'
     trigger:
       - platform: state
@@ -92,7 +92,7 @@ automation:
                 - badge
 
   - id: 1a0462f8-5104-4019-920e-dbb682ec9a5e
-    alias: '[Notification] Send notification when tumble dryer is finished'
+    alias: '[Notification] Tumble dryer finished'
     initial_state: 'on'
     trigger:
       - platform: state

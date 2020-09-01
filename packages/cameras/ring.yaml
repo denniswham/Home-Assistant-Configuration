@@ -7,7 +7,7 @@ homeassistant:
 
 automation:
   - id: 6afbd950-7db2-44df-8eb4-d6c46d57f7af
-    alias: '[Notification] Low Battery Notification'
+    alias: '[Notification] Ring Low Battery'
     initial_state: 'on'
     trigger:
       - platform: numeric_state

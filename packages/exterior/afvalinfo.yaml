@@ -15,7 +15,7 @@ sensor:
 
 automation:
   - id: 1f22fb5b-8d24-4130-a5cf-7dba51858e5d
-    alias: '[Notification] Send notification when trash is collected today'
+    alias: '[Notification] Trash collection day'
     initial_state: 'on'
     trigger:
       - platform: time

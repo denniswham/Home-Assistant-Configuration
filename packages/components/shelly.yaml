@@ -116,7 +116,7 @@ automation:
           force_update_sensors: true
 
   - id: 1b3ab5c1-6f54-463c-9c45-827786deb834
-    alias: '[Notification] Send notification when Shelly Firmware updates'
+    alias: '[Notification] Shelly Firmware updates'
     trigger:
       - platform: state
         entity_id: group.shelly_firmware_update
