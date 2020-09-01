@@ -1,5 +1,5 @@
 group:
-  shelly_firware_update:
+  shelly_firmware_update:
     name: Shelly Firmware Update
     entities:
       - binary_sensor.shelly_1pm_b98825_firmware_update
@@ -7,7 +7,6 @@ group:
       - binary_sensor.shelly_1pm_f2f9bf_firmware_update
       - binary_sensor.shelly_2_5_c4c695_firmware_update
       - binary_sensor.shelly_2_5_c4c708_firmware_update
-      - binary_sensor.shelly_2_5_c4c964_firmware_update
       - binary_sensor.shelly_2_5_c4c964_firmware_update
       - binary_sensor.shelly_dimmer_d0f0af_firmware_update
       - binary_sensor.shelly_dimmer_d17712_firmware_update
@@ -115,3 +114,15 @@ automation:
           relay-0-name: "Backyard Wall Lights"
           push_off_delay: false
           force_update_sensors: true
+
+  - id: 1b3ab5c1-6f54-463c-9c45-827786deb834
+    alias: '[Notification] Send notification when Shelly Firmware updates'
+    trigger:
+      - platform: state
+        entity_id: group.shelly_firmware_update
+        to: 'on'
+    action:
+      service: notify.notify
+      data:
+        message: "Updates available for Shelly Firmware"
+        title: "Shelly Firmware"
