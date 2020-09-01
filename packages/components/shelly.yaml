@@ -1,3 +1,13 @@
+script:
+  shelly_update_firmware:
+    alias: '[Shelly] Update Firmware'
+    sequence: 
+      service: mqtt.publish
+      data:
+        topic: shellies/command
+        payload: update_fw
+
+
 automation:
   - id: 263db818-00d1-4691-8847-b0bd2d491fbb
     alias: '[Shelly] Shellies Announce'
