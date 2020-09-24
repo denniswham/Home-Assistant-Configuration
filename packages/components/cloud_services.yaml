@@ -58,8 +58,8 @@ binary_sensor:
       alexa_guard_unavailable:
         friendly_name: "Alexa Guard" 
         device_class: problem
-        entity_id:
-        - alarm_control_panel.alexa_guard_7514f
+        # entity_id:
+        # - alarm_control_panel.alexa_guard_7514f
         value_template: "{{ is_state('alarm_control_panel.alexa_guard_7514f', 'unavailable') }}"
 
 alert:
