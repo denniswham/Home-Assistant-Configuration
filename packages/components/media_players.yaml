@@ -5,8 +5,3 @@ samsungtv:
     - service: wake_on_lan.send_magic_packet
       data:
         mac: !secret samsungtv_mac
-
-# media_player:
-#   - platform: xboxone
-#     device: FD00E934D9B2ED46
-#     name: Living Room Xbox One
