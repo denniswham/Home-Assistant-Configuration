@@ -8,6 +8,4 @@ logs:
   homeassistant.components.python_script: debug
   homeassistant.components.webhook: debug
   custom_components.alexa_media: error
-  homeassistant.components.webhook: debug  
-
 
