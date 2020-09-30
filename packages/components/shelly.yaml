@@ -119,8 +119,8 @@ automation:
           mode: "relay"
           relay-0: light
           relay-1: light
-          light-0-name: "Master Bedroom Wall Lights"
-          light-1-name: "Master Bedroom Wardrobe Lights"
+          relay-0-name: "Master Bedroom Wall Lights"
+          relay-1-name: "Master Bedroom Wardrobe Lights"
           push_off_delay: false
           force_update_sensors: true
 
