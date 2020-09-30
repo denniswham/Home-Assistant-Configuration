@@ -35,6 +35,10 @@ cards:
             toggle: true
             hide_when_off: false
           - type: divider 
+          - entity: light.master_bedroom_wall_lights
+            icon: 'mdi:wall-sconce-flat-variant'
+          - entity: light.master_bedroom_wardrobe_lights
+            icon: 'mdi:spotlight-beam'
           - entity: light.hallway_light
             icon: mdi:ceiling-light
           - type: divider 
