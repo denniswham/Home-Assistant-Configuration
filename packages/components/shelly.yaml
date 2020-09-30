@@ -8,6 +8,7 @@ group:
       - binary_sensor.shelly_2_5_c4c695_firmware_update
       - binary_sensor.shelly_2_5_c4c708_firmware_update
       - binary_sensor.shelly_2_5_c4c964_firmware_update
+      - binary_sensor.shelly_2_5_40F52023217D_firmware_update
       - binary_sensor.shelly_dimmer_d0f0af_firmware_update
       - binary_sensor.shelly_dimmer_d17712_firmware_update
       - binary_sensor.shelly_dimmer_d17b0e_firmware_update
@@ -112,6 +113,12 @@ automation:
         shelly1pm-F27A0A:
           relay-0: "light"
           relay-0-name: "Backyard Wall Lights"
+          push_off_delay: false
+          force_update_sensors: true
+        shellyswitch25-40F52023217D:
+          mode: "relay"
+          relay-0-name: "Master Bedroom Wall Lights"
+          relay-1-name: "Master Bedroom Wardrobe Lights"
           push_off_delay: false
           force_update_sensors: true
 
