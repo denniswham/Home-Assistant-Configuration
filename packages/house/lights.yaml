@@ -32,6 +32,51 @@ script:
         - delay:
             milliseconds: 500
 
+  light_turn_on_light:
+    alias: '[Light] Turn on light'
+    sequence:
+      - service: light.turn_on
+        data_template:
+          entity_id: >-
+            {# Use the name of each Echo to determine which room the command likely came from. #}
+            {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
+
+            {%- if room == "living_room" -%}
+              - light.living_room_dining_table_light
+              - light.living_room_wall_lights
+              - light.living_room_spot_lights
+              - light.living_room_led_strips
+              - light.office_spot_lights
+            {%- elif room == "master_bedroom" -%}
+              - light.master_bedroom_wall_lights
+              - light.master_bedroom_wardrobe_lights
+            {%- elif room == "lucas_room" -%}
+              - light.lucas_room_floor_lamp
+            {%- endif -%}
+
+  light_turn_off_light:
+    alias: '[Light] Turn off light'
+    sequence:
+      - service: light.turn_off
+        data_template:
+          entity_id: >-
+            {# Use the name of each Echo to determine which room the command likely came from. #}
+            {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
+
+            {%- if room == "living_room" -%}
+              - light.living_room_dining_table_light
+              - light.living_room_wall_lights
+              - light.living_room_spot_lights
+              - light.living_room_led_strips
+              - light.office_spot_lights
+            {%- elif room == "master_bedroom" -%}
+              - light.master_bedroom_wall_lights
+              - light.master_bedroom_wardrobe_lights
+            {%- elif room == "lucas_room" -%}
+              - light.lucas_room_floor_lamp
+            {%- endif -%}
+          
+
   light_turn_on_floor_lamp:
     alias: '[Light] Turn on floor lamp'
     sequence:
@@ -57,6 +102,59 @@ script:
             {%- if room == "lucas_room" -%}
               light.lucas_room_floor_lamp
             {%- endif -%}
+
+  light_turn_on_wall_light:
+    alias: '[Light] Turn on wall light'
+    sequence:
+      - service: light.turn_on
+        data_template:
+          entity_id: >-
+            {# Use the name of each Echo to determine which room the command likely came from. #}
+            {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
+
+            {%- if room == "master_bedroom" -%}
+              light.master_bedroom_wall_lights
+            {%- endif -%}
+
+  light_turn_off_wall_light:
+    alias: '[Light] Turn off wall light'
+    sequence:
+      - service: light.turn_off
+        data_template:
+          entity_id: >-
+            {# Use the name of each Echo to determine which room the command likely came from. #}
+            {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
+
+            {%- if room == "master_bedroom" -%}
+              light.master_bedroom_wall_lights
+            {%- endif -%}
+
+  light_turn_on_wardrobe_light:
+    alias: '[Light] Turn on wardrobe light'
+    sequence:
+      - service: light.turn_on
+        data_template:
+          entity_id: >-
+            {# Use the name of each Echo to determine which room the command likely came from. #}
+            {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
+
+            {%- if room == "master_bedroom" -%}
+              light.master_bedroom_wardrobe_lights
+            {%- endif -%}
+
+  light_turn_off_wardrobe_light:
+    alias: '[Light] Turn off wardrobe light'
+    sequence:
+      - service: light.turn_off
+        data_template:
+          entity_id: >-
+            {# Use the name of each Echo to determine which room the command likely came from. #}
+            {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
+
+            {%- if room == "master_bedroom" -%}
+              light.master_bedroom_wardrobe_lights
+            {%- endif -%}
+                      
 
 automation:
   - id: e4519647-e24b-4f1b-8682-51aaa8ce4576
