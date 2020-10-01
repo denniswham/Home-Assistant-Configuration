@@ -157,7 +157,7 @@ cards:
       - type: custom:auto-entities
         card:
           type: entities
-          title: Temperature
+          title: Device Temperature
           show_header_toggle: false
         filter:
           include:

@@ -17,6 +17,25 @@ homeassistant:
     sensor.office_spot_dimmer_power:
         friendly_name: Office Spot Lights
 
+light:
+  - platform: group
+    name: living_room
+    entities:
+      - light.living_room_dining_table_light
+      - light.living_room_wall_lights
+      - light.living_room_spot_lights
+      - light.living_room_led_strips
+      - light.office_spot_lights
+  - platform: group
+    name: master_bedroom
+    entities:
+      - light.master_bedroom_wardrobe_lights
+      - light.master_bedroom_wall_lights
+  - platform: group
+    name: Lucas_room
+    entities:
+      - light.lucas_room_floor_lamp
+
 script:
   blink_light:
     alias: '[Light] Blink lights'
@@ -42,16 +61,11 @@ script:
             {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
 
             {%- if room == "living_room" -%}
-              - light.living_room_dining_table_light
-              - light.living_room_wall_lights
-              - light.living_room_spot_lights
-              - light.living_room_led_strips
-              - light.office_spot_lights
+              light.living_room
             {%- elif room == "master_bedroom" -%}
-              - light.master_bedroom_wall_lights
-              - light.master_bedroom_wardrobe_lights
+              light.master_bedroom
             {%- elif room == "lucas_room" -%}
-              - light.lucas_room_floor_lamp
+              light.lucas_room
             {%- endif -%}
 
   light_turn_off_light:
@@ -64,18 +78,12 @@ script:
             {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
 
             {%- if room == "living_room" -%}
-              - light.living_room_dining_table_light
-              - light.living_room_wall_lights
-              - light.living_room_spot_lights
-              - light.living_room_led_strips
-              - light.office_spot_lights
+              light.living_room
             {%- elif room == "master_bedroom" -%}
-              - light.master_bedroom_wall_lights
-              - light.master_bedroom_wardrobe_lights
+              light.master_bedroom
             {%- elif room == "lucas_room" -%}
-              - light.lucas_room_floor_lamp
+              light.lucas_room
             {%- endif -%}
-          
 
   light_turn_on_floor_lamp:
     alias: '[Light] Turn on floor lamp'
