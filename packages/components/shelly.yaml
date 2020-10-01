@@ -126,6 +126,11 @@ automation:
         shellydimmer2-40F520001A5A:
           light-0-name: "Entryway Wall Light"
           force_update_sensors: true
+        shelly1pm-68C63AFAE605:
+          relay-0: "light"
+          relay-0-name: "Entryway Light"
+          push_off_delay: false
+          force_update_sensors: true
 
 
   - id: 1b3ab5c1-6f54-463c-9c45-827786deb834
