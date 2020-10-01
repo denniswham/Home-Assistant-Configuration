@@ -89,16 +89,16 @@ automation:
           light-0-name: "Living Room Dining Table Light"
           force_update_sensors: true
         shellydimmer-D48409:
-          light-0-name: "Living Room Wall Lights"
+          light-0-name: "Living Room Wall Light"
           force_update_sensors: true
         shellydimmer-D17712:
-          light-0-name: "Living Room Spot Lights"
+          light-0-name: "Living Room Spot Light"
           force_update_sensors: true
         shellydimmer-D0F0AF:
-          light-0-name: "Living Room Led Strips"
+          light-0-name: "Living Room Led Strip"
           force_update_sensors: true
         shellydimmer-d47c54:
-          light-0-name: "Office Spot Lights"
+          light-0-name: "Office Spot Light"
           force_update_sensors: true
         shelly1pm-F2F9BF:
           relay-0: "light"
@@ -123,6 +123,10 @@ automation:
           relay-1-name: "Master Bedroom Wardrobe Lights"
           push_off_delay: false
           force_update_sensors: true
+        shellydimmer2-40F520001A5A:
+          light-0-name: "Entryway Wall Light"
+          force_update_sensors: true
+
 
   - id: 1b3ab5c1-6f54-463c-9c45-827786deb834
     alias: '[Notification] Shelly Firmware updates'

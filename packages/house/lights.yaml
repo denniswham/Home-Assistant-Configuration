@@ -291,12 +291,13 @@ automation:
         - light.lucas_room_floor_lamp
 
   - id: 1bf4148c-04d3-4ea0-9a68-b14d28fadfee
-    alias: '[Lights] Flash lights when alarm'
+    alias: '[Lights] Flash lights when echo alarm'
     trigger:
       - platform: template
         value_template: "{{ utcnow() - states.sensor.master_bedroom_next_alarm == 0 }}"
+    mode: single
     action:
-      - service: script.turn_on
-        entity_id: script.blink_light
+      service: script.turn_on
+      entity_id: script.blink_light
       
     
