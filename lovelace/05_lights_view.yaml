@@ -34,6 +34,13 @@ cards:
             icon: mdi:spotlight
             toggle: true
             hide_when_off: false
+          - entity: light.entryway_wall_light
+            type: custom:slider-entity-row
+            icon: mdi:wall-sconce-flat
+            toggle: true
+            hide_when_off: false
+          - entity: light.entryway_light
+            icon: mdi:ceiling-light
           - type: divider 
           - entity: light.master_bedroom_wall_lights
             icon: 'mdi:wall-sconce-flat-variant'
