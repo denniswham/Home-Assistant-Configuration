@@ -164,5 +164,5 @@ cards:
             - entity_id: "sensor.*_temperature"
           exclude:
             - entity_id: sensor.br_temperature
-          #   - entity_id: "*_management"
+            - entity_id: sensor.living_room_thermostat_temperature
         sort: name        
