@@ -7,6 +7,9 @@
     climate.living_room:
       state: heat
       temperature: 20.5
+    light.entryway_wall_light:
+      state: "on"
+      brightness: 38
     light.living_room_dining_table_light:
       state: "on"
       brightness: 76
@@ -70,7 +73,10 @@
     light.office_spot_lights:
       state: "on"
       brightness: 26
-
+    light.entryway_wall_light:
+      state: "on"
+      brightness: 38
+  
 - id: 78e4c286-6d53-4465-a213-6c61984d8eac
   name: Relax time
   icon: mdi:sofa
@@ -90,7 +96,10 @@
     light.office_spot_lights:
       state: "on"
       brightness: 13
-
+    light.entryway_wall_light:
+      state: "on"
+      brightness: 38
+  
 - id: 0d80f036-53f7-40de-81ff-77ad45bc8150
   name: Bed time
   icon: mdi:sleep

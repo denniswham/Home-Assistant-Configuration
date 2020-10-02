@@ -45,7 +45,7 @@ script:
         sequence:
         - service: light.toggle
           entity_id:
-            - light.master_bedroom
+            - light.master_bedroom_wardrobe_lights
         - delay:
             milliseconds: 500
 
@@ -292,9 +292,10 @@ automation:
 
   - id: 1bf4148c-04d3-4ea0-9a68-b14d28fadfee
     alias: '[Lights] Flash lights when echo alarm'
+    initial_state: false
     trigger:
       - platform: template
-        value_template: "{{ utcnow() - states.sensor.master_bedroom_next_alarm == 0 }}"
+        value_template: "{{ as_timestamp(states('sensor.master_bedroom_next_alarm')) - as_timestamp(now()) < 0}}"
     mode: single
     action:
       service: script.turn_on
