@@ -310,6 +310,10 @@ automation:
         from: 'off'
         to: 'on'
     mode: single
+    condition:
+      - condition: state
+        entity_id: input_select.house_mode
+        state: Evening
     action:
       - service: light.turn_on
         entity_id: light.entryway_light
