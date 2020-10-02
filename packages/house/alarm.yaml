@@ -225,7 +225,7 @@ automation:
         entity_id: script.konnectedstandby
 
   - id: 72a6ac29-9e75-4f47-a22b-407609b26ee9
-    alias: '[Alarm] Konnected Log Motion'
+    alias: '[Alarm] Konnected Log Activation'
     initial_state: 'true'
     trigger:
       - platform: state
@@ -249,7 +249,7 @@ automation:
     action:
       - service: logbook.log
         data_template:
-          name: "Motion detected: "
+          name: "Alarm activated: "
           message: >-
             {{ trigger.entity_id }}
 
