@@ -317,7 +317,7 @@ automation:
     action:
       - service: light.turn_on
         entity_id: light.entryway_light
-      - delay: 5
+      - delay: '00:05:00'
       - service: light.turn_off
         entity_id: light.entryway_light
 
