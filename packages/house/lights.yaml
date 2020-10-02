@@ -321,4 +321,18 @@ automation:
       - service: light.turn_off
         entity_id: light.entryway_light
 
-      
+  - id: 046a16df-9495-40f6-89cd-02e3793994ab
+    alias: '[Lights] Turn off Lucas lights when he leaves'
+    trigger:
+      - platform: zone
+        entity_id: person.lucas
+        zone: zone.home
+        event: leave
+    mode: single
+    condition:
+      - condition: state
+        entity_id: light.lucas_room
+        state: 'on'
+    action:
+      - service: light.turn_off
+        entity_id: light.lucas_room 

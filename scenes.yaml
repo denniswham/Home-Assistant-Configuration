@@ -9,7 +9,7 @@
       temperature: 20.5
     light.entryway_wall_light:
       state: "on"
-      brightness: 38
+      brightness: 26
     light.living_room_dining_table_light:
       state: "on"
       brightness: 76
@@ -75,7 +75,7 @@
       brightness: 26
     light.entryway_wall_light:
       state: "on"
-      brightness: 38
+      brightness: 26
   
 - id: 78e4c286-6d53-4465-a213-6c61984d8eac
   name: Relax time
@@ -98,7 +98,7 @@
       brightness: 13
     light.entryway_wall_light:
       state: "on"
-      brightness: 38
+      brightness: 26
   
 - id: 0d80f036-53f7-40de-81ff-77ad45bc8150
   name: Bed time
