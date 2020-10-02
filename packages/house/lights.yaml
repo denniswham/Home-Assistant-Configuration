@@ -301,4 +301,20 @@ automation:
       service: script.turn_on
       entity_id: script.blink_light
       
-    
+  - id: b8b0591a-3c88-4867-9180-8f6d541687de
+    alias: '[Lights] Turn on entryway light when front door ding'
+    initial_state: false
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.front_door_ding
+        from: 'off'
+        to: 'on'
+    mode: single
+    action:
+      - service: light.turn_on
+        entity_id: light.entryway_light
+      - delay: 5
+      - service: light.turn_off
+        entity_id: light.entryway_light
+
+      

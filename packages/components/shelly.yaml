@@ -131,6 +131,8 @@ automation:
           relay-0-name: "Entryway Light"
           push_off_delay: false
           force_update_sensors: true
+        shellydw2-D8BFC01A7385:
+        shellydw2-D8BFC01A913A:
 
 
   - id: 1b3ab5c1-6f54-463c-9c45-827786deb834
