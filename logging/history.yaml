@@ -34,3 +34,9 @@ include:
     - sensor.dennis_to_stephanie
     - sensor.audi_e_tron_50_state_of_charge
     - sensor.audi_e_tron_50_range
+
+exclude:
+  entities:
+    - light.living_room
+    - light.master_bedroom
+    

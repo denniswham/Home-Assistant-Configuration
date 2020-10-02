@@ -19,7 +19,7 @@ homeassistant:
 
 light:
   - platform: group
-    name: living_room
+    name: Living Room
     entities:
       - light.living_room_dining_table_light
       - light.living_room_wall_lights
@@ -27,12 +27,12 @@ light:
       - light.living_room_led_strips
       - light.office_spot_lights
   - platform: group
-    name: master_bedroom
+    name: Master Bedroom
     entities:
       - light.master_bedroom_wardrobe_lights
       - light.master_bedroom_wall_lights
   - platform: group
-    name: Lucas_room
+    name: Lucas Room
     entities:
       - light.lucas_room_floor_lamp
 
