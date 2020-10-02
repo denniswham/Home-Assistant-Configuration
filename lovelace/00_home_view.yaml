@@ -73,6 +73,18 @@ cards:
           - type: custom:fold-entity-row
             head:
               type: section
+              label: Door/Window Sensors
+            group_config:
+              secondary_info: last-changed
+            items:
+              - binary_sensor.front_door_sensor_opening
+              - binary_sensor.garage_door_sensor_opening
+              # - type: divider
+              # - binary_sensor.front_door_sensor_opening eerste verdieping
+              # - binary_sensor.garage_door_sensor_opening eerste verdieping
+          - type: custom:fold-entity-row
+            head:
+              type: section
               label: Motion Detectors
             group_config:
               secondary_info: last-changed
@@ -85,18 +97,6 @@ cards:
               - type: divider
               - binary_sensor.front_door_motion
               - binary_sensor.backyard_motion
-          - type: custom:fold-entity-row
-            head:
-              type: section
-              label: Door/Window Sensors
-            group_config:
-              secondary_info: last-changed
-            items:
-              - binary_sensor.front_door_sensor_opening
-              - binary_sensor.garage_door_sensor_opening
-              # - type: divider
-              # - binary_sensor.front_door_sensor_opening eerste verdieping
-              # - binary_sensor.garage_door_sensor_opening eerste verdieping
           - type: custom:fold-entity-row
             head:
               type: section
