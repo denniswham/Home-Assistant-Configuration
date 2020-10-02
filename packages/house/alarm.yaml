@@ -229,22 +229,15 @@ automation:
     initial_state: 'true'
     trigger:
       - platform: state
-        entity_id: binary_sensor.entryway
-        to: 'on'
-      - platform: state
-        entity_id: binary_sensor.kitchen
-        to: 'on'
-      - platform: state
-        entity_id: binary_sensor.living_room
-        to: 'on'
-      - platform: state
-        entity_id: binary_sensor.office
-        to: 'on'
-      - platform: state
-        entity_id: binary_sensor.garage
-        to: 'on'
-      - platform: state
-        entity_id: binary_sensor.backyard_motion
+        entity_id:
+          - binary_sensor.front_door_sensor_opening
+          - binary_sensor.garage_door_sensor_opening
+          - binary_sensor.entryway
+          - binary_sensor.kitchen
+          - binary_sensor.living_room
+          - binary_sensor.office
+          - binary_sensor.garage
+          - binary_sensor.backyard_motion
         to: 'on'
     mode: single
     condition:
@@ -289,11 +282,14 @@ automation:
     trigger:
       - platform: state
         entity_id:
+          - binary_sensor.front_door_sensor_opening
+          - binary_sensor.garage_door_sensor_opening
           - binary_sensor.entryway
           - binary_sensor.kitchen
           - binary_sensor.living_room
           - binary_sensor.office
           - binary_sensor.garage
+          - binary_sensor.backyard_motion
         to: 'on'
     mode: single
     condition:
@@ -301,10 +297,9 @@ automation:
       conditions:
         - condition: state
           entity_id: alarm_control_panel.konnected_alarm
-          state: armed_away
-        - condition: state
-          entity_id: alarm_control_panel.konnected_alarm
-          state: armed_home
+          state:
+            - armed_away
+            - armed_home
     action:
       - service: alarm_control_panel.alarm_trigger
         entity_id: alarm_control_panel.konnected_alarm
@@ -317,7 +312,7 @@ automation:
           message: Motion detected, the alarm will activate shortly. Motion detected, the alarm will activate shortly.
 
   - id: 2ae00756-b4a9-4068-acc8-c574a8a60fd4
-    alias: '[Motion]  Motion in backyard at night'
+    alias: '[Motion] Motion in backyard at night'
     initial_state: 'true'
     trigger:
       - platform: state
@@ -359,22 +354,13 @@ automation:
     alias: '[Alarm] Turn on lights with an emergency'
     trigger:
       - platform: state
-        entity_id: sensor.entryway_nest_protect_smoke_status
-        to: emergency
-      - platform: state
-        entity_id: sensor.hallway_nest_protect_smoke_status
-        to: emergency
-      - platform: state
-        entity_id: sensor.attic_nest_protect_smoke_status
-        to: emergency
-      - platform: state
-        entity_id: sensor.entryway_nest_protect_co_status
-        to: emergency
-      - platform: state
-        entity_id: sensor.hallway_nest_protect_co_status
-        to: emergency
-      - platform: state
-        entity_id: sensor.attic_nest_protect_co_status
+        entity_id:
+          - sensor.entryway_nest_protect_smoke_status
+          - sensor.hallway_nest_protect_smoke_status
+          - sensor.attic_nest_protect_smoke_status
+          - sensor.entryway_nest_protect_co_status
+          - sensor.hallway_nest_protect_co_status
+          - sensor.attic_nest_protect_co_status
         to: emergency
     mode: single
     action:

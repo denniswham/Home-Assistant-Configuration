@@ -187,3 +187,9 @@
       state: "on"
     light.attic_light:
       state: "on"
+    light.master_bedroom:
+      state: "on"
+    light.lucas_room_floor_lamp:
+      state: "on"
+    light.backyard_wall_lights:
+      state: "on"
