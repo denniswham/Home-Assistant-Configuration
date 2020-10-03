@@ -86,7 +86,7 @@ automation:
           roller-0-name: "Backyard Awning"
           force_update_sensors: true
         shellydimmer-d17b0e:
-          light-0-name: "Living Room Dining Table Light"
+          light-0-name: "Kitchen Light"
           force_update_sensors: true
         shellydimmer-D48409:
           light-0-name: "Living Room Wall Light"
