@@ -335,4 +335,16 @@ automation:
         state: 'on'
     action:
       - service: light.turn_off
-        entity_id: light.lucas_room 
+        entity_id: light.lucas_room
+
+  - id: 2531a04c-9c4b-4911-b251-e2204d25511e
+    alias: '[Light] Turn off light when night'
+    trigger:
+      - platform: state
+        entity_id: input_select.house_mode
+        to: 'night'
+    action:
+      - service: light.turn_off
+        entity_id:
+          - light.kitchen_light
+          - light.entryway_light

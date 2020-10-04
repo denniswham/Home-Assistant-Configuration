@@ -9,6 +9,11 @@ cards:
         title: Lights
         show_header_toggle: true
         entities:
+          - entity: light.kitchen_light
+            type: custom:slider-entity-row
+            icon: mdi:globe-light
+            toggle: true
+            hide_when_off: false
           - entity: light.living_room_dining_table_light
             type: custom:slider-entity-row
             icon: mdi:globe-light

@@ -10,6 +10,9 @@
     light.entryway_wall_light:
       state: "on"
       brightness: 26
+    light.kitchen_light:
+      state: "on"
+      brightness: 13
     light.living_room_dining_table_light:
       state: "on"
       brightness: 76
@@ -61,6 +64,12 @@
   name: Dinner time
   icon: mdi:silverware-fork-knife
   entities: 
+    light.entryway_wall_light:
+      state: "on"
+      brightness: 26
+    light.kitchen_light:
+      state: "on"
+      brightness: 26
     light.living_room_dining_table_light:
       state: "on"
       brightness: 89
@@ -73,14 +82,17 @@
     light.office_spot_lights:
       state: "on"
       brightness: 26
-    light.entryway_wall_light:
-      state: "on"
-      brightness: 26
   
 - id: 78e4c286-6d53-4465-a213-6c61984d8eac
   name: Relax time
   icon: mdi:sofa
   entities: 
+    light.entryway_wall_light:
+      state: "on"
+      brightness: 26
+    light.kitchen_light:
+      state: "on"
+      brightness: 13
     light.living_room_dining_table_light:
       state: "on"
       brightness: 51
@@ -96,9 +108,6 @@
     light.office_spot_lights:
       state: "on"
       brightness: 13
-    light.entryway_wall_light:
-      state: "on"
-      brightness: 26
   
 - id: 0d80f036-53f7-40de-81ff-77ad45bc8150
   name: Bed time
