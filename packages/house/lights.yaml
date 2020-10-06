@@ -342,7 +342,7 @@ automation:
     trigger:
       - platform: state
         entity_id: input_select.house_mode
-        to: 'night'
+        to: Night
     action:
       - service: light.turn_off
         entity_id:
