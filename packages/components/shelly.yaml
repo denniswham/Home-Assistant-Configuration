@@ -91,6 +91,9 @@ automation:
         shellydimmer-D48409:
           light-0-name: "Living Room Wall Light"
           force_update_sensors: true
+        shellydimmer2-40F520016E65:
+          light-0-name: "Living Room Dining Table Light"
+          force_update_sensors: true
         shellydimmer-D17712:
           light-0-name: "Living Room Spot Light"
           force_update_sensors: true
@@ -131,9 +134,6 @@ automation:
           relay-0-name: "Entryway Light"
           push_off_delay: false
           force_update_sensors: true
-        shellydw2-D8BFC01A7385:
-        shellydw2-D8BFC01A913A:
-
 
   - id: 1b3ab5c1-6f54-463c-9c45-827786deb834
     alias: '[Notification] Shelly Firmware updates'
