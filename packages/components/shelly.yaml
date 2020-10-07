@@ -2,23 +2,29 @@ group:
   shelly_firmware_update:
     name: Shelly Firmware Update
     entities:
-      - binary_sensor.shelly_1pm_b98825_firmware_update
-      - binary_sensor.shelly_1pm_f27a0a_firmware_update
-      - binary_sensor.shelly_1pm_f2f9bf_firmware_update
+      - binary_sensor.attic_light_firmware_update
+      - binary_sensor.attic_tumble_dryer_firmware_update
+      - binary_sensor.attic_washing_machine_firmware_update
+      - binary_sensor.backyard_wall_lights_firmware_update
+      - binary_sensor.entryway_wall_light_firmware_update
+      - binary_sensor.front_door_sensor_firmware_update
+      - binary_sensor.garage_door_sensor_firmware_update
+      - binary_sensor.hallway_light_firmware_update
+      - binary_sensor.kitchen_light_firmware_update
+      - binary_sensor.living_room_amplifier_firmware_update
+      - binary_sensor.living_room_dining_table_light_firmware_update
+      - binary_sensor.living_room_led_strips_firmware_update
+      - binary_sensor.living_room_spot_lights_firmware_update
+      - binary_sensor.living_room_wall_lights_firmware_update
+      - binary_sensor.lucas_room_floor_lamp_firmware_update
+      - binary_sensor.office_led_strip_firmware_update
+      - binary_sensor.office_spot_lights_firmware_update
+      - binary_sensor.shelly_1pm_68c63afae605_firmware_update
+      - binary_sensor.shelly_2_5_40f52023217d_firmware_update
       - binary_sensor.shelly_2_5_c4c695_firmware_update
       - binary_sensor.shelly_2_5_c4c708_firmware_update
       - binary_sensor.shelly_2_5_c4c964_firmware_update
-      - binary_sensor.shelly_2_5_40F52023217D_firmware_update
-      - binary_sensor.shelly_dimmer_d0f0af_firmware_update
-      - binary_sensor.shelly_dimmer_d17712_firmware_update
-      - binary_sensor.shelly_dimmer_d17b0e_firmware_update
-      - binary_sensor.shelly_dimmer_d47c54_firmware_update
-      - binary_sensor.shelly_dimmer_d48409_firmware_update
-      - binary_sensor.shelly_plug_s_8013cd_firmware_update
-      - binary_sensor.shelly_plug_s_8016cb_firmware_update
-      - binary_sensor.shelly_plug_s_f8d1ea_firmware_update
-      - binary_sensor.shelly_plug_s_f8d1fa_firmware_update
-
+ 
 script:
   shelly_update_firmware:
     alias: '[Shelly] Update Firmware'
