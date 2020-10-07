@@ -39,6 +39,11 @@ cards:
             icon: mdi:spotlight
             toggle: true
             hide_when_off: false
+          - entity: light.office_led_strip_light
+            type: custom:slider-entity-row
+            icon: mdi:led-strip
+            toggle: true
+            hide_when_off: false
           - entity: light.entryway_wall_light
             type: custom:slider-entity-row
             icon: mdi:wall-sconce-flat
@@ -47,22 +52,28 @@ cards:
           - entity: light.entryway_light
             icon: mdi:ceiling-light
           - type: divider 
+  - type: vertical-stack
+    cards:
+      - type: entities
+        title: First Floor
+        show_header_toggle: true
+        entities:
           - entity: light.master_bedroom_wall_lights
             icon: 'mdi:wall-sconce-flat-variant'
           - entity: light.master_bedroom_wardrobe_lights
             icon: 'mdi:spotlight-beam'
           - entity: light.hallway_light
             icon: mdi:ceiling-light
-          - type: divider 
+  - type: vertical-stack
+    cards:
+      - type: entities
+        title: Attic
+        show_header_toggle: true
+        entities:
           - entity: light.attic_light
             icon: mdi:ceiling-light
           - entity: light.lucas_room_floor_lamp
             icon: mdi:floor-lamp
-          - type: divider 
-          - entity: light.backyard_wall_lights
-            icon: mdi:outdoor-lamp
-          # - entity: light.backyard_garden_lights
-          #   icon: mdi:outdoor-lamp
       - type: entities
         title: Laundry
         show_header_toggle: false
@@ -75,3 +86,14 @@ cards:
           - entity: switch.attic_tumble_dryer
             icon: mdi:power-socket-eu
             name: Tumble Dryer Power Socket
+  - type: vertical-stack
+    cards:
+      - type: entities
+        title: Backyard
+        show_header_toggle: true
+        entities:
+          - entity: light.backyard_wall_lights
+            icon: mdi:outdoor-lamp
+          # - entity: light.backyard_garden_lights
+          #   icon: mdi:outdoor-lamp
+        
