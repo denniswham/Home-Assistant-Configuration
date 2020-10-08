@@ -54,11 +54,24 @@
   name: Work time
   icon: mdi:laptop
   entities:
+    light.entryway_wall_light:
+      state: "off"
+    light.kitchen_light:
+      state: "off"
+    light.living_room_dining_table_light:
+      state: "off"
+    light.living_room_wall_lights:
+      state: "off"
     light.living_room_spot_lights:
+      state: "off"
+    light.living_room_led_strips:
       state: "off"
     light.office_spot_lights:
       state: "on"
       brightness: 153
+    light.office_led_strip:
+      state: "on"
+      brightness: 51
 
 - id: 0d010e40-8560-42ce-8b86-b743bbf355ad
   name: Dinner time
@@ -82,7 +95,10 @@
     light.office_spot_lights:
       state: "on"
       brightness: 26
-  
+    light.living_room_led_strips:
+      state: "on"
+      brightness: 51
+    
 - id: 78e4c286-6d53-4465-a213-6c61984d8eac
   name: Relax time
   icon: mdi:sofa
@@ -108,7 +124,10 @@
     light.office_spot_lights:
       state: "on"
       brightness: 13
-  
+    light.office_led_strip:
+      state: "on"
+      brightness: 51
+      
 - id: 0d80f036-53f7-40de-81ff-77ad45bc8150
   name: Bed time
   icon: mdi:sleep
@@ -124,6 +143,8 @@
     light.office_spot_lights:
       state: "off"
     light.living_room_led_strips:
+      state: "off"
+    light.office_led_strip:
       state: "off"
     light.backyard_garden_lights:
       state: "off"
