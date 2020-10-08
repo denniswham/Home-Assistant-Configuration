@@ -347,4 +347,4 @@ automation:
       - service: light.turn_off
         entity_id:
           - light.kitchen_light
-          - light.entryway_wall_lighthou
+          - light.entryway_wall_light
