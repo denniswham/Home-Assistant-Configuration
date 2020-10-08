@@ -39,7 +39,7 @@ cards:
             icon: mdi:spotlight
             toggle: true
             hide_when_off: false
-          - entity: light.office_led_strip_light
+          - entity: light.office_led_strip
             type: custom:slider-entity-row
             icon: mdi:led-strip
             toggle: true
@@ -93,6 +93,6 @@ cards:
         entities:
           - entity: light.backyard_wall_lights
             icon: mdi:outdoor-lamp
-          - entity: light.backyard_garden_lights
+          - entity: light.backyard_garden_light
             icon: mdi:outdoor-lamp
         
