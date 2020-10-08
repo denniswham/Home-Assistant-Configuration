@@ -165,4 +165,6 @@ cards:
           exclude:
             - entity_id: sensor.br_temperature
             - entity_id: sensor.living_room_thermostat_temperature
-        sort: name        
+        sort: state
+        numeric: 'true'
+        reverse: 'true'        
