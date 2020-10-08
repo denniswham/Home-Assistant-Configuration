@@ -93,6 +93,6 @@ cards:
         entities:
           - entity: light.backyard_wall_lights
             icon: mdi:outdoor-lamp
-          - entity: light.backyard_garden_light
+          - entity: light.backyard_garden_lights
             icon: mdi:outdoor-lamp
         
