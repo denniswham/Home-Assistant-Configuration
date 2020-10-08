@@ -211,15 +211,13 @@ automation:
         before: '23:59:59'
     action:
       service: light.turn_on
-      entity_id:
-        - light.backyard_wall_lights
-      # data_template:
-      #   entity_id: >
-      #     {% if is_state("cover.backyard_awning", "closed") %}
-      #       light.backyard_wall_lights
-      #     {% else %}
-      #       light.backyard_wall_lights, light.backyard_garden_lights
-      #     {% endif %}
+      data_template:
+        entity_id: >
+          {% if is_state("cover.backyard_awning", "closed") %}
+            light.backyard_wall_lights
+          {% else %}
+            light.backyard_wall_lights, light.backyard_garden_lights
+          {% endif %}
 
   - id: 1802426d-6f61-4dde-ab2c-5cd3b5233243
     alias: '[Lights] Turn off backyard lights at midnight'
@@ -231,7 +229,7 @@ automation:
       service: light.turn_off
       entity_id:
         - light.backyard_wall_lights
-        # - light.backyard_garden_lights
+        - light.backyard_garden_lights
 
   - id: 0f21c88f-c82e-459d-81c5-c5cf170e6279
     alias: '[Lights] Turn on backyard lights when motion'
@@ -250,7 +248,7 @@ automation:
       service: light.turn_on
       entity_id:
         - light.backyard_wall_lights
-        # - light.backyard_garden_lights
+        - light.backyard_garden_lights
 
   - id: 5199be8b-2458-44b0-bd98-6bda33cd96f0
     alias: '[Lights] Turn off backyard lights when no motion'
@@ -270,7 +268,7 @@ automation:
       service: light.turn_off
       entity_id:
         - light.backyard_wall_lights
-        # - light.backyard_garden_lights
+        - light.backyard_garden_lights
 
   - id: 9c912ebd-f7a5-46f5-9215-187dda6e2630
     alias: '[Lights] Turn off Lucas Room Floor Lamp'
