@@ -35,8 +35,9 @@ include:
     - sensor.audi_e_tron_50_state_of_charge
     - sensor.audi_e_tron_50_range
 
-# exclude:
-#   entities:
-#     - light.living_room
-#     - light.master_bedroom
+exclude:
+  entities:
+    - light.living_room
+    - light.master_bedroom
+    - light.lucas_room
     
