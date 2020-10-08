@@ -6,7 +6,7 @@ cards:
   - type: vertical-stack
     cards:
       - type: entities
-        title: Lights
+        title: Ground Floor
         show_header_toggle: true
         entities:
           - entity: light.kitchen_light
@@ -51,7 +51,6 @@ cards:
             hide_when_off: false
           - entity: light.entryway_light
             icon: mdi:ceiling-light
-          - type: divider 
   - type: vertical-stack
     cards:
       - type: entities
@@ -94,6 +93,6 @@ cards:
         entities:
           - entity: light.backyard_wall_lights
             icon: mdi:outdoor-lamp
-          # - entity: light.backyard_garden_lights
-          #   icon: mdi:outdoor-lamp
+          - entity: light.backyard_garden_lights
+            icon: mdi:outdoor-lamp
         
