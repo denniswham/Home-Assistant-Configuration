@@ -22,7 +22,7 @@ script:
           action: start_preheater
                
   audi_stop_preheat_etron:
-    alias: '[Audi] Start Preheater e-tron'
+    alias: '[Audi] Stop Preheater e-tron'
     sequence: 
       - service: audiconnect.execute_vehicle_action
         data: 
