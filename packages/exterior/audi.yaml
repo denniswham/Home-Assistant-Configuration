@@ -14,20 +14,20 @@ script:
           action: lock
 
   audi_start_preheat_etron:
-    alias: '[Audi] Start Preheater e-tron'
+    alias: '[Audi] Start Climatisation e-tron'
     sequence: 
       - service: audiconnect.execute_vehicle_action
         data: 
           vin: !secret audi_vin
-          action: start_preheater
+          action: start_climatisation
                
   audi_stop_preheat_etron:
-    alias: '[Audi] Stop Preheater e-tron'
+    alias: '[Audi] Stop Climatisation e-tron'
     sequence: 
       - service: audiconnect.execute_vehicle_action
         data: 
           vin: !secret audi_vin
-          action: stop_preheater
+          action: stop_climatisation
         
 automation:
   - id: 0c10e45f-53ce-4324-8ddf-60b036c74b3c
