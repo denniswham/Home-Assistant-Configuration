@@ -4,6 +4,31 @@ homeassistant:
       entity_picture: "/local/images/audi_e_tron_50_icon.png"
       friendly_name: "Audi e-tron"
       
+script:
+  audi_lock_etron:
+    alias: '[Audi] Lock e-tron'
+    sequence: 
+      - service: audiconnect.execute_vehicle_action
+        data: 
+          vin: !secret audi_vin
+          action: lock
+
+  audi_start_preheat_etron:
+    alias: '[Audi] Start Preheater e-tron'
+    sequence: 
+      - service: audiconnect.execute_vehicle_action
+        data: 
+          vin: !secret audi_vin
+          action: start_preheater
+               
+  audi_stop_preheat_etron:
+    alias: '[Audi] Start Preheater e-tron'
+    sequence: 
+      - service: audiconnect.execute_vehicle_action
+        data: 
+          vin: !secret audi_vin
+          action: stop_preheater
+        
 automation:
   - id: 0c10e45f-53ce-4324-8ddf-60b036c74b3c
     alias: '[Audi] Send notification when door unlocked at night'
