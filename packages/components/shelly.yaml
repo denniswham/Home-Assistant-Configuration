@@ -116,7 +116,7 @@ automation:
           force_update_sensors: true
         shelly1pm-B98825:
           relay-0: "light"
-          relay-0-name: "Attic Light"
+          relay-0-name: "Timo's Room Light"
           push_off_delay: false
           force_update_sensors: true
         shelly1pm-F27A0A:
@@ -148,7 +148,18 @@ automation:
           relay-0-name: "Backyard Garden Light"
           push_off_delay: false
           force_update_sensors: true
-
+        shellyswitch25-10521CF97924:
+          mode: "relay"
+          relay-0: light
+          relay-1: light
+          relay-0-name: "Attic Light"
+          relay-1-name: "Laundry Room Light"
+          push_off_delay: false
+          force_update_sensors: true
+        shellydimmer2-40F520007C76:
+          light-0-name: "Bathroom Light"
+          force_update_sensors: true
+  
 
 
         
