@@ -346,3 +346,39 @@ automation:
         entity_id:
           - light.kitchen_light
           - light.entryway_wall_light
+
+  - id: 503429ee-e152-4835-bbee-49079e1fbc74
+    alias: '[Light] Dim light at night'
+    trigger:
+      - platform: state
+        entity_id: light.bathroom_light
+        from: 'off'
+        to: 'on'
+    condition:
+      - condition: time
+        after: '22:00'
+        before: '06:15'
+    action:
+      - service: light.turn_on
+        data:
+          entity_id: light.bathroom_light
+          brightness: 13
+      
+  - id: b0736391-1ad7-4ecc-9fa1-89626ecadb4d
+    alias: '[Light] Brighten light at daytime'
+    trigger:
+      - platform: state
+        entity_id: light.bathroom_light
+        from: 'off'
+        to: 'on'
+    condition:
+      - condition: time
+        after: '06:15'
+        before: '22:00'
+    action:
+      - service: light.turn_on
+        data:
+          entity_id: light.bathroom_light
+          brightness: 255
+          
+      
