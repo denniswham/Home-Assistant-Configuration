@@ -148,7 +148,7 @@ automation:
           relay-0-name: "Backyard Garden Light"
           push_off_delay: false
           force_update_sensors: true
-        shellyswitch25-10521CF97924:
+        shellyswitch25-483FDA75623D:
           mode: "relay"
           relay-0: light
           relay-1: light
