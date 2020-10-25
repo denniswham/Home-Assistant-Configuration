@@ -58,11 +58,11 @@ cards:
         show_header_toggle: true
         entities:
           - entity: light.master_bedroom_wall_lights
-            icon: 'mdi:wall-sconce-flat-variant'
+            icon: mdi:wall-sconce-flat-variant
           - entity: light.master_bedroom_wardrobe_lights
-            icon: 'mdi:spotlight-beam'
+            icon: mdi:spotlight-beam
           - entity: light.timos_room_light
-            icon: mdi:floor-lamp
+            icon: mdi:ceiling-light
           - entity: light.bathroom_light
             type: custom:slider-entity-row
             icon: mdi:led-strip
@@ -78,6 +78,10 @@ cards:
         entities:
           - entity: light.lucas_room_floor_lamp
             icon: mdi:floor-lamp
+          - entity: light.emilies_room_light
+            icon: mdi:ceiling-light
+          - entity: light.emilies_room_wall_light
+            icon: mdi:spotlight-beam
           - entity: light.attic_light
             icon: mdi:ceiling-light
           - entity: light.laundry_room_light
