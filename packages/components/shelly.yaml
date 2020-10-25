@@ -116,7 +116,7 @@ automation:
           force_update_sensors: true
         shelly1pm-B98825:
           relay-0: "light"
-          relay-0-name: "Timo's Room Light"
+          relay-0-name: "Timo Room Light"
           push_off_delay: false
           force_update_sensors: true
         shelly1pm-F27A0A:
@@ -163,8 +163,8 @@ automation:
           mode: "relay"
           relay-0: light
           relay-1: light
-          relay-0-name: "Emilie's Room Light"
-          relay-1-name: "Emilie's Room Wall Light"
+          relay-0-name: "Emilie Room Light"
+          relay-1-name: "Emilie Room Wall Light"
           push_off_delay: false
           force_update_sensors: true
     
