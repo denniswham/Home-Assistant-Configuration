@@ -159,7 +159,15 @@ automation:
         shellydimmer2-40F520007C76:
           light-0-name: "Bathroom Light"
           force_update_sensors: true
-  
+        shellyswitch25-10521CF97924:
+          mode: "relay"
+          relay-0: light
+          relay-1: light
+          relay-0-name: "Emilie's Room Light"
+          relay-1-name: "Emilie's Room Wall Light"
+          push_off_delay: false
+          force_update_sensors: true
+    
 
 
         
