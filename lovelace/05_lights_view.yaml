@@ -11,46 +11,37 @@ cards:
         entities:
           - entity: light.kitchen_light
             type: custom:slider-entity-row
-            icon: mdi:globe-light
             toggle: true
             hide_when_off: false
           - entity: light.living_room_dining_table_light
             type: custom:slider-entity-row
-            icon: mdi:globe-light
             toggle: true
             hide_when_off: false
           - entity: light.living_room_wall_lights
             type: custom:slider-entity-row
-            icon: mdi:wall-sconce-flat
             toggle: true
             hide_when_off: false
           - entity: light.living_room_spot_lights
             type: custom:slider-entity-row
-            icon: mdi:spotlight
             toggle: true
             hide_when_off: false
           - entity: light.living_room_led_strips
             type: custom:slider-entity-row
-            icon: mdi:led-strip
             toggle: true
             hide_when_off: false
           - entity: light.office_spot_lights
             type: custom:slider-entity-row
-            icon: mdi:spotlight
             toggle: true
             hide_when_off: false
           - entity: light.office_led_strip
             type: custom:slider-entity-row
-            icon: mdi:led-strip
             toggle: true
             hide_when_off: false
           - entity: light.entryway_wall_light
             type: custom:slider-entity-row
-            icon: mdi:wall-sconce-flat
             toggle: true
             hide_when_off: false
           - entity: light.entryway_light
-            icon: mdi:ceiling-light
   - type: vertical-stack
     cards:
       - type: entities
@@ -58,18 +49,13 @@ cards:
         show_header_toggle: true
         entities:
           - entity: light.master_bedroom_wall_lights
-            icon: mdi:wall-sconce-flat-variant
           - entity: light.master_bedroom_wardrobe_lights
-            icon: mdi:spotlight-beam
           - entity: light.timo_room_light
-            icon: mdi:ceiling-light
           - entity: light.bathroom_light
             type: custom:slider-entity-row
-            icon: mdi:led-strip
             toggle: true
             hide_when_off: false
           - entity: light.hallway_light
-            icon: mdi:ceiling-light
   - type: vertical-stack
     cards:
       - type: entities
@@ -77,15 +63,10 @@ cards:
         show_header_toggle: true
         entities:
           - entity: light.lucas_room_floor_lamp
-            icon: mdi:floor-lamp
           - entity: light.emilie_room_light
-            icon: mdi:ceiling-light
           - entity: light.emilie_room_wall_light
-            icon: mdi:spotlight-beam
           - entity: light.attic_light
-            icon: mdi:ceiling-light
           - entity: light.laundry_room_light
-            icon: mdi:ceiling-light
       - type: entities
         title: Laundry
         show_header_toggle: false
@@ -105,7 +86,5 @@ cards:
         show_header_toggle: true
         entities:
           - entity: light.backyard_wall_lights
-            icon: mdi:outdoor-lamp
           - entity: light.backyard_garden_lights
-            icon: mdi:outdoor-lamp
         
