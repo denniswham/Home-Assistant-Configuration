@@ -62,6 +62,8 @@ cards:
         title: Attic
         show_header_toggle: true
         entities:
+          - entity: light.lucas_room_light
+          - entity: light.lucas_room_wall_light
           - entity: light.lucas_room_floor_lamp
           - entity: light.emilie_room_light
           - entity: light.emilie_room_wall_light
