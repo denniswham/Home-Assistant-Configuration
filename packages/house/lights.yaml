@@ -34,7 +34,20 @@ light:
   - platform: group
     name: Lucas Room
     entities:
+      - light.lucas_room_light
+      - light.lucas_room_wall_light
       - light.lucas_room_floor_lamp
+  - platform: group
+    name: Emilie Room
+    entities:
+      - light.emilie_room_light
+      - light.emilie_room_wall_light
+  - platform: group
+    name: Emilie Room
+    entities:
+      - light.emilie_room_light
+      - light.emilie_room_wall_light
+    
 
 script:
   blink_light:
@@ -81,6 +94,10 @@ script:
               light.master_bedroom
             {%- elif room == "lucas_room" -%}
               light.lucas_room
+            {%- elif room == "timo_s_room" -%}
+              light.timo_s_room
+            {%- elif room == "emilie_s_room" -%}
+              light.emilie_s_room
             {%- endif -%}
 
   light_turn_on_floor_lamp:
@@ -285,8 +302,7 @@ automation:
         state: 'on'
     action:
       service: light.turn_off
-      entity_id:
-        - light.lucas_room_floor_lamp
+      entity_id: light.lucas_room
 
   - id: 1bf4148c-04d3-4ea0-9a68-b14d28fadfee
     alias: '[Lights] Flash lights when echo alarm'

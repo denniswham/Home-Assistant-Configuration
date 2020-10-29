@@ -32,23 +32,6 @@ script:
       - service: switch.turn_off
         entity_id: switch.backyard_siren
 
-# alert:
-#   # Konnected update is available - un-acknowledgeable, auto-dismiss, me only
-#   konnected_update_available:
-#     name: Konnected has an update
-#     entity_id:
-#       - sensor.updater_konnected
-#     state: 'on'
-#     can_acknowledge: false
-#     repeat: 360
-#     title: 'Update for Konnected available'
-#     message: "Updates available for Konnected"
-#     notifiers:
-#     - 'me'
-#     data:
-#       tag: 'konnected_update_available'
-#     # url: 'https://my.shelly.cloud/#dashboard'
-
 alert:
   # Alarm triggers - un-acknowledgeble, auto-dismiss, all
   alarm_triggered:
