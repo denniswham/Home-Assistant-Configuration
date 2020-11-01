@@ -2,9 +2,11 @@ sensor:
   # Sensor to track available updates for supervisor & addons
   - platform: command_line
     name: Supervisor updates
-    command: 'curl http://supervisor/supervisor/info -H "Authorization: Bearer $(printenv SUPERVISOR_TOKEN)" | jq ''{"newest_version":.data.version_latest,"current_version":.data.version,"addons":[.data.addons[] | select(.version != .installed)]}'''
+    command: 'curl http://supervisor/supervisor/info -H "Authorization: Bearer $(printenv SUPERVISOR_TOKEN)" | jq ''{"newest_version":.data.version_latest,"current_version":.data.version,"update_available":.data.update_available,"addons":[.data.addons[] | select(.update_available)]}'''
     value_template: "{{ value_json.addons | length }}"
+    unit_of_measurement: pending update(s)
     json_attributes:
+    - update_available
     - newest_version
     - current_version
     - addons
@@ -12,76 +14,77 @@ sensor:
   # Sensors to track updates to other core components (audio, dns, CLI and multicast)
   - platform: command_line
     name: Updater Audio
-    command: 'curl http://supervisor/audio/info -H "Authorization: Bearer $(printenv SUPERVISOR_TOKEN)" | jq ''{"newest_version":.data.version_latest,"current_version":.data.version}'''
-    value_template: "{% if value_json.newest_version != value_json.current_version %}on{% else %}off{% endif %}"
+    command: 'curl http://supervisor/audio/info -H "Authorization: Bearer $(printenv SUPERVISOR_TOKEN)" | jq ''{"newest_version":.data.version_latest,"current_version":.data.version, "update_available":.data.update_available}'''
+    value_template: "{% if value_json.update_available %}on{% else %}off{% endif %}"
     json_attributes:
+    - update_available
     - newest_version
     - current_version
   - platform: command_line
     name: Updater DNS
-    command: 'curl http://supervisor/dns/info -H "Authorization: Bearer $(printenv SUPERVISOR_TOKEN)" | jq ''{"newest_version":.data.version_latest,"current_version":.data.version}'''
-    value_template: "{% if value_json.newest_version != value_json.current_version %}on{% else %}off{% endif %}"
+    command: 'curl http://supervisor/dns/info -H "Authorization: Bearer $(printenv SUPERVISOR_TOKEN)" | jq ''{"newest_version":.data.version_latest,"current_version":.data.version, "update_available":.data.update_available}'''
+    value_template: "{% if value_json.update_available %}on{% else %}off{% endif %}"
     json_attributes:
+    - update_available
     - newest_version
     - current_version
   - platform: command_line
     name: Updater CLI
-    command: 'curl http://supervisor/cli/info -H "Authorization: Bearer $(printenv SUPERVISOR_TOKEN)" | jq ''{"newest_version":.data.version_latest,"current_version":.data.version}'''
-    value_template: "{% if value_json.newest_version != value_json.current_version %}on{% else %}off{% endif %}"
+    command: 'curl http://supervisor/cli/info -H "Authorization: Bearer $(printenv SUPERVISOR_TOKEN)" | jq ''{"newest_version":.data.version_latest,"current_version":.data.version, "update_available":.data.update_available}'''
+    value_template: "{% if value_json.update_available %}on{% else %}off{% endif %}"
     json_attributes:
+    - update_available
     - newest_version
     - current_version
   - platform: command_line
     name: Updater Multicast
-    command: 'curl http://supervisor/multicast/info -H "Authorization: Bearer $(printenv SUPERVISOR_TOKEN)" | jq ''{"newest_version":.data.version_latest,"current_version":.data.version}'''
-    value_template: "{% if value_json.newest_version != value_json.current_version %}on{% else %}off{% endif %}"
+    command: 'curl http://supervisor/multicast/info -H "Authorization: Bearer $(printenv SUPERVISOR_TOKEN)" | jq ''{"newest_version":.data.version_latest,"current_version":.data.version, "update_available":.data.update_available}'''
+    value_template: "{% if value_json.update_available %}on{% else %}off{% endif %}"
     json_attributes:
+    - update_available
+    - newest_version
+    - current_version
+  - platform: command_line
+    name: Updater Observer
+    command: 'curl http://supervisor/observer/info -H "Authorization: Bearer $(printenv SUPERVISOR_TOKEN)" | jq ''{"newest_version":.data.version_latest,"current_version":.data.version, "update_available":.data.update_available}'''
+    value_template: "{% if value_json.update_available %}on{% else %}off{% endif %}"
+    json_attributes:
+    - update_available
     - newest_version
     - current_version
   # Alternate updater sensor for core since binary_sensor.updater is very slow to recognize updates
   - platform: command_line
     name: Updater Core
-    command: 'curl http://supervisor/core/info -H "Authorization: Bearer $(printenv SUPERVISOR_TOKEN)" | jq ''{"newest_version":.data.version_latest,"current_version":.data.version}'''
-    value_template: "{% if value_json.newest_version != value_json.current_version %}on{% else %}off{% endif %}"
+    command: 'curl http://supervisor/core/info -H "Authorization: Bearer $(printenv SUPERVISOR_TOKEN)" | jq ''{"newest_version":.data.version_latest,"current_version":.data.version, "update_available":.data.update_available}'''
+    value_template: "{% if value_json.update_available %}on{% else %}off{% endif %}"
     json_attributes:
+    - update_available
     - newest_version
-    - current_version
-  - platform: command_line
-    name: Updater OS
-    command: 'curl http://supervisor/os/info -H "Authorization: Bearer $(printenv SUPERVISOR_TOKEN)" | jq ''{"newest_version":.data.version_latest,"current_version":.data.version}'''
-    value_template: "{% if value_json.newest_version != value_json.current_version %}on{% else %}off{% endif %}"
-    json_attributes:
-    - newest_version
-    - current_version
-  
+    - current_version  
 
 binary_sensor:
+  # True if there's updates available for any HACS components, Addons or the Host
+  - platform: threshold
+    name: Updater HACS
+    entity_id: sensor.hacs_updates
+    upper: 0.5
+  - platform: threshold
+    name: Updater Addons
+    entity_id: sensor.supervisor_updates
+    upper: 0.5
+  - platform: threshold
+    name: Updater Host
+    entity_id: sensor.host_updates
+    upper: 0.5
+
   - platform: template
     sensors:
       # True if there's an update available for supervisor
       updater_supervisor:
-        friendly_name: 'Updater - Supervisor'
+        friendly_name: 'Updater Supervisor'
         device_class: problem
-        # entity_id:
-        # - sensor.supervisor_updates
-        value_template: "{{ state_attr('sensor.supervisor_updates', 'current_version') != state_attr('sensor.supervisor_updates', 'newest_version') }}"
-        availability_template: "{{ (states('sensor.supervisor_updates') | int(-1)) > -1 }}"
-
-      # True if there's updates available for any HACS components
-      updater_hacs:
-        friendly_name: 'Updater - HACS'
-        device_class: problem
-        # entity_id:
-        # - sensor.hacs
-        value_template: "{{ states('sensor.hacs') | int > 0 }}"
-
-      # True if there's updates available for any addons
-      updater_addons:
-        friendly_name: 'Updater - Addons'
-        device_class: problem
-        # entity_id:
-        # - sensor.supervisor_updates
-        value_template: "{{ states('sensor.supervisor_updates') | int > 0 }}"
+        value_template: "{{ state_attr('sensor.supervisor_updates', 'update_available') }}"
+        availability_template: "{{ states('sensor.supervisor_updates') | int(-1) > -1 }}"
 
 alert:
   # Update is available - un-acknowledgeble, auto-dismiss, me only
@@ -98,10 +101,10 @@ alert:
     title: 'Update for HA available'
     message: "New version is {{ state_attr('sensor.updater_core', 'newest_version') }}. Currently on {{ state_attr('sensor.updater_core', 'current_version') }}"
     notifiers:
-    - mobile_app_sm_g986b
+    - 'me'
     data:
       tag: 'ha-update-available'
-      url: '/hassio/addon/core_check_config'
+      url: 'http://hassio.local/hassio/addon/core_check_config'
 
   # Supervisor update is available - un-acknowledgeable, auto-dismiss, me only
   supervisor_update_available:
@@ -113,26 +116,10 @@ alert:
     title: 'Update for HA Supervisor available'
     message: "New version is {{ state_attr('sensor.supervisor_updates', 'newest_version') }}. Currently on {{ state_attr('sensor.supervisor_updates', 'current_version') }}"
     notifiers:
-    - mobile_app_sm_g986b
+    - 'me'
     data:
       tag: 'supervisor-update-available'
-      url: '/hassio/dashboard'
-
-  # OS update is available - un-acknowledgeable, auto-dismiss, me only
-  os_update_available:
-    name: OS has an update
-    entity_id: sensor.updater_os
-    state: 'on'
-    can_acknowledge: false
-    repeat: 360
-    title: 'Update for OS available'
-    message: "New version is {{ state_attr('sensor.updater_os', 'newest_version') }}. Currently on {{ state_attr('sensor.updater_os', 'current_version') }}"
-    notifiers:
-    - mobile_app_sm_g986b
-    data:
-      tag: 'os-update-available'
-      url: '/hassio/dashboard'
-
+      url: 'http://hassio.local/hassio/dashboard'
 
   # Audio update is available - un-acknowledgeable, auto-dismiss, me only
   audio_update_available:
@@ -144,10 +131,10 @@ alert:
     title: 'Update for HA Audio available'
     message: "New version is {{ state_attr('sensor.updater_audio', 'newest_version') }}. Currently on {{ state_attr('sensor.updater_audio', 'current_version') }}"
     notifiers:
-    - mobile_app_sm_g986b
+    - 'me'
     data:
-      tag: 'audio-update-available'
-      url: '/hassio/dashboard'
+      tag: 'audio_update_available'
+      url: 'http://hassio.local/hassio/dashboard'
 
   # DNS update is available - un-acknowledgeable, auto-dismiss, me only
   dns_update_available:
@@ -159,10 +146,10 @@ alert:
     title: 'Update for HA DNS available'
     message: "New version is {{ state_attr('sensor.updater_dns', 'newest_version') }}. Currently on {{ state_attr('sensor.updater_dns', 'current_version') }}"
     notifiers:
-    - mobile_app_sm_g986b
+    - 'me'
     data:
-      tag: 'dns-update-available'
-      url: '/hassio/dashboard'
+      tag: 'dns_update_available'
+      url: 'http://hassio.local/hassio/dashboard'
 
   # CLI update is available - un-acknowledgeable, auto-dismiss, me only
   cli_update_available:
@@ -174,10 +161,10 @@ alert:
     title: 'Update for HA CLI available'
     message: "New version is {{ state_attr('sensor.updater_cli', 'newest_version') }}. Currently on {{ state_attr('sensor.updater_cli', 'current_version') }}"
     notifiers:
-    - mobile_app_sm_g986b
+    - 'me'
     data:
-      tag: 'cli-update-available'
-      url: '/hassio/dashboard'
+      tag: 'cli_update_available'
+      url: 'http://hassio.local/hassio/dashboard'
 
   # Multicast update is available - un-acknowledgeable, auto-dismiss, me only
   multicast_update_available:
@@ -189,9 +176,24 @@ alert:
     title: 'Update for HA Multicast available'
     message: "New version is {{ state_attr('sensor.updater_multicast', 'newest_version') }}. Currently on {{ state_attr('sensor.updater_multicast', 'current_version') }}"
     notifiers:
-    - mobile_app_sm_g986b
+    - 'me'
     data:
-      tag: 'multicast-update-available'
+      tag: 'multicast_update_available'
+      url: 'http://hassio.local/hassio/dashboard'
+
+  # Observer update is available - un-acknowledgeable, auto-dismiss, mike only
+  observer_update_available:
+    name: Observer has an update
+    entity_id: sensor.updater_observer
+    state: 'on'
+    can_acknowledge: false
+    repeat: 360
+    title: 'Update for HA Observer available'
+    message: "New version is {{ state_attr('sensor.updater_observer', 'newest_version') }}. Currently on {{ state_attr('sensor.updater_observer', 'current_version') }}"
+    notifiers:
+    - 'me'
+    data:
+      tag: 'observer_update_available'
       url: '/hassio/dashboard'
 
   # HACS repos have updates available - unacknowledgeable, auto-dismiss, me only
@@ -202,12 +204,12 @@ alert:
     can_acknowledge: false
     repeat: 360
     title: "Updates available in {{ states('sensor.hacs') }} HACS repo{% if states('sensor.hacs') | int > 1 %}s{% endif %}"
-    # message: ""
+    message: ""
     notifiers:
-      - mobile_app_sm_g986b
+      - 'me'
     data:
       tag: 'hacs-update-available'
-      url: '/hacs'
+      url: 'http://hassio.local/hacs/installed'
 
   # Addons have updates available - unacknowledgeable, auto-dismiss, me only
   addon_update_available:
@@ -217,23 +219,23 @@ alert:
     can_acknowledge: false
     repeat: 360
     title: "Updates available for {{ states('sensor.supervisor_updates') }} HA addon{% if states('sensor.supervisor_updates') | int > 1 %}s{% endif %}"
-    # message: ""
+    message: ""
     notifiers:
-    - mobile_app_sm_g986b
+    - 'me'
     data:
       tag: 'addon-update-available'
-      url: '/hassio/dashboard'
+      url: 'http://hassio.local/hassio/dashboard'
 
 automation:
-  - id: e14918df-1e9d-41b8-9960-c8c32cd9c21e
+  - id: 'e14918df-1e9d-41b8-9960-c8c32cd9c21e'
     alias: '[System] Check config with update'
     description: Starts the check config addon when an update becomes available
     trigger:
     - entity_id: sensor.updater_core
       platform: state
       to: 'on'
-    mode: single
+    condition: []
     action:
     - data:
         addon: core_check_config
-      service: hassio.addon_start
+      service: hassio.addon_start      
