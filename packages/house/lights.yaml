@@ -397,4 +397,30 @@ automation:
           entity_id: light.bathroom_light
           brightness: 255
           
-      
+  - id: 71e5ccb0-6bc0-4c67-b3d8-9b18ce443897
+    alias: '[Scene] Lets relax when away'
+    trigger:
+      - platform: time
+        at: "19:34:56"
+    condition:
+      - condition: state
+        entity_id: group.household
+        state: not_home
+    action:
+      - service: scene.turn_on
+        data:
+          entity_id: scene.relax_time    
+
+  - id: 71e5ccb0-6bc0-4c67-b3d8-9b18ce443897
+    alias: '[Scene] Bedtime when away'
+    trigger:
+      - platform: time
+        at: "22:44:56"
+    condition:
+      - condition: state
+        entity_id: group.household
+        state: not_home
+    action:
+      - service: scene.turn_on
+        data:
+          entity_id: scene.bed_time              

@@ -9,6 +9,8 @@ cards:
         title: Ground Floor
         show_header_toggle: true
         entities:
+          - type: section
+            label: Living Room
           - entity: light.kitchen_light
             type: custom:slider-entity-row
             toggle: true
@@ -29,6 +31,8 @@ cards:
             type: custom:slider-entity-row
             toggle: true
             hide_when_off: false
+          - type: section
+            label: Office
           - entity: light.office_spot_lights
             type: custom:slider-entity-row
             toggle: true
@@ -37,6 +41,8 @@ cards:
             type: custom:slider-entity-row
             toggle: true
             hide_when_off: false
+          - type: section
+            label: Entryway
           - entity: light.entryway_wall_light
             type: custom:slider-entity-row
             toggle: true
@@ -48,13 +54,21 @@ cards:
         title: First Floor
         show_header_toggle: true
         entities:
+          - type: section
+            label: Master Bedroom
           - entity: light.master_bedroom_wall_lights
           - entity: light.master_bedroom_wardrobe_lights
+          - type: section
+            label: Timo's Room
           - entity: light.timo_room_light
+          - type: section
+            label: Bathroom
           - entity: light.bathroom_light
             type: custom:slider-entity-row
             toggle: true
             hide_when_off: false
+          - type: section
+            label: Hallway
           - entity: light.hallway_light
   - type: vertical-stack
     cards:
@@ -62,13 +76,17 @@ cards:
         title: Attic
         show_header_toggle: true
         entities:
+          - type: section
+            label: Lucas' Room
           - entity: light.lucas_room_light
           - entity: light.lucas_room_wall_light
           - entity: light.lucas_room_floor_lamp
-          - entity: light.emilie_room_light
-          - entity: light.emilie_room_wall_light
-          - entity: light.attic_light
+          - type: section
+            label: Laundry Room
           - entity: light.laundry_room_light
+          - type: section
+            label: Attic
+          - entity: light.attic_light
       - type: entities
         title: Laundry
         show_header_toggle: false
