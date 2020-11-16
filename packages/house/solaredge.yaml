@@ -3,5 +3,3 @@ sensor:
   sensors:
     solaredge_energy_this_year_template:
       value_template: "{{ (states('sensor.solaredge_energy_this_year') | float / 1000) | round(2) }}"
-      friendly_name: "solaredge (Energy this year)"
-      unit_of_measurement: 'kWh'
