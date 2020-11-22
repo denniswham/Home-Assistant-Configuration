@@ -27,8 +27,8 @@ cards:
             type: custom:slider-entity-row
             toggle: true
             hide_when_off: false
-          - entity: light.living room_tv_light
-          - entity: light.living room_painting_light
+          - entity: light.living_room_tv_light
+          - entity: light.living_room_painting_light
           - entity: light.living_room_led_strips
             type: custom:slider-entity-row
             toggle: true
