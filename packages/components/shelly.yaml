@@ -159,14 +159,6 @@ automation:
         shellydimmer2-40F520007C76:
           light-0-name: "Bathroom Light"
           force_update_sensors: true
-        shellyswitch25-10521CF97924:
-          mode: "relay"
-          relay-0: light
-          relay-1: light
-          relay-0-name: "Emilies Room Light"
-          relay-1-name: "Emilies Room Wall Light"
-          push_off_delay: false
-          force_update_sensors: true
         shellyswitch25-10521CF990E5:
           mode: "relay"
           relay-0: light
@@ -189,9 +181,6 @@ automation:
           push_off_delay: false
           force_update_sensors: true
          
-
-        
-
   - id: 1b3ab5c1-6f54-463c-9c45-827786deb834
     alias: '[Notification] Shelly Firmware updates'
     trigger:
