@@ -37,17 +37,6 @@ light:
       - light.lucas_room_light
       - light.lucas_room_wall_light
       - light.lucas_room_floor_lamp
-  - platform: group
-    name: Emilie Room
-    entities:
-      - light.emilie_room_light
-      - light.emilie_room_wall_light
-  - platform: group
-    name: Emilie Room
-    entities:
-      - light.emilie_room_light
-      - light.emilie_room_wall_light
-    
 
 script:
   blink_light:
