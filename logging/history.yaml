@@ -1,43 +1,23 @@
 use_include_order: True
 include:
   domains:
-    - light
-    - cover
-
+  - alarm_control_panel
+  - climate
+  - cover
+  - light
+  - input_boolean
+  - input_select
+  - light
+  - person
+  - proximity
+  - sun
   entities:
-    - person.dennis
-    - person.stephanie
-    - person.lucas
-    - person.timo
-  #   - person.emilie
-    - alarm_control_panel.konnected_alarm
-    - alarm_control_panel.alexa_guard_7514f
-    - alarm_control_panel.woerden_mode
-    - binary_sensor.vieratv
-    - binary_sensor.amplifier
-    - media_player.master_bedroom
-    - media_player.apple_tv
-    - binary_sensor.washing_machine
-    - binary_sensor.dryer
-    - binary_sensor.front_door_ding
-    - switch.siren
-    - switch.backyard_siren
-    - binary_sensor.retsinagaard_away
-    - sensor.retsinagaard_eta
-    - input_select.house_mode
-    - input_boolean.guest_mode
-    - sensor.ssh_web_terminal
-    - sensor.br_wind_speed
-    - sensor.br_precipitation_forecast_total
-    - sensor.dennis_to_home
-    - sensor.stephanie_to_home
-    - sensor.dennis_to_stephanie
-    - sensor.audi_e_tron_50_state_of_charge
-    - sensor.audi_e_tron_50_range
-
-exclude:
-  entities:
-    - light.living_room
-    - light.master_bedroom
-    - light.lucas_room
+  - binary_sensor.dryer
+  - binary_sensor.washing_machine
+  - group.household
+  - switch.attic_tumble_dryer
+  - switch.attic_washing_machine
+  - switch.living_room_amplifier
+  - switch.backyard_siren
+  - switch.siren
     

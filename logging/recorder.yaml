@@ -1,2 +1,42 @@
 purge_keep_days: 7
 db_url: !secret recorder_db_url
+include:
+  domains:
+  - alarm_control_panel
+  - climate
+  - cover
+  - light
+  - input_boolean
+  - input_select
+  - light
+  - person
+  - proximity
+  - sun
+  entities:
+  - binary_sensor.dryer
+  - binary_sensor.office_painting_overtemperature
+  - binary_sensor.office_spot_lights_overtemperature
+  - binary_sensor.shelly_1pm_68c63afae605_overtemperature
+  - binary_sensor.shelly_2_5_10521cf990e5_overtemperature
+  - binary_sensor.shelly_2_5_40f52023217d_overtemperature
+  - binary_sensor.shelly_2_5_483fda75531a_overtemperature
+  - binary_sensor.shelly_2_5_483fda75623d_overtemperature
+  - binary_sensor.shelly_2_5_c4c695_overtemperature
+  - binary_sensor.shelly_2_5_c4c708_overtemperature
+  - binary_sensor.shelly_2_5_c4c964_overtemperature
+  - binary_sensor.timos_room_light_overtemperature
+  - binary_sensor.washing_machine
+  - group.household
+  - group.shelly_firmware_update
+  - sensor.entryway_nest_protect_smoke_status
+  - sensor.hallway_nest_protect_smoke_status
+  - sensor.attic_nest_protect_smoke_status
+  - sensor.entryway_nest_protect_co_status
+  - sensor.hallway_nest_protect_co_status
+  - sensor.attic_nest_protect_co_status
+  - sensor.mariadb_size
+  - switch.attic_tumble_dryer
+  - switch.attic_washing_machine
+  - switch.living_room_amplifier
+  - switch.backyard_siren
+  - switch.siren
