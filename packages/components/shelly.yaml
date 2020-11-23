@@ -167,7 +167,7 @@ automation:
           relay-1-name: "Lucas Room Wall Light"
           push_off_delay: false
           force_update_sensors: true
-        shellyswitch25-68C63AFAEB38:
+        shellyswitch25-483FDA75531A:
           mode: "relay"
           relay-0: light
           relay-1: light
@@ -175,7 +175,7 @@ automation:
           relay-1-name: "Living Room Painting Light"
           push_off_delay: false
           force_update_sensors: true
-        shelly1pm-483FDA75531A:
+        shelly1pm-68C63AFAEB38:
           relay-0: "light"
           relay-0-name: "Office Painting Light"
           push_off_delay: false
