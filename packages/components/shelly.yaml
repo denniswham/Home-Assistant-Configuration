@@ -180,6 +180,10 @@ automation:
           relay-0-name: "Office Painting Light"
           push_off_delay: false
           force_update_sensors: true
+        ShellyBulbDuo-D16FA5:
+          light-0-name: "Emilie Room Light"
+          force_update_sensors: true
+
          
   - id: 1b3ab5c1-6f54-463c-9c45-827786deb834
     alias: '[Notification] Shelly Firmware updates'
