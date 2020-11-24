@@ -2,10 +2,12 @@ group:
   shelly_firmware_update:
     name: Shelly Firmware Update
     entities:
-      - binary_sensor.attic_light_firmware_update
       - binary_sensor.attic_tumble_dryer_firmware_update
       - binary_sensor.attic_washing_machine_firmware_update
+      - binary_sensor.backyard_garden_lights_firmware_update
       - binary_sensor.backyard_wall_lights_firmware_update
+      - binary_sensor.bathroom_light_firmware_update
+      - binary_sensor.emilie_room_light_firmware_update
       - binary_sensor.entryway_wall_light_firmware_update
       - binary_sensor.front_door_sensor_firmware_update
       - binary_sensor.garage_door_sensor_firmware_update
@@ -18,13 +20,18 @@ group:
       - binary_sensor.living_room_wall_lights_firmware_update
       - binary_sensor.lucas_room_floor_lamp_firmware_update
       - binary_sensor.office_led_strip_firmware_update
+      - binary_sensor.office_painting_firmware_update
       - binary_sensor.office_spot_lights_firmware_update
       - binary_sensor.shelly_1pm_68c63afae605_firmware_update
+      - binary_sensor.shelly_2_5_10521cf990e5_firmware_update
       - binary_sensor.shelly_2_5_40f52023217d_firmware_update
+      - binary_sensor.shelly_2_5_483fda75531a_firmware_update
+      - binary_sensor.shelly_2_5_483fda75623d_firmware_update
       - binary_sensor.shelly_2_5_c4c695_firmware_update
       - binary_sensor.shelly_2_5_c4c708_firmware_update
       - binary_sensor.shelly_2_5_c4c964_firmware_update
- 
+      - binary_sensor.timos_room_light_firmware_update
+
 script:
   shelly_update_firmware:
     alias: '[Shelly] Update Firmware'
