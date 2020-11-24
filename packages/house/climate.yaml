@@ -1,5 +1,5 @@
-climate:
-  platform: nest
+# climate:
+#   platform: nest
   
 script:
   heat_up:
