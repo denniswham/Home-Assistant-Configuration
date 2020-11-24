@@ -366,7 +366,7 @@ automation:
         data:
           entity_id: scene.relax_time    
 
-  - id: 71e5ccb0-6bc0-4c67-b3d8-9b18ce443897
+  - id: 6f2dde39-7084-4cc3-99df-95afccfbacff
     alias: '[Scene] Bedtime when away'
     trigger:
       - platform: time
