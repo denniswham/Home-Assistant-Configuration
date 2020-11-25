@@ -176,7 +176,7 @@ script:
             {# Use the name of each Echo to determine which room the command likely came from. #}
             {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
 
-            {%- if room == ".emilie_s_room" -%}
+            {%- if room == "emilie_s_room" -%}
               light.emilie_room_light
             {%- endif -%}
           action: dim_down
@@ -191,7 +191,7 @@ script:
             {# Use the name of each Echo to determine which room the command likely came from. #}
             {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
 
-            {%- if room == ".emilie_s_room" -%}
+            {%- if room == "emilie_s_room" -%}
               light.emilie_room_light
             {%- endif -%}
           action: dim_up
