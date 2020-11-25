@@ -166,7 +166,37 @@ script:
             {%- if room == "master_bedroom" -%}
               light.master_bedroom_wardrobe_lights
             {%- endif -%}
-                      
+
+  light_dim_light:
+    alias: '[Light] Dim light'
+    sequence:
+      - service: python_script.dimmer
+        data_template:
+          entity_id: >-
+            {# Use the name of each Echo to determine which room the command likely came from. #}
+            {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
+
+            {%- if room == ".emilie_s_room" -%}
+              light.emilie_room_light
+            {%- endif -%}
+          action: dim_down
+          level: 150
+          
+  light_brighten_light:
+    alias: '[Light] Brighten light'
+    sequence:
+      - service: python_script.dimmer
+        data_template:
+          entity_id: >-
+            {# Use the name of each Echo to determine which room the command likely came from. #}
+            {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
+
+            {%- if room == ".emilie_s_room" -%}
+              light.emilie_room_light
+            {%- endif -%}
+          action: dim_up
+          level: 150
+        
 
 automation:
   - id: e4519647-e24b-4f1b-8682-51aaa8ce4576
