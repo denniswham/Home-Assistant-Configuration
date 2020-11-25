@@ -87,7 +87,10 @@ cards:
           - type: section
             label: Emilie's Room
           - entity: light.emilie_room_light
-          - type: section
+            type: custom:slider-entity-row
+            toggle: true
+            hide_when_off: false
+        - type: section
             label: Laundry Room
           - entity: light.laundry_room_light
           - type: section
