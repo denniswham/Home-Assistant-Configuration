@@ -13,6 +13,7 @@ include:
   - proximity
   - sun
   entities:
+  - binary_sensor.entryway
   - binary_sensor.dryer
   - binary_sensor.office_painting_overtemperature
   - binary_sensor.office_spot_lights_overtemperature

@@ -12,6 +12,7 @@ include:
   - proximity
   - sun
   entities:
+  - binary_sensor.entryway
   - binary_sensor.dryer
   - binary_sensor.washing_machine
   - group.household
