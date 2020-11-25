@@ -180,7 +180,7 @@ script:
               light.emilie_room_light
             {%- endif -%}
           action: dim_down
-          level: 150
+          level: 75
           
   light_brighten_light:
     alias: '[Light] Brighten light'
@@ -195,7 +195,7 @@ script:
               light.emilie_room_light
             {%- endif -%}
           action: dim_up
-          level: 150
+          level: 75
         
 
 automation:
