@@ -66,6 +66,10 @@ script:
               light.master_bedroom
             {%- elif room == "lucas_room" -%}
               light.lucas_room
+            {%- elif room == "timo_s_room" -%}
+              light.timo_room_light
+            {%- elif room == "emilie_s_room" -%}
+              light.emilie_room_light
             {%- endif -%}
 
   light_turn_off_light:
@@ -84,9 +88,9 @@ script:
             {%- elif room == "lucas_room" -%}
               light.lucas_room
             {%- elif room == "timo_s_room" -%}
-              light.timo_s_room
+              light.timo_room_light
             {%- elif room == "emilie_s_room" -%}
-              light.emilie_s_room
+              light.emilie_room_light
             {%- endif -%}
 
   light_turn_on_floor_lamp:
