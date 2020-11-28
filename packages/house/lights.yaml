@@ -36,7 +36,7 @@ light:
     entities:
       - light.lucas_room_light
       - light.lucas_room_wall_light
-      - light.lucas_room_floor_lamp
+      - light.lucas_room_floor_light
 
 script:
   blink_light:
@@ -103,7 +103,7 @@ script:
             {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
 
             {%- if room == "lucas_room" -%}
-              light.lucas_room_floor_lamp
+              light.lucas_room_floor_light
             {%- endif -%}
 
   light_turn_off_floor_lamp:
@@ -116,7 +116,7 @@ script:
             {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
 
             {%- if room == "lucas_room" -%}
-              light.lucas_room_floor_lamp
+              light.lucas_room_floor_light
             {%- endif -%}
 
   light_turn_on_wall_light:
@@ -321,7 +321,7 @@ automation:
         entity_id: person.lucas
         state: not_home
       - condition: state
-        entity_id: light.lucas_room_floor_lamp
+        entity_id: light.lucas_room_floor_light
         state: 'on'
     action:
       service: light.turn_off

@@ -72,6 +72,8 @@
     light.office_led_strip:
       state: "on"
       brightness: 51
+    light.office_desk_light:
+      state: "on"
     light.office_painting_light:
       state: "on"
   
@@ -166,6 +168,8 @@
       state: "off"
     light.living_room_painting_light:
       state: "off"
+    light.office_desk_light:
+      state: "off"
     light.office_painting_light:
       state: "off"
     climate.living_room:
@@ -240,7 +244,7 @@
       state: "on"
     light.master_bedroom:
       state: "on"
-    light.lucas_room_floor_lamp:
+    light.lucas_room_floor_light:
       state: "on"
     light.backyard_wall_lights:
       state: "on"
