@@ -71,7 +71,7 @@
       brightness: 76
     light.office_led_strip:
       state: "on"
-      brightness: 51
+      brightness: 153
     light.office_desk_light:
       state: "on"
     light.office_painting_light:
@@ -101,7 +101,7 @@
       brightness: 26
     light.living_room_led_strips:
       state: "on"
-      brightness: 51
+      brightness: 153
     light.living_room_tv_light:
       state: "on"
     light.living_room_painting_light:
@@ -130,20 +130,22 @@
       brightness: 26
     light.living_room_led_strips:
       state: "on"
-      brightness: 51
+      brightness: 153
     light.office_spot_lights:
       state: "on"
       brightness: 13
     light.office_led_strip:
       state: "on"
-      brightness: 51
+      brightness: 153
     light.living_room_tv_light:
-      state: "on"
+      state: "off"
     light.living_room_painting_light:
       state: "on"
     light.office_painting_light:
       state: "on"
-          
+    light.office_desk_light:
+      state: "off"
+            
 - id: 0d80f036-53f7-40de-81ff-77ad45bc8150
   name: Bed time
   icon: mdi:sleep
