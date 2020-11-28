@@ -415,39 +415,34 @@ automation:
           entity_id: scene.bed_time              
 
   - id: 05769c02-8e2c-4f61-a43d-9b1f7851dc79
-    alias: '[Light] Wake-up light'
+    alias: '[Light] Turn off living room light when working at daytime'
     trigger:
-      - platform: time
-        at: "06:35:00"
+      - event_data:
+        domain: scene
+        service: turn_on
+        service_data:
+          entity_id: scene.work_time
     condition:
-      - condition: state
-        entity_id: person.dennis
-        state: home
+      - condition: template
+        value_template: "{{ state_attr('sun.sun', 'elevation') > 0 }}"
       - condition: state
         entity_id: binary_sensor.workday_sensor
         state: 'on'
+      - condition: not
+        conditions:
+          - condition: template
+            value_template: '{{ now().isoweekday()==3 or now().isoweekday()==5 }}'
     action:
-      - service: light.turn_on
-        data:
-          entity_id: light.master_bedroom.bedside_light
-          brightness_pct: 1
-      - delay:
-          minutes: 1
-      - service: light.turn_on
-        data:
-          entity_id: light.master_bedroom.bedside_light
-          brightness_pct: 20
-      - delay:
-          minutes: 1
-      - service: light.turn_on
-        data:
-          entity_id: light.master_bedroom.bedside_light
-          brightness_pct: 50
-      - delay:
-          minutes: 5
-      - service: light.turn_on
-        data:
-          entity_id: light.master_bedroom_wall_lights
       - service: light.turn_off
-        data:
-          entity_id: light.master_bedroom.bedside_light
+        entity_id:
+          - light.entryway_light
+          - light.entryway_wall_light
+          - light.kitchen_light
+          - light.living_room_dining_table_light
+          - light.living_room_wall_lights
+          - light.living_room_spot_lights
+          - light.living_room_led_strips
+          - light.living_room_painting_light
+          - light.living_room_tv_light
+          - light.office_spot_lights
+          - light.office_painting_light       
