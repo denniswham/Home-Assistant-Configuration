@@ -68,7 +68,7 @@
       state: "off"
     light.office_spot_lights:
       state: "on"
-      brightness: 76
+      brightness: 38
     light.office_led_strip:
       state: "on"
       brightness: 153
