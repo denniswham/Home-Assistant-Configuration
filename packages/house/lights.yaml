@@ -417,11 +417,13 @@ automation:
   - id: 05769c02-8e2c-4f61-a43d-9b1f7851dc79
     alias: '[Light] Turn off living room light when working at daytime'
     trigger:
-      - event_data:
-        domain: scene
-        service: turn_on
-        service_data:
-          entity_id: scene.work_time
+      - platform: event
+        event_type: call_service
+        event_data:
+          service_data:
+            entity_id: scene.work_time
+          domain: scene
+          service: turn_on
     condition:
       - condition: template
         value_template: "{{ state_attr('sun.sun', 'elevation') > 0 }}"
