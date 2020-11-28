@@ -444,5 +444,3 @@ automation:
           - light.living_room_led_strips
           - light.living_room_painting_light
           - light.living_room_tv_light
-          - light.office_spot_lights
-          - light.office_painting_light       
