@@ -93,8 +93,8 @@ script:
               light.emilie_room_light
             {%- endif -%}
 
-  light_turn_on_floor_lamp:
-    alias: '[Light] Turn on floor lamp'
+  light_turn_on_floor_light:
+    alias: '[Light] Turn on floor light'
     sequence:
       - service: light.turn_on
         data_template:
@@ -106,8 +106,8 @@ script:
               light.lucas_room_floor_light
             {%- endif -%}
 
-  light_turn_off_floor_lamp:
-    alias: '[Light] Turn off floor lamp'
+  light_turn_off_floor_light:
+    alias: '[Light] Turn off floor light'
     sequence:
       - service: light.turn_off
         data_template:
@@ -118,6 +118,33 @@ script:
             {%- if room == "lucas_room" -%}
               light.lucas_room_floor_light
             {%- endif -%}
+
+  light_turn_on_desk_lamp:
+    alias: '[Light] Turn on desk light'
+    sequence:
+      - service: light.turn_on
+        data_template:
+          entity_id: >-
+            {# Use the name of each Echo to determine which room the command likely came from. #}
+            {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
+
+            {%- if room == "living_room" -%}
+              light.office_desk_light
+            {%- endif -%}
+
+  light_turn_off_desk_lamp:
+    alias: '[Light] Turn off desk light'
+    sequence:
+      - service: light.turn_off
+        data_template:
+          entity_id: >-
+            {# Use the name of each Echo to determine which room the command likely came from. #}
+            {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
+
+            {%- if room == "living_room" -%}
+              light.office_desk_light
+            {%- endif -%}
+          
 
   light_turn_on_wall_light:
     alias: '[Light] Turn on wall light'
@@ -311,7 +338,7 @@ automation:
         - light.backyard_garden_lights
 
   - id: 9c912ebd-f7a5-46f5-9215-187dda6e2630
-    alias: '[Lights] Turn off Lucas Room Floor Lamp'
+    alias: '[Lights] Turn off Lucas Room Lights'
     trigger:
       - platform: time_pattern
         minutes: "/10"
@@ -321,7 +348,7 @@ automation:
         entity_id: person.lucas
         state: not_home
       - condition: state
-        entity_id: light.lucas_room_floor_light
+        entity_id: light.lucas_room
         state: 'on'
     action:
       service: light.turn_off
@@ -356,22 +383,6 @@ automation:
       - delay: '00:05:00'
       - service: light.turn_off
         entity_id: light.entryway_light
-
-  - id: 046a16df-9495-40f6-89cd-02e3793994ab
-    alias: '[Lights] Turn off Lucas lights when he leaves'
-    trigger:
-      - platform: zone
-        entity_id: person.lucas
-        zone: zone.home
-        event: leave
-    mode: single
-    condition:
-      - condition: state
-        entity_id: light.lucas_room
-        state: 'on'
-    action:
-      - service: light.turn_off
-        entity_id: light.lucas_room
 
   - id: 2531a04c-9c4b-4911-b251-e2204d25511e
     alias: '[Light] Turn off light when night'
