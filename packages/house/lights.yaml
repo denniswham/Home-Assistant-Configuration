@@ -340,7 +340,6 @@ automation:
       
   - id: b8b0591a-3c88-4867-9180-8f6d541687de
     alias: '[Lights] Turn on entryway light when front door ding'
-    initial_state: false
     trigger:
       - platform: state
         entity_id: binary_sensor.front_door_ding
