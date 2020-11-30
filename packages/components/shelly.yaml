@@ -36,10 +36,14 @@ script:
   shelly_update_firmware:
     alias: '[Shelly] Update Firmware'
     sequence: 
-      service: mqtt.publish
-      data:
-        topic: shellies/command
-        payload: update_fw
+      - service: mqtt.publish
+        data:
+          topic: shellies/command
+          payload: update_fw
+      - delay:
+          minutes: 5        
+      - service: automation.turn_on
+        entity_id: automation.shellies_announce
 
 automation:
   - id: 263db818-00d1-4691-8847-b0bd2d491fbb
@@ -202,8 +206,8 @@ automation:
         entity_id: group.shelly_firmware_update
         to: 'on'
     action:
-      service: persistent_notification.create
-      data:
-        message: "Updates available for Shelly Firmware"
-        title: "Shelly Firmware"
-        notification_id: shelly
+        - service: persistent_notification.create
+          data:
+            message: "Updates available for Shelly Firmware"
+            title: "Shelly Firmware"
+            notification_id: shelly
