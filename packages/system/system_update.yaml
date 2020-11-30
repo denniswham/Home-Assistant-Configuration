@@ -227,8 +227,8 @@ alert:
       url: 'http://hassio.local/hassio/dashboard'
 
 automation:
-  - id: 'e14918df-1e9d-41b8-9960-c8c32cd9c21e'
-    alias: '[System] Check config with update'
+  - id: e14918df-1e9d-41b8-9960-c8c32cd9c21e
+    alias: Check config with update
     description: Starts the check config addon when an update becomes available
     trigger:
     - entity_id: sensor.updater_core
@@ -238,4 +238,4 @@ automation:
     action:
     - data:
         addon: core_check_config
-      service: hassio.addon_start      
+      service: hassio.addon_start
