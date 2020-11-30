@@ -42,7 +42,7 @@ script:
           payload: update_fw
       - delay:
           minutes: 5        
-      - service: automation.turn_on
+      - service: automation.trigger
         entity_id: automation.shellies_announce
 
 automation:
