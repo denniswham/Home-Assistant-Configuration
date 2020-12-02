@@ -198,7 +198,6 @@ automation:
           light-0-name: "Lucas Room Floor Light"
           force_update_sensors: true          
   
-         
   - id: 1b3ab5c1-6f54-463c-9c45-827786deb834
     alias: '[Notification] Shelly Firmware updates'
     trigger:
