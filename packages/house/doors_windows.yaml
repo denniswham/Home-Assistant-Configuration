@@ -1,0 +1,82 @@
+binary_sensor:
+  # True if there's updates available for any HACS components, Addons or the Host
+  - platform: threshold
+    name: Front Door Battery
+    entity_id: sensor.front_door_sensor_battery
+    lower: 10
+  - platform: threshold
+    name: Garage Door Battery
+    entity_id: sensor.garage_door_sensor_battery
+    lower: 10
+
+alert:
+  # Front Door Battery is low - un-acknowledgeable, auto-dismiss, me only
+  front_door_battery_low:
+    name: Front Door Sensor Battery Low
+    entity_id: binary_sensor.front_door_battery
+    state: 'on'
+    can_acknowledge: false
+    repeat: 360
+    title: 'Front Door Sensor Battery low'
+    message: "Front Door Sensor Battery is at {{ states('sensor.front_door_sensor_battery') }}%. Replace it soon"
+    notifiers:
+    - mobile_app_sm_g986b
+    data:
+      tag: 'front_door_battery_low'
+
+  # Garage Door Battery is low - un-acknowledgeable, auto-dismiss, me only
+  garage_door_battery_low:
+    name: Garage Door Sensor Battery Low
+    entity_id: binary_sensor.garage_door_battery
+    state: 'on'
+    can_acknowledge: false
+    repeat: 360
+    title: 'Garage Door Sensor Battery low'
+    message: "Garage Door Sensor Battery is at {{ states('sensor.garage_door_sensor_battery') }}%. Replace it soon"
+    notifiers:
+    - mobile_app_sm_g986b
+    data:
+      tag: 'garage_door_battery_low'
+
+automation:
+  - id: 54601140-994f-4a24-b5f2-3cfeb4d1464d
+    alias: '[Door] Front door open alert'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.front_door_sensor_opening
+        to: 'on'
+        for: '00:10:00'
+    mode: single
+    condition:
+      - condition: or
+        conditions:
+          - condition: state
+            entity_id: group.household
+            state: 'home'
+          - condition: state
+            entity_id: input_boolean.guest_mode
+            state: 'on'
+    action:
+      - service: notify.alexa_media
+        data:
+          data:
+            type: announce
+          target:
+            - group.alexa
+          message: 'The front door is still open, please close it'
+
+  - id: b10c980b-02a0-4446-8e11-635cd275b3b0
+    alias: '[Door] Garage door open alert'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.garage_door_sensor_opening
+        to: 'on'
+    mode: single
+    action:
+      - service: notify.alexa_media
+        data:
+          data:
+            type: announce
+          target:
+            - group.alexa
+          message: 'The garage door was just opened'     

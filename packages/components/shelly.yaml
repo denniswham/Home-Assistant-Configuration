@@ -211,44 +211,4 @@ automation:
             title: "Shelly Firmware"
             notification_id: shelly
 
-  - id: 54601140-994f-4a24-b5f2-3cfeb4d1464d
-    alias: '[Door] Front door open alert'
-    trigger:
-      - platform: state
-        entity_id: binary_sensor.front_door_sensor_opening
-        to: 'on'
-        for: '00:10:00'
-    mode: single
-    condition:
-      - condition: or
-        conditions:
-          - condition: state
-            entity_id: group.household
-            state: 'home'
-          - condition: state
-            entity_id: input_boolean.guest_mode
-            state: 'on'
-    action:
-      - service: notify.alexa_media
-        data:
-          data:
-            type: announce
-          target:
-            - group.alexa
-          message: 'The front door is still open, please close it'
-
-  - id: b10c980b-02a0-4446-8e11-635cd275b3b0
-    alias: '[Door] Garage door open alert'
-    trigger:
-      - platform: state
-        entity_id: binary_sensor.garage_door_sensor_opening
-        to: 'on'
-    mode: single
-    action:
-      - service: notify.alexa_media
-        data:
-          data:
-            type: announce
-          target:
-            - group.alexa
-          message: 'The garage door was just opened'                      
+                
