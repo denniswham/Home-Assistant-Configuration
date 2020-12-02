@@ -444,6 +444,9 @@ automation:
         conditions:
           - condition: template
             value_template: '{{ now().isoweekday()==3 or now().isoweekday()==5 }}'
+          - condition: state
+            entity_id: person.stephanie
+            state: home
     action:
       - service: light.turn_off
         entity_id:

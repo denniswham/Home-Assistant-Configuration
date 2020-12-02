@@ -4,24 +4,16 @@ binary_sensor:
     add_holidays:
       - '2020-04-13' #Goede Vrijdag 2020
       - '2020-05-22' #Dag na Hemelvaart 2020
+      - '2021-01-01' #Nieuwjaarsdag
       - '2021-04-02' #Goede Vrijdag 2021
       - '2021-05-05' #Bevrijdingsdag 2021
       - '2021-05-14' #Dag na Hemelvaart 2021
       - '2022-04-15' #Goede Vrijdag 2022
       - '2022-05-05' #Bevrijdingsdag 2022
       - '2022-05-27' #Dag na Hemelvaart 2022
-      - '2020-08-03' #Zomervakantie 2020
-      - '2020-08-04' #Zomervakantie 2020
-      - '2020-08-05' #Zomervakantie 2020
-      - '2020-08-06' #Zomervakantie 2020
-      - '2020-08-07' #Zomervakantie 2020
-      - '2020-08-10' #Zomervakantie 2020
-      - '2020-08-11' #Zomervakantie 2020
-      - '2020-08-12' #Zomervakantie 2020
-      - '2020-08-13' #Zomervakantie 2020
-      - '2020-08-14' #Zomervakantie 2020
-      - '2020-08-17' #Zomervakantie 2020
-      - '2020-08-18' #Zomervakantie 2020
-      - '2020-08-19' #Zomervakantie 2020
-      - '2020-08-20' #Zomervakantie 2020
-      - '2020-08-21' #Zomervakantie 2020
+      - '2020-12-24' #Kerstvakantie 2020
+      - '2020-08-28' #Kerstvakantie 2020
+      - '2020-08-29' #Kerstvakantie 2020
+      - '2020-08-30' #Kerstvakantie 2020
+      - '2020-08-31' #Kerstvakantie 2020
+
