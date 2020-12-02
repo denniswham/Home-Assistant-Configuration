@@ -211,3 +211,21 @@ automation:
             message: "Updates available for Shelly Firmware"
             title: "Shelly Firmware"
             notification_id: shelly
+
+  - id: 54601140-994f-4a24-b5f2-3cfeb4d1464d
+    alias: '[Door] Door open alert'
+    initial_state: 'true'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.front_door_sensor_opening
+        to: 'on'
+        for: '00:10:00'
+    mode: single
+    action:
+      - service: notify.alexa_media
+        data:
+          data:
+            type: announce
+          target:
+            - group.alexa
+          message: 'The front door is still open, please close it'            
