@@ -36,6 +36,8 @@ include:
   - sensor.hallway_nest_protect_co_status
   - sensor.attic_nest_protect_co_status
   - sensor.mariadb_size
+  - binary_sensor.front_door_sensor_opening
+  - binary_sensor.garage_door_sensor_opening
   - sensor.front_door_sensor_battery
   - sensor.garage_door_sensor_battery
   - switch.attic_tumble_dryer

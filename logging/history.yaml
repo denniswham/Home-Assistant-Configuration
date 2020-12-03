@@ -1,17 +1,18 @@
 use_include_order: True
 include:
   domains:
+  - person
   - alarm_control_panel
-  - climate
-  - cover
   - light
+  - cover
+  - climate
   - input_boolean
   - input_select
-  - light
-  - person
   - proximity
   - sun
   entities:
+  - binary_sensor.front_door_sensor_opening
+  - binary_sensor.garage_door_sensor_opening
   - binary_sensor.entryway
   - binary_sensor.dryer
   - binary_sensor.washing_machine
@@ -21,6 +22,4 @@ include:
   - switch.living_room_amplifier
   - switch.backyard_siren
   - switch.siren
-  - sensor.front_door_sensor_battery
-  - sensor.garage_door_sensor_battery
     
