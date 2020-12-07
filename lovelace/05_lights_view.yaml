@@ -34,6 +34,7 @@ cards:
             toggle: true
             hide_when_off: false
           - entity: light.christmas_tree
+            icon: mdi:pine-tree
           - type: section
             label: Office
           - entity: light.office_spot_lights
