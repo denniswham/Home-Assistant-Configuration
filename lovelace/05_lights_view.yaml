@@ -106,7 +106,7 @@ cards:
         entities:
           - entity: binary_sensor.washing_machine
             icon: mdi:washing-machine
-          - type: divider 
+          - type: divider
           - entity: binary_sensor.dryer
             icon: mdi:tumble-dryer
           - entity: switch.attic_tumble_dryer
