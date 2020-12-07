@@ -24,6 +24,8 @@
       brightness: 23
     light.office_spot_lights:
       state: "off"
+    light.christmas_tree:
+      state: "on"
     media_player.living_room:
       state: standby
       volume_level: 1.0
@@ -60,7 +62,7 @@
     light.office_led_strip:
       state: "on"
       brightness: 153
-    light.office_desk_light:
+    light.christmas_tree:
       state: "on"
     light.office_painting_light:
       state: "on"
@@ -90,6 +92,8 @@
     light.living_room_led_strips:
       state: "on"
       brightness: 153
+    light.christmas_tree:
+      state: "on"      
     light.living_room_tv_light:
       state: "off"
     light.living_room_painting_light:
@@ -131,8 +135,8 @@
       state: "on"
     light.office_painting_light:
       state: "on"
-    light.office_desk_light:
-      state: "off"
+    light.christmas_tree:
+      state: "on"
             
 - id: 0d80f036-53f7-40de-81ff-77ad45bc8150
   name: Bed time
@@ -158,7 +162,7 @@
       state: "off"
     light.living_room_painting_light:
       state: "off"
-    light.office_desk_light:
+    light.christmas_tree:
       state: "off"
     light.office_painting_light:
       state: "off"

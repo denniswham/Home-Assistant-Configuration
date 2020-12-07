@@ -129,7 +129,7 @@ script:
             {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
 
             {%- if room == "living_room" -%}
-              light.office_desk_light
+              light.christmas_tree
             {%- endif -%}
 
   light_turn_off_desk_lamp:
@@ -142,7 +142,7 @@ script:
             {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
 
             {%- if room == "living_room" -%}
-              light.office_desk_light
+              light.christmas_tree
             {%- endif -%}
           
 
