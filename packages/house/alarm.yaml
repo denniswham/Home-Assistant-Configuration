@@ -50,7 +50,7 @@ alert:
     - all
     data:
       tag: 'alarm-triggered'
-      url: 'http://hassio.local'
+      url: !secret home_assistant_mobile_url
 
 
 automation:
