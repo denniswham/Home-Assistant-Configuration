@@ -231,7 +231,7 @@ script:
 
 automation:
   - id: e4519647-e24b-4f1b-8682-51aaa8ce4576
-    alias: '[Lights] Turn on lights when arriving home at night'
+    alias: '[Light] Turn on lights when arriving home at night'
     trigger:
       - platform: state
         entity_id: group.household
@@ -249,7 +249,7 @@ automation:
         entity_id: scene.dinner_time  
 
   - id: 11e9f0f4a-99b9-427c-85f7-b703a564a511
-    alias: '[Lights] Turn off hallway and attic light after 10 minutes'
+    alias: '[Light] Turn off hallway and attic light after 10 minutes'
     trigger:
       - platform: state
         entity_id:
@@ -265,7 +265,7 @@ automation:
         entity_id: "{{ trigger.entity_id }}"
 
   - id: d558b383-921e-4740-bafd-9a888b45fa9a
-    alias: '[Lights] Turn on backyard lights when dark outside'
+    alias: '[Light] Turn on backyard lights when dark outside'
     trigger:
       - platform: numeric_state
         entity_id: sun.sun
@@ -287,7 +287,7 @@ automation:
           {% endif %}
 
   - id: 1802426d-6f61-4dde-ab2c-5cd3b5233243
-    alias: '[Lights] Turn off backyard lights at midnight'
+    alias: '[Light] Turn off backyard lights at midnight'
     trigger:
       platform: time
       at: "23:59:59"
@@ -299,7 +299,7 @@ automation:
         - light.backyard_garden_lights
 
   - id: 0f21c88f-c82e-459d-81c5-c5cf170e6279
-    alias: '[Lights] Turn on backyard lights when motion'
+    alias: '[Light] Turn on backyard lights when motion'
     trigger:
       - platform: state
         entity_id: binary_sensor.backyard_motion
@@ -318,7 +318,7 @@ automation:
         - light.backyard_garden_lights
 
   - id: 5199be8b-2458-44b0-bd98-6bda33cd96f0
-    alias: '[Lights] Turn off backyard lights when no motion'
+    alias: '[Light] Turn off backyard lights when no motion'
     trigger:
       - platform: state
         entity_id: binary_sensor.backyard_motion
@@ -338,7 +338,7 @@ automation:
         - light.backyard_garden_lights
 
   - id: 9c912ebd-f7a5-46f5-9215-187dda6e2630
-    alias: '[Lights] Turn off Lucas Room Lights'
+    alias: '[Light] Turn off Lucas Room Lights'
     trigger:
       - platform: time_pattern
         minutes: "/10"
@@ -355,7 +355,7 @@ automation:
       entity_id: light.lucas_room
 
   - id: 1bf4148c-04d3-4ea0-9a68-b14d28fadfee
-    alias: '[Lights] Flash lights when echo alarm'
+    alias: '[Light] Flash lights when echo alarm'
     initial_state: false
     trigger:
       - platform: template
@@ -366,7 +366,7 @@ automation:
       entity_id: script.blink_light
       
   - id: b8b0591a-3c88-4867-9180-8f6d541687de
-    alias: '[Lights] Turn on entryway light when front door ding'
+    alias: '[Light] Turn on entryway light when front door ding'
     trigger:
       - platform: state
         entity_id: binary_sensor.front_door_ding

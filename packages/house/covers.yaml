@@ -76,7 +76,7 @@ script:
 
 automation:
   - id: f22881d0-2a37-46f6-86fa-0feaac19de59
-    alias: '[Covers] Open Master Bedroom roller shutter in the morning'
+    alias: '[Cover] Open Master Bedroom roller shutter in the morning'
     initial_state: 'true'
     trigger:
       - platform: time
@@ -98,7 +98,7 @@ automation:
           entity_id: cover.master_bedroom_roller_shutter
 
   - id: 2c0fabaa-793e-4d83-a6f6-488b799384e7
-    alias: '[Covers] Open Lucas Room roller shutter in the morning'
+    alias: '[Cover] Open Lucas Room roller shutter in the morning'
     initial_state: 'true'
     trigger:
       - platform: time
@@ -120,7 +120,7 @@ automation:
           entity_id: cover.lucas_room_roller_shutter
 
   - id: 9168307a-6555-489d-b686-643216ff76e9
-    alias: '[Covers] Open roller shutters in the morning during the weekends and holidays'
+    alias: '[Cover] Open roller shutters in the morning during the weekends and holidays'
     initial_state: 'true'
     trigger:
       - platform: time
@@ -143,7 +143,7 @@ automation:
             - cover.lucas_room_roller_shutter
 
   - id: 58a2e68e-7adf-4d08-93d1-a4dd43faeb12
-    alias: '[Covers] Close roller shutters in the evening'
+    alias: '[Cover] Close roller shutters in the evening'
     initial_state: 'true'
     trigger:
       - platform: numeric_state
@@ -167,7 +167,7 @@ automation:
           position: 10
 
   - id: 36999f33-8fcb-423e-972d-425b4efca279
-    alias: '[Covers] Close roller shutters with strong winds'
+    alias: '[Cover] Close roller shutters with strong winds'
     initial_state: 'true'
     trigger:
       - platform: numeric_state
@@ -188,7 +188,7 @@ automation:
             - cover.lucas_room_roller_shutter
 
   - id: d3a773bf-fc19-4f77-8ad7-00097a2a8bfa
-    alias: '[Covers] Open roller shutters when arriving at daytime'
+    alias: '[Cover] Open roller shutters when arriving at daytime'
     initial_state: 'true'
     trigger:
       - platform: state
@@ -213,7 +213,7 @@ automation:
             - cover.lucas_room_roller_shutter
 
   - id: 9c7f65fd-fc67-47e1-a81d-e02afcacdc3e
-    alias: '[Covers] Open roller shutters when arriving at night'
+    alias: '[Cover] Open roller shutters when arriving at night'
     initial_state: 'true'
     trigger:
       - platform: state
@@ -239,7 +239,7 @@ automation:
           position: 10
 
   - id: 153b5394-3dde-4ebd-8e3f-4d2bb43e8529
-    alias: '[Covers] Close covers when leaving'
+    alias: '[Cover] Close covers when leaving'
     initial_state: 'true'
     trigger:
       - platform: state
@@ -260,7 +260,7 @@ automation:
             - cover.backyard_awning
 
   - id: 6c9a2404-5bd8-43e4-beb2-c38afd7d21c5
-    alias: '[Covers] Close roller shutters when high temperature'
+    alias: '[Cover] Close roller shutters when high temperature'
     initial_state: 'true'
     trigger:
       - platform: numeric_state
@@ -282,7 +282,7 @@ automation:
             - cover.lucas_room_roller_shutter
 
   - id: 8f5ef152-5503-4e7a-97cf-3e8884f07572
-    alias: '[Covers] Open roller shutters when temperature gets cooler'
+    alias: '[Cover] Open roller shutters when temperature gets cooler'
     initial_state: 'true'
     trigger:
       - platform: numeric_state
@@ -312,7 +312,7 @@ automation:
             - cover.lucas_room_roller_shutter
 
   - id: 94389708-c03d-43f9-9731-ec93ed511526
-    alias: '[Covers] Close awning when expected heavy wind or rain'
+    alias: '[Cover] Close awning when expected heavy wind or rain'
     initial_state: 'true'
     trigger:
       - platform: state
@@ -333,7 +333,7 @@ automation:
             - cover.backyard_awning
 
   - id: d030ba6f-ee63-4ee6-9cea-a43751aba57b
-    alias: '[Covers] Close awning when no motion at night'
+    alias: '[Cover] Close awning when no motion at night'
     initial_state: 'true'
     trigger:
       - platform: state
@@ -355,7 +355,7 @@ automation:
             - cover.backyard_awning
 
   - id: 480cedf5-81f6-4321-a83b-f91981fe41e6
-    alias: '[Covers] Closed awning'
+    alias: '[Cover] Closed awning'
     initial_state: 'true'
     trigger:
       - platform: time_pattern
