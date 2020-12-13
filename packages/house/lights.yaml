@@ -272,10 +272,6 @@ automation:
         value_template: "{{ state_attr('sun.sun', 'elevation') }}"
         below: 0.0
     mode: single
-    condition:
-      - condition: time
-        after: '16:00:00'
-        before: '23:59:59'
     action:
       service: light.turn_on
       data_template:
@@ -286,11 +282,40 @@ automation:
             light.backyard_wall_lights, light.backyard_garden_lights
           {% endif %}
 
+  - id: c94cb345-62ae-44bf-a9e6-0197ffc3ed2c
+    alias: '[Light] Turn on backyard wall lights at 6am'
+    trigger:
+      - platform: time
+        at: "06:00:00"
+    condition:
+      - condition: numeric_state
+        entity_id: sun.sun
+        value_template: "{{ state_attr('sun.sun', 'elevation') }}"
+        below: 0.0
+    mode: single
+    action:
+      - service: light.turn_on
+        entity_id: light.backyard_wall_lights
+
   - id: 1802426d-6f61-4dde-ab2c-5cd3b5233243
     alias: '[Light] Turn off backyard lights at midnight'
     trigger:
-      platform: time
-      at: "23:59:59"
+      - platform: time
+        at: "23:59:59"
+    mode: single
+    action:
+      service: light.turn_off
+      entity_id:
+        - light.backyard_wall_lights
+        - light.backyard_garden_lights
+
+  - id: 34c2fbb7-89d5-48b0-b1db-d12c7a365b01
+    alias: '[Light] Turn off backyard wall lights at sunrise'
+    trigger:
+      - platform: numeric_state
+        entity_id: sun.sun
+        value_template: "{{ state_attr('sun.sun', 'elevation') }}"
+        above: 0.0
     mode: single
     action:
       service: light.turn_off

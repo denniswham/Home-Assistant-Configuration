@@ -201,7 +201,6 @@
       state: "on"
     alarm_control_panel.konnected_alarm:
       state: armed_home
-  
 
 - id: 7667fee3-afa3-4797-a79d-777a61f55453
   name: Romance time
