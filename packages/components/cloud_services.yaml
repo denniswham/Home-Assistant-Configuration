@@ -52,22 +52,24 @@ binary_sensor:
         device_class: problem
         value_template: "{{ is_state('alarm_control_panel.alexa_guard_7514f', 'unavailable') }}"
 
-alert:
-  alexa_guard_unavailable:
-    name: Alexa Guard unavailable
-    entity_id: binary_sensor.alexa_guard_unavailable
-    state: 'on'
-    repeat: 30
-    can_acknowledge: false
-    skip_first: false
-    message: "Check refresh token for Alexa Media Player Custom Component"
-    done_message: "Alexa Media Player Custom Component has restored itself" 
-    notifiers:
-      - mobile_app_sm_g986b
-    data:
-      tag: 'alexa-guard-unavailable'
-
 automation:
+  - id: af200dcf-e575-481c-93b8-8356a0495aae
+    alias: Alexa Media Player Authentication Required
+    trigger:
+      platform: event
+      event_type: alexa_media_relogin_required
+    condition: []
+    action:
+    - service: notify.mobile_app
+      data:
+        title: Alexa Media Player Integration
+        message: 🔑 Authentication Required
+        data:
+          actions:
+          - action: URI
+            title: Resolve now!
+            uri: /lovelace/home
+
   - id: acd769e4-3ab3-4fa1-91f8-6d297527439f
     alias: '[Alexa] Arm Away Alexa Guard based on Konnected Alarm'
     trigger:
