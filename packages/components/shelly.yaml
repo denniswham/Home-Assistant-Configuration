@@ -26,7 +26,6 @@ group:
       - binary_sensor.shelly_2_5_10521cf990e5_firmware_update
       - binary_sensor.shelly_2_5_40f52023217d_firmware_update
       - binary_sensor.shelly_2_5_483fda75531a_firmware_update
-      - binary_sensor.shelly_2_5_483fda75623d_firmware_update
       - binary_sensor.shelly_2_5_c4c695_firmware_update
       - binary_sensor.shelly_2_5_c4c708_firmware_update
       - binary_sensor.shelly_2_5_c4c964_firmware_update
@@ -157,14 +156,6 @@ automation:
         shelly1pm-68C63AFADE2C:
           relay-0: "light"
           relay-0-name: "Backyard Garden Light"
-          push_off_delay: false
-          force_update_sensors: true
-        shellyswitch25-483FDA75623D:
-          mode: "relay"
-          relay-0: light
-          relay-1: light
-          relay-0-name: "Attic Light"
-          relay-1-name: "Laundry Room Light"
           push_off_delay: false
           force_update_sensors: true
         shellydimmer2-40F520007C76:

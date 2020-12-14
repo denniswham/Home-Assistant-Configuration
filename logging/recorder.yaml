@@ -21,7 +21,6 @@ include:
   - binary_sensor.shelly_2_5_10521cf990e5_overtemperature
   - binary_sensor.shelly_2_5_40f52023217d_overtemperature
   - binary_sensor.shelly_2_5_483fda75531a_overtemperature
-  - binary_sensor.shelly_2_5_483fda75623d_overtemperature
   - binary_sensor.shelly_2_5_c4c695_overtemperature
   - binary_sensor.shelly_2_5_c4c708_overtemperature
   - binary_sensor.shelly_2_5_c4c964_overtemperature

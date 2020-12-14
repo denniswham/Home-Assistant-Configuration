@@ -95,12 +95,6 @@ cards:
             type: custom:slider-entity-row
             toggle: true
             hide_when_off: false
-          - type: section
-            label: Laundry Room
-          - entity: light.laundry_room_light
-          - type: section
-            label: Attic
-          - entity: light.attic_light
       - type: entities
         title: Laundry
         show_header_toggle: false
