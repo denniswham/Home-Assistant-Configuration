@@ -184,7 +184,8 @@ automation:
           trip_id: ETA set by HAS
           structure:
             - Retsinagaard
-      - service: climate.set_preset_mode
-        entity_id:
-          - climate.living_room
-        data: {"preset_mode": "home"}
+      - service: nest.set_away_mode
+        data:
+          away_mode: home
+          structure:
+            - Retsinagaard
