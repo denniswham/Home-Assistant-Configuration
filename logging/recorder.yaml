@@ -28,6 +28,7 @@ include:
   - binary_sensor.washing_machine
   - group.household
   - group.shelly_firmware_update
+  - sensor.retsinagaard_eta
   - sensor.entryway_nest_protect_smoke_status
   - sensor.hallway_nest_protect_smoke_status
   - sensor.attic_nest_protect_smoke_status
