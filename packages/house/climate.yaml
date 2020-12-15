@@ -155,7 +155,7 @@ automation:
             {% elif is_state_attr('proximity.home', 'nearest', 'Stephanie') %}
               {{ ((( states.sensor.stephanie_to_home.state | int) * 60) - 3600) | timestamp_custom('%H:%M:%S') }}
             {% endif %}
-          eta_window: 00:01
+          eta_window: 00:05
           trip_id: ETA set by HAS
           structure:
             - Retsinagaard
