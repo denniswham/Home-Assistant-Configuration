@@ -105,7 +105,7 @@
   name: Relax time
   icon: mdi:sofa
   entities: 
-    light.entryway_wall_light:
+    light.entryway_wall_light:  
       state: "on"
       brightness: 26
     light.kitchen_light:

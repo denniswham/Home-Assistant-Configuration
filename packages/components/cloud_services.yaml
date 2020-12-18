@@ -17,8 +17,6 @@ homeassistant:
       friendly_name: Timo's Room Echo Dot
     switch.emilie_s_room_do_not_disturb_switch:
       friendly_name: Emilie's Room Echo Dot
-    alarm_control_panel.alexa_guard_7514f:
-      friendly_name: Alexa Guard
     alarm_control_panel.woerden_mode:
       friendly_name: Ring Mode
   
@@ -44,14 +42,6 @@ sensor:
         value_template: >
           {{ expand(states.media_player.living_room,states.media_player.master_bedroom,states.media_player.lucas_room,states.media_player.timo_s_room,states.media_player.emilie_s_room,states.media_player.living_room_fire_tv_stick,states.media_player.master_bedroom_fire_tv_stick) | selectattr('attributes.last_called','eq',True) | map(attribute='entity_id') | first }}
 
-binary_sensor:
-  - platform: template
-    sensors:
-      alexa_guard_unavailable:
-        friendly_name: "Alexa Guard" 
-        device_class: problem
-        value_template: "{{ is_state('alarm_control_panel.alexa_guard_7514f', 'unavailable') }}"
-
 automation:
   - id: af200dcf-e575-481c-93b8-8356a0495aae
     alias: Alexa Media Player Authentication Required
@@ -70,30 +60,3 @@ automation:
             title: Resolve now!
             uri: /lovelace/home
 
-  - id: acd769e4-3ab3-4fa1-91f8-6d297527439f
-    alias: '[Alexa] Arm Away Alexa Guard based on Konnected Alarm'
-    trigger:
-      - platform: state
-        entity_id: alarm_control_panel.konnected_alarm
-        to: armed_away
-    mode: single
-    action:
-      - service: alarm_control_panel.alarm_arm_away
-        entity_id:
-          - alarm_control_panel.alexa_guard_7514f
-      
-  - id: b6200c2d-ffa0-42f6-bcd8-5e88ec83ad2c
-    alias: '[Alexa] Disarm Alexa Guard based on Konnected Alarm'
-    trigger:
-      - platform: state
-        entity_id: alarm_control_panel.konnected_alarm
-        to: disarmed
-    mode: single
-    condition:
-      - condition: state
-        entity_id: alarm_control_panel.alexa_guard_7514f
-        state: armed_away
-    action:
-      - service: alarm_control_panel.alarm_disarm
-        entity_id:
-          - alarm_control_panel.alexa_guard_7514f
