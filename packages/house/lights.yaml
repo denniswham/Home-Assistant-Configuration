@@ -22,10 +22,11 @@ light:
     name: Living Room
     entities:
       - light.living_room_dining_table_light
-      - light.living_room_wall_lights
-      - light.living_room_spot_lights
       - light.living_room_led_strips
-      - light.office_spot_lights
+      - light.living_room_painting_light
+      - light.living_room_spot_lights
+      - light.living_room_tv_light
+      - light.living_room_wall_lights
   - platform: group
     name: Master Bedroom
     entities:
@@ -37,6 +38,27 @@ light:
       - light.lucas_room_light
       - light.lucas_room_wall_light
       - light.lucas_room_floor_light
+  - plaform: group
+    name: All Lights
+    entities:
+      - light.living_room
+      - light.backyard_garden_lights
+      - light.backyard_wall_lights
+      - light.bathroom_light
+      - light.emilie_room_light
+      - light.entryway_light
+      - light.entryway_wall_light
+      - light.hallway_light
+      - light.kitchen_light
+      - light.lucas_room_floor_light
+      - light.lucas_room_light
+      - light.lucas_room_wall_light
+      - light.master_bedroom_wall_lights
+      - light.master_bedroom_wardrobe_lights
+      - light.office_led_strip
+      - light.office_painting_light
+      - light.office_spot_lights
+      - light.timo_room_light
 
 script:
   blink_light:
@@ -484,3 +506,34 @@ automation:
           - light.living_room_led_strips
           - light.living_room_painting_light
           - light.living_room_tv_light
+
+  - id: 84b25eaf-94bc-4518-80f2-8fd462fa9fe1
+    alias: '[Light] Turn off all lights in the morning during weekdays'
+    trigger:
+      - platform: time
+        at: "09:30:00"
+    mode: single
+    condition:
+      - condition: state
+        entity_id: binary_sensor.workday_sensor
+        state: 'on'
+    action:
+      service: light.turn_off
+      entity_id:
+        - light.all_lights
+      
+  - id: fbc332c2-bd1c-488e-9dcd-ed542487196e
+    alias: '[Light] Turn off all lights in the morning during weekend'
+    trigger:
+      - platform: time
+        at: "11:00:00"
+    mode: single
+    condition:
+      - condition: state
+        entity_id: binary_sensor.workday_sensor
+        state: 'off'
+    action:
+      service: light.turn_off
+      entity_id:
+        - light.all_lights
+    
