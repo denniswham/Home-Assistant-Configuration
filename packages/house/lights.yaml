@@ -38,7 +38,7 @@ light:
       - light.lucas_room_light
       - light.lucas_room_wall_light
       - light.lucas_room_floor_light
-  - plaform: group
+  - platform: group
     name: All Lights
     entities:
       - light.living_room
