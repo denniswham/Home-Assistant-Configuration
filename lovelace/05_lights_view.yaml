@@ -31,17 +31,18 @@ cards:
             toggle: true
             hide_when_off: false
             name: Spots
-          - entity: light.living_room_tv_light
-            name: TV
-          - entity: light.living_room_painting_light
-            name: Painting
           - entity: light.living_room_led_strips
             type: custom:slider-entity-row
             toggle: true
             hide_when_off: false
             name: LED
+          - entity: light.living_room_tv_light
+            name: TV
+          - entity: light.living_room_painting_light
+            name: Painting
           - entity: light.christmas_tree
             icon: mdi:pine-tree
+
           - type: section
             label: Office
           - entity: light.office_spot_lights
@@ -49,13 +50,14 @@ cards:
             toggle: true
             hide_when_off: false
             name: Spots
-          - entity: light.office_painting_light
-            name: Painting
           - entity: light.office_led_strip
             type: custom:slider-entity-row
             toggle: true
             hide_when_off: false
             name: LED
+          - entity: light.office_painting_light
+            name: Painting
+
           - type: section
             label: Entryway
           - entity: light.entryway_wall_light

@@ -65,6 +65,32 @@ automation:
             - group.alexa
           message: 'The front door is still open, please close it'
 
+  - id: 44b7412b-bfc1-4191-a555-08bc20ed36a1
+    alias: '[Door] Garage door open alert'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.garage_door_sensor_opening
+        to: 'on'
+        for: '00:10:00'
+    mode: single
+    condition:
+      - condition: or
+        conditions:
+          - condition: state
+            entity_id: group.household
+            state: 'home'
+          - condition: state
+            entity_id: input_boolean.guest_mode
+            state: 'on'
+    action:
+      - service: notify.alexa_media
+        data:
+          data:
+            type: announce
+          target:
+            - group.alexa
+          message: 'The garage door is still open, please close it'
+
   - id: b10c980b-02a0-4446-8e11-635cd275b3b0
     alias: '[Door] Garage door open alert'
     trigger:
