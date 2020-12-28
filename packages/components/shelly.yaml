@@ -183,15 +183,21 @@ automation:
           relay-0-name: "Office Painting Light"
           push_off_delay: false
           force_update_sensors: true
-        ShellyBulbDuo-D16FA5:
+        shellyBulbDuo-D16FA5:
           light-0-name: "Emilie Room Light"
           force_update_sensors: true
-        ShellyBulbDuo-D160E1:
+        shellyBulbDuo-D160E1:
           light-0-name: "Lucas Room Floor Light"
           force_update_sensors: true          
-        ShellyBulbDuo-D16142:
+        shellyBulbDuo-D16142:
           light-0-name: "Attic Light"
-          force_update_sensors: true          
+          force_update_sensors: true
+        shellydw2-D8BFC01A913A:
+          force_update_sensors: true
+          sleep_mode.period: 12h
+        shellydw2-D8BFC01A7385:
+          force_update_sensors: true
+          sleep_mode.period: 12h
 
   - id: 1b3ab5c1-6f54-463c-9c45-827786deb834
     alias: '[Notification] Shelly Firmware updates'
