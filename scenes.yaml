@@ -144,6 +144,8 @@
   entities: 
     light.hallway_light:
       state: "on"
+    light.attic_light:
+      state: "on"
     light.living_room_dining_table_light:
       state: "off"
     light.living_room_wall_lights:
