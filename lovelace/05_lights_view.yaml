@@ -93,7 +93,7 @@ cards:
           - type: section
             label: Hallway
           - entity: light.hallway_light
-            name: Ceiling
+            name: Hallway
   - type: vertical-stack
     cards:
       - type: entities
@@ -118,6 +118,10 @@ cards:
             toggle: true
             hide_when_off: false
             name: Ceiling
+          - type: section
+            label: Attic
+          - entity: light.attic_light
+            name: Attic
       - type: entities
         title: Laundry
         show_header_toggle: false

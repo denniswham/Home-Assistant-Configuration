@@ -286,6 +286,17 @@ automation:
       data_template:
         entity_id: "{{ trigger.entity_id }}"
 
+  - id: 84c6904e-cc77-40ad-8202-52135a53ce17
+    alias: '[Light] Turn on attic if hallway light on'
+    trigger:
+      - platform: state
+        entity_id: light.hallway_light
+        to: 'on'
+    mode: single
+    action:
+      service: light.turn_on
+      entity_id: light.attic_light
+  
   - id: d558b383-921e-4740-bafd-9a888b45fa9a
     alias: '[Light] Turn on backyard lights when dark outside'
     trigger:
