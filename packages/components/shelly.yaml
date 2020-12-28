@@ -7,6 +7,7 @@ group:
       - binary_sensor.backyard_garden_lights_firmware_update
       - binary_sensor.backyard_wall_lights_firmware_update
       - binary_sensor.bathroom_light_firmware_update
+      - binary_sensor.attic_light_firmware_update
       - binary_sensor.emilie_room_light_firmware_update
       - binary_sensor.entryway_wall_light_firmware_update
       - binary_sensor.front_door_sensor_firmware_update
