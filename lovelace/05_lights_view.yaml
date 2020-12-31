@@ -103,25 +103,26 @@ cards:
           - type: section
             label: Lucas' Room
           - entity: light.lucas_room_light
-            name: Entry
+            name: Ceiling
           - entity: light.lucas_room_wall_light
             name: Wall
           - entity: light.lucas_room_floor_light
-            type: custom:slider-entity-row
+            name: Floor lamp
+            type: 'custom:slider-entity-row'
             toggle: true
             hide_when_off: false
-            name: Floor light
           - type: section
             label: Emilie's Room
           - entity: light.emilie_room_light
-            type: custom:slider-entity-row
-            toggle: true
-            hide_when_off: false
             name: Ceiling
+            type: 'custom:slider-entity-row'
+            toggle: true
           - type: section
             label: Attic
           - entity: light.attic_light
             name: Attic
+            type: 'custom:slider-entity-row'
+            toggle: true
       - type: entities
         title: Laundry
         show_header_toggle: false
