@@ -121,12 +121,22 @@ automation:
         - binary_sensor.garage_door_sensor_opening
       state: 'on'
   action:     
-    - service: notify.all_devices
+    - service: notify.android_devices
       data:
-        title: Door/window
-        message: Door and/or window open and nobody at home
+        title: "Door/window open"
+        message: "A door or window is still open and nobody at home"
         data:
-          tag: door
-          channel: Door
+          ttl: 0
+          priority: high
+          channel: Critical
+    - service: notify.iphone_devices
+      data:
+        title: "Door/window open"
+        message: "A door or window is still open and nobody at home"
+        data:
           push:
-            thread-id: "door"     
+            sound:
+              name: default
+              critical: 1
+              volume: 1.0            
+

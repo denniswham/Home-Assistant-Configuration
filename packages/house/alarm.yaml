@@ -50,6 +50,7 @@ alert:
     - all
     data:
       tag: 'alarm-triggered'
+      channel: Critical
       url: !secret home_assistant_mobile_url
 
 
