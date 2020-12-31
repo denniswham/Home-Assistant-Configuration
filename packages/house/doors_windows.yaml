@@ -105,4 +105,28 @@ automation:
             type: announce
           target:
             - group.alexa
-          message: 'The garage door was just opened'     
+          message: 'The garage door was just opened'
+
+- id: be5daf0c-c5d5-4d86-a7b3-011b157b110e
+  alias: '[Door] Garage door open alert'
+  trigger:
+    - platform: state
+      entity_id: 
+      from: 'home'
+      to: 'not_home'
+  condition:
+    - condition: state
+      entity_id:
+        - binary_sensor.front_door_sensor_opening
+        - binary_sensor.garage_door_sensor_opening
+      state: 'on'
+  action:     
+    - service: notify.all_devices
+      data:
+        title: Door/window
+        message: Door and/or window open and nobody at home
+        data:
+          tag: door
+          channel: Door
+          push:
+            thread-id: "door"     

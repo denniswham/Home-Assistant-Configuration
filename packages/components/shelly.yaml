@@ -106,19 +106,19 @@ automation:
           light-0-name: "Kitchen Light"
           force_update_sensors: true
         shellydimmer-D48409:
-          light-0-name: "Living Room Wall Light"
+          light-0-name: "Living Room Wall Lights"
           force_update_sensors: true
         shellydimmer2-40F520016E65:
           light-0-name: "Living Room Dining Table Light"
           force_update_sensors: true
         shellydimmer-D17712:
-          light-0-name: "Living Room Spot Light"
+          light-0-name: "Living Room Spot Lights"
           force_update_sensors: true
         shellydimmer-D0F0AF:
-          light-0-name: "Living Room Led Strip"
+          light-0-name: "Living Room Led Strips"
           force_update_sensors: true
         shellydimmer-d47c54:
-          light-0-name: "Office Spot Light"
+          light-0-name: "Office Spot Lights"
           force_update_sensors: true
         shelly1pm-F2F9BF:
           relay-0: "light"
@@ -127,7 +127,7 @@ automation:
           force_update_sensors: true
         shelly1pm-B98825:
           relay-0: "light"
-          relay-0-name: "Timos Room Light"
+          relay-0-name: "Timo Room Light"
           push_off_delay: false
           force_update_sensors: true
         shelly1pm-F27A0A:
@@ -156,7 +156,7 @@ automation:
           force_update_sensors: true
         shelly1pm-68C63AFADE2C:
           relay-0: "light"
-          relay-0-name: "Backyard Garden Light"
+          relay-0-name: "Backyard Garden Lights"
           push_off_delay: false
           force_update_sensors: true
         shellydimmer2-40F520007C76:
