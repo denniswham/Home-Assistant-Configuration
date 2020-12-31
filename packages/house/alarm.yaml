@@ -32,28 +32,6 @@ script:
       - service: switch.turn_off
         entity_id: switch.backyard_siren
 
-alert:
-  # Alarm triggers - un-acknowledgeble, auto-dismiss, all
-  alarm_triggered:
-    name: Alarm has triggered
-    entity_id: alarm_control_panel.konnected_alarm
-    state: 'triggered'
-    can_acknowledge: false
-    repeat: 
-    - 1
-    - 1
-    - 1
-    skip_first: false
-    title: Your alarm was activated
-    message: Motion detected in and triggered the alarm.
-    notifiers:
-    - all
-    data:
-      tag: 'alarm-triggered'
-      channel: Critical
-      url: !secret home_assistant_mobile_url
-
-
 automation:
   - id: 3c28420d-2670-4215-bd93-7b2ca445fbb4
     alias: '[Alarm] Arm Konnected'
@@ -258,7 +236,25 @@ automation:
             type: announce
           target:
             - group.alexa
-          message: Your alarm was activated
+          message: The alarm was activated
+      - service: notify.android_devices
+        data:
+          title: "Alarm was activated"
+          message: "Motion detected which triggered the alarm"
+          data:
+            ttl: 0
+            priority: high
+            channel: Critical
+      - service: notify.iphone_devices
+        data:
+          title: "Alarm was activated"
+          message: "Motion detected which triggered the alarm"
+          data:
+            push:
+              sound:
+                name: default
+                critical: 1
+                volume: 1.0                  
 
   - id: 583df5d2-69c7-49e2-93a2-0c49d936b0fb
     alias: '[Alarm] Pending alarm'

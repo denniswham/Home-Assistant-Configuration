@@ -43,7 +43,7 @@ automation:
           data:
             ttl: 0
             priority: high      
-            channel: Alarm
+            channel: Critical
             tag: alarm
             sticky: 'true'
             color: 'red'
@@ -96,7 +96,7 @@ automation:
           data:
             ttl: 0
             priority: high      
-            channel: Alarm
+            channel: Critical
             tag: alarm
             sticky: 'true'
             color: 'red'
