@@ -2,11 +2,15 @@ homeassistant:
   customize:
     device_tracker.sm_g986b:
       friendly_name: Dennis
+      entity_picture: /local/images/dennis-square.jpg
     device_tracker.iphone_van_stephanie:
       friendly_name: Stephanie
+      entity_picture: /local/images/stephanie-square.jpg
     device_tracker.iphone_van_lucas:
       friendly_name: Lucas
+      entity_picture: /local/images/lucas-square.jpg
     device_tracker.sm_g781b:
       friendly_name: Timo
+      entity_picture: /local/images/timo-square.jpg
 
 
