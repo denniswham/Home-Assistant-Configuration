@@ -45,6 +45,8 @@ cards:
 
           - type: section
             label: Office
+          - entity: light.office_desk_light
+            name: Desk
           - entity: light.office_spot_lights
             type: custom:slider-entity-row
             toggle: true
