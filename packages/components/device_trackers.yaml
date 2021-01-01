@@ -6,7 +6,7 @@ homeassistant:
       friendly_name: Stephanie
     device_tracker.iphone_van_lucas:
       friendly_name: Lucas
-    device_tracker.oneplus_a5010:
+    device_tracker.sm_g781b:
       friendly_name: Timo
 
 
