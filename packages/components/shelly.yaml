@@ -80,8 +80,12 @@ automation:
           force_update_sensors: true
         shellyplug-s-8016CB:
           relay-0: "light"
-          relay-0-name: "Christmas Tree"
+          relay-0-name: "Office Desktop Light"
           force_update_sensors: true
+        # shellyplug-s-8016CB:
+        #   relay-0: "light"
+        #   relay-0-name: "Christmas Tree"
+        #   force_update_sensors: true
         shellyplug-s-F8D1EA:
           relay-0: "switch"
           relay-0-name: "Attic Washing Machine"

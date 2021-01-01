@@ -24,8 +24,8 @@
       brightness: 23
     light.office_spot_lights:
       state: "off"
-    light.christmas_tree:
-      state: "on"
+    # light.christmas_tree:
+    #   state: "on"
     media_player.living_room:
       state: standby
       volume_level: 1.0
@@ -62,11 +62,13 @@
     light.office_led_strip:
       state: "on"
       brightness: 153
-    light.christmas_tree:
-      state: "on"
+    # light.christmas_tree:
+    #   state: "on"
     light.office_painting_light:
       state: "on"
-  
+    light.office_desktop_light:
+      state: "on"
+      
 - id: 0d010e40-8560-42ce-8b86-b743bbf355ad
   name: Dinner time
   icon: mdi:silverware-fork-knife
@@ -92,15 +94,17 @@
     light.living_room_led_strips:
       state: "on"
       brightness: 153
-    light.christmas_tree:
-      state: "on"      
+    # light.christmas_tree:
+    #   state: "on"      
     light.living_room_tv_light:
       state: "off"
     light.living_room_painting_light:
       state: "on"
     light.office_painting_light:
       state: "on"
-      
+    light.office_desktop_light:
+      state: "off"
+        
 - id: 78e4c286-6d53-4465-a213-6c61984d8eac
   name: Relax time
   icon: mdi:sofa
@@ -135,8 +139,10 @@
       state: "on"
     light.office_painting_light:
       state: "on"
-    light.christmas_tree:
-      state: "on"
+    # light.christmas_tree:
+    #   state: "on"
+    light.office_desktop_light:
+      state: "off"
             
 - id: 0d80f036-53f7-40de-81ff-77ad45bc8150
   name: Bed time
@@ -154,6 +160,8 @@
       state: "off"
     light.office_spot_lights:
       state: "off"
+    light.office_desktop_light:
+      state: "off"
     light.living_room_led_strips:
       state: "off"
     light.office_led_strip:
@@ -164,8 +172,8 @@
       state: "off"
     light.living_room_painting_light:
       state: "off"
-    light.christmas_tree:
-      state: "off"
+    # light.christmas_tree:
+    #   state: "off"
     light.office_painting_light:
       state: "off"
     climate.living_room:

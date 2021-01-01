@@ -40,8 +40,8 @@ cards:
             name: TV
           - entity: light.living_room_painting_light
             name: Painting
-          - entity: light.christmas_tree
-            icon: mdi:pine-tree
+          # - entity: light.christmas_tree
+          #   icon: mdi:pine-tree
 
           - type: section
             label: Office
