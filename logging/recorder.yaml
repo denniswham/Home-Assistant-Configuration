@@ -25,6 +25,8 @@ include:
   - binary_sensor.shelly_2_5_c4c708_overtemperature
   - binary_sensor.shelly_2_5_c4c964_overtemperature
   - binary_sensor.timos_room_light_overtemperature
+  - binary_sensor.attic_washing_machine_flood_sensor_flood
+  - binary_sensor.kitchen_flood_sensor_flood
   - sensor.living_room_thermostat_temperature
   - sensor.garage_door_sensor_temperature
   - sensor.front_door_sensor_temperature

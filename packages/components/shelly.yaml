@@ -31,6 +31,8 @@ group:
       - binary_sensor.shelly_2_5_c4c708_firmware_update
       - binary_sensor.shelly_2_5_c4c964_firmware_update
       - binary_sensor.timos_room_light_firmware_update
+      - binary_sensor.attic_washing_machine_flood_sensor_firmware_update
+      - binary_sensor.kitchen_flood_sensor_firmware_update
 
 script:
   shelly_update_firmware:

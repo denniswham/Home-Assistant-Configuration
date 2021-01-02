@@ -1,0 +1,94 @@
+binary_sensor:
+  # True if there's updates available for any HACS components, Addons or the Host
+  - platform: threshold
+    name: Kitchen Sensor Battery
+    entity_id: sensor.kitchen_sensor_battery
+    lower: 10
+  - platform: threshold
+    name: Attic Washing Machine Sensor Battery
+    entity_id: sensor.attic_washing_machine_sensor_battery
+    lower: 10
+
+alert:
+  # Kitchen Sensor Battery is low - un-acknowledgeable, auto-dismiss, me only
+  kitchen_sensor_battery_low:
+    name: Kitchen Sensor Battery Low
+    entity_id: sensor.kitchen_sensor_battery
+    state: 'on'
+    can_acknowledge: false
+    repeat: 360
+    title: 'Kitchen Sensor Battery low'
+    message: "Kitchen Sensor Battery is at {{ states('sensor.kitchen_sensor_battery') }}%. Replace it soon"
+    notifiers:
+    - mobile_app_sm_g986b
+    data:
+      tag: 'kitchen_sensor_battery'
+
+  # Attic Washing Machine Sensor Battery is low - un-acknowledgeable, auto-dismiss, me only
+  attic_washing_machine_sensor_battery_low:
+    name: Attic Washing Machine Sensor Battery Low
+    entity_id: binary_sensor.attic_washing_machine_sensor_battery
+    state: 'on'
+    can_acknowledge: false
+    repeat: 360
+    title: 'Washing Machine Sensor Battery low'
+    message: "Washing Machine Sensor Battery is at {{ states('binary_sensor.attic_washing_machine_sensor_battery') }}%. Replace it soon"
+    notifiers:
+    - mobile_app_sm_g986b
+    data:
+      tag: 'attic_washing_machine_sensor_battery'
+
+automation:
+  - id: 2fc93218-afe8-4a97-8f72-d9e901a9209b
+    alias: '[Flood] Flood alert'
+    trigger:
+      - platform: state
+        entity_id:
+          - binary_sensor.kitchen_sensor_flood
+          - binary_sensor.attic_washing_machine_sensor_flood
+        to: 'on'
+    mode: single
+    action:
+      # - service: notify.alexa_media
+      #   data:
+      #     data:
+      #       type: announce
+      #     target:
+      #       - group.alexa
+      #     message: >
+      #       {% if trigger.entity_id ==  "binary_sensor.kitchen_sensor_flood" %}
+      #         Possible water leak under the kitchen sink, check ASAP! 
+      #       {% elseif trigger.entity_id ==  "binary_sensor.attic_washing_machine_sensor_flood" %}
+      #         Possible water leak near the washing machine, check ASAP!
+      #       {% endif %}          
+      # - service: notify.android_devices
+      - service: notify.mobile_app_sm_g986b
+        data:
+          title: "Flood"
+          message: >
+            {% if trigger.entity_id ==  "binary_sensor.kitchen_sensor_flood" %}
+              Possible water leak under the kitchen sink, check ASAP! 
+            {% elseif trigger.entity_id ==  "binary_sensor.attic_washing_machine_sensor_flood" %}
+              Possible water leak near the washing machine, check ASAP!
+            {% endif %}          
+          data:
+            ttl: 0
+            priority: high
+            channel: Critical
+      # - service: notify.iphone_devices
+      #   data:
+      #     title: "Flood"
+      #     message: >
+      #       {% if trigger.entity_id ==  "binary_sensor.kitchen_sensor_flood" %}
+      #         Possible water leak under the kitchen sink, check ASAP! 
+      #       {% elseif trigger.entity_id ==  "binary_sensor.attic_washing_machine_sensor_flood" %}
+      #         Possible water leak near the washing machine, check ASAP!
+      #       {% endif %}          
+      #     data:
+      #       push:
+      #         sound:
+      #           name: default
+      #           critical: 1
+      #           volume: 1.0                  
+  
+      
