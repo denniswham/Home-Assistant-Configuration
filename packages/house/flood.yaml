@@ -57,18 +57,18 @@ automation:
             - group.alexa
           message: >
             {% if trigger.entity_id ==  "binary_sensor.kitchen_sensor_flood" %}
-              Possible water leak under the kitchen sink, check ASAP! 
+              Water leakage under the kitchen sink, check ASAP! I repeat: Water leakage under the kitchen sink, check ASAP! I repeat:
             {% elif trigger.entity_id ==  "binary_sensor.attic_washing_machine_sensor_flood" %}
-              Possible water leak near the washing machine, check ASAP!
+              Water leakage near the washing machine, check ASAP! I repeat: Water leakage near the washing machine, check ASAP!
             {% endif %}          
       - service: notify.android_devices
         data:
           title: "ALERT: Flood"
           message: >
             {% if trigger.entity_id ==  "binary_sensor.kitchen_sensor_flood" %}
-              Possible water leak under the kitchen sink, check ASAP! 
+              Water leakage under the kitchen sink, check ASAP! 
             {% elif trigger.entity_id ==  "binary_sensor.attic_washing_machine_sensor_flood" %}
-              Possible water leak near the washing machine, check ASAP!
+              Water leakage near the washing machine, check ASAP!
             {% endif %}          
           data:
             ttl: 0
@@ -79,9 +79,9 @@ automation:
           title: "ALERT: Flood"
           message: >
             {% if trigger.entity_id ==  "binary_sensor.kitchen_sensor_flood" %}
-              Possible water leak under the kitchen sink, check ASAP! 
+              Water leakage under the kitchen sink, check ASAP! 
             {% elif trigger.entity_id ==  "binary_sensor.attic_washing_machine_sensor_flood" %}
-              Possible water leak near the washing machine, check ASAP!
+              Water leakage near the washing machine, check ASAP!
             {% endif %}          
           data:
             push:
