@@ -49,22 +49,21 @@ automation:
         to: 'on'
     mode: single
     action:
-      # - service: notify.alexa_media
-      #   data:
-      #     data:
-      #       type: announce
-      #     target:
-      #       - group.alexa
-      #     message: >
-      #       {% if trigger.entity_id ==  "binary_sensor.kitchen_sensor_flood" %}
-      #         Possible water leak under the kitchen sink, check ASAP! 
-      #       {% elif trigger.entity_id ==  "binary_sensor.attic_washing_machine_sensor_flood" %}
-      #         Possible water leak near the washing machine, check ASAP!
-      #       {% endif %}          
-      # - service: notify.android_devices
-      - service: notify.mobile_app_sm_g986b
+      - service: notify.alexa_media
         data:
-          title: "Flood"
+          data:
+            type: announce
+          target:
+            - group.alexa
+          message: >
+            {% if trigger.entity_id ==  "binary_sensor.kitchen_sensor_flood" %}
+              Possible water leak under the kitchen sink, check ASAP! 
+            {% elif trigger.entity_id ==  "binary_sensor.attic_washing_machine_sensor_flood" %}
+              Possible water leak near the washing machine, check ASAP!
+            {% endif %}          
+      - service: notify.android_devices
+        data:
+          title: "ALERT: Flood"
           message: >
             {% if trigger.entity_id ==  "binary_sensor.kitchen_sensor_flood" %}
               Possible water leak under the kitchen sink, check ASAP! 
@@ -75,20 +74,20 @@ automation:
             ttl: 0
             priority: high
             channel: Critical
-      # - service: notify.iphone_devices
-      #   data:
-      #     title: "Flood"
-      #     message: >
-      #       {% if trigger.entity_id ==  "binary_sensor.kitchen_sensor_flood" %}
-      #         Possible water leak under the kitchen sink, check ASAP! 
-      #       {% elif trigger.entity_id ==  "binary_sensor.attic_washing_machine_sensor_flood" %}
-      #         Possible water leak near the washing machine, check ASAP!
-      #       {% endif %}          
-      #     data:
-      #       push:
-      #         sound:
-      #           name: default
-      #           critical: 1
-      #           volume: 1.0                  
+      - service: notify.iphone_devices
+        data:
+          title: "ALERT: Flood"
+          message: >
+            {% if trigger.entity_id ==  "binary_sensor.kitchen_sensor_flood" %}
+              Possible water leak under the kitchen sink, check ASAP! 
+            {% elif trigger.entity_id ==  "binary_sensor.attic_washing_machine_sensor_flood" %}
+              Possible water leak near the washing machine, check ASAP!
+            {% endif %}          
+          data:
+            push:
+              sound:
+                name: default
+                critical: 1
+                volume: 1.0                  
   
       
