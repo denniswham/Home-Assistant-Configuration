@@ -27,9 +27,12 @@ include:
   - binary_sensor.timos_room_light_overtemperature
   - binary_sensor.attic_washing_machine_flood_sensor_flood
   - binary_sensor.kitchen_flood_sensor_flood
+  - sensor.br_temperature
   - sensor.living_room_thermostat_temperature
   - sensor.garage_door_sensor_temperature
   - sensor.front_door_sensor_temperature
+  - sensor.kitchen_sensor_temperature
+  - sensor.attic_washing_machine_sensor_temperature
   - binary_sensor.washing_machine
   - group.household
   - group.shelly_firmware_update
