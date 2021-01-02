@@ -58,7 +58,7 @@ automation:
       #     message: >
       #       {% if trigger.entity_id ==  "binary_sensor.kitchen_sensor_flood" %}
       #         Possible water leak under the kitchen sink, check ASAP! 
-      #       {% elseif trigger.entity_id ==  "binary_sensor.attic_washing_machine_sensor_flood" %}
+      #       {% elif trigger.entity_id ==  "binary_sensor.attic_washing_machine_sensor_flood" %}
       #         Possible water leak near the washing machine, check ASAP!
       #       {% endif %}          
       # - service: notify.android_devices
@@ -68,7 +68,7 @@ automation:
           message: >
             {% if trigger.entity_id ==  "binary_sensor.kitchen_sensor_flood" %}
               Possible water leak under the kitchen sink, check ASAP! 
-            {% elseif trigger.entity_id ==  "binary_sensor.attic_washing_machine_sensor_flood" %}
+            {% elif trigger.entity_id ==  "binary_sensor.attic_washing_machine_sensor_flood" %}
               Possible water leak near the washing machine, check ASAP!
             {% endif %}          
           data:
@@ -81,7 +81,7 @@ automation:
       #     message: >
       #       {% if trigger.entity_id ==  "binary_sensor.kitchen_sensor_flood" %}
       #         Possible water leak under the kitchen sink, check ASAP! 
-      #       {% elseif trigger.entity_id ==  "binary_sensor.attic_washing_machine_sensor_flood" %}
+      #       {% elif trigger.entity_id ==  "binary_sensor.attic_washing_machine_sensor_flood" %}
       #         Possible water leak near the washing machine, check ASAP!
       #       {% endif %}          
       #     data:
