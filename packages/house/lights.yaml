@@ -58,7 +58,7 @@ light:
       - light.office_led_strip
       - light.office_painting_light
       - light.office_spot_lights
-      - light.office_desktop_light
+      - light.office_desk_light
       - light.timo_room_light
 
 script:
@@ -152,7 +152,7 @@ script:
             {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
 
             {%- if room == "living_room" -%}
-              light.office_desktop_light
+              light.office_desk_light
             {%- endif -%}
 
   light_turn_off_desk_lamp:
@@ -165,7 +165,7 @@ script:
             {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
 
             {%- if room == "living_room" -%}
-            light.office_desktop_light
+            light.office_desk_light
             {%- endif -%}
           
 
