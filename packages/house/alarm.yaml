@@ -264,12 +264,13 @@ automation:
         entity_id:
           - binary_sensor.front_door_sensor_opening
           - binary_sensor.garage_door_sensor_opening
+          - binary_sensor.front_door_sensor_vibration
+          - binary_sensor.garage_door_sensor_vibration
           - binary_sensor.entryway
           - binary_sensor.kitchen
           - binary_sensor.living_room
           - binary_sensor.office
           - binary_sensor.garage
-          - binary_sensor.backyard_motion
         to: 'on'
     mode: single
     condition:

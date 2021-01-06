@@ -200,17 +200,16 @@ automation:
           force_update_sensors: true
         shellydw2-D8BFC01A913A:
           force_update_sensors: true
-          sleep_mode.period: 12h
+          sleep_mode.period: 12
         shellydw2-D8BFC01A7385:
           force_update_sensors: true
-          sleep_mode.period: 12h
+          sleep_mode.period: 12
         shellyflood-F2A91E:
           force_update_sensors: true
-          sleep_mode.period: 12h
+          sleep_mode.period: 12
         shellyflood-F2AE51:
           force_update_sensors: true
-          sleep_mode.period: 12h
-      
+          sleep_mode.period: 12
 
   - id: 1b3ab5c1-6f54-463c-9c45-827786deb834
     alias: '[Notification] Shelly Firmware updates'

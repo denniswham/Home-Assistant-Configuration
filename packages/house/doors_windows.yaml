@@ -40,7 +40,7 @@ alert:
 
 automation:
   - id: 54601140-994f-4a24-b5f2-3cfeb4d1464d
-    alias: '[Door] Front door open alert'
+    alias: '[Door] Front door 10 min open alert'
     trigger:
       - platform: state
         entity_id: binary_sensor.front_door_sensor_opening
@@ -66,7 +66,7 @@ automation:
           message: 'The front door is still open, please close it'
 
   - id: 44b7412b-bfc1-4191-a555-08bc20ed36a1
-    alias: '[Door] Garage door open alert'
+    alias: '[Door] Garage door 10 min open alert'
     trigger:
       - platform: state
         entity_id: binary_sensor.garage_door_sensor_opening
