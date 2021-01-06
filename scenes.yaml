@@ -10,6 +10,8 @@
     light.entryway_wall_light:
       state: "on"
       brightness: 26
+    light.hood_light:
+      state: "on"
     light.kitchen_light:
       state: "on"
       brightness: 13
