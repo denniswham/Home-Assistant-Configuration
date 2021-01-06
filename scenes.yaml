@@ -61,6 +61,8 @@
     light.office_spot_lights:
       state: "on"
       brightness: 38
+    light.hood_light:
+      state: "off"
     light.office_led_strip:
       state: "on"
       brightness: 153
@@ -81,6 +83,8 @@
     light.kitchen_light:
       state: "on"
       brightness: 26
+    light.hood_light:
+      state: "on"
     light.living_room_dining_table_light:
       state: "on"
       brightness: 89
@@ -117,6 +121,8 @@
     light.kitchen_light:
       state: "on"
       brightness: 13
+    light.hood_light:
+      state: "off"
     light.living_room_dining_table_light:
       state: "on"
       brightness: 51
