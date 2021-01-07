@@ -239,3 +239,29 @@ automation:
     - data:
         addon: core_check_config
       service: hassio.addon_start
+
+
+script:
+  reload_all:
+    alias: '[System] Config Reload'
+    sequence: 
+      - service: homeassistant.reload_core_config
+      - service: automation.reload
+      - service: command_line.reload
+      - service: group.reload
+      - service: history_stats.reload
+      - service: input_boolean.reload
+      - service: input_datetime.reload
+      - service: input_number.reload
+      - service: input_select.reload
+      - service: input_text.reload
+      - service: person.reload
+      - service: ping.reload
+      - service: python_script.reload
+      - service: rest.reload
+      - service: scene.reload
+      - service: script.reload
+      - service: template.reload
+      - service: timer.reload
+      - service: zone.reload
+
