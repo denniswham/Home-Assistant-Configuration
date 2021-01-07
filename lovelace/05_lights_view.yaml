@@ -74,6 +74,8 @@ cards:
             hide_when_off: false
           - entity: light.entryway_light
             name: Ceiling
+  - type: vertical-stack
+    cards:
       - type: entities
         title: First Floor
         show_header_toggle: true
@@ -99,6 +101,8 @@ cards:
             label: Hallway
           - entity: light.hallway_light
             name: Ceiling
+  - type: vertical-stack
+    cards:
       - type: entities
         title: Attic
         show_header_toggle: true
@@ -127,14 +131,6 @@ cards:
             type: 'custom:slider-entity-row'
             toggle: true
       - type: entities
-        title: Backyard
-        show_header_toggle: true
-        entities:
-          - entity: light.backyard_wall_lights
-            name: Wall
-          - entity: light.backyard_garden_lights
-            name: Garden
-      - type: entities
         title: Laundry Room
         show_header_toggle: false
         entities:
@@ -147,4 +143,14 @@ cards:
             name: Tumble Dryer Power Socket
           - entity: binary_sensor.attic_washing_machine_sensor_flood
             name: Flood Sensor
+  - type: vertical-stack
+    cards:
+      - type: entities
+        title: Backyard
+        show_header_toggle: true
+        entities:
+          - entity: light.backyard_wall_lights
+            name: Wall
+          - entity: light.backyard_garden_lights
+            name: Garden
         
