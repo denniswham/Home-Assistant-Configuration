@@ -11,66 +11,69 @@ cards:
         entities:
           - type: section
             label: Living Room
-          - entity: light.kitchen_light
-            type: custom:slider-entity-row
-            toggle: true
-            hide_when_off: false
-            name: Kitchen
           - entity: light.living_room_dining_table_light
-            type: custom:slider-entity-row
-            toggle: true
-            hide_when_off: false
             name: Dining table
+            type: 'custom:slider-entity-row'
+            toggle: true
+            hide_when_off: false
           - entity: light.living_room_wall_lights
-            type: custom:slider-entity-row
-            toggle: true
-            hide_when_off: false
             name: Wall
+            type: 'custom:slider-entity-row'
+            toggle: true
+            hide_when_off: false
           - entity: light.living_room_spot_lights
-            type: custom:slider-entity-row
-            toggle: true
-            hide_when_off: false
             name: Spots
-          - entity: light.living_room_led_strips
-            type: custom:slider-entity-row
+            type: 'custom:slider-entity-row'
             toggle: true
             hide_when_off: false
-            name: LED
           - entity: light.living_room_tv_light
             name: TV
           - entity: light.living_room_painting_light
             name: Painting
-          # - entity: light.christmas_tree
-          #   icon: mdi:pine-tree
-
+          - entity: light.living_room_led_strips
+            name: LED strips
+            type: 'custom:slider-entity-row'
+            toggle: true
+            hide_when_off: false
+          - type: section
+            label: Kitchen
+          - entity: light.kitchen_light
+            name: Kitchen
+            type: 'custom:slider-entity-row'
+            toggle: true
+            hide_when_off: false
+          - entity: light.hood_light
+            name: Hood
+          - entity: switch.hood_power
+            name: Hood
+            icon: 'mdi:air-filter'
+          - entity: binary_sensor.kitchen_sensor_flood
+            name: Flood Sensor
           - type: section
             label: Office
           - entity: light.office_desk_light
             name: Desk
           - entity: light.office_spot_lights
-            type: custom:slider-entity-row
-            toggle: true
-            hide_when_off: false
             name: Spots
-          - entity: light.office_led_strip
-            type: custom:slider-entity-row
+            type: 'custom:slider-entity-row'
             toggle: true
             hide_when_off: false
-            name: LED
           - entity: light.office_painting_light
             name: Painting
-
+          - entity: light.office_led_strip
+            name: LED strips
+            type: 'custom:slider-entity-row'
+            toggle: true
+            hide_when_off: false
           - type: section
             label: Entryway
           - entity: light.entryway_wall_light
-            type: custom:slider-entity-row
+            name: Wall
+            type: 'custom:slider-entity-row'
             toggle: true
             hide_when_off: false
-            name: Wall
           - entity: light.entryway_light
             name: Ceiling
-  - type: vertical-stack
-    cards:
       - type: entities
         title: First Floor
         show_header_toggle: true
@@ -88,16 +91,14 @@ cards:
           - type: section
             label: Bathroom
           - entity: light.bathroom_light
-            type: custom:slider-entity-row
+            name: Ceiling
+            type: 'custom:slider-entity-row'
             toggle: true
             hide_when_off: false
-            name: Ceiling
           - type: section
             label: Hallway
           - entity: light.hallway_light
-            name: Hallway
-  - type: vertical-stack
-    cards:
+            name: Ceiling
       - type: entities
         title: Attic
         show_header_toggle: true
@@ -126,23 +127,24 @@ cards:
             type: 'custom:slider-entity-row'
             toggle: true
       - type: entities
-        title: Laundry
-        show_header_toggle: false
-        entities:
-          - entity: binary_sensor.washing_machine
-            icon: mdi:washing-machine
-          - type: divider
-          - entity: binary_sensor.dryer
-            icon: mdi:tumble-dryer
-          - entity: switch.attic_tumble_dryer
-            icon: mdi:power-socket-eu
-            name: Tumble Dryer Power Socket
-  - type: vertical-stack
-    cards:
-      - type: entities
         title: Backyard
         show_header_toggle: true
         entities:
           - entity: light.backyard_wall_lights
+            name: Wall
           - entity: light.backyard_garden_lights
+            name: Garden
+      - type: entities
+        title: Laundry Room
+        show_header_toggle: false
+        entities:
+          - entity: binary_sensor.washing_machine
+            icon: 'mdi:washing-machine'
+          - entity: binary_sensor.dryer
+            icon: 'mdi:tumble-dryer'
+          - entity: switch.attic_tumble_dryer
+            icon: 'mdi:power-socket-eu'
+            name: Tumble Dryer Power Socket
+          - entity: binary_sensor.attic_washing_machine_sensor_flood
+            name: Flood Sensor
         
