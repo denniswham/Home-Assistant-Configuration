@@ -264,8 +264,6 @@ automation:
         entity_id:
           - binary_sensor.front_door_sensor_opening
           - binary_sensor.garage_door_sensor_opening
-          - binary_sensor.shelly_door_window_2_d8bfc01a7385_vibration
-          - binary_sensor.shelly_door_window_2_d8bfc01a913a_vibration
           - binary_sensor.entryway
           - binary_sensor.kitchen
           - binary_sensor.living_room
