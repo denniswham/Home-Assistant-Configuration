@@ -14,6 +14,7 @@ group:
       - binary_sensor.shelly_2_5_c4c695_firmware_update
       - binary_sensor.shelly_2_5_c4c708_firmware_update
       - binary_sensor.shelly_2_5_c4c964_firmware_update
+      - binary_sensor.shelly_2_5_483fda75623d_firmware_update
       - binary_sensor.shelly_dimmer_2_40f520001a5a_firmware_update
       - binary_sensor.shelly_dimmer_2_40f520007c76_firmware_update
       - binary_sensor.shelly_dimmer_2_40f520010813_firmware_update
