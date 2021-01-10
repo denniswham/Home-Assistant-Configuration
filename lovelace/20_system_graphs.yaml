@@ -152,6 +152,8 @@ cards:
           exclude:
             - entity_id: "*_2"
             - entity_id: "*_management"
+            - entity_id: "*.solaredge_*"
+            - entity_id: "switch.hood_power"
         sort: name
 
       - type: custom:auto-entities
@@ -165,9 +167,8 @@ cards:
           exclude:
             - entity_id: sensor.br_temperature
             - entity_id: sensor.living_room_thermostat_temperature
-            - entity_id: light.master_bedroom
-            - entity_id: light.living_room
-            - entity_id: light.lucas_room
+            - entity_id: "*.shelly_door_window_2_*"
+            - entity_id: "*.shelly_flood_*"
         sort: state
         numeric: 'true'
-        reverse: 'true'        
+        reverse: 'false'        
