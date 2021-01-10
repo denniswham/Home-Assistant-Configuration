@@ -61,6 +61,7 @@ light:
       - light.office_spot_lights
       - light.office_desk_light
       - light.timo_room_light
+      - light.guestroom_light
 
 script:
   blink_light:
