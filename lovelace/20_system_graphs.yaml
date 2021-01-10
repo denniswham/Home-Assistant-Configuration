@@ -154,7 +154,10 @@ cards:
             - entity_id: "*_management"
             - entity_id: "*.solaredge_*"
             - entity_id: "switch.hood_power"
-        sort: name
+        sort:
+          method: state
+          numeric: 'true'
+          reverse: 'true'
 
       - type: custom:auto-entities
         card:
@@ -169,6 +172,7 @@ cards:
             - entity_id: sensor.living_room_thermostat_temperature
             - entity_id: "*.shelly_door_window_2_*"
             - entity_id: "*.shelly_flood_*"
-        sort: state
-        numeric: 'true'
-        reverse: 'false'        
+        sort: 
+          method: state
+          numeric: 'true'
+          reverse: 'true'
