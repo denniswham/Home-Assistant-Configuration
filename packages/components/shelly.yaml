@@ -152,6 +152,14 @@ automation:
           relay-1-name: "Master Bedroom Wardrobe Lights"
           push_off_delay: false
           force_update_sensors: true
+        shellyswitch25-483FDA75623D:
+          mode: "relay"
+          relay-0: light
+          relay-1: light
+          relay-0-name: "Guestroom Light"
+          # relay-1-name: ""
+          push_off_delay: false
+          force_update_sensors: true
         shellydimmer2-40F520001A5A:
           light-0-name: "Entryway Wall Light"
           force_update_sensors: true

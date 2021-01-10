@@ -91,6 +91,10 @@ cards:
           - entity: light.timo_room_light
             name: Ceiling
           - type: section
+            label: Guestroom
+          - entity: light.guestroom_light
+            name: Ceiling
+          - type: section
             label: Bathroom
           - entity: light.bathroom_light
             name: Ceiling
