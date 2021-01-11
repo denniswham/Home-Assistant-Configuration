@@ -44,6 +44,9 @@ cards:
             hide_when_off: false
           - entity: light.hood_light
             name: Hood
+            type: 'custom:slider-entity-row'
+            toggle: true
+            hide_when_off: false
           - entity: switch.hood_power
             name: Hood
             icon: 'mdi:air-filter'
