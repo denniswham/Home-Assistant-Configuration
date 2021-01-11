@@ -99,7 +99,6 @@ automation:
 
   - id: 2c0fabaa-793e-4d83-a6f6-488b799384e7
     alias: '[Cover] Open Lucas Room roller shutter in the morning'
-    initial_state: 'true'
     trigger:
       - platform: time
         at: "09:00:00"
