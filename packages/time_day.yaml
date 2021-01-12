@@ -1,13 +1,3 @@
-input_select:
-  house_mode:
-    name: House mode
-    options:
-     - Morning
-     - Day
-     - Evening
-     - Night
-    icon: mdi:white-balance-sunny
-
 sensor:
   - platform: time_date
     display_options:

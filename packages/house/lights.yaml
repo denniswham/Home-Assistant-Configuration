@@ -435,9 +435,10 @@ automation:
         to: 'on'
     mode: single
     condition:
-      - condition: state
-        entity_id: input_select.house_mode
-        state: Evening
+      - condition: numeric_state
+        entity_id: sun.sun
+        value_template: "{{ state_attr('sun.sun', 'elevation') }}"
+        below: 0.0
     action:
       - service: light.turn_on
         entity_id: light.entryway_light
@@ -449,8 +450,8 @@ automation:
     alias: '[Light] Turn off light when night'
     trigger:
       - platform: state
-        entity_id: input_select.house_mode
-        to: Night
+        entity_id: alarm_control_panel.konnected_alarm
+        to: armed_home
     action:
       - service: light.turn_off
         entity_id:
