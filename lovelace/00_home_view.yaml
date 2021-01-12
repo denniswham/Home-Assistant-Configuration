@@ -27,6 +27,7 @@ cards:
               - entity: sensor.br_wind_force
               - entity: sensor.br_precipitation_forecast_total
       # - type: thermostat
+      - type: thermostat
         entity: climate.living_room
 
   - type: vertical-stack
@@ -36,7 +37,7 @@ cards:
           - type: custom:mini-graph-card
             name: Living Room
             entities:
-              - sensor.living_room_thermostat_temperature
+              - sensor.living_room_temperature
             font_size: 50
             line_color: "#389638"
           - type: custom:mini-graph-card
@@ -48,7 +49,7 @@ cards:
       - type: custom:mini-graph-card
         name: Home Humidity
         entities:
-          - entity: sensor.living_room_thermostat_humidity
+          - entity: sensor.living_room_humidity
             name: Living Room
           - entity: sensor.br_humidity
             name: Outdoor
