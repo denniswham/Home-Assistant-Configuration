@@ -169,7 +169,7 @@ cards:
             - entity_id: "sensor.*_temperature"
           exclude:
             - entity_id: sensor.br_temperature
-            - entity_id: sensor.living_room_thermostat_temperature
+            - entity_id: sensor.living_room_temperature
             - entity_id: "*.shelly_door_window_2_*"
             - entity_id: "*.shelly_flood_*"
         sort: 
