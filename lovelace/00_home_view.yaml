@@ -1,6 +1,6 @@
 title: Home
-view: true
 icon: mdi:home
+path: Home
 
 badges:
   - person.dennis
@@ -26,12 +26,11 @@ cards:
             entities:
               - entity: sensor.br_wind_force
               - entity: sensor.br_precipitation_forecast_total
-      # - type: thermostat
-      - type: thermostat
-        entity: climate.living_room
 
   - type: vertical-stack
     cards:
+      - type: thermostat
+        entity: climate.living_room
       - type: horizontal-stack
         cards:
           - type: custom:mini-graph-card
