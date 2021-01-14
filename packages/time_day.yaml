@@ -12,9 +12,7 @@ automation:
   alias: '[Time] Cuckoo clock hourly chime'
   trigger:
     - platform: time_pattern
-      hours: "*"
-      minutes: "/59"
-      seconds: "*"
+      minutes: "59"
   condition:
     - condition: time
       after: '06:00:00'
