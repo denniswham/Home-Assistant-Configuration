@@ -6,3 +6,22 @@ sensor:
       - 'date_time'
       # - 'time_date'
       # - 'time_utc'
+
+automation:
+- id: cf2927b5-827d-4fc0-8d5c-ff4358bff82d
+  alias: '[Time] Cuckoo clock hourly chime'
+  trigger:
+    - platform: time_pattern
+      hours: "*"
+      minutes: "/59"
+      seconds: "*"
+  condition:
+    - condition: time
+      after: '06:00:00'
+      before: '22:00:00'
+  action:
+    - service: media_player.play_media
+      data:
+        media_content_id: "cuckoo clock"
+        media_content_type: routine    
+        entity_id: media_player.living_room
