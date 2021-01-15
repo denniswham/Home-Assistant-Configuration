@@ -10,6 +10,7 @@ sensor:
 automation:
 - id: cf2927b5-827d-4fc0-8d5c-ff4358bff82d
   alias: '[Time] Cuckoo clock hourly chime'
+  initial_state: false
   trigger:
     - platform: time_pattern
       minutes: "59"
@@ -18,8 +19,23 @@ automation:
       after: '06:00:00'
       before: '22:00:00'
   action:
+    - service: media_player.volume_set
+      data_template:
+        entity_id: media_player.living_room
+        volume_level: 0.3      
     - service: media_player.play_media
       data:
         media_content_id: "cuckoo clock"
         media_content_type: routine    
         entity_id: media_player.living_room
+    - delay:
+        minutes: 2
+    - service: media_player.play_media
+      data:
+        media_content_id: "Stop Audio on Living Room"
+        media_content_type: routine    
+        entity_id: media_player.living_room
+    - service: media_player.volume_set
+      data_template:
+        entity_id: media_player.living_room
+        volume_level: 1.0
