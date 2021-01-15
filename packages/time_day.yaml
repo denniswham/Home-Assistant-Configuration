@@ -29,7 +29,7 @@ automation:
         media_content_type: routine    
         entity_id: media_player.living_room
     - delay:
-        minutes: 2
+        minutes: 3
     - service: media_player.play_media
       data:
         media_content_id: "Stop Audio on Living Room"
