@@ -10,53 +10,6 @@ badges:
 cards:
   - type: vertical-stack
     cards:
-      - type: weather-forecast
-        name: Woerden
-        entity: weather.lopik_cabauw
-      - type: horizontal-stack
-        cards:
-          - type: custom:mini-graph-card
-            name: Wind Speed
-            entities:
-              - sensor.br_wind_speed
-            font_size: 50
-            line_color: "#389638"
-          - type: entities
-            show_header_toggle: false
-            entities:
-              - entity: sensor.br_wind_force
-              - entity: sensor.br_precipitation_forecast_total
-
-  - type: vertical-stack
-    cards:
-      - type: thermostat
-        entity: climate.living_room
-      - type: horizontal-stack
-        cards:
-          - type: custom:mini-graph-card
-            name: Living Room
-            entities:
-              - sensor.living_room_temperature
-            font_size: 50
-            line_color: "#389638"
-          - type: custom:mini-graph-card
-            name: Outdoor
-            entities:
-              - sensor.br_temperature
-            font_size: 50
-            line_color: "#389638"
-      - type: custom:mini-graph-card
-        name: Home Humidity
-        entities:
-          - entity: sensor.living_room_humidity
-            name: Living Room
-          - entity: sensor.br_humidity
-            name: Outdoor
-        font_size: 50
-        line_color: "#389638"
-
-  - type: vertical-stack
-    cards:
       - type: alarm-panel
         entity: alarm_control_panel.konnected_alarm
         states:
@@ -109,12 +62,33 @@ cards:
           - entity: input_boolean.guest_mode
   - type: vertical-stack
     cards:
-      # - type: alarm-panel
-      #   entity: alarm_control_panel.woerden_mode
-      #   states:
-      #     - arm_home
-      #     - arm_away
-      #   name: Ring Mode
+      - type: thermostat
+        entity: climate.living_room
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            name: Living Room
+            entities:
+              - sensor.living_room_temperature
+            font_size: 50
+            line_color: "#389638"
+          - type: custom:mini-graph-card
+            name: Outdoor
+            entities:
+              - sensor.br_temperature
+            font_size: 50
+            line_color: "#389638"
+      - type: custom:mini-graph-card
+        name: Home Humidity
+        entities:
+          - entity: sensor.living_room_humidity
+            name: Living Room
+          - entity: sensor.br_humidity
+            name: Outdoor
+        font_size: 50
+        line_color: "#389638"
+  - type: vertical-stack
+    cards:
       - type: horizontal-stack
         cards:
           - type: picture-entity
@@ -140,3 +114,21 @@ cards:
           - entity: cover.backyard_awning
             toggle: true
             type: custom:slider-entity-row
+  - type: vertical-stack
+    cards:
+      - type: weather-forecast
+        name: Woerden
+        entity: weather.lopik_cabauw
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            name: Wind Speed
+            entities:
+              - sensor.br_wind_speed
+            font_size: 50
+            line_color: "#389638"
+          - type: entities
+            show_header_toggle: false
+            entities:
+              - entity: sensor.br_wind_force
+              - entity: sensor.br_precipitation_forecast_total
