@@ -80,148 +80,148 @@ automation:
         model: '{{ trigger.payload_json.model }}'
         discovery_prefix: 'homeassistant'
         qos: 0
-        shellyplug-s-8013CD:
-          relay-0: "switch"
-          relay-0-name: "Living Room Amplifier"
-          force_update_sensors: true
-        shellyplug-s-8016CB:
-          relay-0: "light"
-          relay-0-name: "Office Desk Light"
-          force_update_sensors: true
+        # shellyplug-s-8013CD:
+        #   relay-0: "switch"
+        #   relay-0-name: "Living Room Amplifier"
+        #   force_update_sensors: true
         # shellyplug-s-8016CB:
         #   relay-0: "light"
-        #   relay-0-name: "Christmas Tree"
+        #   relay-0-name: "Office Desk Light"
         #   force_update_sensors: true
-        shellyplug-s-F8D1EA:
-          relay-0: "switch"
-          relay-0-name: "Attic Washing Machine"
-          force_update_sensors: true
-        shellyplug-s-F8D1FA:
-          relay-0: "switch"
-          relay-0-name: "Attic Tumble Dryer"
-          force_update_sensors: true
-        shellyswitch25-c4c964:
-          mode: "roller"
-          roller-0-name: "Master Bedroom Roller Shutter"
-          force_update_sensors: true
-        shellyswitch25-c4c695:
-          mode: "roller"
-          roller-0-name: "Lucas Room Roller Shutter"
-          force_update_sensors: true
-        shellyswitch25-c4c708:
-          mode: "roller"
-          roller-0-name: "Backyard Awning"
-          force_update_sensors: true
-        shellydimmer-d17b0e:
-          light-0-name: "Kitchen Light"
-          force_update_sensors: true
-        shellydimmer-D48409:
-          light-0-name: "Living Room Wall Lights"
-          force_update_sensors: true
-        shellydimmer2-40F520016E65:
-          light-0-name: "Living Room Dining Table Light"
-          force_update_sensors: true
-        shellydimmer-D17712:
-          light-0-name: "Living Room Spot Lights"
-          force_update_sensors: true
-        shellydimmer-D0F0AF:
-          light-0-name: "Living Room Led Strips"
-          force_update_sensors: true
-        shellydimmer-d47c54:
-          light-0-name: "Office Spot Lights"
-          force_update_sensors: true
-        shelly1pm-F2F9BF:
-          relay-0: "light"
-          relay-0-name: "Hallway Light"
-          push_off_delay: false
-          force_update_sensors: true
-        shelly1pm-B98825:
-          relay-0: "light"
-          relay-0-name: "Timo Room Light"
-          push_off_delay: false
-          force_update_sensors: true
-        shelly1pm-F27A0A:
-          relay-0: "light"
-          relay-0-name: "Backyard Wall Lights"
-          push_off_delay: false
-          force_update_sensors: true
-        shellyswitch25-40F52023217D:
-          mode: "relay"
-          relay-0: light
-          relay-1: light
-          relay-0-name: "Master Bedroom Wall Lights"
-          relay-1-name: "Master Bedroom Wardrobe Lights"
-          push_off_delay: false
-          force_update_sensors: true
-        shellyswitch25-483FDA75623D:
-          mode: "relay"
-          relay-0: light
-          relay-1: light
-          relay-0-name: "Guestroom Light"
-          # relay-1-name: ""
-          push_off_delay: false
-          force_update_sensors: true
-        shellydimmer2-40F520001A5A:
-          light-0-name: "Entryway Wall Light"
-          force_update_sensors: true
-        shelly1pm-68C63AFAE605:
-          relay-0: "light"
-          relay-0-name: "Entryway Light"
-          push_off_delay: false
-          force_update_sensors: true
-        shellydimmer2-40F520010813:
-          light-0-name: "Office LED Strip"
-          force_update_sensors: true
-        shelly1pm-68C63AFADE2C:
-          relay-0: "light"
-          relay-0-name: "Backyard Garden Lights"
-          push_off_delay: false
-          force_update_sensors: true
-        shellydimmer2-40F520007C76:
-          light-0-name: "Bathroom Light"
-          force_update_sensors: true
-        shellyswitch25-10521CF990E5:
-          mode: "relay"
-          relay-0: light
-          relay-1: light
-          relay-0-name: "Lucas Room Light"
-          relay-1-name: "Lucas Room Wall Light"
-          push_off_delay: false
-          force_update_sensors: true
-        shellyswitch25-483FDA75531A:
-          mode: "relay"
-          relay-0: light
-          relay-1: light
-          relay-0-name: "Living Room TV Light"
-          relay-1-name: "Living Room Painting Light"
-          push_off_delay: false
-          force_update_sensors: true
-        shelly1pm-68C63AFAEB38:
-          relay-0: "light"
-          relay-0-name: "Office Painting Light"
-          push_off_delay: false
-          force_update_sensors: true
-        shellyBulbDuo-D16FA5:
-          light-0-name: "Emilie Room Light"
-          force_update_sensors: true
-        shellyBulbDuo-D160E1:
-          light-0-name: "Lucas Room Floor Light"
-          force_update_sensors: true          
-        shellyBulbDuo-D16142:
-          light-0-name: "Attic Light"
-          force_update_sensors: true
-        shellydw2-D8BFC01A913A:
-          force_update_sensors: true
-          sleep_mode.period: 12
-        shellydw2-D8BFC01A7385:
-          force_update_sensors: true
-          sleep_mode.period: 12
-        shellyflood-F2A91E:
-          force_update_sensors: true
-          sleep_mode.period: 12
-        shellyflood-F2AE51:
-          force_update_sensors: true
-          sleep_mode.period: 12
+        # # shellyplug-s-8016CB:
+        # #   relay-0: "light"
+        # #   relay-0-name: "Christmas Tree"
+        # #   force_update_sensors: true
+        # shellyplug-s-F8D1EA:
+        #   relay-0: "switch"
+        #   relay-0-name: "Attic Washing Machine"
+        #   force_update_sensors: true
+        # shellyplug-s-F8D1FA:
+        #   relay-0: "switch"
+        #   relay-0-name: "Attic Tumble Dryer"
+        #   force_update_sensors: true
+        # shellyswitch25-c4c964:
+        #   mode: "roller"
+        #   roller-0-name: "Master Bedroom Roller Shutter"
+        #   force_update_sensors: true
+        # shellyswitch25-c4c695:
+        #   mode: "roller"
+        #   roller-0-name: "Lucas Room Roller Shutter"
+        #   force_update_sensors: true
+        # shellyswitch25-c4c708:
+        #   mode: "roller"
+        #   roller-0-name: "Backyard Awning"
+        #   force_update_sensors: true
+        # shellydimmer-d17b0e:
+        #   light-0-name: "Kitchen Light"
+        #   force_update_sensors: true
+        # shellydimmer-D48409:
+        #   light-0-name: "Living Room Wall Lights"
+        #   force_update_sensors: true
+        # shellydimmer2-40F520016E65:
+        #   light-0-name: "Living Room Dining Table Light"
+        #   force_update_sensors: true
+        # shellydimmer-D17712:
+        #   light-0-name: "Living Room Spot Lights"
+        #   force_update_sensors: true
+        # shellydimmer-D0F0AF:
+        #   light-0-name: "Living Room Led Strips"
+        #   force_update_sensors: true
+        # shellydimmer-d47c54:
+        #   light-0-name: "Office Spot Lights"
+        #   force_update_sensors: true
+        # shelly1pm-F2F9BF:
+        #   relay-0: "light"
+        #   relay-0-name: "Hallway Light"
+        #   push_off_delay: false
+        #   force_update_sensors: true
+        # shelly1pm-B98825:
+        #   relay-0: "light"
+        #   relay-0-name: "Timo Room Light"
+        #   push_off_delay: false
+        #   force_update_sensors: true
+        # shelly1pm-F27A0A:
+        #   relay-0: "light"
+        #   relay-0-name: "Backyard Wall Lights"
+        #   push_off_delay: false
+        #   force_update_sensors: true
+        # shellyswitch25-40F52023217D:
+        #   mode: "relay"
+        #   relay-0: light
+        #   relay-1: light
+        #   relay-0-name: "Master Bedroom Wall Lights"
+        #   relay-1-name: "Master Bedroom Wardrobe Lights"
+        #   push_off_delay: false
+        #   force_update_sensors: true
+        # shellyswitch25-483FDA75623D:
+        #   mode: "relay"
+        #   relay-0: light
+        #   relay-1: light
+        #   relay-0-name: "Guestroom Light"
+        #   # relay-1-name: ""
+        #   push_off_delay: false
+        #   force_update_sensors: true
+        # shellydimmer2-40F520001A5A:
+        #   light-0-name: "Entryway Wall Light"
+        #   force_update_sensors: true
+        # shelly1pm-68C63AFAE605:
+        #   relay-0: "light"
+        #   relay-0-name: "Entryway Light"
+        #   push_off_delay: false
+        #   force_update_sensors: true
+        # shellydimmer2-40F520010813:
+        #   light-0-name: "Office LED Strip"
+        #   force_update_sensors: true
+        # shelly1pm-68C63AFADE2C:
+        #   relay-0: "light"
+        #   relay-0-name: "Backyard Garden Lights"
+        #   push_off_delay: false
+        #   force_update_sensors: true
+        # shellydimmer2-40F520007C76:
+        #   light-0-name: "Bathroom Light"
+        #   force_update_sensors: true
+        # shellyswitch25-10521CF990E5:
+        #   mode: "relay"
+        #   relay-0: light
+        #   relay-1: light
+        #   relay-0-name: "Lucas Room Light"
+        #   relay-1-name: "Lucas Room Wall Light"
+        #   push_off_delay: false
+        #   force_update_sensors: true
+        # shellyswitch25-483FDA75531A:
+        #   mode: "relay"
+        #   relay-0: light
+        #   relay-1: light
+        #   relay-0-name: "Living Room TV Light"
+        #   relay-1-name: "Living Room Painting Light"
+        #   push_off_delay: false
+        #   force_update_sensors: true
+        # shelly1pm-68C63AFAEB38:
+        #   relay-0: "light"
+        #   relay-0-name: "Office Painting Light"
+        #   push_off_delay: false
+        #   force_update_sensors: true
+        # shellyBulbDuo-D16FA5:
+        #   light-0-name: "Emilie Room Light"
+        #   force_update_sensors: true
+        # shellyBulbDuo-D160E1:
+        #   light-0-name: "Lucas Room Floor Light"
+        #   force_update_sensors: true          
+        # shellyBulbDuo-D16142:
+        #   light-0-name: "Attic Light"
+        #   force_update_sensors: true
+        # shellydw2-D8BFC01A913A:
+        #   force_update_sensors: true
+        #   sleep_mode.period: 12
+        # shellydw2-D8BFC01A7385:
+        #   force_update_sensors: true
+        #   sleep_mode.period: 12
+        # shellyflood-F2A91E:
+        #   force_update_sensors: true
+        #   sleep_mode.period: 12
+        # shellyflood-F2AE51:
+        #   force_update_sensors: true
+        #   sleep_mode.period: 12
 
   - id: 1b3ab5c1-6f54-463c-9c45-827786deb834
     alias: '[Notification] Shelly Firmware updates'
