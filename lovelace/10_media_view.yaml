@@ -54,5 +54,3 @@ cards:
         entities:
           - type: media-control
             entity: media_player.spotify_115579534
-
-mail
