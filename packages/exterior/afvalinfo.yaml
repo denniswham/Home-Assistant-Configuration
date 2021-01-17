@@ -1,58 +1,58 @@
-sensor:
-  - platform: afvalinfo
-    resources:
-      - gft
-      - papier
-      - pbd
-      - restafval
-      - trash_type_today
-      - trash_type_tomorrow
-    location: !secret afvalinfo_location
-    postcode: !secret afvalinfo_postcode
-    streetnumber: !secret afvalinfo_streetnumber
-    dateformat: '%d-%m-%Y'
-    timespanindays: 2
+# sensor:
+#   - platform: afvalinfo
+#     resources:
+#       - gft
+#       - papier
+#       - pbd
+#       - restafval
+#       - trash_type_today
+#       - trash_type_tomorrow
+#     location: !secret afvalinfo_location
+#     postcode: !secret afvalinfo_postcode
+#     streetnumber: !secret afvalinfo_streetnumber
+#     dateformat: '%d-%m-%Y'
+#     timespanindays: 2
 
-automation:
-  - id: 1f22fb5b-8d24-4130-a5cf-7dba51858e5d
-    alias: '[Notification] Trash collection day'
-    initial_state: 'on'
-    trigger:
-      - platform: time
-        at: 06:00:00
-    mode: single
-    condition:
-      - condition: or
-        conditions:
-          - condition: template
-            value_template: '{{ is_state_attr("sensor.afvalinfo_gft", "is_collection_date_today", true) }}'
-          - condition: template
-            value_template: '{{ is_state_attr("sensor.afvalinfo_papier", "is_collection_date_today", true) }}'
-          - condition: template
-            value_template: '{{ is_state_attr("sensor.afvalinfo_pbd", "is_collection_date_today", true) }}'
-          - condition: template
-            value_template: '{{ is_state_attr("sensor.afvalinfo_restafval", "is_collection_date_today", true) }}'
-      - condition: state
-        entity_id: group.household
-        state: 'home'
-    action:
-      - service: notify.mobile_app_sm_g986b
-        data_template:
-          title: Trash collection is today
-          message: Take {{ states('sensor.afvalinfo_today')|replace(' ',' and ') }} outside
-          data:
-            channel: Alert
-            tag: alert
-      - service: notify.mobile_app_iphone_van_stephanie
-        data:
-          title: Trash collection is today
-          message: Take {{ states('sensor.afvalinfo_today')|replace(' ',' and ') }} outside
-          data:
-            push:
-              thread-id: "alert"
-              presentation_options:
-                - alert
-                - badge
+# automation:
+#   - id: 1f22fb5b-8d24-4130-a5cf-7dba51858e5d
+#     alias: '[Notification] Trash collection day'
+#     initial_state: 'on'
+#     trigger:
+#       - platform: time
+#         at: 06:00:00
+#     mode: single
+#     condition:
+#       - condition: or
+#         conditions:
+#           - condition: template
+#             value_template: '{{ is_state_attr("sensor.afvalinfo_gft", "is_collection_date_today", true) }}'
+#           - condition: template
+#             value_template: '{{ is_state_attr("sensor.afvalinfo_papier", "is_collection_date_today", true) }}'
+#           - condition: template
+#             value_template: '{{ is_state_attr("sensor.afvalinfo_pbd", "is_collection_date_today", true) }}'
+#           - condition: template
+#             value_template: '{{ is_state_attr("sensor.afvalinfo_restafval", "is_collection_date_today", true) }}'
+#       - condition: state
+#         entity_id: group.household
+#         state: 'home'
+#     action:
+#       - service: notify.mobile_app_sm_g986b
+#         data_template:
+#           title: Trash collection is today
+#           message: Take {{ states('sensor.afvalinfo_today')|replace(' ',' and ') }} outside
+#           data:
+#             channel: Alert
+#             tag: alert
+#       - service: notify.mobile_app_iphone_van_stephanie
+#         data:
+#           title: Trash collection is today
+#           message: Take {{ states('sensor.afvalinfo_today')|replace(' ',' and ') }} outside
+#           data:
+#             push:
+#               thread-id: "alert"
+#               presentation_options:
+#                 - alert
+#                 - badge
 
 
 

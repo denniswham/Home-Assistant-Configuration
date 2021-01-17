@@ -22,9 +22,9 @@ lovelace:
   resources:
     !include lovelace/resources/resources.yaml
 
-browser_mod:
-  disable:
-    - all
+# browser_mod:
+#   disable:
+#     - all
 
 frontend:
   themes: !include_dir_merge_named themes
