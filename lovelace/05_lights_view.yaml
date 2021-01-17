@@ -16,12 +16,12 @@ cards:
             type: 'custom:slider-entity-row'
             toggle: true
             hide_when_off: false
-          - entity: light.living_room_wall_lights
+          - entity: light.living_room_wall_light
             name: Wall
             type: 'custom:slider-entity-row'
             toggle: true
             hide_when_off: false
-          - entity: light.living_room_spot_lights
+          - entity: light.living_room_spot_light
             name: Spots
             type: 'custom:slider-entity-row'
             toggle: true
@@ -56,7 +56,7 @@ cards:
             label: Office
           - entity: light.office_desk_light
             name: Desk
-          - entity: light.office_spot_lights
+          - entity: light.office_spot_light
             name: Spots
             type: 'custom:slider-entity-row'
             toggle: true
@@ -85,9 +85,9 @@ cards:
         entities:
           - type: section
             label: Master Bedroom
-          - entity: light.master_bedroom_wall_lights
+          - entity: light.master_bedroom_wall_light
             name: Wall
-          - entity: light.master_bedroom_wardrobe_lights
+          - entity: light.master_bedroom_wardrobe_light
             name: Wardrobe
           - type: section
             label: Timo's Room
@@ -156,8 +156,8 @@ cards:
         title: Backyard
         show_header_toggle: true
         entities:
-          - entity: light.backyard_wall_lights
+          - entity: light.backyard_wall_light
             name: Wall
-          - entity: light.backyard_garden_lights
+          - entity: light.backyard_garden_light
             name: Garden
         

@@ -37,7 +37,6 @@ cards:
         entities:
           - type: media-control
             entity: media_player.timo_s_room_fire_tv_stick
-
     
   - type: vertical-stack
     cards:

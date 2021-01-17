@@ -1,12 +1,12 @@
 homeassistant:
   customize:
-    light.living_room_spot_lights:
+    light.living_room_spot_light:
       friendly_name: Living Room Spot Lights
-    light.living_room_wall_lights:
+    light.living_room_wall_light:
       friendly_name: Living Room Wall Lights
     light.living_room_dining_table_light:
       friendly_name: Living Room Dining Table Light       
-    light.office_spot_lights:
+    light.office_spot_light:
       friendly_name: Office Spot Lights
     sensor.living_room_spot_dimmer_power:
         friendly_name: Living Room Spot Lights
@@ -24,14 +24,14 @@ light:
       - light.living_room_dining_table_light
       - light.living_room_led_strips
       - light.living_room_painting_light
-      - light.living_room_spot_lights
+      - light.living_room_spot_light
       - light.living_room_tv_light
-      - light.living_room_wall_lights
+      - light.living_room_wall_light
   - platform: group
     name: Master Bedroom
     entities:
-      - light.master_bedroom_wardrobe_lights
-      - light.master_bedroom_wall_lights
+      - light.master_bedroom_wardrobe_light
+      - light.master_bedroom_wall_light
   - platform: group
     name: Lucas Room
     entities:
@@ -42,8 +42,8 @@ light:
     name: All Lights
     entities:
       - light.living_room
-      - light.backyard_garden_lights
-      - light.backyard_wall_lights
+      - light.backyard_garden_light
+      - light.backyard_wall_light
       - light.bathroom_light
       - light.emilie_room_light
       - light.entryway_light
@@ -54,11 +54,11 @@ light:
       - light.lucas_room_floor_light
       - light.lucas_room_light
       - light.lucas_room_wall_light
-      - light.master_bedroom_wall_lights
-      - light.master_bedroom_wardrobe_lights
+      - light.master_bedroom_wall_light
+      - light.master_bedroom_wardrobe_light
       - light.office_led_strip
       - light.office_painting_light
-      - light.office_spot_lights
+      - light.office_spot_light
       - light.office_desk_light
       - light.timo_room_light
       - light.guestroom_light
@@ -72,7 +72,7 @@ script:
         sequence:
         - service: light.toggle
           entity_id:
-            - light.master_bedroom_wardrobe_lights
+            - light.master_bedroom_wardrobe_light
         - delay:
             milliseconds: 500
 
@@ -181,7 +181,7 @@ script:
             {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
 
             {%- if room == "master_bedroom" -%}
-              light.master_bedroom_wall_lights
+              light.master_bedroom_wall_light
             {%- endif -%}
 
   light_turn_off_wall_light:
@@ -194,7 +194,7 @@ script:
             {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
 
             {%- if room == "master_bedroom" -%}
-              light.master_bedroom_wall_lights
+              light.master_bedroom_wall_light
             {%- endif -%}
 
   light_turn_on_wardrobe_light:
@@ -207,7 +207,7 @@ script:
             {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
 
             {%- if room == "master_bedroom" -%}
-              light.master_bedroom_wardrobe_lights
+              light.master_bedroom_wardrobe_light
             {%- endif -%}
 
   light_turn_off_wardrobe_light:
@@ -220,7 +220,7 @@ script:
             {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
 
             {%- if room == "master_bedroom" -%}
-              light.master_bedroom_wardrobe_lights
+              light.master_bedroom_wardrobe_light
             {%- endif -%}
 
   light_dim_light:
@@ -313,9 +313,9 @@ automation:
       data_template:
         entity_id: >
           {% if is_state("cover.backyard_awning", "closed") %}
-            light.backyard_wall_lights
+            light.backyard_wall_light
           {% else %}
-            light.backyard_wall_lights, light.backyard_garden_lights
+            light.backyard_wall_light, light.backyard_garden_light
           {% endif %}
 
   - id: c94cb345-62ae-44bf-a9e6-0197ffc3ed2c
@@ -331,7 +331,7 @@ automation:
     mode: single
     action:
       - service: light.turn_on
-        entity_id: light.backyard_wall_lights
+        entity_id: light.backyard_wall_light
 
   - id: 1802426d-6f61-4dde-ab2c-5cd3b5233243
     alias: '[Light] Turn off backyard lights at midnight'
@@ -342,8 +342,8 @@ automation:
     action:
       service: light.turn_off
       entity_id:
-        - light.backyard_wall_lights
-        - light.backyard_garden_lights
+        - light.backyard_wall_light
+        - light.backyard_garden_light
 
   - id: 34c2fbb7-89d5-48b0-b1db-d12c7a365b01
     alias: '[Light] Turn off backyard wall lights at sunrise'
@@ -356,8 +356,8 @@ automation:
     action:
       service: light.turn_off
       entity_id:
-        - light.backyard_wall_lights
-        - light.backyard_garden_lights
+        - light.backyard_wall_light
+        - light.backyard_garden_light
 
   - id: 0f21c88f-c82e-459d-81c5-c5cf170e6279
     alias: '[Light] Turn on backyard lights when motion'
@@ -375,8 +375,8 @@ automation:
     action:
       service: light.turn_on
       entity_id:
-        - light.backyard_wall_lights
-        - light.backyard_garden_lights
+        - light.backyard_wall_light
+        - light.backyard_garden_light
 
   - id: 5199be8b-2458-44b0-bd98-6bda33cd96f0
     alias: '[Light] Turn off backyard lights when no motion'
@@ -395,8 +395,8 @@ automation:
     action:
       service: light.turn_off
       entity_id:
-        - light.backyard_wall_lights
-        - light.backyard_garden_lights
+        - light.backyard_wall_light
+        - light.backyard_garden_light
 
   - id: 9c912ebd-f7a5-46f5-9215-187dda6e2630
     alias: '[Light] Turn off Lucas Room Lights'
@@ -516,8 +516,8 @@ automation:
           - light.entryway_wall_light
           - light.kitchen_light
           - light.living_room_dining_table_light
-          - light.living_room_wall_lights
-          - light.living_room_spot_lights
+          - light.living_room_wall_light
+          - light.living_room_spot_light
           - light.living_room_led_strips
           - light.living_room_painting_light
           - light.living_room_tv_light
@@ -535,7 +535,7 @@ automation:
     action:
       service: light.turn_off
       entity_id:
-        - light.all_lights
+        - light.all_light
       
   - id: fbc332c2-bd1c-488e-9dcd-ed542487196e
     alias: '[Light] Turn off all lights in the morning during weekend'
@@ -550,5 +550,5 @@ automation:
     action:
       service: light.turn_off
       entity_id:
-        - light.all_lights
+        - light.all_light
     

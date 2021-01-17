@@ -18,13 +18,13 @@
     light.living_room_dining_table_light:
       state: "on"
       brightness: 76
-    light.living_room_wall_lights:
+    light.living_room_wall_light:
       state: "on"
       brightness: 85
-    light.living_room_spot_lights:
+    light.living_room_spot_light:
       state: "on"
       brightness: 23
-    light.office_spot_lights:
+    light.office_spot_light:
       state: "off"
     # light.christmas_tree:
     #   state: "on"
@@ -58,7 +58,7 @@
   name: Work time
   icon: mdi:laptop
   entities:
-    light.office_spot_lights:
+    light.office_spot_light:
       state: "on"
       brightness: 38
     light.hood_light:
@@ -88,13 +88,13 @@
     light.living_room_dining_table_light:
       state: "on"
       brightness: 89
-    light.living_room_wall_lights:
+    light.living_room_wall_light:
       state: "on"
       brightness: 102
-    light.living_room_spot_lights:
+    light.living_room_spot_light:
       state: "on"
       brightness: 26
-    light.office_spot_lights:
+    light.office_spot_light:
       state: "on"
       brightness: 26
     light.living_room_led_strips:
@@ -126,16 +126,16 @@
     light.living_room_dining_table_light:
       state: "on"
       brightness: 51
-    light.living_room_wall_lights:
+    light.living_room_wall_light:
       state: "on"
       brightness: 115
-    light.living_room_spot_lights:
+    light.living_room_spot_light:
       state: "on"
       brightness: 26
     light.living_room_led_strips:
       state: "on"
       brightness: 153
-    light.office_spot_lights:
+    light.office_spot_light:
       state: "on"
       brightness: 13
     light.office_led_strip:
@@ -162,11 +162,11 @@
       state: "on"
     light.living_room_dining_table_light:
       state: "off"
-    light.living_room_wall_lights:
+    light.living_room_wall_light:
       state: "off"
-    light.living_room_spot_lights:
+    light.living_room_spot_light:
       state: "off"
-    light.office_spot_lights:
+    light.office_spot_light:
       state: "off"
     light.office_desk_light:
       state: "off"
@@ -174,7 +174,7 @@
       state: "off"
     light.office_led_strip:
       state: "off"
-    light.backyard_garden_lights:
+    light.backyard_garden_light:
       state: "off"
     light.living_room_tv_light:
       state: "off"
@@ -240,13 +240,13 @@
     light.living_room_dining_table_light:
       state: "on"
       brightness: 255
-    light.living_room_wall_lights:
+    light.living_room_wall_light:
       state: "on"
       brightness: 255
-    light.living_room_spot_lights:
+    light.living_room_spot_light:
       state: "on"
       brightness: 255
-    light.office_spot_lights:
+    light.office_spot_light:
       state: "on"
       brightness: 255
     light.hallway_light:
@@ -257,5 +257,5 @@
       state: "on"
     light.lucas_room_floor_light:
       state: "on"
-    light.backyard_wall_lights:
+    light.backyard_wall_light:
       state: "on"
