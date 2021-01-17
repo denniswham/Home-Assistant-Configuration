@@ -18,11 +18,11 @@ cards:
           - entity: switch.living_room_amplifier
             icon: mdi:power-socket-eu
             name: Amplifier Power Socket
-          - type: custom:mini-media-player
+          - type: media-control
             entity: media_player.living_room_fire_tv_stick
             icon: mdi:amazon-alexa
             name: FireTV Stick
-          # - type: custom:mini-media-player
+          # - type: media-control
           #   entity: media_player.living_room_xbox_one
           #   icon: mdi:microsoft-xbox
           #   name: Xbox One
@@ -32,7 +32,7 @@ cards:
         title: Master Bedroom
         show_header_toggle: false
         entities:
-          - type: custom:mini-media-player
+          - type: media-control
             entity: media_player.master_bedroom_fire_tv_stick
             icon: mdi:amazon-alexa
             name: FireTV Stick
@@ -40,7 +40,7 @@ cards:
         title: Timo's Room
         show_header_toggle: false
         entities:
-          - type: custom:mini-media-player
+          - type: media-control
             entity: media_player.timo_s_room_fire_tv_stick
             icon: mdi:amazon-alexa
             name: FireTV Stick
@@ -51,7 +51,7 @@ cards:
         title: Lucas' Room
         show_header_toggle: false
         entities:
-          - type: custom:mini-media-player
+          - type: media-control
             entity: media_player.apple_tv
             icon: mdi:apple
             name: Apple TV
@@ -59,7 +59,7 @@ cards:
         title: Misc
         show_header_toggle: false
         entities:
-          - type: custom:mini-media-player
+          - type: media-control
             entity: media_player.spotify_115579534
             name: Spotify
             icon: mdi:spotify
