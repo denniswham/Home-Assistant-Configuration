@@ -1,5 +1,5 @@
-decluttering_templates:
-  !include lovelace/decluttering_templates/decluttering_templates.yaml
+# decluttering_templates:
+#   !include lovelace/decluttering_templates/decluttering_templates.yaml
 
 title: Les Jambons
 background: var(--background)
