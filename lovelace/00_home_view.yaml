@@ -29,7 +29,7 @@ cards:
               - binary_sensor.shellydw2_d8Bfc01a7385_door
               - binary_sensor.shellydw2_d8Bfc01a7385_vibration
               - binary_sensor.shellydw2_d8bfc01a913a_door
-              - binary_sensor.shellydw2_d8Bfc01a7385_vibration
+              - binary_sensor.shellydw2_d8bfc01a913a_vibration
               # - type: divider
               # - binary_sensor.shellydw2_d8Bfc01a7385_door eerste verdieping
               # - binary_sensor.shellydw2_d8bfc01a913a_door eerste verdieping
