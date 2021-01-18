@@ -446,6 +446,18 @@ automation:
       - service: light.turn_off
         entity_id: light.entryway_light
 
+  - id: 34d845d7-1db0-4718-b82a-94b31ec6e8f0
+    alias: '[Light] Turn off all lights when away'
+    trigger:
+      - platform: state
+        entity_id: group.household
+        from: 'home'
+        to: 'not_home'
+    mode: single
+    action:
+      - service: light.turn_off
+        entity_id: light.all_lights
+
   - id: 2531a04c-9c4b-4911-b251-e2204d25511e
     alias: '[Light] Turn off light when night'
     trigger:
@@ -535,7 +547,7 @@ automation:
     action:
       service: light.turn_off
       entity_id:
-        - light.all_light
+        - light.all_lights
       
   - id: fbc332c2-bd1c-488e-9dcd-ed542487196e
     alias: '[Light] Turn off all lights in the morning during weekend'
@@ -550,5 +562,5 @@ automation:
     action:
       service: light.turn_off
       entity_id:
-        - light.all_light
+        - light.all_lights
     
