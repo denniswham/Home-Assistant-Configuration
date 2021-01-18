@@ -50,7 +50,7 @@ cards:
           - entity: switch.hood_power
             name: Hood
             icon: 'mdi:air-filter'
-          - entity: binary_sensor.kitchen_sensor_flood
+          - entity: binary_sensor.kitchen_flood_sensor_flood
             name: Flood Sensor
           - type: section
             label: Office
@@ -148,7 +148,7 @@ cards:
           - entity: switch.attic_tumble_dryer
             icon: 'mdi:power-socket-eu'
             name: Tumble Dryer Power Socket
-          - entity: binary_sensor.attic_washing_machine_sensor_flood
+          - entity: binary_sensor.laundry_room_flood_sensor_flood
             name: Flood Sensor
   - type: vertical-stack
     cards:

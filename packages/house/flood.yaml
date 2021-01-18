@@ -2,23 +2,23 @@ binary_sensor:
   # True if there's updates available for any HACS components, Addons or the Host
   - platform: threshold
     name: Kitchen Sensor Battery
-    entity_id: sensor.kitchen_sensor_battery
+    entity_id: sensor.kitchen_flood_sensor_battery
     lower: 10
   - platform: threshold
     name: Attic Washing Machine Sensor Battery
-    entity_id: sensor.attic_washing_machine_sensor_battery
+    entity_id: sensor.laundry_room_flood_sensor_battery
     lower: 10
 
 alert:
   # Kitchen Sensor Battery is low - un-acknowledgeable, auto-dismiss, me only
   kitchen_sensor_battery_low:
     name: Kitchen Sensor Battery Low
-    entity_id: sensor.kitchen_sensor_battery
+    entity_id: sensor.kitchen_flood_sensor_battery
     state: 'on'
     can_acknowledge: false
     repeat: 360
     title: 'Kitchen Sensor Battery low'
-    message: "Kitchen Sensor Battery is at {{ states('sensor.kitchen_sensor_battery') }}%. Replace it soon"
+    message: "Kitchen Sensor Battery is at {{ states('sensor.kitchen_flood_sensor_battery') }}%. Replace it soon"
     notifiers:
     - mobile_app_sm_g986b
     data:
@@ -27,12 +27,12 @@ alert:
   # Attic Washing Machine Sensor Battery is low - un-acknowledgeable, auto-dismiss, me only
   attic_washing_machine_sensor_battery_low:
     name: Attic Washing Machine Sensor Battery Low
-    entity_id: binary_sensor.attic_washing_machine_sensor_battery
+    entity_id: sensor.laundry_room_flood_sensor_battery
     state: 'on'
     can_acknowledge: false
     repeat: 360
     title: 'Washing Machine Sensor Battery low'
-    message: "Washing Machine Sensor Battery is at {{ states('binary_sensor.attic_washing_machine_sensor_battery') }}%. Replace it soon"
+    message: "Washing Machine Sensor Battery is at {{ states('sensor.laundry_room_flood_sensor_battery') }}%. Replace it soon"
     notifiers:
     - mobile_app_sm_g986b
     data:
@@ -44,8 +44,8 @@ automation:
     trigger:
       - platform: state
         entity_id:
-          - binary_sensor.kitchen_sensor_flood
-          - binary_sensor.attic_washing_machine_sensor_flood
+          - binary_sensor.kitchen_flood_sensor_flood
+          - binary_sensor.laundry_room_flood_sensor_flood
         to: 'on'
     mode: single
     action:
@@ -56,18 +56,18 @@ automation:
           target:
             - group.alexa
           message: >
-            {% if trigger.entity_id ==  "binary_sensor.kitchen_sensor_flood" %}
+            {% if trigger.entity_id ==  "binary_sensor.kitchen_flood_sensor_flood" %}
               Water leakage under the kitchen sink, check ASAP! I repeat: Water leakage under the kitchen sink, check ASAP! I repeat:
-            {% elif trigger.entity_id ==  "binary_sensor.attic_washing_machine_sensor_flood" %}
+            {% elif trigger.entity_id ==  "binary_sensor.laundry_room_flood_sensor_flood" %}
               Water leakage near the washing machine, check ASAP! I repeat: Water leakage near the washing machine, check ASAP!
             {% endif %}          
       - service: notify.android_devices
         data:
           title: "ALERT: Flood"
           message: >
-            {% if trigger.entity_id ==  "binary_sensor.kitchen_sensor_flood" %}
+            {% if trigger.entity_id ==  "binary_sensor.kitchen_flood_sensor_flood" %}
               Water leakage under the kitchen sink, check ASAP! 
-            {% elif trigger.entity_id ==  "binary_sensor.attic_washing_machine_sensor_flood" %}
+            {% elif trigger.entity_id ==  "binary_sensor.laundry_room_flood_sensor_flood" %}
               Water leakage near the washing machine, check ASAP!
             {% endif %}          
           data:
@@ -78,9 +78,9 @@ automation:
         data:
           title: "ALERT: Flood"
           message: >
-            {% if trigger.entity_id ==  "binary_sensor.kitchen_sensor_flood" %}
+            {% if trigger.entity_id ==  "binary_sensor.kitchen_flood_sensor_flood" %}
               Water leakage under the kitchen sink, check ASAP! 
-            {% elif trigger.entity_id ==  "binary_sensor.attic_washing_machine_sensor_flood" %}
+            {% elif trigger.entity_id ==  "binary_sensor.laundry_room_flood_sensor_flood" %}
               Water leakage near the washing machine, check ASAP!
             {% endif %}          
           data:
