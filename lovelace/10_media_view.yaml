@@ -18,25 +18,25 @@ cards:
           - entity: switch.living_room_amplifier
             icon: mdi:power-socket-eu
             name: Amplifier Power Socket
-          - type: media-control
-            entity: media_player.living_room_fire_tv_stick
-          # - type: media-control
-          #   entity: media_player.living_room_xbox_one
+      - type: media-control
+        entity: media_player.living_room_fire_tv_stick
+    # - type: media-control
+    #   entity: media_player.living_room_xbox_one
   - type: vertical-stack
     cards:
       - type: entities
         title: Master Bedroom
         show_header_toggle: false
         entities:
-          - type: media-control
-            entity: media_player.master_bedroom_fire_tv_stick
+      - type: media-control
+        entity: media_player.master_bedroom_fire_tv_stick
 
       - type: entities
         title: Timo's Room
         show_header_toggle: false
         entities:
-          - type: media-control
-            entity: media_player.timo_s_room_fire_tv_stick
+      - type: media-control
+        entity: media_player.timo_s_room_fire_tv_stick
     
   - type: vertical-stack
     cards:
@@ -44,12 +44,12 @@ cards:
         title: Lucas' Room
         show_header_toggle: false
         entities:
-          - type: media-control
-            entity: media_player.apple_tv
+      - type: media-control
+        entity: media_player.apple_tv
 
       - type: entities
         title: Misc
         show_header_toggle: false
         entities:
-          - type: media-control
-            entity: media_player.spotify_115579534
+      - type: media-control
+        entity: media_player.spotify_115579534
