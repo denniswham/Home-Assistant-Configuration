@@ -192,7 +192,7 @@ automation:
     trigger:
       - platform: state
         entity_id:
-          - binary_sensor.shellydw2_d8Bfc01a7385_door
+          - binary_sensor.shellydw2_d8bfc01a7385_door
           - binary_sensor.shellydw2_d8bfc01a913a_door
           - binary_sensor.entryway
           - binary_sensor.kitchen
@@ -262,7 +262,7 @@ automation:
     trigger:
       - platform: state
         entity_id:
-          - binary_sensor.shellydw2_d8Bfc01a7385_door
+          - binary_sensor.shellydw2_d8bfc01a7385_door
           - binary_sensor.shellydw2_d8bfc01a913a_door
           - binary_sensor.entryway
           - binary_sensor.kitchen

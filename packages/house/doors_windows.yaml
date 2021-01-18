@@ -43,7 +43,7 @@ automation:
     alias: '[Door] Front door 10 min open alert'
     trigger:
       - platform: state
-        entity_id: binary_sensor.shellydw2_d8Bfc01a7385_door
+        entity_id: binary_sensor.shellydw2_d8bfc01a7385_door
         to: 'on'
         for: '00:10:00'
     mode: single
@@ -117,7 +117,7 @@ automation:
     condition:
       - condition: state
         entity_id:
-          - binary_sensor.shellydw2_d8Bfc01a7385_door
+          - binary_sensor.shellydw2_d8bfc01a7385_door
           - binary_sensor.shellydw2_d8bfc01a913a_door
         state: 'on'
     action:     
