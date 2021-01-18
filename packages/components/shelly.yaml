@@ -2,238 +2,33 @@ group:
   shelly_firmware_update:
     name: Shelly Firmware Update
     entities:
-      - binary_sensor.shelly_1pm_68c63afade2c_firmware_update
-      - binary_sensor.shelly_1pm_68c63afae605_firmware_update
-      - binary_sensor.shelly_1pm_68c63afaeb38_firmware_update
-      - binary_sensor.shelly_1pm_b98825_firmware_update
-      - binary_sensor.shelly_1pm_f27a0a_firmware_update
-      - binary_sensor.shelly_1pm_f2f9bf_firmware_update
-      - binary_sensor.shelly_2_5_10521cf990e5_firmware_update
-      - binary_sensor.shelly_2_5_40f52023217d_firmware_update
-      - binary_sensor.shelly_2_5_483fda75531a_firmware_update
-      - binary_sensor.shelly_2_5_c4c695_firmware_update
-      - binary_sensor.shelly_2_5_c4c708_firmware_update
-      - binary_sensor.shelly_2_5_c4c964_firmware_update
-      - binary_sensor.shelly_2_5_483fda75623d_firmware_update
-      - binary_sensor.shelly_dimmer_2_40f520001a5a_firmware_update
-      - binary_sensor.shelly_dimmer_2_40f520007c76_firmware_update
-      - binary_sensor.shelly_dimmer_2_40f520010813_firmware_update
-      - binary_sensor.shelly_dimmer_2_40f520016e65_firmware_update
-      - binary_sensor.shelly_dimmer_d0f0af_firmware_update
-      - binary_sensor.shelly_dimmer_d17712_firmware_update
-      - binary_sensor.shelly_dimmer_d17b0e_firmware_update
-      - binary_sensor.shelly_dimmer_d47c54_firmware_update
-      - binary_sensor.shelly_dimmer_d48409_firmware_update
-      - binary_sensor.shelly_door_window_2_d8bfc01a7385_firmware_update
-      - binary_sensor.shelly_door_window_2_d8bfc01a913a_firmware_update
-      - binary_sensor.shelly_duo_d160e1_firmware_update
-      - binary_sensor.shelly_duo_d16142_firmware_update
-      - binary_sensor.shelly_duo_d16fa5_firmware_update
-      - binary_sensor.shelly_flood_f2a91e_firmware_update
-      - binary_sensor.shelly_flood_f2ae51_firmware_update
-      - binary_sensor.shelly_plug_s_8013cd_firmware_update
-      - binary_sensor.shelly_plug_s_8016cb_firmware_update
-      - binary_sensor.shelly_plug_s_f8d1ea_firmware_update
-      - binary_sensor.shelly_plug_s_f8d1fa_firmware_update
+      - binary_sensor.living_room_amplifier_firmware_update
+      - binary_sensor.kitchen_light_firmware_update
+      - binary_sensor.attic_light_firmware_update
+      - binary_sensor.living_room_led_strips_firmware_update
+      - binary_sensor.backyard_awning_firmware_update
+      - binary_sensor.living_room_wall_light_firmware_update
+      - binary_sensor.living_room_dining_table_light_firmware_update
+      - binary_sensor.office_led_strip_firmware_update
+      - binary_sensor.bathroom_light_firmware_update
+      - binary_sensor.office_desk_light_firmware_update
+      - binary_sensor.attic_washing_machine_firmware_update
+      - binary_sensor.attic_tumble_dryer_firmware_update
+      - binary_sensor.hallway_light_firmware_update
+      - binary_sensor.entryway_wall_light_firmware_update
+      - binary_sensor.master_bedroom_roller_shutter_firmware_update
+      - binary_sensor.living_room_spot_light_firmware_update
+      - binary_sensor.emilie_s_room_light_firmware_update
+      - binary_sensor.office_spot_light_firmware_update
+      - binary_sensor.timo_s_room_light_firmware_update
+      - binary_sensor.backyard_garden_light_firmware_update
+      - binary_sensor.living_room_tv_and_painting_li_firmware_update
+      - binary_sensor.office_painting_light_firmware_update
+      - binary_sensor.master_bedroom_light_firmware_update
+      - binary_sensor.lucas_room_roller_shutter_firmware_update
+      - binary_sensor.lucas_room_floor_light_firmware_update
+      - binary_sensor.lucas_room_light_firmware_update
+      - binary_sensor.backyard_wall_light_firmware_update
+      - binary_sensor.guestroom_light_firmware_update
+      - binary_sensor.entryway_light_firmware_update
       
-      
-
-script:
-  shelly_update_firmware:
-    alias: '[Shelly] Update Firmware'
-    sequence: 
-      - service: mqtt.publish
-        data:
-          topic: shellies/command
-          payload: update_fw
-      - delay:
-          minutes: 5        
-      - service: automation.trigger
-        entity_id: automation.shellies_announce
-
-automation:
-  - id: 263db818-00d1-4691-8847-b0bd2d491fbb
-    alias: '[Shelly] Shellies Announce'
-    trigger:
-      - platform: homeassistant
-        event: start
-    mode: single
-    action:
-      service: mqtt.publish
-      data:
-        topic: shellies/command
-        payload: announce
-
-  - id: 9d090e06-286a-437d-9e76-810f938782f0
-    alias: '[Shelly] Shellies Discovery'
-    mode: queued
-    max: 999
-    trigger:
-      platform: mqtt
-      topic: shellies/announce
-    action:
-      service: python_script.shellies_discovery
-      data_template:
-        id: '{{ trigger.payload_json.id }}'
-        mac: '{{ trigger.payload_json.mac }}'
-        fw_ver: '{{ trigger.payload_json.fw_ver }}'
-        model: '{{ trigger.payload_json.model }}'
-        discovery_prefix: 'homeassistant'
-        qos: 0
-        # shellyplug-s-8013CD:
-        #   relay-0: "switch"
-        #   relay-0-name: "Living Room Amplifier"
-        #   force_update_sensors: true
-        # shellyplug-s-8016CB:
-        #   relay-0: "light"
-        #   relay-0-name: "Office Desk Light"
-        #   force_update_sensors: true
-        # # shellyplug-s-8016CB:
-        # #   relay-0: "light"
-        # #   relay-0-name: "Christmas Tree"
-        # #   force_update_sensors: true
-        # shellyplug-s-F8D1EA:
-        #   relay-0: "switch"
-        #   relay-0-name: "Attic Washing Machine"
-        #   force_update_sensors: true
-        # shellyplug-s-F8D1FA:
-        #   relay-0: "switch"
-        #   relay-0-name: "Attic Tumble Dryer"
-        #   force_update_sensors: true
-        # shellyswitch25-c4c964:
-        #   mode: "roller"
-        #   roller-0-name: "Master Bedroom Roller Shutter"
-        #   force_update_sensors: true
-        # shellyswitch25-c4c695:
-        #   mode: "roller"
-        #   roller-0-name: "Lucas Room Roller Shutter"
-        #   force_update_sensors: true
-        # shellyswitch25-c4c708:
-        #   mode: "roller"
-        #   roller-0-name: "Backyard Awning"
-        #   force_update_sensors: true
-        # shellydimmer-d17b0e:
-        #   light-0-name: "Kitchen Light"
-        #   force_update_sensors: true
-        # shellydimmer-D48409:
-        #   light-0-name: "Living Room Wall Lights"
-        #   force_update_sensors: true
-        # shellydimmer2-40F520016E65:
-        #   light-0-name: "Living Room Dining Table Light"
-        #   force_update_sensors: true
-        # shellydimmer-D17712:
-        #   light-0-name: "Living Room Spot Lights"
-        #   force_update_sensors: true
-        # shellydimmer-D0F0AF:
-        #   light-0-name: "Living Room Led Strips"
-        #   force_update_sensors: true
-        # shellydimmer-d47c54:
-        #   light-0-name: "Office Spot Lights"
-        #   force_update_sensors: true
-        # shelly1pm-F2F9BF:
-        #   relay-0: "light"
-        #   relay-0-name: "Hallway Light"
-        #   push_off_delay: false
-        #   force_update_sensors: true
-        # shelly1pm-B98825:
-        #   relay-0: "light"
-        #   relay-0-name: "Timo Room Light"
-        #   push_off_delay: false
-        #   force_update_sensors: true
-        # shelly1pm-F27A0A:
-        #   relay-0: "light"
-        #   relay-0-name: "Backyard Wall Lights"
-        #   push_off_delay: false
-        #   force_update_sensors: true
-        # shellyswitch25-40F52023217D:
-        #   mode: "relay"
-        #   relay-0: light
-        #   relay-1: light
-        #   relay-0-name: "Master Bedroom Wall Lights"
-        #   relay-1-name: "Master Bedroom Wardrobe Lights"
-        #   push_off_delay: false
-        #   force_update_sensors: true
-        # shellyswitch25-483FDA75623D:
-        #   mode: "relay"
-        #   relay-0: light
-        #   relay-1: light
-        #   relay-0-name: "Guestroom Light"
-        #   # relay-1-name: ""
-        #   push_off_delay: false
-        #   force_update_sensors: true
-        # shellydimmer2-40F520001A5A:
-        #   light-0-name: "Entryway Wall Light"
-        #   force_update_sensors: true
-        # shelly1pm-68C63AFAE605:
-        #   relay-0: "light"
-        #   relay-0-name: "Entryway Light"
-        #   push_off_delay: false
-        #   force_update_sensors: true
-        # shellydimmer2-40F520010813:
-        #   light-0-name: "Office LED Strip"
-        #   force_update_sensors: true
-        # shelly1pm-68C63AFADE2C:
-        #   relay-0: "light"
-        #   relay-0-name: "Backyard Garden Lights"
-        #   push_off_delay: false
-        #   force_update_sensors: true
-        # shellydimmer2-40F520007C76:
-        #   light-0-name: "Bathroom Light"
-        #   force_update_sensors: true
-        # shellyswitch25-10521CF990E5:
-        #   mode: "relay"
-        #   relay-0: light
-        #   relay-1: light
-        #   relay-0-name: "Lucas Room Light"
-        #   relay-1-name: "Lucas Room Wall Light"
-        #   push_off_delay: false
-        #   force_update_sensors: true
-        # shellyswitch25-483FDA75531A:
-        #   mode: "relay"
-        #   relay-0: light
-        #   relay-1: light
-        #   relay-0-name: "Living Room TV Light"
-        #   relay-1-name: "Living Room Painting Light"
-        #   push_off_delay: false
-        #   force_update_sensors: true
-        # shelly1pm-68C63AFAEB38:
-        #   relay-0: "light"
-        #   relay-0-name: "Office Painting Light"
-        #   push_off_delay: false
-        #   force_update_sensors: true
-        # shellyBulbDuo-D16FA5:
-        #   light-0-name: "Emilie Room Light"
-        #   force_update_sensors: true
-        # shellyBulbDuo-D160E1:
-        #   light-0-name: "Lucas Room Floor Light"
-        #   force_update_sensors: true          
-        # shellyBulbDuo-D16142:
-        #   light-0-name: "Attic Light"
-        #   force_update_sensors: true
-        # shellydw2-D8BFC01A913A:
-        #   force_update_sensors: true
-        #   sleep_mode.period: 12
-        # shellydw2-D8BFC01A7385:
-        #   force_update_sensors: true
-        #   sleep_mode.period: 12
-        # shellyflood-F2A91E:
-        #   force_update_sensors: true
-        #   sleep_mode.period: 12
-        # shellyflood-F2AE51:
-        #   force_update_sensors: true
-        #   sleep_mode.period: 12
-
-  - id: 1b3ab5c1-6f54-463c-9c45-827786deb834
-    alias: '[Notification] Shelly Firmware updates'
-    trigger:
-      - platform: state
-        entity_id: group.shelly_firmware_update
-        to: 'on'
-    action:
-        - service: persistent_notification.create
-          data:
-            message: "Updates available for Shelly Firmware"
-            title: "Shelly Firmware"
-            notification_id: shelly
-
-                
