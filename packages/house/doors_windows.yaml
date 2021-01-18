@@ -2,23 +2,23 @@ binary_sensor:
   # True if there's updates available for any HACS components, Addons or the Host
   - platform: threshold
     name: Front Door Battery
-    entity_id: sensor.shelly_door_window_2_d8bfc01a7385_battery
+    entity_id: sensor.shellydw2_d8bfc01a7385_battery
     lower: 10
   - platform: threshold
     name: Garage Door Battery
-    entity_id: sensor.shelly_door_window_2_d8bfc01a913a_battery
+    entity_id: sensor.shellydw2_d8bfc01a913a_battery
     lower: 10
 
 alert:
   # Front Door Battery is low - un-acknowledgeable, auto-dismiss, me only
   front_door_battery_low:
     name: Front Door Sensor Battery Low
-    entity_id: sensor.shelly_door_window_2_d8bfc01a7385_battery
+    entity_id: sensor.shellydw2_d8bfc01a7385_battery
     state: 'on'
     can_acknowledge: false
     repeat: 360
     title: 'Front Door Sensor Battery low'
-    message: "Front Door Sensor Battery is at {{ states('sensor.shelly_door_window_2_d8bfc01a7385_battery') }}%. Replace it soon"
+    message: "Front Door Sensor Battery is at {{ states('sensor.shellydw2_d8bfc01a7385_battery') }}%. Replace it soon"
     notifiers:
     - mobile_app_sm_g986b
     data:
@@ -32,7 +32,7 @@ alert:
     can_acknowledge: false
     repeat: 360
     title: 'Garage Door Sensor Battery low'
-    message: "Garage Door Sensor Battery is at {{ states('sensor.shelly_door_window_2_d8bfc01a913a_battery') }}%. Replace it soon"
+    message: "Garage Door Sensor Battery is at {{ states('sensor.shellydw2_d8bfc01a913a_battery') }}%. Replace it soon"
     notifiers:
     - mobile_app_sm_g986b
     data:
@@ -43,7 +43,7 @@ automation:
     alias: '[Door] Front door 10 min open alert'
     trigger:
       - platform: state
-        entity_id: binary_sensor.front_door_sensor_opening
+        entity_id: binary_sensor.shellydw2_d8Bfc01a7385_door
         to: 'on'
         for: '00:10:00'
     mode: single
@@ -69,7 +69,7 @@ automation:
     alias: '[Door] Garage door 10 min open alert'
     trigger:
       - platform: state
-        entity_id: binary_sensor.garage_door_sensor_opening
+        entity_id: binary_sensor.shellydw2_d8bfc01a913a_door
         to: 'on'
         for: '00:10:00'
     mode: single
@@ -95,7 +95,7 @@ automation:
     alias: '[Door] Garage door open alert'
     trigger:
       - platform: state
-        entity_id: binary_sensor.garage_door_sensor_opening
+        entity_id: binary_sensor.shellydw2_d8bfc01a913a_door
         to: 'on'
     mode: single
     action:
@@ -117,8 +117,8 @@ automation:
     condition:
       - condition: state
         entity_id:
-          - binary_sensor.front_door_sensor_opening
-          - binary_sensor.garage_door_sensor_opening
+          - binary_sensor.shellydw2_d8Bfc01a7385_door
+          - binary_sensor.shellydw2_d8bfc01a913a_door
         state: 'on'
     action:     
       - service: notify.android_devices

@@ -26,11 +26,13 @@ cards:
             group_config:
               secondary_info: last-changed
             items:
-              - binary_sensor.front_door_sensor_opening
-              - binary_sensor.garage_door_sensor_opening
+              - binary_sensor.shellydw2_d8Bfc01a7385_door
+              - binary_sensor.shellydw2_d8Bfc01a7385_vibration
+              - binary_sensor.shellydw2_d8bfc01a913a_door
+              - binary_sensor.shellydw2_d8Bfc01a7385_vibration
               # - type: divider
-              # - binary_sensor.front_door_sensor_opening eerste verdieping
-              # - binary_sensor.garage_door_sensor_opening eerste verdieping
+              # - binary_sensor.shellydw2_d8Bfc01a7385_door eerste verdieping
+              # - binary_sensor.shellydw2_d8bfc01a913a_door eerste verdieping
           - type: custom:fold-entity-row
             head:
               type: section
