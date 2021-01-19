@@ -547,7 +547,18 @@ automation:
     action:
       service: light.turn_off
       entity_id:
-        - light.all_lights
+        - light.living_room
+        - light.attic_light
+        - light.entryway_light
+        - light.entryway_wall_light
+        - light.hallway_light
+        - light.hood_light
+        - light.kitchen_light
+        - light.master_bedroom_wall_light
+        - light.master_bedroom_wardrobe_light
+        - light.office_led_strip
+        - light.office_spot_light
+        - light.guestroom_light
       
   - id: fbc332c2-bd1c-488e-9dcd-ed542487196e
     alias: '[Light] Turn off all lights in the morning during weekend'
