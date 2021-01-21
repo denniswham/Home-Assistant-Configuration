@@ -51,7 +51,7 @@ cards:
               secondary_info: last-changed
             items:
               - switch.siren
-              - switch.backyard_siren
+              - switch.backyard_camera_siren
       - type: entities
         title: Modes
         show_header_toggle: false

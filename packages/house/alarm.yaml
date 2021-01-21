@@ -30,7 +30,7 @@ script:
       - service: switch.turn_off
         entity_id: switch.siren
       - service: switch.turn_off
-        entity_id: switch.backyard_siren
+        entity_id: switch.backyard_camera_siren
 
 automation:
   - id: 3c28420d-2670-4215-bd93-7b2ca445fbb4
@@ -81,13 +81,13 @@ automation:
                 entity_id: switch.siren
                 state: 'on'
               - condition: state
-                entity_id: switch.backyard_siren
+                entity_id: switch.backyard_camera_siren
                 state: 'on'
     action:
       - service: switch.turn_off
         entity_id: switch.siren
       - service: switch.turn_off
-        entity_id: switch.backyard_siren
+        entity_id: switch.backyard_camera_siren
 
   - id: 2d57cc0c-7317-486f-a2f2-b755c59ac660
     alias: '[Alarm] Disarm Konnected at night'
@@ -227,7 +227,7 @@ automation:
       - service: switch.turn_on
         entity_id: switch.siren
       - service: switch.turn_on
-        entity_id: switch.backyard_siren
+        entity_id: switch.backyard_camera_siren
       - service: scene.turn_on
         entity_id: scene.emergency
       - service: notify.alexa_media

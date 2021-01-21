@@ -1,6 +1,6 @@
 homeassistant:
   customize:
-    switch.backyard_siren:
+    switch.backyard_camera_siren:
       friendly_name: Backyard Siren
       icon: mdi:alarm-bell
     switch.living_room_do_not_disturb_switch:
