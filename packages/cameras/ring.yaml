@@ -1,9 +1,9 @@
 homeassistant:
   customize:
-    camera.front_door:
-      friendly_name: Front Door
-    camera.backyard:
-      friendly_name: Backyard
+    camera.doorbell:
+      friendly_name: Doorbell Camera
+    camera.backyard_camera_camera:
+      friendly_name: Backyard Camera
 
 automation:
   - id: 6afbd950-7db2-44df-8eb4-d6c46d57f7af
@@ -12,13 +12,13 @@ automation:
     trigger:
       - platform: numeric_state
         entity_id:
-          - sensor.front_door_battery
-          - sensor.backyard_battery
+          - sensor.doorbell_battery
+          - sensor.backyard_camera_battery
         below: 15
       - platform: numeric_state
         entity_id:
-          - sensor.front_door_battery
-          - sensor.backyard_battery
+          - sensor.doorbell_battery
+          - sensor.backyard_camera_battery
         below: 10
     mode: single
     action:
@@ -32,7 +32,7 @@ automation:
     initial_state: 'off'
     trigger:
       - platform: state
-        entity_id: binary_sensor.front_door_ding
+        entity_id: binary_sensor.doorbell_ding
         from: 'off'
         to: 'on'
     mode: single
@@ -41,7 +41,7 @@ automation:
         entity_id: cover.backyard_awning
         state: open
       - condition: template
-        value_template: "{{  (as_timestamp(now()) - as_timestamp(states.binary_sensor.backyard_motion.last_changed)) < 1800  }}"
+        value_template: "{{  (as_timestamp(now()) - as_timestamp(states.binary_sensor.backyard_camera_motion.last_changed)) < 1800  }}"
     action:
       - service: media_player.play_media
         data:

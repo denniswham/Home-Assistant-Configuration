@@ -363,7 +363,7 @@ automation:
     alias: '[Light] Turn on backyard lights when motion'
     trigger:
       - platform: state
-        entity_id: binary_sensor.backyard_motion
+        entity_id: binary_sensor.backyard_camera_motion
         to: 'on'
     mode: single
     condition:
@@ -382,7 +382,7 @@ automation:
     alias: '[Light] Turn off backyard lights when no motion'
     trigger:
       - platform: state
-        entity_id: binary_sensor.backyard_motion
+        entity_id: binary_sensor.backyard_camera_motion
         to: 'off'
         for: "00:10:00"
     mode: single
@@ -430,7 +430,7 @@ automation:
     alias: '[Light] Turn on entryway light when front door ding'
     trigger:
       - platform: state
-        entity_id: binary_sensor.front_door_ding
+        entity_id: binary_sensor.doorbell_ding
         from: 'off'
         to: 'on'
     mode: single

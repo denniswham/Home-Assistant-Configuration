@@ -26,8 +26,8 @@ cards:
             group_config:
               secondary_info: last-changed
             items:
-              - binary_sensor.shellydw2_d8bfc01a7385_door
-              - binary_sensor.shellydw2_d8bfc01a913a_door
+              - binary_sensor.front_door_door
+              - binary_sensor.garage_door_door
           - type: custom:fold-entity-row
             head:
               type: section
@@ -41,8 +41,8 @@ cards:
               - binary_sensor.office
               - binary_sensor.garage
               - type: divider
-              - binary_sensor.front_door_motion
-              - binary_sensor.backyard_motion
+              - binary_sensor.doorbell_motion
+              - binary_sensor.backyard_camera_motion
           - type: custom:fold-entity-row
             head:
               type: section
@@ -89,12 +89,12 @@ cards:
       - type: horizontal-stack
         cards:
           - type: picture-entity
-            entity: camera.front_door
+            entity: camera.doorbell_camera
             camera_view: live
             show_state: false
             show_name: true
           - type: picture-entity
-            entity: camera.backyard
+            entity: camera.backyard_camera
             camera_view: live
             show_state: false
             show_name: true

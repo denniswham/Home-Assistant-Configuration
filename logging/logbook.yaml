@@ -23,8 +23,8 @@ include:
   - binary_sensor.shelly_2_5_c4c964_overtemperature
   - binary_sensor.timos_room_light_overtemperature
   - binary_sensor.washing_machine
-  - binary_sensor.shellydw2_d8bfc01a7385_door
-  - binary_sensor.shellydw2_d8bfc01a913a_door
+  - binary_sensor.front_door_door
+  - binary_sensor.garage_door_door
   - binary_sensor.laundry_room_flood_sensor_flood
   - binary_sensor.kitchen_flood_sensor_flood
   - group.household

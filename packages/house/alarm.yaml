@@ -192,14 +192,14 @@ automation:
     trigger:
       - platform: state
         entity_id:
-          - binary_sensor.shellydw2_d8bfc01a7385_door
-          - binary_sensor.shellydw2_d8bfc01a913a_door
+          - binary_sensor.front_door_door
+          - binary_sensor.garage_door_door
           - binary_sensor.entryway
           - binary_sensor.kitchen
           - binary_sensor.living_room
           - binary_sensor.office
           - binary_sensor.garage
-          - binary_sensor.backyard_motion
+          - binary_sensor.backyard_camera_motion
         to: 'on'
     mode: single
     condition:
@@ -262,8 +262,8 @@ automation:
     trigger:
       - platform: state
         entity_id:
-          - binary_sensor.shellydw2_d8bfc01a7385_door
-          - binary_sensor.shellydw2_d8bfc01a913a_door
+          - binary_sensor.front_door_door
+          - binary_sensor.garage_door_door
           - binary_sensor.entryway
           - binary_sensor.kitchen
           - binary_sensor.living_room
@@ -295,7 +295,7 @@ automation:
     initial_state: 'true'
     trigger:
       - platform: state
-        entity_id: binary_sensor.backyard_motion
+        entity_id: binary_sensor.backyard_camera_motion
         to: 'on'
     mode: single
     condition:

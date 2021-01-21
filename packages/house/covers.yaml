@@ -336,7 +336,7 @@ automation:
     initial_state: 'true'
     trigger:
       - platform: state
-        entity_id: binary_sensor.backyard_motion
+        entity_id: binary_sensor.backyard_camera_motion
         from: "on"
         to: "off"
         for: "00:30:00"
