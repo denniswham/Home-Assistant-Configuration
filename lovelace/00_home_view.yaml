@@ -89,7 +89,7 @@ cards:
       - type: horizontal-stack
         cards:
           - type: picture-entity
-            entity: camera.doorbell_camera
+            entity: camera.doorbell
             camera_view: live
             show_state: false
             show_name: true

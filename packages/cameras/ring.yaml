@@ -2,7 +2,7 @@ homeassistant:
   customize:
     camera.doorbell:
       friendly_name: Doorbell Camera
-    camera.backyard_camera_camera:
+    camera.backyard_camera:
       friendly_name: Backyard Camera
 
 automation:
