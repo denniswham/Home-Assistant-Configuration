@@ -111,6 +111,9 @@ automation:
         entity_id: group.household
         state: 'home'
       - condition: state
+        entity_id: person.lucas
+        state: 'not_home'
+      - condition: state
         entity_id: binary_sensor.workday_sensor
         state: 'on'
     action:
