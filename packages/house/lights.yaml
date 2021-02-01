@@ -31,7 +31,7 @@ light:
       - light.first_floor_lights
       - light.attic_lights
 
-  - platform: group id
+  - platform: group
     name: Ground Floor Lights
     entities:
       - light.entryway_lights
@@ -69,7 +69,7 @@ light:
       - light.entryway_light
       - light.entryway_wall_light
 
-  - platform: group id
+  - platform: group
     name: First Floor Lights
     entities:
       - light.bathroom_light
@@ -84,7 +84,7 @@ light:
       - light.master_bedroom_wardrobe_light
       - light.master_bedroom_wall_light
   
-  - platform: group id
+  - platform: group
     name: Attic Lights
     entities:
       - light.lucas_room_lights
