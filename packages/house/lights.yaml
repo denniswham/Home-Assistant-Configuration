@@ -19,7 +19,28 @@ homeassistant:
 
 light:
   - platform: group
-    name: Living Room
+    name: All Lights
+    entities:
+      - light.inside_lights
+      - light.outside_lights
+
+  - platform: group
+    name: Inside Lights
+    entities:
+      - light.ground_floor_lights
+      - light.first_floor_lights
+      - light.attic_lights
+
+  - platform: group id
+    name: Ground Floor Lights
+    entities:
+      - light.entryway_lights
+      - light.kitchen_lights
+      - light.living_room_lights
+      - light.office_lights
+
+  - platform: group
+    name: Living Room Lights
     entities:
       - light.living_room_dining_table_light
       - light.living_room_led_strips
@@ -27,41 +48,60 @@ light:
       - light.living_room_spot_light
       - light.living_room_tv_light
       - light.living_room_wall_light
+
   - platform: group
-    name: Master Bedroom
+    name: Office Lights
     entities:
-      - light.master_bedroom_wardrobe_light
-      - light.master_bedroom_wall_light
-  - platform: group
-    name: Lucas Room
-    entities:
-      - light.lucas_room_light
-      - light.lucas_room_wall_light
-      - light.lucas_room_floor_light
-  - platform: group
-    name: All Lights
-    entities:
-      - light.living_room
-      - light.backyard_garden_light
-      - light.backyard_wall_light
-      - light.bathroom_light
-      - light.emilie_room_light
-      - light.entryway_light
-      - light.entryway_wall_light
-      - light.hallway_light
-      - light.hood_light
-      - light.kitchen_light
-      - light.lucas_room_floor_light
-      - light.lucas_room_light
-      - light.lucas_room_wall_light
-      - light.master_bedroom_wall_light
-      - light.master_bedroom_wardrobe_light
       - light.office_led_strip
       - light.office_painting_light
       - light.office_spot_light
       - light.office_desk_light
+
+  - platform: group
+    name: Kitchen Lights
+    entities:
+      - light.hood_light
+      - light.kitchen_light
+
+  - platform: group
+    name: Entryway Lights
+    entities:
+      - light.entryway_light
+      - light.entryway_wall_light
+
+  - platform: group id
+    name: First Floor Lights
+    entities:
+      - light.bathroom_light
+      - light.hallway_light
+      - light.master_bedroom_lights
       - light.timo_room_light
       - light.guestroom_light
+
+  - platform: group
+    name: Master Bedroom Lights
+    entities:
+      - light.master_bedroom_wardrobe_light
+      - light.master_bedroom_wall_light
+  
+  - platform: group id
+    name: Attic Lights
+    entities:
+      - light.lucas_room_lights
+      - light.emilie_room_light
+  
+  - platform: group
+    name: Lucas Room Lights
+    entities:
+      - light.lucas_room_light
+      - light.lucas_room_wall_light
+      - light.lucas_room_floor_light
+  
+  - platform: group
+    name: Outside Lights
+    entities:
+      - light.backyard_garden_light
+      - light.backyard_wall_light
 
 script:
   blink_light:
@@ -480,7 +520,7 @@ automation:
     mode: single
     action:
       - service: light.turn_off
-        entity_id: light.all_lights
+        entity_id: light.inside_lights
 
   - id: 2531a04c-9c4b-4911-b251-e2204d25511e
     alias: '[Light] Turn off light when night'
