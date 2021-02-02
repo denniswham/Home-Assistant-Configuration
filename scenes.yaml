@@ -64,7 +64,7 @@
     light.hood_light:
       state: "off"
     light.office_led_strip:
-      state: "on"
+      state: "off"
       brightness: 153
     # light.christmas_tree:
     #   state: "on"
