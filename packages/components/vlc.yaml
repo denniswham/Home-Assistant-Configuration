@@ -1,0 +1,4 @@
+media_player:
+  - platform: vlc_telnet
+    host: !secret vlc_telnet_ip
+    password: !secret vlc_telnet_password
