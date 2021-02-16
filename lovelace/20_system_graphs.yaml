@@ -20,24 +20,11 @@ cards:
             icon: mdi:cloud-upload-outline
       - type: horizontal-stack
         cards:
-          - type: custom:mini-graph-card
-            show:
-              icon: false
-              graph: "bar"
+          - type: gauge
             name: CPU Use
             entities:
               - sensor.processor_use
-            line_color: "#389638"
-            color_thresholds:
-              - value: 50
-                color: green
-              - value: 70
-                color: orange
-              - value: 80
-                color: red
-          - type: custom:mini-graph-card
-            show:
-              icon: false
+          - type: gauge
             name: CPU Temp
             entities:
               - sensor.cpu_temperature
@@ -45,29 +32,14 @@ cards:
             line_color: "#389638"
       - type: horizontal-stack
         cards:
-          - type: custom:mini-graph-card
-            show:
-              icon: false
-              graph: "bar"
+          - type: gauge
             name: RAM Free
             entities:
               - sensor.memory_free
-            line_color: "#389638"
-            color_thresholds:
-              - value: 50
-                color: green
-              - value: 70
-                color: orange
-              - value: 80
-                color: red
-          - type: custom:mini-graph-card
-            show:
-              icon: false
+          - type: gauge
             name: RAM Use
             entities:
               - sensor.memory_use_percent
-            font_size: 50
-            line_color: "#389638"
   - type: vertical-stack
     cards:
       - type: entities
@@ -83,7 +55,7 @@ cards:
 
       - type: horizontal-stack
         cards:
-          - type: custom:mini-graph-card
+          - type: history-graph
             show:
               icon: false
             name: DNS Queries
@@ -91,7 +63,7 @@ cards:
               - sensor.adguard_dns_queries
             font_size: 50
             line_color: "#389638"
-          - type: custom:mini-graph-card
+          - type: history-graph
             show:
               icon: false
             name: Blocked by Filters
@@ -101,7 +73,7 @@ cards:
             line_color: "#389638"
       - type: horizontal-stack
         cards:
-          - type: custom:mini-graph-card
+          - type: history-graph
             show:
               icon: false
             name: 'Blocked malware/phishing'
@@ -109,7 +81,7 @@ cards:
               - sensor.adguard_safe_browsing_blocked
             font_size: 50
             line_color: "#389638"
-          - type: custom:mini-graph-card
+          - type: history-graph
             show:
               icon: false
             name: Blocked adult websites
