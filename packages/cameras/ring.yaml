@@ -27,28 +27,6 @@ automation:
           message: "{{ trigger.to_state.name }} reported low battery, please charge."
           title: Ring Battery Low
 
-  - id: 18bb3b86-f2d8-47d9-908a-b6f1555a15e9
-    alias: '[Notification] Play doorbell chime on Echo'
-    initial_state: 'off'
-    trigger:
-      - platform: state
-        entity_id: binary_sensor.doorbell_ding
-        from: 'off'
-        to: 'on'
-    mode: single
-    condition:
-      - condition: state
-        entity_id: cover.backyard_awning
-        state: open
-      - condition: template
-        value_template: "{{  (as_timestamp(now()) - as_timestamp(states.binary_sensor.backyard_camera_motion.last_changed)) < 1800  }}"
-    action:
-      - service: media_player.play_media
-        data:
-          media_content_id: 'amzn_sfx_doorbell_chime_02'
-          media_content_type: sound  
-          entity_id: media_player.living_room
-
   - id: 2b0fc466-bcbd-4af1-b1fe-215c2ad2ccbd
     alias: '[Ring] Arm Home Ring Mode based on Konnected Alarm'
     trigger:
