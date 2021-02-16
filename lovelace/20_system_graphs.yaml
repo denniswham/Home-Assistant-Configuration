@@ -22,24 +22,34 @@ cards:
         cards:
           - type: gauge
             name: CPU Use
-            entities:
-              - sensor.processor_use
+            entity: sensor.processor_use
+            severity:
+              green: 0
+              yellow: 45
+              red: 85
           - type: gauge
             name: CPU Temp
-            entities:
-              - sensor.cpu_temperature
-            font_size: 50
-            line_color: "#389638"
+            entity: sensor.cpu_temperature
+            severity:
+              green: 0
+              yellow: 45
+              red: 85
       - type: horizontal-stack
         cards:
           - type: gauge
             name: RAM Free
-            entities:
-              - sensor.memory_free
+            entity: sensor.memory_free
+            severity:
+              green: 0
+              yellow: 45
+              red: 85
           - type: gauge
             name: RAM Use
-            entities:
-              - sensor.memory_use_percent
+            entity: sensor.memory_use_percent
+            severity:
+              green: 0
+              yellow: 45
+              red: 85
   - type: vertical-stack
     cards:
       - type: entities
@@ -56,40 +66,23 @@ cards:
       - type: horizontal-stack
         cards:
           - type: history-graph
-            show:
-              icon: false
-            name: DNS Queries
             entities:
-              - sensor.adguard_dns_queries
-            font_size: 50
-            line_color: "#389638"
+              - entity: sensor.adguard_dns_queries
+                name: DNS Queries
           - type: history-graph
-            show:
-              icon: false
-            name: Blocked by Filters
             entities:
-              - sensor.adguard_dns_queries_blocked_ratio
-            font_size: 50
-            line_color: "#389638"
+              - entity: sensor.adguard_dns_queries_blocked_ratio
+                name: Blocked by Filters
       - type: horizontal-stack
         cards:
           - type: history-graph
-            show:
-              icon: false
-            name: 'Blocked malware/phishing'
             entities:
-              - sensor.adguard_safe_browsing_blocked
-            font_size: 50
-            line_color: "#389638"
+              - entity: sensor.adguard_safe_browsing_blocked
+                name: 'Blocked malware/phishing'
           - type: history-graph
-            show:
-              icon: false
-            name: Blocked adult websites
             entities:
-              - sensor.adguard_parental_control_blocked
-            font_size: 50
-            line_color: "#389638"
-
+              - entity: sensor.adguard_parental_control_blocked
+                name: Blocked adult websites
       - type: entities
         title: General statistics
         show_header_toggle: false

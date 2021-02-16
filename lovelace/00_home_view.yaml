@@ -64,20 +64,19 @@ cards:
       - type: horizontal-stack
         cards:
           - type: history-graph
-            name: Living Room
             entities:
-              - sensor.living_room_temperature
+              - entity: sensor.living_room_temperature
+                name: Living Room
           - type: history-graph
-            name: Outdoor
             entities:
-              - sensor.br_temperature
+              - entity: sensor.br_temperature
+                name: Outdoor
       - type: history-graph
-        name: Home Humidity
         entities:
           - entity: sensor.living_room_humidity
-            name: Living Room
+            name: Living Room Humidity
           - entity: sensor.br_humidity
-            name: Outdoor
+            name: Outdoor Humidity
   - type: vertical-stack
     cards:
       - type: horizontal-stack
@@ -113,9 +112,9 @@ cards:
       - type: horizontal-stack
         cards:
           - type: history-graph
-            name: Wind Speed
             entities:
-              - sensor.br_wind_speed
+              - entity: sensor.br_wind_speed
+                name: Wind Speed
           - type: entities
             show_header_toggle: false
             entities:
