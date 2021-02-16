@@ -116,182 +116,182 @@ script:
         - delay:
             milliseconds: 500
 
-  light_turn_on_light:
-    alias: '[Light] Turn on light'
-    sequence:
-      - service: light.turn_on
-        data_template:
-          entity_id: >-
-            {# Use the name of each Echo to determine which room the command likely came from. #}
-            {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
+  # light_turn_on_light:
+  #   alias: '[Light] Turn on light'
+  #   sequence:
+  #     - service: light.turn_on
+  #       data_template:
+  #         entity_id: >-
+  #           {# Use the name of each Echo to determine which room the command likely came from. #}
+  #           {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
 
-            {%- if room == "living_room" -%}
-              light.living_room
-            {%- elif room == "master_bedroom" -%}
-              light.master_bedroom
-            {%- elif room == "lucas_room" -%}
-              light.lucas_room
-            {%- elif room == "timo_s_room" -%}
-              light.timo_room_light
-            {%- elif room == "emilie_s_room" -%}
-              light.emilie_room_light
-            {%- endif -%}
+  #           {%- if room == "living_room" -%}
+  #             light.living_room
+  #           {%- elif room == "master_bedroom" -%}
+  #             light.master_bedroom
+  #           {%- elif room == "lucas_room" -%}
+  #             light.lucas_room
+  #           {%- elif room == "timo_s_room" -%}
+  #             light.timo_room_light
+  #           {%- elif room == "emilie_s_room" -%}
+  #             light.emilie_room_light
+  #           {%- endif -%}
 
-  light_turn_off_light:
-    alias: '[Light] Turn off light'
-    sequence:
-      - service: light.turn_off
-        data_template:
-          entity_id: >-
-            {# Use the name of each Echo to determine which room the command likely came from. #}
-            {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
+  # light_turn_off_light:
+  #   alias: '[Light] Turn off light'
+  #   sequence:
+  #     - service: light.turn_off
+  #       data_template:
+  #         entity_id: >-
+  #           {# Use the name of each Echo to determine which room the command likely came from. #}
+  #           {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
 
-            {%- if room == "living_room" -%}
-              light.living_room
-            {%- elif room == "master_bedroom" -%}
-              light.master_bedroom
-            {%- elif room == "lucas_room" -%}
-              light.lucas_room
-            {%- elif room == "timo_s_room" -%}
-              light.timo_room_light
-            {%- elif room == "emilie_s_room" -%}
-              light.emilie_room_light
-            {%- endif -%}
+  #           {%- if room == "living_room" -%}
+  #             light.living_room
+  #           {%- elif room == "master_bedroom" -%}
+  #             light.master_bedroom
+  #           {%- elif room == "lucas_room" -%}
+  #             light.lucas_room
+  #           {%- elif room == "timo_s_room" -%}
+  #             light.timo_room_light
+  #           {%- elif room == "emilie_s_room" -%}
+  #             light.emilie_room_light
+  #           {%- endif -%}
 
-  light_turn_on_floor_light:
-    alias: '[Light] Turn on floor light'
-    sequence:
-      - service: light.turn_on
-        data_template:
-          entity_id: >-
-            {# Use the name of each Echo to determine which room the command likely came from. #}
-            {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
+  # light_turn_on_floor_light:
+  #   alias: '[Light] Turn on floor light'
+  #   sequence:
+  #     - service: light.turn_on
+  #       data_template:
+  #         entity_id: >-
+  #           {# Use the name of each Echo to determine which room the command likely came from. #}
+  #           {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
 
-            {%- if room == "lucas_room" -%}
-              light.lucas_room_floor_light
-            {%- endif -%}
+  #           {%- if room == "lucas_room" -%}
+  #             light.lucas_room_floor_light
+  #           {%- endif -%}
 
-  light_turn_off_floor_light:
-    alias: '[Light] Turn off floor light'
-    sequence:
-      - service: light.turn_off
-        data_template:
-          entity_id: >-
-            {# Use the name of each Echo to determine which room the command likely came from. #}
-            {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
+  # light_turn_off_floor_light:
+  #   alias: '[Light] Turn off floor light'
+  #   sequence:
+  #     - service: light.turn_off
+  #       data_template:
+  #         entity_id: >-
+  #           {# Use the name of each Echo to determine which room the command likely came from. #}
+  #           {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
 
-            {%- if room == "lucas_room" -%}
-              light.lucas_room_floor_light
-            {%- endif -%}
+  #           {%- if room == "lucas_room" -%}
+  #             light.lucas_room_floor_light
+  #           {%- endif -%}
 
-  light_turn_on_desk_lamp:
-    alias: '[Light] Turn on desk light'
-    sequence:
-      - service: light.turn_on
-        data_template:
-          entity_id: >-
-            {# Use the name of each Echo to determine which room the command likely came from. #}
-            {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
+  # light_turn_on_desk_lamp:
+  #   alias: '[Light] Turn on desk light'
+  #   sequence:
+  #     - service: light.turn_on
+  #       data_template:
+  #         entity_id: >-
+  #           {# Use the name of each Echo to determine which room the command likely came from. #}
+  #           {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
 
-            {%- if room == "living_room" -%}
-              light.office_desk_light
-            {%- endif -%}
+  #           {%- if room == "living_room" -%}
+  #             light.office_desk_light
+  #           {%- endif -%}
 
-  light_turn_off_desk_lamp:
-    alias: '[Light] Turn off desk light'
-    sequence:
-      - service: light.turn_off
-        data_template:
-          entity_id: >-
-            {# Use the name of each Echo to determine which room the command likely came from. #}
-            {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
+  # light_turn_off_desk_lamp:
+  #   alias: '[Light] Turn off desk light'
+  #   sequence:
+  #     - service: light.turn_off
+  #       data_template:
+  #         entity_id: >-
+  #           {# Use the name of each Echo to determine which room the command likely came from. #}
+  #           {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
 
-            {%- if room == "living_room" -%}
-            light.office_desk_light
-            {%- endif -%}
+  #           {%- if room == "living_room" -%}
+  #           light.office_desk_light
+  #           {%- endif -%}
           
 
-  light_turn_on_wall_light:
-    alias: '[Light] Turn on wall light'
-    sequence:
-      - service: light.turn_on
-        data_template:
-          entity_id: >-
-            {# Use the name of each Echo to determine which room the command likely came from. #}
-            {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
+  # light_turn_on_wall_light:
+  #   alias: '[Light] Turn on wall light'
+  #   sequence:
+  #     - service: light.turn_on
+  #       data_template:
+  #         entity_id: >-
+  #           {# Use the name of each Echo to determine which room the command likely came from. #}
+  #           {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
 
-            {%- if room == "master_bedroom" -%}
-              light.master_bedroom_wall_light
-            {%- endif -%}
+  #           {%- if room == "master_bedroom" -%}
+  #             light.master_bedroom_wall_light
+  #           {%- endif -%}
 
-  light_turn_off_wall_light:
-    alias: '[Light] Turn off wall light'
-    sequence:
-      - service: light.turn_off
-        data_template:
-          entity_id: >-
-            {# Use the name of each Echo to determine which room the command likely came from. #}
-            {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
+  # light_turn_off_wall_light:
+  #   alias: '[Light] Turn off wall light'
+  #   sequence:
+  #     - service: light.turn_off
+  #       data_template:
+  #         entity_id: >-
+  #           {# Use the name of each Echo to determine which room the command likely came from. #}
+  #           {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
 
-            {%- if room == "master_bedroom" -%}
-              light.master_bedroom_wall_light
-            {%- endif -%}
+  #           {%- if room == "master_bedroom" -%}
+  #             light.master_bedroom_wall_light
+  #           {%- endif -%}
 
-  light_turn_on_wardrobe_light:
-    alias: '[Light] Turn on wardrobe light'
-    sequence:
-      - service: light.turn_on
-        data_template:
-          entity_id: >-
-            {# Use the name of each Echo to determine which room the command likely came from. #}
-            {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
+  # light_turn_on_wardrobe_light:
+  #   alias: '[Light] Turn on wardrobe light'
+  #   sequence:
+  #     - service: light.turn_on
+  #       data_template:
+  #         entity_id: >-
+  #           {# Use the name of each Echo to determine which room the command likely came from. #}
+  #           {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
 
-            {%- if room == "master_bedroom" -%}
-              light.master_bedroom_wardrobe_light
-            {%- endif -%}
+  #           {%- if room == "master_bedroom" -%}
+  #             light.master_bedroom_wardrobe_light
+  #           {%- endif -%}
 
-  light_turn_off_wardrobe_light:
-    alias: '[Light] Turn off wardrobe light'
-    sequence:
-      - service: light.turn_off
-        data_template:
-          entity_id: >-
-            {# Use the name of each Echo to determine which room the command likely came from. #}
-            {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
+  # light_turn_off_wardrobe_light:
+  #   alias: '[Light] Turn off wardrobe light'
+  #   sequence:
+  #     - service: light.turn_off
+  #       data_template:
+  #         entity_id: >-
+  #           {# Use the name of each Echo to determine which room the command likely came from. #}
+  #           {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
 
-            {%- if room == "master_bedroom" -%}
-              light.master_bedroom_wardrobe_light
-            {%- endif -%}
+  #           {%- if room == "master_bedroom" -%}
+  #             light.master_bedroom_wardrobe_light
+  #           {%- endif -%}
 
-  light_dim_light:
-    alias: '[Light] Dim light'
-    sequence:
-      - service: python_script.dimmer
-        data_template:
-          entity_id: >-
-            {# Use the name of each Echo to determine which room the command likely came from. #}
-            {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
+  # light_dim_light:
+  #   alias: '[Light] Dim light'
+  #   sequence:
+  #     - service: python_script.dimmer
+  #       data_template:
+  #         entity_id: >-
+  #           {# Use the name of each Echo to determine which room the command likely came from. #}
+  #           {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
 
-            {%- if room == "emilie_s_room" -%}
-              light.emilie_room_light
-            {%- endif -%}
-          action: dim_down
-          level: 75
+  #           {%- if room == "emilie_s_room" -%}
+  #             light.emilie_room_light
+  #           {%- endif -%}
+  #         action: dim_down
+  #         level: 75
           
-  light_brighten_light:
-    alias: '[Light] Brighten light'
-    sequence:
-      - service: python_script.dimmer
-        data_template:
-          entity_id: >-
-            {# Use the name of each Echo to determine which room the command likely came from. #}
-            {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
+  # light_brighten_light:
+  #   alias: '[Light] Brighten light'
+  #   sequence:
+  #     - service: python_script.dimmer
+  #       data_template:
+  #         entity_id: >-
+  #           {# Use the name of each Echo to determine which room the command likely came from. #}
+  #           {%- set room = states("sensor.last_alexa")|replace('media_player.','') -%}
 
-            {%- if room == "emilie_s_room" -%}
-              light.emilie_room_light
-            {%- endif -%}
-          action: dim_up
-          level: 75
+  #           {%- if room == "emilie_s_room" -%}
+  #             light.emilie_room_light
+  #           {%- endif -%}
+  #         action: dim_up
+  #         level: 75
         
 
 automation:
