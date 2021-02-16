@@ -55,16 +55,16 @@ automation:
       - service: alarm_control_panel.alarm_arm_away
         entity_id:
           - alarm_control_panel.konnected_alarm
-      - service: notify.alexa_media
-        data:
-          data:
-            type: announce
-          target:
-          - group.alexa
-          message: I'll start guarding now
+      # - service: notify.alexa_media
+      #   data:
+      #     data:
+      #       type: announce
+      #     target:
+      #     - group.alexa
+      #     message: I'll start guarding now
 
   - id: f586bfa3-cec3-4881-8cbb-bb2ceb9aea62
-    alias: '[Alarm] Deactivate siren and Alexa Guard'
+    alias: '[Alarm] Deactivate siren'
     initial_state: 'true'
     trigger:
       - platform: state
@@ -230,13 +230,13 @@ automation:
         entity_id: switch.backyard_camera_siren
       - service: scene.turn_on
         entity_id: scene.emergency
-      - service: notify.alexa_media
-        data:
-          data:
-            type: announce
-          target:
-            - group.alexa
-          message: The alarm was activated
+      # - service: notify.alexa_media
+      #   data:
+      #     data:
+      #       type: announce
+      #     target:
+      #       - group.alexa
+      #     message: The alarm was activated
       - service: notify.android_devices
         data:
           title: "Alarm was activated"
@@ -282,13 +282,13 @@ automation:
     action:
       - service: alarm_control_panel.alarm_trigger
         entity_id: alarm_control_panel.konnected_alarm
-      - service: notify.alexa_media
-        data:
-          data:
-            type: announce
-          target:
-            - group.alexa
-          message: Motion detected, the alarm will activate shortly. Motion detected, the alarm will activate shortly.
+      # - service: notify.alexa_media
+      #   data:
+      #     data:
+      #       type: announce
+      #     target:
+      #       - group.alexa
+      #     message: Motion detected, the alarm will activate shortly. Motion detected, the alarm will activate shortly.
 
   - id: 2ae00756-b4a9-4068-acc8-c574a8a60fd4
     alias: '[Motion] Motion in backyard at night'
@@ -311,13 +311,13 @@ automation:
           after: '00:00:00'
           before: '07:00:00'
     action:
-      - service: notify.alexa_media
-        data:
-          data:
-            type: announce
-          target:
-            - group.alexa
-          message: "Motion in the backyard"
+      # - service: notify.alexa_media
+      #   data:
+      #     data:
+      #       type: announce
+      #     target:
+      #       - group.alexa
+      #     message: "Motion in the backyard"
       - service: notify.all_devices
         data:
           title: Ring

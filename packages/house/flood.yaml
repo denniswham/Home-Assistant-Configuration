@@ -1,5 +1,4 @@
 binary_sensor:
-  # True if there's updates available for any HACS components, Addons or the Host
   - platform: threshold
     name: Kitchen Flood Sensor Battery
     entity_id: sensor.kitchen_flood_sensor_battery
@@ -49,18 +48,18 @@ automation:
         to: 'on'
     mode: single
     action:
-      - service: notify.alexa_media
-        data:
-          data:
-            type: announce
-          target:
-            - group.alexa
-          message: >
-            {% if trigger.entity_id ==  "binary_sensor.kitchen_flood_sensor_flood" %}
-              Water leakage under the kitchen sink, check ASAP! I repeat: Water leakage under the kitchen sink, check ASAP! I repeat:
-            {% elif trigger.entity_id ==  "binary_sensor.laundry_room_flood_sensor_flood" %}
-              Water leakage near the washing machine, check ASAP! I repeat: Water leakage near the washing machine, check ASAP!
-            {% endif %}          
+      # - service: notify.alexa_media
+      #   data:
+      #     data:
+      #       type: announce
+      #     target:
+      #       - group.alexa
+      #     message: >
+      #       {% if trigger.entity_id ==  "binary_sensor.kitchen_flood_sensor_flood" %}
+      #         Water leakage under the kitchen sink, check ASAP! I repeat: Water leakage under the kitchen sink, check ASAP! I repeat:
+      #       {% elif trigger.entity_id ==  "binary_sensor.laundry_room_flood_sensor_flood" %}
+      #         Water leakage near the washing machine, check ASAP! I repeat: Water leakage near the washing machine, check ASAP!
+      #       {% endif %}          
       - service: notify.android_devices
         data:
           title: "ALERT: Flood"

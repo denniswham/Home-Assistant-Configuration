@@ -21,42 +21,42 @@ homeassistant:
       friendly_name: Ring Mode
   
 
-group:
-  alexa:
-    - media_player.dennis_s_alexa_app_on_surface_pro_4
-    - media_player.dennis_s_alexa_apps
-    - media_player.dennis_s_alexa_on_cortana
-    - media_player.emilie_s_room
-    - media_player.living_room
-    - media_player.lucas_room
-    - media_player.master_bedroom
-    - media_player.this_device
-    - media_player.timo_s_room
-    - media_player.living_room_fire_tv_stick
-    - media_player.master_bedroom_fire_tv_stick
+# group:
+#   alexa:
+#     - media_player.dennis_s_alexa_app_on_surface_pro_4
+#     - media_player.dennis_s_alexa_apps
+#     - media_player.dennis_s_alexa_on_cortana
+#     - media_player.emilie_s_room
+#     - media_player.living_room
+#     - media_player.lucas_room
+#     - media_player.master_bedroom
+#     - media_player.this_device
+#     - media_player.timo_s_room
+#     - media_player.living_room_fire_tv_stick
+#     - media_player.master_bedroom_fire_tv_stick
 
-sensor:
-  - platform: template
-    sensors:
-      last_alexa:
-        value_template: >
-          {{ expand(states.media_player.living_room,states.media_player.master_bedroom,states.media_player.lucas_room,states.media_player.timo_s_room,states.media_player.emilie_s_room,states.media_player.living_room_fire_tv_stick,states.media_player.master_bedroom_fire_tv_stick) | selectattr('attributes.last_called','eq',True) | map(attribute='entity_id') | first }}
+# sensor:
+#   - platform: template
+#     sensors:
+#       last_alexa:
+#         value_template: >
+#           {{ expand(states.media_player.living_room,states.media_player.master_bedroom,states.media_player.lucas_room,states.media_player.timo_s_room,states.media_player.emilie_s_room,states.media_player.living_room_fire_tv_stick,states.media_player.master_bedroom_fire_tv_stick) | selectattr('attributes.last_called','eq',True) | map(attribute='entity_id') | first }}
 
-automation:
-  - id: af200dcf-e575-481c-93b8-8356a0495aae
-    alias: Alexa Media Player Authentication Required
-    trigger:
-      platform: event
-      event_type: alexa_media_relogin_required
-    condition: []
-    action:
-    - service: notify.mobile_app
-      data:
-        title: Alexa Media Player Integration
-        message: 🔑 Authentication Required
-        data:
-          actions:
-          - action: URI
-            title: Resolve now!
-            uri: /lovelace/home
+# automation:
+#   - id: af200dcf-e575-481c-93b8-8356a0495aae
+#     alias: Alexa Media Player Authentication Required
+#     trigger:
+#       platform: event
+#       event_type: alexa_media_relogin_required
+#     condition: []
+#     action:
+#     - service: notify.mobile_app
+#       data:
+#         title: Alexa Media Player Integration
+#         message: 🔑 Authentication Required
+#         data:
+#           actions:
+#           - action: URI
+#             title: Resolve now!
+#             uri: /lovelace/home
 

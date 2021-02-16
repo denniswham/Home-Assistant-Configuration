@@ -64,10 +64,10 @@ sensor:
 
 binary_sensor:
   # True if there's updates available for any HACS components, Addons or the Host
-  - platform: threshold
-    name: Updater HACS
-    entity_id: sensor.hacs
-    upper: 0.5
+  # - platform: threshold
+  #   name: Updater HACS
+  #   entity_id: sensor.hacs
+  #   upper: 0.5
   - platform: threshold
     name: Updater Addons
     entity_id: sensor.supervisor_updates
@@ -197,19 +197,19 @@ alert:
       url: !secret hassio_dashboard_url
 
   # HACS repos have updates available - unacknowledgeable, auto-dismiss, me only
-  hacs_update_available:
-    name: HACS repos have updates
-    entity_id: binary_sensor.updater_hacs
-    state: 'on'
-    can_acknowledge: false
-    repeat: 360
-    title: "Updates available in {{ states('sensor.hacs') }} HACS repo{% if states('sensor.hacs') | int > 1 %}s{% endif %}"
-    message: ""
-    notifiers:
-      - mobile_app_sm_g986b
-    data:
-      tag: 'hacs-update-available'
-      url: !secret hacs_installed_url
+  # hacs_update_available:
+  #   name: HACS repos have updates
+  #   entity_id: binary_sensor.updater_hacs
+  #   state: 'on'
+  #   can_acknowledge: false
+  #   repeat: 360
+  #   title: "Updates available in {{ states('sensor.hacs') }} HACS repo{% if states('sensor.hacs') | int > 1 %}s{% endif %}"
+  #   message: ""
+  #   notifiers:
+  #     - mobile_app_sm_g986b
+  #   data:
+  #     tag: 'hacs-update-available'
+  #     url: !secret hacs_installed_url
 
   # Addons have updates available - unacknowledgeable, auto-dismiss, me only
   addon_update_available:

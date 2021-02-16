@@ -7,5 +7,5 @@ logs:
   homeassistant.components.konnected: error
   homeassistant.components.python_script: debug
   homeassistant.components.webhook: debug
-  custom_components.alexa_media: error
+  # custom_components.alexa_media: error
 
