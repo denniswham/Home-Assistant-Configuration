@@ -63,20 +63,21 @@ cards:
         entity: climate.living_room
       - type: horizontal-stack
         cards:
-          - type: history-graph
+          - type: custom:mini-graph-card
             entities:
               - entity: sensor.living_room_temperature
                 name: Living Room
-          - type: history-graph
+          - type: custom:mini-graph-card
             entities:
               - entity: sensor.br_temperature
                 name: Outdoor
-      - type: history-graph
+      - type: custom:mini-graph-card
         entities:
           - entity: sensor.living_room_humidity
-            name: Living Room Humidity
+            name: Living Room
           - entity: sensor.br_humidity
-            name: Outdoor Humidity
+            name: Outdoor
+        name: Humidity
   - type: vertical-stack
     cards:
       - type: horizontal-stack
@@ -111,10 +112,10 @@ cards:
         entity: weather.lopik_cabauw
       - type: horizontal-stack
         cards:
-          - type: history-graph
+          - type: custom:mini-graph-card
             entities:
               - entity: sensor.br_wind_speed
-                name: Wind Speed
+            name: Wind Speed
           - type: entities
             show_header_toggle: false
             entities:

@@ -102,6 +102,8 @@ cards:
           - entity: light.bathroom_light
             name: Ceiling
             type: custom:slider-entity-row
+            hide_when_off: 'true'
+            toggle: 'true'
           - type: section
             label: Hallway
           - entity: light.hallway_light
