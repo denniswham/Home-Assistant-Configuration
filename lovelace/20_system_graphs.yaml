@@ -27,22 +27,14 @@ cards:
               green: 0
               yellow: 45
               red: 85
-          - type: gauge
+          - type: custom:mini-graph-card
             name: CPU Temp
             entity: sensor.cpu_temperature
-            severity:
-              green: 0
-              yellow: 45
-              red: 85
       - type: horizontal-stack
         cards:
-          - type: gauge
+          - type: custom:mini-graph-card
             name: RAM Free
             entity: sensor.memory_free
-            severity:
-              green: 0
-              yellow: 45
-              red: 85
           - type: gauge
             name: RAM Use
             entity: sensor.memory_use_percent
@@ -65,24 +57,24 @@ cards:
 
       - type: horizontal-stack
         cards:
-          - type: history-graph
+          - type: custom:mini-graph-card
             entities:
               - entity: sensor.adguard_dns_queries
-                name: DNS Queries
-          - type: history-graph
+            name: DNS Queries
+          - type: custom:mini-graph-card
             entities:
               - entity: sensor.adguard_dns_queries_blocked_ratio
-                name: Blocked by Filters
+            name: Blocked by Filters
       - type: horizontal-stack
         cards:
-          - type: history-graph
+          - type: custom:mini-graph-card
             entities:
               - entity: sensor.adguard_safe_browsing_blocked
-                name: 'Blocked malware/phishing'
-          - type: history-graph
+            name: 'Blocked malware/phishing'
+          - type: custom:mini-graph-card
             entities:
               - entity: sensor.adguard_parental_control_blocked
-                name: Blocked adult websites
+            name: Blocked adult websites
       - type: entities
         title: General statistics
         show_header_toggle: false
