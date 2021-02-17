@@ -29,12 +29,14 @@ cards:
               red: 85
           - type: custom:mini-graph-card
             name: CPU Temp
-            entity: sensor.cpu_temperature
+            entities:
+              - entity: sensor.cpu_temperature
       - type: horizontal-stack
         cards:
           - type: custom:mini-graph-card
             name: RAM Free
-            entity: sensor.memory_free
+            entities:
+              - entity: sensor.memory_free
           - type: gauge
             name: RAM Use
             entity: sensor.memory_use_percent
