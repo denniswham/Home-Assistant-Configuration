@@ -338,26 +338,23 @@ automation:
       entity_id: light.entryway_light
 
   - id: c2aba127-2561-4bcc-9a05-4e6835e817c5
-    alias: '[Light] Turn off attic light after 10 minutes'
+    alias: '[Light] Turn off attic light after 2 minutes'
     trigger:
       - platform: state
         entity_id: light.attic_light
         to: 'on'
-        for: "00:10:00"
+        for: "00:02:00"
     mode: single
     action:
       service: light.turn_off
       entity_id: light.attic_light
             
   - id: 84c6904e-cc77-40ad-8202-52135a53ce17
-    alias: '[Light] Turn on attic if hallway light on'
+    alias: '[Light] Turn on attic light when motion'
     condition:
-      - condition: time
-        after: "06:30:00"
-        before: "20:00:00"
     trigger:
       - platform: state
-        entity_id: light.hallway_light
+        entity_id: binary_sensor.attic_motion_motion
         to: 'on'
     mode: single
     action:
