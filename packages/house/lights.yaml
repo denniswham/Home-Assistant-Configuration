@@ -335,8 +335,8 @@ automation:
     alias: '[Light] Turn off attic light after 2 minutes'
     trigger:
       - platform: state
-        entity_id: light.attic_light
-        to: 'on'
+        entity_id: binary_sensor.attic_motion_motion
+        to: 'off'
         for: "00:02:00"
     mode: single
     action:

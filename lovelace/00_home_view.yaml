@@ -35,15 +35,16 @@ cards:
             group_config:
               secondary_info: last-changed
             items:
-              - binary_sensor.entryway
-              - binary_sensor.kitchen
-              - binary_sensor.living_room
-              - binary_sensor.office
-              - binary_sensor.attic_motion_motion
-              - binary_sensor.garage
+              - entity: binary_sensor.entryway
+              - entity: binary_sensor.kitchen
+              - entity: binary_sensor.living_room
+              - entity: binary_sensor.office
+              - entity: binary_sensor.attic_motion_motion
+                name: Attic
+              - entity: binary_sensor.garage
               - type: divider
-              - binary_sensor.doorbell_motion
-              - binary_sensor.backyard_camera_motion
+              - entity: binary_sensor.doorbell_motion
+              - entity: binary_sensor.backyard_camera_motion
           - type: custom:fold-entity-row
             head:
               type: section

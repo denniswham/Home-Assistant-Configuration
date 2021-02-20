@@ -137,6 +137,8 @@ cards:
           - entity: light.attic_light
             name: Attic
             type: custom:slider-entity-row
+            hide_when_off: 'true'
+            toggle: 'true'
       - type: entities
         title: Laundry Room
         show_header_toggle: false
