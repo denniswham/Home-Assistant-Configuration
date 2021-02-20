@@ -39,7 +39,7 @@ cards:
               - binary_sensor.kitchen
               - binary_sensor.living_room
               - binary_sensor.office
-              - bbinary_sensor.attic_motion_motion
+              - binary_sensor.attic_motion_motion
               - binary_sensor.garage
               - type: divider
               - binary_sensor.doorbell_motion
