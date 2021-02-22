@@ -1,3 +1,24 @@
+binary_sensor:
+  - platform: threshold
+    name: Attic Motion Battery
+    entity_id: sensor.attic_motion_battery
+    lower: 10
+
+alert:
+  # Attic Motion Battery is low - un-acknowledgeable, auto-dismiss, me only
+  attic_motion_battery_low:
+    name: Attic Motion Sensor Battery Low
+    entity_id: sensor.attic_motion_battery
+    state: 'on'
+    can_acknowledge: false
+    repeat: 360
+    title: 'Attic Motion Sensor Battery low'
+    message: "Attic Motion Sensor Battery is at {{ states('sensor.attic_motion_battery') }}%. Charge it soon"
+    notifiers:
+    - mobile_app_sm_g986b
+    data:
+      tag: 'attic_motion_battery_low'
+
 sensor:
   - platform: history_stats
     name: Entryway Motion Trigger Count
