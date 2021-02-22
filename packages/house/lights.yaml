@@ -332,12 +332,12 @@ automation:
       entity_id: light.entryway_light
 
   - id: c2aba127-2561-4bcc-9a05-4e6835e817c5
-    alias: '[Light] Turn off attic light after 2 minutes'
+    alias: '[Light] Turn off attic light after 1 minutes'
     trigger:
       - platform: state
         entity_id: binary_sensor.attic_motion_motion
         to: 'off'
-        for: "00:02:00"
+        for: "00:01:00"
     mode: single
     action:
       service: light.turn_off
