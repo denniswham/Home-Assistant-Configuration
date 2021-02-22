@@ -337,7 +337,6 @@ automation:
       - platform: state
         entity_id: binary_sensor.attic_motion_motion
         to: 'off'
-        for: "00:01:00"
     mode: single
     action:
       service: light.turn_off
