@@ -158,8 +158,6 @@
   entities: 
     light.hallway_light:
       state: "on"
-    light.attic_light:
-      state: "on"
     light.living_room_dining_table_light:
       state: "off"
     light.living_room_wall_light:
@@ -253,6 +251,7 @@
       state: "on"
     light.attic_light:
       state: "on"
+      brightness: 255
     light.master_bedroom:
       state: "on"
     light.lucas_room_floor_light:
