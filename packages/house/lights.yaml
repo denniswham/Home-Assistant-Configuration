@@ -305,7 +305,7 @@ automation:
         value_template: '{{ state_attr("sun.sun", "elevation") < 0 }}'
     action:
       - service: scene.turn_on
-        entity_id: scene.dinner_time  
+        entity_id: scene.relax_time  
 
   - id: a985ba5a-1f99-4695-80dc-4a7b56215781
     alias: '[Light] Turn off hallway light after 10 minutes'
@@ -410,28 +410,6 @@ automation:
     action:
       - service: scene.turn_on
         entity_id: scene.work_time
-
-  - id: 6d9271c6-b009-4f8f-9ec8-5530604e5b81
-    alias: '[Light] Turn on office light when motion in the morning'
-    trigger:
-      - platform: state
-        entity_id: device_tracker.surface_book_2
-        to: home
-    condition:
-      - condition: numeric_state
-        entity_id: sun.sun
-        value_template: "{{ state_attr('sun.sun', 'elevation') }}"
-        below: 0.0
-      - condition: time
-        before: "12:00:00"
-      - condition: state
-        entity_id: binary_sensor.workday_sensor
-        state: 'on'
-    mode: single
-    action:
-      - service: scene.turn_on
-        entity_id: scene.work_time
-
 
   - id: 1802426d-6f61-4dde-ab2c-5cd3b5233243
     alias: '[Light] Turn off backyard lights at midnight'
