@@ -36,3 +36,25 @@ proximity:
       - person.timo
     tolerance: 100
     unit_of_measurement: km
+
+  emilie:
+    devices:
+      - person.emilie
+    tolerance: 100
+    unit_of_measurement: km
+
+automation:
+  - id: ff1938a6-6b46-4a1a-b830-26f8e6414d03
+    alias: '[Presence] Update location Iphone van Emilie every 10 minutes'
+    trigger:
+      - platform: time_pattern
+        minutes: "/10"
+    condition:
+      - condition: state
+        entity_id: person.emilie
+        state: not_home
+    action:
+      - service: notify.mobile_app_iphone_van_emilie
+        data:
+          message: "request_location_update"
+

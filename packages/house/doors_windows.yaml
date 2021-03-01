@@ -56,13 +56,13 @@ automation:
             entity_id: input_boolean.guest_mode
             state: 'on'
     action:
-      # - service: notify.alexa_media
-      #   data:
-      #     data:
-      #       type: announce
-      #     target:
-      #       - group.alexa
-      #     message: 'The front door is still open, please close it'
+      - service: notify.alexa_media
+        data:
+          data:
+            type: announce
+          target:
+            - group.alexa
+          message: 'The front door is still open, please close it'
 
   - id: 44b7412b-bfc1-4191-a555-08bc20ed36a1
     alias: '[Door] Garage door 10 min open alert'
@@ -82,13 +82,13 @@ automation:
             entity_id: input_boolean.guest_mode
             state: 'on'
     action:
-      # - service: notify.alexa_media
-      #   data:
-      #     data:
-      #       type: announce
-      #     target:
-      #       - group.alexa
-      #     message: 'The garage door is still open, please close it'
+      - service: notify.alexa_media
+        data:
+          data:
+            type: announce
+          target:
+            - group.alexa
+          message: 'The garage door is still open, please close it'
 
   - id: b10c980b-02a0-4446-8e11-635cd275b3b0
     alias: '[Door] Garage door open alert'
@@ -98,13 +98,13 @@ automation:
         to: 'on'
     mode: single
     action:
-      # - service: notify.alexa_media
-      #   data:
-      #     data:
-      #       type: announce
-      #     target:
-      #       - group.alexa
-      #     message: 'The garage door was just opened'
+      - service: notify.alexa_media
+        data:
+          data:
+            type: announce
+          target:
+            - group.alexa
+          message: 'The garage door was just opened'
 
   - id: be5daf0c-c5d5-4d86-a7b3-011b157b110e
     alias: '[Door] Door open when leaving home alert'

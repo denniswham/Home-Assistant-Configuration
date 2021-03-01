@@ -28,25 +28,25 @@
       state: "off"
     # light.christmas_tree:
     #   state: "on"
-    # media_player.living_room:
-    #   state: standby
-    #   volume_level: 1.0
-    # media_player.master_bedroom:
-    #   state: standby
-    #   volume_level: 0.7
-    # media_player.lucas_room:
-    #   state: standby
-    #   volume_level: 0.6
-    # media_player.timo_s_room:
-    #   state: standby
-    #   volume_level: 0.6
-    # media_player.emilie_s_room:
-    #   state: standby
-    #   volume_level: 0.6
-    # switch.master_bedroom_do_not_disturb_switch:
-    #   state: "off"
-    # switch.master_bedroom_fire_tv_stick_do_not_disturb_switch:
-    #   state: "off"  
+    media_player.living_room:
+      state: standby
+      volume_level: 1.0
+    media_player.master_bedroom:
+      state: standby
+      volume_level: 0.7
+    media_player.lucas_room:
+      state: standby
+      volume_level: 0.6
+    media_player.timo_s_room:
+      state: standby
+      volume_level: 0.6
+    media_player.emilie_s_room:
+      state: standby
+      volume_level: 0.6
+    switch.master_bedroom_do_not_disturb_switch:
+      state: "off"
+    switch.master_bedroom_fire_tv_stick_do_not_disturb_switch:
+      state: "off"  
     # switch.lucas_room_do_not_disturb_switch:
     #   state: "off"
     # switch.timo_s_room_do_not_disturb_switch:
@@ -190,25 +190,25 @@
       current_position: 10
     cover.backyard_awning:
       state: closed
-    # media_player.living_room:
-    #   state: standby
-    #   volume_level: 1.0
-    # media_player.master_bedroom:
-    #   state: standby
-    #   volume_level: 0.3
-    # media_player.lucas_room:
-    #   state: standby
-    #   volume_level: 0.4
-    # media_player.timo_s_room:
-    #   state: standby
-    #   volume_level: 0.4
-    # media_player.emilie_s_room:
-    #   state: standby
-    #   volume_level: 0.3
-    # switch.master_bedroom_do_not_disturb_switch:
-    #   state: "on"
-    # switch.master_bedroom_fire_tv_stick_do_not_disturb_switch:
-    #   state: "on"  
+    media_player.living_room:
+      state: standby
+      volume_level: 1.0
+    media_player.master_bedroom:
+      state: standby
+      volume_level: 0.3
+    media_player.lucas_room:
+      state: standby
+      volume_level: 0.4
+    media_player.timo_s_room:
+      state: standby
+      volume_level: 0.4
+    media_player.emilie_s_room:
+      state: standby
+      volume_level: 0.3
+    switch.master_bedroom_do_not_disturb_switch:
+      state: "on"
+    switch.master_bedroom_fire_tv_stick_do_not_disturb_switch:
+      state: "on"  
     # switch.lucas_room_do_not_disturb_switch:
     #   state: "on"
     # switch.timo_s_room_do_not_disturb_switch:
@@ -226,8 +226,8 @@
       state: armed_home
     cover.master_bedroom_roller_shutter:
       state: closed
-    # switch.master_bedroom_do_not_disturb_switch:
-    #   state: "on"
+    switch.master_bedroom_do_not_disturb_switch:
+      state: "on"
     # switch.master_bedroom_fire_tv_stick_do_not_disturb_switch:
     #   state: "on"  
 
