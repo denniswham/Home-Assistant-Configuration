@@ -28,6 +28,7 @@ cards:
               secondary_info: last-changed
             items:
               - binary_sensor.front_door_door
+              - binary_sensor.kitchen_window_door
               - binary_sensor.garage_door_door
           - type: custom:fold-entity-row
             head:
