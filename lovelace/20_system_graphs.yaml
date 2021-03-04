@@ -93,7 +93,48 @@ cards:
             name: Enforced safe search
           - entity: sensor.adguard_average_processing_speed
             name: Average processing time
-    
+  - type: vertical-stack
+    cards:
+      - type: entities
+        title: HP OfficeJet 6950
+        show_header_toggle: false
+        entities:
+          - entity: sensor.hp_officejet_6950
+            name: Status
+          - entity: sensor.hp_officejet_6950_uptime
+            name: Uptime
+      - type: horizontal-stack
+        cards:
+          - type: gauge
+            name: HP OfficeJet 6950 black ink
+            entity: sensor.hp_officejet_6950_black_ink
+            severity:
+              red: 0
+              yellow: 10
+              green: 25
+          - type: gauge
+            name: HP OfficeJet 6950 cyan ink
+            entity: sensor.hp_officejet_6950_cyan_ink
+            severity:
+              red: 0
+              yellow: 10
+              green: 25
+      - type: horizontal-stack
+        cards:
+          - type: gauge
+            name: HP OfficeJet 6950 magenta ink
+            entity: sensor.hp_officejet_6950_magenta_ink
+            severity:
+              red: 0
+              yellow: 10
+              green: 25
+          - type: gauge
+            name: HP OfficeJet 6950 yellow ink
+            entity: sensor.hp_officejet_6950_yellow_ink
+            severity:
+              red: 0
+              yellow: 10
+              green: 25
 
   - type: vertical-stack
     cards:
