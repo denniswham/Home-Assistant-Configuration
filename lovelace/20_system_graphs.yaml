@@ -106,14 +106,14 @@ cards:
       - type: horizontal-stack
         cards:
           - type: gauge
-            name: HP OfficeJet 6950 black ink
+            name: Black ink
             entity: sensor.hp_officejet_6950_black_ink
             severity:
               red: 0
               yellow: 10
               green: 25
           - type: gauge
-            name: HP OfficeJet 6950 cyan ink
+            name: Cyan ink
             entity: sensor.hp_officejet_6950_cyan_ink
             severity:
               red: 0
@@ -122,14 +122,14 @@ cards:
       - type: horizontal-stack
         cards:
           - type: gauge
-            name: HP OfficeJet 6950 magenta ink
+            name: Magenta ink
             entity: sensor.hp_officejet_6950_magenta_ink
             severity:
               red: 0
               yellow: 10
               green: 25
           - type: gauge
-            name: HP OfficeJet 6950 yellow ink
+            name: Yellow ink
             entity: sensor.hp_officejet_6950_yellow_ink
             severity:
               red: 0
@@ -154,6 +154,7 @@ cards:
             - entity_id: "*_management"
             - entity_id: "*.solaredge_*"
             - entity_id: "switch.hood_power"
+            - state: "= 0"
         sort:
           method: state
           numeric: 'true'
