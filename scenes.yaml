@@ -65,7 +65,7 @@
       state: "off"
     light.office_led_strip:
       state: "off"
-      brightness: 153
+      brightness: 255
     # light.christmas_tree:
     #   state: "on"
     light.office_painting_light:
@@ -99,7 +99,7 @@
       brightness: 26
     light.living_room_led_strips:
       state: "on"
-      brightness: 153
+      brightness: 255
     # light.christmas_tree:
     #   state: "on"      
     light.living_room_tv_light:
@@ -134,13 +134,13 @@
       brightness: 26
     light.living_room_led_strips:
       state: "on"
-      brightness: 153
+      brightness: 255
     light.office_spot_light:
       state: "on"
       brightness: 13
     light.office_led_strip:
       state: "on"
-      brightness: 153
+      brightness: 255
     light.living_room_tv_light:
       state: "off"
     light.living_room_painting_light:
