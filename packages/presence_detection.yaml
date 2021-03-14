@@ -1,9 +1,10 @@
 group:
   household:
-    - person.dennis
-    - person.stephanie
-    - person.lucas
-    - person.timo
+    entities:
+      - person.dennis
+      - person.stephanie
+      - person.lucas
+      - person.timo
 
 proximity:
   home:
