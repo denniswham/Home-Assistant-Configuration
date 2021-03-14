@@ -13,6 +13,7 @@ homeassistant:
 group:
   - door_window_sensor:
     name: Door Window Sensor
+    # when adding a door window sensor don't forget to update automation id 72a6ac29-9e75-4f47-a22b-407609b26ee9
     entities:
       - binary_sensor.front_door_door
       - binary_sensor.garage_door_door
