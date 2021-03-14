@@ -1,3 +1,14 @@
+group:
+  - motion_sensor:
+    name: Motion Sensor
+    entities:
+      - binary_sensor.entryway
+      - binary_sensor.kitchen
+      - binary_sensor.living_room
+      - binary_sensor.office
+      - binary_sensor.garage
+      - binary_sensor.attic_motion_motion
+
 binary_sensor:
   - platform: threshold
     name: Attic Motion Battery

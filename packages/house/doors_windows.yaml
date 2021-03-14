@@ -10,6 +10,14 @@ homeassistant:
       friendly_name: Garage Door
       device_class: door
 
+group:
+  - door_window_sensor:
+    name: Door Window Sensor
+    entities:
+      - binary_sensor.front_door_door
+      - binary_sensor.garage_door_door
+      - binary_sensor.kitchen_window_door
+
 binary_sensor:
   - platform: threshold
     name: Front Door Battery

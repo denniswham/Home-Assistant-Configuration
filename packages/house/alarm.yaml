@@ -280,15 +280,8 @@ automation:
     trigger:
       - platform: state
         entity_id:
-          - binary_sensor.front_door_door
-          - binary_sensor.garage_door_door
-          - binary_sensor.kitchen_window_door
-          - binary_sensor.entryway
-          - binary_sensor.kitchen
-          - binary_sensor.living_room
-          - binary_sensor.office
-          - binary_sensor.garage
-          - binary_sensor.attic_motion_motion
+          - group.motion_sensor
+          - group.door_window_sensor
         to: 'on'
     mode: single
     condition:
@@ -313,9 +306,7 @@ automation:
     trigger:
       - platform: state
         entity_id:
-          - binary_sensor.front_door_door
-          - binary_sensor.garage_door_door
-          - binary_sensor.kitchen_window_door
+          - group.door_window_sensor
         to: 'on'
     mode: single
     condition:
