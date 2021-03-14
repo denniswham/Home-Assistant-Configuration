@@ -331,31 +331,31 @@ automation:
       service: light.turn_off
       entity_id: light.entryway_light
 
-  - id: c2aba127-2561-4bcc-9a05-4e6835e817c5
-    alias: '[Light] Turn off attic light after 1 minutes'
-    trigger:
-      - platform: state
-        entity_id: binary_sensor.attic_motion_motion
-        to: 'off'
-    mode: single
-    action:
-      service: light.turn_off
-      entity_id: light.attic_light
+  # - id: c2aba127-2561-4bcc-9a05-4e6835e817c5
+  #   alias: '[Light] Turn off attic light after 1 minutes'
+  #   trigger:
+  #     - platform: state
+  #       entity_id: binary_sensor.attic_motion_motion
+  #       to: 'off'
+  #   mode: single
+  #   action:
+  #     service: light.turn_off
+  #     entity_id: light.attic_light
             
-  - id: 84c6904e-cc77-40ad-8202-52135a53ce17
-    alias: '[Light] Turn on attic light when motion'
-    condition:
-      # - condition: numeric_state
-      #   entity_id: sensor.attic_motion_luminosity
-      #   below: 101
-    trigger:
-      - platform: state
-        entity_id: binary_sensor.attic_motion_motion
-        to: 'on'
-    mode: single
-    action:
-      service: light.turn_on
-      entity_id: light.attic_light
+  # - id: 84c6904e-cc77-40ad-8202-52135a53ce17
+  #   alias: '[Light] Turn on attic light when motion'
+  #   condition:
+  #     # - condition: numeric_state
+  #     #   entity_id: sensor.attic_motion_luminosity
+  #     #   below: 101
+  #   trigger:
+  #     - platform: state
+  #       entity_id: binary_sensor.attic_motion_motion
+  #       to: 'on'
+  #   mode: single
+  #   action:
+  #     service: light.turn_on
+  #     entity_id: light.attic_light
   
   - id: d558b383-921e-4740-bafd-9a888b45fa9a
     alias: '[Light] Turn on backyard lights when dark outside'
