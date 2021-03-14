@@ -1,5 +1,5 @@
 group:
-  - motion_sensor:
+  motion_sensor:
     name: Motion Sensor
     # when adding a motion sensor don't forget to update automation id 72a6ac29-9e75-4f47-a22b-407609b26ee9
     entities:
