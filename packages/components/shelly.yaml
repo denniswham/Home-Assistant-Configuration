@@ -1,34 +1,38 @@
 group:
   shelly_firmware_update:
     name: Shelly Firmware Update
+    # Shell Motion, D/W2 and I3 have no firmware update entity
     entities:
-      - binary_sensor.living_room_amplifier_firmware_update
-      - binary_sensor.kitchen_light_firmware_update
       - binary_sensor.attic_light_firmware_update
-      - binary_sensor.living_room_led_strips_firmware_update
-      - binary_sensor.backyard_awning_firmware_update
-      - binary_sensor.living_room_wall_light_firmware_update
-      - binary_sensor.living_room_dining_table_light_firmware_update
-      - binary_sensor.office_led_strip_firmware_update
-      - binary_sensor.bathroom_light_firmware_update
-      - binary_sensor.office_desk_light_firmware_update
-      - binary_sensor.attic_washing_machine_firmware_update
       - binary_sensor.attic_tumble_dryer_firmware_update
-      - binary_sensor.hallway_light_firmware_update
-      - binary_sensor.entryway_wall_light_firmware_update
-      - binary_sensor.master_bedroom_roller_shutter_firmware_update
-      - binary_sensor.living_room_spot_light_firmware_update
-      - binary_sensor.emilie_s_room_light_firmware_update
-      - binary_sensor.office_spot_light_firmware_update
-      - binary_sensor.timo_s_room_light_firmware_update
+      - binary_sensor.attic_washing_machine_firmware_update
+      - binary_sensor.backyard_awning_firmware_update
       - binary_sensor.backyard_garden_light_firmware_update
+      - binary_sensor.backyard_wall_light_firmware_update
+      - binary_sensor.bathroom_light_firmware_update
+      - binary_sensor.emilie_s_room_light_firmware_update
+      - binary_sensor.emilies_room_switch_firmware_update
+      - binary_sensor.entryway_light_firmware_update
+      - binary_sensor.entryway_wall_light_firmware_update
+      - binary_sensor.guestroom_light_firmware_update
+      - binary_sensor.hallway_light_firmware_update
+      - binary_sensor.kitchen_light_firmware_update
+      - binary_sensor.living_room_amplifier_firmware_update
+      - binary_sensor.living_room_dining_table_light_firmware_update
+      - binary_sensor.living_room_led_strips_firmware_update
+      - binary_sensor.living_room_spot_light_firmware_update
       - binary_sensor.living_room_tv_and_painting_li_firmware_update
-      - binary_sensor.office_painting_light_firmware_update
-      - binary_sensor.master_bedroom_light_firmware_update
-      - binary_sensor.lucas_room_roller_shutter_firmware_update
+      - binary_sensor.living_room_wall_light_firmware_update
       - binary_sensor.lucas_room_floor_light_firmware_update
       - binary_sensor.lucas_room_light_firmware_update
-      - binary_sensor.backyard_wall_light_firmware_update
-      - binary_sensor.guestroom_light_firmware_update
-      - binary_sensor.entryway_light_firmware_update
+      - binary_sensor.lucas_room_roller_shutter_firmware_update
+      - binary_sensor.master_bedroom_light_firmware_update
+      - binary_sensor.master_bedroom_roller_shutter_firmware_update
+      - binary_sensor.office_desk_light_firmware_update
+      - binary_sensor.office_led_strip_firmware_update
+      - binary_sensor.office_painting_light_firmware_update
+      - binary_sensor.office_spot_light_firmware_update
+      - binary_sensor.timo_s_room_light_firmware_update
+
+
       
