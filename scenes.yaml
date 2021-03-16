@@ -158,6 +158,8 @@
   entities: 
     light.hallway_light:
       state: "on"
+    light.hood_light:
+      state: "off"
     light.living_room_dining_table_light:
       state: "off"
     light.living_room_wall_light:
