@@ -602,21 +602,15 @@ automation:
     action:
       - service: light.turn_off
         entity_id:
-          - light.entryway_light
-          - light.entryway_wall_light
-          - light.kitchen_light
-          - light.living_room_dining_table_light
-          - light.living_room_wall_light
-          - light.living_room_spot_light
-          - light.living_room_led_strips
-          - light.living_room_painting_light
-          - light.living_room_tv_light
-
+          - light.living_room_lights
+          - light.entryway_lights
+          - light.kitchen_lights
+          
   - id: 84b25eaf-94bc-4518-80f2-8fd462fa9fe1
     alias: '[Light] Turn off all lights in the morning during weekdays'
     trigger:
       - platform: time
-        at: "09:30:00"
+        at: "08:45:00"
     mode: single
     condition:
       - condition: state
@@ -625,15 +619,10 @@ automation:
     action:
       service: light.turn_off
       entity_id:
-        - light.living_room
-        - light.attic_light
-        - light.entryway_light
-        - light.entryway_wall_light
-        - light.hallway_light
-        - light.hood_light
-        - light.kitchen_light
+        - light.living_room_lights
+        - light.entryway_lights
+        - light.kitchen_lights
         - light.master_bedroom_wall_light
-        - light.master_bedroom_wardrobe_light
         - light.office_led_strip
         - light.office_spot_light
         - light.guestroom_light

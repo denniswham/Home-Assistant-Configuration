@@ -7,9 +7,9 @@
     climate.living_room:
       state: heat
       temperature: 20.5
-    light.entryway_wall_light:
-      state: "on"
-      brightness: 26
+    # light.entryway_wall_light:
+    #   state: "on"
+    #   brightness: 26
     light.hood_light:
       state: "on"
     light.kitchen_light:
@@ -18,14 +18,14 @@
     light.living_room_dining_table_light:
       state: "on"
       brightness: 76
-    light.living_room_wall_light:
-      state: "on"
-      brightness: 85
-    light.living_room_spot_light:
-      state: "on"
-      brightness: 23
-    light.office_spot_light:
-      state: "off"
+    # light.living_room_wall_light:
+    #   state: "on"
+    #   brightness: 85
+    # light.living_room_spot_light:
+    #   state: "on"
+    #   brightness: 23
+    # light.office_spot_light:
+    #   state: "off"
     # light.christmas_tree:
     #   state: "on"
     media_player.living_room:
