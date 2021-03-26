@@ -487,11 +487,11 @@ automation:
         entity_id: person.lucas
         state: not_home
       - condition: state
-        entity_id: light.lucas_room
+        entity_id: light.lucas_room_lights
         state: 'on'
     action:
       service: light.turn_off
-      entity_id: light.lucas_room
+      entity_id: light.lucas_room_lights
 
   - id: 1bf4148c-04d3-4ea0-9a68-b14d28fadfee
     alias: '[Light] Flash lights when echo alarm'
