@@ -3,7 +3,6 @@ logs:
   aiohttp.server: critical
   homeassistant.core: critical
   homeassistant.helpers.entity: critical
-  homeassistant.components.http.ban: warning
   homeassistant.components.python_script: warning
   homeassistant.components.switch.unifi: debug
 
