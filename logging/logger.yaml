@@ -1,11 +1,9 @@
-default: warning
+default: error
 logs:
-  homeassistant.components.device_tracker: error
-  homeassistant.components.http: error
-  homeassistant.components.apple_tv: error
-  homeassistant.components.waze_travel_time: error
-  homeassistant.components.konnected: error
-  homeassistant.components.python_script: debug
-  homeassistant.components.webhook: error
-  custom_components.alexa_media: error
+  aiohttp.server: critical
+  homeassistant.core: critical
+  homeassistant.helpers.entity: critical
+  homeassistant.components.http.ban: warning
+  homeassistant.components.python_script: warning
+  homeassistant.components.switch.unifi: debug
 
