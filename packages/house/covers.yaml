@@ -121,6 +121,33 @@ automation:
         data:
           entity_id: cover.lucas_room_roller_shutter
 
+  - id: 28db0c07-c36a-48cd-8d5c-ddda6b91f169
+    alias: '[Cover] Open Lucas Room roller shutter when he leaves'
+    trigger:
+      - platform: state
+        entity_id: person.lucas
+        from: home
+        to: not_home
+    mode: single
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: person.dennis
+        state: home
+      - condition: state
+        entity_id: person.stephanie
+        state: home
+      - condition: state
+        entity_id: person.timo
+        state: home
+      - condition: state
+        entity_id: person.emilie
+        state: home
+    action:
+      - service: cover.open_cover
+        data:
+          entity_id: cover.lucas_room_roller_shutter
+
   - id: 9168307a-6555-489d-b686-643216ff76e9
     alias: '[Cover] Open roller shutters in the morning during the weekends and holidays'
     initial_state: 'true'
