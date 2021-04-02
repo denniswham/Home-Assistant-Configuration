@@ -129,21 +129,21 @@ automation:
         to: 'not_home'
     mode: single
     condition:
-      condition: or
-      conditions:
-        - condition: "{{ state_attr('cover.lucas_room_roller_shutter', 'current_position') < 100 }}"
-        - condition: state
-          entity_id: person.dennis
-          state: 'home'
-        - condition: state
-          entity_id: person.stephanie
-          state: 'home'
-        - condition: state
-          entity_id: person.timo
-          state: 'home'
-        # - condition: state
-        #   entity_id: person.emilie
-        #   state: 'home'
+      - condition: or
+        conditions:
+          - condition: state
+            entity_id: person.dennis
+            state: 'home'
+          - condition: state
+            entity_id: person.stephanie
+            state: 'home'
+          - condition: state
+            entity_id: person.timo
+            state: 'home'
+          # - condition: state
+          #   entity_id: person.emilie
+          #   state: 'home'
+      - "{{ state_attr('cover.lucas_room_roller_shutter', 'current_position') < 100 }}"
     action:
       - service: cover.open_cover
         entity_id: cover.lucas_room_roller_shutter
