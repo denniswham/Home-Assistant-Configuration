@@ -1,10 +1,10 @@
 default: warning
-logs:
-  # aiohttp.server: critical
-  # homeassistant.core: critical
-  # homeassistant.helpers.entity: critical
-  # homeassistant.components.python_script: warning
-  # homeassistant.components.switch.unifi: debug
-  # aioshelly: debug
-  # homeassistant.components.shelly: debug
+# logs:
+#   aiohttp.server: critical
+#   homeassistant.core: critical
+#   homeassistant.helpers.entity: critical
+#   homeassistant.components.python_script: warning
+#   homeassistant.components.switch.unifi: debug
+#   aioshelly: debug
+#   homeassistant.components.shelly: debug
 
