@@ -118,35 +118,35 @@ automation:
         state: 'on'
     action:
       - service: cover.open_cover
-        data:
-          entity_id: cover.lucas_room_roller_shutter
+        entity_id: cover.lucas_room_roller_shutter
 
   - id: 28db0c07-c36a-48cd-8d5c-ddda6b91f169
     alias: '[Cover] Open Lucas Room roller shutter when he leaves'
     trigger:
       - platform: state
         entity_id: person.lucas
-        from: home
-        to: not_home
+        from: 'home'
+        to: 'not_home'
     mode: single
-    condition: or
-    conditions:
-      - condition: state
-        entity_id: person.dennis
-        state: home
-      - condition: state
-        entity_id: person.stephanie
-        state: home
-      - condition: state
-        entity_id: person.timo
-        state: home
-      - condition: state
-        entity_id: person.emilie
-        state: home
+    condition:
+      condition: or
+      conditions:
+        - condition: "{{ state_attr('cover.lucas_room_roller_shutter', 'current_position') < 100 }}"
+        - condition: state
+          entity_id: person.dennis
+          state: 'home'
+        - condition: state
+          entity_id: person.stephanie
+          state: 'home'
+        - condition: state
+          entity_id: person.timo
+          state: 'home'
+        # - condition: state
+        #   entity_id: person.emilie
+        #   state: 'home'
     action:
       - service: cover.open_cover
-        data:
-          entity_id: cover.lucas_room_roller_shutter
+        entity_id: cover.lucas_room_roller_shutter
 
   - id: 9168307a-6555-489d-b686-643216ff76e9
     alias: '[Cover] Open roller shutters in the morning during the weekends and holidays'
@@ -166,10 +166,9 @@ automation:
         state: 'home'
     action:
       - service: cover.open_cover
-        data:
-          entity_id:
-            - cover.master_bedroom_roller_shutter
-            - cover.lucas_room_roller_shutter
+        entity_id:
+          - cover.master_bedroom_roller_shutter
+          - cover.lucas_room_roller_shutter
 
   - id: 58a2e68e-7adf-4d08-93d1-a4dd43faeb12
     alias: '[Cover] Close roller shutters in the evening'
