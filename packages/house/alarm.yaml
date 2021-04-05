@@ -13,12 +13,6 @@ alarm_control_panel:
     delay_time: 20
     trigger_time: 300
     disarm_after_trigger: 'false'
-    disarmed:
-      trigger_time: 0
-    armed_home:
-      arming_time: 300
-      delay_time: 0
-      trigger_time: 300
 
 script:
   konnectedstandby:
