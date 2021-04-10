@@ -33,24 +33,21 @@ group:
     - media_player.timo_s_room
     - media_player.timo_s_room_fire_tv_stick
 
-# sensor:
-#   - platform: template
-#     sensors:
-#       last_alexa:
-#         value_template: >
-#           {{ expand(states.media_player.living_room,states.media_player.master_bedroom,states.media_player.lucas_room,states.media_player.timo_s_room,states.media_player.emilie_s_room,states.media_player.living_room_fire_tv_stick,states.media_player.master_bedroom_fire_tv_stick) | selectattr('attributes.last_called','eq',True) | map(attribute='entity_id') | first }}
+  echos:
+    name: Echomania
+    entities:
+    - media_player.emilie_s_room
+    - media_player.living_room
+    - media_player.lucas_room
+    - media_player.master_bedroom
+    - media_player.timo_s_room
 
 sensor:
   - platform: template
     sensors:
-        last_alexa:
-          entity_id:
-            - media_player.your_echo_name
-            - media_player.your_echo_name_2
-            - media_player.your_echo_name_3
-            - media_player.your_echo_name_4
-          value_template: >
-            {{ states.media_player | selectattr('attributes.last_called','eq',True) | map(attribute='entity_id') | first }}
+      last_alexa:
+        value_template: >
+          {{ expand(states.group.echos) | selectattr('attributes.last_called','eq',True) | map(attribute='entity_id') | first | default }}
 
 automation:
   - id: af200dcf-e575-481c-93b8-8356a0495aae
