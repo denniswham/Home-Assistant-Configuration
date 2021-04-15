@@ -1,6 +1,6 @@
 default: warning
 logs:
-  homeassistant.components.waze_travel_time: error
+  # homeassistant.components.waze_travel_time: error
   homeassistant.components.ring: error
   homeassistant.components.konnected: error
   homeassistant.components.ipp: error
