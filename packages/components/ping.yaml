@@ -1,0 +1,13 @@
+binary_sensor:
+  - platform: ping
+    host: 1.1.1.1
+    name: "Ping Cloudflare"
+
+  - platform: ping
+    host: 8.8.8.8
+    name: "Ping Google"
+
+group:
+  ping:
+    - binary_sensor.ping_cloudflare
+    - binary_sensor.ping_google
