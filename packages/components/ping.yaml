@@ -11,3 +11,26 @@ group:
   ping:
     - binary_sensor.ping_cloudflare
     - binary_sensor.ping_google
+
+automation:
+- id: d9541445-0fbb-4809-aa34-7b0e52945137
+  alias: Restart Ziggo Router when internet outage
+  trigger:
+    - platform: time_pattern
+      minutes: "/30"
+  condition:
+    - condition: state
+      entity_id: group.ping
+      state: "off"
+      for:
+        minutes: 10
+  action:
+    - service: switch.turn_off
+      target:
+        entity_id: switch.ziggo_router
+    - delay: 1:00
+    - service: switch.turn_on
+      target:
+        entity_id: switch.ziggo_router
+
+        
