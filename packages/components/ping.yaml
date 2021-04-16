@@ -2,15 +2,22 @@ binary_sensor:
   - platform: ping
     host: 1.1.1.1
     name: "Ping Cloudflare"
-
   - platform: ping
     host: 8.8.8.8
     name: "Ping Google"
+  - platform: template
+    sensors:
+      internet_connection:
+        device_class: connectivity
+        value_template: >-
+          {{ is_state('binary_sensor.ping_cloudflare', 'on')
+             or is_state('binary_sensor.ping_google', 'on' }}
+        friendly_name: "Internet connection"
 
-group:
-  ping:
-    - binary_sensor.ping_cloudflare
-    - binary_sensor.ping_google
+# group:
+#   ping:
+#     - binary_sensor.ping_cloudflare
+#     - binary_sensor.ping_google
 
 automation:
 - id: d9541445-0fbb-4809-aa34-7b0e52945137
@@ -20,7 +27,7 @@ automation:
       minutes: "/30"
   condition:
     - condition: state
-      entity_id: group.ping
+      entity_id: binary_sensor.internet_connection
       state: "off"
       for:
         minutes: 10
@@ -33,4 +40,14 @@ automation:
       target:
         entity_id: switch.ziggo_router
 
-        
+
+
+alert:
+  motion_battery:
+    name: Motion Battery is Low
+    entity_id: binary_sensor.motion_battery_low
+    repeat: 30
+    notifiers:
+      - ryans_phone
+      - kristens_phone
+
