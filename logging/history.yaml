@@ -16,7 +16,7 @@ include:
   - binary_sensor.entryway
   - binary_sensor.dryer
   - binary_sensor.washing_machine
-  - group.ping
+  # - group.ping
   - group.household
   - switch.attic_tumble_dryer
   - switch.attic_washing_machine
