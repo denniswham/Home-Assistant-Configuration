@@ -28,6 +28,7 @@ include:
   - binary_sensor.laundry_room_flood_sensor_flood
   - binary_sensor.kitchen_flood_sensor_flood
   - group.household
+  - group.ping
   - group.shelly_firmware_update
   - sensor.entryway_nest_protect_smoke_status
   - sensor.hallway_nest_protect_smoke_status
