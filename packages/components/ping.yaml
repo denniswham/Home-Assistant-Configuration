@@ -39,7 +39,7 @@ automation:
     alias: Internet is up again
     trigger:
       - platform: state
-        entity_id: alert.internet_online
+        entity_id: binary_sensor.internet_connection
         from: "off"
         to: "on"
     action:
