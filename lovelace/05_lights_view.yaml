@@ -166,4 +166,11 @@ cards:
         title: Wakeup Light
         show_header_toggle: false
         entities:
-          - entity: group.wakeuplight        
+          - entity: sensor.wakeup_alarm_time
+          - entity: sensor.wakeup_start_time_lights
+          - entity: sensor.wakeup_fadein_duration
+          - entity: input_number.wakeup_hour
+          - entity: input_number.wakeup_minutes
+          - entity: input_number.wakeup_duration
+          - entity: input_boolean.wakeup
+          - entity: input_boolean.wakeup_weekends        
