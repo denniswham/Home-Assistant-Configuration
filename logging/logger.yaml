@@ -1,4 +1,4 @@
-default: warning
+default: error
 logs:
   # homeassistant.components.waze_travel_time: error
   homeassistant.components.ring: error
@@ -7,7 +7,7 @@ logs:
   homeassistant.core: critical
   homeassistant.helpers.entity: critical
   homeassistant.components.python_script: warning
-  aioshelly: debug
+  # aioshelly: debug
 #   homeassistant.components.switch.unifi: debug
 #   aiohttp.server: critical
 #   homeassistant.components.shelly: debug
