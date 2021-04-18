@@ -90,7 +90,13 @@ light:
       - light.lucas_room_light
       - light.lucas_room_wall_light
       - light.lucas_room_floor_light
-  
+
+  - platform: group
+    name: Attic Lights
+    entities:
+      - light.lucas_room_lights
+      - light.emilie_s_room_light
+
   - platform: group
     name: Outside Lights
     entities:

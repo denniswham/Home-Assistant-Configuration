@@ -140,6 +140,14 @@ cards:
             hide_when_off: 'true'
             toggle: 'true'
       - type: entities
+        title: Backyard
+        show_header_toggle: true
+        entities:
+          - entity: light.backyard_wall_light
+            name: Wall
+          - entity: light.backyard_garden_light
+            name: Garden
+      - type: entities
         title: Laundry Room
         show_header_toggle: false
         entities:
@@ -155,11 +163,7 @@ cards:
   - type: vertical-stack
     cards:
       - type: entities
-        title: Backyard
-        show_header_toggle: true
+        title: Wakeup Light
+        show_header_toggle: false
         entities:
-          - entity: light.backyard_wall_light
-            name: Wall
-          - entity: light.backyard_garden_light
-            name: Garden
-        
+          - entity: group.wakeuplight        
