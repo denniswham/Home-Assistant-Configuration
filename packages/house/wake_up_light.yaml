@@ -9,7 +9,7 @@ input_number:
   wakeup_minutes:
     name: Minutes
     icon: mdi:clock-in
-    initial: 30
+    initial: 45
     min: 0
     max: 55
     step: 5
