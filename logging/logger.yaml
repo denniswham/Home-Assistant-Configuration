@@ -9,7 +9,7 @@ logs:
   homeassistant.core: critical
   homeassistant.helpers.entity: critical
   homeassistant.components.python_script: warning
-  aioshelly: debug
+  # aioshelly: debug
   aiohttp.access: critical
   aiounifi.api: critical
   aiohttp.server: critical
