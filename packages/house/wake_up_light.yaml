@@ -69,7 +69,7 @@ sensor:
 group:
   wakeuplight:
     name: Wakeup Light
-    control: hidden
+    # control: hidden
     entities:
       - sensor.wakeup_alarm_time
       - sensor.wakeup_start_time_lights
@@ -80,7 +80,7 @@ group:
       - input_boolean.wakeup
       - input_boolean.wakeup_weekends
 
-automation old:
+automation:
   - alias: 'WakeUp Light Bedroom'
     hide_entity: True
     trigger:
