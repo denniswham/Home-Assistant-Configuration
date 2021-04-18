@@ -1,6 +1,8 @@
 default: error
 logs:
-  # homeassistant.components.waze_travel_time: error
+  homeassistant.components.image_processing: critical
+  homeassistant.components.camera.generic: critical
+  homeassistant.components.media_player: critical
   homeassistant.components.ring: error
   homeassistant.components.konnected: error
   homeassistant.components.ipp: error
@@ -8,7 +10,14 @@ logs:
   homeassistant.helpers.entity: critical
   homeassistant.components.python_script: warning
   aioshelly: debug
-#   homeassistant.components.switch.unifi: debug
-#   aiohttp.server: critical
-#   homeassistant.components.shelly: debug
-
+  aiohttp.access: critical
+  aiounifi.api: critical
+  aiohttp.server: critical
+  haffmpeg.core: critical
+  homeassistant.components.switch.unifi: debug
+  # custom_components.alexa_media: debug
+  # homeassistant.components.http.view: info
+  # homeassistant.components.device_tracker: info
+  # homeassistant.components.switch.unifi: debug
+  # aiohttp.server: critical
+  homeassistant.components.shelly: debug
