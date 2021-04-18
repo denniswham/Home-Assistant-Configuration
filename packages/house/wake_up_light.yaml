@@ -16,7 +16,7 @@ input_number:
   wakeup_duration:
     name: Light fade-in duration
     icon: mdi:clock-in
-    initial: 10
+    initial: 30
     min: 5
     max: 60
     step: 5
