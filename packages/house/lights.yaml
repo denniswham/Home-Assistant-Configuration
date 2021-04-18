@@ -16,6 +16,11 @@ homeassistant:
       friendly_name: Living Room Dining Table Light       
     sensor.office_spot_dimmer_power:
         friendly_name: Office Spot Lights
+    light.stephanie_s_bedside_light:
+        friendly_name: Stephanie's Light
+    light.dennis_bedside_light:
+        friendly_name: Dennis' Light
+
 
 light:
   - platform: group
@@ -83,6 +88,12 @@ light:
     entities:
       - light.master_bedroom_wardrobe_light
       - light.master_bedroom_wall_light
+
+  - platform: group
+    name: Master Bedroom Bedside Lights
+    entities:
+      - light.stephanie_s_bedside_light
+      - light.dennis_bedside_light
   
   - platform: group
     name: Lucas Room Lights

@@ -108,35 +108,35 @@ script:
     sequence:
       - service: light.turn_on
         data_template:
-          entity_id: light.soverom
+          entity_id: light.stephanie_s_bedside_light
           brightness: 1
-          kelvin: 1000
+          # kelvin: 1000
       - delay:
           seconds: 1
       - service: light.turn_on
         data_template:
-          entity_id: light.soverom
+          entity_id: light.stephanie_s_bedside_light
           brightness: 64
-          kelvin: 2000
+          # kelvin: 2000
           transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 4 )| round ) | int }}'
       - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 4 )| round ) | int }}'
       - service: light.turn_on
         data_template:
-          entity_id: light.soverom
+          entity_id: light.stephanie_s_bedside_light
           brightness: 128
-          kelvin: 3000
+          # kelvin: 3000
           transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 4 )| round ) | int }}'
       - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 4 )| round ) | int }}'
       - service: light.turn_on
         data_template:
-          entity_id: light.soverom
+          entity_id: light.stephanie_s_bedside_light
           brightness: 191
-          kelvin: 4000
+          # kelvin: 4000
           transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 4 )| round ) | int }}'
       - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 4 )| round ) | int }}'
       - service: light.turn_on
         data_template:
-          entity_id: light.soverom
+          entity_id: light.stephanie_s_bedside_light
           brightness: 255
-          kelvin: 5000
+          # kelvin: 5000
           transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 4 )| round ) | int }}'    
