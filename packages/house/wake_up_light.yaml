@@ -25,7 +25,7 @@ input_boolean:
   wakeup:
     name: 'Enable wakeup light'
     icon: mdi:power
-    initial: off
+    initial: 'on'
   wakeup_weekends:
     name: 'Wakeup weekends'
     icon: mdi:power
@@ -86,7 +86,7 @@ automation:
       platform: template
       value_template: '{{ states.sensor.time.state == states.sensor.wakeup_start_time_lights.state }}'
     condition:
-      condition: and
+      condition: 
       conditions:
         - condition: state
           entity_id: input_boolean.wakeup
@@ -94,11 +94,19 @@ automation:
         - condition: or
           conditions:
             - condition: state
+              entity_id: person_dennis
+              state: 'home'
+            - condition: state
+              entity_id: person.stephanie
+              state: 'home'
+        - condition: or
+          conditions:
+            - condition: state
               entity_id: input_boolean.wakeup_weekends
               state: 'on'
             - condition: state
               entity_id: binary_sensor.workday_sensor
-              state: "on"
+              state: 'on'
     action:
       service: script.wakeup_bedroom
 
