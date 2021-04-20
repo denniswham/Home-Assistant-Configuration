@@ -89,6 +89,14 @@ cards:
             name: Wall
           - entity: light.master_bedroom_wardrobe_light
             name: Wardrobe
+          - entity: light.stephanie_s_bedside_light
+            type: 'custom:slider-entity-row'
+            toggle: true
+            hide_when_off: true
+          - entity: light.dennis_bedside_light
+            type: 'custom:slider-entity-row'
+            toggle: true
+            hide_when_off: true
           - type: section
             label: Timo's Room
           - entity: light.timo_s_room_light
