@@ -90,10 +90,12 @@ cards:
           - entity: light.master_bedroom_wardrobe_light
             name: Wardrobe
           - entity: light.stephanie_s_bedside_light
+            name: Stephanie Bedside
             type: 'custom:slider-entity-row'
             toggle: true
             hide_when_off: true
           - entity: light.dennis_bedside_light
+            name: Dennis Bedside
             type: 'custom:slider-entity-row'
             toggle: true
             hide_when_off: true
