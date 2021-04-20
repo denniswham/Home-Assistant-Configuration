@@ -29,7 +29,7 @@ input_boolean:
   wakeup_weekends:
     name: 'Wakeup weekends'
     icon: mdi:power
-    initial: off
+    initial: 'off'
 
 sensor:
   - platform: template
@@ -81,12 +81,13 @@ group:
       - input_boolean.wakeup_weekends
 
 automation:
-  - alias: 'WakeUp Light Bedroom'
+  - id: e8cc59d5-e3dc-4fd2-b071-3395f36fcaac
+    alias: 'WakeUp Light Bedroom'
     trigger:
       platform: template
       value_template: '{{ states.sensor.time.state == states.sensor.wakeup_start_time_lights.state }}'
     condition:
-      condition: 
+      condition: and
       conditions:
         - condition: state
           entity_id: input_boolean.wakeup
@@ -94,11 +95,11 @@ automation:
         - condition: or
           conditions:
             - condition: state
-              entity_id: person_dennis
+              entity_id: person.dennis
               state: 'home'
             - condition: state
               entity_id: person.stephanie
-              state: 'home'
+              state: 'on'
         - condition: or
           conditions:
             - condition: state
