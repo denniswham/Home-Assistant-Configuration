@@ -125,27 +125,27 @@ script:
       - service: light.turn_on
         data_template:
           entity_id: light.stephanie_s_bedside_light
-          brightness: 64
+          brightness: 32
           # kelvin: 2000
           transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 4 )| round ) | int }}'
       - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 4 )| round ) | int }}'
       - service: light.turn_on
         data_template:
           entity_id: light.stephanie_s_bedside_light
-          brightness: 128
+          brightness: 64
           # kelvin: 3000
           transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 4 )| round ) | int }}'
       - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 4 )| round ) | int }}'
       - service: light.turn_on
         data_template:
           entity_id: light.stephanie_s_bedside_light
-          brightness: 191
+          brightness: 96
           # kelvin: 4000
           transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 4 )| round ) | int }}'
       - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 4 )| round ) | int }}'
       - service: light.turn_on
         data_template:
           entity_id: light.stephanie_s_bedside_light
-          brightness: 255
+          brightness: 128
           # kelvin: 5000
-          transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 4 )| round ) | int }}'    
+          transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 4 )| round ) | int }}'
