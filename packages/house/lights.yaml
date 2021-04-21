@@ -88,13 +88,9 @@ light:
     entities:
       - light.master_bedroom_wardrobe_light
       - light.master_bedroom_wall_light
-
-  - platform: group
-    name: Master Bedroom Bedside Lights
-    entities:
       - light.stephanie_s_bedside_light
       - light.dennis_bedside_light
-  
+
   - platform: group
     name: Lucas Room Lights
     entities:

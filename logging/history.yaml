@@ -13,10 +13,10 @@ include:
   entities:
   - binary_sensor.front_door_door
   - binary_sensor.garage_door_door
+  - binary_sensor.kitchen_window_door
   - binary_sensor.entryway
   - binary_sensor.dryer
   - binary_sensor.washing_machine
-  # - group.ping
   - group.household
   - switch.attic_tumble_dryer
   - switch.attic_washing_machine
