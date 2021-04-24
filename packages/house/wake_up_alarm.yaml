@@ -15,7 +15,7 @@ automation:
             type: tts
           message: >-
             <audio
-            src="soundbank://soundlibrary/animals/amzn_sfx_monkey_chimp_01"/>     
+            src="soundbank://soundlibrary/animals/amzn_sfx_bird_forest_short_01"/>     
 
   - id: 49f28397-86ac-4c91-98b2-ea10cbf70b0b
     alias: '[Wake up] Weekend Alarm Emilie'
@@ -33,4 +33,4 @@ automation:
             type: tts
           message: >-
             <audio
-            src="soundbank://soundlibrary/animals/amzn_sfx_monkey_chimp_01"/>
+            src="soundbank://soundlibrary/animals/amzn_sfx_bird_forest_short_01"/>
