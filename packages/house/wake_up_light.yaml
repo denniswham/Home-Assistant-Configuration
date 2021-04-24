@@ -250,7 +250,7 @@ script:
             type: tts
           message: >-
             <audio
-            src="soundbank://soundlibrary/alarms/buzzers/buzzers_01"/>     
+            src="soundbank://soundlibrary/animals/amzn_sfx_bird_forest_short_01"/>     
       - delay:
           minutes: 5
       - service: media_player.volume_set
@@ -263,4 +263,7 @@ script:
             type: tts
           message: >-
             <audio
-            src="soundbank://soundlibrary/alarms/buzzers/buzzers_01"/>     
+            src="soundbank://soundlibrary/animals/amzn_sfx_bird_forest_short_01"/>     
+
+     
+
