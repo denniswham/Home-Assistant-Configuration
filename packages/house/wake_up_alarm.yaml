@@ -1,0 +1,36 @@
+automation:
+  - id: b75072d0-1cde-4472-84fd-55d5a20121c8
+    alias: '[Wake up] Weekday Alarm Emilie'
+    trigger:
+      - platform: time
+        at: "07:00:00"
+    condition:
+      - condition: state
+        entity_id: binary_sensor.workday_sensor
+        state: 'on'
+    action:
+      - service: notify.alexa_media_emilie_s_room
+        data:
+          data:
+            type: tts
+          message: >-
+            <audio
+            src="soundbank://soundlibrary/animals/amzn_sfx_monkey_chimp_01"/>     
+
+  - id: 49f28397-86ac-4c91-98b2-ea10cbf70b0b
+    alias: '[Wake up] Weekend Alarm Emilie'
+    trigger:
+      - platform: time
+        at: "08:00:00"
+    condition:
+      - condition: state
+        entity_id: binary_sensor.workday_sensor
+        state: 'off'
+    action:
+      - service: notify.alexa_media_emilie_s_room
+        data:
+          data:
+            type: tts
+          message: >-
+            <audio
+            src="soundbank://soundlibrary/animals/amzn_sfx_monkey_chimp_01"/>
