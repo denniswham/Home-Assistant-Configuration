@@ -115,126 +115,126 @@ script:
   wakeup_bedroom:
     alias: 'Wakeup lighting, smooth transition'
     sequence:
-      - service: light.turn_on
-        data_template:
-          entity_id: light.stephanie_s_bedside_light
-          brightness: 1
-      - delay:
-          seconds: 1
+      # - service: light.turn_on
+      #   data_template:
+      #     entity_id: light.stephanie_s_bedside_light
+      #     brightness: 1
+      # - delay:
+      #     seconds: 1
       - service: light.turn_on
         data_template:
           entity_id: light.stephanie_s_bedside_light
           brightness: 6
           # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+      - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
       - service: light.turn_on
         data_template:
           entity_id: light.stephanie_s_bedside_light
           brightness: 13
           # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+      - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
       - service: light.turn_on
         data_template:
           entity_id: light.stephanie_s_bedside_light
           brightness: 19
           # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+      - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
       - service: light.turn_on
         data_template:
           entity_id: light.stephanie_s_bedside_light
           brightness: 26
           # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+      - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
       - service: light.turn_on
         data_template:
           entity_id: light.stephanie_s_bedside_light
           brightness: 32
           # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+      - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
       - service: light.turn_on
         data_template:
           entity_id: light.stephanie_s_bedside_light
           brightness: 38
           # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+      - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
       - service: light.turn_on
         data_template:
           entity_id: light.stephanie_s_bedside_light
           brightness: 45
           # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+      - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
       - service: light.turn_on
         data_template:
           entity_id: light.stephanie_s_bedside_light
           brightness: 51
           # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+      - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
       - service: light.turn_on
         data_template:
           entity_id: light.stephanie_s_bedside_light
           brightness: 58
           # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+      - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
       - service: light.turn_on
         data_template:
           entity_id: light.stephanie_s_bedside_light
           brightness: 64
           # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+      - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
       - service: light.turn_on
         data_template:
           entity_id: light.stephanie_s_bedside_light
           brightness: 70
           # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+      - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
       - service: light.turn_on
         data_template:
           entity_id: light.stephanie_s_bedside_light
           brightness: 77
           # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+      - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
       - service: light.turn_on
         data_template:
           entity_id: light.stephanie_s_bedside_light
           brightness: 83
           # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+      - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
       - service: light.turn_on
         data_template:
           entity_id: light.stephanie_s_bedside_light
           brightness: 90
           # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+      - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
       - service: light.turn_on
         data_template:
           entity_id: light.stephanie_s_bedside_light
           brightness: 96
           # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+      - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
       - service: light.turn_on
         data_template:
           entity_id: light.stephanie_s_bedside_light
           brightness: 102
           # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+      - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
       - service: light.turn_on
         data_template:
           entity_id: light.stephanie_s_bedside_light
           brightness: 109
           # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+      - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
       - service: light.turn_on
         data_template:
           entity_id: light.stephanie_s_bedside_light
           brightness: 115
           # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+      - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
       - service: light.turn_on
         data_template:
           entity_id: light.stephanie_s_bedside_light
           brightness: 122
           # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - delay: '00:00:{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+      - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
       - service: light.turn_on
         data_template:
           entity_id: light.stephanie_s_bedside_light
@@ -244,6 +244,7 @@ script:
         data:
           entity_id: media_player.master_bedroom
           volume_level: 0.5
+      - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
       - service: notify.alexa_media_master_bedroom
         data:
           data:
