@@ -243,7 +243,7 @@ script:
       - service: media_player.volume_set
         data:
           entity_id: media_player.master_bedroom
-          volume_level: 0.5
+          volume_level: 0.7
       - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
       - service: notify.alexa_media_master_bedroom
         data:
@@ -254,10 +254,6 @@ script:
             src="soundbank://soundlibrary/animals/amzn_sfx_bird_forest_short_01"/>     
       - delay:
           minutes: 5
-      - service: media_player.volume_set
-        data:
-          entity_id: media_player.master_bedroom
-          volume_level: 0.7
       - service: notify.alexa_media_master_bedroom
         data:
           data:
