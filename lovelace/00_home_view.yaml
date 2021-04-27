@@ -28,8 +28,13 @@ cards:
               secondary_info: last-changed
             items:
               - binary_sensor.front_door_door
+              - binary_sensor.living_room_door_door
+              - binary_sensor.office_door_door
               - binary_sensor.garage_door_door
               - binary_sensor.kitchen_window_door
+              - binary_sensor.bathroom_window_door
+              - binary_sensor.timo_s_room_window_door
+              - binary_sensor.guestroom_window_door
           - type: custom:fold-entity-row
             head:
               type: section

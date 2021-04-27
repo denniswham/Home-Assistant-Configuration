@@ -3,12 +3,27 @@ homeassistant:
     binary_sensor.front_door_door:
       friendly_name: Front Door
       device_class: door
-    binary_sensor.kitchen_window_door:
-      friendly_name: Kitchen Window
-      device_class: window
+    binary_sensor.living_room_door_door:
+      friendly_name: Living Room Door
+      device_class: door
+    binary_sensor.office_door_door:
+      friendly_name: Office Door
+      device_class: door
     binary_sensor.garage_door_door:
       friendly_name: Garage Door
       device_class: door
+    binary_sensor.kitchen_window_door:
+      friendly_name: Kitchen Window
+      device_class: window
+    binary_sensor.bathroom_window_door:
+      friendly_name: Bathroom Window
+      device_class: window
+    binary_sensor.timo_s_room_window_door:
+      friendly_name: Timo's Room Window
+      device_class: window
+    binary_sensor.guestroom_window_door:
+      friendly_name: Guestroom Window
+      device_class: window
 
 group:
   door_window_sensor:
@@ -16,8 +31,25 @@ group:
     # when adding a door window sensor don't forget to update automation id 72a6ac29-9e75-4f47-a22b-407609b26ee9
     entities:
       - binary_sensor.front_door_door
+      - binary_sensor.living_room_door_door
+      - binary_sensor.office_door_door
       - binary_sensor.garage_door_door
       - binary_sensor.kitchen_window_door
+      - binary_sensor.bathroom_window_door
+      - binary_sensor.timo_s_room_window_door
+      - binary_sensor.guestroom_window_door
+
+  door_window_sensor_except_timo_s_room:
+    name: Door Window Sensor
+    # when adding a door window sensor don't forget to update automation id 72a6ac29-9e75-4f47-a22b-407609b26ee9
+    entities:
+      - binary_sensor.front_door_door
+      - binary_sensor.living_room_door_door
+      - binary_sensor.office_door_door
+      - binary_sensor.garage_door_door
+      - binary_sensor.kitchen_window_door
+      - binary_sensor.bathroom_window_door
+      - binary_sensor.guestroom_window_door
 
 binary_sensor:
   - platform: threshold
@@ -138,8 +170,13 @@ automation:
       - condition: state
         entity_id:
           - binary_sensor.front_door_door
-          - binary_sensor.kitchen_window_door
+          - binary_sensor.living_room_door_door
+          - binary_sensor.office_door_door
           - binary_sensor.garage_door_door
+          - binary_sensor.kitchen_window_door
+          - binary_sensor.bathroom_window_door
+          - binary_sensor.timo_s_room_window_door
+          - binary_sensor.guestroom_window_door
         state: 'on'
     action:     
       - service: notify.android_devices

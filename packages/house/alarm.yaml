@@ -198,13 +198,19 @@ automation:
         entity_id: script.konnectedstandby
 
   - id: 72a6ac29-9e75-4f47-a22b-407609b26ee9
-    alias: '[Alarm] Konnected Log Activation'
+    alias: '[Alarm] Konnected Log Activation when armed away'
     initial_state: 'true'
     trigger:
       - platform: state
         entity_id:
           - binary_sensor.front_door_door
+          - binary_sensor.living_room_door_door
+          - binary_sensor.office_door_door
           - binary_sensor.garage_door_door
+          - binary_sensor.kitchen_window_door
+          - binary_sensor.bathroom_window_door
+          - binary_sensor.timo_s_room_window_door
+          - binary_sensor.guestroom_window_door
           - binary_sensor.entryway
           - binary_sensor.kitchen
           - binary_sensor.living_room
@@ -215,11 +221,37 @@ automation:
         to: 'on'
     mode: single
     condition:
-      condition: not
-      conditions:
-        - condition: state
-          entity_id: alarm_control_panel.konnected_alarm
-          state: disarmed
+      - condition: state
+        entity_id: alarm_control_panel.konnected_alarm
+        state: armed_away
+    action:
+      - service: logbook.log
+        data_template:
+          name: "Alarm activated: "
+          message: >-
+            {{ trigger.entity_id }}
+
+  - id: f8f69cdb-1c35-497b-b80b-5c4e31a376b1
+    alias: '[Alarm] Konnected Log Activation when armed home'
+    initial_state: 'true'
+    trigger:
+      - platform: state
+        entity_id:
+          - binary_sensor.front_door_door
+          - binary_sensor.living_room_door_door
+          - binary_sensor.office_door_door
+          - binary_sensor.garage_door_door
+          - binary_sensor.kitchen_window_door
+          - binary_sensor.bathroom_window_door
+          - binary_sensor.timo_s_room_window_door
+          - binary_sensor.guestroom_window_door
+          - binary_sensor.backyard_camera_motion
+        to: 'on'
+    mode: single
+    condition:
+      - condition: state
+        entity_id: alarm_control_panel.konnected_alarm
+        state: armed_home
     action:
       - service: logbook.log
         data_template:
@@ -308,6 +340,9 @@ automation:
         entity_id: alarm_control_panel.konnected_alarm
         state:
           - armed_home
+      - condition: state
+        entity_id: person.timo
+        state: "not_home"    
     action:
       - service: alarm_control_panel.alarm_trigger
         entity_id: alarm_control_panel.konnected_alarm
@@ -318,6 +353,35 @@ automation:
           target:
             - group.alexa
           message: Motion detected, the alarm will activate shortly. Motion detected, the alarm will activate shortly.
+
+  - id: 759236b8-533d-4b4e-b474-636903a87f5f
+    alias: '[Alarm] Pending alarm when armed home (Timo home)'
+    initial_state: 'true'
+    trigger:
+      - platform: state
+        entity_id:
+          - group.door_window_sensor_except_timo_s_room
+        to: 'on'
+    mode: single
+    condition:
+      - condition: state
+        entity_id: alarm_control_panel.konnected_alarm
+        state:
+          - armed_home
+      - condition: state
+        entity_id: person.timo
+        state: "home"    
+    action:
+      - service: alarm_control_panel.alarm_trigger
+        entity_id: alarm_control_panel.konnected_alarm
+      - service: notify.alexa_media
+        data:
+          data:
+            type: announce
+          target:
+            - group.alexa
+          message: Motion detected, the alarm will activate shortly. Motion detected, the alarm will activate shortly.
+
 
   - id: 2ae00756-b4a9-4068-acc8-c574a8a60fd4
     alias: '[Motion] Motion in backyard at night'
