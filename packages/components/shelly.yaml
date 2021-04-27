@@ -10,6 +10,7 @@ group:
       - binary_sensor.backyard_garden_light_firmware_update
       - binary_sensor.backyard_wall_light_firmware_update
       - binary_sensor.bathroom_light_firmware_update
+      - binary_sensor.dennis_bedside_light_firmware_update
       - binary_sensor.emilie_s_room_light_firmware_update
       - binary_sensor.emilies_room_switch_firmware_update
       - binary_sensor.entryway_light_firmware_update
@@ -32,7 +33,10 @@ group:
       - binary_sensor.office_led_strip_firmware_update
       - binary_sensor.office_painting_light_firmware_update
       - binary_sensor.office_spot_light_firmware_update
+      - binary_sensor.stephanie_s_bedside_light_firmware_update
       - binary_sensor.timo_s_room_light_firmware_update
+      - binary_sensor.ziggo_router_firmware_update
+
 
 
       
