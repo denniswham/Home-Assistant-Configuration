@@ -60,6 +60,31 @@ binary_sensor:
     name: Garage Door Battery
     entity_id: sensor.garage_door_battery
     lower: 10
+  - platform: threshold
+    name: Living Room Door Battery
+    entity_id: sensor.living_room_door_battery
+    lower: 10
+  - platform: threshold
+    name: Office Door Battery
+    entity_id: sensor.office_door_battery
+    lower: 10
+  - platform: threshold
+    name: Kitchen Window Battery
+    entity_id: sensor.kitchen_window_battery
+    lower: 10
+  - platform: threshold
+    name: Bathroom Window Battery
+    entity_id: sensor.bathroom_window_battery
+    lower: 10
+  - platform: threshold
+    name: Timo's Room Window Battery
+    entity_id: sensor.timo_s_room_window_battery
+    lower: 10
+  - platform: threshold
+    name: Guestroom Window Battery
+    entity_id: sensor.guestroom_window_battery
+    lower: 10
+
 
 alert:
   # Front Door Battery is low - un-acknowledgeable, auto-dismiss, me only
@@ -89,6 +114,84 @@ alert:
     - mobile_app_sm_g986b
     data:
       tag: 'garage_door_battery_low'
+
+  living_room_door_battery_low:
+    name: Living Room Door Sensor Battery Low
+    entity_id: binary_sensor.living_room_door_battery
+    state: 'on'
+    can_acknowledge: false
+    repeat: 360
+    title: 'living Room Door Sensor Battery low'
+    message: "Living Room Door Sensor Battery is at {{ states('sensor.living_room_door_battery') }}%. Replace it soon"
+    notifiers:
+    - mobile_app_sm_g986b
+    data:
+      tag: 'living_room_door_battery_low'
+
+  office_door_battery_low:
+    name: Office Door Sensor Battery Low
+    entity_id: binary_sensor.office_door_battery
+    state: 'on'
+    can_acknowledge: false
+    repeat: 360
+    title: 'Office Door Sensor Battery low'
+    message: "Office Door Sensor Battery is at {{ states('sensor.office_door_battery') }}%. Replace it soon"
+    notifiers:
+    - mobile_app_sm_g986b
+    data:
+      tag: 'office_door_battery_low'
+
+  kitchen_window_battery_low:
+    name: Kitchen Window Sensor Battery Low
+    entity_id: binary_sensor.kitchen_window_battery
+    state: 'on'
+    can_acknowledge: false
+    repeat: 360
+    title: 'Kitchen Window Sensor Battery low'
+    message: "Kitchen Window Sensor Battery is at {{ states('sensor.kitchen_window_battery') }}%. Replace it soon"
+    notifiers:
+    - mobile_app_sm_g986b
+    data:
+      tag: 'kitchen_window_battery_low'
+
+  bathroom_window_battery_low:
+    name: Bathroom Window Sensor Battery Low
+    entity_id: binary_sensor.bathroom_window_battery
+    state: 'on'
+    can_acknowledge: false
+    repeat: 360
+    title: 'Bathroom Window Sensor Battery low'
+    message: "Bathroom Window Sensor Battery is at {{ states('sensor.bathroom_window_battery') }}%. Replace it soon"
+    notifiers:
+    - mobile_app_sm_g986b
+    data:
+      tag: 'bathroom_window_battery_low'
+
+  timo_s_room_window_battery_low:
+    name: Timo's Room Window Sensor Battery Low
+    entity_id: binary_sensor.timo_s_room_window_battery
+    state: 'on'
+    can_acknowledge: false
+    repeat: 360
+    title: "Timo's Room Window Sensor Battery low"
+    message: "Timo's Room Window Sensor Battery is at {{ states('sensor.timo_s_room_window_battery') }}%. Replace it soon"
+    notifiers:
+    - mobile_app_sm_g986b
+    data:
+      tag: 'timo_s_room_window_battery_low'
+
+  guestroom_window_battery_low:
+    name: Guestroom Window Sensor Battery Low
+    entity_id: binary_sensor.guestroom_window_battery
+    state: 'on'
+    can_acknowledge: false
+    repeat: 360
+    title: 'Guestroom Window Sensor Battery low'
+    message: "Guestroom Window Sensor Battery is at {{ states('sensor.guestroom_window_battery') }}%. Replace it soon"
+    notifiers:
+    - mobile_app_sm_g986b
+    data:
+      tag: 'guestroom_window_battery_low'
 
 automation:
   - id: 54601140-994f-4a24-b5f2-3cfeb4d1464d

@@ -1,4 +1,0 @@
-# binary_sensor:
-#   - platform: ping
-#     name: "RPi Zero Ping"
-#     host: !secret zero_host
