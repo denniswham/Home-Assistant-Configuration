@@ -18,7 +18,7 @@ automation:
     alias: '[House] Turn on Rise and Shine scene in the morning'
     trigger:
       - platform: state
-        entity_id: binary_sensor.entryway
+        entity_id: binary_sensor.entryway_motion
         from: 'off'
         to: 'on'
     mode: single

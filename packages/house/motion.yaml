@@ -3,11 +3,11 @@ group:
     name: Motion Sensor
     # when adding a motion sensor don't forget to update automation id 72a6ac29-9e75-4f47-a22b-407609b26ee9
     entities:
-      - binary_sensor.entryway
-      - binary_sensor.kitchen
-      - binary_sensor.living_room
-      - binary_sensor.office
-      - binary_sensor.garage
+      - binary_sensor.entryway_motion
+      - binary_sensor.kitchen_motion
+      - binary_sensor.living_room_motion
+      - binary_sensor.office_motion
+      - binary_sensor.garage_motion
       - binary_sensor.attic_motion_motion
 
 binary_sensor:
@@ -34,7 +34,7 @@ alert:
 sensor:
   - platform: history_stats
     name: Entryway Motion Trigger Count
-    entity_id: binary_sensor.entryway
+    entity_id: binary_sensor.entryway_motion
     state: 'on'
     type: count
     start: '{{ now().replace(hour=6, minute=0, second=0) }}'

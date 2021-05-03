@@ -19,7 +19,7 @@ include:
   - binary_sensor.bathroom_window_door
   - binary_sensor.timo_s_room_window_door
   - binary_sensor.guestroom_window_door
-  - binary_sensor.entryway
+  - binary_sensor.entryway_motion
   - binary_sensor.dryer
   - binary_sensor.washing_machine
   - group.household

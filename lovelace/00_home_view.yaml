@@ -42,13 +42,13 @@ cards:
             group_config:
               secondary_info: last-changed
             items:
-              - entity: binary_sensor.entryway
-              - entity: binary_sensor.kitchen
-              - entity: binary_sensor.living_room
-              - entity: binary_sensor.office
+              - entity: binary_sensor.entryway_motion
+              - entity: binary_sensor.kitchen_motion
+              - entity: binary_sensor.living_room_motion
+              - entity: binary_sensor.office_motion
               - entity: binary_sensor.attic_motion_motion
                 name: Attic
-              - entity: binary_sensor.garage
+              - entity: binary_sensor.garage_motion
               - type: divider
               - entity: binary_sensor.doorbell_motion
               - entity: binary_sensor.backyard_camera_motion
