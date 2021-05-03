@@ -165,6 +165,21 @@ cards:
       - type: custom:auto-entities
         card:
           type: entities
+          title: Batteries
+          show_header_toggle: false
+        filter:
+          include:
+            - entity_id: "sensor.*_battery"
+          # exclude:
+          #   - entity_id: 
+        sort: 
+          method: state
+          numeric: 'true'
+          reverse: 'true'
+
+      - type: custom:auto-entities
+        card:
+          type: entities
           title: Device Temperature
           show_header_toggle: false
         filter:
