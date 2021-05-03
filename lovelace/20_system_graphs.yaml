@@ -175,7 +175,7 @@ cards:
         sort: 
           method: state
           numeric: 'true'
-          reverse: 'true'
+          reverse: 'false'
 
       - type: custom:auto-entities
         card:
