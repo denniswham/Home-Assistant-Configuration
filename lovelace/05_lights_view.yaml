@@ -170,17 +170,17 @@ cards:
             name: Tumble Dryer Power Socket
           - entity: binary_sensor.laundry_room_flood_sensor_flood
             name: Flood Sensor
-  - type: vertical-stack
-    cards:
-      - type: entities
-        title: Wakeup Light
-        show_header_toggle: false
-        entities:
-          - entity: sensor.wakeup_alarm_time
-          - entity: sensor.wakeup_start_time_lights
-          - entity: sensor.wakeup_fadein_duration
-          - entity: input_number.wakeup_hour
-          - entity: input_number.wakeup_minutes
-          - entity: input_number.wakeup_duration
-          - entity: input_boolean.wakeup
-          - entity: input_boolean.wakeup_weekends        
+  # - type: vertical-stack
+  #   cards:
+  #     - type: entities
+  #       title: Wakeup Light
+  #       show_header_toggle: false
+  #       entities:
+  #         - entity: sensor.wakeup_alarm_time
+  #         - entity: sensor.wakeup_start_time_lights
+  #         - entity: sensor.wakeup_fadein_duration
+  #         - entity: input_number.wakeup_hour
+  #         - entity: input_number.wakeup_minutes
+  #         - entity: input_number.wakeup_duration
+  #         - entity: input_boolean.wakeup
+  #         - entity: input_boolean.wakeup_weekends        
