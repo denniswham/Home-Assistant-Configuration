@@ -1,266 +1,266 @@
-input_number:
-  wakeup_hour:
-    name: Hour
-    icon: mdi:clock-in
-    initial: 6
-    min: 0
-    max: 23
-    step: 1
-  wakeup_minutes:
-    name: Minutes
-    icon: mdi:clock-in
-    initial: 45
-    min: 0
-    max: 55
-    step: 5
-  wakeup_duration:
-    name: Light fade-in duration
-    icon: mdi:clock-in
-    initial: 30
-    min: 5
-    max: 60
-    step: 5
+# input_number:
+#   wakeup_hour:
+#     name: Hour
+#     icon: mdi:clock-in
+#     initial: 6
+#     min: 0
+#     max: 23
+#     step: 1
+#   wakeup_minutes:
+#     name: Minutes
+#     icon: mdi:clock-in
+#     initial: 45
+#     min: 0
+#     max: 55
+#     step: 5
+#   wakeup_duration:
+#     name: Light fade-in duration
+#     icon: mdi:clock-in
+#     initial: 30
+#     min: 5
+#     max: 60
+#     step: 5
 
-input_boolean:
-  wakeup:
-    name: 'Enable wakeup light'
-    icon: mdi:power
-    initial: 'on'
-  wakeup_weekends:
-    name: 'Wakeup weekends'
-    icon: mdi:power
-    initial: 'off'
+# input_boolean:
+#   wakeup:
+#     name: 'Enable wakeup light'
+#     icon: mdi:power
+#     initial: 'on'
+#   wakeup_weekends:
+#     name: 'Wakeup weekends'
+#     icon: mdi:power
+#     initial: 'off'
 
-sensor:
-  - platform: template
-    sensors:
-      wakeup_alarm_time:
-        friendly_name: 'Alarm time'
-        value_template: '{% if states.input_number.wakeup_hour.state|length == 3 %}0{% endif %}{{ states.input_number.wakeup_hour.state | int }}:{% if states.input_number.wakeup_minutes.state|length == 3 %}0{% endif %}{{ states.input_number.wakeup_minutes.state | int }}'
+# sensor:
+#   - platform: template
+#     sensors:
+#       wakeup_alarm_time:
+#         friendly_name: 'Alarm time'
+#         value_template: '{% if states.input_number.wakeup_hour.state|length == 3 %}0{% endif %}{{ states.input_number.wakeup_hour.state | int }}:{% if states.input_number.wakeup_minutes.state|length == 3 %}0{% endif %}{{ states.input_number.wakeup_minutes.state | int }}'
 
-  - platform: template
-    sensors:
-      wakeup_start_time_lights:
-        friendly_name: 'Fade-in start time'
-        value_template: >
-          {% if states.sensor.wakeup_alarm_time and states.input_number.wakeup_duration %}
-          {% set alarmtime = states.sensor.wakeup_alarm_time.state %}
-          {% set alarm_hour = alarmtime.split(":")[0] | int %}
-          {% set alarm_min = alarmtime.split(":")[1] | int %}
-          {% set light_dur = states.input_number.wakeup_duration.state | int %}
-          {% set alarm_min_light = alarm_min - light_dur %}
-          {% if alarm_min_light  < 0 %}
-          {% set alarm_min_light = alarm_min_light + 60 %}
-          {% set alarm_hour_light = alarm_hour - 1 %}
-          {% if alarm_hour_light < 0 %}{% set alarm_hour_light = 23 %}{% endif %}
-          {% if alarm_hour_light < 10 %}0{% endif %}{{ alarm_hour_light}}:{% if alarm_min_light < 10 %}0{% endif %}{{ alarm_min_light }}
-          {% else %}
-          {% if alarm_hour < 10 %}0{% endif %}{{ alarm_hour }}:{% if alarm_min_light < 10 %}0{% endif %}{{ alarm_min_light }}
-          {% endif %}
-          {% endif %}
+#   - platform: template
+#     sensors:
+#       wakeup_start_time_lights:
+#         friendly_name: 'Fade-in start time'
+#         value_template: >
+#           {% if states.sensor.wakeup_alarm_time and states.input_number.wakeup_duration %}
+#           {% set alarmtime = states.sensor.wakeup_alarm_time.state %}
+#           {% set alarm_hour = alarmtime.split(":")[0] | int %}
+#           {% set alarm_min = alarmtime.split(":")[1] | int %}
+#           {% set light_dur = states.input_number.wakeup_duration.state | int %}
+#           {% set alarm_min_light = alarm_min - light_dur %}
+#           {% if alarm_min_light  < 0 %}
+#           {% set alarm_min_light = alarm_min_light + 60 %}
+#           {% set alarm_hour_light = alarm_hour - 1 %}
+#           {% if alarm_hour_light < 0 %}{% set alarm_hour_light = 23 %}{% endif %}
+#           {% if alarm_hour_light < 10 %}0{% endif %}{{ alarm_hour_light}}:{% if alarm_min_light < 10 %}0{% endif %}{{ alarm_min_light }}
+#           {% else %}
+#           {% if alarm_hour < 10 %}0{% endif %}{{ alarm_hour }}:{% if alarm_min_light < 10 %}0{% endif %}{{ alarm_min_light }}
+#           {% endif %}
+#           {% endif %}
 
-  - platform: template
-    sensors:
-      wakeup_fadein_duration:
-        friendly_name: 'Fade-in duration'
-        value_template: '{{ states.input_number.wakeup_duration.state | int }}'
-        unit_of_measurement: 'min'
+#   - platform: template
+#     sensors:
+#       wakeup_fadein_duration:
+#         friendly_name: 'Fade-in duration'
+#         value_template: '{{ states.input_number.wakeup_duration.state | int }}'
+#         unit_of_measurement: 'min'
 
-group:
-  wakeuplight:
-    name: Wakeup Light
-    # control: hidden
-    entities:
-      - sensor.wakeup_alarm_time
-      - sensor.wakeup_start_time_lights
-      - sensor.wakeup_fadein_duration
-      - input_number.wakeup_hour
-      - input_number.wakeup_minutes
-      - input_number.wakeup_duration
-      - input_boolean.wakeup
-      - input_boolean.wakeup_weekends
+# group:
+#   wakeuplight:
+#     name: Wakeup Light
+#     # control: hidden
+#     entities:
+#       - sensor.wakeup_alarm_time
+#       - sensor.wakeup_start_time_lights
+#       - sensor.wakeup_fadein_duration
+#       - input_number.wakeup_hour
+#       - input_number.wakeup_minutes
+#       - input_number.wakeup_duration
+#       - input_boolean.wakeup
+#       - input_boolean.wakeup_weekends
 
-automation:
-  - id: e8cc59d5-e3dc-4fd2-b071-3395f36fcaac
-    alias: 'WakeUp Light Bedroom'
-    trigger:
-      platform: template
-      value_template: '{{ states.sensor.time.state == states.sensor.wakeup_start_time_lights.state }}'
-    condition:
-      condition: and
-      conditions:
-        - condition: state
-          entity_id: input_boolean.wakeup
-          state: 'on'
-        - condition: or
-          conditions:
-            - condition: state
-              entity_id: person.dennis
-              state: 'home'
-            - condition: state
-              entity_id: person.stephanie
-              state: 'on'
-        - condition: or
-          conditions:
-            - condition: state
-              entity_id: input_boolean.wakeup_weekends
-              state: 'on'
-            - condition: state
-              entity_id: binary_sensor.workday_sensor
-              state: 'on'
-    action:
-      service: script.wakeup_bedroom
+# automation:
+#   - id: e8cc59d5-e3dc-4fd2-b071-3395f36fcaac
+#     alias: 'WakeUp Light Bedroom'
+#     trigger:
+#       platform: template
+#       value_template: '{{ states.sensor.time.state == states.sensor.wakeup_start_time_lights.state }}'
+#     condition:
+#       condition: and
+#       conditions:
+#         - condition: state
+#           entity_id: input_boolean.wakeup
+#           state: 'on'
+#         - condition: or
+#           conditions:
+#             - condition: state
+#               entity_id: person.dennis
+#               state: 'home'
+#             - condition: state
+#               entity_id: person.stephanie
+#               state: 'on'
+#         - condition: or
+#           conditions:
+#             - condition: state
+#               entity_id: input_boolean.wakeup_weekends
+#               state: 'on'
+#             - condition: state
+#               entity_id: binary_sensor.workday_sensor
+#               state: 'on'
+#     action:
+#       service: script.wakeup_bedroom
 
-script:
-  wakeup_bedroom:
-    alias: 'Wakeup lighting, smooth transition'
-    sequence:
-      # - service: light.turn_on
-      #   data_template:
-      #     entity_id: light.stephanie_s_bedside_light
-      #     brightness: 1
-      # - delay:
-      #     seconds: 1
-      - service: light.turn_on
-        data_template:
-          entity_id: light.stephanie_s_bedside_light
-          brightness: 6
-          # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - service: light.turn_on
-        data_template:
-          entity_id: light.stephanie_s_bedside_light
-          brightness: 13
-          # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - service: light.turn_on
-        data_template:
-          entity_id: light.stephanie_s_bedside_light
-          brightness: 19
-          # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - service: light.turn_on
-        data_template:
-          entity_id: light.stephanie_s_bedside_light
-          brightness: 26
-          # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - service: light.turn_on
-        data_template:
-          entity_id: light.stephanie_s_bedside_light
-          brightness: 32
-          # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - service: light.turn_on
-        data_template:
-          entity_id: light.stephanie_s_bedside_light
-          brightness: 38
-          # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - service: light.turn_on
-        data_template:
-          entity_id: light.stephanie_s_bedside_light
-          brightness: 45
-          # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - service: light.turn_on
-        data_template:
-          entity_id: light.stephanie_s_bedside_light
-          brightness: 51
-          # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - service: light.turn_on
-        data_template:
-          entity_id: light.stephanie_s_bedside_light
-          brightness: 58
-          # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - service: light.turn_on
-        data_template:
-          entity_id: light.stephanie_s_bedside_light
-          brightness: 64
-          # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - service: light.turn_on
-        data_template:
-          entity_id: light.stephanie_s_bedside_light
-          brightness: 70
-          # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - service: light.turn_on
-        data_template:
-          entity_id: light.stephanie_s_bedside_light
-          brightness: 77
-          # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - service: light.turn_on
-        data_template:
-          entity_id: light.stephanie_s_bedside_light
-          brightness: 83
-          # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - service: light.turn_on
-        data_template:
-          entity_id: light.stephanie_s_bedside_light
-          brightness: 90
-          # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - service: light.turn_on
-        data_template:
-          entity_id: light.stephanie_s_bedside_light
-          brightness: 96
-          # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - service: light.turn_on
-        data_template:
-          entity_id: light.stephanie_s_bedside_light
-          brightness: 102
-          # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - service: light.turn_on
-        data_template:
-          entity_id: light.stephanie_s_bedside_light
-          brightness: 109
-          # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - service: light.turn_on
-        data_template:
-          entity_id: light.stephanie_s_bedside_light
-          brightness: 115
-          # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - service: light.turn_on
-        data_template:
-          entity_id: light.stephanie_s_bedside_light
-          brightness: 122
-          # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - service: light.turn_on
-        data_template:
-          entity_id: light.stephanie_s_bedside_light
-          brightness: 128
-          # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - service: media_player.volume_set
-        data:
-          entity_id: media_player.master_bedroom
-          volume_level: 0.7
-      - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
-      - service: notify.alexa_media_master_bedroom
-        data:
-          data:
-            type: tts
-          message: >-
-            <audio
-            src="soundbank://soundlibrary/animals/amzn_sfx_bird_forest_short_01"/>     
-      - delay:
-          minutes: 5
-      - service: notify.alexa_media_master_bedroom
-        data:
-          data:
-            type: tts
-          message: >-
-            <audio
-            src="soundbank://soundlibrary/animals/amzn_sfx_bird_forest_short_01"/>     
+# script:
+#   wakeup_bedroom:
+#     alias: 'Wakeup lighting, smooth transition'
+#     sequence:
+#       # - service: light.turn_on
+#       #   data_template:
+#       #     entity_id: light.stephanie_s_bedside_light
+#       #     brightness: 1
+#       # - delay:
+#       #     seconds: 1
+#       - service: light.turn_on
+#         data_template:
+#           entity_id: light.stephanie_s_bedside_light
+#           brightness: 6
+#           # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+#       - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+#       - service: light.turn_on
+#         data_template:
+#           entity_id: light.stephanie_s_bedside_light
+#           brightness: 13
+#           # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+#       - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+#       - service: light.turn_on
+#         data_template:
+#           entity_id: light.stephanie_s_bedside_light
+#           brightness: 19
+#           # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+#       - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+#       - service: light.turn_on
+#         data_template:
+#           entity_id: light.stephanie_s_bedside_light
+#           brightness: 26
+#           # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+#       - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+#       - service: light.turn_on
+#         data_template:
+#           entity_id: light.stephanie_s_bedside_light
+#           brightness: 32
+#           # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+#       - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+#       - service: light.turn_on
+#         data_template:
+#           entity_id: light.stephanie_s_bedside_light
+#           brightness: 38
+#           # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+#       - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+#       - service: light.turn_on
+#         data_template:
+#           entity_id: light.stephanie_s_bedside_light
+#           brightness: 45
+#           # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+#       - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+#       - service: light.turn_on
+#         data_template:
+#           entity_id: light.stephanie_s_bedside_light
+#           brightness: 51
+#           # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+#       - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+#       - service: light.turn_on
+#         data_template:
+#           entity_id: light.stephanie_s_bedside_light
+#           brightness: 58
+#           # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+#       - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+#       - service: light.turn_on
+#         data_template:
+#           entity_id: light.stephanie_s_bedside_light
+#           brightness: 64
+#           # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+#       - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+#       - service: light.turn_on
+#         data_template:
+#           entity_id: light.stephanie_s_bedside_light
+#           brightness: 70
+#           # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+#       - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+#       - service: light.turn_on
+#         data_template:
+#           entity_id: light.stephanie_s_bedside_light
+#           brightness: 77
+#           # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+#       - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+#       - service: light.turn_on
+#         data_template:
+#           entity_id: light.stephanie_s_bedside_light
+#           brightness: 83
+#           # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+#       - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+#       - service: light.turn_on
+#         data_template:
+#           entity_id: light.stephanie_s_bedside_light
+#           brightness: 90
+#           # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+#       - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+#       - service: light.turn_on
+#         data_template:
+#           entity_id: light.stephanie_s_bedside_light
+#           brightness: 96
+#           # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+#       - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+#       - service: light.turn_on
+#         data_template:
+#           entity_id: light.stephanie_s_bedside_light
+#           brightness: 102
+#           # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+#       - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+#       - service: light.turn_on
+#         data_template:
+#           entity_id: light.stephanie_s_bedside_light
+#           brightness: 109
+#           # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+#       - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+#       - service: light.turn_on
+#         data_template:
+#           entity_id: light.stephanie_s_bedside_light
+#           brightness: 115
+#           # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+#       - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+#       - service: light.turn_on
+#         data_template:
+#           entity_id: light.stephanie_s_bedside_light
+#           brightness: 122
+#           # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+#       - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+#       - service: light.turn_on
+#         data_template:
+#           entity_id: light.stephanie_s_bedside_light
+#           brightness: 128
+#           # transition: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+#       - service: media_player.volume_set
+#         data:
+#           entity_id: media_player.master_bedroom
+#           volume_level: 0.7
+#       - delay: '{{ (( states.input_number.wakeup_duration.state | float * 60 / 20 )| round ) | int }}'
+#       - service: notify.alexa_media_master_bedroom
+#         data:
+#           data:
+#             type: tts
+#           message: >-
+#             <audio
+#             src="soundbank://soundlibrary/animals/amzn_sfx_bird_forest_short_01"/>     
+#       - delay:
+#           minutes: 5
+#       - service: notify.alexa_media_master_bedroom
+#         data:
+#           data:
+#             type: tts
+#           message: >-
+#             <audio
+#             src="soundbank://soundlibrary/animals/amzn_sfx_bird_forest_short_01"/>     
 
      
 
