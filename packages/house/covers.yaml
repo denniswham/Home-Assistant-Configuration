@@ -355,6 +355,13 @@ automation:
         entity_id: cover.backyard_awning
         state: open
     action:
+      - service: notify.alexa_media
+        data:
+          data:
+            type: announce
+          target:
+            - group.alexa
+          message: The backyard awning closes because of bad weather
       - service: cover.close_cover
         data:
           entity_id:

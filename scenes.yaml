@@ -246,17 +246,31 @@
     light.living_room_spot_light:
       state: "on"
       brightness: 255
+    light.kitchen_light:
+      state: "on"
+      brightness: 255
     light.office_spot_light:
       state: "on"
       brightness: 255
+    light.entryway_light:
+      state: "on"
     light.hallway_light:
+      state: "on"
+    light.master_bedroom_wall_light:
+      state: "on"
+    light.master_bedroom_wardrobe_light:
+      state: "on"
+    light.timo_s_room_light:
+      state: "on"
+    light.guestroom_light:
       state: "on"
     light.attic_light:
       state: "on"
       brightness: 255
-    light.master_bedroom:
+    light.lucas_room_wall_light:
       state: "on"
-    light.lucas_room_floor_light:
-      state: "on"
+      brightness: 255
     light.backyard_wall_light:
+      state: "on"
+    light.backyard_garden_light:
       state: "on"
