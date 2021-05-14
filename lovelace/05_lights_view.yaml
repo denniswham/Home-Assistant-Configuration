@@ -126,10 +126,11 @@ cards:
         entities:
           - type: section
             label: Lucas' Room
-          - entity: light.lucas_room_light
-            name: Ceiling
           - entity: light.lucas_room_wall_light
             name: Wall
+            type: custom:slider-entity-row
+            hide_when_off: 'true'
+            toggle: 'true'
           - entity: light.lucas_room_floor_light
             name: Floor lamp
             type: custom:slider-entity-row
