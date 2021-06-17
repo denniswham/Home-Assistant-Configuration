@@ -349,6 +349,9 @@ automation:
       - platform: numeric_state
         entity_id: sensor.br_wind_speed
         above: 35 #km/h
+      - platform: numeric_state
+        entity_id: sensor.br_wind_gust
+        above: 35 #km/h
     mode: single
     condition:
       - condition: state
