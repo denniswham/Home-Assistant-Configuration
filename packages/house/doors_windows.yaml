@@ -84,13 +84,26 @@ binary_sensor:
     name: Guestroom Window Battery
     entity_id: sensor.guestroom_window_battery
     lower: 10
-
+  - platform: template
+    sensors:
+      battery_operated_sensor_unavailable:
+        value_template: "{{ is_state('binary_sensor.front_door_door', 'unavailable')
+                            or is_state('binary_sensor.garage_door_door', 'unavailable')
+                            or is_state('binary_sensor.living_room_door_door', 'unavailable')
+                            or is_state('binary_sensor.office_door_door', 'unavailable')
+                            or is_state('binary_sensor.bathroom_window_door', 'unavailable')
+                            or is_state('binary_sensor.guestroom_window_door', 'unavailable')
+                            or is_state('binary_sensor.kitchen_window_door', 'unavailable')
+                            or is_state('binary_sensor.timo_s_room_window_door', 'unavailable')
+                            or is_state('binary_sensor.kitchen_flood_sensor_flood', 'unavailable')
+                            or is_state('binary_sensor.laundry_room_flood_sensor_flood', 'unavailable') }}"
+        friendly_name: "Battery operated sensor is unavailable"
 
 alert:
   # Front Door Battery is low - un-acknowledgeable, auto-dismiss, me only
   front_door_battery_low:
     name: Front Door Sensor Battery Low
-    entity_id: sensor.front_door_battery
+    entity_id: binary_sensor.front_door_battery
     state: 'on'
     can_acknowledge: false
     repeat: 360
@@ -192,6 +205,21 @@ alert:
     - mobile_app_sm_g986b
     data:
       tag: 'guestroom_window_battery_low'
+
+  # Battery Operated Sensor Unavailable - un-acknowledgeable, auto-dismiss, me only
+  battery_operated_sensor_unavailable:
+    name: Battery Operated Sensor Unavailable
+    entity_id: binary_sensor.battery_operated_sensor_unavailable
+    state: 'on'
+    can_acknowledge: false
+    repeat: 360
+    title: 'Battery Operated Sensor Unavailable'
+    message: "A door/window or flood sensor is unavailable. Please check."
+    notifiers:
+    - mobile_app_sm_g986b
+    data:
+      tag: 'battery_operated_sensor_unavailable'
+
 
 automation:
   - id: 54601140-994f-4a24-b5f2-3cfeb4d1464d
