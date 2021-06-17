@@ -96,7 +96,8 @@ binary_sensor:
                             or is_state('binary_sensor.kitchen_window_door', 'unavailable')
                             or is_state('binary_sensor.timo_s_room_window_door', 'unavailable')
                             or is_state('binary_sensor.kitchen_flood_sensor_flood', 'unavailable')
-                            or is_state('binary_sensor.laundry_room_flood_sensor_flood', 'unavailable') }}"
+                            or is_state('binary_sensor.laundry_room_flood_sensor_flood', 'unavailable')
+                            or is_state('binary_sensor.attic_motion_motion', 'unavailable') }}"
         friendly_name: "Battery operated sensor is unavailable"
 
 alert:
