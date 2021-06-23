@@ -158,6 +158,9 @@ cards:
             name: Wall
           - entity: light.backyard_garden_light
             name: Garden
+          - entity: switch.backyard_pool_filter
+            name: Pool Filter
+            icon: 'mdi:pool'
       - type: entities
         title: Laundry Room
         show_header_toggle: false
