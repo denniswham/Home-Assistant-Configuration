@@ -26,6 +26,7 @@ include:
   - switch.attic_tumble_dryer
   - switch.attic_washing_machine
   - switch.living_room_amplifier
+  - switch.backyard_pool_filter
   - switch.backyard_camera_siren
   - switch.siren
     

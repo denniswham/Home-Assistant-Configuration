@@ -47,3 +47,4 @@ include:
   - switch.living_room_amplifier
   - switch.backyard_camera_siren
   - switch.siren
+  - switch.backyard_pool_filter
