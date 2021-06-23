@@ -29,6 +29,13 @@ binary_sensor:
         #   minutes: 2
         value_template: >
           {{ states('sensor.living_room_amplifier_power')| float > 10 }}
+      pool_filter:
+        friendly_name: "Pool Filter"
+        device_class: power
+        # delay_off:
+        #   minutes: 2
+        value_template: >
+          {{ states('sensor.backyard_pool_filter_power')| float > 10 }}
 
 automation:
   - id: ef7a15bf-f601-4e75-9e2a-f3a796d37750
@@ -116,3 +123,23 @@ automation:
               presentation_options:
                 - alert
                 - badge
+
+  - id: 0a60e6ca-8779-444e-8df5-b48d0d84da7e
+    alias: '[Switch] Turn on pool filter'
+    trigger:
+      - platform: time
+        at: "02:00:00"
+    mode: single
+    action:
+      - service: switch.turn_on
+        entity_id: switch.backyard_pool_filter
+
+  - id: 4653632b-909e-4a72-bef8-2ff3f743cee9
+    alias: '[Switch] Turn off pool filter'
+    trigger:
+      - platform: time
+        at: "05:00:00"
+    mode: single
+    action:
+      - service: switch.turn_off
+        entity_id: switch.backyard_pool_filter        
