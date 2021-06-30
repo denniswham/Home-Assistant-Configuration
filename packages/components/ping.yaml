@@ -1,17 +1,17 @@
 binary_sensor:
   - platform: ping
-    host: 1.1.1.1
-    name: "Ping Cloudflare"
-  - platform: ping
     host: 8.8.8.8
-    name: "Ping Google"
+    name: "Ping Google 1"
+  - platform: ping
+    host: 8.8.4.4
+    name: "Ping Google 2"
   - platform: template
     sensors:
       internet_connection:
         device_class: connectivity
         value_template: >-
-          {{ is_state('binary_sensor.ping_cloudflare', 'on')
-             or is_state('binary_sensor.ping_google', 'on') }}
+          {{ is_state('binary_sensor.ping_google_1', 'on')
+             or is_state('binary_sensor.ping_google_2', 'on') }}
         friendly_name: "Internet connection"
 
 automation:
