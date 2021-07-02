@@ -1,3 +1,8 @@
+homeassistant:
+  customize:
+    binary_sensor.attic_motion_motion:
+      friendly_name: Attic Motion
+
 group:
   shelly_firmware_update:
     name: Shelly Firmware Update
