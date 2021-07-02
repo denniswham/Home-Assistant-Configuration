@@ -47,7 +47,6 @@ cards:
               - entity: binary_sensor.living_room_motion
               - entity: binary_sensor.office_motion
               - entity: binary_sensor.attic_motion_motion
-                name: Attic
               - entity: binary_sensor.garage_motion
               - type: divider
               - entity: binary_sensor.doorbell_motion
