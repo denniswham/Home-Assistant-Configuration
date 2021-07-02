@@ -92,6 +92,12 @@ light:
       - light.dennis_bedside_light
 
   - platform: group
+    name: Bedside Lights
+    entities:
+      - light.stephanie_s_bedside_light
+      - light.dennis_bedside_light
+
+  - platform: group
     name: Lucas Room Lights
     entities:
       - light.lucas_room_wall_light

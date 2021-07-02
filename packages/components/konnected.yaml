@@ -1,12 +1,12 @@
 homeassistant:
   customize:
     binary_sensor.entryway_motion:
-      friendly_name: Entryway
+      friendly_name: Entryway Motion
     binary_sensor.kitchen_motion:
-      friendly_name: Kitchen
+      friendly_name: Kitchen Motion
     binary_sensor.living_room_motion:
-      friendly_name: Living Room
+      friendly_name: Living Room Motion
     binary_sensor.office_motion:
-      friendly_name: Office
+      friendly_name: Office Motion
     binary_sensor.garage_motion:
-      friendly_name: Garage
+      friendly_name: Garage Motion

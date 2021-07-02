@@ -29,4 +29,17 @@ include:
   - switch.backyard_pool_filter
   - switch.backyard_camera_siren
   - switch.siren
-    
+exclude:
+  entities:
+  - light.all_lights
+  - light.attic_lights
+  - light.entryway_lights
+  - light.first_floor_lights
+  - light.ground_floor_lights
+  - light.inside_lights
+  - light.kitchen_lights
+  - light.living_room_lights
+  - light.lucas_room_lights
+  - light.master_bedroom_lights
+  - light.office_lights
+  - light.outside_lights    

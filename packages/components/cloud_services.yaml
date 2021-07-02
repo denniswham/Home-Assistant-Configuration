@@ -3,6 +3,10 @@ homeassistant:
     switch.backyard_camera_siren:
       friendly_name: Backyard Siren
       icon: mdi:alarm-bell
+    binary_sensor.doorbell_motion:
+      friendly_name: Doorbell Motion
+    binary_sensor.backyard_camera_motion:
+      friendly_name: Backyard Motion
     switch.living_room_do_not_disturb_switch:
       friendly_name: Living Room Echo Dot
     switch.living_room_fire_tv_stick_do_not_disturb_switch:
