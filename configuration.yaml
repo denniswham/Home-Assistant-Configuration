@@ -25,7 +25,7 @@ frontend:
 recorder: !include logging/recorder.yaml
 history: !include logging/history.yaml
 logbook: !include logging/logbook.yaml
-logger: # !include logging/logger.yaml
+logger: !include logging/logger.yaml
 
 scene: !include scenes.yaml
 notify: !include notify/notify.yaml
