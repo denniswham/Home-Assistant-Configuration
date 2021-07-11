@@ -36,7 +36,7 @@ automation:
       entity_id: switch.backyard_pool_filter
 
   - id: 24eda764-5d80-4f87-881a-6de6032b86fa
-    alias: '[Pool] Pool Filter has not run correctly'
+    alias: '[Pool] Notification if pool filter has not run correctly'
     trigger:
       - platform: time
         at: "04:59:00"
