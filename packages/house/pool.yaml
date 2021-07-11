@@ -17,6 +17,26 @@ automation:
         at: "05:00:00"
     mode: single
     condition:
+      - condition: state
+        entity_id: switch.backyard_pool_filter
+        state: 'on'
+    action:
+      service: switch.turn_off
+      entity_id: switch.backyard_pool_filter
+
+  - id: 99a8eb53-bf78-40b0-836a-8fb99d332544
+    alias: '[Pool] Turn off pool filter after 10 mins at daytime'
+    trigger:
+      - platform: time_pattern
+        minutes: "/10"
+    mode: single
+    condition:
+      - condition: time
+        after: "05:00:00"
+        before: "02:00:00"
+      - condition: state
+        entity_id: switch.backyard_pool_filter
+        state: 'on'
     action:
       service: switch.turn_off
       entity_id: switch.backyard_pool_filter
