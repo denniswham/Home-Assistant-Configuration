@@ -1,0 +1,74 @@
+automation:
+  - id: a71d7f8b-4315-4ec7-b03c-21b8c6071a75
+    alias: '[Pool] Turn on pool filter at 2AM'
+    trigger:
+      - platform: time
+        at: "02:00:00"
+    mode: single
+    condition:
+      # - condition: template
+      #   value_template: >
+      #     {%- if states.switch.backyard_pool_filter.last_changed -%}
+      #       true
+      #     {%- else -%}
+      #       false
+      #     {%- endif -%}
+    action:
+      service: switch.turn_on
+      entity_id: switch.backyard_pool_filter
+
+  - id: 15396697-d964-451f-b430-d689bc29edb8
+    alias: '[Pool] Turn off pool filter at 5AM'
+    trigger:
+      - platform: time
+        at: "05:00:00"
+    mode: single
+    condition:
+    #   - condition: template
+    #     value_template: >
+    #       {%- if states.switch.backyard_pool_filter.last_changed -%}
+    #         true
+    #       {%- else -%}
+    #         false
+    #       {%- endif -%}
+    action:
+      service: switch.turn_off
+      entity_id: switch.backyard_pool_filter
+
+  - id: 24eda764-5d80-4f87-881a-6de6032b86fa
+    alias: '[Pool] Pool Filter has not run correctly'
+    trigger:
+      - platform: time
+        at: "04:59:00"
+    mode: single
+    condition:
+      - condition: or
+        conditions:
+          - condition: template
+            value_template: >
+              {%- if states.switch.backyard_pool_filter.last_changed -%}
+                {{ (as_timestamp(now()) - as_timestamp(states.switch.backyard_pool_filter.last_changed)) < 10700 }}
+              {%- else -%}
+                true
+              {%- endif -%}
+          - condition: state
+            entity_id: switch.backyard_pool_filter
+            state: "off"
+    action:
+      - service: notify.mobile_app_sm_g986b
+        data:
+          title: Pool Filter
+          message: Check if pool filter has operated correctly overnight
+          data:
+            channel: Alert
+            tag: alert
+      - service: notify.mobile_app_iphone_van_stephanie
+        data:
+          title: Pool Filter
+          message: Check if pool filter has operated correctly overnight
+          data:
+            push:
+              thread-id: "alert"
+              presentation_options:
+                - alert
+                - badge
