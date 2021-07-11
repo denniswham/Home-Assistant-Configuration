@@ -6,13 +6,6 @@ automation:
         at: "02:00:00"
     mode: single
     condition:
-      # - condition: template
-      #   value_template: >
-      #     {%- if states.switch.backyard_pool_filter.last_changed -%}
-      #       true
-      #     {%- else -%}
-      #       false
-      #     {%- endif -%}
     action:
       service: switch.turn_on
       entity_id: switch.backyard_pool_filter
@@ -24,19 +17,12 @@ automation:
         at: "05:00:00"
     mode: single
     condition:
-    #   - condition: template
-    #     value_template: >
-    #       {%- if states.switch.backyard_pool_filter.last_changed -%}
-    #         true
-    #       {%- else -%}
-    #         false
-    #       {%- endif -%}
     action:
       service: switch.turn_off
       entity_id: switch.backyard_pool_filter
 
   - id: 24eda764-5d80-4f87-881a-6de6032b86fa
-    alias: '[Pool] Notification if pool filter has not run correctly'
+    alias: '[Notification] Pool filter has not run correctly overnight'
     trigger:
       - platform: time
         at: "04:59:00"
