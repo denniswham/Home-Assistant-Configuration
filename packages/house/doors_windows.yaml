@@ -292,7 +292,7 @@ automation:
           message: 'The garage door was just opened'
 
   - id: be5daf0c-c5d5-4d86-a7b3-011b157b110e
-    alias: '[Door] Door open when leaving home alert'
+    alias: '[Notification] Door or window open when leaving home'
     trigger:
       - platform: state
         entity_id: group.household
@@ -331,7 +331,7 @@ automation:
                 volume: 1.0            
 
   - id: be5daf0c-c5d5-4d86-a7b3-011b157b110e
-    alias: '[Door] Door open when leaving home alert'
+    alias: '[Notification] Door or window open when alarm set to armed home'
     trigger:
       - platform: state
         entity_id: alarm_control_panel.konnected_alarm
