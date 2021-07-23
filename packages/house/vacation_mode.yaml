@@ -1,0 +1,100 @@
+input_boolean:
+  # Vacation Mode Toggle: Used as the condition for vacation lighting blueprint
+  vacation_mode:
+    name: Vacation Mode
+    icon: mdi:beach
+
+sensor:
+  # Replay Sensor - Make a new one for each light to monitor
+  # All sensors will have naming convention "sensor.replay_xxxxx"
+  - platform: history_stats
+    name: "replay_attic_light"
+    entity_id: light.attic_light
+    state: "on"
+    type: count
+    start: >
+      {{ as_timestamp(now()) - (7*86400) }}
+    duration: 00:00:30
+    
+  - platform: history_stats
+    name: "replay_bathroom_light"
+    entity_id: light.bathroom_light
+    state: "on"
+    type: count
+    start: >
+      {{ as_timestamp(now()) - (7*86400) }}
+    duration: 00:00:30
+    
+  - platform: history_stats
+    name: "replay_entryway_wall_light"
+    entity_id: light.entryway_wall_light
+    state: "on"
+    type: count
+    start: >
+      {{ as_timestamp(now()) - (7*86400) }}
+    duration: 00:00:30
+    
+  - platform: history_stats
+    name: "replay_kitchen_light"
+    entity_id: light.kitchen_light
+    state: "on"
+    type: count
+    start: >
+      {{ as_timestamp(now()) - (7*86400) }}
+    duration: 00:00:30
+    
+  - platform: history_stats
+    name: "replay_living_room_dining_table_light"
+    entity_id: light.living_room_dining_table_light
+    state: "on"
+    type: count
+    start: >
+      {{ as_timestamp(now()) - (7*86400) }}
+    duration: 00:00:30
+    
+  - platform: history_stats
+    name: "replay_living_room_spot_light"
+    entity_id: light.living_room_spot_light
+    state: "on"
+    type: count
+    start: >
+      {{ as_timestamp(now()) - (7*86400) }}
+    duration: 00:00:30
+    
+  - platform: history_stats
+    name: "replay_living_room_wall_light"
+    entity_id: light.living_room_wall_light
+    state: "on"
+    type: count
+    start: >
+      {{ as_timestamp(now()) - (7*86400) }}
+    duration: 00:00:30
+    
+  - platform: history_stats
+    name: "replay_office_desk_light"
+    entity_id: light.office_desk_light
+    state: "on"
+    type: count
+    start: >
+      {{ as_timestamp(now()) - (7*86400) }}
+    duration: 00:00:30
+    
+  - platform: history_stats
+    name: "replay_office_spot_light"
+    entity_id: light.office_spot_light
+    state: "on"
+    type: count
+    start: >
+      {{ as_timestamp(now()) - (7*86400) }}
+    duration: 00:00:30
+    
+  - platform: history_stats
+    name: "replay_timo_s_room_light"
+    entity_id: light.timo_s_room_light
+    state: "on"
+    type: count
+    start: >
+      {{ as_timestamp(now()) - (7*86400) }}
+    duration: 00:00:30
+    
+    
