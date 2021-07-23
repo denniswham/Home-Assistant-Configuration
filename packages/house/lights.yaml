@@ -361,6 +361,8 @@ automation:
         entity_id:
           - light.kitchen_light
           - light.entryway_wall_light
+
+
        
   - id: 71e5ccb0-6bc0-4c67-b3d8-9b18ce443897
     alias: '[Scene] Lets relax when away'
