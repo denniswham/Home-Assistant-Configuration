@@ -22,6 +22,8 @@ lovelace: !include lovelace.yaml
 frontend:
   themes: !include_dir_merge_named themes
 
+automation blueprints: !include automations.yaml
+
 recorder: !include logging/recorder.yaml
 history: !include logging/history.yaml
 logbook: !include logging/logbook.yaml
