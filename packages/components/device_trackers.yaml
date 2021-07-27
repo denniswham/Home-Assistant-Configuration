@@ -12,5 +12,13 @@ homeassistant:
     device_tracker.sm_g781b:
       friendly_name: Timo
       entity_picture: /local/images/timo-square.jpg
+    device_tracker.audi_a1_sportback_position:
+      friendly_name: Audi A1 Sportback
+      entity_picture: /local/images/audi-a1.jpg
+      track: false
+    device_tracker.audi_e_tron_position:
+      friendly_name: Audi e-tron
+      entity_picture: /local/images/audi-etron.jpg
+      track: false
 
 
