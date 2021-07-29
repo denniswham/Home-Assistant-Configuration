@@ -35,7 +35,7 @@ binary_sensor:
         # delay_off:
         #   minutes: 2
         value_template: >
-          {{ states('sensor.backyard_pool_filter_power')| float > 10 }}
+          {{ states('sensor.backyard_pool_filter_power')| float > 45 }}
 
 automation:
   - id: ef7a15bf-f601-4e75-9e2a-f3a796d37750

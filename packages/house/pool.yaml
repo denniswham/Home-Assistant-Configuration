@@ -64,3 +64,38 @@ automation:
               presentation_options:
                 - alert
                 - badge
+
+  - id: 339e7cdf-a0f5-45d8-ae10-994f44ebf97a
+    alias: '[Notification] Pool filter has not run correctly overnight'
+    trigger:
+      - platform: numeric_state
+        entity_id: binary_sensor.pool_filter
+        above: 53
+        for: "00:00:30"
+      - platform: numeric_state
+        entity_id: binary_sensor.pool_filter
+        below: 49
+        for: "00:00:30"
+    mode: single
+    condition:
+      - condition: time
+        after: " 02:00:00"
+        before: " 05:00:00"
+    action:
+      - service: notify.mobile_app_sm_g986b
+        data:
+          title: Pool Filter
+          message: Overnight pool filter power issue 
+          data:
+            channel: Alert
+            tag: alert
+      # - service: notify.mobile_app_iphone_van_stephanie
+      #   data:
+      #     title: Pool Filter
+      #     message: Check if pool filter has operated correctly overnight
+      #     data:
+      #       push:
+      #         thread-id: "alert"
+      #         presentation_options:
+      #           - alert
+      #           - badge                
