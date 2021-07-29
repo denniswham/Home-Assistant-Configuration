@@ -28,7 +28,7 @@ automation:
       entity_id: switch.backyard_pool_filter
 
   - id: 24eda764-5d80-4f87-881a-6de6032b86fa
-    alias: '[Notification] Overnight pool filter has not run correctly'
+    alias: '[Pool] Overnight pool filter has not run correctly'
     trigger:
       - platform: time
         at: "04:59:00"
@@ -66,7 +66,7 @@ automation:
                 - badge
 
   - id: 339e7cdf-a0f5-45d8-ae10-994f44ebf97a
-    alias: '[Notification] Overnight pool filter power issue'
+    alias: '[Pool] Overnight pool filter power issue'
     trigger:
       - platform: numeric_state
         entity_id: binary_sensor.pool_filter
