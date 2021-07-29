@@ -66,7 +66,7 @@ automation:
                 - badge
 
   - id: 339e7cdf-a0f5-45d8-ae10-994f44ebf97a
-    alias: '[Notification] Pool filter has not run correctly overnight'
+    alias: '[Notification] Overnight pool filter power issue'
     trigger:
       - platform: numeric_state
         entity_id: binary_sensor.pool_filter
