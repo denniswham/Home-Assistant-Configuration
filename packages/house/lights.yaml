@@ -378,19 +378,19 @@ automation:
         data:
           entity_id: scene.relax_time    
 
-  - id: 6f2dde39-7084-4cc3-99df-95afccfbacff
-    alias: '[Scene] Bedtime when away'
-    trigger:
-      - platform: time
-        at: "22:44:56"
-    condition:
-      - condition: state
-        entity_id: group.household
-        state: not_home
-    action:
-      - service: scene.turn_on
-        data:
-          entity_id: scene.bed_time              
+  # - id: 6f2dde39-7084-4cc3-99df-95afccfbacff
+  #   alias: '[Scene] Bedtime when away'
+  #   trigger:
+  #     - platform: time
+  #       at: "22:44:56"
+  #   condition:
+  #     - condition: state
+  #       entity_id: group.household
+  #       state: not_home
+  #   action:
+  #     - service: scene.turn_on
+  #       data:
+  #         entity_id: scene.bed_time              
 
   - id: 05769c02-8e2c-4f61-a43d-9b1f7851dc79
     alias: '[Light] Turn off living room light when working at daytime'
