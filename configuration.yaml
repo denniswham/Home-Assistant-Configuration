@@ -1,10 +1,10 @@
 homeassistant:
-  latitude: !secret home_lat
-  longitude: !secret home_long
-  elevation: !secret home_elev
-  unit_system: metric
-  time_zone: Europe/Amsterdam
-  name: Home
+  # latitude: !secret home_lat
+  # longitude: !secret home_long
+  # elevation: !secret home_elev
+  # unit_system: metric
+  # time_zone: Europe/Amsterdam
+  # name: Home
   packages: !include_dir_named packages
   auth_mfa_modules:
     - type: totp
