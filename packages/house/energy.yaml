@@ -39,7 +39,7 @@ sensor:
         value_template: "{{ (states('sensor.solaredge_energy_this_year') | float / 1000) | round(2) }}"
 
   - platform: scrape
-    resource: https://b2c.evcloud.com/dashboard
+    resource: !secret evcloud_url
     name: Alfen Energy
     select: "body > div.fpl-wrapper > main > div.Dashboard > ul > li.Dashboard__Statistics__Item.Dashboard__Statistics__Item--Kwh"
     # value_template: '{{ ((value.split(" ")[0]) | replace (",", ".")) }}'
