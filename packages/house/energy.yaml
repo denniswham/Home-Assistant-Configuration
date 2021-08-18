@@ -38,15 +38,15 @@ sensor:
       solaredge_energy_this_year_template:
         value_template: "{{ (states('sensor.solaredge_energy_this_year') | float / 1000) | round(2) }}"
 
-  - platform: scrape
-    resource: !secret evcloud_url
-    name: Alfen Energy
-    select: "body > div.fpl-wrapper > main > div.Dashboard > ul > li.Dashboard__Statistics__Item.Dashboard__Statistics__Item--Kwh"
-    # value_template: '{{ ((value.split(" ")[0]) | replace (",", ".")) }}'
-    unit_of_measurement: "kWh"
-    authentication: digest
-    username: !secret evcloud_username
-    password: !secret evcloud_password
+  # - platform: scrape
+  #   resource: !secret evcloud_url
+  #   name: Alfen Energy
+  #   select: "body > div.fpl-wrapper > main > div.Dashboard > ul > li.Dashboard__Statistics__Item.Dashboard__Statistics__Item--Kwh"
+  #   # value_template: '{{ ((value.split(" ")[0]) | replace (",", ".")) }}'
+  #   unit_of_measurement: "kWh"
+  #   authentication: digest
+  #   username: !secret evcloud_username
+  #   password: !secret evcloud_password
 
 
 
