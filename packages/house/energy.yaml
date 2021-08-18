@@ -44,7 +44,6 @@ sensor:
     select: "body > div.fpl-wrapper > main > div.Dashboard > ul > li.Dashboard__Statistics__Item.Dashboard__Statistics__Item--Kwh"
     # value_template: '{{ ((value.split(" ")[0]) | replace (",", ".")) }}'
     unit_of_measurement: "kWh"
-    device_class: energy
     authentication: digest
     username: !secret evcloud_username
     password: !secret evcloud_password
