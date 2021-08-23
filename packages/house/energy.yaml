@@ -17,20 +17,20 @@ utility_meter:
     source: sensor.solaredge_exported_power
     cycle: yearly 
 
-template:
-  - sensor:
-    - name: "Imported Power Yearly kWh"
-      unique_id: imported_power_yearly_kwh
-      state_class: measurement
-      device_class: energy  
-      unit_of_measurement: 'kWh'
-      state: "{{(states('sensor.imported_power_yearly') | float) / 1000}}"  
-    - name: "Exported Power Yearly kWh"
-      unique_id: exported_power_yearly_kwh
-      state_class: measurement
-      device_class: energy    
-      unit_of_measurement: 'kWh'
-      state: "{{(states('sensor.exported_power_yearly') | float) / 1000}}" 
+# template:
+#   - sensor:
+#     - name: "Imported Power Yearly kWh"
+#       unique_id: imported_power_yearly_kwh
+#       state_class: measurement
+#       device_class: energy  
+#       unit_of_measurement: 'kWh'
+#       state: "{{(states('sensor.imported_power_yearly') | float) / 1000}}"  
+#     - name: "Exported Power Yearly kWh"
+#       unique_id: exported_power_yearly_kwh
+#       state_class: measurement
+#       device_class: energy    
+#       unit_of_measurement: 'kWh'
+#       state: "{{(states('sensor.exported_power_yearly') | float) / 1000}}" 
 
 sensor:
   - platform: template
