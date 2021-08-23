@@ -9,10 +9,6 @@ homeassistant:
 alarm_control_panel:
   - platform: manual
     name: Konnected Alarm
-    arming_time: 0
-    delay_time: 30
-    trigger_time: 300
-    disarm_after_trigger: 'false'
 
 script:
   konnectedstandby:
@@ -272,8 +268,8 @@ automation:
         entity_id: switch.siren
       - service: switch.turn_on
         entity_id: switch.backyard_camera_siren
-      - service: scene.turn_on
-        entity_id: scene.emergency
+      # - service: scene.turn_on
+      #   entity_id: scene.emergency
       - service: notify.alexa_media
         data:
           data:
