@@ -53,23 +53,5 @@ sensor:
         value_template: >
           {{ expand(states.group.echos) | selectattr('attributes.last_called','eq',True) | map(attribute='entity_id') | first | default }}
 
-automation:
-  - id: af200dcf-e575-481c-93b8-8356a0495aae
-    alias: Alexa Media Player Authentication Required
-    trigger:
-      platform: event
-      event_type: alexa_media_relogin_required
-    condition: []
-    action:
-    - service: notify.mobile_app
-      data:
-        title: Alexa Media Player Integration
-        message: 🔑 Authentication Required
-        data:
-          actions:
-          - action: URI
-            title: Resolve now!
-            uri: /lovelace/home
-
-         
+     
 
