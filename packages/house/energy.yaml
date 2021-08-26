@@ -9,13 +9,13 @@ homeassistant:
       device_class: energy
       state_class: measurement
       
-utility_meter:
-  imported_power_yearly:
-    source: sensor.solaredge_imported_power
-    cycle: yearly 
-  exported_power_yearly:
-    source: sensor.solaredge_exported_power
-    cycle: yearly 
+# utility_meter:
+#   imported_power_yearly:
+#     source: sensor.solaredge_imported_power
+#     cycle: yearly 
+#   exported_power_yearly:
+#     source: sensor.solaredge_exported_power
+#     cycle: yearly 
 
 # template:
 #   - sensor:
