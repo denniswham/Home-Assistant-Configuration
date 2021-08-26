@@ -456,3 +456,51 @@ automation:
       entity_id:
         - light.all_lights
     
+  - id: 639acf1b-5f95-43ee-b37b-c92b32e515a81
+    alias: '[Light] Turn on Attic Light when motion at daytime'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.attic_motion_motion
+        from: 'off'
+        to: 'on'
+    condition:
+      - condition: numeric_state
+        entity_id: sensor.attic_motion_luminosity
+        below: 100
+      - condition: time
+        after: '06:30:00'
+        before: '22:30:00'
+    action:
+      - service: light.turn_on
+        entity_id: light.attic_light
+        brightness: 166
+
+  - id: d5211bf4-45de-4101-9df4-c904a3b04606
+    alias: '[Light] Turn on Attic Light when motion at night'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.attic_motion_motion
+        from: 'off'
+        to: 'on'
+    condition:
+      - condition: numeric_state
+        entity_id: sensor.attic_motion_luminosity
+        below: 100
+      - condition: time
+        after: '22:30:00'
+        before: '06:30:00'
+    action:
+      - service: light.turn_on
+        entity_id: light.attic_light
+        brightness: 38
+
+  - id: 71b72ada-2064-471f-805f-61d64f948c2a
+    alias: '[Light] Turn off Attic Light when no motion'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.attic_motion_motion
+        from: 'on'
+        to: 'off'
+    action:
+      - service: light.turn_off
+        entity_id: light.attic_light
