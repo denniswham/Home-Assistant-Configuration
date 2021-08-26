@@ -1,13 +1,13 @@
-homeassistant:
-  customize_glob:
-    sensor.*_power_yearly_kwh:
-      last_reset: '1970-01-01T00:00:00+00:00'
-      device_class: energy
-      state_class: measurement
-    sensor.*_power_yearly:
-      last_reset: '1970-01-01T00:00:00+00:00'
-      device_class: energy
-      state_class: measurement
+# homeassistant:
+#   customize_glob:
+#     sensor.*_power_yearly_kwh:
+#       last_reset: '1970-01-01T00:00:00+00:00'
+#       device_class: energy
+#       state_class: measurement
+#     sensor.*_power_yearly:
+#       last_reset: '1970-01-01T00:00:00+00:00'
+#       device_class: energy
+#       state_class: measurement
       
 # utility_meter:
 #   imported_power_yearly:
