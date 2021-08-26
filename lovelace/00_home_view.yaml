@@ -129,4 +129,5 @@ cards:
             show_header_toggle: false
             entities:
               - entity: sensor.br_wind_force
+              - entity: sensor.br_wind_direction
               - entity: sensor.br_precipitation_forecast_total
