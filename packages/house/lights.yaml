@@ -307,17 +307,6 @@ automation:
       service: light.turn_off
       entity_id: light.lucas_room_lights
 
-  - id: 1bf4148c-04d3-4ea0-9a68-b14d28fadfee
-    alias: '[Light] Flash lights when echo alarm'
-    initial_state: false
-    trigger:
-      - platform: template
-        value_template: "{{ as_timestamp(states('sensor.master_bedroom_next_alarm')) - as_timestamp(now()) < 0}}"
-    mode: single
-    action:
-      service: script.turn_on
-      entity_id: script.blink_light
-      
   - id: b8b0591a-3c88-4867-9180-8f6d541687de
     alias: '[Light] Turn on entryway light when front door ding'
     trigger:
