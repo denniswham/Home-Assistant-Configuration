@@ -473,7 +473,8 @@ automation:
     action:
       - service: light.turn_on
         entity_id: light.attic_light
-        brightness: 166
+        data:
+          brightness_pct: 65
 
   - id: d5211bf4-45de-4101-9df4-c904a3b04606
     alias: '[Light] Turn on Attic Light when motion at night'
@@ -492,7 +493,8 @@ automation:
     action:
       - service: light.turn_on
         entity_id: light.attic_light
-        brightness: 38
+        data:
+          brightness_pct: 15
 
   - id: 71b72ada-2064-471f-805f-61d64f948c2a
     alias: '[Light] Turn off Attic Light when no motion'
