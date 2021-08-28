@@ -1,6 +1,7 @@
 powercalc:
   scan_interval: 00:01:00 #Each minute
-  power_sensor_naming: "{} Powersensor"
+  power_sensor_naming: "{} Power"
+  energy_sensor_naming: "{} Energy"
   create_energy_sensors: true
 
 sensor:
@@ -13,7 +14,6 @@ sensor:
     linear:
       min_power: 0.2
       max_power: 12
-
   - platform: powercalc
     entity_id: switch.hood_power
     manufacturer: Siemens
@@ -22,7 +22,6 @@ sensor:
     disable_standby_usage: false
     fixed:
       power: 75 #need to check
-
   - platform: powercalc
     entity_id: device_tracker.living_room_tv
     manufacturer: Panasonic
@@ -31,7 +30,6 @@ sensor:
     disable_standby_usage: false
     fixed:
       power: 212
-
   - platform: powercalc
     entity_id: device_tracker.living_room_xbox_one
     manufacturer: Microsoft
@@ -40,7 +38,6 @@ sensor:
     disable_standby_usage: false
     fixed:
       power: 80 #need to check
-
   - platform: powercalc
     entity_id: device_tracker.home_alarm
     manufacturer: Konnected
@@ -49,4 +46,14 @@ sensor:
     disable_standby_usage: true
     fixed:
       power: 5 #need to check
+
+
+template:
+  - sensor:
+      - kitchen_refrigerator_power:
+        unique_id: 331f2e5a-bdab-4562-81ca-bd6a23f3f1df
+        state: 13.125
+        unit_of_measurement: W
+        device_class: power
+
 
