@@ -8,11 +8,20 @@ sensor:
     entity_id: light.hood_light
     manufacturer: Siemens
     model: LF98BIR55 
+    standby_usage: 0
+    disable_standby_usage: true
+    linear:
+      min_power: 0.2
+      max_power: 12
 
   - platform: powercalc
     entity_id: switch.hood_power
     manufacturer: Siemens
     model: LF98BIR55 
+    standby_usage: 0.31
+    disable_standby_usage: false
+    fixed:
+      power: 75 #need to check
 
   - platform: powercalc
     entity_id: device_tracker.living_room_tv
@@ -30,7 +39,7 @@ sensor:
     standby_usage: 0.22
     disable_standby_usage: false
     fixed:
-      power: 80
+      power: 80 #need to check
 
   - platform: powercalc
     entity_id: device_tracker.home_alarm
@@ -39,5 +48,5 @@ sensor:
     standby_usage: 0
     disable_standby_usage: true
     fixed:
-      power: 5
+      power: 5 #need to check
 
