@@ -54,7 +54,7 @@ sensor:
     fixed:
       power: 13.125 
   - platform: powercalc
-    entity_id: binary_sensor.kitchen_refrigerator
+    entity_id: binary_sensor.garage_freezer
     manufacturer: AEG
     model: AHB526E1LW
     disable_standby_usage: true
