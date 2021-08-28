@@ -47,10 +47,9 @@ sensor:
     fixed:
       power: 5 #need to check
 
-
 template:
   - sensor:
-      - kitchen_refrigerator_power:
+      - name: Kitchen Refrigerator Power
         unique_id: 331f2e5a-bdab-4562-81ca-bd6a23f3f1df
         state: 13.125
         unit_of_measurement: W
