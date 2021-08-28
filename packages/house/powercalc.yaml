@@ -12,3 +12,5 @@ sensor:
     entity: device_tracker.living_room_tv
   - platform: powercalc
     entity: device_tracker.living_room_xbox_one
+  - platform: powercalc
+    entity: device_tracker.home_alarm
