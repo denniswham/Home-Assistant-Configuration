@@ -9,8 +9,8 @@ sensor:
   - platform: powercalc
     entity_id: switch.hood_power
   - platform: powercalc
-    entity: device_tracker.living_room_tv
+    entity_id: device_tracker.living_room_tv
   - platform: powercalc
-    entity: device_tracker.living_room_xbox_one
+    entity_id: device_tracker.living_room_xbox_one
   - platform: powercalc
-    entity: device_tracker.home_alarm
+    entity_id: device_tracker.home_alarm
