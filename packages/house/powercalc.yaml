@@ -50,14 +50,35 @@ sensor:
     entity_id: binary_sensor.kitchen_refrigerator
     manufacturer: Bauknecht
     model: KRIF 3184 A++
-    disable_standby_usage: false
+    disable_standby_usage: true
     fixed:
       power: 13.125 
+  - platform: powercalc
+    entity_id: binary_sensor.kitchen_refrigerator
+    manufacturer: AEG
+    model: AHB526E1LW
+    disable_standby_usage: true
+    fixed:
+      power: 24.875
+  - platform: powercalc
+    entity_id: binary_sensor.combi_boiler
+    manufacturer: Intergas
+    model: HRE 36/30 A
+    disable_standby_usage: true
+    fixed:
+      power: 6.85 
 
 template:
   - binary_sensor:
       - name: Kitchen Refrigerator
         unique_id: 331f2e5a-bdab-4562-81ca-bd6a23f3f1df
         state: on
+      - name: Garage Freezer
+        unique_id: 9a4f78f3-5417-4aeb-93d0-0875fe457eee
+        state: on
+      - name: Combi Boiler
+        unique_id: bed90ed2-048c-4b97-8416-c8744b10ba1a
+        state: on
+
 
 
