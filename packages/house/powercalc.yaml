@@ -89,7 +89,16 @@ sensor:
     disable_standby_usage: true
     fixed:
       power: 2.2
-
+  - platform: powercalc
+    entity_id: binary_sensor.network
+    disable_standby_usage: true
+    fixed:
+      power: 44.2
+  - platform: powercalc
+    entity_id: binary_sensor.office_invoke
+    disable_standby_usage: true
+    fixed:
+      power: 1.8
 
 template:
   - binary_sensor:
@@ -104,6 +113,12 @@ template:
         state: on
       - name: Combi Boiler
         unique_id: bed90ed2-048c-4b97-8416-c8744b10ba1a
+        state: on
+      - name: Network
+        unique_id: 3077cc90-a92c-4480-a3fe-5b374a0334bb
+        state: on
+      - name: Office Invoke
+        unique_id: 2b7f67ca-6aa5-419e-87a6-25a2f8fdceab
         state: on
 
 
