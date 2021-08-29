@@ -61,12 +61,19 @@ sensor:
     fixed:
       power: 24.875
   - platform: powercalc
-    entity_id: binary_sensor.combi_boiler
-    manufacturer: Intergas
-    model: HRE 36/30 A
+    entity_id: binary_sensor.ventilation
+    manufacturer: Itho Daalderop
+    model: CVE ECO RFT
     disable_standby_usage: true
     fixed:
-      power: 6.85 
+      power: 6.85
+  - platform: powercalc
+    entity_id: binary_sensor.combi_boiler
+    manufacturer: Intergas
+    model: HRE 36/30A
+    disable_standby_usage: true
+    fixed:
+      power: 1.9
   # - platform: powercalc
   #   entity_id: device_tracker.master_bedroom_tv
   #   manufacturer: Samsung
@@ -76,8 +83,6 @@ sensor:
   #   fixed:
   #     power: 73 #need to check
 
-
-
 template:
   - binary_sensor:
       - name: Kitchen Refrigerator
@@ -85,6 +90,9 @@ template:
         state: on
       - name: Garage Freezer
         unique_id: 9a4f78f3-5417-4aeb-93d0-0875fe457eee
+        state: on
+      - name: Ventilation
+        unique_id: b646d813-608a-40fd-9066-6ae67c5b3fd0
         state: on
       - name: Combi Boiler
         unique_id: bed90ed2-048c-4b97-8416-c8744b10ba1a
