@@ -34,10 +34,10 @@ sensor:
     entity_id: device_tracker.living_room_xbox_one
     manufacturer: Microsoft
     model: Xbox One
-    standby_usage: 0.22
+    standby_usage: 1.0
     disable_standby_usage: false
     fixed:
-      power: 80 #need to check
+      power: 75
   - platform: powercalc
     entity_id: device_tracker.home_alarm
     manufacturer: Konnected
@@ -45,7 +45,7 @@ sensor:
     standby_usage: 0
     disable_standby_usage: true
     fixed:
-      power: 5 #need to check
+      power: 2
   - platform: powercalc
     entity_id: binary_sensor.kitchen_refrigerator
     manufacturer: Bauknecht
@@ -82,6 +82,14 @@ sensor:
   #   disable_standby_usage: false
   #   fixed:
   #     power: 73 #need to check
+  - platform: powercalc
+    entity_id: device_tracker.home_assistant
+    manufacturer: Home Assistant
+    model: Home Assistant Blue
+    disable_standby_usage: true
+    fixed:
+      power: 2.2
+
 
 template:
   - binary_sensor:
