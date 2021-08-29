@@ -1,8 +1,9 @@
 powercalc:
   scan_interval: 00:01:00 #Each minute
+  create_energy_sensors: true
   power_sensor_naming: "{} Power"
   energy_sensor_naming: "{} Energy"
-  create_energy_sensors: true
+  create_utility_meters: false
 
 sensor:
   - platform: powercalc
@@ -98,7 +99,7 @@ sensor:
     entity_id: binary_sensor.office_invoke
     disable_standby_usage: true
     fixed:
-      power: 1.8
+      power: 1.8 #need to check
 
 template:
   - binary_sensor:
