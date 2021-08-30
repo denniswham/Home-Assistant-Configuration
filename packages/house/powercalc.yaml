@@ -68,14 +68,6 @@ sensor:
     disable_standby_usage: true
     fixed:
       power: 1.9
-  # - platform: powercalc
-  #   entity_id: device_tracker.master_bedroom_tv
-  #   manufacturer: Samsung
-  #   model: UE46ES6710
-  #   standby_usage: 0.3
-  #   disable_standby_usage: false
-  #   fixed:
-  #     power: 73 #need to check
   - platform: powercalc
     entity_id: device_tracker.home_assistant
     manufacturer: Home Assistant
