@@ -1,10 +1,3 @@
-powercalc:
-  scan_interval: 00:01:00 #Each minute
-  create_energy_sensors: true
-  power_sensor_naming: "{} Power"
-  energy_sensor_naming: "{} Energy"
-  create_utility_meters: false
-
 sensor:
   - platform: powercalc
     entity_id: light.hood_light
