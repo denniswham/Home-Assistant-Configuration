@@ -495,3 +495,77 @@ automation:
     action:
       - service: light.turn_off
         entity_id: light.attic_light
+
+  - id: 4ba7e30b-7d15-447e-b4f2-c84355729c96
+    alias: '[Light] Toggle Emilies room light'
+    trigger:
+      platform: event
+      event_type: shelly.click
+      event_data:
+        device: shellyix3-E8DB84D2842B
+        channel: 1
+        click_type: single
+    action:
+      service: light.toggle
+      target:
+        entity_id: light.emilie_s_room_light
+
+  - id: 5dc2b639-1bc7-4d79-bb76-818c1dfe82b5
+    alias: '[Light] Turn on Emilies room light at 5%'
+    trigger:
+      - platform: event
+        event_type: shelly.click
+        event_data:
+          device: shellyix3-E8DB84D2842B
+          channel: 1
+          click_type: double
+    action:
+      - service: light.turn_on
+        entity_id: light.emilie_s_room_light
+        data:
+          brightness_pct: 5
+
+  - id: 89a9dbe4-b08e-47dc-9226-65f43f3caa97
+    alias: '[Light] Turn on Emilies room light at 100%'
+    trigger:
+      - platform: event
+        event_type: shelly.click
+        event_data:
+          device: shellyix3-E8DB84D2842B
+          channel: 1
+          click_type: triple
+    action:
+      - service: light.turn_on
+        entity_id: light.emilie_s_room_light
+        data:
+          brightness_pct: 100
+
+  - id: 63566aa6-7aa3-4301-9030-7322f5e0b113
+    alias: '[Light] Turn on Emilies room light at 65%'
+    trigger:
+      - platform: event
+        event_type: shelly.click
+        event_data:
+          device: shellyix3-E8DB84D2842B
+          channel: 1
+          click_type: long
+    action:
+      - service: light.turn_on
+        entity_id: light.emilie_s_room_light
+        data:
+          brightness_pct: 65
+
+  - id: 13fbe898-aad1-49ec-8213-bd6462174617
+    alias: '[Light] Turn on Emilies room light at 30%'
+    trigger:
+      - platform: event
+        event_type: shelly.click
+        event_data:
+          device: shellyix3-E8DB84D2842B
+          channel: 1
+          click_type: single_long
+    action:
+      - service: light.turn_on
+        entity_id: light.emilie_s_room_light
+        data:
+          brightness_pct: 30        
