@@ -50,7 +50,6 @@ cards:
         title: Network
         show_header_toggle: false
         entities:
-          - entity: switch.ziggo_router
           - entity: binary_sensor.internet_connection
           - entity: sensor.speedtest_ping
             name: Ping
