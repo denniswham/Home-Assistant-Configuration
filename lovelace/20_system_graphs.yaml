@@ -107,28 +107,6 @@ cards:
       - type: custom:auto-entities
         card:
           type: entities
-          title: Power consumption
-          show_header_toggle: false
-        filter:
-          include:
-            - entity_id: sensor.daily_energy_consumption
-            - entity_id: sensor.monthly_energy_consumption
-            - entity_id: "*_power"
-            - entity_id: "*_power_0"
-          exclude:
-            - entity_id: "*_2"
-            - entity_id: "*_management"
-            - entity_id: "*.solaredge_*"
-            - entity_id: "switch.hood_power"
-            - state: "= 0"
-        sort:
-          method: state
-          numeric: 'true'
-          reverse: 'true'
-
-      - type: custom:auto-entities
-        card:
-          type: entities
           title: Batteries
           show_header_toggle: false
         filter:
