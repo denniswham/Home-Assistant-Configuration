@@ -23,7 +23,7 @@ binary_sensor:
         # delay_off:
         #   minutes: 2
         value_template: >
-          {{ states('sensor.kitchen_dishwasher_power')| float > 10 }}
+          {{ states('sensor.kitchen_dishwasher_power')| float > 0 }}
       vieratv:
         friendly_name: 'Living Room TV'
         device_class: power
