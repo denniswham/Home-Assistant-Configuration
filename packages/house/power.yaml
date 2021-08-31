@@ -17,6 +17,13 @@ binary_sensor:
           minutes: 5
         value_template: >
           {{ states('sensor.attic_tumble_dryer_power')| float > 300 }}
+      dishwasher:
+        friendly_name: "Dishwasher"
+        device_class: power
+        # delay_off:
+        #   minutes: 2
+        value_template: >
+          {{ states('sensor.kitchen_dishwasher_power')| float > 10 }}
       vieratv:
         friendly_name: 'Living Room TV'
         device_class: power

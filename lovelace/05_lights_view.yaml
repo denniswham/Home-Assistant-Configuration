@@ -50,6 +50,8 @@ cards:
           - entity: switch.hood_power
             name: Hood
             icon: 'mdi:air-filter'
+          - entity: binary_sensor.dishwasher
+            icon: 'mdi:dishwasher'
           - entity: binary_sensor.kitchen_flood_sensor_flood
             name: Flood Sensor
           - type: section
