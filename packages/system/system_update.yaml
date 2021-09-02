@@ -77,14 +77,25 @@ binary_sensor:
     entity_id: sensor.host_updates
     upper: 0.5
 
-  - platform: template
-    sensors:
-      # True if there's an update available for supervisor
-      updater_supervisor:
-        friendly_name: 'Updater Supervisor'
-        device_class: problem
-        value_template: "{{ state_attr('sensor.supervisor_updates', 'update_available') }}"
-        availability_template: "{{ states('sensor.supervisor_updates') | int(-1) > -1 }}"
+  # - platform: template
+  #   sensors:
+  #     # True if there's an update available for supervisor
+  #     updater_supervisor:
+  #       friendly_name: 'Updater Supervisor'
+  #       device_class: problem
+  #       value_template: "{{ state_attr('sensor.supervisor_updates', 'update_available') }}"
+  #       availability_template: "{{ states('sensor.supervisor_updates') | int(-1) > -1 }}"
+
+template:
+  - sensor:
+    - name: Updater Supervisor
+      unique_identifier: a1ba302e-9495-435a-bcae-83867a361b84
+      device_class: problem
+      value: "{{ state_attr('sensor.supervisor_updates', 'update_available') }}"
+      availability: "{{ states('sensor.supervisor_updates') | int(-1) > -1 }}"
+
+
+
 
 alert:
   # Update is available - un-acknowledgeble, auto-dismiss, me only
