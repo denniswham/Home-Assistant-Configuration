@@ -46,13 +46,6 @@ group:
     - media_player.master_bedroom
     - media_player.timo_s_room
 
-# sensor:
-#   - platform: template
-#     sensors:
-#       last_alexa:
-#         value_template: >
-#           {{ expand(states.group.echos) | selectattr('attributes.last_called','eq',True) | map(attribute='entity_id') | first | default }}
-
 template:
   - sensor:
       - name: Last Alexa

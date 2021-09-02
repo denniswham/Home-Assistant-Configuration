@@ -84,21 +84,39 @@ binary_sensor:
     name: Guestroom Window Battery
     entity_id: sensor.guestroom_window_battery
     lower: 10
-  - platform: template
-    sensors:
-      battery_operated_sensor_unavailable:
-        value_template: "{{ is_state('binary_sensor.front_door_door', 'unavailable')
-                            or is_state('binary_sensor.garage_door_door', 'unavailable')
-                            or is_state('binary_sensor.living_room_door_door', 'unavailable')
-                            or is_state('binary_sensor.office_door_door', 'unavailable')
-                            or is_state('binary_sensor.bathroom_window_door', 'unavailable')
-                            or is_state('binary_sensor.guestroom_window_door', 'unavailable')
-                            or is_state('binary_sensor.kitchen_window_door', 'unavailable')
-                            or is_state('binary_sensor.timo_s_room_window_door', 'unavailable')
-                            or is_state('binary_sensor.kitchen_flood_sensor_flood', 'unavailable')
-                            or is_state('binary_sensor.laundry_room_flood_sensor_flood', 'unavailable')
-                            or is_state('binary_sensor.attic_motion_motion', 'unavailable') }}"
-        friendly_name: "Battery operated sensor is unavailable"
+  # - platform: template
+  #   sensors:
+  #     battery_operated_sensor_unavailable:
+  #       value_template: "{{ is_state('binary_sensor.front_door_door', 'unavailable')
+  #                           or is_state('binary_sensor.garage_door_door', 'unavailable')
+  #                           or is_state('binary_sensor.living_room_door_door', 'unavailable')
+  #                           or is_state('binary_sensor.office_door_door', 'unavailable')
+  #                           or is_state('binary_sensor.bathroom_window_door', 'unavailable')
+  #                           or is_state('binary_sensor.guestroom_window_door', 'unavailable')
+  #                           or is_state('binary_sensor.kitchen_window_door', 'unavailable')
+  #                           or is_state('binary_sensor.timo_s_room_window_door', 'unavailable')
+  #                           or is_state('binary_sensor.kitchen_flood_sensor_flood', 'unavailable')
+  #                           or is_state('binary_sensor.laundry_room_flood_sensor_flood', 'unavailable')
+  #                           or is_state('binary_sensor.attic_motion_motion', 'unavailable') }}"
+  #       friendly_name: "Battery operated sensor is unavailable"
+
+template:
+  - binary_sensor:
+      - name: Battery operated sensor is unavailable
+        unique_id: 96dacab3-c1f5-4f51-9723-84852a122d0c
+        state: >-
+          {{ is_state('binary_sensor.front_door_door', 'unavailable')
+              or is_state('binary_sensor.garage_door_door', 'unavailable')
+              or is_state('binary_sensor.living_room_door_door', 'unavailable')
+              or is_state('binary_sensor.office_door_door', 'unavailable')
+              or is_state('binary_sensor.bathroom_window_door', 'unavailable')
+              or is_state('binary_sensor.guestroom_window_door', 'unavailable')
+              or is_state('binary_sensor.kitchen_window_door', 'unavailable')
+              or is_state('binary_sensor.timo_s_room_window_door', 'unavailable')
+              or is_state('binary_sensor.kitchen_flood_sensor_flood', 'unavailable')
+              or is_state('binary_sensor.laundry_room_flood_sensor_flood', 'unavailable')
+              or is_state('binary_sensor.attic_motion_motion', 'unavailable') }}
+
 
 alert:
   # Front Door Battery is low - un-acknowledgeable, auto-dismiss, me only

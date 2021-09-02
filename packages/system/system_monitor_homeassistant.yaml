@@ -43,14 +43,20 @@ sensor:
         column: 'value'
         unit_of_measurement: MB
 
-binary_sensor:
-  - platform: template
-    sensors:
-      ssh_off:
+# binary_sensor:
+#   - platform: template
+#     sensors:
+#       ssh_off:
+#         friendly_name: 'SSH & Web Terminal Add-on'
+#         value_template: >
+#           {{ is_state('sensor.ssh_web_terminal', 'stopped') }}
+
+template:
+  - binary_sensor:
+      - name: ssh_off
         friendly_name: 'SSH & Web Terminal Add-on'
-        device_class: power
-        value_template: >
-          {{ is_state('sensor.ssh_web_terminal', 'stopped') }}
+        unique_id: 506699b5-5732-405a-b82f-66a529343b19
+        state: "{{ is_state('sensor.ssh_web_terminal', 'stopped') }}"
 
 alert:
   ssh_off:
