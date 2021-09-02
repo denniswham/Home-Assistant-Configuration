@@ -91,7 +91,7 @@ template:
     - name: Updater Supervisor
       unique_id: a1ba302e-9495-435a-bcae-83867a361b84
       device_class: problem
-      value: "{{ state_attr('sensor.supervisor_updates', 'update_available') }}"
+      state: "{{ state_attr('sensor.supervisor_updates', 'update_available') }}"
       availability: "{{ states('sensor.supervisor_updates') | int(-1) > -1 }}"
 
 
