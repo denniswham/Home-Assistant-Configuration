@@ -87,7 +87,7 @@ binary_sensor:
   #       availability_template: "{{ states('sensor.supervisor_updates') | int(-1) > -1 }}"
 
 template:
-  - sensor:
+  - binary_sensor:
     - name: Updater Supervisor
       unique_id: a1ba302e-9495-435a-bcae-83867a361b84
       state: "{{ state_attr('sensor.supervisor_updates', 'update_available') }}"
