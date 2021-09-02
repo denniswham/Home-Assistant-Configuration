@@ -43,14 +43,6 @@ sensor:
         column: 'value'
         unit_of_measurement: MB
 
-# binary_sensor:
-#   - platform: template
-#     sensors:
-#       ssh_off:
-#         friendly_name: 'SSH & Web Terminal Add-on'
-#         value_template: >
-#           {{ is_state('sensor.ssh_web_terminal', 'stopped') }}
-
 template:
   - binary_sensor:
       - name: ssh_off
