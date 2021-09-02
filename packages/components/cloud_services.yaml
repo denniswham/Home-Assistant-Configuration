@@ -46,12 +46,15 @@ group:
     - media_player.master_bedroom
     - media_player.timo_s_room
 
-sensor:
-  - platform: template
-    sensors:
-      last_alexa:
-        value_template: >
-          {{ expand(states.group.echos) | selectattr('attributes.last_called','eq',True) | map(attribute='entity_id') | first | default }}
+# sensor:
+#   - platform: template
+#     sensors:
+#       last_alexa:
+#         value_template: >
+#           {{ expand(states.group.echos) | selectattr('attributes.last_called','eq',True) | map(attribute='entity_id') | first | default }}
 
-     
-
+template:
+  - sensor:
+      - name: Last Alexa
+        unique_id: 10863260-2fea-4c19-934d-3fd81b3010b4
+        state: "{{ expand(states.group.echos) | selectattr('attributes.last_called','eq',True) | map(attribute='entity_id') | first | default }}"
