@@ -1,47 +1,34 @@
-binary_sensor:
-  - platform: template
-    sensors:
-      washing_machine:
-        friendly_name: "Washing Machine"
-        device_class: power
+template:
+  - binary_sensor:
+      - name: Washing Machine
+        unique_id: 2682f3e4-48b8-4488-a436-ee682c637bb3
         delay_on:
           minutes: 1
         delay_off: 
           minutes: 1
-        value_template: >
-          {{ states('sensor.attic_washing_machine_power')| float > 10 }}
-      dryer:
-        friendly_name: "Tumble Dryer" 
-        device_class: power
+        state: >
+          {{ states('sensor.attic_washing_machine_power')| float > 0 }}
+      - name: Dryer 
+        unique_id: 5c6fefb2-27ad-47b7-b51b-227d6cb4328e
         delay_off:
           minutes: 5
-        value_template: >
+        state: >
           {{ states('sensor.attic_tumble_dryer_power')| float > 300 }}
-      dishwasher:
-        friendly_name: "Dishwasher"
-        device_class: power
-        # delay_off:
-        #   minutes: 2
-        value_template: >
+      - name: Dishwasher
+        unique_id: 176f0e85-977d-4882-96ad-606071960650
+        state: >
           {{ states('sensor.kitchen_dishwasher_power')| float > 0 }}
-      vieratv:
-        friendly_name: 'Living Room TV'
-        device_class: power
-        value_template: >
+      - name: Vieratv
+        unique_id: be7af9a4-ce77-45a3-8c58-84ddf60ce341
+        state: >
           {{ is_state('device_tracker.living_room_tv', 'home') }}
-      amplifier:
-        friendly_name: "Amplifier"
-        device_class: power
-        # delay_off:
-        #   minutes: 2
-        value_template: >
+      - name: Amplifier
+        unique_id: a5202f4d-362c-4d66-9619-4befc649477e
+        state: >
           {{ states('sensor.living_room_amplifier_power')| float > 10 }}
-      pool_filter:
-        friendly_name: "Pool Filter"
-        device_class: power
-        # delay_off:
-        #   minutes: 2
-        value_template: >
+      - name: Pool Filter
+        unique_id: 7481a18e-1db1-4aa0-8906-133ec2fb4bef
+        state: >
           {{ states('sensor.backyard_pool_filter_power')| float > 45 }}
 
 automation:
