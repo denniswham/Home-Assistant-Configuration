@@ -94,8 +94,6 @@ template:
       availability: "{{ states('sensor.supervisor_updates') | int(-1) > -1 }}"
 
 
-
-
 alert:
   # Update is available - un-acknowledgeble, auto-dismiss, me only
   # Wait 5 minutes before first to give core config check time to run
