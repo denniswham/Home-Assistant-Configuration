@@ -54,7 +54,6 @@ sensor:
 template:
   - binary_sensor:
       - name: ssh_off
-        friendly_name: 'SSH & Web Terminal Add-on'
         unique_id: 506699b5-5732-405a-b82f-66a529343b19
         state: "{{ is_state('sensor.ssh_web_terminal', 'stopped') }}"
 
