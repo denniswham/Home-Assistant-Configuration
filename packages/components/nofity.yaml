@@ -8,18 +8,5 @@ notify:
       - service: mobile_app_sm_g781b
       - service: mobile_app_iphone_van_emilie
 
-  - name: android_devices
-    platform: group
-    services:
-      - service: mobile_app_sm_g986b
-      - service: mobile_app_sm_g781b
-  
-  - name: iphone_devices
-    platform: group
-    services:
-      - service: mobile_app_iphone_van_stephanie
-      - service: mobile_app_iphone_van_lucas
-      - service: mobile_app_iphone_van_emilie
-
-  
+ 
   

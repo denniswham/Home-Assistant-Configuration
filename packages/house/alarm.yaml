@@ -268,8 +268,6 @@ automation:
         entity_id: switch.siren
       - service: switch.turn_on
         entity_id: switch.backyard_camera_siren
-      # - service: scene.turn_on
-      #   entity_id: scene.emergency
       - service: notify.alexa_media
         data:
           data:
@@ -277,20 +275,20 @@ automation:
           target:
             - group.alexa
           message: The alarm was activated
-      - service: notify.android_devices
+      - service: notify.mobile_app_sm_g986b
         data:
           title: "Alarm"
           message: >-
-            Motion has been detected in the {{ area_name(trigger.entity_id) }} area.
+            'Home alarm triggered!'
           data:
             ttl: 0
             priority: high
             channel: Critical
-      - service: notify.iphone_devices
+      - service: notify.mobile_app_iphone_van_stephanie
         data:
           title: "Alarm"
           message: >-
-            Motion has been detected in the {{ area_name(trigger.entity_id) }} area.
+            'Home alarm triggered!'
           data:
             push:
               sound:
@@ -305,7 +303,20 @@ automation:
       - platform: state
         entity_id:
           - group.motion_sensor
-          - group.door_window_sensor
+          - binary_sensor.front_door_door
+          - binary_sensor.living_room_door_door
+          - binary_sensor.office_door_door
+          - binary_sensor.garage_door_door
+          - binary_sensor.kitchen_window_door
+          - binary_sensor.bathroom_window_door
+          - binary_sensor.timo_s_room_window_door
+          - binary_sensor.guestroom_window_door
+          - binary_sensor.entryway_motion
+          - binary_sensor.kitchen_motion
+          - binary_sensor.living_room_motion
+          - binary_sensor.office_motion
+          - binary_sensor.garage_motion
+          - binary_sensor.attic_motion_motion
         to: 'on'
     mode: single
     condition:
@@ -331,7 +342,14 @@ automation:
     trigger:
       - platform: state
         entity_id:
-          - group.door_window_sensor
+          - binary_sensor.front_door_door
+          - binary_sensor.living_room_door_door
+          - binary_sensor.office_door_door
+          - binary_sensor.garage_door_door
+          - binary_sensor.kitchen_window_door
+          - binary_sensor.bathroom_window_door
+          - binary_sensor.timo_s_room_window_door
+          - binary_sensor.guestroom_window_door
         to: 'on'
     mode: single
     condition:
@@ -360,7 +378,13 @@ automation:
     trigger:
       - platform: state
         entity_id:
-          - group.door_window_sensor_except_timo_s_room
+          - binary_sensor.front_door_door
+          - binary_sensor.living_room_door_door
+          - binary_sensor.office_door_door
+          - binary_sensor.garage_door_door
+          - binary_sensor.kitchen_window_door
+          - binary_sensor.bathroom_window_door
+          - binary_sensor.guestroom_window_door
         to: 'on'
     mode: single
     condition:

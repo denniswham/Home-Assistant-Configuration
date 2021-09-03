@@ -60,7 +60,7 @@ automation:
             {% elif trigger.entity_id ==  "binary_sensor.laundry_room_flood_sensor_flood" %}
               Water leakage near the washing machine, check ASAP! I repeat: Water leakage near the washing machine, check ASAP!
             {% endif %}          
-      - service: notify.android_devices
+      - service: notify.mobile_app_sm_g986b
         data:
           title: "ALERT: Flood"
           message: >
@@ -73,7 +73,7 @@ automation:
             ttl: 0
             priority: high
             channel: Critical
-      - service: notify.iphone_devices
+      - service: notify.mobile_app_iphone_van_stephanie
         data:
           title: "ALERT: Flood"
           message: >
