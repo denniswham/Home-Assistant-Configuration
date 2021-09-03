@@ -279,16 +279,18 @@ automation:
           message: The alarm was activated
       - service: notify.android_devices
         data:
-          title: "Alarm was activated"
-          message: "Motion detected which triggered the alarm"
+          title: "Alarm"
+          message: >-
+            Motion has been detected in the {{ area_name(trigger.entity_id) }} area.
           data:
             ttl: 0
             priority: high
             channel: Critical
       - service: notify.iphone_devices
         data:
-          title: "Alarm was activated"
-          message: "Motion detected which triggered the alarm"
+          title: "Alarm"
+          message: >-
+            Motion has been detected in the {{ area_name(trigger.entity_id) }} area.
           data:
             push:
               sound:
@@ -320,7 +322,8 @@ automation:
             type: announce
           target:
             - group.alexa
-          message: Motion detected, the alarm will activate shortly. Motion detected, the alarm will activate shortly.
+          message: >-
+            Motion has been detected in the {{ area_name(trigger.entity_id) }} area, the alarm will activate shortly. Motion has been detected in the {{ area_name(trigger.entity_id) }} area, the alarm will activate shortly.
 
   - id: b5839c86-095b-4edf-8129-143a72681e7b
     alias: '[Alarm] Pending alarm when armed home'
@@ -348,7 +351,8 @@ automation:
             type: announce
           target:
             - group.alexa
-          message: Motion detected, the alarm will activate shortly. Motion detected, the alarm will activate shortly.
+          message: >-
+            Motion has been detected in the {{ area_name(trigger.entity_id) }} area, the alarm will activate shortly. Motion has been detected in the {{ area_name(trigger.entity_id) }} area, the alarm will activate shortly.
 
   - id: 759236b8-533d-4b4e-b474-636903a87f5f
     alias: '[Alarm] Pending alarm when armed home (Timo home)'
@@ -376,8 +380,8 @@ automation:
             type: announce
           target:
             - group.alexa
-          message: Motion detected, the alarm will activate shortly. Motion detected, the alarm will activate shortly.
-
+          message: >-
+            Motion has been detected in the {{ area_name(trigger.entity_id) }} area, the alarm will activate shortly. Motion has been detected in the {{ area_name(trigger.entity_id) }} area, the alarm will activate shortly.
 
   - id: 2ae00756-b4a9-4068-acc8-c574a8a60fd4
     alias: '[Motion] Motion in backyard at night'
@@ -406,11 +410,13 @@ automation:
             type: announce
           target:
             - group.alexa
-          message: "Motion in the backyard"
+          message: >-
+            Motion has been detected in the {{ area_name(trigger.entity_id) }} area.
       - service: notify.all_devices
         data:
           title: Ring
-          message: There is motion at your backyard
+          message: >-
+              Motion has been detected in the {{ area_name(trigger.entity_id) }} area.
           data:
             tag: motion
             channel: Motion
