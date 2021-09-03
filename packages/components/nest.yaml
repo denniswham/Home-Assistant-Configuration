@@ -4,10 +4,6 @@ nest:
   project_id: !secret nest_project_id
   subscriber_id: !secret nest_subscriber_id
 
-# nest:
-#   client_id: !secret nest_client_id
-#   client_secret: !secret nest_client_secret
-
 # automation:
 #   - id: f1ac429c-e0c6-4859-a3a1-d271136334fa
 #     alias: '[Alarm] Smoke Detected'
