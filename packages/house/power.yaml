@@ -33,7 +33,7 @@ template:
       - name: Quooker
         unique_id: 6f54c468-8b7d-442c-ad4d-092931867d86
         state: >
-          {{ states('sensor.quooker_power')| float > 1.4 }}
+          {{ is_state("switch.quooker", "on") }}
 
 automation:
   - id: ef7a15bf-f601-4e75-9e2a-f3a796d37750
