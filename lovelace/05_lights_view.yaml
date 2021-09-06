@@ -173,7 +173,7 @@ cards:
             icon: 'mdi:washing-machine'
           - entity: binary_sensor.dryer
             icon: 'mdi:tumble-dryer'
-          - entity: switch.attic_tumble_dryer
+          - entity: switch.dryer
             icon: 'mdi:power-socket-eu'
             name: Tumble Dryer Power Socket
           - entity: binary_sensor.laundry_room_flood_sensor_flood

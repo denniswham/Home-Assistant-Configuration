@@ -42,8 +42,8 @@ include:
   - sensor.entryway_nest_protect_co_status
   - sensor.hallway_nest_protect_co_status
   - sensor.attic_nest_protect_co_status
-  - switch.attic_tumble_dryer
-  - switch.attic_washing_machine
+  - switch.dryer
+  - switch.washing_machine
   - switch.living_room_amplifier
   - switch.backyard_camera_siren
   - switch.siren

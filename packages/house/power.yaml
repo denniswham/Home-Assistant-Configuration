@@ -7,13 +7,13 @@ template:
         delay_off: 
           minutes: 1
         state: >
-          {{ states('sensor.attic_washing_machine_power')| float > 0 }}
+          {{ states('sensor.washing_machine_power')| float > 0 }}
       - name: Dryer 
         unique_id: 5c6fefb2-27ad-47b7-b51b-227d6cb4328e
         delay_off:
           minutes: 5
         state: >
-          {{ states('sensor.attic_tumble_dryer_power')| float > 300 }}
+          {{ states('sensor.dryer_power')| float > 300 }}
       - name: Dishwasher
         unique_id: 176f0e85-977d-4882-96ad-606071960650
         state: >
