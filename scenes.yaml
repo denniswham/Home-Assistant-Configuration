@@ -190,7 +190,7 @@
     cover.master_bedroom_roller_shutter:
       state: open
       current_position: 10
-    cover.backyard_awning:
+    cover.awning:
       state: closed
     media_player.living_room:
       state: standby

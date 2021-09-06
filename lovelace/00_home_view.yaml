@@ -111,7 +111,7 @@ cards:
           - entity: cover.lucas_room_roller_shutter
             toggle: true
             type: custom:slider-entity-row
-          - entity: cover.backyard_awning
+          - entity: cover.awning
             toggle: true
             type: custom:slider-entity-row
   - type: vertical-stack

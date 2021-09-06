@@ -11,7 +11,7 @@ group:
       - binary_sensor.attic_light_firmware_update
       - binary_sensor.dryer_firmware_update
       - binary_sensor.washing_machine_firmware_update
-      - binary_sensor.backyard_awning_firmware_update
+      - binary_sensor.awning_firmware_update
       - binary_sensor.backyard_garden_light_firmware_update
       - binary_sensor.backyard_wall_light_firmware_update
       - binary_sensor.bathroom_light_firmware_update

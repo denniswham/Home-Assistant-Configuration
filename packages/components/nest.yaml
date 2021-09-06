@@ -37,7 +37,7 @@ nest:
 #       - service: cover.close_cover
 #         data:
 #           entity_id:
-#             - cover.backyard_awning
+#             - cover.awning
 #       - service: notify.mobile_app_sm_g986b
 #         data:
 #           message: Smoke detected
@@ -86,7 +86,7 @@ nest:
 #       - service: cover.close_cover
 #         data:
 #           entity_id:
-#             - cover.backyard_awning
+#             - cover.awning
 #       - service: persistent_notification.create
 #         data:
 #           message: CO detected

@@ -183,7 +183,7 @@ automation:
       service: light.turn_on
       data_template:
         entity_id: >
-          {% if is_state("cover.backyard_awning", "closed") %}
+          {% if is_state("cover.awning", "closed") %}
             light.backyard_wall_light
           {% else %}
             light.backyard_wall_light, light.backyard_garden_light

@@ -20,7 +20,7 @@ script:
             {%- elif room == "lucas_room" -%}
               cover.lucas_room_roller_shutter
             {%- elif room == "living_room" -%}
-              cover.backyard_awning
+              cover.awning
             {%- endif -%}
 
   alexa_close_the_cover:
@@ -37,7 +37,7 @@ script:
             {%- elif room == "lucas_room" -%}
               cover.lucas_room_roller_shutter
             {%- elif room == "living_room" -%}
-              cover.backyard_awning
+              cover.awning
             {%- endif -%}
 
   # alexa_close_the_cover_with_ventilation:
@@ -70,7 +70,7 @@ script:
   #           {%- elif room == "lucas_room" -%}
   #             cover.lucas_room_roller_shutter
   #           {%- elif room == "living_room" -%}
-  #             cover.backyard_awning
+  #             cover.awning
   #           {%- endif -%}  
   #         position: 60
 
@@ -285,7 +285,7 @@ automation:
           entity_id:
             - cover.master_bedroom_roller_shutter
             - cover.lucas_room_roller_shutter
-            - cover.backyard_awning
+            - cover.awning
 
   - id: 6c9a2404-5bd8-43e4-beb2-c38afd7d21c5
     alias: '[Cover] Close roller shutters when high temperature'
@@ -355,7 +355,7 @@ automation:
     mode: single
     condition:
       - condition: state
-        entity_id: cover.backyard_awning
+        entity_id: cover.awning
         state: open
     action:
       - service: notify.alexa_media
@@ -368,7 +368,7 @@ automation:
       - service: cover.close_cover
         data:
           entity_id:
-            - cover.backyard_awning
+            - cover.awning
 
   - id: d030ba6f-ee63-4ee6-9cea-a43751aba57b
     alias: '[Cover] Close awning when no motion at night'
@@ -382,7 +382,7 @@ automation:
     mode: single
     condition:
       - condition: state
-        entity_id: cover.backyard_awning
+        entity_id: cover.awning
         state: open
       - condition: template
         value_template: '{{ state_attr("sun.sun", "elevation") < 0 }}'
@@ -390,7 +390,7 @@ automation:
       - service: cover.close_cover
         data:
           entity_id:
-            - cover.backyard_awning
+            - cover.awning
 
   - id: 480cedf5-81f6-4321-a83b-f91981fe41e6
     alias: '[Cover] Closed awning'
@@ -402,7 +402,7 @@ automation:
     mode: single
     condition:
       - condition: state
-        entity_id: cover.backyard_awning
+        entity_id: cover.awning
         state: open
       - condition: or
         conditions:
@@ -418,4 +418,4 @@ automation:
       - service: cover.close_cover
         data:
           entity_id:
-            - cover.backyard_awning
+            - cover.awning
