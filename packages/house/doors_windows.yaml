@@ -295,69 +295,46 @@ automation:
           message: 'The garage door was just opened'
 
   - id: be5daf0c-c5d5-4d86-a7b3-011b157b110e
-    alias: '[Door] Door or window open when leaving home'
+    alias: '[Door] Door or window open when alarm was armed'
     trigger:
       - platform: state
         entity_id: group.household
         from: 'home'
         to: 'not_home'
-    condition: not
-    conditions:
-      - condition: state
-        entity_id:
-          - binary_sensor.front_door_door
-          - binary_sensor.living_room_door_door
-          - binary_sensor.office_door_door
-          - binary_sensor.garage_door_door
-          - binary_sensor.kitchen_window_door
-          - binary_sensor.bathroom_window_door
-          - binary_sensor.timo_s_room_window_door
-          - binary_sensor.guestroom_window_door
-        state: 'on'
-    action:     
-      - service: notify.mobile_app_sm_g986b
-        data:
-          title: "Door/window open"
-          message: "A door or window is still open and nobody at home"
-          data:
-            ttl: 0
-            priority: high
-            channel: Critical
-      - service: notify.mobile_app_iphone_van_stephanie
-        data:
-          title: "Door/window open"
-          message: "A door or window is still open and nobody at home"
-          data:
-            push:
-              sound:
-                name: default
-                critical: 1
-                volume: 1.0            
-
-  - id: 54b9ee2a-e6d4-4dcc-8c16-e7c4f11f313b
-    alias: '[Door] Door or window open when alarm set to armed home'
-    trigger:
       - platform: state
         entity_id: alarm_control_panel.konnected_alarm
         to: armed_home
-    condition: not
+    condition: or
     conditions:
       - condition: state
-        entity_id:
-          - binary_sensor.front_door_door
-          - binary_sensor.living_room_door_door
-          - binary_sensor.office_door_door
-          - binary_sensor.garage_door_door
-          - binary_sensor.kitchen_window_door
-          - binary_sensor.bathroom_window_door
-          - binary_sensor.timo_s_room_window_door
-          - binary_sensor.guestroom_window_door
+        entity_id: binary_sensor.front_door_door
+        state: 'on'
+      - condition: state
+        entity_id: binary_sensor.living_room_door_door
+        state: 'on'
+      - condition: state
+        entity_id: binary_sensor.office_door_door
+        state: 'on'
+      - condition: state
+        entity_id: binary_sensor.garage_door_door
+        state: 'on'
+      - condition: state
+        entity_id: binary_sensor.kitchen_window_door
+        state: 'on'
+      - condition: state
+        entity_id: binary_sensor.bathroom_window_door
+        state: 'on'
+      - condition: state
+        entity_id: binary_sensor.timo_s_room_window_door
+        state: 'on'
+      - condition: state
+        entity_id: binary_sensor.guestroom_window_door
         state: 'on'
     action:     
       - service: notify.mobile_app_sm_g986b
         data:
           title: "Door/window open"
-          message: "A door or window is still open, please check"
+          message: "A door or window is still open when the alarm was armed"
           data:
             ttl: 0
             priority: high
@@ -365,7 +342,7 @@ automation:
       - service: notify.mobile_app_iphone_van_stephanie
         data:
           title: "Door/window open"
-          message: "A door or window is still open, please check"
+          message: "A door or window is still open when the alarm was armed"
           data:
             push:
               sound:
