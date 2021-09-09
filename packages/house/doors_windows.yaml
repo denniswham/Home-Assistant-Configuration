@@ -301,7 +301,8 @@ automation:
         entity_id: group.household
         from: 'home'
         to: 'not_home'
-    condition:
+    condition: or
+    conditions:
       - condition: state
         entity_id:
           - binary_sensor.front_door_door
@@ -333,13 +334,14 @@ automation:
                 critical: 1
                 volume: 1.0            
 
-  - id: 79d59cf7-48ae-42ba-9608-a51af146ad3d
+  - id: 54b9ee2a-e6d4-4dcc-8c16-e7c4f11f313b
     alias: '[Door] Door or window open when alarm set to armed home'
     trigger:
       - platform: state
         entity_id: alarm_control_panel.konnected_alarm
         to: armed_home
-    condition:
+    condition: or
+    conditions:
       - condition: state
         entity_id:
           - binary_sensor.front_door_door
