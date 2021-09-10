@@ -320,7 +320,7 @@ automation:
               - binary_sensor.bathroom_window_door
               - binary_sensor.timo_s_room_window_door
               - binary_sensor.guestroom_window_door
-            state: 'on'
+            state: 'off'
     action:     
       - service: notify.mobile_app_sm_g986b
         data:
@@ -330,13 +330,13 @@ automation:
             ttl: 0
             priority: high
             channel: Critical
-      - service: notify.mobile_app_iphone_van_stephanie
-        data:
-          title: "Door/window open"
-          message: "A door or window is still open when the alarm was armed"
-          data:
-            push:
-              sound:
-                name: default
-                critical: 1
-                volume: 1.0            
+      # - service: notify.mobile_app_iphone_van_stephanie
+      #   data:
+      #     title: "Door/window open"
+      #     message: "A door or window is still open when the alarm was armed"
+      #     data:
+      #       push:
+      #         sound:
+      #           name: default
+      #           critical: 1
+      #           volume: 1.0            
