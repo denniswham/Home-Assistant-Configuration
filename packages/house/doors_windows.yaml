@@ -298,15 +298,10 @@ automation:
     alias: '[Door] Door or window open when alarm was armed'
     trigger:
       - platform: state
-        entity_id: group.household
-        from: 'home'
-        to: 'not_home'
-      - platform: state
         entity_id: alarm_control_panel.konnected_alarm
-        to: armed_home
-      - platform: state
-        entity_id: alarm_control_panel.konnected_alarm
-        to: armed_away
+        to:
+          - "armed_home"
+          - "armed_away"
     condition:
       - condition: not
         conditions:
@@ -330,13 +325,13 @@ automation:
             ttl: 0
             priority: high
             channel: Critical
-      # - service: notify.mobile_app_iphone_van_stephanie
-      #   data:
-      #     title: "Door/window open"
-      #     message: "A door or window is still open when the alarm was armed"
-      #     data:
-      #       push:
-      #         sound:
-      #           name: default
-      #           critical: 1
-      #           volume: 1.0            
+      - service: notify.mobile_app_iphone_van_stephanie
+        data:
+          title: "Door/window open"
+          message: "A door or window is still open when the alarm was armed"
+          data:
+            push:
+              sound:
+                name: default
+                critical: 1
+                volume: 1.0            
