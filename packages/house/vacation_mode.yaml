@@ -96,5 +96,30 @@ sensor:
     start: >
       {{ as_timestamp(now()) - (7*86400) }}
     duration: 00:00:30
-    
-    
+
+automation:    
+  - id: c2a8a007-ea9e-4bfd-9a44-4bc81bba6edf
+    alias: '[Vacation] Turn device off when vacation mode is enabled'
+    trigger:
+      - platform: state
+        entity_id: input_boolean.vacation_mode
+        from: "off"
+        to: "on"
+    action:
+      - service: switch.turn_off
+        target:
+          entity_id:
+            - switch.quooker  
+
+  - id: b52c88d1-ed6f-4031-b5c5-360c0d07f6c0
+    alias: '[Vacation] Turn device on when vacation mode is enabled'
+    trigger:
+      - platform: state
+        entity_id: input_boolean.vacation_mode
+        from: "on"
+        to: "off"
+    action:
+      - service: switch.turn_on
+        target:
+          entity_id:
+            - switch.quooker              
