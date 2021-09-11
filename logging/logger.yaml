@@ -1,4 +1,4 @@
-default: error
+default: warning
 logs:
   homeassistant.components.image_processing: critical
   homeassistant.components.camera.generic: critical
@@ -9,7 +9,8 @@ logs:
   homeassistant.core: critical
   homeassistant.helpers.entity: critical
   homeassistant.components.python_script: warning
-  # aioshelly: debug
+  homeassistant.components.shelly: debug
+  aioshelly: debug
   aiohttp.access: critical
   aiounifi.api: critical
   aiohttp.server: critical
@@ -20,4 +21,4 @@ logs:
   # homeassistant.components.device_tracker: info
   # homeassistant.components.switch.unifi: debug
   # aiohttp.server: critical
-  # homeassistant.components.shelly: debug
+  homeassistant.components.shelly: debug
