@@ -193,7 +193,7 @@ automation:
     alias: '[Light] Turn on backyard wall lights at 6am'
     trigger:
       - platform: time
-        at: "06:00:00"
+        at: "06:30:00"
     condition:
       - condition: numeric_state
         entity_id: sun.sun
@@ -229,7 +229,7 @@ automation:
     alias: '[Light] Turn off backyard lights at midnight'
     trigger:
       - platform: time
-        at: "23:59:59"
+        at: "23:30:30"
     mode: single
     action:
       service: light.turn_off
@@ -282,7 +282,7 @@ automation:
       - condition: template
         value_template: '{{ state_attr("sun.sun", "elevation") < 0 }}'
       - condition: time
-        after: '00:00:00'
+        after: '23:30:00'
         before: '08:30:00'
     action:
       service: light.turn_off
