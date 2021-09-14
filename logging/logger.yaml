@@ -21,4 +21,3 @@ logs:
   # homeassistant.components.device_tracker: info
   # homeassistant.components.switch.unifi: debug
   # aiohttp.server: critical
-  homeassistant.components.shelly: debug
