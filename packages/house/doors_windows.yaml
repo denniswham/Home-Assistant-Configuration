@@ -87,7 +87,7 @@ binary_sensor:
 
 template:
   - binary_sensor:
-      - name: Battery operated sensor is unavailable
+      - name: Battery operated sensor unavailable
         unique_id: 96dacab3-c1f5-4f51-9723-84852a122d0c
         state: >-
           {{ is_state('binary_sensor.front_door_door', 'unavailable')
