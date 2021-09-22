@@ -27,7 +27,7 @@ alert:
     title: 'Attic Motion Sensor Battery low'
     message: "Attic Motion Sensor Battery is at {{ states('sensor.attic_motion_battery') }}%. Charge it soon"
     notifiers:
-    - mobile_app_sm_g986b
+    - mobile_app_iphone_van_dennis
     data:
       tag: 'attic_motion_battery_low'
 

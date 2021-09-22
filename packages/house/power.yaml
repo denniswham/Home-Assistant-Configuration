@@ -52,23 +52,14 @@ automation:
           entity_id: binary_sensor.amplifier
           state: 'on'
     action:
-      - service: notify.mobile_app_sm_g986b
+      - service: notify.mobile_app_iphone_van_dennis
         data:
           title: TV turned off
           message: TV is turned off, dont't forget to turn of the amplifier
-          data:
-            channel: Alert
-            tag: alert
       - service: notify.mobile_app_iphone_van_stephanie
         data:
           title: TV turned off
           message: TV is turned off, dont't forget to turn of the amplifier
-          data:
-            push:
-              thread-id: "alert"
-              presentation_options:
-                - alert
-                - badge
 
   - id: f1840add-37b8-4936-9160-cbef20e73825
     alias: '[Notification] Washing machine finished'
@@ -80,21 +71,13 @@ automation:
         to: 'off'
     mode: single
     action:
-      # - service: notify.mobile_app_sm_g986b
+      # - service: notify.mobile_app_iphone_van_dennis
       #   data:
       #     message: Washing machine is finished
-      #     data:
-      #       channel: Alert
-      #       tag: alert
       - service: notify.mobile_app_iphone_van_stephanie
         data:
           message: Washing machine is finished
-          data:
-            push:
-              thread-id: "alert"
-              presentation_options:
-                - alert
-                - badge
+
 
   - id: 1a0462f8-5104-4019-920e-dbb682ec9a5e
     alias: '[Notification] Tumble dryer finished'
@@ -106,18 +89,10 @@ automation:
         to: 'off'
     mode: single
     action:
-      # - service: notify.mobile_app_sm_g986b
+      # - service: notify.mobile_app_iphone_van_dennis
       #   data:
       #     message: Tumble dryer is finished
-      #     data:
-      #       channel: Alert
-      #       tag: alert
       - service: notify.mobile_app_iphone_van_stephanie
         data:
           message: Tumble dryer is finished
-          data:
-            push:
-              thread-id: "alert"
-              presentation_options:
-                - alert
-                - badge
+

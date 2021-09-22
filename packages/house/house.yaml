@@ -8,7 +8,7 @@ alert:
     skip_first: false
     done_message: Guest mode is off
     notifiers:
-      - mobile_app_sm_g986b
+      - mobile_app_iphone_van_dennis
       - mobile_app_iphone_van_stephanie
     data:
       tag: 'guest-mode-on'

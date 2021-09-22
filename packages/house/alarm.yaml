@@ -275,15 +275,17 @@ automation:
           target:
             - group.alexa
           message: The alarm was activated
-      - service: notify.mobile_app_sm_g986b
+      - service: notify.mobile_app_iphone_van_dennis
         data:
           title: "Alarm"
           message: >-
             'Home alarm triggered!'
           data:
-            ttl: 0
-            priority: high
-            channel: Critical
+            push:
+              sound:
+                name: default
+                critical: 1
+                volume: 1.0
       - service: notify.mobile_app_iphone_van_stephanie
         data:
           title: "Alarm"

@@ -47,23 +47,14 @@ automation:
             entity_id: switch.backyard_pool_filter
             state: "off"
     action:
-      - service: notify.mobile_app_sm_g986b
+      - service: notify.mobile_app_iphone_van_dennis
         data:
           title: Pool Filter
           message: Check if pool filter has operated correctly overnight
-          data:
-            channel: Alert
-            tag: alert
       - service: notify.mobile_app_iphone_van_stephanie
         data:
           title: Pool Filter
           message: Check if pool filter has operated correctly overnight
-          data:
-            push:
-              thread-id: "alert"
-              presentation_options:
-                - alert
-                - badge
 
   - id: 339e7cdf-a0f5-45d8-ae10-994f44ebf97a
     alias: '[Pool] Overnight pool filter power issue'
@@ -82,20 +73,17 @@ automation:
         after: " 02:00:00"
         before: " 05:00:00"
     action:
-      - service: notify.mobile_app_sm_g986b
+      - service: notify.mobile_app_iphone_van_dennis
         data:
           title: Pool Filter
           message: Overnight pool filter power issue 
           data:
             channel: Alert
             tag: alert
-      # - service: notify.mobile_app_iphone_van_stephanie
-      #   data:
-      #     title: Pool Filter
-      #     message: Check if pool filter has operated correctly overnight
-      #     data:
-      #       push:
-      #         thread-id: "alert"
-      #         presentation_options:
-      #           - alert
-      #           - badge                
+      - service: notify.mobile_app_iphone_van_stephanie
+        data:
+          title: Pool Filter
+          message: Overnight pool filter power issue 
+          data:
+            channel: Alert
+            tag: alert             

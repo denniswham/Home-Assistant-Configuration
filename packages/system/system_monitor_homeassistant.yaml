@@ -62,7 +62,7 @@ alert:
     skip_first: false
     done_message: 'SSH & Web Terminal has started'
     notifiers:
-      - mobile_app_sm_g986b
+      - mobile_app_iphone_van_dennis
     data:
       tag: 'ssh-off'
       url: '/hassio/addon/a0d7b954_ssh/info'

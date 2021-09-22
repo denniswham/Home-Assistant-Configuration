@@ -4,7 +4,14 @@
 - platform: group
   name: all devices
   services:
-    - service: mobile_app_sm_g986b
+    - service: mobile_app_iphone_van_dennis
     - service: mobile_app_iphone_van_stephanie
     - service: mobile_app_iphone_van_lucas
-    - service: mobile_app_timo_s_oneplus
+    - service: mobile_app_sm_g781b
+    - service: mobile_app_iphone_van_emilie
+
+- platform: group
+  name: den_en_steef
+  services:
+    - service: mobile_app_iphone_van_dennis
+    - service: mobile_app_iphone_van_stephanie

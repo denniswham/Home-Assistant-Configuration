@@ -38,7 +38,7 @@ nest:
 #         data:
 #           entity_id:
 #             - cover.awning
-#       - service: notify.mobile_app_sm_g986b
+#       - service: notify.mobile_app_iphone_van_dennis
 #         data:
 #           message: Smoke detected
 #           title: Nest Protect
@@ -91,7 +91,7 @@ nest:
 #         data:
 #           message: CO detected
 #           title: Nest Protect
-#       - service: notify.mobile_app_sm_g986b
+#       - service: notify.mobile_app_iphone_van_dennis
 #         data:
 #           message: CO detected
 #           title: Nest Protect

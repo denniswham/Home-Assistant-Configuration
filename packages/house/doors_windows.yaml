@@ -114,7 +114,7 @@ alert:
     title: 'Front Door Sensor Battery low'
     message: "Front Door Sensor Battery is at {{ states('sensor.front_door_battery') }}%. Replace it soon"
     notifiers:
-    - mobile_app_sm_g986b
+    - mobile_app_iphone_van_dennis
     data:
       tag: 'front_door_battery_low'
 
@@ -128,7 +128,7 @@ alert:
     title: 'Garage Door Sensor Battery low'
     message: "Garage Door Sensor Battery is at {{ states('sensor.garage_door_battery') }}%. Replace it soon"
     notifiers:
-    - mobile_app_sm_g986b
+    - mobile_app_iphone_van_dennis
     data:
       tag: 'garage_door_battery_low'
 
@@ -141,7 +141,7 @@ alert:
     title: 'living Room Door Sensor Battery low'
     message: "Living Room Door Sensor Battery is at {{ states('sensor.living_room_door_battery') }}%. Replace it soon"
     notifiers:
-    - mobile_app_sm_g986b
+    - mobile_app_iphone_van_dennis
     data:
       tag: 'living_room_door_battery_low'
 
@@ -154,7 +154,7 @@ alert:
     title: 'Office Door Sensor Battery low'
     message: "Office Door Sensor Battery is at {{ states('sensor.office_door_battery') }}%. Replace it soon"
     notifiers:
-    - mobile_app_sm_g986b
+    - mobile_app_iphone_van_dennis
     data:
       tag: 'office_door_battery_low'
 
@@ -167,7 +167,7 @@ alert:
     title: 'Kitchen Window Sensor Battery low'
     message: "Kitchen Window Sensor Battery is at {{ states('sensor.kitchen_window_battery') }}%. Replace it soon"
     notifiers:
-    - mobile_app_sm_g986b
+    - mobile_app_iphone_van_dennis
     data:
       tag: 'kitchen_window_battery_low'
 
@@ -180,7 +180,7 @@ alert:
     title: 'Bathroom Window Sensor Battery low'
     message: "Bathroom Window Sensor Battery is at {{ states('sensor.bathroom_window_battery') }}%. Replace it soon"
     notifiers:
-    - mobile_app_sm_g986b
+    - mobile_app_iphone_van_dennis
     data:
       tag: 'bathroom_window_battery_low'
 
@@ -193,7 +193,7 @@ alert:
     title: "Timo's Room Window Sensor Battery low"
     message: "Timo's Room Window Sensor Battery is at {{ states('sensor.timo_s_room_window_battery') }}%. Replace it soon"
     notifiers:
-    - mobile_app_sm_g986b
+    - mobile_app_iphone_van_dennis
     data:
       tag: 'timo_s_room_window_battery_low'
 
@@ -206,7 +206,7 @@ alert:
     title: 'Guestroom Window Sensor Battery low'
     message: "Guestroom Window Sensor Battery is at {{ states('sensor.guestroom_window_battery') }}%. Replace it soon"
     notifiers:
-    - mobile_app_sm_g986b
+    - mobile_app_iphone_van_dennis
     data:
       tag: 'guestroom_window_battery_low'
 
@@ -220,7 +220,7 @@ alert:
     title: 'Battery Operated Sensor Unavailable'
     message: "A door/window or flood sensor is unavailable. Please check."
     notifiers:
-    - mobile_app_sm_g986b
+    - mobile_app_iphone_van_dennis
     data:
       tag: 'battery_operated_sensor_unavailable'
 
@@ -317,14 +317,16 @@ automation:
               - binary_sensor.guestroom_window_door
             state: 'off'
     action:     
-      - service: notify.mobile_app_sm_g986b
+      - service: notify.mobile_app_iphone_van_dennis
         data:
           title: "Door/window open"
           message: "A door or window is still open when the alarm was armed"
           data:
-            ttl: 0
-            priority: high
-            channel: Critical
+            push:
+              sound:
+                name: default
+                critical: 1
+                volume: 1.0     
       - service: notify.mobile_app_iphone_van_stephanie
         data:
           title: "Door/window open"
