@@ -1,0 +1,41 @@
+# Wildcards
+*                   # Ignore everything
+!*/                 # Descend into directories
+!*.yaml             # Don't ignore yaml files
+!*.gif
+!*.png
+!*.jpg
+!*.md
+
+# Directory (contents) ignores
+.cloud
+.storage
+deps
+lib
+icloud
+tts
+custom_components
+
+# Specific file ignores
+.config_entries.json
+.spotify-token-cache
+.uuid
+core
+google_calendars.yaml
+ip_bans.yaml
+secrets.yaml
+
+# ESPHome ignores
+esphome/secrets.yaml
+esphome/**/
+esphomeyaml/*/
+
+
+# Ignore files created by IDE's
+.vscode
+.theia
+.Trash*
+
+# Specific keeps
+!.gitkeep
+.vscode/settings.json
